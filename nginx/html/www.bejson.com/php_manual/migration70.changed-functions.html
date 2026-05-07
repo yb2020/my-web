@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>变更的函数-BeJSON.com</title><meta name="keywords" content="变更的函数"><meta name="description" content="变更的函数PHP 核心debug_zval_dump() 现在打印 " win"="" 现在支持="" getrusage()="" 级父目录的名称。="" depth="" 获取当前目录向上="" depth,="" 增加了可选的第二个参数,="" dirname()="" "double"="" 替代="" "float"="" 打印="" "long",="" int"="">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="migration70.deprecated.html">« PHP 7.0.x 弃用的功能</a></li>
+      <li style="float: right;"><a href="migration70.new-functions.html">新函数 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration70.html">从 PHP 5.6.x 移植到 PHP 7.0.x</a></li>
+    <li>变更的函数</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="migration70.changed-functions">
+ <h1 class="title">变更的函数</h1>
+ 
+ <div class="sect2" id="migration70.changed-functions.core">
+  <h3 class="title">PHP 核心</h3>
+  
+  
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.debug-zval-dump.html">debug_zval_dump()</a></span> 现在打印 "int" 替代 "long", 打印 "float" 替代 "double"
+   </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.dirname.html">dirname()</a></span> 增加了可选的第二个参数,
+     <code class="parameter">depth</code>, 获取当前目录向上
+     <code class="parameter">depth</code> 级父目录的名称。
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.getrusage.html">getrusage()</a></span> 现在支持 Windows.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.mktime.html">mktime()</a></span> and <span class="function"><a class="function" href="function.gmmktime.html">gmmktime()</a></span> 函数不再接受
+     <code class="parameter">is_dst</code> 参数。
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.preg-replace.html">preg_replace()</a></span> 函数不再支持
+     "\e" (<strong><code>PREG_REPLACE_EVAL</code></strong>). 应当使用 <span class="function"><a class="function" href="function.preg-replace-callback.html">preg_replace_callback()</a></span>
+     替代。
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.setlocale.html">setlocale()</a></span> 函数不再接受 <code class="parameter">category</code>
+     传入字符串。 应当使用 <strong><code>LC_*</code></strong> 常量。
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.exec.html">exec()</a></span>, <span class="function"><a class="function" href="function.system.html">system()</a></span> and <span class="function"><a class="function" href="function.passthru.html">passthru()</a></span>
+     函数对 NULL 增加了保护.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.shmop-open.html">shmop_open()</a></span> 现在返回一个资源而非一个int，
+     这个资源可以传给<span class="function"><a class="function" href="function.shmop-size.html">shmop_size()</a></span>,
+     <span class="function"><a class="function" href="function.shmop-write.html">shmop_write()</a></span>, <span class="function"><a class="function" href="function.shmop-read.html">shmop_read()</a></span>,
+     <span class="function"><a class="function" href="function.shmop-close.html">shmop_close()</a></span> 和 <span class="function"><a class="function" href="function.shmop-delete.html">shmop_delete()</a></span>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.substr.html">substr()</a></span> 现在当 start 的值与 string 的长度相同时将返回一个空字符串。
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.xml-parser-free.html">xml_parser_free()</a></span>不再足以释放解析器资源，如果它引用了一个对象，而这个对象又引用了那个解析器资源。在这种情况下，需要额外地取消设置 $parser。
+    </span>
+   </li>
+  </ul>
+ </div>
+ 
+ 
+
+ 
+</div></div></div></body></html>

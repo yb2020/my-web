@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set the memory limit for the Lua environment-BeJSON.com</title><meta name="keywords" content="Set the memory limit for the Lua environment"><meta name="description" content="If this limit is exceeded, a LuaSandboxMemoryError exception is thrown. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="luasandbox.setcpulimit.html">« LuaSandbox::setCPULimit</a></li>
+      <li style="float: right;"><a href="luasandbox.unpauseusagetimer.html">LuaSandbox::unpauseUsageTimer »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.luasandbox.html">LuaSandbox</a></li>
+    <li>Set the memory limit for the Lua environment</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="luasandbox.setmemorylimit">
+ <div class="refnamediv">
+  <h1 class="refname">LuaSandbox::setMemoryLimit</h1>
+  <p class="verinfo">(PECL luasandbox &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">LuaSandbox::setMemoryLimit</span> — <span class="dc-title">Set the memory limit for the Lua environment</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-luasandbox.setmemorylimit-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>LuaSandbox::setMemoryLimit</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+  <p class="para rdfs-comment">
+   Sets the memory limit for the Lua environment.
+  </p>
+  <p class="para">
+   If this limit is exceeded, a <span class="classname"><a class="classname" href="class.luasandboxmemoryerror.html">LuaSandboxMemoryError</a></span>
+   exception is thrown.
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-luasandbox.setmemorylimit-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">limit</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Memory limit in bytes.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-luasandbox.setmemorylimit-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   没有返回值。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-luasandbox.setmemorylimit-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3379">
+    <p><strong>示例 #1 Calling a Lua function</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;create&nbsp;a&nbsp;new&nbsp;LuaSandbox<br></span><span style="color: rgb(0, 0, 187);">$sandbox&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">LuaSandbox</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;set&nbsp;a&nbsp;memory&nbsp;limit<br></span><span style="color: rgb(0, 0, 187);">$sandbox</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setMemoryLimit</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">50&nbsp;</span><span style="color: rgb(0, 119, 0);">*&nbsp;</span><span style="color: rgb(0, 0, 187);">1024&nbsp;</span><span style="color: rgb(0, 119, 0);">*&nbsp;</span><span style="color: rgb(0, 0, 187);">1024&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Run&nbsp;Lua&nbsp;code<br></span><span style="color: rgb(0, 0, 187);">$sandbox</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">loadString</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(221, 0, 0);">'local&nbsp;x&nbsp;=&nbsp;"x";&nbsp;while&nbsp;true&nbsp;do&nbsp;x&nbsp;=&nbsp;x&nbsp;..&nbsp;x;&nbsp;end'&nbsp;</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">call</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>PHP Fatal error:  Uncaught LuaSandboxMemoryError: not enough memory
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-luasandbox.setmemorylimit-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="luasandbox.getmemoryusage.html" rel="rdfs-seeAlso">LuaSandbox::getMemoryUsage()</a> - Fetch the current memory usage of the Lua environment</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="luasandbox.getpeakmemoryusage.html" rel="rdfs-seeAlso">LuaSandbox::getPeakMemoryUsage()</a> - Fetch the peak memory usage of the Lua environment</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="luasandbox.setcpulimit.html" rel="rdfs-seeAlso">LuaSandbox::setCPULimit()</a> - Set the CPU time limit for the Lua environment</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

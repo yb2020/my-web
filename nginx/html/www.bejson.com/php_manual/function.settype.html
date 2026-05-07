@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>设置变量的类型-BeJSON.com</title><meta name="keywords" content="设置变量的类型"><meta name="description" content="settype(PHP 4, PHP 5, PHP 7, PHP 8)settype — 设置变量的类型说明settype(mixed &amp;$var, string $type): bool将变量 var 的类型设置成 type。 参数var要转换的变量。 typetype 的可能值为： “boole">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.serialize.html">« serialize</a></li>
+      <li style="float: right;"><a href="function.strval.html">strval »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.var.html">Variable handling 函数</a></li>
+    <li>设置变量的类型</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.settype">
+   <div class="refnamediv">
+    <h1 class="refname">settype</h1>
+    <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">settype</span> — <span class="dc-title">设置变量的类型</span></p>
+
+   </div>
+ <div class="refsect1 description" id="refsect1-function.settype-description">
+  <h3 class="title">说明</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="methodname"><strong>settype</strong></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter reference">&amp;$var</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$type</code></span>): <span class="type">bool</span></div>
+
+    <p class="para rdfs-comment">
+     将变量 <code class="parameter">var</code> 的类型设置成
+     <code class="parameter">type</code>。
+    </p>
+   </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.settype-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">var</code></dt>
+
+     <dd>
+
+      <p class="para">
+       要转换的变量。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">type</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">type</code> 的可能值为：
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+        “boolean” （或为“bool”，从 PHP 4.2.0 起）
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+        “integer” （或为“int”，从 PHP 4.2.0 起）
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+        “float” （只在 PHP 4.2.0 之后可以使用，对于旧版本中使用的“double”现已停用）
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          "string"
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          "array"
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          "object"
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+        “null” （从 PHP 4.2.0 起）
+         </span>
+        </li>
+       </ul>
+      <p></p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.settype-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.settype-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-5107">
+    <p><strong>示例 #1 <span class="function"><strong>settype()</strong></span> 示例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$foo&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"5bar"</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;string<br></span><span style="color: rgb(0, 0, 187);">$bar&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;boolean<br><br></span><span style="color: rgb(0, 0, 187);">settype</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$foo</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"integer"</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;$foo&nbsp;现在是&nbsp;5&nbsp;&nbsp;&nbsp;(integer)<br></span><span style="color: rgb(0, 0, 187);">settype</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$bar</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"string"</span><span style="color: rgb(0, 119, 0);">);&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;$bar&nbsp;现在是&nbsp;"1"&nbsp;(string)<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.settype-notes">
+  <h3 class="title">注释</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    Maximum value for "int" is <strong><code>PHP_INT_MAX</code></strong>.
+   </p>
+  <p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.settype-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.gettype.html" rel="rdfs-seeAlso">gettype()</a> - 获取变量的类型</span></li>
+    <li class="member"><a class="link" href="language.types.type-juggling.html#language.types.typecasting">类型转换</a></li>
+    <li class="member"><a class="link" href="language.types.type-juggling.html">类型戏法</a></li>
+   </ul>
+  <p></p>
+ </div>
+
+  </div></div></div></body></html>

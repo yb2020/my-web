@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set the value of a field-BeJSON.com</title><meta name="keywords" content="Set the value of a field"><meta name="description" content="fdf_set_value(PHP 4, PHP 5 < 5.3.0, PECL fdf SVN)fdf_set_value — Set the value of a field说明fdf_set_value(    resource $fdf_document,    string $fieldn">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.fdf-set-target-frame.html">« fdf_set_target_frame</a></li>
+      <li style="float: right;"><a href="function.fdf-set-version.html">fdf_set_version »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.fdf.html">FDF 函数</a></li>
+    <li>Set the value of a field</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.fdf-set-value">
+ <div class="refnamediv">
+  <h1 class="refname">fdf_set_value</h1>
+  <p class="verinfo">(PHP 4, PHP 5 &lt; 5.3.0, PECL fdf SVN)</p><p class="refpurpose"><span class="refname">fdf_set_value</span> — <span class="dc-title">Set the value of a field</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.fdf-set-value-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>fdf_set_value</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$fdf_document</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$fieldname</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$isName</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Sets the <code class="parameter">value</code> for the given field.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.fdf-set-value-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">fdf_document</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The FDF document handle, returned by <span class="function"><a class="function" href="function.fdf-create.html">fdf_create()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-open.html">fdf_open()</a></span> or <span class="function"><a class="function" href="function.fdf-open-string.html">fdf_open_string()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">fieldname</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Name of the FDF field, as a string.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">value</code></dt>
+
+     <dd>
+
+      <p class="para">
+       This parameter will be stored as a string unless it is an array. In
+       this case all array elements will be stored as a value array.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">isName</code></dt>
+
+     <dd>
+
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        In older versions of the FDF toolkit last parameter determined if the
+        field value was to be converted to a PDF Name (= 1) or set to a PDF
+        String (= 0).
+       </p>
+       <p class="para">
+        The value is no longer used in the current toolkit version 5.0. For
+        compatibility reasons it is still supported as an optional parameter,
+        but ignored internally.
+       </p>
+      <p></p></blockquote>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.fdf-set-value-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.fdf-set-value-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.fdf-get-value.html" rel="rdfs-seeAlso">fdf_get_value()</a> - Get the value of a field</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.fdf-remove-item.html" rel="rdfs-seeAlso">fdf_remove_item()</a> - Sets target frame for form</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

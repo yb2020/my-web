@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>策略-BeJSON.com</title><meta name="keywords" content="策略"><meta name="description" content="传输和协议"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="平台支持" href="asyncio-platforms.html" rel="next">
+    <link title="传输和协议" href="asyncio-protocol.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/asyncio-policy.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">策略</a><ul>
+<li><a class="reference internal" href="#getting-and-setting-the-policy">获取和设置策略</a></li>
+<li><a class="reference internal" href="#policy-objects">策略对象</a></li>
+<li><a class="reference internal" href="#process-watchers">进程监视器</a></li>
+<li><a class="reference internal" href="#custom-policies">自定义策略</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="asyncio-protocol.html">传输和协议</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="asyncio-platforms.html">平台支持</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="平台支持" accesskey="N" href="asyncio-platforms.html">下一页</a> |</li>
+        <li class="right">
+          <a title="传输和协议" accesskey="P" href="asyncio-protocol.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="ipc.html">网络和进程间通信</a> »</li>
+          <li class="nav-item nav-item-3"><a accesskey="U" href="asyncio.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code> --- 异步 I/O</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">策略</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="policies">
+<span id="asyncio-policies"></span><h1>策略<a title="永久链接至标题" class="headerlink" href="#policies">¶</a></h1>
+<p>事件循环策略是各个进程的全局对象 ，它控制事件循环的管理。每个事件循环都有一个默认策略，可以使用策略API更改和定制该策略。</p>
+<p>策略定义了“上下文”的概念，每个上下文管理一个单独的事件循环。默认策略将*context*定义为当前线程。</p>
+<p>通过使用自定义事件循环策略，可以自定义 <a title="asyncio.get_event_loop" class="reference internal" href="asyncio-eventloop.html#asyncio.get_event_loop"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_event_loop()</span></code></a> 、 <a title="asyncio.set_event_loop" class="reference internal" href="asyncio-eventloop.html#asyncio.set_event_loop"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_event_loop()</span></code></a>  和 <a title="asyncio.new_event_loop" class="reference internal" href="asyncio-eventloop.html#asyncio.new_event_loop"><code class="xref py py-func docutils literal notranslate"><span class="pre">new_event_loop()</span></code></a> 函数的行为。</p>
+<p>策略对象应该实现 <a title="asyncio.AbstractEventLoopPolicy" class="reference internal" href="#asyncio.AbstractEventLoopPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEventLoopPolicy</span></code></a> 抽象基类中定义的API。</p>
+<section id="getting-and-setting-the-policy">
+<h2>获取和设置策略<a title="永久链接至标题" class="headerlink" href="#getting-and-setting-the-policy">¶</a></h2>
+<p>可以使用下面函数获取和设置当前进程的策略:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.get_event_loop_policy">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">get_event_loop_policy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.get_event_loop_policy">¶</a></dt>
+<dd><p>返回当前进程域的策略。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.set_event_loop_policy">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">set_event_loop_policy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.set_event_loop_policy">¶</a></dt>
+<dd><p>将 <em>policy</em> 设置为当前进程域策略。</p>
+<p>如果 <em>policy</em> 设为 <code class="docutils literal notranslate"><span class="pre">None</span></code> 将恢复默认策略。</p>
+</dd></dl>
+
+</section>
+<section id="policy-objects">
+<h2>策略对象<a title="永久链接至标题" class="headerlink" href="#policy-objects">¶</a></h2>
+<p>抽象事件循环策略基类定义如下:</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.AbstractEventLoopPolicy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">AbstractEventLoopPolicy</span></span><a title="永久链接至目标" class="headerlink" href="#asyncio.AbstractEventLoopPolicy">¶</a></dt>
+<dd><p>异步策略的抽象基类。</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.AbstractEventLoopPolicy.get_event_loop">
+<span class="sig-name descname"><span class="pre">get_event_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.AbstractEventLoopPolicy.get_event_loop">¶</a></dt>
+<dd><p>为当前上下文获取事件循环。</p>
+<p>返回一个实现  <a title="asyncio.AbstractEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.AbstractEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEventLoop</span></code></a>  接口的事件循环对象。</p>
+<p>该方法永远不应返回 <code class="docutils literal notranslate"><span class="pre">None</span></code>。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.6 版更改.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.AbstractEventLoopPolicy.set_event_loop">
+<span class="sig-name descname"><span class="pre">set_event_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.AbstractEventLoopPolicy.set_event_loop">¶</a></dt>
+<dd><p>将当前上下文的事件循环设置为  <em>loop</em> 。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.AbstractEventLoopPolicy.new_event_loop">
+<span class="sig-name descname"><span class="pre">new_event_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.AbstractEventLoopPolicy.new_event_loop">¶</a></dt>
+<dd><p>创建并返回一个新的事件循环对象。</p>
+<p>该方法永远不应返回 <code class="docutils literal notranslate"><span class="pre">None</span></code>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.AbstractEventLoopPolicy.get_child_watcher">
+<span class="sig-name descname"><span class="pre">get_child_watcher</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.AbstractEventLoopPolicy.get_child_watcher">¶</a></dt>
+<dd><p>获取子进程监视器对象。</p>
+<p>返回一个实现 <a title="asyncio.AbstractChildWatcher" class="reference internal" href="#asyncio.AbstractChildWatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractChildWatcher</span></code></a> 接口的监视器对象。</p>
+<p>该函数仅支持Unix。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.AbstractEventLoopPolicy.set_child_watcher">
+<span class="sig-name descname"><span class="pre">set_child_watcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">watcher</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.AbstractEventLoopPolicy.set_child_watcher">¶</a></dt>
+<dd><p>将当前子进程监视器设置为 <em>watcher</em> 。</p>
+<p>该函数仅支持Unix。</p>
+</dd></dl>
+
+</dd></dl>
+
+<p>asyncio附带下列内置策略:</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.DefaultEventLoopPolicy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">DefaultEventLoopPolicy</span></span><a title="永久链接至目标" class="headerlink" href="#asyncio.DefaultEventLoopPolicy">¶</a></dt>
+<dd><p>默认的 asyncio 策略。 在 Unix 上使用 <a title="asyncio.SelectorEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.SelectorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorEventLoop</span></code></a> 而在 Windows 上使用 <a title="asyncio.ProactorEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.ProactorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code></a>。</p>
+<p>不需要手动安装默认策略。asyncio已配置成自动使用默认策略。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.8 版更改: </span>在 Windows 上，现在默认会使用 <a title="asyncio.ProactorEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.ProactorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code></a>。</p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.WindowsSelectorEventLoopPolicy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">WindowsSelectorEventLoopPolicy</span></span><a title="永久链接至目标" class="headerlink" href="#asyncio.WindowsSelectorEventLoopPolicy">¶</a></dt>
+<dd><p>一个使用 <a title="asyncio.SelectorEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.SelectorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorEventLoop</span></code></a> 事件循环实现的替代事件循环策略。</p>
+<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">可用性</span></a>: Windows。</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.WindowsProactorEventLoopPolicy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">WindowsProactorEventLoopPolicy</span></span><a title="永久链接至目标" class="headerlink" href="#asyncio.WindowsProactorEventLoopPolicy">¶</a></dt>
+<dd><p>使用  <a title="asyncio.ProactorEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.ProactorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code></a> 事件循环实现的另一种事件循环策略。</p>
+<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">可用性</span></a>: Windows。</p>
+</dd></dl>
+
+</section>
+<section id="process-watchers">
+<span id="asyncio-watchers"></span><h2>进程监视器<a title="永久链接至标题" class="headerlink" href="#process-watchers">¶</a></h2>
+<p>进程监视器允许定制事件循环如何监视Unix子进程。具体来说，事件循环需要知道子进程何时退出。</p>
+<p>在asyncio中子进程由  <a title="asyncio.create_subprocess_exec" class="reference internal" href="asyncio-subprocess.html#asyncio.create_subprocess_exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_subprocess_exec()</span></code></a> 和 <a title="asyncio.loop.subprocess_exec" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.subprocess_exec"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.subprocess_exec()</span></code></a> 函数创建。</p>
+<p>asyncio 定义了 <a title="asyncio.AbstractChildWatcher" class="reference internal" href="#asyncio.AbstractChildWatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractChildWatcher</span></code></a> 抽象基类，子监视器必须要实现它，并具有四种不同实现: <a title="asyncio.ThreadedChildWatcher" class="reference internal" href="#asyncio.ThreadedChildWatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">ThreadedChildWatcher</span></code></a> (已配置为默认使用), <a title="asyncio.MultiLoopChildWatcher" class="reference internal" href="#asyncio.MultiLoopChildWatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiLoopChildWatcher</span></code></a>, <a title="asyncio.SafeChildWatcher" class="reference internal" href="#asyncio.SafeChildWatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">SafeChildWatcher</span></code></a> 和 <a title="asyncio.FastChildWatcher" class="reference internal" href="#asyncio.FastChildWatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">FastChildWatcher</span></code></a>。</p>
+<p>请参阅  <a class="reference internal" href="asyncio-subprocess.html#asyncio-subprocess-threads"><span class="std std-ref">子进程和线程</span></a> 部分。</p>
+<p>以下两个函数可用于自定义子进程监视器实现，它将被asyncio事件循环使用:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.get_child_watcher">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">get_child_watcher</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.get_child_watcher">¶</a></dt>
+<dd><p>返回当前策略的当前子监视器。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.set_child_watcher">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">set_child_watcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">watcher</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.set_child_watcher">¶</a></dt>
+<dd><p>将当前策略的子监视器设置为 <em>watcher</em> 。<em>watcher</em> 必须实现 <a title="asyncio.AbstractChildWatcher" class="reference internal" href="#asyncio.AbstractChildWatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractChildWatcher</span></code></a> 基类定义的方法。</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>第三方事件循环实现可能不支持自定义子监视器。对于这样的事件循环，禁止使用 <a title="asyncio.set_child_watcher" class="reference internal" href="#asyncio.set_child_watcher"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_child_watcher()</span></code></a> 或不起作用。</p>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.AbstractChildWatcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">AbstractChildWatcher</span></span><a title="永久链接至目标" class="headerlink" href="#asyncio.AbstractChildWatcher">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="asyncio.AbstractChildWatcher.add_child_handler">
+<span class="sig-name descname"><span class="pre">add_child_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.AbstractChildWatcher.add_child_handler">¶</a></dt>
+<dd><p>注册一个新的子处理回调函数。</p>
+<p>安排 <code class="docutils literal notranslate"><span class="pre">callback(pid,</span> <span class="pre">returncode,</span> <span class="pre">*args)</span></code> 在进程的PID与 <em>pid</em> 相等时调用。指定另一个同进程的回调函数替换之前的回调处理函数。</p>
+<p>回调函数 <em>callback</em> 必须是线程安全。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.AbstractChildWatcher.remove_child_handler">
+<span class="sig-name descname"><span class="pre">remove_child_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pid</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.AbstractChildWatcher.remove_child_handler">¶</a></dt>
+<dd><p>删除进程PID与 <em>pid</em> 相等的进程的处理函数。</p>
+<p>处理函数成功删除时返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> ，没有删除时返回 <code class="docutils literal notranslate"><span class="pre">False</span></code> 。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.AbstractChildWatcher.attach_loop">
+<span class="sig-name descname"><span class="pre">attach_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.AbstractChildWatcher.attach_loop">¶</a></dt>
+<dd><p>给一个事件循环绑定监视器。</p>
+<p>如果监视器之前已绑定另一个事件循环，那么在绑定新循环前会先解绑原来的事件循环。</p>
+<p>注意：循环有可能是 <code class="docutils literal notranslate"><span class="pre">None</span></code> 。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.AbstractChildWatcher.is_active">
+<span class="sig-name descname"><span class="pre">is_active</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.AbstractChildWatcher.is_active">¶</a></dt>
+<dd><p>如果监视器已准备好使用则返回 <code class="docutils literal notranslate"><span class="pre">True</span></code>。</p>
+<p>使用 <em>不活动的</em> 当前子监视器生成子进程将引发 <a title="RuntimeError" class="reference internal" href="exceptions.html#RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.8 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.AbstractChildWatcher.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#asyncio.AbstractChildWatcher.close">¶</a></dt>
+<dd><p>关闭监视器。</p>
+<p>必须调用这个方法以确保相关资源会被清理。</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.ThreadedChildWatcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">ThreadedChildWatcher</span></span><a title="永久链接至目标" class="headerlink" href="#asyncio.ThreadedChildWatcher">¶</a></dt>
+<dd><p>此实现会为每个生成的子进程启动一具新的等待线程。</p>
+<p>即使是当 asyncio 事件循环运行在非主 OS 线程上时它也能可靠地工作。</p>
+<p>当处理大量子进程时不存在显著的开销 (每次子进程结束时为 <em>O(1)</em>)，但当每个进程启动一个线程时则需要额外的内存。</p>
+<p>此监视器会默认被使用。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.8 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.MultiLoopChildWatcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">MultiLoopChildWatcher</span></span><a title="永久链接至目标" class="headerlink" href="#asyncio.MultiLoopChildWatcher">¶</a></dt>
+<dd><p>此实现会在实例化时注册一个 <code class="xref py py-data docutils literal notranslate"><span class="pre">SIGCHLD</span></code> 信号处理程序。 这可能会破坏为 <code class="xref py py-data docutils literal notranslate"><span class="pre">SIGCHLD</span></code> 信号安装自定义处理程序的第三方代码。</p>
+<p>此监视器会在收到 <code class="xref py py-data docutils literal notranslate"><span class="pre">SIGCHLD</span></code> 信号时通过显式地轮询每个进程来避免干扰其他代码生成的进程。</p>
+<p>该监视器一旦被安装就不会限制从不同线程运行子进程。</p>
+<p>该解决方案是安全的，但在处理大量进程时会有显著的开销 (每收到一个 <code class="xref py py-data docutils literal notranslate"><span class="pre">SIGCHLD</span></code> 时为 <em>O(n)</em>)。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.8 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.SafeChildWatcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">SafeChildWatcher</span></span><a title="永久链接至目标" class="headerlink" href="#asyncio.SafeChildWatcher">¶</a></dt>
+<dd><p>该实现会使用主线程中的活动事件循环来处理 <code class="xref py py-data docutils literal notranslate"><span class="pre">SIGCHLD</span></code> 信号。 如果主线程没有正在运行的事件循环，则其他线程无法生成子进程 (会引发 <a title="RuntimeError" class="reference internal" href="exceptions.html#RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>)。</p>
+<p>此监视器会在收到 <code class="xref py py-data docutils literal notranslate"><span class="pre">SIGCHLD</span></code> 信号时通过显式地轮询每个进程来避免干扰其他代码生成的进程。</p>
+<p>该解决方案与 <a title="asyncio.MultiLoopChildWatcher" class="reference internal" href="#asyncio.MultiLoopChildWatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiLoopChildWatcher</span></code></a> 同样安全并同样具有 <em>O(N)</em> 复杂度，但需要主线程有正在运行的事件循环才能工作。</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.FastChildWatcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">FastChildWatcher</span></span><a title="永久链接至目标" class="headerlink" href="#asyncio.FastChildWatcher">¶</a></dt>
+<dd><p>这种实现直接调用  <code class="docutils literal notranslate"><span class="pre">os.waitpid(-1)</span></code> 来获取所有已结束的进程，可能会中断其它代码洐生进程并等待它们结束。</p>
+<p>在处理大量子监视器时没有明显的开销( <em>O(1)</em>  每次子监视器结束)。</p>
+<p>该解决方案需要主线程有正在运行的事件循环才能工作，这与 <a title="asyncio.SafeChildWatcher" class="reference internal" href="#asyncio.SafeChildWatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">SafeChildWatcher</span></code></a> 一样。</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.PidfdChildWatcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">PidfdChildWatcher</span></span><a title="永久链接至目标" class="headerlink" href="#asyncio.PidfdChildWatcher">¶</a></dt>
+<dd><p>这个实现会轮询处理文件描述符 (pidfds) 以等待子进程终结。 在某些方面，<a title="asyncio.PidfdChildWatcher" class="reference internal" href="#asyncio.PidfdChildWatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">PidfdChildWatcher</span></code></a> 是一个“理想的”子进程监视器实现。 它不需要使用信号或线程，不会介入任何在事件循环以外发起的进程，并能随事件循环发起的子进程数量进行线性伸缩。 其主要缺点在于 pidfds 是 Linux 专属的，并且仅在较近版本的核心（5.3+）上可用。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.9 新版功能.</span></p>
+</div>
+</dd></dl>
+
+</section>
+<section id="custom-policies">
+<h2>自定义策略<a title="永久链接至标题" class="headerlink" href="#custom-policies">¶</a></h2>
+<p>要实现一个新的事件循环策略，建议子类化 <a title="asyncio.DefaultEventLoopPolicy" class="reference internal" href="#asyncio.DefaultEventLoopPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">DefaultEventLoopPolicy</span></code></a> 并重写需要定制行为的方法，例如:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyEventLoopPolicy</span><span class="p">(</span><span class="n">asyncio</span><span class="o">.</span><span class="n">DefaultEventLoopPolicy</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">get_event_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""Get the event loop.</span>
+
+<span class="sd">        This may be None or an instance of EventLoop.</span>
+<span class="sd">        """</span>
+        <span class="n">loop</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+        <span class="c1"># Do something with loop ...</span>
+        <span class="k">return</span> <span class="n">loop</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">set_event_loop_policy</span><span class="p">(</span><span class="n">MyEventLoopPolicy</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">策略</a><ul>
+<li><a class="reference internal" href="#getting-and-setting-the-policy">获取和设置策略</a></li>
+<li><a class="reference internal" href="#policy-objects">策略对象</a></li>
+<li><a class="reference internal" href="#process-watchers">进程监视器</a></li>
+<li><a class="reference internal" href="#custom-policies">自定义策略</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="asyncio-protocol.html">传输和协议</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="asyncio-platforms.html">平台支持</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="平台支持" href="asyncio-platforms.html">下一页</a> |</li>
+        <li class="right">
+          <a title="传输和协议" href="asyncio-protocol.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="ipc.html">网络和进程间通信</a> »</li>
+          <li class="nav-item nav-item-3"><a href="asyncio.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code> --- 异步 I/O</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">策略</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

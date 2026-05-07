@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Manually set SeasLog request variable-BeJSON.com</title><meta name="keywords" content="Manually set SeasLog request variable"><meta name="description" content="Constant int. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="seaslog.setrequestid.html">« SeasLog::setRequestID</a></li>
+      <li style="float: right;"><a href="seaslog.warning.html">SeasLog::warning »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.seaslog.html">SeasLog</a></li>
+    <li>Manually set SeasLog request variable</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="seaslog.setrequestvariable">
+ <div class="refnamediv">
+  <h1 class="refname">SeasLog::setRequestVariable</h1>
+  <p class="verinfo">(PECL seaslog &gt;=1.9.0)</p><p class="refpurpose"><span class="refname">SeasLog::setRequestVariable</span> — <span class="dc-title">Manually set SeasLog request variable</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-seaslog.setrequestvariable-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>SeasLog::setRequestVariable</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Manually set SeasLog request variable.
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-seaslog.setrequestvariable-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">key</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Constant int.
+      <ul class="simplelist">
+       <li class="member"><a class="link" href="seaslog.constants.html#constant.seaslog-request-variable-domain-port">SEASLOG_REQUEST_VARIABLE_DOMAIN_PORT</a></li>
+       <li class="member"><a class="link" href="seaslog.constants.html#constant.seaslog-request-variable-request-uri">SEASLOG_REQUEST_VARIABLE_REQUEST_URI</a></li>
+       <li class="member"><a class="link" href="seaslog.constants.html#constant.seaslog-request-variable-request-method">SEASLOG_REQUEST_VARIABLE_REQUEST_METHOD</a></li>
+       <li class="member"><a class="link" href="seaslog.constants.html#constant.seaslog-request-variable-client-ip">SEASLOG_REQUEST_VARIABLE_CLIENT_IP</a></li>
+      </ul>
+     <p></p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">value</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The request variable value.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-seaslog.setrequestvariable-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Return TRUE on set success, FALSE on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-seaslog.setrequestvariable-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-3441">
+   <p><strong>示例 #1 <span class="methodname"><strong>SeasLog::setRequestVariable()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$sDomainPort&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'domain:port'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$sRequestUri&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'uri'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$sRequestMethod&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'method'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$sClientIp&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'client_ip'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$iErrorKey&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">1000</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$oSeasLog&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SeasLog</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$oSeasLog</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setRequestVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">SEASLOG_REQUEST_VARIABLE_DOMAIN_PORT</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$sDomainPort</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$oSeasLog</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setRequestVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">SEASLOG_REQUEST_VARIABLE_REQUEST_URI</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$sRequestUri</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$oSeasLog</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setRequestVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">SEASLOG_REQUEST_VARIABLE_REQUEST_METHOD</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$sRequestMethod</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$oSeasLog</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setRequestVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">SEASLOG_REQUEST_VARIABLE_CLIENT_IP</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$sClientIp</span><span style="color: rgb(0, 119, 0);">));<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$oSeasLog</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setRequestVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$iErrorKey</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(0, 0, 187);">NULL</span><span style="color: rgb(0, 119, 0);">));<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$oSeasLog</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getRequestVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">SEASLOG_REQUEST_VARIABLE_DOMAIN_PORT</span><span style="color: rgb(0, 119, 0);">)&nbsp;==&nbsp;</span><span style="color: rgb(0, 0, 187);">$sDomainPort</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$oSeasLog</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getRequestVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">SEASLOG_REQUEST_VARIABLE_REQUEST_URI</span><span style="color: rgb(0, 119, 0);">)&nbsp;==&nbsp;</span><span style="color: rgb(0, 0, 187);">$sRequestUri</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$oSeasLog</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getRequestVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">SEASLOG_REQUEST_VARIABLE_REQUEST_METHOD</span><span style="color: rgb(0, 119, 0);">)&nbsp;==&nbsp;</span><span style="color: rgb(0, 0, 187);">$sRequestMethod</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$oSeasLog</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getRequestVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">SEASLOG_REQUEST_VARIABLE_CLIENT_IP</span><span style="color: rgb(0, 119, 0);">)&nbsp;==&nbsp;</span><span style="color: rgb(0, 0, 187);">$sClientIp</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$oSeasLog</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getRequestVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$iErrorKey</span><span style="color: rgb(0, 119, 0);">));<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+bool(true)
+bool(true)
+bool(true)
+bool(true)
+bool(false)
+bool(true)
+bool(true)
+bool(true)
+bool(true)
+bool(false)
+
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-seaslog.setrequestvariable-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="methodname"><a class="methodname" href="seaslog.getrequestvariable.html" rel="rdfs-seeAlso">SeasLog::getRequestVariable()</a> - Get SeasLog request variable</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>返回相对于 GMT 的时差。-BeJSON.com</title><meta name="keywords" content="返回相对于 GMT 的时差。"><meta name="description" content="面向对象风格">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="datetimezone.getname.html">« DateTimeZone::getName</a></li>
+      <li style="float: right;"><a href="datetimezone.gettransitions.html">DateTimeZone::getTransitions »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.datetimezone.html">DateTimeZone</a></li>
+    <li>返回相对于 GMT 的时差。</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="datetimezone.getoffset">
+ <div class="refnamediv">
+  <h1 class="refname">DateTimeZone::getOffset</h1>
+  <h1 class="refname">timezone_offset_get</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTimeZone::getOffset</span> -- <span class="refname">timezone_offset_get</span> — <span class="dc-title">返回相对于 GMT 的时差。</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-datetimezone.getoffset-description">
+  <h3 class="title">说明</h3>
+  <p class="para">面向对象风格</p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>DateTimeZone::getOffset</strong></span>(<span class="methodparam"><span class="type"><a class="type DateTime" href="class.datetime.html">DateTime</a></span> <code class="parameter">$datetime</code></span>): <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">过程化风格</p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><a class="methodname" href="function.timezone-offset-get.html">timezone_offset_get</a></span>(<span class="methodparam"><span class="type"><a class="type DateTimeZone" href="class.datetimezone.html">DateTimeZone</a></span> <code class="parameter">$object</code></span>, <span class="methodparam"><span class="type"><a class="type DateTime" href="class.datetime.html">DateTime</a></span> <code class="parameter">$datetime</code></span>): <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+   该函数返回 <code class="parameter">datetime</code>日期 相对于 GMT 的时差。 GMT 时差是通过 DateTimeZone 对象的时区信息计算出来的。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-datetimezone.getoffset-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    <dt>
+
+<code class="parameter">object</code></dt>
+<dd>
+<p class="para">仅过程化风格：由 <span class="function"><a class="function" href="function.timezone-open.html">timezone_open()</a></span> 返回的
+<span class="classname"><a class="classname" href="class.datetimezone.html">DateTimeZone</a></span> 对象。</p></dd>
+
+    
+     <dt>
+<code class="parameter">datetime</code></dt>
+
+     <dd>
+
+      <p class="para">
+       用来计算时差的日期对象。 
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-datetimezone.getoffset-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回精确到秒的时差， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-datetimezone.getoffset-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2011">
+    <p><strong>示例 #1 <span class="function"><strong>DateTimeZone::getOffset()</strong></span> 例子</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Create&nbsp;two&nbsp;timezone&nbsp;objects,&nbsp;one&nbsp;for&nbsp;Taipei&nbsp;(Taiwan)&nbsp;and&nbsp;one&nbsp;for<br>//&nbsp;Tokyo&nbsp;(Japan)<br></span><span style="color: rgb(0, 0, 187);">$dateTimeZoneTaipei&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DateTimeZone</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Asia/Taipei"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$dateTimeZoneJapan&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DateTimeZone</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Asia/Tokyo"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Create&nbsp;two&nbsp;DateTime&nbsp;objects&nbsp;that&nbsp;will&nbsp;contain&nbsp;the&nbsp;same&nbsp;Unix&nbsp;timestamp,&nbsp;but<br>//&nbsp;have&nbsp;different&nbsp;timezones&nbsp;attached&nbsp;to&nbsp;them.<br></span><span style="color: rgb(0, 0, 187);">$dateTimeTaipei&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DateTime</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"now"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$dateTimeZoneTaipei</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$dateTimeJapan&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DateTime</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"now"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$dateTimeZoneJapan</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Calculate&nbsp;the&nbsp;GMT&nbsp;offset&nbsp;for&nbsp;the&nbsp;date/time&nbsp;contained&nbsp;in&nbsp;the&nbsp;$dateTimeTaipei<br>//&nbsp;object,&nbsp;but&nbsp;using&nbsp;the&nbsp;timezone&nbsp;rules&nbsp;as&nbsp;defined&nbsp;for&nbsp;Tokyo<br>//&nbsp;($dateTimeZoneJapan).<br></span><span style="color: rgb(0, 0, 187);">$timeOffset&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$dateTimeZoneJapan</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getOffset</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$dateTimeTaipei</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Should&nbsp;show&nbsp;int(32400)&nbsp;(for&nbsp;dates&nbsp;after&nbsp;Sat&nbsp;Sep&nbsp;8&nbsp;01:00:00&nbsp;1951&nbsp;JST).<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$timeOffset</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get the "mirror-image" character for a code point-BeJSON.com</title><meta name="keywords" content="Get the " character="" point"="" code="" a="" for="" mirror-image"=""><meta name="description" content="For characters with the Bidi_Mirrored property, implementations sometimes need a " t"="" such="" point)="" (code="" character="" unicode="" another="" to="" mapping="" man's"="" poor="">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="intlchar.charfromname.html">« IntlChar::charFromName</a></li>
+      <li style="float: right;"><a href="intlchar.charname.html">IntlChar::charName »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.intlchar.html">IntlChar</a></li>
+    <li>Get the "mirror-image" character for a code point</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="intlchar.charmirror">
+ <div class="refnamediv">
+  <h1 class="refname">IntlChar::charMirror</h1>
+  <p class="verinfo">(PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">IntlChar::charMirror</span> — <span class="dc-title">Get the "mirror-image" character for a code point</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-intlchar.charmirror-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::charMirror</strong></span>(<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$codepoint</code></span>): <span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">null</span></span></div>
+
+  <p class="para rdfs-comment">
+   Maps the specified character to a "mirror-image" character.
+  </p>
+  <p class="para">
+   For characters with the <em class="emphasis">Bidi_Mirrored</em> property, implementations sometimes need a "poor man's" mapping to another
+   Unicode character (code point) such that the default glyph may serve as the mirror-image of the default glyph of the
+   specified character. This is useful for text conversion to and from codepages with visual order, and for displays
+   without glyph selection capabilities.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-intlchar.charmirror-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">codepoint</code></dt>
+
+    <dd>
+
+     <p class="para">The <span class="type">int</span> codepoint value (e.g. <code class="literal">0x2603</code> for <em class="emphasis">U+2603 SNOWMAN</em>), or the character encoded as a UTF-8 <span class="type">string</span> (e.g. <code class="literal">"\u{2603}"</code>)</p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-intlchar.charmirror-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns another Unicode code point that may serve as a mirror-image substitute, or <code class="parameter">codepoint</code>
+   itself if there is no such mapping or <code class="parameter">codepoint</code> does not have the
+   <em class="emphasis">Bidi_Mirrored</em> property.
+  </p>
+  <p class="para">The return type will be <span class="type">int</span> unless the code point was passed as a UTF-8 <span class="type">string</span>, in which case a <span class="type">string</span> will be returned.</p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-intlchar.charmirror-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-2439">
+   <p><strong>示例 #1 Testing different code points</strong></p>
+   <div class="example-contents">
+    <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">charMirror</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"A"</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">charMirror</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"&lt;"</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">charMirror</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"("</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+    <div class="cdata"><pre>string(1) "A"
+string(1) "&gt;"
+string(2) ")"
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-intlchar.charmirror-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="intlchar.ismirrored.html" rel="rdfs-seeAlso">IntlChar::isMirrored()</a> - Check if code point has the Bidi_Mirrored property</span></li>
+    <li class="member"><strong><code>IntlChar::PROPERTY_BIDI_MIRRORED</code></strong></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

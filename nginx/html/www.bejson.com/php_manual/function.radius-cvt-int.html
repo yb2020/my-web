@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Converts raw data to integer-BeJSON.com</title><meta name="keywords" content="Converts raw data to integer"><meta name="description" content="radius_cvt_int(PECL radius >= 1.1.0)radius_cvt_int — Converts raw data to integer说明radius_cvt_int(string $data): intConverts raw data to integer 参数dat">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.radius-cvt-addr.html">« radius_cvt_addr</a></li>
+      <li style="float: right;"><a href="function.radius-cvt-string.html">radius_cvt_string »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.radius.html">Radius 函数</a></li>
+    <li>Converts raw data to integer</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.radius-cvt-int">
+ <div class="refnamediv">
+  <h1 class="refname">radius_cvt_int</h1>
+  <p class="verinfo">(PECL radius &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">radius_cvt_int</span> — <span class="dc-title">Converts raw data to integer</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.radius-cvt-int-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>radius_cvt_int</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+   Converts raw data to integer
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.radius-cvt-int-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">data</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Input data
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.radius-cvt-int-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns the integer, retrieved from data.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.radius-cvt-int-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-673">
+    <p><strong>示例 #1 <span class="function"><strong>radius_cvt_int()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">while&nbsp;(</span><span style="color: rgb(0, 0, 187);">$resa&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">radius_get_attr</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$res</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br><br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">is_array</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$resa</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">printf&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Error&nbsp;getting&nbsp;attribute:&nbsp;%s\n"</span><span style="color: rgb(0, 119, 0);">,&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">radius_strerror</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$res</span><span style="color: rgb(0, 119, 0);">));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$attr&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$resa</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'attr'</span><span style="color: rgb(0, 119, 0);">];<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$resa</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'data'</span><span style="color: rgb(0, 119, 0);">];<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;switch&nbsp;(</span><span style="color: rgb(0, 0, 187);">$attr</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br><br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(0, 0, 187);">RADIUS_FRAMED_MTU</span><span style="color: rgb(0, 119, 0);">:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$mtu&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">radius_cvt_int</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"MTU:&nbsp;</span><span style="color: rgb(0, 0, 187);">$mtu</span><span style="color: rgb(221, 0, 0);">&lt;br&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.radius-cvt-int-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.radius-cvt-addr.html" rel="rdfs-seeAlso">radius_cvt_addr()</a> - Converts raw data to IP-Address</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.radius-cvt-string.html" rel="rdfs-seeAlso">radius_cvt_string()</a> - Converts raw data to string</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

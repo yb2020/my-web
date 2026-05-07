@@ -1,0 +1,135 @@
+// 获取HTML元素
+const fileInput = document.getElementById('fileInput');
+const canvas = document.getElementById('facemk');
+const context = canvas.getContext('2d');
+const imgs = $(".sm-face");
+
+
+$("#upload_face").click(function () {
+    $("#fileInput").click();
+})
+
+
+var face_img_name="";
+
+// 监听文件输入框的变化事件
+fileInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+
+    if (file) {
+        // 通过FileReader读取图像文件
+        const reader = new FileReader();
+        reader.onload = function(e) {
+
+            $(".sm-face-bg").remove();
+
+            $.each(imgs,function (i,n) {
+                $(n).append('<img class="sm-face-bg" src="'+e.target.result+'">');
+            });
+            // 在img元素中显示图像
+            //img.src = e.target.result;
+
+            // 在canvas中绘制图像
+            const image = new Image();
+            image.onload = function() {
+
+                //修改canvas宽高
+                canvas.width = Math.max(32, Math.min(image.width, image.height, 1024));
+                canvas.height = Math.max(32, Math.min(image.width, image.height, 1024));
+
+                // 清空canvas并绘制图像
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.drawImage(image, 0, 0, canvas.width, canvas.height);
+            };
+            image.src = e.target.result;
+        };
+
+
+        face_img_name=(file.name);
+
+        // 读取文件数据
+        reader.readAsDataURL(file);
+
+        $(".sm-face").removeClass("sm-face-active");
+
+    }
+});
+
+
+// 清空整个Canvas
+function clearCanvas() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+
+
+$(".sm-face").click(function () {
+    $(".sm-face").removeClass("sm-face-active");
+    $(this).addClass("sm-face-active");
+
+    clearCanvas();
+
+    {
+        // 覆盖头像
+        var img = new Image();
+        // 设置图像的源URL
+        var imageUrl = $(this).find('img').eq(1).attr('src');
+        // 监听图像加载完成事件
+        img.onload = function() {
+            // 清空Canvas并绘制图像
+            context.drawImage(img, 0, 0, canvas.width, canvas.height);
+            // 保存当前绘制状态
+            context.save();
+
+            {
+                // 覆盖水印
+                var img1 = new Image();
+                // 设置图像的源URL
+                var imageUrl1 = $(".sm-face-active").find('img').eq(0).attr('src');
+                // 监听图像加载完成事件
+                img1.onload = function() {
+                    // 恢复之前的绘制状态
+                    context.drawImage(img1, 0, 0, canvas.width, canvas.height);
+                    context.restore();
+                };
+
+                // 设置图像的源URL（这将触发图像加载）
+                img1.src = imageUrl1;
+            }
+
+        };
+
+        // 设置图像的源URL（这将触发图像加载）
+        img.src = imageUrl;
+    }
+
+
+})
+
+
+
+
+
+$("#download_face").click(function () {
+
+    // 获取Canvas的数据URL，格式为PNG
+    const dataURL = canvas.toDataURL('image/png');
+
+    // 创建一个下载链接
+    const downloadLink = document.createElement('a');
+    downloadLink.href = dataURL;
+    downloadLink.download = face_img_name.replace(".","(bejson)."); // 设置下载文件名
+
+    // 模拟用户点击下载链接
+    downloadLink.click();
+
+    msgSuccess('保存成功，请到下载文件夹中查找');
+
+});
+
+
+
+
+
+
+

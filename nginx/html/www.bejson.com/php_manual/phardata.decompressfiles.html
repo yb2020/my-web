@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Decompresses all files in the current zip archive-BeJSON.com</title><meta name="keywords" content="Decompresses all files in the current zip archive"><meta name="description" content="此方法需要 将 php.ini 中的 phar.readonly 设为 0 以适合 Phar 对象. 否则, 将抛出PharException.">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="phardata.decompress.html">« PharData::decompress</a></li>
+      <li style="float: right;"><a href="phardata.delmetadata.html">PharData::delMetadata »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.phardata.html">PharData</a></li>
+    <li>Decompresses all files in the current zip archive</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="phardata.decompressfiles">
+ <div class="refnamediv">
+  <h1 class="refname">PharData::decompressFiles</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL phar &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">PharData::decompressFiles</span> — <span class="dc-title">Decompresses all files in the current zip archive</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-phardata.decompressfiles-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>PharData::decompressFiles</strong></span>(): <span class="type">bool</span></div>
+
+  <blockquote class="note"><p><strong class="note">注意</strong>: <p class="para">此方法需要
+将 <var class="filename">php.ini</var> 中的 <code class="literal">phar.readonly</code> 设为
+<code class="literal">0</code> 以适合 <span class="classname"><a class="classname" href="class.phar.html">Phar</a></span>
+对象.  否则, 将抛出<span class="classname"><a class="classname" href="class.pharexception.html">PharException</a></span>.</p><p></p></blockquote>
+
+  <p class="para">
+   For tar-based archives, this method throws a
+   <span class="classname"><a class="classname" href="class.badmethodcallexception.html">BadMethodCallException</a></span>, as compression of individual
+   files within a tar archive is not supported by the file format.  Use
+   <span class="function"><a class="function" href="phardata.compress.html">PharData::compress()</a></span> to compress an entire tar-based archive.
+  </p>
+  <p class="para">
+   For Zip-based archives, this method decompresses all files in the
+   archive.
+   The <a class="link" href="ref.zlib.html">zlib</a>  or <a class="link" href="ref.bzip2.html">bzip2</a>
+   extensions must be enabled to take advantage of this feature if any files
+   are compressed using bzip2/zlib compression.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-phardata.decompressfiles-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-phardata.decompressfiles-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-phardata.decompressfiles-errors">
+  <h3 class="title">错误／异常</h3>
+  <p class="para">
+   Throws <span class="classname"><a class="classname" href="class.badmethodcallexception.html">BadMethodCallException</a></span> if
+   the <a class="link" href="ref.zlib.html">zlib</a>
+   extension is not available, or if any files are compressed using
+   bzip2 compression and the <a class="link" href="ref.bzip2.html">bzip2</a> extension
+   is not enabled.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-phardata.decompressfiles-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-755">
+    <p><strong>示例 #1 A <span class="function"><strong>PharData::decompressFiles()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$p&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">PharData</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'/path/to/my.zip'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$p</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'myfile.txt'</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(221, 0, 0);">'hi'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$p</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'myfile2.txt'</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(221, 0, 0);">'hi'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$p</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">compressFiles</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Phar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">GZ</span><span style="color: rgb(0, 119, 0);">);<br>foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$p&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getFileName</span><span style="color: rgb(0, 119, 0);">());<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isCompressed</span><span style="color: rgb(0, 119, 0);">());<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isCompressed</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Phar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">BZ2</span><span style="color: rgb(0, 119, 0);">));<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isCompressed</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Phar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">GZ</span><span style="color: rgb(0, 119, 0);">));<br>}<br></span><span style="color: rgb(0, 0, 187);">$p</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">decompressFiles</span><span style="color: rgb(0, 119, 0);">();<br>foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$p&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getFileName</span><span style="color: rgb(0, 119, 0);">());<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isCompressed</span><span style="color: rgb(0, 119, 0);">());<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isCompressed</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Phar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">BZ2</span><span style="color: rgb(0, 119, 0);">));<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isCompressed</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Phar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">GZ</span><span style="color: rgb(0, 119, 0);">));<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>string(10) "myfile.txt"
+int(4096)
+bool(false)
+bool(true)
+string(11) "myfile2.txt"
+int(4096)
+bool(false)
+bool(true)
+string(10) "myfile.txt"
+bool(false)
+bool(false)
+bool(false)
+string(11) "myfile2.txt"
+bool(false)
+bool(false)
+bool(false)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-phardata.decompressfiles-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="pharfileinfo.getcompressedsize.html" rel="rdfs-seeAlso">PharFileInfo::getCompressedSize()</a> - Returns the actual size of the file (with compression) inside the Phar archive</span></li>
+    <li class="member"><span class="function"><a class="function" href="pharfileinfo.iscompressed.html" rel="rdfs-seeAlso">PharFileInfo::isCompressed()</a> - Returns whether the entry is compressed</span></li>
+    <li class="member"><span class="function"><a class="function" href="pharfileinfo.compress.html" rel="rdfs-seeAlso">PharFileInfo::compress()</a> - Compresses the current Phar entry with either zlib or bzip2 compression</span></li>
+    <li class="member"><span class="function"><a class="function" href="pharfileinfo.decompress.html" rel="rdfs-seeAlso">PharFileInfo::decompress()</a> - Decompresses the current Phar entry within the phar</span></li>
+    <li class="member"><span class="function"><a class="function" href="phar.cancompress.html" rel="rdfs-seeAlso">Phar::canCompress()</a> - Returns whether phar extension supports compression using either zlib or bzip2</span></li>
+    <li class="member"><span class="function"><a class="function" href="phar.iscompressed.html" rel="rdfs-seeAlso">Phar::isCompressed()</a> - Returns Phar::GZ or PHAR::BZ2 if the entire phar archive is compressed (.tar.gz/tar.bz and so on)</span></li>
+    <li class="member"><span class="function"><a class="function" href="phardata.compressfiles.html" rel="rdfs-seeAlso">PharData::compressFiles()</a> - Compresses all files in the current tar/zip archive</span></li>
+    <li class="member"><span class="function"><a class="function" href="phar.getsupportedcompression.html" rel="rdfs-seeAlso">Phar::getSupportedCompression()</a> - Return array of supported compression algorithms</span></li>
+    <li class="member"><span class="function"><a class="function" href="phardata.compress.html" rel="rdfs-seeAlso">PharData::compress()</a> - Compresses the entire tar/zip archive using Gzip or Bzip2 compression</span></li>
+    <li class="member"><span class="function"><a class="function" href="phardata.decompress.html" rel="rdfs-seeAlso">PharData::decompress()</a> - Decompresses the entire Phar archive</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>访问 FTP(s) URLs-BeJSON.com</title><meta name="keywords" content="访问 FTP(s) URLs"><meta name="description" content="允许通过 FTP 读取存在的文件，以及创建新文件。 如果服务器不支持被动（passive）模式的 FTP，连接会失败。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="wrappers.http.html">« http://</a></li>
+      <li style="float: right;"><a href="wrappers.php.html">php:// »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="wrappers.html">支持的协议和封装协议</a></li>
+    <li>访问 FTP(s) URLs</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="wrappers.ftp">
+ <div class="refnamediv">
+  <h1 class="refname">ftp://</h1>
+  <h1 class="refname">ftps://</h1>
+  <p class="refpurpose"><span class="refname">ftp://</span> -- <span class="refname">ftps://</span> — <span class="dc-title">访问 FTP(s) URLs</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-wrappers.ftp-description">
+  <h3 class="title">说明</h3>
+  <p class="para">
+   允许通过 FTP 读取存在的文件，以及创建新文件。
+   如果服务器不支持被动（passive）模式的 FTP，连接会失败。
+  </p>
+  <p class="simpara">
+   打开文件后你既可以读也可以写，但是不能同时进行。
+   当远程文件已经存在于 ftp 服务器上，如果尝试打开并写入文件的时候，
+   未指定上下文（context）选项 <code class="literal">overwrite</code>，连接会失败。
+   
+   如果要通过 FTP 覆盖存在的文件，
+   指定上下文（context）的 <code class="literal">overwrite</code> 选项来打开、写入。
+   另外可使用 <a class="link" href="ref.ftp.html">FTP 扩展</a>来代替。
+  </p>
+  <p class="simpara">
+   如果你设置了 <var class="filename">php.ini</var> 中的 <a class="link" href="filesystem.configuration.html#ini.from">from</a> 指令，
+   这个值会作为匿名（anonymous）ftp 的密码。
+  </p>
+ </div>
+
+
+ <div class="refsect1 usage" id="refsect1-wrappers.ftp-usage"> 
+  <h3 class="title">用法</h3>
+  <ul class="itemizedlist">
+   <li class="listitem"><span class="simpara"><var class="filename">ftp://example.com/pub/file.txt</var></span></li>
+   <li class="listitem"><span class="simpara"><var class="filename">ftp://user:password@example.com/pub/file.txt</var></span></li>
+   <li class="listitem"><span class="simpara"><var class="filename">ftps://example.com/pub/file.txt</var></span></li>
+   <li class="listitem"><span class="simpara"><var class="filename">ftps://user:password@example.com/pub/file.txt</var></span></li>
+  </ul>
+ </div>
+ 
+
+ <div class="refsect1 options" id="refsect1-wrappers.ftp-options">
+  <h3 class="title">可选项</h3>
+  <p class="para">
+   <table class="doctable table">
+    <caption><strong>封装协议概要</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>属性</th>
+       <th>是否支持</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>受 <a class="link" href="filesystem.configuration.html#ini.allow-url-fopen">allow_url_fopen</a> 影响</td>
+       <td>是</td>
+      </tr>
+
+      <tr>
+       <td>允许读取</td>
+       <td>是</td>
+      </tr>
+
+      <tr>
+       <td>允许写入</td>
+       <td>是 (新文件/启用 <code class="parameter">overwrite</code> 后已存在的文件)</td>
+      </tr>
+
+      <tr>
+       <td>允许添加</td>
+       <td>是</td>
+      </tr>
+
+      <tr>
+       <td>允许同时读和写</td>
+       <td>否</td>
+      </tr>
+
+      <tr>
+       <td>支持 <span class="function"><a class="function" href="function.stat.html">stat()</a></span></td>
+       <td>
+        仅 <span class="function"><a class="function" href="function.filesize.html">filesize()</a></span>、<span class="function"><a class="function" href="function.filemtime.html">filemtime()</a></span>、
+        <span class="function"><a class="function" href="function.filetype.html">filetype()</a></span>、 <span class="function"><a class="function" href="function.file-exists.html">file_exists()</a></span>、
+        <span class="function"><a class="function" href="function.is-file.html">is_file()</a></span> 和 <span class="function"><a class="function" href="function.is-dir.html">is_dir()</a></span>。
+       </td>
+      </tr>
+
+      <tr>
+       <td>支持 <span class="function"><a class="function" href="function.unlink.html">unlink()</a></span></td>
+       <td>是</td>
+      </tr>
+
+      <tr>
+       <td>支持 <span class="function"><a class="function" href="function.rename.html">rename()</a></span></td>
+       <td>是</td>
+      </tr>
+
+      <tr>
+       <td>支持 <span class="function"><a class="function" href="function.mkdir.html">mkdir()</a></span></td>
+       <td>是</td>
+      </tr>
+
+      <tr>
+       <td>支持 <span class="function"><a class="function" href="function.rmdir.html">rmdir()</a></span></td>
+       <td>是</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+ 
+
+ <div class="refsect1 notes" id="refsect1-wrappers.ftp-notes">
+  <h3 class="title">注释</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    FTPS 仅在 <a class="link" href="book.openssl.html">openssl</a> 扩展开启时有效。
+   </p>
+   <span class="simpara">
+    如果服务器不支持 SSL，这个连接会降级（falls back）到普通未加密的 ftp。
+   </span>
+  <p></p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <strong>追加</strong><br>
+   <span class="simpara">
+    文件可以通过
+    <code class="literal">ftp://</code> URL 封装器来追加（append）。
+   </span>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-wrappers.ftp-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member"><a class="xref" href="context.ftp.html">FTP 上下文选项</a></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

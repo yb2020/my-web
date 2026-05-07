@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Swoole\WebSocket\Server class-BeJSON.com</title><meta name="keywords" content="The Swoole\WebSocket\Server class"><meta name="description" content="The Swoole\WebSocket\Server class(PECL swoole >= 1.9.0)简介类摘要class Swoole\WebSocket\Server  extends Swoole\Http\Server  {/* 方法 */public exist(int $fd):">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.swoole-websocket-frame.html">« Swoole\WebSocket\Frame</a></li>
+      <li style="float: right;"><a href="swoole-websocket-server.exist.html">Swoole\WebSocket\Server::exist »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.swoole.html">Swoole</a></li>
+    <li>The Swoole\WebSocket\Server class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.swoole-websocket-server">
+
+ <h1 class="title">The Swoole\WebSocket\Server class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PECL swoole &gt;= 1.9.0)</p>
+
+
+  <div class="section" id="swoole-websocket-server.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+
+   </p>
+  </div>
+
+
+  <div class="section" id="swoole-websocket-server.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">Swoole\WebSocket\Server</strong>
+     </span>
+     
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.swoole-http-server.html">Swoole\Http\Server</a>
+     </span>
+     {</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-websocket-server.exist.html">exist</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-websocket-server.on.html">on</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$event_name</code></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type"><span class="type ReturnType">ReturnType</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="swoole-websocket-server.pack.html">pack</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$opcode</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$finish</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$mask</code><span class="initializer"> = ?</span></span><br>): <span class="type"><span class="type binary">binary</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-websocket-server.push.html">push</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$fd</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$opcode</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$finish</code><span class="initializer"> = ?</span></span><br>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="swoole-websocket-server.unpack.html">unpack</a></span>(<span class="methodparam"><span class="type"><span class="type binary">binary</span></span> <code class="parameter">$data</code></span>): <span class="type">string</span></div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-http-server.on.html">Swoole\Http\Server::on</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$event_name</code></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-http-server.start.html">Swoole\Http\Server::start</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="swoole-websocket-server.exist.html">Swoole\WebSocket\Server::exist</a> — Check if the file descriptor exists.</li><li><a href="swoole-websocket-server.on.html">Swoole\WebSocket\Server::on</a> — Register event callback function</li><li><a href="swoole-websocket-server.pack.html">Swoole\WebSocket\Server::pack</a> — Get a pack of binary data to send in a single frame.</li><li><a href="swoole-websocket-server.push.html">Swoole\WebSocket\Server::push</a> — Push data to the remote client.</li><li><a href="swoole-websocket-server.unpack.html">Swoole\WebSocket\Server::unpack</a> — Unpack the binary data received from the client.</li></ul>
+</div>
+</div></div></body></html>

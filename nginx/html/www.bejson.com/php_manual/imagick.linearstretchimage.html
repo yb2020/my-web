@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Stretches with saturation the image intensity-BeJSON.com</title><meta name="keywords" content="Stretches with saturation the image intensity"><meta name="description" content="Imagick::linearStretchImage(PECL imagick 2, PECL imagick 3)Imagick::linearStretchImage — Stretches with saturation the image intensity说明public Imagick">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="imagick.levelimage.html">« Imagick::levelImage</a></li>
+      <li style="float: right;"><a href="imagick.liquidrescaleimage.html">Imagick::liquidRescaleImage »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.imagick.html">Imagick</a></li>
+    <li>Stretches with saturation the image intensity</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="imagick.linearstretchimage">
+ <div class="refnamediv">
+  <h1 class="refname">Imagick::linearStretchImage</h1>
+  <p class="verinfo">(PECL imagick 2, PECL imagick 3)</p><p class="refpurpose"><span class="refname">Imagick::linearStretchImage</span> — <span class="dc-title">Stretches with saturation the image intensity</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-imagick.linearstretchimage-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Imagick::linearStretchImage</strong></span>(<span class="methodparam"><span class="type">float</span> <code class="parameter">$blackPoint</code></span>, <span class="methodparam"><span class="type">float</span> <code class="parameter">$whitePoint</code></span>): <span class="type">bool</span></div>
+
+
+  <p class="para rdfs-comment">
+   Stretches with saturation the image intensity.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-imagick.linearstretchimage-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">blackPoint</code></dt>
+
+     <dd>
+
+      <p class="para">
+      The image black point
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">whitePoint</code></dt>
+
+     <dd>
+
+      <p class="para">
+      The image white point
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-imagick.linearstretchimage-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>。
+  </p>
+ </div>
+
+
+
+
+ <div class="refsect1 examples" id="refsect1-imagick.linearstretchimage-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+    <div class="example" id="example-2734">
+      <p><strong>示例 #1  <span class="function"><strong>Imagick::linearStretchImage()</strong></span></strong></p>
+      <div class="example-contents">
+      <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">linearStretchImage</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$imagePath</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$blackThreshold</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$whiteThreshold</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$imagick&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;\</span><span style="color: rgb(0, 0, 187);">Imagick</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">realpath</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$imagePath</span><span style="color: rgb(0, 119, 0);">));<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$pixels&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$imagick</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getImageWidth</span><span style="color: rgb(0, 119, 0);">()&nbsp;*&nbsp;</span><span style="color: rgb(0, 0, 187);">$imagick</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getImageHeight</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$imagick</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">linearStretchImage</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$blackThreshold&nbsp;</span><span style="color: rgb(0, 119, 0);">*&nbsp;</span><span style="color: rgb(0, 0, 187);">$pixels</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$whiteThreshold&nbsp;</span><span style="color: rgb(0, 119, 0);">*&nbsp;</span><span style="color: rgb(0, 0, 187);">$pixels</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">header</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Content-Type:&nbsp;image/jpg"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$imagick</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getImageBlob</span><span style="color: rgb(0, 119, 0);">();<br>}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+    </div>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

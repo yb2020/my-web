@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>binascii --- 二进制和 ASCII 码互转-BeJSON.com</title><meta name="keywords" content="binascii --- 二进制和 ASCII 码互转"><meta name="description" content="base64 --- Base16, Base32, Base64, Base85 数据编码"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="quopri --- 编码与解码经过 MIME 转码的可打印数据" href="quopri.html" rel="next">
+    <link title="base64 --- Base16, Base32, Base64, Base85 数据编码" href="base64.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/binascii.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="base64.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base64</span></code> --- Base16, Base32, Base64, Base85 数据编码</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="quopri.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quopri</span></code> --- 编码与解码经过 MIME 转码的可打印数据</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="quopri --- 编码与解码经过 MIME 转码的可打印数据" accesskey="N" href="quopri.html">下一页</a> |</li>
+        <li class="right">
+          <a title="base64 --- Base16, Base32, Base64, Base85 数据编码" accesskey="P" href="base64.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="netdata.html">互联网数据处理</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">binascii</span></code> --- 二进制和 ASCII 码互转</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-binascii">
+<span id="binascii-convert-between-binary-and-ascii"></span><h1><a title="binascii: Tools for converting between binary and various ASCII-encoded binary representations." class="reference internal" href="#module-binascii"><code class="xref py py-mod docutils literal notranslate"><span class="pre">binascii</span></code></a> --- 二进制和 ASCII 码互转<a title="永久链接至标题" class="headerlink" href="#module-binascii">¶</a></h1>
+<hr class="docutils" id="index-0">
+<p>The <a title="binascii: Tools for converting between binary and various ASCII-encoded binary representations." class="reference internal" href="#module-binascii"><code class="xref py py-mod docutils literal notranslate"><span class="pre">binascii</span></code></a> module contains a number of methods to convert between
+binary and various ASCII-encoded binary representations. Normally, you will not
+use these functions directly but use wrapper modules like <a title="uu: Encode and decode files in uuencode format. (已移除)" class="reference internal" href="uu.html#module-uu"><code class="xref py py-mod docutils literal notranslate"><span class="pre">uu</span></code></a> or
+<a title="base64: RFC 4648: Base16, Base32, Base64 Data Encodings; Base85 and Ascii85" class="reference internal" href="base64.html#module-base64"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base64</span></code></a> instead. The <a title="binascii: Tools for converting between binary and various ASCII-encoded binary representations." class="reference internal" href="#module-binascii"><code class="xref py py-mod docutils literal notranslate"><span class="pre">binascii</span></code></a> module contains
+low-level functions written in C for greater speed that are used by the
+higher-level modules.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><code class="docutils literal notranslate"><span class="pre">a2b_*</span></code> 函数接受只含有 ASCII 码的Unicode 字符串。其他函数只接受 <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">字节类对象</span></a> （例如 <a title="bytes" class="reference internal" href="stdtypes.html#bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>，<a title="bytearray" class="reference internal" href="stdtypes.html#bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> 和其他支持缓冲区协议的对象）。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.3 版更改: </span>ASCII-only unicode strings are now accepted by the <code class="docutils literal notranslate"><span class="pre">a2b_*</span></code> functions.</p>
+</div>
+</div>
+<p><a title="binascii: Tools for converting between binary and various ASCII-encoded binary representations." class="reference internal" href="#module-binascii"><code class="xref py py-mod docutils literal notranslate"><span class="pre">binascii</span></code></a> 模块定义了以下函数：</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="binascii.a2b_uu">
+<span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">a2b_uu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#binascii.a2b_uu">¶</a></dt>
+<dd><p>将单行 uu 编码数据转换成二进制数据并返回。uu 编码每行的数据通常包含45 个（二进制）字节，最后一行除外。每行数据后面可能跟有空格。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binascii.b2a_uu">
+<span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">b2a_uu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backtick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#binascii.b2a_uu">¶</a></dt>
+<dd><p>将二进制数据转换为 ASCII 编码字符，返回值是转换后的行数据，包括换行符。 <em>data</em> 的长度最多为45。如果 <em>backtick</em> 为ture，则零由 <code class="docutils literal notranslate"><span class="pre">'`'</span></code> 而不是空格表示。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.7 版更改: </span>增加 <em>backtick</em> 形参。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binascii.a2b_base64">
+<span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">a2b_base64</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#binascii.a2b_base64">¶</a></dt>
+<dd><p>将 base64 数据块转换成二进制并以二进制数据形式返回。一次可以传递多行数据。</p>
+<p>If <em>strict_mode</em> is true, only valid base64 data will be converted. Invalid base64
+data will raise <a title="binascii.Error" class="reference internal" href="#binascii.Error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">binascii.Error</span></code></a>.</p>
+<dl class="simple">
+<dt>Valid base64:</dt><dd><ul class="simple">
+<li><p>Conforms to <span class="target" id="index-1"></span><a class="rfc reference external" href=""><strong>RFC 3548</strong></a>.</p></li>
+<li><p>Contains only characters from the base64 alphabet.</p></li>
+<li><p>Contains no excess data after padding (including excess padding, newlines, etc.).</p></li>
+<li><p>Does not start with a padding.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.11 版更改: </span>Added the <em>strict_mode</em> parameter.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binascii.b2a_base64">
+<span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">b2a_base64</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#binascii.b2a_base64">¶</a></dt>
+<dd><p>将二进制数据转换为一行用 base64 编码的ASCII字符串。返回值是转换后的行数据，如果 <em>newline</em> 为true，则返回值包括换行符。该函数的输出符合：rfc：<cite>3548</cite>。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.6 版更改: </span>增加 <em>newline</em> 形参。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binascii.a2b_qp">
+<span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">a2b_qp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#binascii.a2b_qp">¶</a></dt>
+<dd><p>将一个引号可打印的数据块转换成二进制数据并返回。一次可以转换多行。如果可选参数 <em>header</em> 存在且为true，则数据中的下划线将被解码成空格。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binascii.b2a_qp">
+<span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">b2a_qp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quotetabs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">istext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#binascii.b2a_qp">¶</a></dt>
+<dd><p>将二进制数据转换为一行或多行带引号可打印编码的ASCII字符串。返回值是转换后的行数据。如果可选参数 <em>quotetabs</em> 存在且为真值，则对所有制表符和空格进行编码。如果可选参数 <em>istext</em> 存在且为真值，则不对新行进行编码，但将对尾随空格进行编码。如果可选参数 <em>header</em> 存在且为true，则空格将被编码为下划线 <span class="target" id="index-5"></span><a class="rfc reference external" href=""><strong>RFC 1522</strong></a>。如果可选参数 <em>header</em> 存在且为假值，则也会对换行符进行编码;不进行换行转换编码可能会破坏二进制数据流。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binascii.crc_hqx">
+<span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">crc_hqx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#binascii.crc_hqx">¶</a></dt>
+<dd><p>以 <em>value</em> 作为初始 CRC 计算 <em>data</em> 的16位 CRC 值，返回其结果。这里使用 CRC-CCITT 生成多项式 <em>x</em><sup>16</sup> + <em>x</em><sup>12</sup> + <em>x</em><sup>5</sup> + 1 ，通常表示为0x1021。该 CRC 被用于 binhex4 格式。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binascii.crc32">
+<span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">crc32</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#binascii.crc32">¶</a></dt>
+<dd><p>Compute CRC-32, the unsigned 32-bit checksum of <em>data</em>, starting with an
+initial CRC of <em>value</em>.  The default initial CRC is zero.  The algorithm
+is consistent with the ZIP file checksum.  Since the algorithm is designed for
+use as a checksum algorithm, it is not suitable for use as a general hash
+algorithm.  Use as follows:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">crc32</span><span class="p">(</span><span class="sa">b</span><span class="s2">"hello world"</span><span class="p">))</span>
+<span class="c1"># Or, in two pieces:</span>
+<span class="n">crc</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">crc32</span><span class="p">(</span><span class="sa">b</span><span class="s2">"hello"</span><span class="p">)</span>
+<span class="n">crc</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">crc32</span><span class="p">(</span><span class="sa">b</span><span class="s2">" world"</span><span class="p">,</span> <span class="n">crc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'crc32 = </span><span class="si">{:#010x}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">crc</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.0 版更改: </span>The result is always unsigned.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binascii.b2a_hex">
+<span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">b2a_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">bytes_per_sep=1</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#binascii.b2a_hex">¶</a></dt>
+<dt class="sig sig-object py" id="binascii.hexlify">
+<span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">hexlify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">bytes_per_sep=1</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#binascii.hexlify">¶</a></dt>
+<dd><p>返回二进制数据 <em>data</em> 的十六进制表示形式。 <em>data</em> 的每个字节都被转换为相应的2位十六进制表示形式。因此返回的字节对象的长度是 <em>data</em> 的两倍。</p>
+<p>使用：<a title="bytes.hex" class="reference internal" href="stdtypes.html#bytes.hex"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bytes.hex()</span></code></a> 方法也可以方便地实现相似的功能（但仅返回文本字符串）。</p>
+<p>如果指定了 <em>sep</em>，它必须为单字符 str 或 bytes 对象。 它将被插入每个 <em>bytes_per_sep</em> 输入字节之后。 分隔符位置默认从输出的右端开始计数，如果你希望从左端开始计数，请提供一个负的 <em>bytes_per_sep</em> 值。</p>
+<div class="doctest highlight-default notranslate" style="position: relative;"><div class="highlight"><span title="Hide the prompts and output" class="copybutton" style="border-radius: 0px 3px 0px 0px; border: 1px solid rgb(170, 204, 153); top: 0px; right: 0px; color: rgb(170, 204, 153); padding-right: 0.2em; padding-left: 0.2em; font-family: monospace; position: absolute; cursor: pointer;">&gt;&gt;&gt;</span><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">binascii</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">binascii</span><span class="o">.</span><span class="n">b2a_hex</span><span class="p">(</span><span class="sa">b</span><span class="s1">'</span><span class="se">\xb9\x01\xef</span><span class="s1">'</span><span class="p">)</span>
+<span class="go">b'b901ef'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="sa">b</span><span class="s1">'</span><span class="se">\xb9\x01\xef</span><span class="s1">'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">)</span>
+<span class="go">b'b9-01-ef'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">binascii</span><span class="o">.</span><span class="n">b2a_hex</span><span class="p">(</span><span class="sa">b</span><span class="s1">'</span><span class="se">\xb9\x01\xef</span><span class="s1">'</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'_'</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">b'b9_01ef'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">binascii</span><span class="o">.</span><span class="n">b2a_hex</span><span class="p">(</span><span class="sa">b</span><span class="s1">'</span><span class="se">\xb9\x01\xef</span><span class="s1">'</span><span class="p">,</span> <span class="sa">b</span><span class="s1">' '</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">b'b901 ef'</span>
+</pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.8 版更改: </span>添加了 <em>sep</em> 和 <em>bytes_per_sep</em> 形参。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binascii.a2b_hex">
+<span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">a2b_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hexstr</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#binascii.a2b_hex">¶</a></dt>
+<dt class="sig sig-object py" id="binascii.unhexlify">
+<span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">unhexlify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hexstr</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#binascii.unhexlify">¶</a></dt>
+<dd><p>返回由十六进制字符串  <em>hexstr</em> 表示的二进制数据。此函数功能与 <a title="binascii.b2a_hex" class="reference internal" href="#binascii.b2a_hex"><code class="xref py py-func docutils literal notranslate"><span class="pre">b2a_hex()</span></code></a> 相反。 <em>hexstr</em> 必须包含偶数个十六进制数字（可以是大写或小写），否则会引发  <a title="binascii.Error" class="reference internal" href="#binascii.Error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Error</span></code></a> 异常。</p>
+<p>使用：<a title="bytes.fromhex" class="reference internal" href="stdtypes.html#bytes.fromhex"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bytes.fromhex()</span></code></a>  类方法也实现相似的功能（仅接受文本字符串参数，不限制其中的空白字符）。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="binascii.Error">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">Error</span></span><a title="永久链接至目标" class="headerlink" href="#binascii.Error">¶</a></dt>
+<dd><p>通常是因为编程错误引发的异常。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="binascii.Incomplete">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">binascii.</span></span><span class="sig-name descname"><span class="pre">Incomplete</span></span><a title="永久链接至目标" class="headerlink" href="#binascii.Incomplete">¶</a></dt>
+<dd><p>数据不完整引发的异常。通常不是编程错误导致的，可以通过读取更多的数据并再次尝试来处理该异常。</p>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<dl class="simple">
+<dt>模块 <a title="base64: RFC 4648: Base16, Base32, Base64 Data Encodings; Base85 and Ascii85" class="reference internal" href="base64.html#module-base64"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base64</span></code></a></dt><dd><p>支持在16，32，64，85进制中进行符合 RFC 协议的 base64 样式编码。</p>
+</dd>
+<dt>模块 <a title="uu: Encode and decode files in uuencode format. (已移除)" class="reference internal" href="uu.html#module-uu"><code class="xref py py-mod docutils literal notranslate"><span class="pre">uu</span></code></a></dt><dd><p>支持在 Unix 上使用的 UU 编码。</p>
+</dd>
+<dt>模块 <a title="quopri: Encode and decode files using the MIME quoted-printable encoding." class="reference internal" href="quopri.html#module-quopri"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quopri</span></code></a></dt><dd><p>支持在 MIME 版本电子邮件中使用引号可打印编码。</p>
+</dd>
+</dl>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="base64.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base64</span></code> --- Base16, Base32, Base64, Base85 数据编码</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="quopri.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quopri</span></code> --- 编码与解码经过 MIME 转码的可打印数据</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="quopri --- 编码与解码经过 MIME 转码的可打印数据" href="quopri.html">下一页</a> |</li>
+        <li class="right">
+          <a title="base64 --- Base16, Base32, Base64, Base85 数据编码" href="base64.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="netdata.html">互联网数据处理</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">binascii</span></code> --- 二进制和 ASCII 码互转</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

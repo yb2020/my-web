@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Parle\Lexer class-BeJSON.com</title><meta name="keywords" content="The Parle\Lexer class"><meta name="description" content="Single state lexer class. Lexemes can be defined on the fly. If the particular lexer instance is meant to be used with Parle\Parser, the token IDs nee">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="parle.examples.parser.html">« Parser examples</a></li>
+      <li style="float: right;"><a href="parle-lexer.advance.html">Parle\Lexer::advance »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.parle.html">Parle</a></li>
+    <li>The Parle\Lexer class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.parle-lexer">
+
+ <h1 class="title">The Parle\Lexer class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PECL parle &gt;= 0.5.1)</p>
+
+
+  <div class="section" id="parle-lexer.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    Single state lexer class. Lexemes can be defined on the fly. If the particular lexer instance is meant to be used with <span class="classname"><a class="classname" href="class.parle-parser.html">Parle\Parser</a></span>, the token IDs need to be taken from there. Otherwise, arbitrary token IDs can be supplied. This lexer can give a certain performance advantage over <span class="classname"><a class="classname" href="class.parle-rlexer.html">Parle\RLexer</a></span>, if no multiple states are required. Note, that <span class="classname"><a class="classname" href="class.parle-rparser.html">Parle\RParser</a></span> is not compatible with this lexer.
+   </p>
+  </div>
+
+
+  <div class="section" id="parle-lexer.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">Parle\Lexer</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.parle-lexer.html#parle-lexer.constants.flag-regex-icase"><var class="varname">ICASE</var></a></var><span class="initializer"> = 1</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.parle-lexer.html#parle-lexer.constants.flag-regex-dot-not-lf"><var class="varname">DOT_NOT_LF</var></a></var><span class="initializer"> = 2</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.parle-lexer.html#parle-lexer.constants.flag-regex-dot-not-cr-lf"><var class="varname">DOT_NOT_CRLF</var></a></var><span class="initializer"> = 4</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.parle-lexer.html#parle-lexer.constants.flag-regex-skip-ws"><var class="varname">SKIP_WS</var></a></var><span class="initializer"> = 8</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.parle-lexer.html#parle-lexer.constants.flag-regex-match-zero-len"><var class="varname">MATCH_ZERO_LEN</var></a></var><span class="initializer"> = 16</span>;</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 属性 */</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">bool</span>
+      <var class="varname"><a href="class.parle-lexer.html#parle-lexer.props.bol">$<var class="varname">bol</var></a></var><span class="initializer"> = <strong><code>false</code></strong></span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.parle-lexer.html#parle-lexer.props.flags">$<var class="varname">flags</var></a></var><span class="initializer"> = 0</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.parle-lexer.html#parle-lexer.props.state">$<var class="varname">state</var></a></var><span class="initializer"> = 0</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.parle-lexer.html#parle-lexer.props.marker">$<var class="varname">marker</var></a></var><span class="initializer"> = 0</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.parle-lexer.html#parle-lexer.props.cursor">$<var class="varname">cursor</var></a></var><span class="initializer"> = 0</span>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parle-lexer.advance.html">advance</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parle-lexer.build.html">build</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parle-lexer.callout.html">callout</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$id</code></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parle-lexer.consume.html">consume</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parle-lexer.dump.html">dump</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parle-lexer.gettoken.html">getToken</a></span>(): <span class="type"><a class="type Parle\Token" href="class.parle-token.html">Parle\Token</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parle-lexer.insertmacro.html">insertMacro</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$regex</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parle-lexer.push.html">push</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$regex</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$id</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parle-lexer.reset.html">reset</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$pos</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+   }</div>
+
+
+  </div>
+  
+
+  <div class="section" id="parle-lexer.constants">
+   <h2 class="title">预定义常量</h2>
+   <dl>
+
+    
+     <dt id="parle-lexer.constants.flag-regex-icase"><strong><code>Parle\Lexer::ICASE</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+     </p></dd>
+
+    
+
+    
+     <dt id="parle-lexer.constants.flag-regex-dot-not-lf"><strong><code>Parle\Lexer::DOT_NOT_LF</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+     </p></dd>
+
+    
+
+    
+     <dt id="parle-lexer.constants.flag-regex-dot-not-cr-lf"><strong><code>Parle\Lexer::DOT_NOT_CRLF</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+     </p></dd>
+
+    
+
+    
+     <dt id="parle-lexer.constants.flag-regex-skip-ws"><strong><code>Parle\Lexer::SKIP_WS</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+     </p></dd>
+
+    
+
+    
+     <dt id="parle-lexer.constants.flag-regex-match-zero-len"><strong><code>Parle\Lexer::MATCH_ZERO_LEN</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+     </p></dd>
+
+    
+
+   </dl>
+
+  </div>
+
+
+
+  <div class="section" id="parle-lexer.props">
+   <h2 class="title">属性</h2>
+   <dl>
+    
+     <dt id="parle-lexer.props.bol"><var class="varname">bol</var></dt>
+
+     <dd>
+
+      <p class="para">Start of input flag.</p>
+     </dd>
+
+    
+    
+     <dt id="parle-lexer.props.flags"><var class="varname">flags</var></dt>
+
+     <dd>
+
+      <p class="para">Lexer flags.</p>
+     </dd>
+
+    
+    
+     <dt id="parle-lexer.props.state"><var class="varname">state</var></dt>
+
+     <dd>
+
+      <p class="para">Current lexer state, readonly.</p>
+     </dd>
+
+    
+    
+     <dt id="parle-lexer.props.marker"><var class="varname">marker</var></dt>
+
+     <dd>
+
+      <p class="para">Position of the latest token match, readonly.</p>
+     </dd>
+
+    
+    
+     <dt id="parle-lexer.props.cursor"><var class="varname">cursor</var></dt>
+
+     <dd>
+
+      <p class="para">Current input offset, readonly.</p>
+     </dd>
+
+    
+   </dl>
+
+  </div>
+
+
+ </div>
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="parle-lexer.advance.html">Parle\Lexer::advance</a> — Process next lexer rule</li><li><a href="parle-lexer.build.html">Parle\Lexer::build</a> — Finalize the lexer rule set</li><li><a href="parle-lexer.callout.html">Parle\Lexer::callout</a> — Define token callback</li><li><a href="parle-lexer.consume.html">Parle\Lexer::consume</a> — Pass the data for processing</li><li><a href="parle-lexer.dump.html">Parle\Lexer::dump</a> — Dump the state machine</li><li><a href="parle-lexer.gettoken.html">Parle\Lexer::getToken</a> — Retrieve the current token</li><li><a href="parle-lexer.insertmacro.html">Parle\Lexer::insertMacro</a> — Insert regex macro</li><li><a href="parle-lexer.push.html">Parle\Lexer::push</a> — Add a lexer rule</li><li><a href="parle-lexer.reset.html">Parle\Lexer::reset</a> — Reset lexer</li></ul>
+</div>
+</div></div></body></html>

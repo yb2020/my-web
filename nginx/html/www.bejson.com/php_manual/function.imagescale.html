@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Scale an image using the given new width and height-BeJSON.com</title><meta name="keywords" content="Scale an image using the given new width and height"><meta name="description" content="Unlike many of other image functions, imagescale() does not modify the passed image; instead, a new image is returned. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.imagesavealpha.html">« imagesavealpha</a></li>
+      <li style="float: right;"><a href="function.imagesetbrush.html">imagesetbrush »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.image.html">GD 和图像处理 函数</a></li>
+    <li>Scale an image using the given new width and height</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.imagescale">
+ <div class="refnamediv">
+  <h1 class="refname">imagescale</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagescale</span> — <span class="dc-title">Scale an image using the given new width and height</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.imagescale-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>imagescale</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a class="type GdImage" href="class.gdimage.html">GdImage</a></span> <code class="parameter">$image</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$width</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code><span class="initializer"> = -1</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>IMG_BILINEAR_FIXED</code></strong></span></span><br>): <span class="type"><span class="type"><a class="type GdImage" href="class.gdimage.html">GdImage</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>imagescale()</strong></span> scales an image using the given
+   interpolation algorithm.
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    Unlike many of other image functions, <span class="function"><strong>imagescale()</strong></span> does
+    not modify the passed <code class="parameter">image</code>; instead, a
+    <em class="emphasis">new</em> image is returned.
+   </p>
+  <p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.imagescale-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   <dt>
+
+<code class="parameter">image</code></dt>
+<dd>
+<p class="para">由图象创建函数(例如<span class="function"><a class="function" href="function.imagecreatetruecolor.html">imagecreatetruecolor()</a></span>)返回的 
+<span class="classname"><a class="classname" href="class.gdimage.html">GdImage</a></span> 对象。</p></dd>
+
+   
+    <dt>
+<code class="parameter">width</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The width to scale the image to.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">height</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The height to scale the image to. If omitted or negative, the aspect
+      ratio will be preserved.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">mode</code></dt>
+
+    <dd>
+
+     <p class="para">
+      One of <strong><code>IMG_NEAREST_NEIGHBOUR</code></strong>,
+      <strong><code>IMG_BILINEAR_FIXED</code></strong>,
+      <strong><code>IMG_BICUBIC</code></strong>,
+      <strong><code>IMG_BICUBIC_FIXED</code></strong> or anything else (will use two
+      pass).
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <span class="simpara">
+        <strong><code>IMG_WEIGHTED4</code></strong> is not yet supported.
+       </span>
+      </p></blockquote>
+     <p></p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagescale-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Return the scaled image object on success 或者在失败时返回 <strong><code>false</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.imagescale-changelog">
+  <h3 class="title">更新日志</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>版本</th>
+      <th>说明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       On success, this function returns a <span class="classname"><a class="classname" href="class.gdimage.html">GDImage</a></span> instance now;
+       previously, a <span class="type">resource</span> was returned.
+      </td>
+     </tr>
+
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">image</code> expects a <span class="classname"><a class="classname" href="class.gdimage.html">GdImage</a></span>
+  instance now; previously, a <span class="type">resource</span> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.imagescale-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a class="function" href="function.imagecopyresized.html" rel="rdfs-seeAlso">imagecopyresized()</a> - 拷贝部分图像并调整大小</span></li>
+   <li class="member"><span class="function"><a class="function" href="function.imagecopyresampled.html" rel="rdfs-seeAlso">imagecopyresampled()</a> - 重采样拷贝部分图像并调整大小</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

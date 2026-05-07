@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>linecache --- 随机读写文本行-BeJSON.com</title><meta name="keywords" content="linecache --- 随机读写文本行"><meta name="description" content="fnmatch --- Unix 文件名模式匹配"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="shutil --- 高阶文件操作" href="shutil.html" rel="next">
+    <link title="fnmatch --- Unix 文件名模式匹配" href="fnmatch.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/linecache.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="fnmatch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fnmatch</span></code> --- Unix 文件名模式匹配</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="shutil.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shutil</span></code> --- 高阶文件操作</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="shutil --- 高阶文件操作" accesskey="N" href="shutil.html">下一页</a> |</li>
+        <li class="right">
+          <a title="fnmatch --- Unix 文件名模式匹配" accesskey="P" href="fnmatch.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="filesys.html">文件和目录访问</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">linecache</span></code> --- 随机读写文本行</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-linecache">
+<span id="linecache-random-access-to-text-lines"></span><h1><a title="linecache: Provides random access to individual lines from text files." class="reference internal" href="#module-linecache"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linecache</span></code></a> --- 随机读写文本行<a title="永久链接至标题" class="headerlink" href="#module-linecache">¶</a></h1>
+<p><strong>源代码:</strong> <a class="reference external" href="">Lib/linecache.py</a></p>
+<hr class="docutils">
+<p><a title="linecache: Provides random access to individual lines from text files." class="reference internal" href="#module-linecache"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linecache</span></code></a> 模块允许从一个 Python 源文件中获取任意的行，并会尝试使用缓存进行内部优化，常应用于从单个文件读取多行的场合。 此模块被 <a title="traceback: Print or retrieve a stack traceback." class="reference internal" href="traceback.html#module-traceback"><code class="xref py py-mod docutils literal notranslate"><span class="pre">traceback</span></code></a> 模块用来提取源码行以便包含在格式化的回溯中。</p>
+<p><a title="tokenize.open" class="reference internal" href="tokenize.html#tokenize.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize.open()</span></code></a> 函数被用于打开文件。 此函数使用 <a title="tokenize.detect_encoding" class="reference internal" href="tokenize.html#tokenize.detect_encoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize.detect_encoding()</span></code></a> 来获取文件的编码格式；如果未指明编码格式，则默认编码为 UTF-8。</p>
+<p><a title="linecache: Provides random access to individual lines from text files." class="reference internal" href="#module-linecache"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linecache</span></code></a> 模块定义了下列函数：</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="linecache.getline">
+<span class="sig-prename descclassname"><span class="pre">linecache.</span></span><span class="sig-name descname"><span class="pre">getline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lineno</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module_globals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#linecache.getline">¶</a></dt>
+<dd><p>从名为 <em>filename</em> 的文件中获取 <em>lineno</em> 行，此函数绝不会引发异常 --- 出现错误时它将返回 <code class="docutils literal notranslate"><span class="pre">''</span></code> (所有找到的行都将包含换行符作为结束)。</p>
+<p id="index-0">如果找不到名为 <em>filename</em> 的文件，此函数会先在 <em>module_globals</em> 中检查 <span class="target" id="index-3"></span><a class="pep reference external" href=""><strong>PEP 302</strong></a> <code class="docutils literal notranslate"><span class="pre">__loader__</span></code>。 如果存在这样的加载器并且它定义了 <code class="docutils literal notranslate"><span class="pre">get_source</span></code> 方法，则由该方法来确定源行 (如果 <code class="docutils literal notranslate"><span class="pre">get_source()</span></code> 返回 <code class="docutils literal notranslate"><span class="pre">None</span></code>，则该函数返回 <code class="docutils literal notranslate"><span class="pre">''</span></code>)。 最后，如果 <em>filename</em> 是一个相对路径文件名，则它会在模块搜索路径 <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> 中按条目的相对位置进行查找。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="linecache.clearcache">
+<span class="sig-prename descclassname"><span class="pre">linecache.</span></span><span class="sig-name descname"><span class="pre">clearcache</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#linecache.clearcache">¶</a></dt>
+<dd><p>清空缓存。 如果你不再需要之前使用 <a title="linecache.getline" class="reference internal" href="#linecache.getline"><code class="xref py py-func docutils literal notranslate"><span class="pre">getline()</span></code></a> 从文件读取的行即可使用此函数。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="linecache.checkcache">
+<span class="sig-prename descclassname"><span class="pre">linecache.</span></span><span class="sig-name descname"><span class="pre">checkcache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#linecache.checkcache">¶</a></dt>
+<dd><p>检查缓存有效性。 如果缓存中的文件在磁盘上发生了改变，而你需要更新后的版本即可使用此函数。 如果省略了 <em>filename</em>，它会检查缓存中的所有条目。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="linecache.lazycache">
+<span class="sig-prename descclassname"><span class="pre">linecache.</span></span><span class="sig-name descname"><span class="pre">lazycache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module_globals</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#linecache.lazycache">¶</a></dt>
+<dd><p>捕获有关某个非基于文件的模块的足够细节信息，以允许稍后再通过 <a title="linecache.getline" class="reference internal" href="#linecache.getline"><code class="xref py py-func docutils literal notranslate"><span class="pre">getline()</span></code></a> 来获取其中的行，即使当稍后调用时 <em>module_globals</em> 为 <code class="docutils literal notranslate"><span class="pre">None</span></code>。 这可以避免在实际需要读取行之前执行 I/O，也不必始终保持模块全局变量。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.5 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<p>示例:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><span title="Hide the prompts and output" class="copybutton" style="border-radius: 0px 3px 0px 0px; border: 1px solid rgb(170, 204, 153); top: 0px; right: 0px; color: rgb(170, 204, 153); padding-right: 0.2em; padding-left: 0.2em; font-family: monospace; position: absolute; cursor: pointer;">&gt;&gt;&gt;</span><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">linecache</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">linecache</span><span class="o">.</span><span class="n">getline</span><span class="p">(</span><span class="n">linecache</span><span class="o">.</span><span class="vm">__file__</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="go">'import sys\n'</span>
+</pre></div>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="fnmatch.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fnmatch</span></code> --- Unix 文件名模式匹配</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="shutil.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shutil</span></code> --- 高阶文件操作</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="shutil --- 高阶文件操作" href="shutil.html">下一页</a> |</li>
+        <li class="right">
+          <a title="fnmatch --- Unix 文件名模式匹配" href="fnmatch.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="filesys.html">文件和目录访问</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">linecache</span></code> --- 随机读写文本行</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

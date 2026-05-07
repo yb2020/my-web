@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>新建一个真彩色图像-BeJSON.com</title><meta name="keywords" content="新建一个真彩色图像"><meta name="description" content="是否定义了本函数取决于 PHP 和 GD 的版本。从 PHP 4.0.6 到 4.1.x 只要加载了 GD 模块本函数一直存在，但是在没有安装 GD2 的时候调用，PHP 将发出致命错误并退出。在 PHP 4.2.x 中此行为改为发出警告而不是错误。其它版本只在安装了正确的 GD 版本时定义了本函数">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.imagecreatefromxpm.html">« imagecreatefromxpm</a></li>
+      <li style="float: right;"><a href="function.imagecrop.html">imagecrop »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.image.html">GD 和图像处理 函数</a></li>
+    <li>新建一个真彩色图像</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.imagecreatetruecolor">
+ <div class="refnamediv">
+  <h1 class="refname">imagecreatetruecolor</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagecreatetruecolor</span> — <span class="dc-title">新建一个真彩色图像</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagecreatetruecolor-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>imagecreatetruecolor</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$width</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code></span>): <span class="type">resource</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>imagecreatetruecolor()</strong></span> 返回一个图像标识符，代表了一幅大小为
+   <code class="parameter">x_size</code> 和 <code class="parameter">y_size</code> 的黑色图像。
+  </p>
+  <p class="para">
+   是否定义了本函数取决于 PHP 和 GD 的版本。从 PHP 4.0.6 到 4.1.x
+   只要加载了 GD 模块本函数一直存在，但是在没有安装 GD2 的时候调用，PHP
+   将发出致命错误并退出。在 PHP 4.2.x 中此行为改为发出警告而不是错误。其它版本只在安装了正确的
+   GD 版本时定义了本函数。
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagecreatetruecolor-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">width</code></dt>
+
+     <dd>
+
+      <p class="para">
+       图像宽度。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">height</code></dt>
+
+     <dd>
+
+      <p class="para">
+       图像高度。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagecreatetruecolor-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">成功后返回图象对象,失败后返回 <strong><code>false</code></strong>。</p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagecreatetruecolor-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2606">
+    <p><strong>示例 #1 
+     新建一个新的 GD 图像流并输出图像
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>header&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'Content-Type:&nbsp;image/png'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$im&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;@</span><span style="color: rgb(0, 0, 187);">imagecreatetruecolor</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">120</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">20</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: rgb(221, 0, 0);">'Cannot&nbsp;Initialize&nbsp;new&nbsp;GD&nbsp;image&nbsp;stream'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$text_color&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">imagecolorallocate</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$im</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">233</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">14</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">91</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">imagestring</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$im</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">,&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'A&nbsp;Simple&nbsp;Text&nbsp;String'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$text_color</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">imagepng</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$im</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">imagedestroy</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$im</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="mediaobject">
+     
+     <div class="imageobject">
+      <img width="120" height="20" alt="例子的输出： 新建一个新的 GD 图像流并输出图像" src="images/21009b70229598c6a80eef8b45bf282b-imagecreatetruecolor.png">
+     </div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.imagecreatetruecolor-notes">
+  <h3 class="title">注释</h3>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.imagecreatetruecolor-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.imagedestroy.html" rel="rdfs-seeAlso">imagedestroy()</a> - 销毁一图像</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.imagecreate.html" rel="rdfs-seeAlso">imagecreate()</a> - 新建一个基于调色板的图像</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

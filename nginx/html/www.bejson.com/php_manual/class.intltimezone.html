@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The IntlTimeZone class-BeJSON.com</title><meta name="keywords" content="The IntlTimeZone class"><meta name="description" content="The IntlTimeZone class(PHP 5 >= 5.5.0, PHP 7, PHP 8, PECL >= 3.0.0a1)简介类摘要class IntlTimeZone  {/* Constants */const int DISPLAY_SHORT = 1;const int DI">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="intlgregoriancalendar.setgregorianchange.html">« IntlGregorianCalendar::setGregorianChange</a></li>
+      <li style="float: right;"><a href="intltimezone.construct.html">IntlTimeZone::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.intl.html">intl</a></li>
+    <li>The IntlTimeZone class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.intltimezone">
+
+ <h1 class="title">The IntlTimeZone class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8, PECL &gt;= 3.0.0a1)</p>
+
+
+  <div class="section" id="intltimezone.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+
+   </p>
+  </div>
+
+
+  <div class="section" id="intltimezone.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">IntlTimeZone</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intltimezone.html#intltimezone.constants.display-short"><var class="varname">DISPLAY_SHORT</var></a></var><span class="initializer"> = 1</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intltimezone.html#intltimezone.constants.display-long"><var class="varname">DISPLAY_LONG</var></a></var><span class="initializer"> = 2</span>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">private</span> <span class="methodname"><a class="methodname" href="intltimezone.construct.html">__construct</a></span>()</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.countequivalentids.html">countEquivalentIDs</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$timezoneId</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.createdefault.html">createDefault</a></span>(): <span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.createenumeration.html">createEnumeration</a></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span>|<span class="type">string</span>|<span class="type">int</span>|<span class="type">float</span>|<span class="type">null</span></span> <code class="parameter">$countryOrRawOffset</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type"><a class="type IntlIterator" href="class.intliterator.html">IntlIterator</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.createtimezone.html">createTimeZone</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$timezoneId</code></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.createtimezoneidenumeration.html">createTimeZoneIDEnumeration</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$region</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$rawOffset</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type"><a class="type IntlIterator" href="class.intliterator.html">IntlIterator</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.fromdatetimezone.html">fromDateTimeZone</a></span>(<span class="methodparam"><span class="type"><a class="type DateTimeZone" href="class.datetimezone.html">DateTimeZone</a></span> <code class="parameter">$timezone</code></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.getcanonicalid.html">getCanonicalID</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$timezoneId</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter reference">&amp;$isSystemId</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intltimezone.getdisplayname.html">getDisplayName</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$dst</code><span class="initializer"> = <strong><code>false</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$style</code><span class="initializer"> = IntlTimeZone::DISPLAY_LONG</span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$locale</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intltimezone.getdstsavings.html">getDSTSavings</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.getequivalentid.html">getEquivalentID</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$timezoneId</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intltimezone.geterrorcode.html">getErrorCode</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intltimezone.geterrormessage.html">getErrorMessage</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.getgmt.html">getGMT</a></span>(): <span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intltimezone.getid.html">getID</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.getidforwindowsid.html">getIDForWindowsID</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$timezoneId</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$region</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intltimezone.getoffset.html">getOffset</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$timestamp</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$local</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter reference">&amp;$rawOffset</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter reference">&amp;$dstOffset</code></span><br>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intltimezone.getrawoffset.html">getRawOffset</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.getregion.html">getRegion</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$timezoneId</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.gettzdataversion.html">getTZDataVersion</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.getunknown.html">getUnknown</a></span>(): <span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intltimezone.getwindowsid.html">getWindowsID</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$timezoneId</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intltimezone.hassamerules.html">hasSameRules</a></span>(<span class="methodparam"><span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span> <code class="parameter">$other</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intltimezone.todatetimezone.html">toDateTimeZone</a></span>(): <span class="type"><span class="type"><a class="type DateTimeZone" href="class.datetimezone.html">DateTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intltimezone.usedaylighttime.html">useDaylightTime</a></span>(): <span class="type">bool</span></div>
+
+   }</div>
+
+
+  </div>
+  
+
+  <div class="section" id="intltimezone.constants">
+   <h2 class="title">预定义常量</h2>
+   <dl>
+
+    
+     <dt id="intltimezone.constants.display-short"><strong><code>IntlTimeZone::DISPLAY_SHORT</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+     </p></dd>
+
+    
+
+    
+     <dt id="intltimezone.constants.display-long"><strong><code>IntlTimeZone::DISPLAY_LONG</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+     </p></dd>
+
+    
+
+   </dl>
+
+  </div>
+
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="intltimezone.construct.html">IntlTimeZone::__construct</a> — Private constructor to disallow direct instantiation</li><li><a href="intltimezone.countequivalentids.html">IntlTimeZone::countEquivalentIDs</a> — Get the number of IDs in the equivalency group that includes the given ID</li><li><a href="intltimezone.createdefault.html">IntlTimeZone::createDefault</a> — Create a new copy of the default timezone for this host</li><li><a href="intltimezone.createenumeration.html">IntlTimeZone::createEnumeration</a> — Get an enumeration over time zone IDs associated with the
+  given country or offset</li><li><a href="intltimezone.createtimezone.html">IntlTimeZone::createTimeZone</a> — Create a timezone object for the given ID</li><li><a href="intltimezone.createtimezoneidenumeration.html">IntlTimeZone::createTimeZoneIDEnumeration</a> — Get an enumeration over system time zone IDs with the given filter conditions</li><li><a href="intltimezone.fromdatetimezone.html">IntlTimeZone::fromDateTimeZone</a> — Create a timezone object from DateTimeZone</li><li><a href="intltimezone.getcanonicalid.html">IntlTimeZone::getCanonicalID</a> — Get the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID</li><li><a href="intltimezone.getdisplayname.html">IntlTimeZone::getDisplayName</a> — Get a name of this time zone suitable for presentation to the user</li><li><a href="intltimezone.getdstsavings.html">IntlTimeZone::getDSTSavings</a> — Get the amount of time to be added to local standard time to get local wall clock time</li><li><a href="intltimezone.getequivalentid.html">IntlTimeZone::getEquivalentID</a> — Get an ID in the equivalency group that includes the given ID</li><li><a href="intltimezone.geterrorcode.html">IntlTimeZone::getErrorCode</a> — Get last error code on the object</li><li><a href="intltimezone.geterrormessage.html">IntlTimeZone::getErrorMessage</a> — Get last error message on the object</li><li><a href="intltimezone.getgmt.html">IntlTimeZone::getGMT</a> — Create GMT (UTC) timezone</li><li><a href="intltimezone.getid.html">IntlTimeZone::getID</a> — Get timezone ID</li><li><a href="intltimezone.getidforwindowsid.html">IntlTimeZone::getIDForWindowsID</a> — Translate a Windows timezone into a system timezone</li><li><a href="intltimezone.getoffset.html">IntlTimeZone::getOffset</a> — Get the time zone raw and GMT offset for the given moment in time</li><li><a href="intltimezone.getrawoffset.html">IntlTimeZone::getRawOffset</a> — Get the raw GMT offset (before taking daylight savings time into account</li><li><a href="intltimezone.getregion.html">IntlTimeZone::getRegion</a> — Get the region code associated with the given system time zone ID</li><li><a href="intltimezone.gettzdataversion.html">IntlTimeZone::getTZDataVersion</a> — Get the timezone data version currently used by ICU</li><li><a href="intltimezone.getunknown.html">IntlTimeZone::getUnknown</a> — Get the "unknown" time zone</li><li><a href="intltimezone.getwindowsid.html">IntlTimeZone::getWindowsID</a> — Translate a system timezone into a Windows timezone</li><li><a href="intltimezone.hassamerules.html">IntlTimeZone::hasSameRules</a> — Check if this zone has the same rules and offset as another zone</li><li><a href="intltimezone.todatetimezone.html">IntlTimeZone::toDateTimeZone</a> — Convert to DateTimeZone object</li><li><a href="intltimezone.usedaylighttime.html">IntlTimeZone::useDaylightTime</a> — Check if this time zone uses daylight savings time</li></ul>
+</div>
+</div></div></body></html>

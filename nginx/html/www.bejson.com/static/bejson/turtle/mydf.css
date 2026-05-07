@@ -1,0 +1,56 @@
+
+
+.btn{
+    outline: none;
+}
+
+.btn:focus{
+    outline: none;
+}
+
+#tbresult{
+    width: 100%;
+    position: relative;
+}
+
+
+.can_l{
+    width: 900px;
+    border: solid 1px #f2f2f2;
+    float: left;
+    padding: 30px 0;
+
+    background-position: 0 0,10px 10px!important;
+    background-size: 20px 20px!important;
+    background-image: linear-gradient(45deg,#eee 25%,transparent 25%,transparent 75%,#eee 75%,#eee 100%),linear-gradient(45deg,#eee 25%,#fff 25%,#fff 75%,#eee 75%,#eee 100%)!important;
+
+}
+
+
+.can_r{
+    width: 260px;
+    border: solid 1px #f2f2f2;
+    border-left: none;
+    float: right;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+#output{
+    height: 100%;
+    overflow-y: scroll;
+}
+
+
+
+#canvas{
+    margin: 0 auto;
+    background-color: #fff;
+    position: relative;
+}
+
+
+
+

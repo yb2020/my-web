@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>发送邮件-BeJSON.com</title><meta name="keywords" content="发送邮件"><meta name="description" content="mail(PHP 4, PHP 5, PHP 7, PHP 8)mail — 发送邮件说明mail(    string $to,    string $subject,    string $message,    string $additional_headers = ?,    string">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.ezmlm-hash.html">« ezmlm_hash</a></li>
+      <li style="float: right;"><a href="book.mailparse.html">Mailparse »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.mail.html">Mail 函数</a></li>
+    <li>发送邮件</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.mail">
+ <div class="refnamediv">
+  <h1 class="refname">mail</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mail</span> — <span class="dc-title">发送邮件</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.mail-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>mail</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$to</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$additional_headers</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$additional_parameters</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   发送一封电子邮件。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mail-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">to</code></dt>
+
+     <dd>
+
+      <p class="para">
+       电子邮件收件人，或收件人列表。
+      </p>
+      <p class="para">
+       本字符串的格式必须符合
+       <a class="link external" href="http://www.faqs.org/rfcs/rfc2822">»&nbsp;RFC 2822</a>。例如：
+       <ul class="simplelist">
+        <li class="member">user@example.com</li>
+        <li class="member">user@example.com, anotheruser@example.com</li>
+        <li class="member">User &lt;user@example.com&gt;</li>
+        <li class="member">User &lt;user@example.com&gt;, Another User &lt;anotheruser@example.com&gt;</li>
+       </ul>
+      <p></p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">subject</code></dt>
+
+     <dd>
+
+      <p class="para">
+       电子邮件的主题。
+      </p>
+      <div class="caution"><strong class="caution">警告</strong>
+       <p class="para">
+        本项不能包含任何换行符，否则邮件可能无法正确发送。
+       </p>
+      </div>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">message</code></dt>
+
+     <dd>
+
+      <p class="para">
+       所要发送的消息。
+      </p>
+      <p class="para">
+       行之间必须以一个 LF（\n）分隔。每行不能超过 70 个字符。
+      </p>
+      <div class="caution"><strong class="caution">警告</strong>
+       <p class="para">
+        （Windows 下）当 PHP 直接连接到 SMTP 服务器时，如果在一行开头发现一个句号，则会被删掉。要避免此问题，将单个句号替换成两个句号。
+        <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$text&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">str_replace</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"\n."</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n.."</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$text</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+       <p></p>
+      </div>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">additional_headers</code>（可选项）</dt>
+
+     <dd>
+
+      <p class="para">
+       String to be inserted at the end of the email header.
+      </p>
+      <p class="para">
+       This is typically used to add extra headers (From, Cc, and Bcc).
+       Multiple extra headers should be separated with a CRLF (\r\n).
+      </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        When sending mail, the mail <em class="emphasis">must</em> contain
+        a <code class="literal">From</code> header. This can be set with the 
+        <code class="parameter">additional_headers</code> parameter, or a default
+        can be set in <var class="filename">php.ini</var>.
+       </p>
+       <p class="para">
+        Failing to do this will result in an error
+        message similar to <code class="literal">Warning: mail(): "sendmail_from" not
+        set in php.ini or custom "From:" header missing</code>.
+       </p>
+      <p></p></blockquote>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        If messages are not received, try using a LF (\n) only.
+        Some poor quality Unix mail transfer agents replace LF by CRLF
+        automatically (which leads to doubling CR if CRLF is used).
+        This should be a last resort, as it does not comply with
+        <a class="link external" href="http://www.faqs.org/rfcs/rfc2822">»&nbsp;RFC 2822</a>.
+       </p>
+      <p></p></blockquote>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">additional_parameters</code> (optional)</dt>
+
+     <dd>
+
+      <p class="para">
+       The <code class="parameter">additional_parameters</code> parameter
+       can be used to pass an additional parameter to the program configured
+       to use when sending mail using the <code class="literal">sendmail_path</code>
+       configuration setting. For example, this can be used to set the
+       envelope sender address when using sendmail with the
+       <code class="literal">-f</code> sendmail option.
+      </p>
+      <p class="para">
+       The user that the webserver runs as should be added as a trusted user to the
+       sendmail configuration to prevent a 'X-Warning' header from being added
+       to the message when the envelope sender (-f) is set using this method.
+       For sendmail users, this file is <var class="filename">/etc/mail/trusted-users</var>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mail-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> if the mail was successfully accepted for delivery, <strong><code>false</code></strong> otherwise.
+  </p>
+  <p class="para">
+   It is important to note that just because the mail was accepted for delivery,
+   it does NOT mean the mail will actually reach the intended destination.
+  </p>
+ </div>
+
+
+ 
+
+ <div class="refsect1 changelog" id="refsect1-function.mail-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>
+        现在 <code class="parameter">additional_headers</code> 参数开始支持 <span class="type">array</span>。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.mail-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2954">
+    <p><strong>示例 #1 Sending mail.</strong></p>
+    <div class="example-contents"><p>
+     Using <span class="function"><strong>mail()</strong></span> to send a simple email:
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;The&nbsp;message<br></span><span style="color: rgb(0, 0, 187);">$message&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Line&nbsp;1\nLine&nbsp;2\nLine&nbsp;3"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;In&nbsp;case&nbsp;any&nbsp;of&nbsp;our&nbsp;lines&nbsp;are&nbsp;larger&nbsp;than&nbsp;70&nbsp;characters,&nbsp;we&nbsp;should&nbsp;use&nbsp;wordwrap()<br></span><span style="color: rgb(0, 0, 187);">$message&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">wordwrap</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$message</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">70</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Send<br></span><span style="color: rgb(0, 0, 187);">mail</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'caffinated@example.com'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'My&nbsp;Subject'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$message</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-2955">
+    <p><strong>示例 #2 Sending mail with extra headers.</strong></p>
+    <div class="example-contents"><p>
+     The addition of basic headers, telling the MUA
+     the From and Reply-To addresses:
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$to&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'nobody@example.com'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$subject&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'the&nbsp;subject'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$message&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'hello'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$headers&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'From:&nbsp;webmaster@example.com'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\r\n"&nbsp;</span><span style="color: rgb(0, 119, 0);">.<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Reply-To:&nbsp;webmaster@example.com'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\r\n"&nbsp;</span><span style="color: rgb(0, 119, 0);">.<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'X-Mailer:&nbsp;PHP/'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">phpversion</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">mail</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$to</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$subject</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$message</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$headers</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-2956">
+    <p><strong>示例 #3 Sending mail with an additional command line parameter.</strong></p>
+    <div class="example-contents"><p>
+     The <code class="parameter">additional_parameters</code> parameter
+     can be used to pass an additional parameter to the program configured
+     to use when sending mail using the <code class="literal">sendmail_path</code>.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>mail</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'nobody@example.com'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'the&nbsp;subject'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'the&nbsp;message'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'-fwebmaster@example.com'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-2957">
+    <p><strong>示例 #4 Sending HTML email</strong></p>
+    <div class="example-contents"><p>
+     It is also possible to send HTML email with <span class="function"><strong>mail()</strong></span>.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;multiple&nbsp;recipients<br></span><span style="color: rgb(0, 0, 187);">$to&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'aidan@example.com'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">',&nbsp;'</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;note&nbsp;the&nbsp;comma<br></span><span style="color: rgb(0, 0, 187);">$to&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(221, 0, 0);">'wez@example.com'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;subject<br></span><span style="color: rgb(0, 0, 187);">$subject&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Birthday&nbsp;Reminders&nbsp;for&nbsp;August'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;message<br></span><span style="color: rgb(0, 0, 187);">$message&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'<br>&lt;html&gt;<br>&lt;head&gt;<br>&nbsp;&nbsp;&lt;title&gt;Birthday&nbsp;Reminders&nbsp;for&nbsp;August&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&nbsp;&nbsp;&lt;p&gt;Here&nbsp;are&nbsp;the&nbsp;birthdays&nbsp;upcoming&nbsp;in&nbsp;August!&lt;/p&gt;<br>&nbsp;&nbsp;&lt;table&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Person&lt;/th&gt;&lt;th&gt;Day&lt;/th&gt;&lt;th&gt;Month&lt;/th&gt;&lt;th&gt;Year&lt;/th&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Joe&lt;/td&gt;&lt;td&gt;3rd&lt;/td&gt;&lt;td&gt;August&lt;/td&gt;&lt;td&gt;1970&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Sally&lt;/td&gt;&lt;td&gt;17th&lt;/td&gt;&lt;td&gt;August&lt;/td&gt;&lt;td&gt;1973&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>&nbsp;&nbsp;&lt;/table&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br>'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;To&nbsp;send&nbsp;HTML&nbsp;mail,&nbsp;the&nbsp;Content-type&nbsp;header&nbsp;must&nbsp;be&nbsp;set<br></span><span style="color: rgb(0, 0, 187);">$headers&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'MIME-Version:&nbsp;1.0'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\r\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$headers&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Content-type:&nbsp;text/html;&nbsp;charset=iso-8859-1'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\r\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Additional&nbsp;headers<br></span><span style="color: rgb(0, 0, 187);">$headers&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(221, 0, 0);">'To:&nbsp;Mary&nbsp;&lt;mary@example.com&gt;,&nbsp;Kelly&nbsp;&lt;kelly@example.com&gt;'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\r\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$headers&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(221, 0, 0);">'From:&nbsp;Birthday&nbsp;Reminder&nbsp;&lt;birthday@example.com&gt;'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\r\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$headers&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Cc:&nbsp;birthdayarchive@example.com'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\r\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$headers&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Bcc:&nbsp;birthdaycheck@example.com'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\r\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Mail&nbsp;it<br></span><span style="color: rgb(0, 0, 187);">mail</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$to</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$subject</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$message</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$headers</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>
+     <blockquote class="note"><p><strong class="note">注意</strong>: 
+      <p class="para">
+       If intending to send HTML or otherwise Complex mails, it is recommended
+       to use the PEAR package <a class="link external" href="https://pear.php.net/package/Mail">»&nbsp;PEAR::Mail</a>.
+      </p>
+     <p></p></blockquote>
+    <p></p></div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.mail-notes">    
+  <h3 class="title">注释</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    The Windows implementation of <span class="function"><strong>mail()</strong></span> differs in many
+    ways from the Unix implementation. First, it doesn't use a local binary
+    for composing messages but only operates on direct sockets which means a
+    <code class="literal">MTA</code> is needed listening on a network socket (which
+    can either on the localhost or a remote machine).
+   </p>
+   <p class="para">
+    Second, the custom headers like
+    <code class="literal">From:</code>,
+    <code class="literal">Cc:</code>,
+    <code class="literal">Bcc:</code> and
+    <code class="literal">Date:</code> are
+    <em class="emphasis">not</em> interpreted by the
+    <code class="literal">MTA</code> in the first place, but are parsed by PHP.
+   </p>
+   <p class="para">
+    As such, the <code class="parameter">to</code> parameter should not be an address
+    in the form of "Something &lt;someone@example.com&gt;". The
+    mail command may not parse this properly while talking with 
+    the MTA.
+   </p>
+  <p></p></blockquote>
+  
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    It is worth noting that the <span class="function"><strong>mail()</strong></span> function is not
+    suitable for larger volumes of email in a loop. This function opens
+    and closes an SMTP socket for each email, which is not very efficient.
+   </p>
+   <p class="para">
+    For the sending of large amounts of email, see the
+    <a class="link external" href="https://pear.php.net/package/Mail">»&nbsp;PEAR::Mail</a>, and
+    <a class="link external" href="https://pear.php.net/package/Mail_Queue">»&nbsp;PEAR::Mail_Queue</a> packages.
+   </p>
+  <p></p></blockquote>
+
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    The following RFCs may be useful:
+    <a class="link external" href="http://www.faqs.org/rfcs/rfc1896">»&nbsp;RFC 1896</a>,
+    <a class="link external" href="http://www.faqs.org/rfcs/rfc2045">»&nbsp;RFC 2045</a>,
+    <a class="link external" href="http://www.faqs.org/rfcs/rfc2046">»&nbsp;RFC 2046</a>,
+    <a class="link external" href="http://www.faqs.org/rfcs/rfc2047">»&nbsp;RFC 2047</a>,
+    <a class="link external" href="http://www.faqs.org/rfcs/rfc2048">»&nbsp;RFC 2048</a>,
+    <a class="link external" href="http://www.faqs.org/rfcs/rfc2049">»&nbsp;RFC 2049</a>, and
+    <a class="link external" href="http://www.faqs.org/rfcs/rfc2822">»&nbsp;RFC 2822</a>.
+   </p>
+  <p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mail-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.imap-mail.html" rel="rdfs-seeAlso">imap_mail()</a> - Send an email message</span></li>
+    <li class="member"><a class="link external" href="https://pear.php.net/package/Mail">»&nbsp;PEAR::Mail</a></li>
+    <li class="member"><a class="link external" href="https://pear.php.net/package/Mail_Mime">»&nbsp;PEAR::Mail_Mime</a></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

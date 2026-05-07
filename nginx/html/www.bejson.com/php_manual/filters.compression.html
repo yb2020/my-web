@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>压缩过滤器-BeJSON.com</title><meta name="keywords" content="压缩过滤器"><meta name="description" content="虽然 压缩封装协议 提供了在本地文件系统中 创建 gzip 和 bz2 兼容文件的方法，但不代表可以在网络的流中提供通用压缩的意思， 也不代表可以将一个非压缩的流转换成一个压缩流。对此，压缩过滤器可以在任何时候应用于任何流资源。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="filters.convert.html">« 转换过滤器</a></li>
+      <li style="float: right;"><a href="filters.encryption.html">加密过滤器 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="filters.html">可用过滤器列表</a></li>
+    <li>压缩过滤器</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="filters.compression">
+    <h1 class="title">压缩过滤器</h1>
+
+    <p class="simpara">
+     虽然 <a class="link" href="wrappers.compression.html">压缩封装协议</a> 提供了在本地文件系统中
+     创建 gzip 和 bz2 兼容文件的方法，但不代表可以在网络的流中提供通用压缩的意思，
+     也不代表可以将一个非压缩的流转换成一个压缩流。对此，压缩过滤器可以在任何时候应用于任何流资源。
+    </p>
+
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+      <span class="simpara">
+       压缩过滤器<em class="emphasis">不</em>产生命令行工具如
+       <code class="literal">gzip</code> 的头和尾信息。只是压缩和解压数据流中的有效载荷部分。
+      </span>
+    </p></blockquote>
+
+ <div class="section" id="filters.compression.zlib">
+  <h2 class="title">zlib.deflate 和 zlib.inflate</h2>
+    <p class="simpara">
+    <code class="literal">zlib.deflate</code>（压缩）和 
+    <code class="literal">zlib.inflate</code>（解压）实现了定义与 
+    <a class="link external" href="http://www.faqs.org/rfcs/rfc1951">»&nbsp;RFC 1951</a> 的压缩算法。
+    <code class="literal">deflate</code> 过滤器可以接受以一个关联数组传递的最多三个参数。
+
+    <code class="parameter">level</code>定义了压缩强度（1-9）。
+     数字更高通常会产生更小的载荷，但要消耗更多的处理时间。
+     存在两个特殊压缩等级：0（完全不压缩）和 -1（zlib 内部默认值，目前是 6）。
+
+    <code class="parameter">window</code>是压缩回溯窗口大小，以二的次方表示。
+     更高的值（大到 15 —— 32768 字节）产生更好的压缩效果但消耗更多内存，
+     低的值（低到 9 —— 512 字节）产生产生较差的压缩效果但内存消耗低。
+     目前默认的 <code class="parameter">window</code> 大小是 <strong><code>15</code></strong>。
+
+    <code class="parameter">memory</code>用来指示要分配多少工作内存。
+     合法的数值范围是从 1（最小分配）到 9（最大分配）。
+     内存分配仅影响速度，不会影响生成的载荷的大小。
+    </p>
+
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+      <span class="simpara">
+       因为最常用的参数是压缩等级，也可以提供一个整数值作为此参数（而不用数组）。
+      </span>
+    </p></blockquote>
+
+    <p class="simpara">
+     在激活 <a class="link" href="ref.zlib.html">zlib</a>
+     的前提下可以使用 zlib.* 压缩过滤器。
+    </p>
+
+    <div class="example" id="example-5330">
+      <p><strong>示例 #1 
+      <code class="literal">zlib.deflate</code> 和
+      <code class="literal">zlib.inflate</code></strong></p>
+      <div class="example-contents">
+        <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$params&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'level'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">6</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'window'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">15</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'memory'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">9</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$original_text&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"This&nbsp;is&nbsp;a&nbsp;test.\nThis&nbsp;is&nbsp;only&nbsp;a&nbsp;test.\nThis&nbsp;is&nbsp;not&nbsp;an&nbsp;important&nbsp;string.\n"</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;original&nbsp;text&nbsp;is&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">strlen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$original_text</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"&nbsp;characters&nbsp;long.\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$fp&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fopen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'test.deflated'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'w'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">stream_filter_append</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'zlib.deflate'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">STREAM_FILTER_WRITE</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$params</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">fwrite</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$original_text</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">fclose</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;compressed&nbsp;file&nbsp;is&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">filesize</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'test.deflated'</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"&nbsp;bytes&nbsp;long.\n"</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;original&nbsp;text&nbsp;was:\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;使用&nbsp;readfile&nbsp;和&nbsp;zlib.inflate&nbsp;即时解压缩&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">readfile</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'php://filter/zlib.inflate/resource=test.deflated'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;生成的输出：<br><br>The&nbsp;original&nbsp;text&nbsp;is&nbsp;70&nbsp;characters&nbsp;long.<br>The&nbsp;compressed&nbsp;file&nbsp;is&nbsp;56&nbsp;bytes&nbsp;long.<br>The&nbsp;original&nbsp;text&nbsp;was:<br>This&nbsp;is&nbsp;a&nbsp;test.<br>This&nbsp;is&nbsp;only&nbsp;a&nbsp;test.<br>This&nbsp;is&nbsp;not&nbsp;an&nbsp;important&nbsp;string.<br><br>&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+</div>
+
+    </div>
+
+    <div class="example" id="example-5331">
+      <p><strong>示例 #2 
+      <code class="literal">zlib.deflate</code> 简单参数用法</strong></p>
+      <div class="example-contents">
+        <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$original_text&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"This&nbsp;is&nbsp;a&nbsp;test.\nThis&nbsp;is&nbsp;only&nbsp;a&nbsp;test.\nThis&nbsp;is&nbsp;not&nbsp;an&nbsp;important&nbsp;string.\n"</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;original&nbsp;text&nbsp;is&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">strlen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$original_text</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"&nbsp;characters&nbsp;long.\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$fp&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fopen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'test.deflated'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'w'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;这里的&nbsp;“6”&nbsp;代表压缩级别为&nbsp;6&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">stream_filter_append</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'zlib.deflate'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">STREAM_FILTER_WRITE</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">6</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">fwrite</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$original_text</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">fclose</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;compressed&nbsp;file&nbsp;is&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">filesize</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'test.deflated'</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"&nbsp;bytes&nbsp;long.\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;生成的输出：<br><br>The&nbsp;original&nbsp;text&nbsp;is&nbsp;70&nbsp;characters&nbsp;long.<br>The&nbsp;compressed&nbsp;file&nbsp;is&nbsp;56&nbsp;bytes&nbsp;long.<br><br>&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+</div>
+
+    </div>
+ </div>
+
+ <div class="section" id="filters.compression.bzip2">
+  <h2 class="title">bzip2.compress 和 bzip2.decompress</h2>
+    <p class="simpara">
+    <code class="literal">bzip2.compress</code> 和 
+    <code class="literal">bzip2.decompress</code> 工作的方式与上面讲的 zlib 过滤器相同。
+
+    <code class="literal">bzip2.compress</code> 过滤器接受以一个关联数组给出的最多两个参数：
+
+    <code class="parameter">blocks</code> 是从 1 到 9 的整数值，指定分配多少个 100K 字节的内存块作为工作区。
+
+    <code class="parameter">work</code> 是 0 到 250 的整数值，指定在退回到一个慢一些，
+     但更可靠的算法之前做多少次常规压缩算法的尝试。调整此参数仅影响到速度，
+     压缩输出和内存使用都不受此设置的影响。将此参数设为 0 指示 bzip 库使用内部默认算法。
+
+    <code class="literal">bzip2.decompress</code> 过滤器仅接受一个参数，可以用普通的布尔值传递，
+     或者用一个关联数组中的 <code class="parameter">small</code> 单元传递。
+
+     当 <code class="parameter">small</code> 设为 &amp;true; 值时，指示 bzip 库用最小的内存占用来执行解压缩，
+     代价是速度会慢一些。
+    </p>
+
+    <p class="simpara">
+     在激活 <a class="link" href="ref.bzip2.html">bz2</a> 支持的前提下可以使用 bzip2.* 压缩过滤器。
+    </p>
+
+    <div class="example" id="example-5332">
+      <p><strong>示例 #3 
+       <code class="literal">bzip2.compress</code> 和
+       <code class="literal">bzip2.decompress</code>
+      </strong></p>
+      <div class="example-contents">
+        <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$param&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'blocks'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">9</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'work'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;original&nbsp;file&nbsp;is&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">filesize</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'LICENSE'</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"&nbsp;bytes&nbsp;long.\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$fp&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fopen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'LICENSE.compressed'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'w'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">stream_filter_append</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'bzip2.compress'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">STREAM_FILTER_WRITE</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$param</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">fwrite</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">file_get_contents</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'LICENSE'</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">fclose</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;compressed&nbsp;file&nbsp;is&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">filesize</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'LICENSE.compressed'</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"&nbsp;bytes&nbsp;long.\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;生成的输出：<br><br>The&nbsp;original&nbsp;text&nbsp;is&nbsp;3288&nbsp;characters&nbsp;long.<br>The&nbsp;compressed&nbsp;file&nbsp;is&nbsp;1488&nbsp;bytes&nbsp;long.<br><br>&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+</div>
+
+    </div>
+ </div>
+ </div></div></div></body></html>

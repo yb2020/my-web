@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>获取异常的原始类型-BeJSON.com</title><meta name="keywords" content="获取异常的原始类型"><meta name="description" content="此函数没有参数。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.yar-server-exception.html">« Yar_Server_Exception</a></li>
+      <li style="float: right;"><a href="class.yar-client-exception.html">Yar_Client_Exception »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.yar-server-exception.html">Yar_Server_Exception</a></li>
+    <li>获取异常的原始类型</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="yar-server-exception.gettype">
+ <div class="refnamediv">
+  <h1 class="refname">Yar_Server_Exception::getType</h1>
+  <p class="verinfo">(PECL yar &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">Yar_Server_Exception::getType</span> — <span class="dc-title">获取异常的原始类型</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-yar-server-exception.gettype-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Yar_Server_Exception::getType</strong></span>(): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   当服务端的服务函数抛出异常的时候,
+   客户端本地会响应的抛出一个<span class="classname"><a class="classname" href="class.yar-server-exception.html">Yar_Server_Exception</a></span>异常.
+   有一个属性, 标明了服务端异常的类型. 这个方法就是获取这个异常类型.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-yar-server-exception.gettype-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-yar-server-exception.gettype-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   string
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-yar-server-exception.gettype-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-5168">
+   <p><strong>示例 #1 <span class="function"><strong>Yar_Server_Exception::getType()</strong></span>示例</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+//Server.php<br><span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">Custom_Exception&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;</span><span style="color: rgb(0, 119, 0);">{};<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">API&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">throw_exception</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Custom_Exception</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$service&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Yar_Server</span><span style="color: rgb(0, 119, 0);">(new&nbsp;</span><span style="color: rgb(0, 0, 187);">API</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">$service</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">handle</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;<br></span><br>//Client.php<br><span style="color: rgb(0, 0, 187);">&lt;?php<br>$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Yar_Client</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"http://host/api.php"</span><span style="color: rgb(0, 119, 0);">);<br><br>try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">throw_exception</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"client"</span><span style="color: rgb(0, 119, 0);">);<br>}&nbsp;catch&nbsp;(</span><span style="color: rgb(0, 0, 187);">Yar_Server_Exception&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getType</span><span style="color: rgb(0, 119, 0);">());<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getMessage</span><span style="color: rgb(0, 119, 0);">());<br>}</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>string(16) "Custom_Exception"
+string(6) "client"
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+
+ <div class="refsect1 seealso" id="refsect1-yar-server-exception.gettype-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member">
+  </li></ul>
+ </div>
+
+
+</div></div></div></body></html>

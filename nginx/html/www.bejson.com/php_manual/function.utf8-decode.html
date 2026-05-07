@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Converts a string from UTF-8 to ISO-8859-1, replacing invalid or unrepresentable characters-BeJSON.com</title><meta name="keywords" content="Converts a string from UTF-8 to ISO-8859-1, replacing invalid or unrepresentable characters"><meta name="description" content="Many web pages marked as using the ISO-8859-1 character encoding actually use the similar Windows-1252 encoding, and web browsers will interpret ISO-8">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.ucwords.html">« ucwords</a></li>
+      <li style="float: right;"><a href="function.utf8-encode.html">utf8_encode »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.strings.html">字符串 函数</a></li>
+    <li>Converts a string from UTF-8 to ISO-8859-1, replacing invalid or unrepresentable
+   characters</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.utf8-decode">
+ <div class="refnamediv">
+  <h1 class="refname">utf8_decode</h1> 
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">utf8_decode</span> — <span class="dc-title">
+   Converts a string from UTF-8 to ISO-8859-1, replacing invalid or unrepresentable
+   characters
+  </span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.utf8-decode-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>utf8_decode</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   This function converts the string <code class="parameter">string</code> from the
+   <code class="literal">UTF-8</code> encoding to <code class="literal">ISO-8859-1</code>. Bytes
+   in the string which are not valid <code class="literal">UTF-8</code>, and
+   <code class="literal">UTF-8</code> characters which do not exist in
+   <code class="literal">ISO-8859-1</code> (that is, code points above
+   <code class="literal">U+00FF</code>) are replaced with <code class="literal">?</code>.
+  </p>
+
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    Many web pages marked as using the <code class="literal">ISO-8859-1</code> character
+    encoding actually use the similar <code class="literal">Windows-1252</code> encoding,
+    and web browsers will interpret <code class="literal">ISO-8859-1</code> web pages as
+    <code class="literal">Windows-1252</code>. <code class="literal">Windows-1252</code> features
+    additional printable characters, such as the Euro sign
+    (<code class="literal">€</code>) and curly quotes (<code class="literal">“</code>
+    <code class="literal">”</code>), instead of certain <code class="literal">ISO-8859-1</code>
+    control characters. This function will not convert such
+    <code class="literal">Windows-1252</code> characters correctly. Use a different
+    function if <code class="literal">Windows-1252</code> conversion is required.
+   </p>
+  <p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.utf8-decode-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">string</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A UTF-8 encoded string.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.utf8-decode-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns the ISO-8859-1 translation of <code class="parameter">string</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.utf8-decode-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>
+        This function has been moved from the XML extension to the core of PHP.
+        In previous versions, it was only available if the XML extension was installed.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.utf8-decode-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-4761">
+   <p><strong>示例 #1 Basic examples</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Convert&nbsp;the&nbsp;string&nbsp;'Zoë'&nbsp;from&nbsp;UTF-8&nbsp;to&nbsp;ISO&nbsp;8859-1<br></span><span style="color: rgb(0, 0, 187);">$utf8_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"\x5A\x6F\xC3\xAB"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$iso8859_1_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">utf8_decode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$utf8_string</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">bin2hex</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$iso8859_1_string</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Invalid&nbsp;UTF-8&nbsp;sequences&nbsp;are&nbsp;replaced&nbsp;with&nbsp;'?'<br></span><span style="color: rgb(0, 0, 187);">$invalid_utf8_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"\xC3"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$iso8859_1_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">utf8_decode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$invalid_utf8_string</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$iso8859_1_string</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Characters&nbsp;which&nbsp;don't&nbsp;exist&nbsp;in&nbsp;ISO&nbsp;8859-1,&nbsp;such&nbsp;as<br>//&nbsp;'€'&nbsp;(Euro&nbsp;Sign)&nbsp;are&nbsp;also&nbsp;replaced&nbsp;with&nbsp;'?'<br></span><span style="color: rgb(0, 0, 187);">$utf8_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"\xE2\x82\xAC"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$iso8859_1_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">utf8_decode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$utf8_string</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$iso8859_1_string</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>5a6feb
+string(1) "?"
+string(1) "?"
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.utf8-decode-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.utf8-encode.html" rel="rdfs-seeAlso">utf8_encode()</a> - Converts a string from ISO-8859-1 to UTF-8</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.mb-convert-encoding.html" rel="rdfs-seeAlso">mb_convert_encoding()</a> - 转换字符的编码</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="uconverter.transcode.html" rel="rdfs-seeAlso">UConverter::transcode()</a> - Convert a string from one character encoding to another</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.iconv.html" rel="rdfs-seeAlso">iconv()</a> - 字符串按要求的字符编码来转换</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

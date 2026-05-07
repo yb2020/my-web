@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>基本用法-BeJSON.com</title><meta name="keywords" content="基本用法"><meta name="description" content="基本用法示例 #1 FTP 例程<?php// 建立基础连接$conn_id = ftp_connect($ftp_server); // 使用用户名和口令登录$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass); /">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="ftp.examples.html">« 范例</a></li>
+      <li style="float: right;"><a href="ref.ftp.html">FTP 函数 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ftp.examples.html">范例</a></li>
+    <li>基本用法</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="ftp.examples-basic">
+  <h1 class="title">基本用法</h1>
+  <p class="para">
+   <div class="example" id="example-4156">
+    <p><strong>示例 #1 FTP 例程</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;建立基础连接<br></span><span style="color: rgb(0, 0, 187);">$conn_id&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">ftp_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ftp_server</span><span style="color: rgb(0, 119, 0);">);&nbsp;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;使用用户名和口令登录<br></span><span style="color: rgb(0, 0, 187);">$login_result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">ftp_login</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn_id</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$ftp_user_name</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$ftp_user_pass</span><span style="color: rgb(0, 119, 0);">);&nbsp;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;检查是否成功<br></span><span style="color: rgb(0, 119, 0);">if&nbsp;((!</span><span style="color: rgb(0, 0, 187);">$conn_id</span><span style="color: rgb(0, 119, 0);">)&nbsp;||&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$login_result</span><span style="color: rgb(0, 119, 0);">))&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"FTP&nbsp;connection&nbsp;has&nbsp;failed!"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Attempted&nbsp;to&nbsp;connect&nbsp;to&nbsp;</span><span style="color: rgb(0, 0, 187);">$ftp_server</span><span style="color: rgb(221, 0, 0);">&nbsp;for&nbsp;user&nbsp;</span><span style="color: rgb(0, 0, 187);">$ftp_user_name</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 119, 0);">;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;exit;&nbsp;<br>}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Connected&nbsp;to&nbsp;</span><span style="color: rgb(0, 0, 187);">$ftp_server</span><span style="color: rgb(221, 0, 0);">,&nbsp;for&nbsp;user&nbsp;</span><span style="color: rgb(0, 0, 187);">$ftp_user_name</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;上传文件<br></span><span style="color: rgb(0, 0, 187);">$upload&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">ftp_put</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn_id</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$destination_file</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$source_file</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">FTP_BINARY</span><span style="color: rgb(0, 119, 0);">);&nbsp;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;检查上传结果<br></span><span style="color: rgb(0, 119, 0);">if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$upload</span><span style="color: rgb(0, 119, 0);">)&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"FTP&nbsp;upload&nbsp;has&nbsp;failed!"</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Uploaded&nbsp;</span><span style="color: rgb(0, 0, 187);">$source_file</span><span style="color: rgb(221, 0, 0);">&nbsp;to&nbsp;</span><span style="color: rgb(0, 0, 187);">$ftp_server</span><span style="color: rgb(221, 0, 0);">&nbsp;as&nbsp;</span><span style="color: rgb(0, 0, 187);">$destination_file</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;关闭&nbsp;FTP&nbsp;流<br></span><span style="color: rgb(0, 0, 187);">ftp_close</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn_id</span><span style="color: rgb(0, 119, 0);">);&nbsp;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div></div></div></body></html>

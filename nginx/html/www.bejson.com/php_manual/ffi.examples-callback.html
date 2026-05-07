@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>PHP Callbacks-BeJSON.com</title><meta name="keywords" content="PHP Callbacks"><meta name="description" content="It is possible to assign a PHP closure to a native variable of function pointer type or to pass it as a function argument: ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="ffi.examples-basic.html">« Basic FFI usage</a></li>
+      <li style="float: right;"><a href="ffi.examples-complete.html">A Complete PHP/FFI/preloading Example »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ffi.examples.html">范例</a></li>
+    <li>PHP Callbacks</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="ffi.examples-callback">
+  <h1 class="title">PHP Callbacks</h1>
+  <p class="para">
+   It is possible to assign a PHP closure to a native variable of function pointer type
+   or to pass it as a function argument:
+   <div class="example" id="example-515">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$zend&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">FFI</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">cdef</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"<br>&nbsp;&nbsp;&nbsp;&nbsp;typedef&nbsp;int&nbsp;(*zend_write_func_t)(const&nbsp;char&nbsp;*str,&nbsp;size_t&nbsp;str_length);<br>&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;zend_write_func_t&nbsp;zend_write;<br>"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Hello&nbsp;World&nbsp;1!\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;<br></span><span style="color: rgb(0, 0, 187);">$orig_zend_write&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;clone&nbsp;</span><span style="color: rgb(0, 0, 187);">$zend</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">zend_write</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$zend</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">zend_write&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;function(</span><span style="color: rgb(0, 0, 187);">$str</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$len</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: rgb(0, 0, 187);">$orig_zend_write</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$orig_zend_write</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"{\n\t"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$ret&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$orig_zend_write</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$str</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$len</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$orig_zend_write</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"}\n"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">$ret</span><span style="color: rgb(0, 119, 0);">;<br>};<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Hello&nbsp;World&nbsp;2!\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$zend</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">zend_write&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$orig_zend_write</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Hello&nbsp;World&nbsp;3!\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Hello World 1!
+{
+        Hello World 2!
+}
+Hello World 3!
+</pre></div>
+    </div>
+   </div>
+   Although this works, this functionality is not supported on all libffi platforms, is not efficient
+   and leaks resources by the end of request.
+   <div class="tip"><strong class="tip">小技巧</strong>
+    <p class="simpara">
+     It is therefore recommended to minimize the usage of PHP callbacks.
+    </p>
+   </div>
+  <p></p>
+ </div></div></div></body></html>

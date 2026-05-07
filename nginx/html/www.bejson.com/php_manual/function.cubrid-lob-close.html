@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Close BLOB/CLOB data-BeJSON.com</title><meta name="keywords" content="Close BLOB/CLOB data"><meta name="description" content="cubrid_lob_close(PECL CUBRID >= 8.3.1)cubrid_lob_close — Close BLOB/CLOB data说明cubrid_lob_close(array $lob_identifier_array): boolcubrid_lob_close() i">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.cubrid-is-instance.html">« cubrid_is_instance</a></li>
+      <li style="float: right;"><a href="function.cubrid-lob-export.html">cubrid_lob_export »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.cubrid.html">CUBRID 函数</a></li>
+    <li>Close BLOB/CLOB data</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.cubrid-lob-close">
+ <div class="refnamediv">
+  <h1 class="refname">cubrid_lob_close</h1>
+  <p class="verinfo">(PECL CUBRID &gt;= 8.3.1)</p><p class="refpurpose"><span class="refname">cubrid_lob_close</span> — <span class="dc-title">Close BLOB/CLOB data</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.cubrid-lob-close-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>cubrid_lob_close</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$lob_identifier_array</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>cubrid_lob_close()</strong></span> is used to close all BLOB/CLOB
+   returned from <span class="function"><a class="function" href="function.cubrid-lob-get.html">cubrid_lob_get()</a></span>. 
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.cubrid-lob-close-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+  <dl>
+    
+  <dt>
+<code class="parameter">lob_identifier_array</code></dt>
+
+  <dd>
+<p class="para">LOB identifier array returned from <span class="function"><a class="function" href="function.cubrid-lob-get.html">cubrid_lob_get()</a></span>.</p></dd>
+
+   
+  </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.cubrid-lob-close-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.cubrid-lob-close-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-1127">
+   <p><strong>示例 #1 <span class="function"><strong>cubrid_lob_close()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$conn&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">cubrid_connect&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"localhost"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">33000</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"demodb"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"dba"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">cubrid_execute</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"DROP&nbsp;TABLE&nbsp;if&nbsp;exists&nbsp;doc"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">cubrid_execute</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"CREATE&nbsp;TABLE&nbsp;doc&nbsp;(id&nbsp;INT,&nbsp;doc_content&nbsp;CLOB)"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">cubrid_execute</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">"INSERT&nbsp;INTO&nbsp;doc&nbsp;VALUES&nbsp;(5,'hello,cubrid')"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$lobs&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">cubrid_lob_get</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"SELECT&nbsp;doc_content&nbsp;FROM&nbsp;doc&nbsp;WHERE&nbsp;id=5"</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Doc&nbsp;size:&nbsp;"</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(0, 0, 187);">cubrid_lob_size</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$lobs</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]).</span><span style="color: rgb(221, 0, 0);">"&nbsp;bytes"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">cubrid_lob_export</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$lobs</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">],&nbsp;</span><span style="color: rgb(221, 0, 0);">"doc_5.txt"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">cubrid_lob_close</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$lobs</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">cubrid_disconnect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+
+  <div class="refsect1 seealso" id="refsect1-function.cubrid-lob-close-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.cubrid-lob-get.html" rel="rdfs-seeAlso">cubrid_lob_get()</a> - Get BLOB/CLOB data</span></li>  
+    <li class="member"><span class="function"><a class="function" href="function.cubrid-lob-size.html" rel="rdfs-seeAlso">cubrid_lob_size()</a> - Get BLOB/CLOB data size</span></li>  
+    <li class="member"><span class="function"><a class="function" href="function.cubrid-lob-export.html" rel="rdfs-seeAlso">cubrid_lob_export()</a> - Export BLOB/CLOB data to file</span></li>     
+    <li class="member"><span class="function"><a class="function" href="function.cubrid-lob-send.html" rel="rdfs-seeAlso">cubrid_lob_send()</a> - Read BLOB/CLOB data and send straight to browser</span></li>     
+   </ul>
+  <p></p>
+  </div>
+
+
+</div></div></div></body></html>

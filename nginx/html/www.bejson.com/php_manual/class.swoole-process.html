@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Swoole\Process class-BeJSON.com</title><meta name="keywords" content="The Swoole\Process class"><meta name="description" content="The Swoole\Process class(PECL swoole >= 1.9.0)简介类摘要class Swoole\Process  {/* Constants */const int IPC_NOWAIT = 256;/* 方法 */public static alarm(int $i">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.swoole-mysql-exception.html">« Swoole\MySQL\Exception</a></li>
+      <li style="float: right;"><a href="swoole-process.alarm.html">Swoole\Process::alarm »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.swoole.html">Swoole</a></li>
+    <li>The Swoole\Process class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.swoole-process">
+
+ <h1 class="title">The Swoole\Process class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PECL swoole &gt;= 1.9.0)</p>
+
+
+  <div class="section" id="swoole-process.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+
+   </p>
+  </div>
+
+
+  <div class="section" id="swoole-process.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">Swoole\Process</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.swoole-process.html#swoole-process.constants.ipc-nowait"><var class="varname">IPC_NOWAIT</var></a></var><span class="initializer"> = 256</span>;</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="swoole-process.alarm.html">alarm</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$interval_usec</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.close.html">close</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="swoole-process.daemon.html">daemon</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$nochdir</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$noclose</code><span class="initializer"> = ?</span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.destruct.html">__destruct</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.exec.html">exec</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$exec_file</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$args</code></span>): <span class="type"><span class="type ReturnType">ReturnType</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.exit.html">exit</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$exit_code</code><span class="initializer"> = ?</span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.freequeue.html">freeQueue</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="swoole-process.kill.html">kill</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$pid</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$signal_no</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.name.html">name</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$process_name</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.pop.html">pop</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$maxsize</code><span class="initializer"> = ?</span></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.push.html">push</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.read.html">read</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$maxsize</code><span class="initializer"> = ?</span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="swoole-process.signal.html">signal</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$signal_no</code></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.start.html">start</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.statqueue.html">statQueue</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.usequeue.html">useQueue</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="swoole-process.wait.html">wait</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$blocking</code><span class="initializer"> = ?</span></span>): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-process.write.html">write</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type">int</span></div>
+
+   }</div>
+
+
+  </div>
+  
+
+  <div class="section" id="swoole-process.constants">
+   <h2 class="title">预定义常量</h2>
+   <dl>
+
+    
+     <dt id="swoole-process.constants.ipc-nowait"><strong><code>Swoole\Process::IPC_NOWAIT</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+     </p></dd>
+
+    
+
+   </dl>
+
+  </div>
+
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="swoole-process.alarm.html">Swoole\Process::alarm</a> — High precision timer which triggers signal with fixed interval.</li><li><a href="swoole-process.close.html">Swoole\Process::close</a> — Close the pipe to the child process.</li><li><a href="swoole-process.construct.html">Swoole\Process::__construct</a> — Construct a process.</li><li><a href="swoole-process.daemon.html">Swoole\Process::daemon</a> — Change the process to be a daemon process.</li><li><a href="swoole-process.destruct.html">Swoole\Process::__destruct</a> — Destory the process.</li><li><a href="swoole-process.exec.html">Swoole\Process::exec</a> — Execute system commands.</li><li><a href="swoole-process.exit.html">Swoole\Process::exit</a> — Stop the child processes.</li><li><a href="swoole-process.freequeue.html">Swoole\Process::freeQueue</a> — Destroy the message queue created by swoole_process::useQueue.</li><li><a href="swoole-process.kill.html">Swoole\Process::kill</a> — Send signal to the child process.</li><li><a href="swoole-process.name.html">Swoole\Process::name</a> — Set name of the process.</li><li><a href="swoole-process.pop.html">Swoole\Process::pop</a> — Read and pop data from the message queue.</li><li><a href="swoole-process.push.html">Swoole\Process::push</a> — Write and push data into the message queue.</li><li><a href="swoole-process.read.html">Swoole\Process::read</a> — Read data sending to the process.</li><li><a href="swoole-process.signal.html">Swoole\Process::signal</a> — Send signal to the child processes.</li><li><a href="swoole-process.start.html">Swoole\Process::start</a> — Start the process.</li><li><a href="swoole-process.statqueue.html">Swoole\Process::statQueue</a> — Get the stats of the message queue used as the communication method between processes.</li><li><a href="swoole-process.usequeue.html">Swoole\Process::useQueue</a> — Create a message queue as the communication method between the parent process and child processes.</li><li><a href="swoole-process.wait.html">Swoole\Process::wait</a> — Wait for the events of child processes.</li><li><a href="swoole-process.write.html">Swoole\Process::write</a> — Write data into the pipe and communicate with the parent process or child processes.</li></ul>
+</div>
+</div></div></body></html>

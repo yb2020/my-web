@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Main interface to C code and data-BeJSON.com</title><meta name="keywords" content="Main interface to C code and data"><meta name="description" content="Objects of this class are created by the factory methods FFI::cdef(), FFI::load() or FFI::scope(). Defined C variables are made available as propertie">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="ffi.examples-complete.html">« A Complete PHP/FFI/preloading Example</a></li>
+      <li style="float: right;"><a href="ffi.addr.html">FFI::addr »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.ffi.html">FFI</a></li>
+    <li>Main interface to C code and data</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.ffi">
+
+ <h1 class="title">Main interface to C code and data</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 7 &gt;= 7.4.0, PHP 8)</p>
+
+
+  <div class="section" id="ffi.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    Objects of this class are created by the factory methods <span class="methodname"><a class="methodname" href="ffi.cdef.html">FFI::cdef()</a></span>,
+    <span class="methodname"><a class="methodname" href="ffi.load.html">FFI::load()</a></span> or <span class="methodname"><a class="methodname" href="ffi.scope.html">FFI::scope()</a></span>. Defined C variables
+    are made available as properties of the FFI instance, and defined C functions are made available
+    as methods of the FFI instance. Declared C types can be used to create new C data structures
+    using <span class="methodname"><a class="methodname" href="ffi.new.html">FFI::new()</a></span> and <span class="methodname"><a class="methodname" href="ffi.type.html">FFI::type()</a></span>.
+   </p>
+   <p class="para">
+    FFI definition parsing and shared library loading may take significant time. It is not useful
+    to do it on each HTTP request in a Web environment. However, it is possible to preload FFI definitions
+    and libraries at PHP startup, and to instantiate FFI objects when necessary. Header files
+    may be extended with special <code class="literal">FFI_SCOPE</code> defines (e.g. <code class="code">#define FFI_SCOPE "foo"”"</code>;
+    the default scope is "C") and then loaded by <span class="methodname"><a class="methodname" href="ffi.load.html">FFI::load()</a></span> during preloading.
+    This leads to the creation of a persistent binding, that will be available to all the following
+    requests through <span class="methodname"><a class="methodname" href="ffi.scope.html">FFI::scope()</a></span>.
+    Refer to the <a class="link" href="ffi.examples-complete.html">complete PHP/FFI/preloading example</a>
+    for details.
+   </p>
+   <p class="para">
+    It is possible to preload more than one C header file into the same scope.
+   </p>
+  </div>
+
+
+  <div class="section" id="ffi.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">final</span>
+      <span class="modifier">class</span> <strong class="classname">FFI</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.addr.html">addr</a></span>(<span class="methodparam"><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span> <code class="parameter reference">&amp;$ptr</code></span>): <span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.alignof.html">alignof</a></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span>|<span class="type"><a class="type FFI\CType" href="class.ffi-ctype.html">FFI\CType</a></span></span> <code class="parameter reference">&amp;$ptr</code></span>): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.arraytype.html">arrayType</a></span>(<span class="methodparam"><span class="type"><a class="type FFI\CType" href="class.ffi-ctype.html">FFI\CType</a></span> <code class="parameter">$type</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$dimensions</code></span>): <span class="type"><a class="type FFI\CType" href="class.ffi-ctype.html">FFI\CType</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.cast.html">cast</a></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type FFI\CType" href="class.ffi-ctype.html">FFI\CType</a></span>|<span class="type">string</span></span> <code class="parameter">$type</code></span>, <span class="methodparam"><span class="type"><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span>|<span class="type">int</span>|<span class="type">float</span>|<span class="type">bool</span>|<span class="type">null</span></span> <code class="parameter reference">&amp;$ptr</code></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="ffi.cast.html">cast</a></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type FFI\CType" href="class.ffi-ctype.html">FFI\CType</a></span>|<span class="type">string</span></span> <code class="parameter">$type</code></span>, <span class="methodparam"><span class="type"><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span>|<span class="type">int</span>|<span class="type">float</span>|<span class="type">bool</span>|<span class="type">null</span></span> <code class="parameter reference">&amp;$ptr</code></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.cdef.html">cdef</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code><span class="initializer"> = ""</span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$lib</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a class="type FFI" href="class.ffi.html">FFI</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.free.html">free</a></span>(<span class="methodparam"><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span> <code class="parameter reference">&amp;$ptr</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.isnull.html">isNull</a></span>(<span class="methodparam"><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span> <code class="parameter reference">&amp;$ptr</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.load.html">load</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type FFI" href="class.ffi.html">FFI</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.memcmp.html">memcmp</a></span>(<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span></span> <code class="parameter reference">&amp;$ptr1</code></span>, <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span></span> <code class="parameter reference">&amp;$ptr2</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.memcpy.html">memcpy</a></span>(<span class="methodparam"><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span> <code class="parameter reference">&amp;$to</code></span>, <span class="methodparam"><span class="type"><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span>|<span class="type">string</span></span> <code class="parameter reference">&amp;$from</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.memset.html">memset</a></span>(<span class="methodparam"><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span> <code class="parameter reference">&amp;$ptr</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$value</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.new.html">new</a></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type FFI\CType" href="class.ffi-ctype.html">FFI\CType</a></span>|<span class="type">string</span></span> <code class="parameter">$type</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$owned</code><span class="initializer"> = <strong><code>true</code></strong></span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$persistent</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="ffi.new.html">new</a></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type FFI\CType" href="class.ffi-ctype.html">FFI\CType</a></span>|<span class="type">string</span></span> <code class="parameter">$type</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$owned</code><span class="initializer"> = <strong><code>true</code></strong></span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$persistent</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.scope.html">scope</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type"><a class="type FFI" href="class.ffi.html">FFI</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.sizeof.html">sizeof</a></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span>|<span class="type"><a class="type FFI\CType" href="class.ffi-ctype.html">FFI\CType</a></span></span> <code class="parameter reference">&amp;$ptr</code></span>): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.string.html">string</a></span>(<span class="methodparam"><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span> <code class="parameter reference">&amp;$ptr</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$size</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.type.html">type</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$type</code></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type FFI\CType" href="class.ffi-ctype.html">FFI\CType</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="ffi.type.html">type</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$type</code></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type FFI\CType" href="class.ffi-ctype.html">FFI\CType</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="ffi.typeof.html">typeof</a></span>(<span class="methodparam"><span class="type"><a class="type FFI\CData" href="class.ffi-cdata.html">FFI\CData</a></span> <code class="parameter reference">&amp;$ptr</code></span>): <span class="type"><a class="type FFI\CType" href="class.ffi-ctype.html">FFI\CType</a></span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="ffi.addr.html">FFI::addr</a> — Creates an unmanaged pointer to C data</li><li><a href="ffi.alignof.html">FFI::alignof</a> — Gets the alignment</li><li><a href="ffi.arraytype.html">FFI::arrayType</a> — Dynamically constructs a new C array type</li><li><a href="ffi.cast.html">FFI::cast</a> — Performs a C type cast</li><li><a href="ffi.cdef.html">FFI::cdef</a> — Creates a new FFI object</li><li><a href="ffi.free.html">FFI::free</a> — Releases an unmanaged data structure</li><li><a href="ffi.isnull.html">FFI::isNull</a> — Checks whether a FFI\CData is a null pointer</li><li><a href="ffi.load.html">FFI::load</a> — Loads C declarations from a C header file</li><li><a href="ffi.memcmp.html">FFI::memcmp</a> — Compares memory areas</li><li><a href="ffi.memcpy.html">FFI::memcpy</a> — Copies one memory area to another</li><li><a href="ffi.memset.html">FFI::memset</a> — Fills a memory area</li><li><a href="ffi.new.html">FFI::new</a> — Creates a C data structure</li><li><a href="ffi.scope.html">FFI::scope</a> — Instantiates an FFI object with C declarations parsed during preloading</li><li><a href="ffi.sizeof.html">FFI::sizeof</a> — Gets the size of C data or types</li><li><a href="ffi.string.html">FFI::string</a> — Creates a PHP string from a memory area</li><li><a href="ffi.type.html">FFI::type</a> — Creates an FFI\CType object from a C declaration</li><li><a href="ffi.typeof.html">FFI::typeof</a> — Gets the FFI\CType of FFI\CData</li></ul>
+</div>
+</div></div></body></html>

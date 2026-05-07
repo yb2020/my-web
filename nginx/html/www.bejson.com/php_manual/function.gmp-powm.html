@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Raise number into power with modulo-BeJSON.com</title><meta name="keywords" content="Raise number into power with modulo"><meta name="description" content="gmp_powm(PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8)gmp_powm — Raise number into power with modulo说明gmp_powm(GMP|int|string $num, GMP|int|string $exponent, G">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.gmp-pow.html">« gmp_pow</a></li>
+      <li style="float: right;"><a href="function.gmp-prob-prime.html">gmp_prob_prime »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.gmp.html">GMP 函数</a></li>
+    <li>Raise number into power with modulo</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.gmp-powm">
+ <div class="refnamediv">
+  <h1 class="refname">gmp_powm</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">gmp_powm</span> — <span class="dc-title">Raise number into power with modulo</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.gmp-powm-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>gmp_powm</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type GMP" href="class.gmp.html">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$num</code></span>, <span class="methodparam"><span class="type"><span class="type"><a class="type GMP" href="class.gmp.html">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$exponent</code></span>, <span class="methodparam"><span class="type"><span class="type"><a class="type GMP" href="class.gmp.html">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$modulus</code></span>): <span class="type"><a class="type GMP" href="class.gmp.html">GMP</a></span></div>
+
+  <p class="para rdfs-comment">
+   Calculate (<code class="parameter">num</code> raised into power
+   <code class="parameter">exponent</code>) modulo <code class="parameter">modulus</code>. If
+   <code class="parameter">exponent</code> is negative, result is undefined.
+  </p>
+ </div>
+
+
+
+ <div class="refsect1 parameters" id="refsect1-function.gmp-powm-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">num</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The base number.
+      </p>
+      <p class="para"><span class="classname"><a class="classname" href="class.gmp.html">GMP</a></span> 对象或 <span class="type">int</span> ，或数字<span class="type">string</span>。</p> 
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">exponent</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The positive power to raise the <code class="parameter">num</code>.
+      </p>
+      <p class="para"><span class="classname"><a class="classname" href="class.gmp.html">GMP</a></span> 对象或 <span class="type">int</span> ，或数字<span class="type">string</span>。</p> 
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">modulus</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The modulo.
+      </p>
+      <p class="para"><span class="classname"><a class="classname" href="class.gmp.html">GMP</a></span> 对象或 <span class="type">int</span> ，或数字<span class="type">string</span>。</p> 
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.gmp-powm-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   The new (raised) number, as a GMP number.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.gmp-powm-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3004">
+    <p><strong>示例 #1 <span class="function"><strong>gmp_powm()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$pow1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_powm</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"2"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"31"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"2147483649"</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$pow1</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>2147483648
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

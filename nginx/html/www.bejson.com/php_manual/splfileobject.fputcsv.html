@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Write a field array as a CSV line-BeJSON.com</title><meta name="keywords" content="Write a field array as a CSV line"><meta name="description" content="An array of values. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="splfileobject.fpassthru.html">« SplFileObject::fpassthru</a></li>
+      <li style="float: right;"><a href="splfileobject.fread.html">SplFileObject::fread »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.splfileobject.html">SplFileObject</a></li>
+    <li>Write a field array as a CSV line</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="splfileobject.fputcsv">
+ <div class="refnamediv">
+  <h1 class="refname">SplFileObject::fputcsv</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SplFileObject::fputcsv</span> — <span class="dc-title">Write a field array as a CSV line</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-splfileobject.fputcsv-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>SplFileObject::fputcsv</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$fields</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = ","</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = "\""</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = "\\"</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$eol</code><span class="initializer"> = "\n"</span></span><br>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+   Writes the <code class="parameter">fields</code> array to the file as a CSV line.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-splfileobject.fputcsv-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">fields</code></dt>
+
+    <dd>
+
+     <p class="para">
+      An array of values.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">separator</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The optional <code class="parameter">separator</code> parameter sets the field
+      delimiter (one single-byte character only).
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">enclosure</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The optional <code class="parameter">enclosure</code> parameter sets the field
+       enclosure (one single-byte character only).
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">escape</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The optional <code class="parameter">escape</code> parameter sets the
+      escape character (at most one single-byte character).
+      An empty string (<code class="literal">""</code>) disables the proprietary escape mechanism.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">eol</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The optional <code class="parameter">eol</code> parameter sets
+      a custom End of Line sequence.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    If an <code class="parameter">enclosure</code> character is contained in a field,
+    it will be escaped by doubling it, unless it is immediately preceded by an
+    <code class="parameter">escape</code>.
+   </p>
+  <p></p></blockquote> 
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-splfileobject.fputcsv-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns the length of the written string 或者在失败时返回 <strong><code>false</code></strong>.
+  </p>
+  <p class="para">
+   Returns <strong><code>false</code></strong>, and does not write the CSV line to the file, if the
+   <code class="parameter">separator</code> or <code class="parameter">enclosure</code>
+   parameter is not a single character.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-splfileobject.fputcsv-errors">
+  <h3 class="title">错误／异常</h3>
+  <p class="para">
+   An <strong><code>E_WARNING</code></strong> level error is issued if the
+   <code class="parameter">separator</code> or <code class="parameter">enclosure</code>
+   parameter is not a single character.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-splfileobject.fputcsv-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.1.0</td>
+       <td>
+        The optional <code class="parameter">eol</code> parameter has been added.
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.4.0</td>
+       <td>
+        The <code class="parameter">escape</code> parameter now also accepts an empty
+        string to disable the proprietary escape mechanism.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-splfileobject.fputcsv-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="splfileobject.fputcsv.examples.basic">
+    <p><strong>示例 #1 <span class="methodname"><strong>SplFileObject::fputcsv()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$list&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array&nbsp;(<br>&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'aaa'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'bbb'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'ccc'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'dddd'</span><span style="color: rgb(0, 119, 0);">),<br>&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'123'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'456'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'789'</span><span style="color: rgb(0, 119, 0);">),<br>&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'"aaa"'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'"bbb"'</span><span style="color: rgb(0, 119, 0);">)<br>);<br><br></span><span style="color: rgb(0, 0, 187);">$file&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SplFileObject</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'file.csv'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'w'</span><span style="color: rgb(0, 119, 0);">);<br><br>foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$list&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$fields</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">fputcsv</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fields</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will write the following to <code class="literal">file.csv</code>:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>aaa,bbb,ccc,dddd
+123,456,789
+"""aaa""","""bbb"""
+
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-splfileobject.fputcsv-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.fputcsv.html" rel="rdfs-seeAlso">fputcsv()</a> - 将行格式化为 CSV 并写入文件指针</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="splfileobject.fgetcsv.html" rel="rdfs-seeAlso">SplFileObject::fgetcsv()</a> - Gets line from file and parse as CSV fields</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

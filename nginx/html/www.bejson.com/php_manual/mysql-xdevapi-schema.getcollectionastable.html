@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get collection table object-BeJSON.com</title><meta name="keywords" content="Get collection table object"><meta name="description" content="Name of the collection to instantiate a Table object from. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mysql-xdevapi-schema.getcollection.html">« Schema::getCollection</a></li>
+      <li style="float: right;"><a href="mysql-xdevapi-schema.getcollections.html">Schema::getCollections »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mysql-xdevapi-schema.html">mysql_xdevapi\Schema</a></li>
+    <li>Get collection table object</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="mysql-xdevapi-schema.getcollectionastable">
+ <div class="refnamediv">
+  <h1 class="refname">Schema::getCollectionAsTable</h1>
+  <p class="verinfo">(No version information available, might only be in Git)</p><p class="refpurpose"><span class="refname">Schema::getCollectionAsTable</span> — <span class="dc-title">Get collection table object</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mysql-xdevapi-schema.getcollectionastable-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>mysql_xdevapi\Schema::getCollectionAsTable</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type"><a class="type mysql_xdevapi\Table" href="class.mysql-xdevapi-table.html">mysql_xdevapi\Table</a></span></div>
+
+  <p class="para rdfs-comment">
+   Get a collection, but as a Table object instead of a Collection object.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mysql-xdevapi-schema.getcollectionastable-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">name</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Name of the collection to instantiate a Table object from.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-mysql-xdevapi-schema.getcollectionastable-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   A table object for the collection.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mysql-xdevapi-schema.getcollectionastable-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-1629">
+   <p><strong>示例 #1 Schema::getCollectionAsTable example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$session&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">mysql_xdevapi</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">getSession</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"mysqlx://user:password@localhost"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$session</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">sql</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"DROP&nbsp;DATABASE&nbsp;IF&nbsp;EXISTS&nbsp;addressbook"</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$session</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">sql</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"CREATE&nbsp;DATABASE&nbsp;addressbook"</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$schema&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$session</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getSchema</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"addressbook"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$collect&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$schema</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">createCollection</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"people"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$collect</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">add</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'{"name":&nbsp;"Fred",&nbsp;&nbsp;"age":&nbsp;21,&nbsp;"job":&nbsp;"Construction"}'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$collect</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">add</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'{"name":&nbsp;"Wilma",&nbsp;"age":&nbsp;23,&nbsp;"job":&nbsp;"Teacher"}'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$table&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$schema</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getCollectionAsTable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"people"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$collection&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$schema</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getCollection</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"people"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$table</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$collection</span><span style="color: rgb(0, 119, 0);">);</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>object(mysql_xdevapi\Table)#4 (1) {
+  ["name"]=&gt;
+  string(6) "people"
+}
+
+object(mysql_xdevapi\Collection)#5 (1) {
+  ["name"]=&gt;
+  string(6) "people"
+}
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+</div></div></div></body></html>

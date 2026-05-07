@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>异常-BeJSON.com</title><meta name="keywords" content="异常"><meta name="description" content="PHP 有一个和其他语言相似的异常模型。 在 PHP 里可以 throw 并 catch 异常。 为了捕获潜在的异常，可以将代码包含在 try 块里。 每个 try 都必须有一个相应的 catch 或 finally 代码块。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="language.errors.php7.html">« PHP 7 错误处理</a></li>
+      <li style="float: right;"><a href="language.exceptions.extending.html">扩展（extend） 异常处理类 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="langref.html">语言参考</a></li>
+    <li>异常</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="chapter" id="language.exceptions">
+  <h1>异常</h1>
+<h2>目录</h2><ul class="chunklist chunklist_chapter"><li><a href="language.exceptions.extending.html">扩展（extend） 异常处理类</a></li></ul>
+
+   
+  
+
+  <div class="simplesect" id="language.exceptions.introduction">
+   <p class="para">
+    PHP 有一个和其他语言相似的异常模型。
+    在 PHP 里可以 <a class="link" href="language.exceptions.html"><code class="literal">throw</code></a> 并 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 异常。
+    为了捕获潜在的异常，可以将代码包含在 <a class="link" href="language.exceptions.html"><code class="literal">try</code></a> 块里。
+    每个 <a class="link" href="language.exceptions.html"><code class="literal">try</code></a> 都必须有一个相应的
+    <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 或 <a class="link" href="language.exceptions.html#language.exceptions.finally"><code class="literal">finally</code></a> 代码块。
+   </p>
+   <p class="para">
+    如果抛出异常的函数范围内没有 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 块，异常会沿调用栈“向上冒泡”，
+    直到找到匹配的 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 块。
+    沿途会执行所有遇到的 <a class="link" href="language.exceptions.html#language.exceptions.finally"><code class="literal">finally</code></a> 块。
+    在没有设置全局异常处理程序（exception handler）时，
+    如果调用栈向上都没有遇到匹配的 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a>，程序会抛出 fatal 错误并终止执行。
+   </p>
+   <p class="para">
+   抛出的对象必须是 <span class="classname"><a class="classname" href="class.exception.html">Exception</a></span> 自身或
+   <span class="classname"><a class="classname" href="class.exception.html">Exception</a></span>的子类。
+    抛出其他对象会导致 PHP 报 Fatal 错误。
+   </p>
+   <p class="para">
+   PHP 8.0.0 起，<a class="link" href="language.exceptions.html"><code class="literal">throw</code></a> 关键词现在开始是一个表达式，可用于任何表达式的场景。
+   在此之前，它是一个语句，必须独占一行。
+   </p>
+
+  </div>
+
+  <div class="simplesect" id="language.exceptions.catch">
+   <h3 class="title"><code class="literal">catch</code></h3>
+   <p class="para">
+    <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 定义了处理抛出异常的方式。
+    <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 块定义了它能处理的异常/错误的类型，并可以选择将异常赋值到变量中。
+    （在 PHP 8.0.0 之前的版本中必须要赋值到变量）
+    如果遇到抛出对象的类型匹配了首个 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 块的异常或错误，将会处理该对象。
+   </p>
+   <p class="para">
+    可用多个 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 捕获不同的异常类。
+    正常情况下（<a class="link" href="language.exceptions.html"><code class="literal">try</code></a> 代码块里没有抛出异常）会在最后一个定义的 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 后面继续执行。
+    <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 代码块里也可以 <a class="link" href="language.exceptions.html"><code class="literal">throw</code></a> 或者重新抛出异常。
+    不抛出的话，会在触发的 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 后面继续执行。
+   </p>
+   <p class="para">
+    当 PHP 抛出一个异常时，将不会执行后续的代码语句，并会尝试查找首个匹配的 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 代码块。
+    如果没有用 <span class="function"><a class="function" href="function.set-exception-handler.html">set_exception_handler()</a></span> 设置异常处理函数，
+    PHP 会在异常未被捕获时产生 Fatal 级错误，提示 "<code class="literal">Uncaught Exception ...</code>"
+    消息。
+   </p>
+   <p class="para">
+    从 PHP 7.1.0 起 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 可以用竖线符（<code class="literal">|</code>） 指定多个异常。
+    如果在不同的类层次结构中，不同异常的异常需要用同样的方式处理，就特别适用这种方式。
+   </p>
+   <p class="para">
+    从 PHP 8.0.0 起，捕获的异常不再强制要求指定变量名。
+    <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 代码块会在未指定时继续执行，只是无法访问到抛出的对象。
+   </p>
+  </div>
+
+  <div class="simplesect" id="language.exceptions.finally">
+   <h3 class="title"><code class="literal">finally</code></h3>
+   <p class="para">
+    <a class="link" href="language.exceptions.html#language.exceptions.finally"><code class="literal">finally</code></a> 代码块可以放在 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 之后，或者直接代替它。 
+    无论是否抛出了异常，在 <a class="link" href="language.exceptions.html"><code class="literal">try</code></a> 和 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 之后、在执行后续代码之前，
+    放在 <a class="link" href="language.exceptions.html#language.exceptions.finally"><code class="literal">finally</code></a> 里的代码总是会执行。
+   </p>
+   <p class="para">
+    值得注意的是 <a class="link" href="language.exceptions.html#language.exceptions.finally"><code class="literal">finally</code></a> 和 <a class="link" href="function.return.html"><code class="literal">return</code></a> 语句之间存在相互影响。
+    如果在 <a class="link" href="language.exceptions.html"><code class="literal">try</code></a> 或 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 里遇到 <a class="link" href="function.return.html"><code class="literal">return</code></a>，仍然会执行 <a class="link" href="language.exceptions.html#language.exceptions.finally"><code class="literal">finally</code></a> 里的代码。
+    而且，遇到 <a class="link" href="function.return.html"><code class="literal">return</code></a> 语句时，会先执行 <a class="link" href="language.exceptions.html#language.exceptions.finally"><code class="literal">finally</code></a> 再返回结果。
+    此外，如果 <a class="link" href="language.exceptions.html#language.exceptions.finally"><code class="literal">finally</code></a> 里也包含了 <a class="link" href="function.return.html"><code class="literal">return</code></a> 语句，将返回 <a class="link" href="language.exceptions.html#language.exceptions.finally"><code class="literal">finally</code></a> 里的值。
+   </p>
+  </div>
+
+ <div class="simplesect" id="language.exceptions.exception-handler">
+  <h3 class="title"><code class="literal">全局异常处理器</code></h3>
+  <p class="para">
+   当允许异常冒泡到全局范围时，它可以被全局异常处理器捕获到。
+   <span class="function"><a class="function" href="function.set-exception-handler.html">set_exception_handler()</a></span> 
+   可以设置一个函数，在没有调用其他块时代替 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a>。
+   在本质上，实现的效果等同于整个程序被 <a class="link" href="language.exceptions.html"><code class="literal">try</code></a>-<a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a> 包裹起来，
+   而该函数就是 <a class="link" href="language.exceptions.html#language.exceptions.catch"><code class="literal">catch</code></a>。
+  </p>
+ </div>
+
+ <div class="simplesect" id="language.exceptions.notes">
+   <h3 class="title">注释</h3>
+
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <p class="para">
+     PHP 内部函数主要使用 <a class="link" href="errorfunc.configuration.html#ini.error-reporting">错误报告</a>，
+     只有一些现代 <a class="link" href="language.oop5.html">面向对象</a> 的扩展使用异常。
+     不过，错误很容易用 <a class="link" href="class.errorexception.html">ErrorException</a>
+     转化成异常。
+     然而，这个技术方案仅适用非 Fatal 级的错误。
+    </p>
+    <div class="example" id="example-322">
+     <p><strong>示例 #3 将错误报告转成异常</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">exceptions_error_handler</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$severity</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$message</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$filename</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$lineno</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">ErrorException</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$message</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$severity</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$filename</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$lineno</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br></span><span style="color: rgb(0, 0, 187);">set_error_handler</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'exceptions_error_handler'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   <p></p></blockquote>
+   <div class="tip"><strong class="tip">小技巧</strong>
+    <p class="para">
+     <a class="link" href="intro.spl.html">PHP 标准库（SPL）</a> 
+     提供了大量的 <a class="link" href="spl.exceptions.html">标准内置异常</a>。
+    </p>
+   </div>
+  </div>
+
+  <div class="simplesect" id="language.exceptions.examples">
+   <h3 class="title">范例</h3>
+
+   <div class="example" id="example-323">
+    <p><strong>示例 #4 抛出一个异常</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">inverse</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$x</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$x</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Exception</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'Division&nbsp;by&nbsp;zero.'</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">/</span><span style="color: rgb(0, 0, 187);">$x</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br>try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">inverse</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">inverse</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;catch&nbsp;(</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Caught&nbsp;exception:&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getMessage</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;继续执行<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Hello&nbsp;World\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>0.2
+Caught exception: Division by zero.
+Hello World
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-324">
+    <p><strong>示例 #5 带 <a class="link" href="language.exceptions.html#language.exceptions.finally"><code class="literal">finally</code></a> 块的异常处理</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">inverse</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$x</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$x</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Exception</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'Division&nbsp;by&nbsp;zero.'</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">/</span><span style="color: rgb(0, 0, 187);">$x</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br>try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">inverse</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;catch&nbsp;(</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Caught&nbsp;exception:&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getMessage</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;finally&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"First&nbsp;finally.\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br>try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">inverse</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;catch&nbsp;(</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Caught&nbsp;exception:&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getMessage</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;finally&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Second&nbsp;finally.\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;继续执行<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Hello&nbsp;World\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>0.2
+First finally.
+Caught exception: Division by zero.
+Second finally.
+Hello World
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-325">
+    <p><strong>示例 #6 <a class="link" href="language.exceptions.html#language.exceptions.finally"><code class="literal">finally</code></a> 和 <a class="link" href="function.return.html"><code class="literal">return</code></a> 相互之间的影响</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Exception</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'foo'</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(221, 0, 0);">'catch'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;finally&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(221, 0, 0);">'finally'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>finally
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-326">
+    <p><strong>示例 #7 异常嵌套</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">MyException&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;</span><span style="color: rgb(0, 119, 0);">{&nbsp;}<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">Test&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">testing</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MyException</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'foo!'</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(</span><span style="color: rgb(0, 0, 187);">MyException&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;重新&nbsp;throw<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">throw&nbsp;</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getMessage</span><span style="color: rgb(0, 119, 0);">());<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$foo&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Test</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$foo</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">testing</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>string(4) "foo!"
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-327">
+    <p><strong>示例 #8 多个异常的捕获处理</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">MyException&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;</span><span style="color: rgb(0, 119, 0);">{&nbsp;}<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">MyOtherException&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;</span><span style="color: rgb(0, 119, 0);">{&nbsp;}<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">Test&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">testing</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MyException</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(</span><span style="color: rgb(0, 0, 187);">MyException&nbsp;</span><span style="color: rgb(0, 119, 0);">|&nbsp;</span><span style="color: rgb(0, 0, 187);">MyOtherException&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">get_class</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$foo&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Test</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$foo</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">testing</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>string(11) "MyException"
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-328">
+    <p><strong>示例 #9 忽略捕获的变量</strong></p>
+    <div class="example-contents"><p>仅仅在 PHP 8.0.0 及以上版本有效</p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">SpecificException&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;</span><span style="color: rgb(0, 119, 0);">{}<br><br>function&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SpecificException</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'Oopsie'</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br>try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">();<br>}&nbsp;catch&nbsp;(</span><span style="color: rgb(0, 0, 187);">SpecificException</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: rgb(221, 0, 0);">"A&nbsp;SpecificException&nbsp;was&nbsp;thrown,&nbsp;but&nbsp;we&nbsp;don't&nbsp;care&nbsp;about&nbsp;the&nbsp;details."</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-329">
+    <p><strong>示例 #10 以表达式的形式抛出</strong></p>
+    <div class="example-contents"><p>仅仅在 PHP 8.0.0 及以上版本有效</p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">SpecificException&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;</span><span style="color: rgb(0, 119, 0);">{}<br><br>function&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">do_something_risky</span><span style="color: rgb(0, 119, 0);">()&nbsp;or&nbsp;throw&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Exception</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'It&nbsp;did&nbsp;not&nbsp;work'</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br>try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">();<br>}&nbsp;catch&nbsp;(</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getMessage</span><span style="color: rgb(0, 119, 0);">();<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </div>
+
+ </div>
+</div></div></body></html>

@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Checks if a node is an element node-BeJSON.com</title><meta name="keywords" content="Checks if a node is an element node"><meta name="description" content="此函数没有参数。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="tidynode.iscomment.html">« tidyNode::isComment</a></li>
+      <li style="float: right;"><a href="tidynode.isjste.html">tidyNode::isJste »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.tidynode.html">tidyNode</a></li>
+    <li>Checks if a node is an element node</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="tidynode.ishtml">
+ <div class="refnamediv">
+  <h1 class="refname">tidyNode::isHtml</h1>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">tidyNode::isHtml</span> — <span class="dc-title">Checks if a node is an element node</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-tidynode.ishtml-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>tidyNode::isHtml</strong></span>(): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Tells if the node is an element node, but not the root node of the document.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-tidynode.ishtml-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-tidynode.ishtml-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> if the node is an element node, but not the root node of the document, <strong><code>false</code></strong> otherwise.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-tidynode.ishtml-changelog">
+  <h3 class="title">更新日志</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>版本</th>
+      <th>说明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.3.24, 7.4.12</td>
+      <td>
+       This function has been fixed to have reasonable behavior. Previously,
+       almost any node was reported as being an HTML node.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-tidynode.ishtml-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3711">
+    <p><strong>示例 #1 Extract HTML code from a mixed HTML document</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$html&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;&lt;&lt;&lt;&nbsp;HTML<br></span><span style="color: rgb(221, 0, 0);">&lt;html&gt;&lt;head&gt;<br>&lt;?php&nbsp;echo&nbsp;'&lt;title&gt;title&lt;/title&gt;';&nbsp;?&gt;<br>&lt;#&nbsp;<br>&nbsp;&nbsp;/*&nbsp;JSTE&nbsp;code&nbsp;*/<br>&nbsp;&nbsp;alert('Hello&nbsp;World');&nbsp;<br>#&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;?php<br>&nbsp;&nbsp;//&nbsp;PHP&nbsp;code<br>&nbsp;&nbsp;echo&nbsp;'hello&nbsp;world!';<br>?&gt;<br><br>&lt;%<br>&nbsp;&nbsp;/*&nbsp;ASP&nbsp;code&nbsp;*/<br>&nbsp;&nbsp;response.write("Hello&nbsp;World!")<br>%&gt;<br><br>&lt;!--&nbsp;Comments&nbsp;--&gt;<br>Hello&nbsp;World<br>&lt;/body&gt;&lt;/html&gt;<br>Outside&nbsp;HTML<br></span><span style="color: rgb(0, 119, 0);">HTML;<br><br><br></span><span style="color: rgb(0, 0, 187);">$tidy&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">tidy_parse_string</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$html</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$num&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">get_nodes</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$tidy</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">html</span><span style="color: rgb(0, 119, 0);">());<br><br>function&nbsp;</span><span style="color: rgb(0, 0, 187);">get_nodes</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$node</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;check&nbsp;if&nbsp;the&nbsp;current&nbsp;node&nbsp;is&nbsp;of&nbsp;requested&nbsp;type<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">if(</span><span style="color: rgb(0, 0, 187);">$node</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isHtml</span><span style="color: rgb(0, 119, 0);">())&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n\n#&nbsp;html&nbsp;node&nbsp;#"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;++</span><span style="color: rgb(0, 0, 187);">$GLOBALS</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'num'</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$node</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">value</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;check&nbsp;if&nbsp;the&nbsp;current&nbsp;node&nbsp;has&nbsp;childrens<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">if(</span><span style="color: rgb(0, 0, 187);">$node</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">hasChildren</span><span style="color: rgb(0, 119, 0);">())&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: rgb(0, 0, 187);">$node</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">child&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$child</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">get_nodes</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$child</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre># html node #1
+&lt;html&gt;
+&lt;head&gt;
+&lt;?php echo '&lt;title&gt;title&lt;/title&gt;'; ?&gt;&lt;#
+  /* JSTE code */
+  alert('Hello World');
+#&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;?php
+  // PHP code
+  echo 'hello world!';
+?&gt;&lt;%
+  /* ASP code */
+  response.write("Hello World!")
+%&gt;&lt;!-- Comments --&gt;
+Hello WorldOutside HTML
+&lt;/body&gt;
+&lt;/html&gt;
+
+# html node #2
+&lt;head&gt;
+&lt;?php echo '&lt;title&gt;title&lt;/title&gt;'; ?&gt;&lt;#
+  /* JSTE code */
+  alert('Hello World');
+#&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+
+
+# html node #3
+&lt;title&gt;&lt;/title&gt;
+
+
+# html node #4
+&lt;body&gt;
+&lt;?php
+  // PHP code
+  echo 'hello world!';
+?&gt;&lt;%
+  /* ASP code */
+  response.write("Hello World!")
+%&gt;&lt;!-- Comments --&gt;
+Hello WorldOutside HTML
+&lt;/body&gt;
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

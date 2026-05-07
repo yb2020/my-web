@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Installing the MongoDB PHP Driver with PECL-BeJSON.com</title><meta name="keywords" content="Installing the MongoDB PHP Driver with PECL"><meta name="description" content="安装此 PECL 扩展相关的信息可在手册中标题为 PECL 扩展的安装章节中找到。更多信息如新的发行版本、下载、源文件、 维护人员信息及变更日志等，都在此处： » https://pecl.php.net/package/mongodb ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mongodb.installation.html">« 安装</a></li>
+      <li style="float: right;"><a href="mongodb.installation.homebrew.html">Installing the MongoDB PHP Driver on macOS with Homebrew »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="mongodb.installation.html">安装</a></li>
+    <li>Installing the MongoDB PHP Driver with PECL</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="mongodb.installation.pecl">
+  <h1 class="title">Installing the MongoDB PHP Driver with PECL</h1>
+
+  <p class="para">
+   安装此 PECL 扩展相关的信息可在手册中标题为
+<a class="link" href="install.pecl.html">PECL
+扩展的安装</a>章节中找到。更多信息如新的发行版本、下载、源文件、
+维护人员信息及变更日志等，都在此处：
+   <a class="link external" href="https://pecl.php.net/package/mongodb">»&nbsp;https://pecl.php.net/package/mongodb</a>
+  </p>
+
+  <p class="para">
+   Linux, Unix, and macOS users may run the following command to install the
+   driver:
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">$ sudo pecl install mongodb</pre>
+</div>
+   </div>
+
+  <p></p>
+
+  <p class="para">
+   If your system has multiple version of PHP installed (e.g. macOS default,
+   Homebrew, <a class="link external" href="https://www.apachefriends.org/">»&nbsp;XAMPP</a>), note that each
+   version of PHP has its own <a class="link" href="install.pecl.html">pecl</a>
+   command and <var class="filename">php.ini</var> file.
+  </p>
+
+  <p class="para">
+   Installing the driver via PECL will use bundled versions of
+   <a class="link external" href="https://github.com/mongodb/mongo-c-driver/tree/master/src/libbson">»&nbsp;libbson</a> and
+   <a class="link external" href="https://github.com/mongodb/mongo-c-driver">»&nbsp;libmongoc</a> and attempt to
+   automatically configure them.
+  </p>
+
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    If the build process fails to find an SSL library, check that the
+    development packages (e.g. <code class="literal">libssl-dev</code>) and
+    <a class="link external" href="https://en.wikipedia.org/wiki/Pkg-config">»&nbsp;pkg-config</a> are both
+    installed. If that does not resolve the problem, consider using the
+    <a class="link" href="mongodb.installation.manual.html">manual installation</a>
+    process.
+   </span>
+  </p></blockquote>
+
+  <p class="para">
+   Finally, add the following line to your <var class="filename">php.ini</var> file:
+   <div class="example-contents">
+<div class="inicode"><pre class="inicode">extension=mongodb.so</pre>
+</div>
+   </div>
+
+  <p></p>
+ </div></div></div></body></html>

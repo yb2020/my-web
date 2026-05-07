@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>token --- 与Python解析树一起使用的常量-BeJSON.com</title><meta name="keywords" content="token --- 与Python解析树一起使用的常量"><meta name="description" content="symtable ——访问编译器的符号表"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="keyword --- 检验Python关键字" href="keyword.html" rel="next">
+    <link title="symtable ——访问编译器的符号表" href="symtable.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/token.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="symtable.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">symtable</span></code> ——访问编译器的符号表</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="keyword.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">keyword</span></code> --- 检验Python关键字</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="keyword --- 检验Python关键字" accesskey="N" href="keyword.html">下一页</a> |</li>
+        <li class="right">
+          <a title="symtable ——访问编译器的符号表" accesskey="P" href="symtable.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="language.html">Python 语言服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">token</span></code> --- 与Python解析树一起使用的常量</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-token">
+<span id="token-constants-used-with-python-parse-trees"></span><h1><a title="token: Constants representing terminal nodes of the parse tree." class="reference internal" href="#module-token"><code class="xref py py-mod docutils literal notranslate"><span class="pre">token</span></code></a> --- 与Python解析树一起使用的常量<a title="永久链接至标题" class="headerlink" href="#module-token">¶</a></h1>
+<p><strong>源码：</strong> <a class="reference external" href="">Lib/token.py</a></p>
+<hr class="docutils">
+<p>This module provides constants which represent the numeric values of leaf nodes
+of the parse tree (terminal tokens).  Refer to the file <code class="file docutils literal notranslate"><span class="pre">Grammar/Tokens</span></code>
+in the Python distribution for the definitions of the names in the context of
+the language grammar.  The specific numeric values which the names map to may
+change between Python versions.</p>
+<p>该模块还提供从数字代码到名称和一些函数的映射。 这些函数镜像了 Python C 头文件中的定义。</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="token.tok_name">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">tok_name</span></span><a title="永久链接至目标" class="headerlink" href="#token.tok_name">¶</a></dt>
+<dd><p>将此模块中定义的常量的数值映射回名称字符串的字典，允许生成更加人类可读的解析树表示。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="token.ISTERMINAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">ISTERMINAL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#token.ISTERMINAL">¶</a></dt>
+<dd><p>对终端标记值返回 <code class="docutils literal notranslate"><span class="pre">True</span></code>。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="token.ISNONTERMINAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">ISNONTERMINAL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#token.ISNONTERMINAL">¶</a></dt>
+<dd><p>对非终端标记值返回 <code class="docutils literal notranslate"><span class="pre">True</span></code>。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="token.ISEOF">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">ISEOF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#token.ISEOF">¶</a></dt>
+<dd><p>如果 <em>x</em> 是表示输入结束的标记则返回 <code class="docutils literal notranslate"><span class="pre">True</span></code>。</p>
+</dd></dl>
+
+<p>标记常量是：</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="token.ENDMARKER">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">ENDMARKER</span></span><a title="永久链接至目标" class="headerlink" href="#token.ENDMARKER">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.NAME">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">NAME</span></span><a title="永久链接至目标" class="headerlink" href="#token.NAME">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.NUMBER">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">NUMBER</span></span><a title="永久链接至目标" class="headerlink" href="#token.NUMBER">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.STRING">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">STRING</span></span><a title="永久链接至目标" class="headerlink" href="#token.STRING">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.NEWLINE">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">NEWLINE</span></span><a title="永久链接至目标" class="headerlink" href="#token.NEWLINE">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.INDENT">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">INDENT</span></span><a title="永久链接至目标" class="headerlink" href="#token.INDENT">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.DEDENT">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">DEDENT</span></span><a title="永久链接至目标" class="headerlink" href="#token.DEDENT">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.LPAR">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">LPAR</span></span><a title="永久链接至目标" class="headerlink" href="#token.LPAR">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">"("</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.RPAR">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">RPAR</span></span><a title="永久链接至目标" class="headerlink" href="#token.RPAR">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">")"</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.LSQB">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">LSQB</span></span><a title="永久链接至目标" class="headerlink" href="#token.LSQB">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">"["</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.RSQB">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">RSQB</span></span><a title="永久链接至目标" class="headerlink" href="#token.RSQB">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">"]"</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.COLON">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">COLON</span></span><a title="永久链接至目标" class="headerlink" href="#token.COLON">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">":"</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.COMMA">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">COMMA</span></span><a title="永久链接至目标" class="headerlink" href="#token.COMMA">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">","</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.SEMI">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">SEMI</span></span><a title="永久链接至目标" class="headerlink" href="#token.SEMI">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">";"</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.PLUS">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">PLUS</span></span><a title="永久链接至目标" class="headerlink" href="#token.PLUS">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">"+"</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.MINUS">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">MINUS</span></span><a title="永久链接至目标" class="headerlink" href="#token.MINUS">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">"-"</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.STAR">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">STAR</span></span><a title="永久链接至目标" class="headerlink" href="#token.STAR">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">"*"</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.SLASH">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">SLASH</span></span><a title="永久链接至目标" class="headerlink" href="#token.SLASH">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">"/"</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.VBAR">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">VBAR</span></span><a title="永久链接至目标" class="headerlink" href="#token.VBAR">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">"|"</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.AMPER">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">AMPER</span></span><a title="永久链接至目标" class="headerlink" href="#token.AMPER">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">"&amp;"</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.LESS">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">LESS</span></span><a title="永久链接至目标" class="headerlink" href="#token.LESS">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">"&lt;"</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.GREATER">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">GREATER</span></span><a title="永久链接至目标" class="headerlink" href="#token.GREATER">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">"&gt;"</span></code> 的权标值。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.EQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">EQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.EQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.DOT">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">DOT</span></span><a title="永久链接至目标" class="headerlink" href="#token.DOT">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"."</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.PERCENT">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">PERCENT</span></span><a title="永久链接至目标" class="headerlink" href="#token.PERCENT">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"%"</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.LBRACE">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">LBRACE</span></span><a title="永久链接至目标" class="headerlink" href="#token.LBRACE">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"{"</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.RBRACE">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">RBRACE</span></span><a title="永久链接至目标" class="headerlink" href="#token.RBRACE">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"}"</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.EQEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">EQEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.EQEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"=="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.NOTEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">NOTEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.NOTEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"!="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.LESSEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">LESSEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.LESSEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"&lt;="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.GREATEREQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">GREATEREQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.GREATEREQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"&gt;="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.TILDE">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">TILDE</span></span><a title="永久链接至目标" class="headerlink" href="#token.TILDE">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"~"</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.CIRCUMFLEX">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">CIRCUMFLEX</span></span><a title="永久链接至目标" class="headerlink" href="#token.CIRCUMFLEX">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"^"</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.LEFTSHIFT">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">LEFTSHIFT</span></span><a title="永久链接至目标" class="headerlink" href="#token.LEFTSHIFT">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"&lt;&lt;"</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.RIGHTSHIFT">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">RIGHTSHIFT</span></span><a title="永久链接至目标" class="headerlink" href="#token.RIGHTSHIFT">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"&gt;&gt;"</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.DOUBLESTAR">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">DOUBLESTAR</span></span><a title="永久链接至目标" class="headerlink" href="#token.DOUBLESTAR">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"**"</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.PLUSEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">PLUSEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.PLUSEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"+="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.MINEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">MINEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.MINEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"-="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.STAREQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">STAREQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.STAREQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"*="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.SLASHEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">SLASHEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.SLASHEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"/="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.PERCENTEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">PERCENTEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.PERCENTEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"%="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.AMPEREQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">AMPEREQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.AMPEREQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"&amp;="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.VBAREQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">VBAREQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.VBAREQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"|="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.CIRCUMFLEXEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">CIRCUMFLEXEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.CIRCUMFLEXEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"^="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.LEFTSHIFTEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">LEFTSHIFTEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.LEFTSHIFTEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"&lt;&lt;="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.RIGHTSHIFTEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">RIGHTSHIFTEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.RIGHTSHIFTEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"&gt;&gt;="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.DOUBLESTAREQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">DOUBLESTAREQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.DOUBLESTAREQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"**="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.DOUBLESLASH">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">DOUBLESLASH</span></span><a title="永久链接至目标" class="headerlink" href="#token.DOUBLESLASH">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"//"</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.DOUBLESLASHEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">DOUBLESLASHEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.DOUBLESLASHEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"//="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.AT">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">AT</span></span><a title="永久链接至目标" class="headerlink" href="#token.AT">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"@"</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.ATEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">ATEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.ATEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"@="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.RARROW">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">RARROW</span></span><a title="永久链接至目标" class="headerlink" href="#token.RARROW">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"-&gt;"</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.ELLIPSIS">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">ELLIPSIS</span></span><a title="永久链接至目标" class="headerlink" href="#token.ELLIPSIS">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">"..."</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.COLONEQUAL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">COLONEQUAL</span></span><a title="永久链接至目标" class="headerlink" href="#token.COLONEQUAL">¶</a></dt>
+<dd><p>Token value for <code class="docutils literal notranslate"><span class="pre">":="</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.OP">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">OP</span></span><a title="永久链接至目标" class="headerlink" href="#token.OP">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.AWAIT">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">AWAIT</span></span><a title="永久链接至目标" class="headerlink" href="#token.AWAIT">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.ASYNC">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">ASYNC</span></span><a title="永久链接至目标" class="headerlink" href="#token.ASYNC">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.TYPE_IGNORE">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">TYPE_IGNORE</span></span><a title="永久链接至目标" class="headerlink" href="#token.TYPE_IGNORE">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.TYPE_COMMENT">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">TYPE_COMMENT</span></span><a title="永久链接至目标" class="headerlink" href="#token.TYPE_COMMENT">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.SOFT_KEYWORD">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">SOFT_KEYWORD</span></span><a title="永久链接至目标" class="headerlink" href="#token.SOFT_KEYWORD">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.ERRORTOKEN">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">ERRORTOKEN</span></span><a title="永久链接至目标" class="headerlink" href="#token.ERRORTOKEN">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.N_TOKENS">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">N_TOKENS</span></span><a title="永久链接至目标" class="headerlink" href="#token.N_TOKENS">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.NT_OFFSET">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">NT_OFFSET</span></span><a title="永久链接至目标" class="headerlink" href="#token.NT_OFFSET">¶</a></dt>
+<dd></dd></dl>
+
+<p>C 标记生成器不使用以下标记类型值，但 <a title="tokenize: Lexical scanner for Python source code." class="reference internal" href="tokenize.html#module-tokenize"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code></a> 模块需要这些标记类型值。</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="token.COMMENT">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">COMMENT</span></span><a title="永久链接至目标" class="headerlink" href="#token.COMMENT">¶</a></dt>
+<dd><p>标记值用于表示注释。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.NL">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">NL</span></span><a title="永久链接至目标" class="headerlink" href="#token.NL">¶</a></dt>
+<dd><p>标记值用于表示非终止换行符。 <a title="token.NEWLINE" class="reference internal" href="#token.NEWLINE"><code class="xref py py-data docutils literal notranslate"><span class="pre">NEWLINE</span></code></a> 标记表示 Python 代码逻辑行的结束；当在多条物理线路上继续执行逻辑代码行时，会生成 <code class="docutils literal notranslate"><span class="pre">NL</span></code> 标记。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="token.ENCODING">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">ENCODING</span></span><a title="永久链接至目标" class="headerlink" href="#token.ENCODING">¶</a></dt>
+<dd><p>指示用于将源字节解码为文本的编码的标记值。 <a title="tokenize.tokenize" class="reference internal" href="tokenize.html#tokenize.tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize.tokenize()</span></code></a> 返回的第一个标记将始终是一个 <code class="docutils literal notranslate"><span class="pre">ENCODING</span></code> 标记。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">token.</span></span><span class="sig-name descname"><span class="pre">TYPE_COMMENT</span></span></dt>
+<dd><p>Token value indicating that a type comment was recognized.  Such
+tokens are only produced when <a title="ast.parse" class="reference internal" href="ast.html#ast.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">ast.parse()</span></code></a> is invoked with
+<code class="docutils literal notranslate"><span class="pre">type_comments=True</span></code>.</p>
+</dd></dl>
+
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.5 版更改: </span>补充 <a title="token.AWAIT" class="reference internal" href="#token.AWAIT"><code class="xref py py-data docutils literal notranslate"><span class="pre">AWAIT</span></code></a> 和 <a title="token.ASYNC" class="reference internal" href="#token.ASYNC"><code class="xref py py-data docutils literal notranslate"><span class="pre">ASYNC</span></code></a> 标记。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.7 版更改: </span>补充 <a title="token.COMMENT" class="reference internal" href="#token.COMMENT"><code class="xref py py-data docutils literal notranslate"><span class="pre">COMMENT</span></code></a> 、 <a title="token.NL" class="reference internal" href="#token.NL"><code class="xref py py-data docutils literal notranslate"><span class="pre">NL</span></code></a> 和 <a title="token.ENCODING" class="reference internal" href="#token.ENCODING"><code class="xref py py-data docutils literal notranslate"><span class="pre">ENCODING</span></code></a> 标记。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.7 版更改: </span>移除 <a title="token.AWAIT" class="reference internal" href="#token.AWAIT"><code class="xref py py-data docutils literal notranslate"><span class="pre">AWAIT</span></code></a> 和 <a title="token.ASYNC" class="reference internal" href="#token.ASYNC"><code class="xref py py-data docutils literal notranslate"><span class="pre">ASYNC</span></code></a> 标记。 "async" 和 "await" 现在被标记为 <a title="token.NAME" class="reference internal" href="#token.NAME"><code class="xref py py-data docutils literal notranslate"><span class="pre">NAME</span></code></a> 标记。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.8 版更改: </span>Added <a title="token.TYPE_COMMENT" class="reference internal" href="#token.TYPE_COMMENT"><code class="xref py py-data docutils literal notranslate"><span class="pre">TYPE_COMMENT</span></code></a>, <a title="token.TYPE_IGNORE" class="reference internal" href="#token.TYPE_IGNORE"><code class="xref py py-data docutils literal notranslate"><span class="pre">TYPE_IGNORE</span></code></a>, <a title="token.COLONEQUAL" class="reference internal" href="#token.COLONEQUAL"><code class="xref py py-data docutils literal notranslate"><span class="pre">COLONEQUAL</span></code></a>.
+Added <a title="token.AWAIT" class="reference internal" href="#token.AWAIT"><code class="xref py py-data docutils literal notranslate"><span class="pre">AWAIT</span></code></a> and <a title="token.ASYNC" class="reference internal" href="#token.ASYNC"><code class="xref py py-data docutils literal notranslate"><span class="pre">ASYNC</span></code></a> tokens back (they're needed
+to support parsing older Python versions for <a title="ast.parse" class="reference internal" href="ast.html#ast.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">ast.parse()</span></code></a> with
+<code class="docutils literal notranslate"><span class="pre">feature_version</span></code> set to 6 or lower).</p>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="symtable.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">symtable</span></code> ——访问编译器的符号表</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="keyword.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">keyword</span></code> --- 检验Python关键字</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="keyword --- 检验Python关键字" href="keyword.html">下一页</a> |</li>
+        <li class="right">
+          <a title="symtable ——访问编译器的符号表" href="symtable.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="language.html">Python 语言服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">token</span></code> --- 与Python解析树一起使用的常量</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

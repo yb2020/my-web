@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>使用远程文件-BeJSON.com</title><meta name="keywords" content="使用远程文件"><meta name="description" content="只要在 php.ini 文件中激活了 allow_url_fopen 选项，就可以在大多数需要用文件名作为参数的函数中使用 HTTP 和 FTP 的 URL 来代替文件名。同时，也可以在 include、include_once、require 及 require_once 语句中使用 URL。PH">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="features.file-upload.errors.seealso.html">« 参见</a></li>
+      <li style="float: right;"><a href="features.connection-handling.html">连接处理 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="features.html">特点</a></li>
+    <li>使用远程文件</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="chapter" id="features.remote-files">
+ <h1>使用远程文件</h1>
+
+
+ <p class="para">
+  只要在 <var class="filename">php.ini</var> 文件中激活了 <strong class="option unknown">allow_url_fopen</strong>
+  选项，就可以在大多数需要用文件名作为参数的函数中使用
+  <abbr title="Hypertext Transfer Protocol">HTTP</abbr> 和 <abbr title="File Transfer Protocol">FTP</abbr> 的 URL
+  来代替文件名。同时，也可以在
+  <span class="function"><a class="function" href="function.include.html">include</a></span>、<span class="function"><a class="function" href="function.include-once.html">include_once</a></span>、<span class="function"><a class="function" href="function.require.html">require</a></span> 及
+  <span class="function"><a class="function" href="function.require-once.html">require_once</a></span> 语句中使用 URL。PHP
+  所支持协议的更多信息参见<a class="xref" href="wrappers.html">支持的协议和封装协议</a>。
+ </p>
+
+ <blockquote class="note"><p><strong class="note">注意</strong>: 
+  <p class="para">
+   要在 PHP 4.0.3 及其更早的版本中使用 URL 封装协议，需要在编译时用
+  <strong class="option unknown">--enable-url-fopen-wrapper</strong> 参数来配置 PHP。
+  </p>
+ <p></p></blockquote>
+
+ <blockquote class="note"><p><strong class="note">注意</strong>: 
+  <p class="para">
+   Windows 版本的 PHP 4.3
+   版之前不支持以下函数的远程访问：<span class="function"><a class="function" href="function.include.html">include</a></span>，<span class="function"><a class="function" href="function.include-once.html">include_once</a></span>，<span class="function"><a class="function" href="function.require.html">require</a></span>，<span class="function"><a class="function" href="function.require-once.html">require_once</a></span>
+   以及<a class="xref" href="ref.image.html">GD 和图像处理 函数</a>中的 imagecreatefromXXX 函数。
+  </p>
+ <p></p></blockquote>
+
+ <p class="para">
+  例如，可以用以下范例来打开远程 web
+  服务器上的文件，解析需要的输出数据，然后将这些数据用在数据库的检索中，或者简单地以和自己网站其它页面相同的风格输出其内容。
+ </p>
+
+ <p class="para">
+  <div class="example" id="example-443">
+   <p><strong>示例 #1 获取远程文件的标题</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$file&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fopen&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"http://www.example.com/"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"r"</span><span style="color: rgb(0, 119, 0);">);<br>if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;p&gt;Unable&nbsp;to&nbsp;open&nbsp;remote&nbsp;file.\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>}<br>while&nbsp;(!</span><span style="color: rgb(0, 0, 187);">feof&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$line&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fgets&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1024</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;This&nbsp;only&nbsp;works&nbsp;if&nbsp;the&nbsp;title&nbsp;and&nbsp;its&nbsp;tags&nbsp;are&nbsp;on&nbsp;one&nbsp;line&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">if&nbsp;(</span><span style="color: rgb(0, 0, 187);">eregi&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"&lt;title&gt;(.*)&lt;/title&gt;"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$line</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$title&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">];<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br></span><span style="color: rgb(0, 0, 187);">fclose</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ <p></p>
+
+ <p class="para">
+  如果有合法的访问权限，以一个用户的身份和某 FTP
+  服务器建立了链接，还可以向该 FTP
+  服务器端的文件进行写操作。仅能用该方法来创建新的文件；如果尝试覆盖已经存在的文件，<span class="function"><a class="function" href="function.fopen.html">fopen()</a></span>
+  函数的调用将会失败。
+ </p>
+
+ <p class="para">
+  要以“anonymous”以外的用户名连接服务器，需要指明用户名（可能还有密码），例如“ftp://user:password@ftp.example.com/path/to/file”（也可以在通过需要
+  Basic 认证的 HTTP 协议访问远程文件时使用相同的语法）。
+ </p>
+
+ <p class="para">
+  <div class="example" id="example-444">
+   <p><strong>示例 #2 将数据保存到远程服务器</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$file&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fopen&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"ftp://ftp.example.com/incoming/outputfile"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"w"</span><span style="color: rgb(0, 119, 0);">);<br>if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;p&gt;Unable&nbsp;to&nbsp;open&nbsp;remote&nbsp;file&nbsp;for&nbsp;writing.\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>}<br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;Write&nbsp;the&nbsp;data&nbsp;here.&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">fwrite&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$_SERVER</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'HTTP_USER_AGENT'</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">fclose&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ <p></p>
+
+ <blockquote class="note"><p><strong class="note">注意</strong>: 
+  <p class="para">
+   或许可以从以上范例中得到启发，用该技术来存储远程日志文件。但是正如以上提到的，在用
+    <span class="function"><a class="function" href="function.fopen.html">fopen()</a></span> 方式打开的 URL
+    中，仅能对新文件进行写操作。如果远程文件已经存在则
+    <span class="function"><a class="function" href="function.fopen.html">fopen()</a></span> 函数的操作将会失败。要做类似于分布式日志的事，可以参考
+    <span class="function"><a class="function" href="function.syslog.html">syslog()</a></span> 函数。
+  </p>
+ <p></p></blockquote>
+
+</div>
+</div></div></body></html>

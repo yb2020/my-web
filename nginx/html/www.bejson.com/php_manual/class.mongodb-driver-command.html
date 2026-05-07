@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoDB\Driver\Command class-BeJSON.com</title><meta name="keywords" content="The MongoDB\Driver\Command class"><meta name="description" content="The MongoDB\Driver\Command class is a value object that represents a database command. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mongodb-driver-manager.startsession.html">« MongoDB\Driver\Manager::startSession</a></li>
+      <li style="float: right;"><a href="mongodb-driver-command.construct.html">MongoDB\Driver\Command::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mongodb.html">MongoDB\Driver</a></li>
+    <li>The MongoDB\Driver\Command class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.mongodb-driver-command">
+
+ <h1 class="title">The MongoDB\Driver\Command class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(mongodb &gt;=1.0.0)</p>
+
+
+  <div class="section" id="mongodb-driver-command.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    The <span class="classname"><strong class="classname">MongoDB\Driver\Command</strong></span> class is a value object
+    that represents a database command.
+   </p>
+   <p class="para">
+    To provide <q class="quote">Command Helpers</q> the <span class="classname"><strong class="classname">MongoDB\Driver\Command</strong></span> object should be composed.
+   </p>
+  </div>
+
+
+  <div class="section" id="mongodb-driver-command.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="modifier">final</span>
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">MongoDB\Driver\Command</strong>
+     </span>
+     {</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="mongodb-driver-command.construct.html">__construct</a></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$document</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$commandOptions</code><span class="initializer"> = ?</span></span>)</div>
+
+   }</div>
+
+
+  </div>
+
+  <div class="section" id="mongodb-driver-command.examples">
+   <h2 class="title">范例</h2>
+
+   <div class="example" id="example-1286">
+    <p><strong>示例 #1 Composing <span class="classname"><strong class="classname">MongoDB\Driver\Command</strong></span> to provide a helper to create collections</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">CreateCollection&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;</span><span style="color: rgb(0, 0, 187);">$cmd&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">__construct</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$collectionName</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">cmd</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"create"</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;(string)</span><span style="color: rgb(0, 0, 187);">$collectionName</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">setCappedCollection</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$maxBytes</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$maxDocuments&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">false</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">cmd</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"capped"</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">cmd</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"size"</span><span style="color: rgb(0, 119, 0);">]&nbsp;&nbsp;&nbsp;=&nbsp;(int)</span><span style="color: rgb(0, 0, 187);">$maxBytes</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$maxDocuments</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">cmd</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"max"</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;(int)</span><span style="color: rgb(0, 0, 187);">$maxDocuments</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">usePowerOf2Sizes</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$bool</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$bool</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">cmd</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"flags"</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">cmd</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"flags"</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">setFlags</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$flags</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">cmd</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"flags"</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;(int)</span><span style="color: rgb(0, 0, 187);">$flags</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">getCommand</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Command</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">cmd</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">getCollectionName</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">cmd</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"create"</span><span style="color: rgb(0, 119, 0);">];<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br><br></span><span style="color: rgb(0, 0, 187);">$manager&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Manager</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"mongodb://localhost:27017"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$createCollection&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">CreateCollection</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"cappedCollection"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$createCollection</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setCappedCollection</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">64&nbsp;</span><span style="color: rgb(0, 119, 0);">*&nbsp;</span><span style="color: rgb(0, 0, 187);">1024</span><span style="color: rgb(0, 119, 0);">);<br><br>try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$command&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$createCollection</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getCommand</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$cursor&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$manager</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">executeCommand</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"databaseName"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$command</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$response&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$cursor</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">toArray</span><span style="color: rgb(0, 119, 0);">()[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">];<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$response</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$collstats&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[</span><span style="color: rgb(221, 0, 0);">"collstats"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$createCollection</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getCollectionName</span><span style="color: rgb(0, 119, 0);">()];<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$cursor&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$manager</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">executeCommand</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"databaseName"</span><span style="color: rgb(0, 119, 0);">,&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Command</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$collstats</span><span style="color: rgb(0, 119, 0);">));<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$response&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$cursor</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">toArray</span><span style="color: rgb(0, 119, 0);">()[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">];<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$response</span><span style="color: rgb(0, 119, 0);">);<br>}&nbsp;catch(</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getMessage</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <p class="para">以上例程会输出：</p>
+   <div class="example-contents screen">
+<div class="cdata"><pre>object(MongoDB\Driver\Command)#3 (1) {
+  ["command"]=&gt;
+  array(3) {
+    ["create"]=&gt;
+    string(16) "cappedCollection"
+    ["capped"]=&gt;
+    bool(true)
+    ["size"]=&gt;
+    int(65536)
+  }
+}
+array(1) {
+  ["ok"]=&gt;
+  float(1)
+}
+array(16) {
+  ["ns"]=&gt;
+  string(29) "databaseName.cappedCollection"
+  ["count"]=&gt;
+  int(0)
+  ["size"]=&gt;
+  int(0)
+  ["numExtents"]=&gt;
+  int(1)
+  ["storageSize"]=&gt;
+  int(65536)
+  ["nindexes"]=&gt;
+  int(1)
+  ["lastExtentSize"]=&gt;
+  float(65536)
+  ["paddingFactor"]=&gt;
+  float(1)
+  ["paddingFactorNote"]=&gt;
+  string(101) "paddingFactor is unused and unmaintained in 2.8. It remains hard coded to 1.0 for compatibility only."
+  ["userFlags"]=&gt;
+  int(0)
+  ["capped"]=&gt;
+  bool(true)
+  ["max"]=&gt;
+  int(9223372036854775807)
+  ["maxSize"]=&gt;
+  int(65536)
+  ["totalIndexSize"]=&gt;
+  int(8176)
+  ["indexSizes"]=&gt;
+  object(stdClass)#4 (1) {
+    ["_id_"]=&gt;
+    int(8176)
+  }
+  ["ok"]=&gt;
+  float(1)
+}
+</pre></div>
+   </div>
+  </div>
+
+ </div>
+
+ 
+ 
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-driver-command.construct.html">MongoDB\Driver\Command::__construct</a> — Create a new Command</li></ul>
+</div>
+</div></div></body></html>

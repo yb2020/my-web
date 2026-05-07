@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>创建 CURLFile 对象-BeJSON.com</title><meta name="keywords" content="创建 CURLFile 对象"><meta name="description" content="面向对象风格">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.curlfile.html">« CURLFile</a></li>
+      <li style="float: right;"><a href="curlfile.getfilename.html">CURLFile::getFilename »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.curlfile.html">CURLFile</a></li>
+    <li>创建 CURLFile 对象</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="curlfile.construct">
+ <div class="refnamediv">
+  <h1 class="refname">CURLFile::__construct</h1>
+  <h1 class="refname">curl_file_create</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">CURLFile::__construct</span> -- <span class="refname">curl_file_create</span> — <span class="dc-title">创建 CURLFile 对象</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-curlfile.construct-description">
+  <h3 class="title">说明</h3>
+  <p class="para">面向对象风格</p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>CURLFile::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$mimetype</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$postname</code><span class="initializer"> = ?</span></span>)</div>
+
+  <p class="para rdfs-comment">过程化风格</p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>curl_file_create</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$mimetype</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$postname</code><span class="initializer"> = ?</span></span>): <span class="type"><a class="type CURLFile" href="class.curlfile.html">CURLFile</a></span></div>
+
+  <p class="para rdfs-comment">
+   创建 <span class="classname"><a class="classname" href="class.curlfile.html">CURLFile</a></span> 对象，使用 <strong><code>CURLOPT_POSTFIELDS</code></strong> 选项上传文件。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-curlfile.construct-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">filename</code></dt>
+
+    <dd>
+
+     <p class="para">
+      被上传文件的 路径。
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">mimetype</code></dt>
+
+    <dd>
+
+     <p class="para">
+      被上传文件的 MIME 类型。
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">postname</code></dt>
+
+    <dd>
+
+     <p class="para">
+      上传数据里面的文件名。
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-curlfile.construct-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   返回 <span class="classname"><a class="classname" href="class.curlfile.html">CURLFile</a></span> 对象。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-curlfile.construct-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-4113">
+   <p><strong>示例 #1 <span class="function"><strong>CURLFile::__construct()</strong></span> 示例</strong></p>
+   <div class="example-contents"><p>面向对象风格</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;http://example.com/upload.php:<br>&lt;?php&nbsp;var_dump($_FILES);&nbsp;?&gt;<br>*/<br><br>//&nbsp;Create&nbsp;a&nbsp;cURL&nbsp;handle<br></span><span style="color: rgb(0, 0, 187);">$ch&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">curl_init</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'http://example.com/upload.php'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Create&nbsp;a&nbsp;CURLFile&nbsp;object<br></span><span style="color: rgb(0, 0, 187);">$cfile&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">CURLFile</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cats.jpg'</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">'image/jpeg'</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">'test_name'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Assign&nbsp;POST&nbsp;data<br></span><span style="color: rgb(0, 0, 187);">$data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'test_file'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$cfile</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">curl_setopt</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ch</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">CURLOPT_POST</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">curl_setopt</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ch</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">CURLOPT_POSTFIELDS</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Execute&nbsp;the&nbsp;handle<br></span><span style="color: rgb(0, 0, 187);">curl_exec</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ch</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>过程化风格</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;http://example.com/upload.php:<br>&lt;?php&nbsp;var_dump($_FILES);&nbsp;?&gt;<br>*/<br><br>//&nbsp;Create&nbsp;a&nbsp;cURL&nbsp;handle<br></span><span style="color: rgb(0, 0, 187);">$ch&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">curl_init</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'http://example.com/upload.php'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Create&nbsp;a&nbsp;CURLFile&nbsp;object<br></span><span style="color: rgb(0, 0, 187);">$cfile&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">curl_file_create</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cats.jpg'</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">'image/jpeg'</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">'test_name'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Assign&nbsp;POST&nbsp;data<br></span><span style="color: rgb(0, 0, 187);">$data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'test_file'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$cfile</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">curl_setopt</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ch</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">CURLOPT_POST</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">curl_setopt</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ch</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">CURLOPT_POSTFIELDS</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Execute&nbsp;the&nbsp;handle<br></span><span style="color: rgb(0, 0, 187);">curl_exec</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ch</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>array(1) {
+  ["test_file"]=&gt;
+  array(5) {
+    ["name"]=&gt;
+    string(9) "test_name"
+    ["type"]=&gt;
+    string(10) "image/jpeg"
+    ["tmp_name"]=&gt;
+    string(14) "/tmp/phpPC9Kbx"
+    ["error"]=&gt;
+    int(0)
+    ["size"]=&gt;
+    int(46334)
+  }
+}
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-curlfile.construct-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.curl-setopt.html" rel="rdfs-seeAlso">curl_setopt()</a> - 设置 cURL 传输选项</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

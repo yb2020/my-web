@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>注册一个用 PHP 类实现的 URL 封装协议-BeJSON.com</title><meta name="keywords" content="注册一个用 PHP 类实现的 URL 封装协议"><meta name="description" content="stream_wrapper_register(PHP 4 >= 4.3.2, PHP 5, PHP 7, PHP 8)stream_wrapper_register — 注册一个用 PHP 类实现的 URL 封装协议说明stream_wrapper_register(string $protoco">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.stream-supports-lock.html">« stream_supports_lock</a></li>
+      <li style="float: right;"><a href="function.stream-wrapper-restore.html">stream_wrapper_restore »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.stream.html">Stream 函数</a></li>
+    <li>注册一个用 PHP 类实现的 URL 封装协议</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.stream-wrapper-register">
+   <div class="refnamediv">
+    <h1 class="refname">stream_wrapper_register</h1>
+    <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">stream_wrapper_register</span> — <span class="dc-title">注册一个用 PHP 类实现的 URL 封装协议</span></p>
+
+   </div>
+   <div class="refsect1 description" id="refsect1-function.stream-wrapper-register-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+     <span class="methodname"><strong>stream_wrapper_register</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$protocol</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>): <span class="type">bool</span></div>
+
+    <p class="para rdfs-comment">
+     允许用户实现自定义的协议处理器和流，用于所有其它的文件系统函数中（例如
+     <span class="function"><a class="function" href="function.fopen.html">fopen()</a></span>，<span class="function"><a class="function" href="function.fread.html">fread()</a></span> 等）。
+    </p>
+    </div>
+
+   
+   <div class="refsect1 parameters" id="refsect1-function.stream-wrapper-register-parameters">
+  <h3 class="title">参数</h3>
+    <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">protocol</code></dt>
+
+     <dd>
+
+      <p class="para">
+       待注册的封装的名字。有效的协议名字必须只包含字母数字、点（.）、加号（+）、连字符（-）。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">class</code></dt>
+
+     <dd>
+
+      <p class="para">
+       实现了 <code class="parameter">protocol</code> 的类名。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       如果 <code class="parameter">protocol</code>
+       是一个 URL 协议，应该设置为
+       <strong><code>STREAM_IS_URL</code></strong>。默认为 0，本地流。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+   
+   
+ <div class="refsect1 returnvalues" id="refsect1-function.stream-wrapper-register-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+  <p class="para">
+    当 <code class="parameter">protocol</code> 已经有处理者时，<span class="function"><strong>stream_wrapper_register()</strong></span> 将返回<strong><code>false</code></strong> 
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.stream-wrapper-register-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3688">
+    <p><strong>示例 #1 如何注册一个 stream wrapper</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$existed&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">in_array</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"var"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">stream_get_wrappers</span><span style="color: rgb(0, 119, 0);">());<br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$existed</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">stream_wrapper_unregister</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"var"</span><span style="color: rgb(0, 119, 0);">);<br>}<br></span><span style="color: rgb(0, 0, 187);">stream_wrapper_register</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"var"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"VariableStream"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$myvar&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">""</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$fp&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fopen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"var://myvar"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"r+"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">fwrite</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"line1\n"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">fwrite</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"line2\n"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">fwrite</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"line3\n"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">rewind</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">);<br>while&nbsp;(!</span><span style="color: rgb(0, 0, 187);">feof</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">fgets</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">);<br>}<br></span><span style="color: rgb(0, 0, 187);">fclose</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fp</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$myvar</span><span style="color: rgb(0, 119, 0);">);<br><br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$existed</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">stream_wrapper_restore</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"var"</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>line1
+line2
+line3
+string(18) "line1
+line2
+line3
+"
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.stream-wrapper-register-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member">The <a class="xref" href="class.streamwrapper.html">streamWrapper</a> prototype class</li>
+    <li class="member"><a class="xref" href="stream.streamwrapper.example-1.html">Example class registered as stream wrapper</a></li>
+    <li class="member"><span class="function"><a class="function" href="function.stream-wrapper-unregister.html" rel="rdfs-seeAlso">stream_wrapper_unregister()</a> - Unregister a URL wrapper</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.stream-wrapper-restore.html" rel="rdfs-seeAlso">stream_wrapper_restore()</a> - Restores a previously unregistered built-in wrapper</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.stream-get-wrappers.html" rel="rdfs-seeAlso">stream_get_wrappers()</a> - 获取已注册的流类型</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+
+</div></div></div></body></html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>1. 概述-BeJSON.com</title><meta name="keywords" content="1. 概述"><meta name="description" content="在词法定义中 (如上述示例)，还额外使用了两个约定: 由三个点号分隔的两个字符字面值表示在指定 (闭) 区间范围内的任意单个 ASCII 字符。由尖括号 (<...>) 括起来的内容是对于所定义符号的非正式描述；即可以在必要时用来说明 '控制字符' 的意图。"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="2. 词法分析" href="lexical_analysis.html" rel="next">
+    <link title="Python 语言参考手册" href="index.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/reference/introduction.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">1. 概述</a><ul>
+<li><a class="reference internal" href="#alternate-implementations">1.1. 其他实现</a></li>
+<li><a class="reference internal" href="#notation">1.2. 标注</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="index.html">Python 语言参考手册</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="lexical_analysis.html"><span class="section-number">2. </span>词法分析</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="2. 词法分析" accesskey="N" href="lexical_analysis.html">下一页</a> |</li>
+        <li class="right">
+          <a title="Python 语言参考手册" accesskey="P" href="index.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a accesskey="U" href="index.html">Python 语言参考手册</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>概述</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="introduction">
+<span id="id1"></span><h1><span class="section-number">1. </span>概述<a title="永久链接至标题" class="headerlink" href="#introduction">¶</a></h1>
+<p>本手册仅描述 Python 编程语言，不宜当作教程。</p>
+<p>我希望尽可能地保证内容精确无误，但还是选择使用自然词句进行描述，正式的规格定义仅用于句法和词法解析。这样应该能使文档对于普通人来说更易理解，但也可能导致一些歧义。因此，如果你是来自火星并且想凭借这份文档把 Python 重新实现一遍，也许有时需要自行猜测，实际上最终大概会得到一个十分不同的语言。而在另一方面，如果你正在使用 Python 并且想了解有关该语言特定领域的精确规则，你应该能够在这里找到它们。如果你希望查看对该语言更正式的定义，也许你可以花些时间自己写上一份 --- 或者发明一台克隆机器 :-)</p>
+<p>在语言参考文档里加入过多的实现细节是很危险的 --- 具体实现可能发生改变，对同一语言的其他实现可能使用不同的方式。而在另一方面，CPython 是得到广泛使用的 Python 实现 (然而其他一些实现的拥护者也在增加)，其中的特殊细节有时也值得一提，特别是当其实现方式导致额外的限制时。因此，你会发现在正文里不时会跳出来一些简短的 "实现注释"。</p>
+<p>每种 Python 实现都带有一些内置和标准的模块。相关的文档可参见 <a class="reference internal" href="../library/index.html#library-index"><span class="std std-ref">Python 标准库</span></a> 索引。少数内置模块也会在此提及，如果它们同语言描述存在明显的关联。</p>
+<section id="alternate-implementations">
+<span id="implementations"></span><h2><span class="section-number">1.1. </span>其他实现<a title="永久链接至标题" class="headerlink" href="#alternate-implementations">¶</a></h2>
+<p>虽然官方 Python 实现差不多得到最广泛的欢迎，但也有一些其他实现对特定领域的用户来说更具吸引力。</p>
+<p>知名的实现包括:</p>
+<dl class="simple">
+<dt>CPython</dt><dd><p>这是最早出现并持续维护的 Python 实现，以 C 语言编写。新的语言特性通常在此率先添加。</p>
+</dd>
+<dt>Jython</dt><dd><p>以 Java 语言编写的 Python 实现。此实现可以作为 Java 应用的一个脚本语言，或者可以用来创建需要 Java 类库支持的应用。想了解更多信息可访问 <a class="reference external" href="">Jython 网站</a>。</p>
+</dd>
+<dt>Python for .NET</dt><dd><p>此实现实际上使用了 CPython 实现，但是属于 .NET 托管应用并且可以引入 .NET 类库。它的创造者是 Brian Lloyd。想了解详情可访问 <a class="reference external" href="">Python for .NET 主页</a>。</p>
+</dd>
+<dt>IronPython</dt><dd><p>另一个 .NET 的 Python 实现，与 Python.NET 不同点在于它是生成 IL 的完全 Python 实现，并且将 Python 代码直接编译为 .NET 程序集。它的创造者就是当初创造 Jython 的 Jim Hugunin。想了解详情可访问 <a class="reference external" href="">IronPython 网站</a>。</p>
+</dd>
+<dt>PyPy</dt><dd><p>完全使用 Python 语言编写的 Python 实现。它支持多个其他实现所没有的高级特性，例如非栈式支持和 JIT 编译器等。此项目的目标之一是通过允许方便地修改解释器 (因为它是用 Python 编写的)，鼓励该对语言本身进行试验。想了解详情可访问 <a class="reference external" href="">PyPy 项目主页</a>。</p>
+</dd>
+</dl>
+<p>以上这些实现都可能在某些方面与此参考文档手册的描述有所差异，或是引入了超出标准 Python 文档范围的特定信息。请参考它们各自的专门文档，以确定你正在使用的这个实现有哪些你需要了解的东西。</p>
+</section>
+<section id="notation">
+<span id="id2"></span><h2><span class="section-number">1.2. </span>标注<a title="永久链接至标题" class="headerlink" href="#notation">¶</a></h2>
+<p id="index-0">句法和词法解析的描述采用经过改进的 BNF 语法标注。这包含以下定义样式:</p>
+<pre><strong id="grammar-token-notation-name"><span id="grammar-token-name"></span>name     </strong> ::=  <a class="reference internal" href="#grammar-token-notation-lc_letter"><code class="xref docutils literal notranslate"><span class="pre">lc_letter</span></code></a> (<a class="reference internal" href="#grammar-token-notation-lc_letter"><code class="xref docutils literal notranslate"><span class="pre">lc_letter</span></code></a> | "_")*
+<strong id="grammar-token-notation-lc_letter"><span id="grammar-token-lc-letter"></span>lc_letter</strong> ::=  "a"..."z"
+</pre>
+<p>第一行表示 <code class="docutils literal notranslate"><span class="pre">name</span></code> 是 <code class="docutils literal notranslate"><span class="pre">lc_letter</span></code> 之后跟零个或多个 <code class="docutils literal notranslate"><span class="pre">lc_letter</span></code> 和下划线。而 <code class="docutils literal notranslate"><span class="pre">lc_letter</span></code> 则是任意单个 <code class="docutils literal notranslate"><span class="pre">'a'</span></code> 至 <code class="docutils literal notranslate"><span class="pre">'z'</span></code> 字符。(实际上在本文档中始终采用此规则来定义词法和语法规则的名称。)</p>
+<p>每条规则的开头是一个名称 (即该规则所定义的名称) 加上 <code class="docutils literal notranslate"><span class="pre">::=</span></code>。 竖线 (<code class="docutils literal notranslate"><span class="pre">|</span></code>) 被用来分隔可选项，它是此标注中绑定程度最低的操作符。 星号 (<code class="docutils literal notranslate"><span class="pre">*</span></code>) 表示前一项的零次或多次重复，类似地，加号 (<code class="docutils literal notranslate"><span class="pre">+</span></code>) 表示一次或多次重复，而由方括号括起的内容 (<code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>) 表示出现零次或一次 (或者说，这部分内容是可选的)。 <code class="docutils literal notranslate"><span class="pre">*</span></code> 和 <code class="docutils literal notranslate"><span class="pre">+</span></code> 操作符的绑定是最紧密的，圆括号用于分组。 字符串字面值包含在引号内。 空格的作用仅限于分隔形符。 每条规则通常为一行，有许多个可选项的规则可能会以竖线为界分为多行。</p>
+<p id="index-1">在词法定义中 (如上述示例)，还额外使用了两个约定: 由三个点号分隔的两个字符字面值表示在指定 (闭) 区间范围内的任意单个 ASCII 字符。由尖括号 (<code class="docutils literal notranslate"><span class="pre">&lt;...&gt;</span></code>) 括起来的内容是对于所定义符号的非正式描述；即可以在必要时用来说明 '控制字符' 的意图。</p>
+<p>虽然所用的标注方式几乎相同，但是词法定义和句法定义是存在很大区别的: 词法定义作用于输入源中单独的字符，而句法定义则作用于由词法分析所生成的形符流。在下一章节 ("词法分析") 中使用的 BNF 全部都是词法定义；在之后的章节中使用的则是句法定义。</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">1. 概述</a><ul>
+<li><a class="reference internal" href="#alternate-implementations">1.1. 其他实现</a></li>
+<li><a class="reference internal" href="#notation">1.2. 标注</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="index.html">Python 语言参考手册</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="lexical_analysis.html"><span class="section-number">2. </span>词法分析</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="2. 词法分析" href="lexical_analysis.html">下一页</a> |</li>
+        <li class="right">
+          <a title="Python 语言参考手册" href="index.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 语言参考手册</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>概述</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

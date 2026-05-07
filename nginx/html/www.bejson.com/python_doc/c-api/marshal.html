@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>数据 marshal 操作支持-BeJSON.com</title><meta name="keywords" content="数据 marshal 操作支持"><meta name="description" content="导入模块"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="解析参数并构建值变量" href="arg.html" rel="next">
+    <link title="导入模块" href="import.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/c-api/marshal.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="import.html">导入模块</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="arg.html">解析参数并构建值变量</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="解析参数并构建值变量" accesskey="N" href="arg.html">下一页</a> |</li>
+        <li class="right">
+          <a title="导入模块" accesskey="P" href="import.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python/C API 参考手册</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="utilities.html">工具</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">数据 marshal 操作支持</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="data-marshalling-support">
+<span id="marshalling-utils"></span><h1>数据 marshal 操作支持<a title="永久链接至标题" class="headerlink" href="#data-marshalling-support">¶</a></h1>
+<p>这些例程允许 C 代码处理与 <a title="marshal: Convert Python objects to streams of bytes and back (with different constraints)." class="reference internal" href="../library/marshal.html#module-marshal"><code class="xref py py-mod docutils literal notranslate"><span class="pre">marshal</span></code></a> 模块所用相同数据格式的序列化对象。 其中有些函数可用来将数据写入这种序列化格式，另一些函数则可用来读取并恢复数据。 用于存储 marshal 数据的文件必须以二进制模式打开。</p>
+<p>数字值在存储时会将最低位字节放在开头。</p>
+<p>此模块支持两种数据格式版本：第 0 版为历史版本，第 1 版本会在文件和 marshal 反序列化中共享固化的字符串。 第 2 版本会对浮点数使用二进制格式。 <code class="docutils literal notranslate"><span class="pre">Py_MARSHAL_VERSION</span></code> 指明了当前文件的格式（当前取值为 2）。</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMarshal_WriteLongToFile">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyMarshal_WriteLongToFile</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span>, <span class="n"><span class="pre">FILE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">file</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">version</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMarshal_WriteLongToFile">¶</a><br></dt>
+<dd><p>将一个 <span class="xref c c-texpr"><span class="kt">long</span></span> 整数 <em>value</em> 以 marshal 格式写入 <em>file</em>。 这将只写入 <em>value</em> 最低的 32 位；无论本机 <span class="xref c c-texpr"><span class="kt">long</span></span> 类型的长度如何。 <em>version</em> 指明文件格式的版本。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMarshal_WriteObjectToFile">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyMarshal_WriteObjectToFile</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="n"><span class="pre">FILE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">file</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">version</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMarshal_WriteObjectToFile">¶</a><br></dt>
+<dd><p>将一个 Python 对象 <em>value</em> 以 marshal 格式写入 <em>file</em>。 <em>version</em> 指明文件格式的版本。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMarshal_WriteObjectToString">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMarshal_WriteObjectToString</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">version</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMarshal_WriteObjectToString">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>返回一个包含 <em>value</em> 的 marshal 表示形式的字节串对象。 <em>version</em> 指明文件格式的版本。</p>
+</dd></dl>
+
+<p>以下函数允许读取并恢复存储为 marshal 格式的值。</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMarshal_ReadLongFromFile">
+<span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyMarshal_ReadLongFromFile</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">FILE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">file</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMarshal_ReadLongFromFile">¶</a><br></dt>
+<dd><p>从打开用于读取的 <span class="xref c c-texpr"><span class="n">FILE</span><span class="p">*</span></span> 的对应数据流返回一个 C <span class="xref c c-texpr"><span class="kt">long</span></span>。 使用只函数只能读取 32 位的值，无论本机 <span class="xref c c-texpr"><span class="kt">long</span></span> 类型的长度为何。</p>
+<p>发生错误时，将设置适当的异常 (<a title="EOFError" class="reference internal" href="../library/exceptions.html#EOFError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EOFError</span></code></a>) 并返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMarshal_ReadShortFromFile">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyMarshal_ReadShortFromFile</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">FILE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">file</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMarshal_ReadShortFromFile">¶</a><br></dt>
+<dd><p>从打开用于读取的 <span class="xref c c-texpr"><span class="n">FILE</span><span class="p">*</span></span> 的对应数据流返回一个 C <span class="xref c c-texpr"><span class="kt">short</span></span>。 使用此函数只能读取 16 位的值，无论本机 <span class="xref c c-texpr"><span class="kt">short</span></span> 类型的长度为何。</p>
+<p>发生错误时，将设置适当的异常 (<a title="EOFError" class="reference internal" href="../library/exceptions.html#EOFError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EOFError</span></code></a>) 并返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMarshal_ReadObjectFromFile">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMarshal_ReadObjectFromFile</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">FILE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">file</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMarshal_ReadObjectFromFile">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>从打开用于读取的 <span class="xref c c-texpr"><span class="n">FILE</span><span class="p">*</span></span> 的对应数据流返回一个 Python 对象。</p>
+<p>发生错误时，将设置适当的异常 (<a title="EOFError" class="reference internal" href="../library/exceptions.html#EOFError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EOFError</span></code></a>, <a title="ValueError" class="reference internal" href="../library/exceptions.html#ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 或 <a title="TypeError" class="reference internal" href="../library/exceptions.html#TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>) 并返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMarshal_ReadLastObjectFromFile">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMarshal_ReadLastObjectFromFile</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">FILE</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">file</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMarshal_ReadLastObjectFromFile">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>从打开用于读取的 <span class="xref c c-texpr"><span class="n">FILE</span><span class="p">*</span></span> 的对应数据流返回一个 Python 对象。 不同于 <a title="PyMarshal_ReadObjectFromFile" class="reference internal" href="#c.PyMarshal_ReadObjectFromFile"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMarshal_ReadObjectFromFile()</span></code></a>，此函数假定将不再从该文件读取更多的对象，允许其将文件数据积极地载入内存，以便反序列化过程可以在内存中的数据上操作而不是每次从文件读取一个字节。 只有当你确定不会再从文件读取任何内容时方可使用此形式。</p>
+<p>发生错误时，将设置适当的异常 (<a title="EOFError" class="reference internal" href="../library/exceptions.html#EOFError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EOFError</span></code></a>, <a title="ValueError" class="reference internal" href="../library/exceptions.html#ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 或 <a title="TypeError" class="reference internal" href="../library/exceptions.html#TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>) 并返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMarshal_ReadObjectFromString">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMarshal_ReadObjectFromString</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">data</span></span>, <a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">len</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMarshal_ReadObjectFromString">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>从包含指向 <em>data</em> 的 <em>len</em> 个字节的字节缓冲区对应的数据流返回一个 Python 对象。</p>
+<p>发生错误时，将设置适当的异常 (<a title="EOFError" class="reference internal" href="../library/exceptions.html#EOFError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EOFError</span></code></a>, <a title="ValueError" class="reference internal" href="../library/exceptions.html#ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 或 <a title="TypeError" class="reference internal" href="../library/exceptions.html#TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>) 并返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="import.html">导入模块</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="arg.html">解析参数并构建值变量</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="解析参数并构建值变量" href="arg.html">下一页</a> |</li>
+        <li class="right">
+          <a title="导入模块" href="import.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python/C API 参考手册</a> »</li>
+          <li class="nav-item nav-item-2"><a href="utilities.html">工具</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">数据 marshal 操作支持</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

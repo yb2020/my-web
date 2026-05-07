@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>获取多个变量并且过滤它们-BeJSON.com</title><meta name="keywords" content="获取多个变量并且过滤它们"><meta name="description" content="filter_var_array(PHP 5 >= 5.2.0, PHP 7, PHP 8)filter_var_array — 获取多个变量并且过滤它们说明filter_var_array(array $data, mixed $definition = ?, bool $add_empty = ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.filter-list.html">« filter_list</a></li>
+      <li style="float: right;"><a href="function.filter-var.html">filter_var »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.filter.html">过滤器函数</a></li>
+    <li>获取多个变量并且过滤它们</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.filter-var-array">
+ <div class="refnamediv">
+  <h1 class="refname">filter_var_array</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">filter_var_array</span> — <span class="dc-title">获取多个变量并且过滤它们</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.filter-var-array-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>filter_var_array</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$data</code></span>, <span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$definition</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$add_empty</code><span class="initializer"> = true</span></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+
+  <p class="para rdfs-comment">
+   不需要重复调用 <span class="function"><a class="function" href="function.filter-var.html">filter_var()</a></span> 就能获取多个变量。
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.filter-var-array-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">data</code></dt>
+
+     <dd>
+
+      <p class="para">
+       数组，键为字符串，值为待过滤的数据。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">definition</code></dt>
+
+     <dd>
+
+      <p class="para">
+       一个定义参数的数组。一个有效的键必须是一个包含变量名的<span class="type">string</span>，一个有效的值要么是一个<a class="link" href="filter.filters.html">filter type</a>，或者是一个<span class="type">array</span>
+       指明了过滤器、标示和选项。如果值是一个数组，那么它的有效的键可以是 <code class="literal">filter</code>，
+       用于指明 <a class="link" href="filter.filters.html">filter type</a>，<code class="literal">flags</code> 
+       用于指明任何想要用于过滤器的标示，或者 <code class="literal">options</code> 用于指明任何想要用于过滤器的选项。
+       参考下面的例子来更好的理解这段说明。
+      </p>
+      <p class="para">
+       这个参数也可以是一个<a class="link" href="filter.constants.html">filter constant</a>的整数。那么数组中的所有值都会被这个过滤器所过滤。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">add_empty</code></dt>
+
+     <dd>
+
+      <p class="para">
+       在返回值中添加 <strong><code>null</code></strong> 作为不存在的键。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.filter-var-array-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   如果成功则返回一个包含所请求变量的数组，或者当失败时返回 <strong><code>false</code></strong> 。
+   一个数组的值如果过滤失败则为 <strong><code>false</code></strong> ，或者为 <strong><code>null</code></strong> 如果变量不存在的话。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.filter-var-array-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4942">
+    <p><strong>示例 #1 一个 <span class="function"><strong>filter_var_array()</strong></span> 的例子</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>error_reporting</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">E_ALL&nbsp;</span><span style="color: rgb(0, 119, 0);">|&nbsp;</span><span style="color: rgb(0, 0, 187);">E_STRICT</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'product_id'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'libgd&lt;script&gt;'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'component'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'10'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'versions'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'2.0.33'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'testscalar'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'2'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'23'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'10'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'12'</span><span style="color: rgb(0, 119, 0);">),<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'testarray'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'2'</span><span style="color: rgb(0, 119, 0);">,<br>);<br><br></span><span style="color: rgb(0, 0, 187);">$args&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'product_id'&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_SANITIZE_ENCODED</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'component'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'filter'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_VALIDATE_INT</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'flags'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_FORCE_ARRAY</span><span style="color: rgb(0, 119, 0);">,&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'options'&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'min_range'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'max_range'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">10</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'versions'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_SANITIZE_ENCODED</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'doesnotexist'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_VALIDATE_INT</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'testscalar'&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'filter'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_VALIDATE_INT</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'flags'&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_REQUIRE_SCALAR</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'testarray'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'filter'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_VALIDATE_INT</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'flags'&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_FORCE_ARRAY</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br><br>);<br><br></span><span style="color: rgb(0, 0, 187);">$myinputs&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">filter_var_array</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$args</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$myinputs</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>array(6) {
+  ["product_id"]=&gt;
+  string(17) "libgd%3Cscript%3E"
+  ["component"]=&gt;
+  array(1) {
+    [0]=&gt;
+    int(10)
+  }
+  ["versions"]=&gt;
+  string(6) "2.0.33"
+  ["doesnotexist"]=&gt;
+  NULL
+  ["testscalar"]=&gt;
+  bool(false)
+  ["testarray"]=&gt;
+  array(1) {
+    [0]=&gt;
+    int(2)
+  }
+}
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.filter-var-array-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        添加 <code class="parameter">add_empty</code> 参数。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.filter-var-array-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.filter-input-array.html" rel="rdfs-seeAlso">filter_input_array()</a> - 获取一系列外部变量，并且可以通过过滤器处理它们</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.filter-var.html" rel="rdfs-seeAlso">filter_var()</a> - 使用特定的过滤器过滤一个变量</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.filter-input.html" rel="rdfs-seeAlso">filter_input()</a> - 通过名称获取特定的外部变量，并且可以通过过滤器处理它</span></li>
+    <li class="member"><a class="xref" href="filter.filters.html">Types of filters</a></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

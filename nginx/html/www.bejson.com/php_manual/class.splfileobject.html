@@ -1,0 +1,410 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>SplFileObject 类-BeJSON.com</title><meta name="keywords" content="SplFileObject 类"><meta name="description" content="SplFileObject 类为文件提供了一个面向对象接口。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="splfileinfo.tostring.html">« SplFileInfo::__toString</a></li>
+      <li style="float: right;"><a href="splfileobject.construct.html">SplFileObject::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="spl.files.html">文件处理</a></li>
+    <li>SplFileObject 类</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.splfileobject">
+
+ <h1 class="title">SplFileObject 类</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="splfileobject.intro">
+   <h2 class="title">简介</h2>
+   <p class="para"> 
+    SplFileObject 类为文件提供了一个面向对象接口。
+   </p>
+  </div>
+
+
+  <div class="section" id="splfileobject.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">SplFileObject</strong>
+     </span>
+
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.splfileinfo.html">SplFileInfo</a>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a class="interfacename" href="class.recursiveiterator.html">RecursiveIterator</a></span><span class="oointerface">,  <a class="interfacename" href="class.seekableiterator.html">SeekableIterator</a></span> {</div>
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 常量 */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.splfileobject.html#splfileobject.constants.drop-new-line"><var class="varname">DROP_NEW_LINE</var></a></var><span class="initializer"> = 1</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.splfileobject.html#splfileobject.constants.read-ahead"><var class="varname">READ_AHEAD</var></a></var><span class="initializer"> = 2</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.splfileobject.html#splfileobject.constants.skip-empty"><var class="varname">SKIP_EMPTY</var></a></var><span class="initializer"> = 4</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.splfileobject.html#splfileobject.constants.read-csv"><var class="varname">READ_CSV</var></a></var><span class="initializer"> = 8</span>;</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.construct.html">__construct</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code><span class="initializer"> = "r"</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$useIncludePath</code><span class="initializer"> = <strong><code>false</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">resource</span><span class="type"></span></span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.current.html">current</a></span>(): <span class="type"><span class="type">string</span>|<span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.eof.html">eof</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.fflush.html">fflush</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.fgetc.html">fgetc</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.fgetcsv.html">fgetcsv</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = ","</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = "\""</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = "\\"</span></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.fgets.html">fgets</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.fgetss.html">fgetss</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$allowable_tags</code><span class="initializer"> = ?</span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.flock.html">flock</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$operation</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&amp;$wouldBlock</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.fpassthru.html">fpassthru</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.fputcsv.html">fputcsv</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$fields</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = ","</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = "\""</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = "\\"</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$eol</code><span class="initializer"> = "\n"</span></span><br>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.fread.html">fread</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.fscanf.html">fscanf</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>, <span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter reference">&amp;...$vars</code></span>): <span class="type"><span class="type">array</span>|<span class="type">int</span>|<span class="type">null</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.fseek.html">fseek</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$whence</code><span class="initializer"> = <strong><code>SEEK_SET</code></strong></span></span>): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.fstat.html">fstat</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.ftell.html">ftell</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.ftruncate.html">ftruncate</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.fwrite.html">fwrite</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.getchildren.html">getChildren</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type RecursiveIterator" href="class.recursiveiterator.html">RecursiveIterator</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.getcsvcontrol.html">getCsvControl</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.getflags.html">getFlags</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.getmaxlinelen.html">getMaxLineLen</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.haschildren.html">hasChildren</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.key.html">key</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.next.html">next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.rewind.html">rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.seek.html">seek</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$line</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.setcsvcontrol.html">setCsvControl</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = ","</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = "\""</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = "\\"</span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.setflags.html">setFlags</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.setmaxlinelen.html">setMaxLineLen</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$maxLength</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileobject.valid.html">valid</a></span>(): <span class="type">bool</span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getatime.html">SplFileInfo::getATime</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getbasename.html">SplFileInfo::getBasename</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$suffix</code><span class="initializer"> = ""</span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getctime.html">SplFileInfo::getCTime</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getextension.html">SplFileInfo::getExtension</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getfileinfo.html">SplFileInfo::getFileInfo</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$class</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a class="type SplFileInfo" href="class.splfileinfo.html">SplFileInfo</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getfilename.html">SplFileInfo::getFilename</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getgroup.html">SplFileInfo::getGroup</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getinode.html">SplFileInfo::getInode</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getlinktarget.html">SplFileInfo::getLinkTarget</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getmtime.html">SplFileInfo::getMTime</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getowner.html">SplFileInfo::getOwner</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getpath.html">SplFileInfo::getPath</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getpathinfo.html">SplFileInfo::getPathInfo</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$class</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type SplFileInfo" href="class.splfileinfo.html">SplFileInfo</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getpathname.html">SplFileInfo::getPathname</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getperms.html">SplFileInfo::getPerms</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getrealpath.html">SplFileInfo::getRealPath</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getsize.html">SplFileInfo::getSize</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.gettype.html">SplFileInfo::getType</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.isdir.html">SplFileInfo::isDir</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.isexecutable.html">SplFileInfo::isExecutable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.isfile.html">SplFileInfo::isFile</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.islink.html">SplFileInfo::isLink</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.isreadable.html">SplFileInfo::isReadable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.iswritable.html">SplFileInfo::isWritable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.openfile.html">SplFileInfo::openFile</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code><span class="initializer"> = "r"</span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$useIncludePath</code><span class="initializer"> = <strong><code>false</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">resource</span><span class="type"></span></span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a class="type SplFileObject" href="class.splfileobject.html">SplFileObject</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.setfileclass.html">SplFileInfo::setFileClass</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code><span class="initializer"> = SplFileObject::class</span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.setinfoclass.html">SplFileInfo::setInfoClass</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code><span class="initializer"> = SplFileInfo::class</span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.tostring.html">SplFileInfo::__toString</a></span>(): <span class="type">string</span></div>
+
+   }</div>
+
+
+  </div>
+
+
+  <div class="section" id="splfileobject.constants">
+   <h2 class="title">预定义常量</h2>
+   <dl>
+    
+     <dt id="splfileobject.constants.drop-new-line"><strong><code>SplFileObject::DROP_NEW_LINE</code></strong></dt>
+
+     <dd>
+
+      <p class="para">删除行尾的换行符。</p>
+     </dd>
+
+    
+    
+     <dt id="splfileobject.constants.read-ahead"><strong><code>SplFileObject::READ_AHEAD</code></strong></dt>
+
+     <dd>
+
+      <p class="para">使用 rewind 或 next 方法时，从文件中读取一行数据。</p>
+     </dd>
+
+    
+    
+     <dt id="splfileobject.constants.skip-empty"><strong><code>SplFileObject::SKIP_EMPTY</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+       跳过文件中的空白行。这需要启用
+       <strong><code>READ_AHEAD</code></strong>
+       标志，以达到预期的效果。
+      </p>
+     </dd>
+
+    
+    
+     <dt id="splfileobject.constants.read-csv"><strong><code>SplFileObject::READ_CSV</code></strong></dt>
+
+     <dd>
+
+      <p class="para">以 CSV 行的形式读取。</p>
+     </dd>
+
+    
+   </dl>
+
+  </div>
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="splfileobject.construct.html">SplFileObject::__construct</a> — Construct a new file object</li><li><a href="splfileobject.current.html">SplFileObject::current</a> — Retrieve current line of file</li><li><a href="splfileobject.eof.html">SplFileObject::eof</a> — Reached end of file</li><li><a href="splfileobject.fflush.html">SplFileObject::fflush</a> — Flushes the output to the file</li><li><a href="splfileobject.fgetc.html">SplFileObject::fgetc</a> — Gets character from file</li><li><a href="splfileobject.fgetcsv.html">SplFileObject::fgetcsv</a> — Gets line from file and parse as CSV fields</li><li><a href="splfileobject.fgets.html">SplFileObject::fgets</a> — Gets line from file</li><li><a href="splfileobject.fgetss.html">SplFileObject::fgetss</a> — Gets line from file and strip HTML tags</li><li><a href="splfileobject.flock.html">SplFileObject::flock</a> — Portable file locking</li><li><a href="splfileobject.fpassthru.html">SplFileObject::fpassthru</a> — Output all remaining data on a file pointer</li><li><a href="splfileobject.fputcsv.html">SplFileObject::fputcsv</a> — Write a field array as a CSV line</li><li><a href="splfileobject.fread.html">SplFileObject::fread</a> — Read from file</li><li><a href="splfileobject.fscanf.html">SplFileObject::fscanf</a> — Parses input from file according to a format</li><li><a href="splfileobject.fseek.html">SplFileObject::fseek</a> — Seek to a position</li><li><a href="splfileobject.fstat.html">SplFileObject::fstat</a> — Gets information about the file</li><li><a href="splfileobject.ftell.html">SplFileObject::ftell</a> — Return current file position</li><li><a href="splfileobject.ftruncate.html">SplFileObject::ftruncate</a> — Truncates the file to a given length</li><li><a href="splfileobject.fwrite.html">SplFileObject::fwrite</a> — Write to file</li><li><a href="splfileobject.getchildren.html">SplFileObject::getChildren</a> — No purpose</li><li><a href="splfileobject.getcsvcontrol.html">SplFileObject::getCsvControl</a> — Get the delimiter, enclosure and escape character for CSV</li><li><a href="splfileobject.getcurrentline.html">SplFileObject::getCurrentLine</a> — Alias of SplFileObject::fgets</li><li><a href="splfileobject.getflags.html">SplFileObject::getFlags</a> — Gets flags for the SplFileObject</li><li><a href="splfileobject.getmaxlinelen.html">SplFileObject::getMaxLineLen</a> — Get maximum line length</li><li><a href="splfileobject.haschildren.html">SplFileObject::hasChildren</a> — SplFileObject does not have children</li><li><a href="splfileobject.key.html">SplFileObject::key</a> — Get line number</li><li><a href="splfileobject.next.html">SplFileObject::next</a> — Read next line</li><li><a href="splfileobject.rewind.html">SplFileObject::rewind</a> — Rewind the file to the first line</li><li><a href="splfileobject.seek.html">SplFileObject::seek</a> — Seek to specified line</li><li><a href="splfileobject.setcsvcontrol.html">SplFileObject::setCsvControl</a> — Set the delimiter, enclosure and escape character for CSV</li><li><a href="splfileobject.setflags.html">SplFileObject::setFlags</a> — Sets flags for the SplFileObject</li><li><a href="splfileobject.setmaxlinelen.html">SplFileObject::setMaxLineLen</a> — Set maximum line length</li><li><a href="splfileobject.tostring.html">SplFileObject::__toString</a> — Alias of SplFileObject::fgets</li><li><a href="splfileobject.valid.html">SplFileObject::valid</a> — Not at EOF</li></ul>
+</div>
+</div></div></body></html>

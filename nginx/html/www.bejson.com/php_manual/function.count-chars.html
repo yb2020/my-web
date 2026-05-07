@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>返回字符串所用字符的信息-BeJSON.com</title><meta name="keywords" content="返回字符串所用字符的信息"><meta name="description" content="count_chars(PHP 4, PHP 5, PHP 7, PHP 8)count_chars — 返回字符串所用字符的信息说明count_chars(string $string, int $mode = 0): mixed统计 string 中每个字节值（0..255）出现的次数，使用多种">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.convert-uuencode.html">« convert_uuencode</a></li>
+      <li style="float: right;"><a href="function.crc32.html">crc32 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.strings.html">字符串 函数</a></li>
+    <li>返回字符串所用字符的信息</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.count-chars">
+ <div class="refnamediv">
+  <h1 class="refname">count_chars</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">count_chars</span> — <span class="dc-title">返回字符串所用字符的信息</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.count-chars-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>count_chars</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0</span></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+
+  <p class="para rdfs-comment">
+   统计 <code class="parameter">string</code>
+   中每个字节值（0..255）出现的次数，使用多种模式返回结果。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.count-chars-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">string</code></dt>
+
+     <dd>
+
+      <p class="para">
+       需要统计的字符串。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">mode</code></dt>
+
+     <dd>
+
+      <p class="para">
+       参见返回的值。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.count-chars-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   根据不同的   <code class="parameter">mode</code>，<span class="function"><strong>count_chars()</strong></span>
+   返回下列不同的结果：
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara">
+      0 - 以所有的每个字节值作为键名，出现次数作为值的数组。
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      1 - 与 0 相同，但只列出出现次数大于零的字节值。
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      2 - 与 0 相同，但只列出出现次数等于零的字节值。
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      3 - 返回由所有使用了的字节值组成的字符串。
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+     4 - 返回由所有未使用的字节值组成的字符串。
+     </span>
+    </li>
+   </ul>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.count-chars-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4648">
+    <p><strong>示例 #1 <span class="function"><strong>count_chars()</strong></span>  示例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Two&nbsp;Ts&nbsp;and&nbsp;one&nbsp;F."</span><span style="color: rgb(0, 119, 0);">;<br><br>foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">count_chars</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">)&nbsp;as&nbsp;</span><span style="color: rgb(0, 0, 187);">$i&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$val</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"There&nbsp;were&nbsp;</span><span style="color: rgb(0, 0, 187);">$val</span><span style="color: rgb(221, 0, 0);">&nbsp;instance(s)&nbsp;of&nbsp;\""&nbsp;</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">chr</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">)&nbsp;,&nbsp;</span><span style="color: rgb(221, 0, 0);">"\"&nbsp;in&nbsp;the&nbsp;string.\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>There were 4 instance(s) of " " in the string.
+There were 1 instance(s) of "." in the string.
+There were 1 instance(s) of "F" in the string.
+There were 2 instance(s) of "T" in the string.
+There were 1 instance(s) of "a" in the string.
+There were 1 instance(s) of "d" in the string.
+There were 1 instance(s) of "e" in the string.
+There were 2 instance(s) of "n" in the string.
+There were 2 instance(s) of "o" in the string.
+There were 1 instance(s) of "s" in the string.
+There were 1 instance(s) of "w" in the string.
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.count-chars-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.strpos.html" rel="rdfs-seeAlso">strpos()</a> - 查找字符串首次出现的位置</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.substr-count.html" rel="rdfs-seeAlso">substr_count()</a> - 计算字串出现的次数</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

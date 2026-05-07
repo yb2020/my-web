@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>modulefinder --- 查找脚本使用的模块-BeJSON.com</title><meta name="keywords" content="modulefinder --- 查找脚本使用的模块"><meta name="description" content="pkgutil --- 包扩展工具"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="runpy ——查找并执行 Python 模块" href="runpy.html" rel="next">
+    <link title="pkgutil --- 包扩展工具" href="pkgutil.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/modulefinder.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">modulefinder</span></code> --- 查找脚本使用的模块</a><ul>
+<li><a class="reference internal" href="#example-usage-of-modulefinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleFinder</span></code> 的示例用法</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="pkgutil.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pkgutil</span></code> --- 包扩展工具</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="runpy.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">runpy</span></code> ——查找并执行 Python  模块</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="runpy ——查找并执行 Python 模块" accesskey="N" href="runpy.html">下一页</a> |</li>
+        <li class="right">
+          <a title="pkgutil --- 包扩展工具" accesskey="P" href="pkgutil.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="modules.html">导入模块</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">modulefinder</span></code> --- 查找脚本使用的模块</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-modulefinder">
+<span id="modulefinder-find-modules-used-by-a-script"></span><h1><a title="modulefinder: Find modules used by a script." class="reference internal" href="#module-modulefinder"><code class="xref py py-mod docutils literal notranslate"><span class="pre">modulefinder</span></code></a> --- 查找脚本使用的模块<a title="永久链接至标题" class="headerlink" href="#module-modulefinder">¶</a></h1>
+<p><strong>源码：</strong> <a class="reference external" href="">Lib/modulefinder.py</a></p>
+<hr class="docutils">
+<p>该模块提供了一个 <a title="modulefinder.ModuleFinder" class="reference internal" href="#modulefinder.ModuleFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleFinder</span></code></a> 类，可用于确定脚本导入的模块集。 <code class="docutils literal notranslate"><span class="pre">modulefinder.py</span></code> 也可以作为脚本运行，给出 Python 脚本的文件名作为参数，之后将打印导入模块的报告。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="modulefinder.AddPackagePath">
+<span class="sig-prename descclassname"><span class="pre">modulefinder.</span></span><span class="sig-name descname"><span class="pre">AddPackagePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pkg_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#modulefinder.AddPackagePath">¶</a></dt>
+<dd><p>记录名为 <em>pkg_name</em> 的包可以在指定的 <em>path</em> 中找到。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modulefinder.ReplacePackage">
+<span class="sig-prename descclassname"><span class="pre">modulefinder.</span></span><span class="sig-name descname"><span class="pre">ReplacePackage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oldname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newname</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#modulefinder.ReplacePackage">¶</a></dt>
+<dd><p>允许指定名为 <em>oldname</em> 的模块实际上是名为 <em>newname</em> 的包。</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modulefinder.ModuleFinder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modulefinder.</span></span><span class="sig-name descname"><span class="pre">ModuleFinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excludes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace_paths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#modulefinder.ModuleFinder">¶</a></dt>
+<dd><p>该类提供 <a title="modulefinder.ModuleFinder.run_script" class="reference internal" href="#modulefinder.ModuleFinder.run_script"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_script()</span></code></a> 和 <a title="modulefinder.ModuleFinder.report" class="reference internal" href="#modulefinder.ModuleFinder.report"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report()</span></code></a> 方法，用于确定脚本导入的模块集。 <em>path</em> 可以是搜索模块的目录列表；如果没有指定，则使用 <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> 。  <em>debug</em> 设置调试级别；更高的值使类打印调试消息，关于它正在做什么。 <em>excludes</em> 是要从分析中排除的模块名称列表。 <em>replace_paths</em> 是将在模块路径中替换的 <code class="docutils literal notranslate"><span class="pre">(oldpath,</span> <span class="pre">newpath)</span></code> 元组的列表。</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modulefinder.ModuleFinder.report">
+<span class="sig-name descname"><span class="pre">report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#modulefinder.ModuleFinder.report">¶</a></dt>
+<dd><p>将报告打印到标准输出，列出脚本导入的模块及其路径，以及缺少或似乎缺失的模块。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulefinder.ModuleFinder.run_script">
+<span class="sig-name descname"><span class="pre">run_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathname</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#modulefinder.ModuleFinder.run_script">¶</a></dt>
+<dd><p>分析 <em>pathname</em> 文件的内容，该文件必须包含 Python 代码。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulefinder.ModuleFinder.modules">
+<span class="sig-name descname"><span class="pre">modules</span></span><a title="永久链接至目标" class="headerlink" href="#modulefinder.ModuleFinder.modules">¶</a></dt>
+<dd><p>一个将模块名称映射到模块的字典。 请参阅 <a class="reference internal" href="#modulefinder-example"><span class="std std-ref">ModuleFinder 的示例用法</span></a>。</p>
+</dd></dl>
+
+</dd></dl>
+
+<section id="example-usage-of-modulefinder">
+<span id="modulefinder-example"></span><h2><a title="modulefinder.ModuleFinder" class="reference internal" href="#modulefinder.ModuleFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleFinder</span></code></a> 的示例用法<a title="永久链接至标题" class="headerlink" href="#example-usage-of-modulefinder">¶</a></h2>
+<p>稍后将分析的脚本（bacon.py）:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">itertools</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">baconhameggs</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">guido.python.ham</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>将输出 bacon.py 报告的脚本:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modulefinder</span> <span class="kn">import</span> <span class="n">ModuleFinder</span>
+
+<span class="n">finder</span> <span class="o">=</span> <span class="n">ModuleFinder</span><span class="p">()</span>
+<span class="n">finder</span><span class="o">.</span><span class="n">run_script</span><span class="p">(</span><span class="s1">'bacon.py'</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Loaded modules:'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">mod</span> <span class="ow">in</span> <span class="n">finder</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%s</span><span class="s1">: '</span> <span class="o">%</span> <span class="n">name</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">','</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">globalnames</span><span class="o">.</span><span class="n">keys</span><span class="p">())[:</span><span class="mi">3</span><span class="p">]))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'-'</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Modules not imported:'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">finder</span><span class="o">.</span><span class="n">badmodules</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p>输出样例（可能因架构而异）:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="n">Loaded</span> <span class="n">modules</span><span class="p">:</span>
+<span class="n">_types</span><span class="p">:</span>
+<span class="n">copyreg</span><span class="p">:</span>  <span class="n">_inverted_registry</span><span class="p">,</span><span class="n">_slotnames</span><span class="p">,</span><span class="n">__all__</span>
+<span class="n">re</span><span class="o">.</span><span class="n">_compiler</span><span class="p">:</span>  <span class="n">isstring</span><span class="p">,</span><span class="n">_sre</span><span class="p">,</span><span class="n">_optimize_unicode</span>
+<span class="n">_sre</span><span class="p">:</span>
+<span class="n">re</span><span class="o">.</span><span class="n">_constants</span><span class="p">:</span>  <span class="n">REPEAT_ONE</span><span class="p">,</span><span class="n">makedict</span><span class="p">,</span><span class="n">AT_END_LINE</span>
+<span class="n">sys</span><span class="p">:</span>
+<span class="n">re</span><span class="p">:</span>  <span class="vm">__module__</span><span class="p">,</span><span class="n">finditer</span><span class="p">,</span><span class="n">_expand</span>
+<span class="n">itertools</span><span class="p">:</span>
+<span class="n">__main__</span><span class="p">:</span>  <span class="n">re</span><span class="p">,</span><span class="n">itertools</span><span class="p">,</span><span class="n">baconhameggs</span>
+<span class="n">re</span><span class="o">.</span><span class="n">_parser</span><span class="p">:</span>  <span class="n">_PATTERNENDERS</span><span class="p">,</span><span class="n">SRE_FLAG_UNICODE</span>
+<span class="n">array</span><span class="p">:</span>
+<span class="n">types</span><span class="p">:</span>  <span class="vm">__module__</span><span class="p">,</span><span class="n">IntType</span><span class="p">,</span><span class="n">TypeType</span>
+<span class="o">---------------------------------------------------</span>
+<span class="n">Modules</span> <span class="ow">not</span> <span class="n">imported</span><span class="p">:</span>
+<span class="n">guido</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">ham</span>
+<span class="n">baconhameggs</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">modulefinder</span></code> --- 查找脚本使用的模块</a><ul>
+<li><a class="reference internal" href="#example-usage-of-modulefinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleFinder</span></code> 的示例用法</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="pkgutil.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pkgutil</span></code> --- 包扩展工具</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="runpy.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">runpy</span></code> ——查找并执行 Python  模块</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="runpy ——查找并执行 Python 模块" href="runpy.html">下一页</a> |</li>
+        <li class="right">
+          <a title="pkgutil --- 包扩展工具" href="pkgutil.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="modules.html">导入模块</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">modulefinder</span></code> --- 查找脚本使用的模块</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

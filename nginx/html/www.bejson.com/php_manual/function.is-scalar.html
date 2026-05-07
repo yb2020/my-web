@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>检测变量是否是一个标量-BeJSON.com</title><meta name="keywords" content="检测变量是否是一个标量"><meta name="description" content="标量变量是指 int、float、string 或 bool 类型的变量。 array、object 、 resource 和 null 类型不是标量。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.is-resource.html">« is_resource</a></li>
+      <li style="float: right;"><a href="function.is-string.html">is_string »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.var.html">Variable handling 函数</a></li>
+    <li>检测变量是否是一个标量</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.is-scalar">
+ <div class="refnamediv">
+  <h1 class="refname">is_scalar</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.5, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">is_scalar</span> — <span class="dc-title">
+     检测变量是否是一个标量
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.is-scalar-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>is_scalar</strong></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   检测变量是否为标量
+  </p>
+  <p class="para">
+   标量变量是指 <span class="type">int</span>、<span class="type">float</span>、<span class="type">string</span> 或 <span class="type">bool</span> 类型的变量。
+   <span class="type">array</span>、<span class="type">object</span> 、 <span class="type">resource</span> 和 <span class="type">null</span> 类型不是标量。
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    <span class="function"><strong>is_scalar()</strong></span> 不会将 <span class="type">resource</span> 类型值视为标量，
+    因为当前 resources 是基于整数（integer）的抽象数据类型。
+    不能依赖该执行细节，因为它可能会改变。
+   </p>
+  <p></p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    <span class="function"><strong>is_scalar()</strong></span> 不会将 NULL 检测为标量。
+   </p>
+  <p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.is-scalar-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">value</code></dt>
+
+     <dd>
+
+      <p class="para">
+       需要检测的变量。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.is-scalar-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   如果 <code class="parameter">value</code> 是标量，则返回 <strong><code>true</code></strong> ，否则返回 <strong><code>false</code></strong> 。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.is-scalar-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-5101">
+    <p><strong>示例 #1 <span class="function"><strong>is_scalar()</strong></span> 示例</strong></p>
+    <div class="example-contents">
+
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">show_var</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$var</span><span style="color: rgb(0, 119, 0);">)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">is_scalar</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$var</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$var</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$var</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br></span><span style="color: rgb(0, 0, 187);">$pi&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">3.1416</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$proteins&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(</span><span style="color: rgb(221, 0, 0);">"hemoglobin"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"cytochrome&nbsp;c&nbsp;oxidase"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"ferredoxin"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">show_var</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$pi</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">show_var</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$proteins</span><span style="color: rgb(0, 119, 0);">)<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>3.1416
+array(3) {
+  [0]=&gt;
+  string(10) "hemoglobin"
+  [1]=&gt;
+  string(20) "cytochrome c oxidase"
+  [2]=&gt;
+  string(10) "ferredoxin"
+}
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.is-scalar-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.is-float.html" rel="rdfs-seeAlso">is_float()</a> - 检测变量是否是浮点型</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-int.html" rel="rdfs-seeAlso">is_int()</a> - 检测变量是否是整数</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-numeric.html" rel="rdfs-seeAlso">is_numeric()</a> - 检测变量是否为数字或数字字符串</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-real.html" rel="rdfs-seeAlso">is_real()</a> - is_float 的别名</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-string.html" rel="rdfs-seeAlso">is_string()</a> - 检测变量是否是字符串</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-bool.html" rel="rdfs-seeAlso">is_bool()</a> - 检测变量是否是布尔值</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-object.html" rel="rdfs-seeAlso">is_object()</a> - 检测变量是否是一个对象</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-array.html" rel="rdfs-seeAlso">is_array()</a> - 检测变量是否是数组</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

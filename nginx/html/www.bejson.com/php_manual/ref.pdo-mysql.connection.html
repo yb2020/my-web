@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Connecting to MySQL databases-BeJSON.com</title><meta name="keywords" content="Connecting to MySQL databases"><meta name="description" content="The PDO_MYSQL Data Source Name (DSN) is composed of the following elements: ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="ref.pdo-mysql.html">« MySQL (PDO)</a></li>
+      <li style="float: right;"><a href="ref.pdo-sqlsrv.html">MS SQL Server (PDO) »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.pdo-mysql.html">MySQL (PDO)</a></li>
+    <li>Connecting to MySQL databases</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="ref.pdo-mysql.connection">
+   <div class="refnamediv">
+    <h1 class="refname">PDO_MYSQL DSN</h1>
+    <p class="verinfo">(PECL PDO_MYSQL &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO_MYSQL DSN</span> — <span class="dc-title">Connecting to MySQL databases</span></p>
+
+   </div>
+
+   <div class="refsect1 description" id="refsect1-ref.pdo-mysql.connection-description">
+    <h3 class="title">说明</h3>
+    <p class="para">
+     The PDO_MYSQL Data Source Name (DSN) is composed of the following elements:
+     <dl>
+      
+       <dt>
+DSN prefix</dt>
+
+       <dd>
+
+        <p class="para">
+        The DSN prefix is <strong class="userinput"><code>mysql:</code></strong>.
+        </p>
+       </dd>
+
+      
+      
+       <dt>
+<code class="literal">host</code></dt>
+
+       <dd>
+
+        <p class="para">
+         The hostname on which the database server resides.
+        </p>
+       </dd>
+
+      
+      
+       <dt>
+<code class="literal">port</code></dt>
+
+       <dd>
+
+        <p class="para">
+         The port number where the database server is listening.
+        </p>
+       </dd>
+
+      
+      
+       <dt>
+<code class="literal">dbname</code></dt>
+
+       <dd>
+
+        <p class="para">
+         The name of the database.
+        </p>
+       </dd>
+
+      
+      
+       <dt>
+<code class="literal">unix_socket</code></dt>
+
+       <dd>
+
+        <p class="para">
+         The MySQL Unix socket (shouldn't be used with <code class="literal">host</code>
+         or <code class="literal">port</code>).
+        </p>
+       </dd>
+
+      
+      
+       <dt>
+<code class="literal">charset</code></dt>
+
+       <dd>
+
+        <p class="para">
+         The character set. See the <a class="link" href="mysqlinfo.concepts.charset.html">character set</a>
+         concepts documentation for more information.
+        </p>
+       </dd>
+
+      
+     </dl>
+
+    <p></p>
+   </div>
+
+
+   <div class="refsect1 examples" id="refsect1-ref.pdo-mysql.connection-examples">
+    <h3 class="title">范例</h3>
+    <p class="para">
+     <div class="example" id="example-1080">
+      <p><strong>示例 #1 PDO_MYSQL DSN examples</strong></p>
+      <div class="example-contents"><p>
+       The following example shows a PDO_MYSQL DSN for connecting to
+       MySQL databases:
+       <div class="example-contents">
+<div class="cdata"><pre>mysql:host=localhost;dbname=testdb
+</pre></div>
+       </div>
+
+       More complete examples:
+       <div class="example-contents">
+<div class="cdata"><pre>mysql:host=localhost;port=3307;dbname=testdb
+mysql:unix_socket=/tmp/mysql.sock;dbname=testdb
+</pre></div>
+       </div>
+
+      <p></p></div>
+     </div>
+    <p></p>
+   </div>
+
+
+   <div class="refsect1 notes" id="refsect1-ref.pdo-mysql.connection-notes">
+    <h3 class="title">注释</h3>
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+     <strong>Unix only:</strong><br>
+     <p class="para">
+      When the host name is set to <code class="literal">"localhost"</code>, then the connection to the 
+      server is made thru a domain socket. If PDO_MYSQL is compiled against libmysqlclient then the 
+      location of the socket file is at libmysqlclient's compiled in location. If PDO_MYSQL is compiled 
+      against mysqlnd a default socket can be set thru the <a class="link" href="ref.pdo-mysql.html#ini.pdo-mysql.default-socket">
+      pdo_mysql.default_socket</a> setting.
+     </p>
+    <p></p></blockquote>
+   </div>
+
+  </div></div></div></body></html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>unicodedata --- Unicode 数据库-BeJSON.com</title><meta name="keywords" content="unicodedata --- Unicode 数据库"><meta name="description" content="textwrap --- 文本自动换行与填充"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="stringprep --- 因特网字符串预备" href="stringprep.html" rel="next">
+    <link title="textwrap --- 文本自动换行与填充" href="textwrap.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/unicodedata.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="textwrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">textwrap</span></code> --- 文本自动换行与填充</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="stringprep.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stringprep</span></code> --- 因特网字符串预备</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="stringprep --- 因特网字符串预备" accesskey="N" href="stringprep.html">下一页</a> |</li>
+        <li class="right">
+          <a title="textwrap --- 文本自动换行与填充" accesskey="P" href="textwrap.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="text.html">文本处理服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodedata</span></code> --- Unicode 数据库</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-unicodedata">
+<span id="unicodedata-unicode-database"></span><h1><a title="unicodedata: Access the Unicode Database." class="reference internal" href="#module-unicodedata"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodedata</span></code></a> --- Unicode 数据库<a title="永久链接至标题" class="headerlink" href="#module-unicodedata">¶</a></h1>
+<hr class="docutils" id="index-0">
+<p>This module provides access to the Unicode Character Database (UCD) which
+defines character properties for all Unicode characters. The data contained in
+this database is compiled from the <a class="reference external" href="">UCD version 14.0.0</a>.</p>
+<p>该模块使用与 Unicode 标准附件 #44 <a class="reference external" href="">“Unicode 字符数据库”</a> 中所定义的相同名称和符号。 它定义了以下函数：</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.lookup">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">lookup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.lookup">¶</a></dt>
+<dd><p>按名称查找字符。如果找到具有给定名称的字符，则返回相应的字符。 如果没有找到，则 <a title="KeyError" class="reference internal" href="exceptions.html#KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> 被引发。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.3 版更改: </span>已添加对名称别名 <a class="footnote-reference brackets" id="id1" href="#id3">1</a> 和命名序列 <a class="footnote-reference brackets" id="id2" href="#id4">2</a> 的支持。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.name">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">default</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.name">¶</a></dt>
+<dd><p>返回分配给字符 <em>chr</em> 的名称作为字符串。如果没有定义名称，则返回 <em>default</em> ，如果没有给出，则 <a title="ValueError" class="reference internal" href="exceptions.html#ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 被引发。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.decimal">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">decimal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">default</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.decimal">¶</a></dt>
+<dd><p>返回分配给字符 <em>chr</em> 的十进制值作为整数。 如果没有定义这样的值，则返回 <em>default</em> ，如果没有给出，则 <a title="ValueError" class="reference internal" href="exceptions.html#ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 被引发。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.digit">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">digit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">default</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.digit">¶</a></dt>
+<dd><p>返回分配给字符 <em>chr</em> 的数字值作为整数。 如果没有定义这样的值，则返回 <em>default</em> ，如果没有给出，则 <a title="ValueError" class="reference internal" href="exceptions.html#ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 被引发。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.numeric">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">numeric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">default</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.numeric">¶</a></dt>
+<dd><p>返回分配给字符 <em>chr</em> 的数值作为浮点数。 如果没有定义这样的值，则返回 <em>default</em> ，如果没有给出，则 <a title="ValueError" class="reference internal" href="exceptions.html#ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 被引发。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.category">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.category">¶</a></dt>
+<dd><p>返回分配给字符 <em>chr</em> 的常规类别为字符串。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.bidirectional">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">bidirectional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.bidirectional">¶</a></dt>
+<dd><p>返回分配给字符 <em>chr</em> 的双向类作为字符串。如果未定义此类值，则返回空字符串。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.combining">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">combining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.combining">¶</a></dt>
+<dd><p>返回分配给字符 <em>chr</em> 的规范组合类作为整数。如果没有定义组合类，则返回 <code class="docutils literal notranslate"><span class="pre">0</span></code> 。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.east_asian_width">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">east_asian_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.east_asian_width">¶</a></dt>
+<dd><p>返回分配给字符 <em>chr</em> 的东亚宽度作为字符串。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.mirrored">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">mirrored</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.mirrored">¶</a></dt>
+<dd><p>返回分配给字符 <em>chr</em> 的镜像属性为整数。如果字符在双向文本中被识别为“镜像”字符，则返回 <code class="docutils literal notranslate"><span class="pre">1</span></code> ，否则返回 <code class="docutils literal notranslate"><span class="pre">0</span></code> 。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.decomposition">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">decomposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.decomposition">¶</a></dt>
+<dd><p>返回分配给字符 <em>chr</em> 的字符分解映射作为字符串。如果未定义此类映射，则返回空字符串。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.normalize">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unistr</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.normalize">¶</a></dt>
+<dd><p>返回 Unicode 字符串 <em>unistr</em> 的正常形式 <em>form</em> 。 <em>form</em> 的有效值为 'NFC' 、 'NFKC' 、 'NFD' 和 'NFKD' 。</p>
+<p>Unicode 标准基于规范等价和兼容性等效的定义定义了 Unicode 字符串的各种规范化形式。在 Unicode 中，可以以各种方式表示多个字符。 例如，字符 U+00C7 （带有 CEDILLA 的 LATIN CAPITAL LETTER C ）也可以表示为序列 U+0043（ LATIN CAPITAL LETTER C ）U+0327（ COMBINING CEDILLA ）。</p>
+<p>对于每个字符，有两种正规形式：正规形式 C 和正规形式 D 。正规形式D（NFD）也称为规范分解，并将每个字符转换为其分解形式。 正规形式C（NFC）首先应用规范分解，然后再次组合预组合字符。</p>
+<p>除了这两种形式之外，还有两种基于兼容性等效的其他常规形式。 在 Unicode 中，支持某些字符，这些字符通常与其他字符统一。 例如， U+2160（ROMAN NUMERAL ONE）与 U+0049（LATIN CAPITAL LETTER I）完全相同。 但是， Unicode 支持它与现有字符集（例如 gb2312 ）的兼容性。</p>
+<p>正规形式KD（NFKD）将应用兼容性分解，即用其等价项替换所有兼容性字符。 正规形式KC（NFKC）首先应用兼容性分解，然后是规范组合。</p>
+<p>即使两个 unicode 字符串被规范化并且人类读者看起来相同，如果一个具有组合字符而另一个没有，则它们可能无法相等。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unicodedata.is_normalized">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">is_normalized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unistr</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#unicodedata.is_normalized">¶</a></dt>
+<dd><p>判断 Unicode 字符串 <em>unistr</em> 是否为正规形式 <em>form</em>。 <em>form</em> 的有效值为 'NFC', 'NFKC', 'NFD' 和 'NFKD'。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.8 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<p>此外，该模块暴露了以下常量：</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="unicodedata.unidata_version">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">unidata_version</span></span><a title="永久链接至目标" class="headerlink" href="#unicodedata.unidata_version">¶</a></dt>
+<dd><p>此模块中使用的 Unicode 数据库的版本。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="unicodedata.ucd_3_2_0">
+<span class="sig-prename descclassname"><span class="pre">unicodedata.</span></span><span class="sig-name descname"><span class="pre">ucd_3_2_0</span></span><a title="永久链接至目标" class="headerlink" href="#unicodedata.ucd_3_2_0">¶</a></dt>
+<dd><p>这是一个与整个模块具有相同方法的对象，但对于需要此特定版本的 Unicode 数据库（如 IDNA ）的应用程序，则使用 Unicode 数据库版本 3.2 。</p>
+</dd></dl>
+
+<p>示例：</p>
+<div class="doctest highlight-default notranslate" style="position: relative;"><div class="highlight"><span title="Hide the prompts and output" class="copybutton" style="border-radius: 0px 3px 0px 0px; border: 1px solid rgb(170, 204, 153); top: 0px; right: 0px; color: rgb(170, 204, 153); padding-right: 0.2em; padding-left: 0.2em; font-family: monospace; position: absolute; cursor: pointer;">&gt;&gt;&gt;</span><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">unicodedata</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unicodedata</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="s1">'LEFT CURLY BRACKET'</span><span class="p">)</span>
+<span class="go">'{'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unicodedata</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<span class="go">'SOLIDUS'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unicodedata</span><span class="o">.</span><span class="n">decimal</span><span class="p">(</span><span class="s1">'9'</span><span class="p">)</span>
+<span class="go">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unicodedata</span><span class="o">.</span><span class="n">decimal</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span><span>
+  File </span><span class="nb">"&lt;stdin&gt;"</span><span>, line </span><span class="m">1</span><span>, in </span><span class="n">&lt;module&gt;</span>
+<span class="gr">ValueError</span><span>: </span><span class="n">not a decimal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unicodedata</span><span class="o">.</span><span class="n">category</span><span class="p">(</span><span class="s1">'A'</span><span class="p">)</span>  <span class="c1"># 'L'etter, 'u'ppercase</span>
+<span class="go">'Lu'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unicodedata</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">(</span><span class="s1">'</span><span class="se">\u0660</span><span class="s1">'</span><span class="p">)</span> <span class="c1"># 'A'rabic, 'N'umber</span>
+<span class="go">'AN'</span>
+</pre></div>
+</div>
+<p class="rubric">备注</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="">https://www.unicode.org/Public/14.0.0/ucd/NameAliases.txt</a></p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="">https://www.unicode.org/Public/14.0.0/ucd/NamedSequences.txt</a></p>
+</dd>
+</dl>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="textwrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">textwrap</span></code> --- 文本自动换行与填充</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="stringprep.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stringprep</span></code> --- 因特网字符串预备</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="stringprep --- 因特网字符串预备" href="stringprep.html">下一页</a> |</li>
+        <li class="right">
+          <a title="textwrap --- 文本自动换行与填充" href="textwrap.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="text.html">文本处理服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodedata</span></code> --- Unicode 数据库</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

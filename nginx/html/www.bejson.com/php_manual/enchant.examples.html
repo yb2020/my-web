@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>范例-BeJSON.com</title><meta name="keywords" content="范例"><meta name="description" content="范例示例 #1 Enchant Usage Example<?php$tag = 'en_US';$r = enchant_broker_init();$bprovides = enchant_broker_describe($r);echo " the"="" provides="" broker="" current="">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="enchant.constants.html">« 预定义常量</a></li>
+      <li style="float: right;"><a href="ref.enchant.html">Enchant 函数 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.enchant.html">Enchant</a></li>
+    <li>范例</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="appendix" id="enchant.examples">
+ <h1>范例</h1>
+
+ <div class="example" id="example-2201">
+  <p><strong>示例 #1 Enchant Usage Example</strong></p>
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$tag&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'en_US'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$r&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">enchant_broker_init</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$bprovides&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">enchant_broker_describe</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$r</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Current&nbsp;broker&nbsp;provides&nbsp;the&nbsp;following&nbsp;backend(s):\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$bprovides</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$dicts&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">enchant_broker_list_dicts</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$r</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$dicts</span><span style="color: rgb(0, 119, 0);">);<br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">enchant_broker_dict_exists</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$r</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(0, 0, 187);">$tag</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$d&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">enchant_broker_request_dict</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$r</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$tag</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$dprovides&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">enchant_dict_describe</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$d</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"dictionary&nbsp;</span><span style="color: rgb(0, 0, 187);">$tag</span><span style="color: rgb(221, 0, 0);">&nbsp;provides:\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$wordcorrect&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">enchant_dict_check</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$d</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"soong"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$dprovides</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$wordcorrect</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$suggs&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">enchant_dict_suggest</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$d</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"soong"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Suggestions&nbsp;for&nbsp;'soong':"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$suggs</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">enchant_broker_free_dict</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$d</span><span style="color: rgb(0, 119, 0);">);<br>}&nbsp;else&nbsp;{<br>}<br></span><span style="color: rgb(0, 0, 187);">enchant_broker_free</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$r</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+ </div>
+</div>
+</div></div></body></html>

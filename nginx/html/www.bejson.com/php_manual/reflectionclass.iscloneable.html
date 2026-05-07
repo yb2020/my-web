@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>返回了一个类是否可复制-BeJSON.com</title><meta name="keywords" content="返回了一个类是否可复制"><meta name="description" content="此函数没有参数。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="reflectionclass.isanonymous.html">« ReflectionClass::isAnonymous</a></li>
+      <li style="float: right;"><a href="reflectionclass.isenum.html">ReflectionClass::isEnum »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.reflectionclass.html">ReflectionClass</a></li>
+    <li>返回了一个类是否可复制</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="reflectionclass.iscloneable">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionClass::isCloneable</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionClass::isCloneable</span> — <span class="dc-title">返回了一个类是否可复制</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionclass.iscloneable-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::isCloneable</strong></span>(): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   返回了这个类是否可复制。
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionclass.iscloneable-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-reflectionclass.iscloneable-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   如果这个类可以复制返回 <strong><code>true</code></strong>，否则返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-reflectionclass.iscloneable-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-5003">
+    <p><strong>示例 #1 <span class="methodname"><strong>ReflectionClass::isCloneable()</strong></span> 的基本用法</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">NotCloneable&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: rgb(0, 0, 187);">$var1</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">__clone</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">Cloneable&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: rgb(0, 0, 187);">$var1</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$notCloneable&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">ReflectionClass</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'NotCloneable'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$cloneable&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">ReflectionClass</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'Cloneable'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$notCloneable</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isCloneable</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$cloneable</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isCloneable</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>bool(false)
+bool(true)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

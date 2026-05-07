@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Transliterate a string-BeJSON.com</title><meta name="keywords" content="Transliterate a string"><meta name="description" content="面向对象风格">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="transliterator.listids.html">« Transliterator::listIDs</a></li>
+      <li style="float: right;"><a href="class.intlbreakiterator.html">IntlBreakIterator »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.transliterator.html">Transliterator</a></li>
+    <li>Transliterate a string</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="transliterator.transliterate">
+ <div class="refnamediv">
+  <h1 class="refname">Transliterator::transliterate</h1>
+  <h1 class="refname">transliterator_transliterate</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8, PECL intl &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Transliterator::transliterate</span> -- <span class="refname">transliterator_transliterate</span> — <span class="dc-title">Transliterate a string</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-transliterator.transliterate-description">
+  <h3 class="title">说明</h3>
+  <p class="para">面向对象风格</p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Transliterator::transliterate</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code><span class="initializer"> = 0</span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$end</code><span class="initializer"> = -1</span></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">过程化风格</p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>transliterator_transliterate</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a class="type Transliterator" href="class.transliterator.html">Transliterator</a></span>|<span class="type">string</span></span> <code class="parameter">$transliterator</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$end</code><span class="initializer"> = -1</span></span><br>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+   Transforms a string or part thereof using an ICU transliterator.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-transliterator.transliterate-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">transliterator</code></dt>
+
+    <dd>
+
+     <p class="para">
+      In the procedural version, either a <span class="classname"><a class="classname" href="class.transliterator.html">Transliterator</a></span>
+      or a <span class="type">string</span> from which a
+      <span class="classname"><a class="classname" href="class.transliterator.html">Transliterator</a></span> can be built.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">string</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The string to be transformed.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">start</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The start index (in UTF-16 code units) from which the string will start
+      to be transformed, inclusive. Indexing starts at 0. The text before will
+      be left as is.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">end</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The end index (in UTF-16 code units) until which the string will be
+      transformed, exclusive. Indexing starts at 0. The text after will be
+      left as is.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-transliterator.transliterate-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   The transformed string on success,  或者在失败时返回 <strong><code>false</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-transliterator.transliterate-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2419">
+    <p><strong>示例 #1 Converting escaped UTF-16 code units</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$s&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"\u304A\u65E9\u3046\u3054\u3056\u3044\u307E\u3059"</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">transliterator_transliterate</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Hex-Any/Java"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$s</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//now&nbsp;the&nbsp;reverse&nbsp;operation&nbsp;with&nbsp;a&nbsp;supplementary&nbsp;character<br></span><span style="color: rgb(0, 0, 187);">$supplChar&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">html_entity_decode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'&amp;#x1D11E;'</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">mb_strlen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$supplChar</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"UTF-8"</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$encSupplChar&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">transliterator_transliterate</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Any-Hex/Java"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$supplChar</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(255, 128, 0);">//echoes&nbsp;two&nbsp;encoded&nbsp;UTF-16&nbsp;code&nbsp;units<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$encSupplChar</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(255, 128, 0);">//and&nbsp;back<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">transliterator_transliterate</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Hex-Any/Java"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$encSupplChar</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>お早うございます
+1
+\uD834\uDD1E
+𝄞
+
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-transliterator.transliterate-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="transliterator.geterrormessage.html" rel="rdfs-seeAlso">Transliterator::getErrorMessage()</a> - Get last error message</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="transliterator.construct.html" rel="rdfs-seeAlso">Transliterator::__construct()</a> - Private constructor to deny instantiation</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

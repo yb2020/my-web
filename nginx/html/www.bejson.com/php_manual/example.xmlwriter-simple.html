@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Creating a simple XML document-BeJSON.com</title><meta name="keywords" content="Creating a simple XML document"><meta name="description" content="This example shows how to use XMLWriter to create a XML document in memory. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="xmlwriter.examples.html">« 范例</a></li>
+      <li style="float: right;"><a href="example.xmlwriter-namespace.html">Working with XML namespaces »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="xmlwriter.examples.html">范例</a></li>
+    <li>Creating a simple XML document</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="example.xmlwriter-simple">
+  <h1 class="title">Creating a simple XML document</h1>
+  <p class="para">
+   This example shows how to use XMLWriter to create a XML document in memory.
+  </p>
+  <p class="para">
+   <div class="example" id="example-5294">
+    <p><strong>示例 #1 Creating a simple XML document</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$xw&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">xmlwriter_open_memory</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_set_indent</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$res&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">xmlwriter_set_indent_string</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'&nbsp;'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">xmlwriter_start_document</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'1.0'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'UTF-8'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;A&nbsp;first&nbsp;element<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_start_element</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'tag1'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Attribute&nbsp;'att1'&nbsp;for&nbsp;element&nbsp;'tag1'<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_start_attribute</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'att1'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_text</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'valueofatt1'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_end_attribute</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">xmlwriter_write_comment</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'this&nbsp;is&nbsp;a&nbsp;comment.'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Start&nbsp;a&nbsp;child&nbsp;element<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_start_element</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'tag11'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_text</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'This&nbsp;is&nbsp;a&nbsp;sample&nbsp;text,&nbsp;ä'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_end_element</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;tag11<br><br></span><span style="color: rgb(0, 0, 187);">xmlwriter_end_element</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;tag1<br><br><br>//&nbsp;CDATA<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_start_element</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'testc'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_write_cdata</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"This&nbsp;is&nbsp;cdata&nbsp;content"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_end_element</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;testc<br><br></span><span style="color: rgb(0, 0, 187);">xmlwriter_start_element</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'testc'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_start_cdata</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_text</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"test&nbsp;cdata2"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_end_cdata</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_end_element</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;testc<br><br>//&nbsp;A&nbsp;processing&nbsp;instruction<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_start_pi</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'php'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_text</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'$foo=2;echo&nbsp;$foo;'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">xmlwriter_end_pi</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">xmlwriter_end_document</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">xmlwriter_output_memory</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xw</span><span style="color: rgb(0, 119, 0);">);</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;tag1 att1="valueofatt1"&gt;
+ &lt;!--this is a comment.--&gt;
+ &lt;tag11&gt;This is a sample text, ä&lt;/tag11&gt;
+&lt;/tag1&gt;
+&lt;testc&gt;&lt;![CDATA[This is cdata content]]&gt;&lt;/testc&gt;
+&lt;testc&gt;&lt;![CDATA[test cdata2]]&gt;&lt;/testc&gt;
+&lt;?php $foo=2;echo $foo;?&gt;
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div></div></div></body></html>

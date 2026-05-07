@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get the status for the running task-BeJSON.com</title><meta name="keywords" content="Get the status for the running task"><meta name="description" content="此函数没有参数。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="gearmanclient.donormal.html">« GearmanClient::doNormal</a></li>
+      <li style="float: right;"><a href="gearmanclient.echo.html">GearmanClient::echo »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.gearmanclient.html">GearmanClient</a></li>
+    <li>Get the status for the running task</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="gearmanclient.dostatus">
+ <div class="refnamediv">
+  <h1 class="refname">GearmanClient::doStatus</h1>
+  <p class="verinfo">(PECL gearman &gt;= 0.5.0)</p><p class="refpurpose"><span class="refname">GearmanClient::doStatus</span> — <span class="dc-title">Get the status for the running task</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-gearmanclient.dostatus-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>GearmanClient::doStatus</strong></span>(): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   Returns the status for the running task.  This should be used between repeated
+   <span class="methodname"><a class="methodname" href="gearmanclient.donormal.html">GearmanClient::doNormal()</a></span> calls.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-gearmanclient.dostatus-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-gearmanclient.dostatus-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   An array representing the percentage completion given as a fraction, with the
+   first element the numerator and the second element the denomintor.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-gearmanclient.dostatus-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4210">
+    <p><strong>示例 #1 Get the status of a long running job</strong></p>
+    <div class="example-contents"><p>
+     The worker in this example has an artificial delay added during processing of the
+     string to be reversed.  After each delay it calls <span class="methodname"><a class="methodname" href="gearmanjob.status.html">GearmanJob::status()</a></span>
+     which the client then picks up.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Starting\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">#&nbsp;Create&nbsp;our&nbsp;client&nbsp;object.<br></span><span style="color: rgb(0, 0, 187);">$gmclient</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">GearmanClient</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(255, 128, 0);">#&nbsp;Add&nbsp;default&nbsp;server&nbsp;(localhost).<br></span><span style="color: rgb(0, 0, 187);">$gmclient</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addServer</span><span style="color: rgb(0, 119, 0);">();<br><br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Sending&nbsp;job\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">#&nbsp;Send&nbsp;reverse&nbsp;job<br></span><span style="color: rgb(0, 119, 0);">do<br>{<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$gmclient</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">doNormal</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"reverse"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"Hello!"</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">#&nbsp;Check&nbsp;for&nbsp;various&nbsp;return&nbsp;packets&nbsp;and&nbsp;errors.<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">switch(</span><span style="color: rgb(0, 0, 187);">$gmclient</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">returnCode</span><span style="color: rgb(0, 119, 0);">())<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(0, 0, 187);">GEARMAN_WORK_DATA</span><span style="color: rgb(0, 119, 0);">:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(0, 0, 187);">GEARMAN_WORK_STATUS</span><span style="color: rgb(0, 119, 0);">:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">#&nbsp;get&nbsp;the&nbsp;current&nbsp;job&nbsp;status<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">list(</span><span style="color: rgb(0, 0, 187);">$numerator</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$denominator</span><span style="color: rgb(0, 119, 0);">)=&nbsp;</span><span style="color: rgb(0, 0, 187);">$gmclient</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">doStatus</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Status:&nbsp;</span><span style="color: rgb(0, 0, 187);">$numerator</span><span style="color: rgb(221, 0, 0);">/</span><span style="color: rgb(0, 0, 187);">$denominator</span><span style="color: rgb(221, 0, 0);">&nbsp;complete\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(0, 0, 187);">GEARMAN_WORK_FAIL</span><span style="color: rgb(0, 119, 0);">:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Failed\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(0, 0, 187);">GEARMAN_SUCCESS</span><span style="color: rgb(0, 119, 0);">:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;default:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"RET:&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$gmclient</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">returnCode</span><span style="color: rgb(0, 119, 0);">()&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>&nbsp;&nbsp;}<br>}<br>while(</span><span style="color: rgb(0, 0, 187);">$gmclient</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">returnCode</span><span style="color: rgb(0, 119, 0);">()&nbsp;!=&nbsp;</span><span style="color: rgb(0, 0, 187);">GEARMAN_SUCCESS</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Success:&nbsp;</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(221, 0, 0);">\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Starting
+Sending job
+Status: 1/6 complete
+Status: 2/6 complete
+Status: 3/6 complete
+Status: 4/6 complete
+Status: 5/6 complete
+Status: 6/6 complete
+Success: !olleH
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-gearmanclient.dostatus-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.donormal.html" rel="rdfs-seeAlso">GearmanClient::doNormal()</a> - Run a single task and return a result</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanjob.status.html" rel="rdfs-seeAlso">GearmanJob::status()</a> - Send status (deprecated)</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

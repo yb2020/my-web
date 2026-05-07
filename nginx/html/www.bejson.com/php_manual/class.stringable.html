@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Stringable 接口-BeJSON.com</title><meta name="keywords" content="Stringable 接口"><meta name="description" content="Stringable 接口表示拥有 __toString() 方法的类。 和大多数接口不同， Stringable 隐式存在于任何定义了 __toString() 魔术方法的类上， 当然也可以显式声明它，并且推荐这么做。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="weakmap.offsetunset.html">« WeakMap::offsetUnset</a></li>
+      <li style="float: right;"><a href="stringable.tostring.html">Stringable::__toString »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reserved.interfaces.html">预定义接口</a></li>
+    <li>Stringable 接口</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.stringable">
+
+ <h1 class="title">Stringable 接口</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 8)</p>
+
+
+  <div class="section" id="stringable.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    <span class="interfacename"><strong class="interfacename">Stringable</strong></span> 接口表示拥有 
+    <a class="link" href="language.oop5.magic.html#object.tostring">__toString()</a> 方法的类。
+    和大多数接口不同， <span class="interfacename"><strong class="interfacename">Stringable</strong></span> 隐式存在于任何定义了
+    <a class="link" href="language.oop5.magic.html#object.tostring">__toString()</a> 魔术方法的类上，
+    当然也可以显式声明它，并且推荐这么做。
+   </p>
+   <p class="para">
+    它的主要价值是能让函数针对简单的字符串或可以转化为字符串的对象，检测联合类型 <code class="literal">string|Stringable</code>。
+   </p>
+  </div>
+
+
+  <div class="section" id="stringable.synopsis">
+   <h2 class="title">接口摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="oointerface">
+      <span class="modifier">interface</span> <strong class="interfacename">Stringable</strong></span> {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="stringable.tostring.html">__toString</a></span>(): <span class="type">string</span></div>
+
+   }</div>
+
+
+  </div>
+
+  <div class="section" id="stringable.examples">
+   <h2 class="title">Stringable 示例</h2>
+   <p class="para">
+    <div class="example" id="stringable.basic-example">
+     <p><strong>示例 #1 基础 Stringable 用法</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">IPv4Address&nbsp;</span><span style="color: rgb(0, 119, 0);">implements&nbsp;</span><span style="color: rgb(0, 0, 187);">Stringable&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: rgb(0, 0, 187);">string&nbsp;$oct1</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: rgb(0, 0, 187);">string&nbsp;$oct2</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: rgb(0, 0, 187);">string&nbsp;$oct3</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: rgb(0, 0, 187);">string&nbsp;$oct4</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">__construct</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">string&nbsp;$oct1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">string&nbsp;$oct2</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">string&nbsp;$oct3</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">string&nbsp;$oct4</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">oct1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$oct1</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">oct2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$oct2</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">oct3&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$oct3</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">oct4&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$oct4</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">__toString</span><span style="color: rgb(0, 119, 0);">():&nbsp;</span><span style="color: rgb(0, 0, 187);">string&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">oct1</span><span style="color: rgb(221, 0, 0);">.</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">oct2</span><span style="color: rgb(221, 0, 0);">.</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">oct3</span><span style="color: rgb(221, 0, 0);">.</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">oct4</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br>function&nbsp;</span><span style="color: rgb(0, 0, 187);">showStuff</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">string</span><span style="color: rgb(0, 119, 0);">|</span><span style="color: rgb(0, 0, 187);">Stringable&nbsp;$value</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;通过在此处调用&nbsp;__toString，Stringable&nbsp;将会获得转化后的字符串<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">print&nbsp;</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$ip&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">IPv4Address</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'123'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'234'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'42'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'9'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">showStuff</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ip</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>123.234.42.9
+</pre></div>
+     </div>
+    </div>
+   <p></p>
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="stringable.tostring.html">Stringable::__toString</a> — 从对象中获取字符串表示</li></ul>
+</div>
+</div></div></body></html>

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Run a single low priority task-BeJSON.com</title><meta name="keywords" content="Run a single low priority task"><meta name="description" content="GearmanClient::doLow(PECL gearman >= 0.5.0)GearmanClient::doLow — Run a single low priority task说明public GearmanClient::doLow(string $function_name, s">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="gearmanclient.dojobhandle.html">« GearmanClient::doJobHandle</a></li>
+      <li style="float: right;"><a href="gearmanclient.dolowbackground.html">GearmanClient::doLowBackground »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.gearmanclient.html">GearmanClient</a></li>
+    <li>Run a single low priority task</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="gearmanclient.dolow">
+ <div class="refnamediv">
+  <h1 class="refname">GearmanClient::doLow</h1>
+  <p class="verinfo">(PECL gearman &gt;= 0.5.0)</p><p class="refpurpose"><span class="refname">GearmanClient::doLow</span> — <span class="dc-title">Run a single low priority task</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-gearmanclient.dolow-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>GearmanClient::doLow</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$workload</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$unique</code><span class="initializer"> = ?</span></span>): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   Runs a single low priority task and returns a string representation of the result.  It is up to
+   the <span class="classname"><a class="classname" href="class.gearmanclient.html">GearmanClient</a></span> and <span class="classname"><a class="classname" href="class.gearmanworker.html">GearmanWorker</a></span> to
+   agree on the format of the result.  Normal and high priority tasks will get precedence over
+   low priority tasks in the job queue.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-gearmanclient.dolow-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">function_name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       由程序自动执行的已注册函数。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">workload</code></dt>
+
+     <dd>
+
+      <p class="para">
+       被处理的序列化数据。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">unique</code></dt>
+
+     <dd>
+
+      <p class="para">
+       用于标识特定任务的唯一性 ID。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-gearmanclient.dolow-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   A string representing the results of running a task.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-gearmanclient.dolow-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.donormal.html" rel="rdfs-seeAlso">GearmanClient::doNormal()</a> - Run a single task and return a result</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.dohigh.html" rel="rdfs-seeAlso">GearmanClient::doHigh()</a> - Run a single high priority task</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.dobackground.html" rel="rdfs-seeAlso">GearmanClient::doBackground()</a> - Run a task in the background</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.dohighbackground.html" rel="rdfs-seeAlso">GearmanClient::doHighBackground()</a> - Run a high priority task in the background</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.dolowbackground.html" rel="rdfs-seeAlso">GearmanClient::doLowBackground()</a> - Run a low priority task in the background</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

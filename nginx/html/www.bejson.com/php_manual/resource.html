@@ -1,0 +1,1758 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>资源类型列表-BeJSON.com</title><meta name="keywords" content="资源类型列表"><meta name="description" content="以下是一个建立，使用和销毁资源的函数列表。可以用 is_resource()函数测定一个变量是否是资源，函数 get_resource_type()则返回该资源的类型。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="reserved.other-reserved-words.html">« 其他保留字列表</a></li>
+      <li style="float: right;"><a href="filters.html">可用过滤器列表 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="appendices.html">附录</a></li>
+    <li>资源类型列表</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="appendix" id="resource">
+  <h1>资源类型列表</h1>
+
+  <p class="para">以下是一个建立，使用和销毁资源的函数列表。可以用 
+  <span class="function"><a class="function" href="function.is-resource.html">is_resource()</a></span>函数测定一个变量是否是资源，函数 
+  <span class="function"><a class="function" href="function.get-resource-type.html">get_resource_type()</a></span>则返回该资源的类型。
+  <table class="doctable table">
+   <caption><strong>资源类型</strong></caption>
+   
+    <colgroup><col width="1">
+    <col width="1">
+    <col>
+    <col width="1">
+    <col width="1">
+    <thead>
+     <tr>
+      <th>资源类型名称</th>
+      <th>建立者</th>
+      <th>使用者</th>
+      <th>销毁者</th>
+      <th>定义</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>AddressInfo</td>
+      <td>
+       <span class="function"><a class="function" href="function.socket-addrinfo-lookup.html">socket_addrinfo_lookup()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.socket-addrinfo-bind.html">socket_addrinfo_bind()</a></span>,
+       <span class="function"><a class="function" href="function.socket-addrinfo-connect.html">socket_addrinfo_connect()</a></span>,
+       <span class="function"><a class="function" href="function.socket-addrinfo-explain.html">socket_addrinfo_explain()</a></span>,
+      </td>
+      <td>
+       None
+      </td>
+      <td>AddressInfo (sockets extension)</td>
+     </tr>
+
+     <tr>
+      <td>bzip2</td>
+      <td>
+       <span class="function"><a class="function" href="function.bzopen.html">bzopen()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.bzerrno.html">bzerrno()</a></span>,
+       <span class="function"><a class="function" href="function.bzerror.html">bzerror()</a></span>,
+       <span class="function"><a class="function" href="function.bzerrstr.html">bzerrstr()</a></span>,
+       <span class="function"><a class="function" href="function.bzflush.html">bzflush()</a></span>,
+       <span class="function"><a class="function" href="function.bzread.html">bzread()</a></span>,
+       <span class="function"><a class="function" href="function.bzwrite.html">bzwrite()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.bzclose.html">bzclose()</a></span>
+      </td>
+      <td>Bzip2 file</td>
+     </tr>
+
+     <tr>
+      <td>cubrid connection</td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-connect.html">cubrid_connect()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-connect-with-url.html">cubrid_connect_with_url()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-col-get.html">cubrid_col_get()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-col-size.html">cubrid_col_size()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-commit.html">cubrid_commit()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-drop.html">cubrid_drop()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-execute.html">cubrid_execute()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get-autocommit.html">cubrid_get_autocommit()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get-charset.html">cubrid_get_charset()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get-class-name.html">cubrid_get_class_name()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get-db-parameter.html">cubrid_get_db_parameter()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get-server-info.html">cubrid_get_server_info()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get.html">cubrid_get()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-insert-id.html">cubrid_insert_id()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-is-instance.html">cubrid_is_instance()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob-export.html">cubrid_lob_export()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob-get.html">cubrid_lob_get()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob-send.html">cubrid_lob_send()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lock-read.html">cubrid_lock_read()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lock-write.html">cubrid_lock_write()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-prepare.html">cubrid_prepare()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-put.html">cubrid_put()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-rollback.html">cubrid_rollback()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-schema.html">cubrid_schema()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-seq-drop.html">cubrid_seq_drop()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-seq-insert.html">cubrid_seq_insert()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-seq-put.html">cubrid_seq_put()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-set-add.html">cubrid_set_add()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-set-autocommit.html">cubrid_set_autocommit()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-set-db-parameter.html">cubrid_set_db_parameter()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-set-drop.html">cubrid_set_drop()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-affected-rows.html">cubrid_affected_rows()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-client-encoding.html">cubrid_client_encoding()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-errno.html">cubrid_errno()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-error.html">cubrid_error()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-list-dbs.html">cubrid_list_dbs()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-ping.html">cubrid_ping()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-query.html">cubrid_query()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-real-escape-string.html">cubrid_real_escape_string()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-close.html">cubrid_close()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-disconnect.html">cubrid_disconnect()</a></span>
+      </td>
+      <td>Connection to CUBRID database</td>
+     </tr>
+
+     <tr>
+      <td>persistent cubrid connection</td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-pconnect.html">cubrid_pconnect()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-pconnect-with-url.html">cubrid_pconnect_with_url()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-col-get.html">cubrid_col_get()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-col-size.html">cubrid_col_size()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-commit.html">cubrid_commit()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-drop.html">cubrid_drop()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-execute.html">cubrid_execute()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get-autocommit.html">cubrid_get_autocommit()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get-charset.html">cubrid_get_charset()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get-class-name.html">cubrid_get_class_name()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get-db-parameter.html">cubrid_get_db_parameter()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get-server-info.html">cubrid_get_server_info()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get.html">cubrid_get()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-insert-id.html">cubrid_insert_id()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-is-instance.html">cubrid_is_instance()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob-export.html">cubrid_lob_export()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob-get.html">cubrid_lob_get()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob-send.html">cubrid_lob_send()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lock-read.html">cubrid_lock_read()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lock-write.html">cubrid_lock_write()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-prepare.html">cubrid_prepare()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-put.html">cubrid_put()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-rollback.html">cubrid_rollback()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-schema.html">cubrid_schema()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-seq-drop.html">cubrid_seq_drop()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-seq-insert.html">cubrid_seq_insert()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-seq-put.html">cubrid_seq_put()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-set-add.html">cubrid_set_add()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-set-autocommit.html">cubrid_set_autocommit()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-set-db-parameter.html">cubrid_set_db_parameter()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-set-drop.html">cubrid_set_drop()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-affected-rows.html">cubrid_affected_rows()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-client-encoding.html">cubrid_client_encoding()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-errno.html">cubrid_errno()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-error.html">cubrid_error()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-list-dbs.html">cubrid_list_dbs()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-ping.html">cubrid_ping()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-query.html">cubrid_query()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-real-escape-string.html">cubrid_real_escape_string()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob2-new.html">cubrid_lob2_new()</a></span>
+      </td>
+      <td> </td>
+      <td>Persistent connection to CUBRID database</td>
+     </tr>
+
+     <tr>
+      <td>cubrid request</td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-prepare.html">cubrid_prepare()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-execute.html">cubrid_execute()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-query.html">cubrid_query()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-unbuffered-query.html">cubrid_unbuffered_query()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-bind.html">cubrid_bind()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-column-names.html">cubrid_column_names()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-column-types.html">cubrid_column_types()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-current-oid.html">cubrid_current_oid()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-execute.html">cubrid_execute()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-free-result.html">cubrid_free_result()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-get-query-timeout.html">cubrid_get_query_timeout()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-move-cursor.html">cubrid_move_cursor()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-next-result.html">cubrid_next_result()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-num-cols.html">cubrid_num_cols()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-num-rows.html">cubrid_num_rows()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-set-query-timeout.html">cubrid_set_query_timeout()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-data-seek.html">cubrid_data_seek()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-fetch-array.html">cubrid_fetch_array()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-fetch-assoc.html">cubrid_fetch_assoc()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-fetch-field.html">cubrid_fetch_field()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-fetch-lengths.html">cubrid_fetch_lengths()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-fetch-object.html">cubrid_fetch_object()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-fetch-row.html">cubrid_fetch_row()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-field-flags.html">cubrid_field_flags()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-field-len.html">cubrid_field_len()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-field-name.html">cubrid_field_name()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-field-seek.html">cubrid_field_seek()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-field-table.html">cubrid_field_table()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-field-type.html">cubrid_field_type()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-num-fields.html">cubrid_num_fields()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-result.html">cubrid_result()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob2-bind.html">cubrid_lob2_bind()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-close-prepare.html">cubrid_close_prepare()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-close-request.html">cubrid_close_request()</a></span>
+      </td>
+      <td>CUBRID request</td>
+     </tr>
+
+     <tr>
+      <td>cubrid lob</td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-lob-get.html">cubrid_lob_get()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-lob-export.html">cubrid_lob_export()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob-send.html">cubrid_lob_send()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob-size.html">cubrid_lob_size()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-lob-close.html">cubrid_lob_close()</a></span>
+      </td>
+      <td>
+       None
+      </td>
+     </tr>
+
+     <tr>
+      <td>cubrid lob2</td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-lob2-new.html">cubrid_lob2_new()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-fetch.html">cubrid_fetch()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-fetch-row.html">cubrid_fetch_row()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-fetch-array.html">cubrid_fetch_array()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-fetch-assoc.html">cubrid_fetch_assoc()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-fetch-object.html">cubrid_fetch_object()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-lob2-export.html">cubrid_lob2_export()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob2-import.html">cubrid_lob2_import()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob2-read.html">cubrid_lob2_read()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob2-write.html">cubrid_lob2_write()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob2-tell.html">cubrid_lob2_tell()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob2-tell64.html">cubrid_lob2_tell64()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob2-seek.html">cubrid_lob2_seek()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob2-seek64.html">cubrid_lob2_seek64()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob2-size.html">cubrid_lob2_size()</a></span>
+       <span class="function"><a class="function" href="function.cubrid-lob2-size64.html">cubrid_lob2_size64()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.cubrid-lob2-close.html">cubrid_lob2_close()</a></span>
+      </td>
+      <td>
+       None
+      </td>
+     </tr>
+
+     <tr>
+      <td>curl</td>
+      <td>
+       <span class="function"><a class="function" href="function.curl-copy-handle.html">curl_copy_handle()</a></span>,
+       <span class="function"><a class="function" href="function.curl-init.html">curl_init()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.curl-copy-handle.html">curl_copy_handle()</a></span>,
+       <span class="function"><a class="function" href="function.curl-errno.html">curl_errno()</a></span>,
+       <span class="function"><a class="function" href="function.curl-error.html">curl_error()</a></span>,
+       <span class="function"><a class="function" href="function.curl-exec.html">curl_exec()</a></span>,
+       <span class="function"><a class="function" href="function.curl-getinfo.html">curl_getinfo()</a></span>,
+       <span class="function"><a class="function" href="function.curl-setopt.html">curl_setopt()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.curl-close.html">curl_close()</a></span>
+      </td>
+      <td>cURL handle</td>
+     </tr>
+
+     <tr>
+      <td>curl_multi</td>
+      <td>
+       <span class="function"><a class="function" href="function.curl-multi-init.html">curl_multi_init()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.curl-multi-errno.html">curl_multi_errno()</a></span>,
+       <span class="function"><a class="function" href="function.curl-multi-exec.html">curl_multi_exec()</a></span>,
+       <span class="function"><a class="function" href="function.curl-multi-info-read.html">curl_multi_info_read()</a></span>,
+       <span class="function"><a class="function" href="function.curl-multi-remove-handle.html">curl_multi_remove_handle()</a></span>,
+       <span class="function"><a class="function" href="function.curl-multi-select.html">curl_multi_select()</a></span>,
+       <span class="function"><a class="function" href="function.curl-multi-setopt.html">curl_multi_setopt()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.curl-multi-close.html">curl_multi_close()</a></span>
+      </td>
+      <td>cURL multi handle</td>
+     </tr>
+
+     <tr>
+      <td>curl_share</td>
+      <td>
+       <span class="function"><a class="function" href="function.curl-share-init.html">curl_share_init()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.curl-share-errno.html">curl_share_errno()</a></span>,
+       <span class="function"><a class="function" href="function.curl-share-setopt.html">curl_share_setopt()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.curl-share-close.html">curl_share_close()</a></span>
+      </td>
+      <td>cURL share handle</td>
+     </tr>
+
+     <tr>
+      <td>dba</td>
+      <td>
+       <span class="function"><a class="function" href="function.dba-open.html">dba_open()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.dba-delete.html">dba_delete()</a></span>,
+       <span class="function"><a class="function" href="function.dba-exists.html">dba_exists()</a></span>,
+       <span class="function"><a class="function" href="function.dba-fetch.html">dba_fetch()</a></span>,
+       <span class="function"><a class="function" href="function.dba-firstkey.html">dba_firstkey()</a></span>,
+       <span class="function"><a class="function" href="function.dba-insert.html">dba_insert()</a></span>,
+       <span class="function"><a class="function" href="function.dba-nextkey.html">dba_nextkey()</a></span>,
+       <span class="function"><a class="function" href="function.dba-optimize.html">dba_optimize()</a></span>,
+       <span class="function"><a class="function" href="function.dba-replace.html">dba_replace()</a></span>,
+       <span class="function"><a class="function" href="function.dba-sync.html">dba_sync()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.dba-close.html">dba_close()</a></span>
+      </td>
+      <td>Link to DBA database</td>
+     </tr>
+
+     <tr>
+      <td>dba persistent</td>
+      <td>
+       <span class="function"><a class="function" href="function.dba-popen.html">dba_popen()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.dba-delete.html">dba_delete()</a></span>,
+       <span class="function"><a class="function" href="function.dba-exists.html">dba_exists()</a></span>,
+       <span class="function"><a class="function" href="function.dba-fetch.html">dba_fetch()</a></span>,
+       <span class="function"><a class="function" href="function.dba-firstkey.html">dba_firstkey()</a></span>,
+       <span class="function"><a class="function" href="function.dba-insert.html">dba_insert()</a></span>,
+       <span class="function"><a class="function" href="function.dba-nextkey.html">dba_nextkey()</a></span>,
+       <span class="function"><a class="function" href="function.dba-optimize.html">dba_optimize()</a></span>,
+       <span class="function"><a class="function" href="function.dba-replace.html">dba_replace()</a></span>,
+       <span class="function"><a class="function" href="function.dba-sync.html">dba_sync()</a></span>
+      </td>
+      <td>
+       None
+      </td>
+      <td>Persistent link to DBA database</td>
+     </tr>
+
+     <tr>
+      <td>dbase</td>
+      <td>
+       <span class="function"><a class="function" href="function.dbase-open.html">dbase_open()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.dbase-pack.html">dbase_pack()</a></span>,
+       <span class="function"><a class="function" href="function.dbase-add-record.html">dbase_add_record()</a></span>,
+       <span class="function"><a class="function" href="function.dbase-replace-record.html">dbase_replace_record()</a></span>,
+       <span class="function"><a class="function" href="function.dbase-delete-record.html">dbase_delete_record()</a></span>,
+       <span class="function"><a class="function" href="function.dbase-get-record.html">dbase_get_record()</a></span>,
+       <span class="function"><a class="function" href="function.dbase-get-record-with-names.html">dbase_get_record_with_names()</a></span>,
+       <span class="function"><a class="function" href="function.dbase-numfields.html">dbase_numfields()</a></span>,
+       <span class="function"><a class="function" href="function.dbase-numrecords.html">dbase_numrecords()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.dbase-close.html">dbase_close()</a></span>
+      </td>
+      <td>Link to Dbase database</td>
+     </tr>
+
+     <tr>
+      <td>enchant_broker</td>
+      <td>
+       <span class="function"><a class="function" href="function.enchant-broker-init.html">enchant_broker_init()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.enchant-broker-describe.html">enchant_broker_describe()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-broker-dict-exists.html">enchant_broker_dict_exists()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-broker-get-dict-path.html">enchant_broker_get_dict_path()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-broker-get-error.html">enchant_broker_get_error()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-broker-list-dicts.html">enchant_broker_list_dicts()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-broker-set-dict-path.html">enchant_broker_set_dict_path()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-broker-set-ordering.html">enchant_broker_set_ordering()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.enchant-broker-free.html">enchant_broker_free()</a></span>
+      </td>
+      <td>Enchant broker (prior to PHP 8.0.0)</td>
+     </tr>
+
+     <tr>
+      <td>enchant_dict</td>
+      <td>
+       <span class="function"><a class="function" href="function.enchant-broker-request-dict.html">enchant_broker_request_dict()</a></span>
+       <span class="function"><a class="function" href="function.enchant-broker-request-pwl-dict.html">enchant_broker_request_pwl_dict()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.enchant-dict-add-to-personal.html">enchant_dict_add_to_personal()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-dict-add-to-session.html">enchant_dict_add_to_session()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-dict-check.html">enchant_dict_check()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-dict-describe.html">enchant_dict_describe()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-dict-get-error.html">enchant_dict_get_error()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-dict-is-in-session.html">enchant_dict_is_in_session()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-dict-store-replacement.html">enchant_dict_store_replacement()</a></span>,
+       <span class="function"><a class="function" href="function.enchant-dict-suggest.html">enchant_dict_suggest()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.enchant-broker-free-dict.html">enchant_broker_free_dict()</a></span>
+      </td>
+      <td>Enchant dictionary (prior to PHP 8.0.0)</td>
+     </tr>
+
+     <tr>
+      <td>fdf</td>
+      <td>
+       <span class="function"><a class="function" href="function.fdf-open.html">fdf_open()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.fdf-create.html">fdf_create()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-save.html">fdf_save()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-get-value.html">fdf_get_value()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-set-value.html">fdf_set_value()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-next-field-name.html">fdf_next_field_name()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-set-ap.html">fdf_set_ap()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-set-status.html">fdf_set_status()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-get-status.html">fdf_get_status()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-set-file.html">fdf_set_file()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-get-file.html">fdf_get_file()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-set-flags.html">fdf_set_flags()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-set-opt.html">fdf_set_opt()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-set-submit-form-action.html">fdf_set_submit_form_action()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-set-javascript-action.html">fdf_set_javascript_action()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.fdf-close.html">fdf_close()</a></span>
+      </td>
+      <td>FDF File</td>
+     </tr>
+
+     <tr>
+      <td>ftp</td>
+      <td>
+       <span class="function"><a class="function" href="function.ftp-connect.html">ftp_connect()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-ssl-connect.html">ftp_ssl_connect()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ftp-login.html">ftp_login()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-pwd.html">ftp_pwd()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-cdup.html">ftp_cdup()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-chdir.html">ftp_chdir()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-mkdir.html">ftp_mkdir()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-rmdir.html">ftp_rmdir()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-nlist.html">ftp_nlist()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-rawlist.html">ftp_rawlist()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-systype.html">ftp_systype()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-pasv.html">ftp_pasv()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-get.html">ftp_get()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-fget.html">ftp_fget()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-put.html">ftp_put()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-fput.html">ftp_fput()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-size.html">ftp_size()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-mdtm.html">ftp_mdtm()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-rename.html">ftp_rename()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-delete.html">ftp_delete()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-site.html">ftp_site()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-alloc.html">ftp_alloc()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-chmod.html">ftp_chmod()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-exec.html">ftp_exec()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-get-option.html">ftp_get_option()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-nb-continue.html">ftp_nb_continue()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-nb-fget.html">ftp_nb_fget()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-nb-fput.html">ftp_nb_fput()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-nb-get.html">ftp_nb_get()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-nb-put.html">ftp_nb_put()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-raw.html">ftp_raw()</a></span>,
+       <span class="function"><a class="function" href="function.ftp-set-option.html">ftp_set_option()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ftp-close.html">ftp_close()</a></span>
+      </td>
+      <td>FTP stream</td>
+     </tr>
+
+     <tr>
+      <td>gd</td>
+      <td>
+       <span class="function"><a class="function" href="function.imagecreate.html">imagecreate()</a></span>,
+       <span class="function"><a class="function" href="function.imagecreatefromgd.html">imagecreatefromgd()</a></span>,
+       <span class="function"><a class="function" href="function.imagecreatefromgd2.html">imagecreatefromgd2()</a></span>,
+       <span class="function"><a class="function" href="function.imagecreatefromgd2part.html">imagecreatefromgd2part()</a></span>,
+       <span class="function"><a class="function" href="function.imagecreatefromgif.html">imagecreatefromgif()</a></span>,
+       <span class="function"><a class="function" href="function.imagecreatefromjpeg.html">imagecreatefromjpeg()</a></span>,
+       <span class="function"><a class="function" href="function.imagecreatefrompng.html">imagecreatefrompng()</a></span>,
+       <span class="function"><a class="function" href="function.imagecreatefromwbmp.html">imagecreatefromwbmp()</a></span>,
+       <span class="function"><a class="function" href="function.imagecreatefromstring.html">imagecreatefromstring()</a></span>,
+       <span class="function"><a class="function" href="function.imagecreatefromxbm.html">imagecreatefromxbm()</a></span>,
+       <span class="function"><a class="function" href="function.imagecreatefromxpm.html">imagecreatefromxpm()</a></span>,
+       <span class="function"><a class="function" href="function.imagecreatetruecolor.html">imagecreatetruecolor()</a></span>,
+       <span class="function"><a class="function" href="function.imagerotate.html">imagerotate()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.imagearc.html">imagearc()</a></span>,
+       <span class="function"><a class="function" href="function.imagechar.html">imagechar()</a></span>,
+       <span class="function"><a class="function" href="function.imagecharup.html">imagecharup()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorallocate.html">imagecolorallocate()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorat.html">imagecolorat()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorclosest.html">imagecolorclosest()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorexact.html">imagecolorexact()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorresolve.html">imagecolorresolve()</a></span>,
+       <span class="function"><a class="function" href="function.imagegammacorrect.html">imagegammacorrect()</a></span>,
+       <span class="function"><a class="function" href="function.imagegammacorrect.html">imagegammacorrect()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorset.html">imagecolorset()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorsforindex.html">imagecolorsforindex()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorstotal.html">imagecolorstotal()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolortransparent.html">imagecolortransparent()</a></span>,
+       <span class="function"><a class="function" href="function.imagecopy.html">imagecopy()</a></span>,
+       <span class="function"><a class="function" href="function.imagecopyresized.html">imagecopyresized()</a></span>,
+       <span class="function"><a class="function" href="function.imagedashedline.html">imagedashedline()</a></span>,
+       <span class="function"><a class="function" href="function.imagefill.html">imagefill()</a></span>,
+       <span class="function"><a class="function" href="function.imagefilledpolygon.html">imagefilledpolygon()</a></span>,
+       <span class="function"><a class="function" href="function.imagefilledrectangle.html">imagefilledrectangle()</a></span>,
+       <span class="function"><a class="function" href="function.imagefilltoborder.html">imagefilltoborder()</a></span>,
+       <span class="function"><a class="function" href="function.imagegif.html">imagegif()</a></span>,
+       <span class="function"><a class="function" href="function.imagepng.html">imagepng()</a></span>,
+       <span class="function"><a class="function" href="function.imagejpeg.html">imagejpeg()</a></span>,
+       <span class="function"><a class="function" href="function.imagewbmp.html">imagewbmp()</a></span>,
+       <span class="function"><a class="function" href="function.imageinterlace.html">imageinterlace()</a></span>,
+       <span class="function"><a class="function" href="function.imageline.html">imageline()</a></span>,
+       <span class="function"><a class="function" href="function.imagepolygon.html">imagepolygon()</a></span>,
+       <span class="function"><a class="function" href="function.imagerectangle.html">imagerectangle()</a></span>,
+       <span class="function"><a class="function" href="function.imagerotate.html">imagerotate()</a></span>,
+       <span class="function"><a class="function" href="function.imagesetpixel.html">imagesetpixel()</a></span>,
+       <span class="function"><a class="function" href="function.imagestring.html">imagestring()</a></span>,
+       <span class="function"><a class="function" href="function.imagestringup.html">imagestringup()</a></span>,
+       <span class="function"><a class="function" href="function.imagesx.html">imagesx()</a></span>,
+       <span class="function"><a class="function" href="function.imagesy.html">imagesy()</a></span>,
+       <span class="function"><a class="function" href="function.imagettftext.html">imagettftext()</a></span>,
+       <span class="function"><a class="function" href="function.imagefilledarc.html">imagefilledarc()</a></span>,
+       <span class="function"><a class="function" href="function.imageellipse.html">imageellipse()</a></span>,
+       <span class="function"><a class="function" href="function.imagefilledellipse.html">imagefilledellipse()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorclosestalpha.html">imagecolorclosestalpha()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorexactalpha.html">imagecolorexactalpha()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorresolvealpha.html">imagecolorresolvealpha()</a></span>,
+       <span class="function"><a class="function" href="function.imagecopymerge.html">imagecopymerge()</a></span>,
+       <span class="function"><a class="function" href="function.imagecopymergegray.html">imagecopymergegray()</a></span>,
+       <span class="function"><a class="function" href="function.imagecopyresampled.html">imagecopyresampled()</a></span>,
+       <span class="function"><a class="function" href="function.imagetruecolortopalette.html">imagetruecolortopalette()</a></span>,
+       <span class="function"><a class="function" href="function.imagesetbrush.html">imagesetbrush()</a></span>,
+       <span class="function"><a class="function" href="function.imagesettile.html">imagesettile()</a></span>,
+       <span class="function"><a class="function" href="function.imagesetthickness.html">imagesetthickness()</a></span>,
+       <span class="function"><a class="function" href="function.image2wbmp.html">image2wbmp()</a></span>,
+       <span class="function"><a class="function" href="function.imagealphablending.html">imagealphablending()</a></span>,
+       <span class="function"><a class="function" href="function.imageantialias.html">imageantialias()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorallocatealpha.html">imagecolorallocatealpha()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolorclosesthwb.html">imagecolorclosesthwb()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolordeallocate.html">imagecolordeallocate()</a></span>,
+       <span class="function"><a class="function" href="function.imagecolormatch.html">imagecolormatch()</a></span>,
+       <span class="function"><a class="function" href="function.imagefilter.html">imagefilter()</a></span>,
+       <span class="function"><a class="function" href="function.imagefttext.html">imagefttext()</a></span>,
+       <span class="function"><a class="function" href="function.imagegd.html">imagegd()</a></span>,
+       <span class="function"><a class="function" href="function.imagegd2.html">imagegd2()</a></span>,
+       <span class="function"><a class="function" href="function.imageistruecolor.html">imageistruecolor()</a></span>,
+       <span class="function"><a class="function" href="function.imagelayereffect.html">imagelayereffect()</a></span>,
+       <span class="function"><a class="function" href="function.imagepalettecopy.html">imagepalettecopy()</a></span>,
+       <span class="function"><a class="function" href="function.imagesavealpha.html">imagesavealpha()</a></span>,
+       <span class="function"><a class="function" href="function.imagesetstyle.html">imagesetstyle()</a></span>,
+       <span class="function"><a class="function" href="function.imagexbm.html">imagexbm()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.imagedestroy.html">imagedestroy()</a></span>
+      </td>
+      <td>GD Image</td>
+     </tr>
+
+     <tr>
+      <td>gd font</td>
+      <td>
+       <span class="function"><a class="function" href="function.imageloadfont.html">imageloadfont()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.imagechar.html">imagechar()</a></span>,
+       <span class="function"><a class="function" href="function.imagecharup.html">imagecharup()</a></span>,
+       <span class="function"><a class="function" href="function.imagefontheight.html">imagefontheight()</a></span>
+      </td>
+      <td>
+       None
+      </td>
+      <td>Font for GD</td>
+     </tr>
+
+     <tr>
+      <td>imap</td>
+      <td>
+       <span class="function"><a class="function" href="function.imap-open.html">imap_open()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.imap-append.html">imap_append()</a></span>,
+       <span class="function"><a class="function" href="function.imap-body.html">imap_body()</a></span>,
+       <span class="function"><a class="function" href="function.imap-check.html">imap_check()</a></span>,
+       <span class="function"><a class="function" href="function.imap-createmailbox.html">imap_createmailbox()</a></span>,
+       <span class="function"><a class="function" href="function.imap-delete.html">imap_delete()</a></span>,
+       <span class="function"><a class="function" href="function.imap-deletemailbox.html">imap_deletemailbox()</a></span>,
+       <span class="function"><a class="function" href="function.imap-expunge.html">imap_expunge()</a></span>,
+       <span class="function"><a class="function" href="function.imap-fetchbody.html">imap_fetchbody()</a></span>,
+       <span class="function"><a class="function" href="function.imap-fetchstructure.html">imap_fetchstructure()</a></span>,
+       <span class="function"><a class="function" href="function.imap-headerinfo.html">imap_headerinfo()</a></span>,
+       <span class="function"><a class="function" href="function.imap-header.html">imap_header()</a></span>,
+       <span class="function"><a class="function" href="function.imap-headers.html">imap_headers()</a></span>,
+       <span class="function"><a class="function" href="function.imap-listmailbox.html">imap_listmailbox()</a></span>,
+       <span class="function"><a class="function" href="function.imap-getmailboxes.html">imap_getmailboxes()</a></span>,
+       <span class="function"><a class="function" href="function.imap-get-quota.html">imap_get_quota()</a></span>,
+       <span class="function"><a class="function" href="function.imap-status.html">imap_status()</a></span>,
+       <span class="function"><a class="function" href="function.imap-listsubscribed.html">imap_listsubscribed()</a></span>,
+       <span class="function"><a class="function" href="function.imap-set-quota.html">imap_set_quota()</a></span>,
+       <span class="function"><a class="function" href="function.imap-set-quota.html">imap_set_quota()</a></span>,
+       <span class="function"><a class="function" href="function.imap-getsubscribed.html">imap_getsubscribed()</a></span>,
+       <span class="function"><a class="function" href="function.imap-mail-copy.html">imap_mail_copy()</a></span>,
+       <span class="function"><a class="function" href="function.imap-mail-move.html">imap_mail_move()</a></span>,
+       <span class="function"><a class="function" href="function.imap-num-msg.html">imap_num_msg()</a></span>,
+       <span class="function"><a class="function" href="function.imap-num-recent.html">imap_num_recent()</a></span>,
+       <span class="function"><a class="function" href="function.imap-ping.html">imap_ping()</a></span>,
+       <span class="function"><a class="function" href="function.imap-renamemailbox.html">imap_renamemailbox()</a></span>,
+       <span class="function"><a class="function" href="function.imap-reopen.html">imap_reopen()</a></span>,
+       <span class="function"><a class="function" href="function.imap-subscribe.html">imap_subscribe()</a></span>,
+       <span class="function"><a class="function" href="function.imap-undelete.html">imap_undelete()</a></span>,
+       <span class="function"><a class="function" href="function.imap-unsubscribe.html">imap_unsubscribe()</a></span>,
+       <span class="function"><a class="function" href="function.imap-scanmailbox.html">imap_scanmailbox()</a></span>,
+       <span class="function"><a class="function" href="function.imap-mailboxmsginfo.html">imap_mailboxmsginfo()</a></span>,
+       <span class="function"><a class="function" href="function.imap-fetchheader.html">imap_fetchheader()</a></span>,
+       <span class="function"><a class="function" href="function.imap-uid.html">imap_uid()</a></span>,
+       <span class="function"><a class="function" href="function.imap-msgno.html">imap_msgno()</a></span>,
+       <span class="function"><a class="function" href="function.imap-search.html">imap_search()</a></span>,
+       <span class="function"><a class="function" href="function.imap-fetch-overview.html">imap_fetch_overview()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.imap-close.html">imap_close()</a></span>
+      </td>
+      <td>Link to IMAP, POP3 server</td>
+     </tr>
+
+     <tr>
+      <td>interbase blob</td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-blob-create.html">ibase_blob_create()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-blob-import.html">ibase_blob_import()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-blob-open.html">ibase_blob_open()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-blob-add.html">ibase_blob_add()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-blob-cancel.html">ibase_blob_cancel()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-blob-echo.html">ibase_blob_echo()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-blob-get.html">ibase_blob_get()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-blob-info.html">ibase_blob_info()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-blob-close.html">ibase_blob_close()</a></span>
+      </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+     </tr>
+
+     <tr>
+      <td>interbase link</td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-connect.html">ibase_connect()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-query.html">ibase_query()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-prepare.html">ibase_prepare()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-trans.html">ibase_trans()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-close.html">ibase_close()</a></span>
+      </td>
+      <td>Link to Interbase database</td>
+     </tr>
+
+     <tr>
+      <td>interbase link persistent</td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-pconnect.html">ibase_pconnect()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-query.html">ibase_query()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-prepare.html">ibase_prepare()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-trans.html">ibase_trans()</a></span>
+      </td>
+      <td>
+       None
+      </td>
+      <td>Persistent link to Interbase database</td>
+     </tr>
+
+     <tr>
+      <td>interbase query</td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-prepare.html">ibase_prepare()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-execute.html">ibase_execute()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-free-query.html">ibase_free_query()</a></span>
+      </td>
+      <td>Interbase query</td>
+     </tr>
+
+     <tr>
+      <td>interbase result</td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-query.html">ibase_query()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-fetch-row.html">ibase_fetch_row()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-fetch-object.html">ibase_fetch_object()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-field-info.html">ibase_field_info()</a></span>,
+       <span class="function"><a class="function" href="function.ibase-num-fields.html">ibase_num_fields()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-free-result.html">ibase_free_result()</a></span>
+      </td>
+      <td>Interbase Result</td>
+     </tr>
+
+     <tr>
+      <td>interbase transaction</td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-trans.html">ibase_trans()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-commit.html">ibase_commit()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ibase-rollback.html">ibase_rollback()</a></span>
+      </td>
+      <td>Interbase transaction</td>
+     </tr>
+
+     <tr>
+      <td>ldap link</td>
+      <td>
+       <span class="function"><a class="function" href="function.ldap-connect.html">ldap_connect()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-search.html">ldap_search()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ldap-count-entries.html">ldap_count_entries()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-first-attribute.html">ldap_first_attribute()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-first-entry.html">ldap_first_entry()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-get-attributes.html">ldap_get_attributes()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-get-dn.html">ldap_get_dn()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-get-entries.html">ldap_get_entries()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-get-values.html">ldap_get_values()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-get-values-len.html">ldap_get_values_len()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-next-attribute.html">ldap_next_attribute()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-next-entry.html">ldap_next_entry()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ldap-close.html">ldap_close()</a></span>
+      </td>
+      <td>ldap connection</td>
+     </tr>
+
+     <tr>
+      <td>ldap result</td>
+      <td>
+       <span class="function"><a class="function" href="function.ldap-read.html">ldap_read()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ldap-add.html">ldap_add()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-compare.html">ldap_compare()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-bind.html">ldap_bind()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-count-entries.html">ldap_count_entries()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-delete.html">ldap_delete()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-errno.html">ldap_errno()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-error.html">ldap_error()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-first-attribute.html">ldap_first_attribute()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-first-entry.html">ldap_first_entry()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-get-attributes.html">ldap_get_attributes()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-get-dn.html">ldap_get_dn()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-get-entries.html">ldap_get_entries()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-get-values.html">ldap_get_values()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-get-values-len.html">ldap_get_values_len()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-get-option.html">ldap_get_option()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-list.html">ldap_list()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-modify.html">ldap_modify()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-mod-add.html">ldap_mod_add()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-mod-replace.html">ldap_mod_replace()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-next-attribute.html">ldap_next_attribute()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-next-entry.html">ldap_next_entry()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-mod-del.html">ldap_mod_del()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-set-option.html">ldap_set_option()</a></span>,
+       <span class="function"><a class="function" href="function.ldap-unbind.html">ldap_unbind()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ldap-free-result.html">ldap_free_result()</a></span>
+      </td>
+      <td>ldap search result</td>
+     </tr>
+
+     <tr>
+      <td>ldap result entry</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+     </tr>
+
+     <tr>
+      <td>mysql link</td>
+      <td>
+       <span class="function"><a class="function" href="function.mysql-connect.html">mysql_connect()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.mysql-affected-rows.html">mysql_affected_rows()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-create-db.html">mysql_create_db()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-data-seek.html">mysql_data_seek()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-db-name.html">mysql_db_name()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-db-query.html">mysql_db_query()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-drop-db.html">mysql_drop_db()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-errno.html">mysql_errno()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-error.html">mysql_error()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-insert-id.html">mysql_insert_id()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-list-dbs.html">mysql_list_dbs()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-list-fields.html">mysql_list_fields()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-list-tables.html">mysql_list_tables()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-query.html">mysql_query()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-result.html">mysql_result()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-select-db.html">mysql_select_db()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-tablename.html">mysql_tablename()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-get-host-info.html">mysql_get_host_info()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-get-proto-info.html">mysql_get_proto_info()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-get-server-info.html">mysql_get_server_info()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.mysql-close.html">mysql_close()</a></span>
+      </td>
+      <td>Link to MySQL database</td>
+     </tr>
+
+     <tr>
+      <td>mysql link persistent</td>
+      <td>
+       <span class="function"><a class="function" href="function.mysql-pconnect.html">mysql_pconnect()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.mysql-affected-rows.html">mysql_affected_rows()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-create-db.html">mysql_create_db()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-data-seek.html">mysql_data_seek()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-db-name.html">mysql_db_name()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-db-query.html">mysql_db_query()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-drop-db.html">mysql_drop_db()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-errno.html">mysql_errno()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-error.html">mysql_error()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-insert-id.html">mysql_insert_id()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-list-dbs.html">mysql_list_dbs()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-list-fields.html">mysql_list_fields()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-list-tables.html">mysql_list_tables()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-query.html">mysql_query()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-result.html">mysql_result()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-select-db.html">mysql_select_db()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-tablename.html">mysql_tablename()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-get-host-info.html">mysql_get_host_info()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-get-proto-info.html">mysql_get_proto_info()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-get-server-info.html">mysql_get_server_info()</a></span>
+      </td>
+      <td>
+       None
+      </td>
+      <td>Persistent link to MySQL database</td>
+     </tr>
+
+     <tr>
+      <td>mysql result</td>
+      <td>
+       <span class="function"><a class="function" href="function.mysql-db-query.html">mysql_db_query()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-list-dbs.html">mysql_list_dbs()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-list-fields.html">mysql_list_fields()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-list-processes.html">mysql_list_processes()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-list-tables.html">mysql_list_tables()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-query.html">mysql_query()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-unbuffered-query.html">mysql_unbuffered_query()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.mysql-data-seek.html">mysql_data_seek()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-db-name.html">mysql_db_name()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-fetch-array.html">mysql_fetch_array()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-fetch-assoc.html">mysql_fetch_assoc()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-fetch-field.html">mysql_fetch_field()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-fetch-lengths.html">mysql_fetch_lengths()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-fetch-object.html">mysql_fetch_object()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-fetch-row.html">mysql_fetch_row()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-fetch-row.html">mysql_fetch_row()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-field-flags.html">mysql_field_flags()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-field-name.html">mysql_field_name()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-field-len.html">mysql_field_len()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-field-seek.html">mysql_field_seek()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-field-table.html">mysql_field_table()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-field-type.html">mysql_field_type()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-num-fields.html">mysql_num_fields()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-num-rows.html">mysql_num_rows()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-result.html">mysql_result()</a></span>,
+       <span class="function"><a class="function" href="function.mysql-tablename.html">mysql_tablename()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.mysql-free-result.html">mysql_free_result()</a></span>
+      </td>
+      <td>MySQL result</td>
+     </tr>
+
+     <tr>
+      <td>oci8 collection</td>
+      <td>
+       <span class="function"><a class="function" href="function.oci-new-collection.html">oci_new_collection()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="ocicollection.append.html">OCICollection::append()</a></span>,
+       <span class="function"><a class="function" href="ocicollection.assign.html">OCICollection::assign()</a></span>,
+       <span class="function"><a class="function" href="ocicollection.assignelem.html">OCICollection::assignElem()</a></span>,
+       <span class="function"><a class="function" href="ocicollection.getelem.html">OCICollection::getElem()</a></span>,
+       <span class="function"><a class="function" href="ocicollection.max.html">OCICollection::max()</a></span>,
+       <span class="function"><a class="function" href="ocicollection.size.html">OCICollection::size()</a></span>,
+       <span class="function"><a class="function" href="ocicollection.trim.html">OCICollection::trim()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="ocicollection.free.html">OCICollection::free()</a></span>
+      </td>
+      <td>Oracle Collection</td>
+     </tr>
+
+     <tr>
+      <td>oci8 connection</td>
+      <td>
+       <span class="function"><a class="function" href="function.oci-connect.html">oci_connect()</a></span>,
+       <span class="function"><a class="function" href="function.oci-pconnect.html">oci_pconnect()</a></span>,
+       <span class="function"><a class="function" href="function.oci-new-connect.html">oci_new_connect()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.oci-commit.html">oci_commit()</a></span>,
+       <span class="function"><a class="function" href="function.oci-error.html">oci_error()</a></span>,
+       <span class="function"><a class="function" href="function.oci-new-cursor.html">oci_new_cursor()</a></span>,
+       <span class="function"><a class="function" href="function.oci-parse.html">oci_parse()</a></span>,
+       <span class="function"><a class="function" href="function.oci-password-change.html">oci_password_change()</a></span>,
+       <span class="function"><a class="function" href="function.oci-rollback.html">oci_rollback()</a></span>,
+       <span class="function"><a class="function" href="function.oci-server-version.html">oci_server_version()</a></span>,
+       <span class="function"><a class="function" href="function.oci-set-action.html">oci_set_action()</a></span>,
+       <span class="function"><a class="function" href="function.oci-set-client-identifier.html">oci_set_client_identifier()</a></span>,
+       <span class="function"><a class="function" href="function.oci-set-client-info.html">oci_set_client_info()</a></span>,
+       <span class="function"><a class="function" href="function.oci-set-module-name.html">oci_set_module_name()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.oci-close.html">oci_close()</a></span>
+      </td>
+      <td>Connection to Oracle Database</td>
+     </tr>
+
+     <tr>
+      <td>oci8 lob</td>
+      <td>
+       <span class="function"><a class="function" href="function.oci-new-descriptor.html">oci_new_descriptor()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="ocilob.append.html">OCILob::append()</a></span>,
+       <span class="function"><a class="function" href="ocilob.close.html">OCILob::close()</a></span>,
+       <span class="function"><a class="function" href="ocilob.eof.html">OCILob::eof()</a></span>,
+       <span class="function"><a class="function" href="ocilob.erase.html">OCILob::erase()</a></span>,
+       <span class="function"><a class="function" href="ocilob.export.html">OCILob::export()</a></span>,
+       <span class="function"><a class="function" href="ocilob.flush.html">OCILob::flush()</a></span>,
+       <span class="function"><a class="function" href="ocilob.getbuffering.html">OCILob::getBuffering()</a></span>,
+       <span class="function"><a class="function" href="ocilob.import.html">OCILob::import()</a></span>,
+       <span class="function"><a class="function" href="ocilob.load.html">OCILob::load()</a></span>,
+       <span class="function"><a class="function" href="ocilob.read.html">OCILob::read()</a></span>,
+       <span class="function"><a class="function" href="ocilob.rewind.html">OCILob::rewind()</a></span>,
+       <span class="function"><a class="function" href="ocilob.save.html">OCILob::save()</a></span>,
+       <span class="function"><a class="function" href="ocilob.savefile.html">OCILob::saveFile()</a></span>,
+       <span class="function"><a class="function" href="ocilob.seek.html">OCILob::seek()</a></span>,
+       <span class="function"><a class="function" href="ocilob.setbuffering.html">OCILob::setBuffering()</a></span>,
+       <span class="function"><a class="function" href="ocilob.size.html">OCILob::size()</a></span>,
+       <span class="function"><a class="function" href="ocilob.tell.html">OCILob::tell()</a></span>,
+       <span class="function"><a class="function" href="ocilob.truncate.html">OCILob::truncate()</a></span>,
+       <span class="function"><a class="function" href="ocilob.write.html">OCILob::write()</a></span>,
+       <span class="function"><a class="function" href="ocilob.writetemporary.html">OCILob::writeTemporary()</a></span>,
+       <span class="function"><a class="function" href="ocilob.writetofile.html">OCILob::writeToFile()</a></span>,
+       <span class="function"><a class="function" href="function.oci-lob-copy.html">oci_lob_copy()</a></span>,
+       <span class="function"><a class="function" href="function.oci-lob-is-equal.html">oci_lob_is_equal()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="ocilob.free.html">OCILob::free()</a></span>
+      </td>
+      <td>Oracle large objects</td>
+     </tr>
+
+     <tr>
+      <td>oci8 statement</td>
+      <td>
+       <span class="function"><a class="function" href="function.oci-parse.html">oci_parse()</a></span>,
+       <span class="function"><a class="function" href="function.oci-new-cursor.html">oci_new_cursor()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.oci-bind-array-by-name.html">oci_bind_array_by_name()</a></span>,
+       <span class="function"><a class="function" href="function.oci-bind-by-name.html">oci_bind_by_name()</a></span>,
+       <span class="function"><a class="function" href="function.oci-cancel.html">oci_cancel()</a></span>,
+       <span class="function"><a class="function" href="function.oci-define-by-name.html">oci_define_by_name()</a></span>,
+       <span class="function"><a class="function" href="function.oci-error.html">oci_error()</a></span>
+       <span class="function"><a class="function" href="function.oci-execute.html">oci_execute()</a></span>,
+       <span class="function"><a class="function" href="function.oci-fetch-all.html">oci_fetch_all()</a></span>,
+       <span class="function"><a class="function" href="function.oci-fetch-array.html">oci_fetch_array()</a></span>,
+       <span class="function"><a class="function" href="function.oci-fetch-assoc.html">oci_fetch_assoc()</a></span>,
+       <span class="function"><a class="function" href="function.oci-fetch-object.html">oci_fetch_object()</a></span>,
+       <span class="function"><a class="function" href="function.oci-fetch-row.html">oci_fetch_row()</a></span>,
+       <span class="function"><a class="function" href="function.oci-fetch.html">oci_fetch()</a></span>,
+       <span class="function"><a class="function" href="function.oci-field-is-null.html">oci_field_is_null()</a></span>,
+       <span class="function"><a class="function" href="function.oci-field-name.html">oci_field_name()</a></span>,
+       <span class="function"><a class="function" href="function.oci-field-precision.html">oci_field_precision()</a></span>,
+       <span class="function"><a class="function" href="function.oci-field-scale.html">oci_field_scale()</a></span>,
+       <span class="function"><a class="function" href="function.oci-field-size.html">oci_field_size()</a></span>,
+       <span class="function"><a class="function" href="function.oci-field-type-raw.html">oci_field_type_raw()</a></span>,
+       <span class="function"><a class="function" href="function.oci-field-type.html">oci_field_type()</a></span>,
+       <span class="function"><a class="function" href="function.oci-num-fields.html">oci_num_fields()</a></span>,
+       <span class="function"><a class="function" href="function.oci-num-rows.html">oci_num_rows()</a></span>,
+       <span class="function"><a class="function" href="function.oci-result.html">oci_result()</a></span>,
+       <span class="function"><a class="function" href="function.oci-set-prefetch.html">oci_set_prefetch()</a></span>,
+       <span class="function"><a class="function" href="function.oci-statement-type.html">oci_statement_type()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.oci-free-statement.html">oci_free_statement()</a></span>
+      </td>
+      <td>Oracle cursor</td>
+     </tr>
+
+     <tr>
+      <td>odbc link</td>
+      <td>
+       <span class="function"><a class="function" href="function.odbc-connect.html">odbc_connect()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.odbc-autocommit.html">odbc_autocommit()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-commit.html">odbc_commit()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-error.html">odbc_error()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-errormsg.html">odbc_errormsg()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-exec.html">odbc_exec()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-tables.html">odbc_tables()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-tableprivileges.html">odbc_tableprivileges()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-do.html">odbc_do()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-prepare.html">odbc_prepare()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-columns.html">odbc_columns()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-columnprivileges.html">odbc_columnprivileges()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-procedurecolumns.html">odbc_procedurecolumns()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-specialcolumns.html">odbc_specialcolumns()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-rollback.html">odbc_rollback()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-setoption.html">odbc_setoption()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-gettypeinfo.html">odbc_gettypeinfo()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-primarykeys.html">odbc_primarykeys()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-foreignkeys.html">odbc_foreignkeys()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-procedures.html">odbc_procedures()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-statistics.html">odbc_statistics()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.odbc-close.html">odbc_close()</a></span>
+      </td>
+      <td>Link to ODBC database</td>
+     </tr>
+
+     <tr>
+      <td>odbc link persistent</td>
+      <td>
+       <span class="function"><a class="function" href="function.odbc-pconnect.html">odbc_pconnect()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.odbc-autocommit.html">odbc_autocommit()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-commit.html">odbc_commit()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-error.html">odbc_error()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-errormsg.html">odbc_errormsg()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-exec.html">odbc_exec()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-tables.html">odbc_tables()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-tableprivileges.html">odbc_tableprivileges()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-do.html">odbc_do()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-prepare.html">odbc_prepare()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-columns.html">odbc_columns()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-columnprivileges.html">odbc_columnprivileges()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-procedurecolumns.html">odbc_procedurecolumns()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-specialcolumns.html">odbc_specialcolumns()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-rollback.html">odbc_rollback()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-setoption.html">odbc_setoption()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-gettypeinfo.html">odbc_gettypeinfo()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-primarykeys.html">odbc_primarykeys()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-foreignkeys.html">odbc_foreignkeys()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-procedures.html">odbc_procedures()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-statistics.html">odbc_statistics()</a></span>
+      </td>
+      <td>
+       None
+      </td>
+      <td>Persistent link to ODBC database</td>
+     </tr>
+
+     <tr>
+      <td>odbc result</td>
+      <td>
+       <span class="function"><a class="function" href="function.odbc-prepare.html">odbc_prepare()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.odbc-binmode.html">odbc_binmode()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-cursor.html">odbc_cursor()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-execute.html">odbc_execute()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-fetch-into.html">odbc_fetch_into()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-fetch-row.html">odbc_fetch_row()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-field-name.html">odbc_field_name()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-field-num.html">odbc_field_num()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-field-type.html">odbc_field_type()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-field-len.html">odbc_field_len()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-field-precision.html">odbc_field_precision()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-field-scale.html">odbc_field_scale()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-longreadlen.html">odbc_longreadlen()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-num-fields.html">odbc_num_fields()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-num-rows.html">odbc_num_rows()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-result.html">odbc_result()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-result-all.html">odbc_result_all()</a></span>,
+       <span class="function"><a class="function" href="function.odbc-setoption.html">odbc_setoption()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.odbc-free-result.html">odbc_free_result()</a></span>
+      </td>
+      <td>ODBC result</td>
+     </tr>
+
+     <tr>
+      <td>birdstep link</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Link to Birdstep database (prior to PHP 7.3.0)</td>
+     </tr>
+
+     <tr>
+      <td>birdstep result</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Birdstep result (prior to PHP 7.3.0)</td>
+     </tr>
+
+     <tr>
+      <td>OpenSSL key</td>
+      <td>
+       <span class="function"><a class="function" href="function.openssl-get-privatekey.html">openssl_get_privatekey()</a></span>,
+       <span class="function"><a class="function" href="function.openssl-get-publickey.html">openssl_get_publickey()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.openssl-sign.html">openssl_sign()</a></span>,
+       <span class="function"><a class="function" href="function.openssl-seal.html">openssl_seal()</a></span>,
+       <span class="function"><a class="function" href="function.openssl-open.html">openssl_open()</a></span>,
+       <span class="function"><a class="function" href="function.openssl-verify.html">openssl_verify()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.openssl-free-key.html">openssl_free_key()</a></span>
+      </td>
+      <td>OpenSSL key</td>
+     </tr>
+
+     <tr>
+      <td>OpenSSL X.509</td>
+      <td>
+       <span class="function"><a class="function" href="function.openssl-x509-read.html">openssl_x509_read()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.openssl-x509-parse.html">openssl_x509_parse()</a></span>,
+       <span class="function"><a class="function" href="function.openssl-x509-checkpurpose.html">openssl_x509_checkpurpose()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.openssl-x509-free.html">openssl_x509_free()</a></span>
+      </td>
+      <td>Public Key</td>
+     </tr>
+
+     <tr>
+      <td>pgsql large object</td>
+      <td>
+       <span class="function"><a class="function" href="function.pg-lo-open.html">pg_lo_open()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.pg-lo-open.html">pg_lo_open()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-create.html">pg_lo_create()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-read.html">pg_lo_read()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-read-all.html">pg_lo_read_all()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-seek.html">pg_lo_seek()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-tell.html">pg_lo_tell()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-unlink.html">pg_lo_unlink()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-write.html">pg_lo_write()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.pg-lo-close.html">pg_lo_close()</a></span>
+      </td>
+      <td>PostgreSQL Large Object</td>
+     </tr>
+
+     <tr>
+      <td>pgsql link</td>
+      <td>
+       <span class="function"><a class="function" href="function.pg-connect.html">pg_connect()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.pg-affected-rows.html">pg_affected_rows()</a></span>,
+       <span class="function"><a class="function" href="function.pg-query.html">pg_query()</a></span>,
+       <span class="function"><a class="function" href="function.pg-send-query.html">pg_send_query()</a></span>,
+       <span class="function"><a class="function" href="function.pg-get-result.html">pg_get_result()</a></span>,
+       <span class="function"><a class="function" href="function.pg-connection-busy.html">pg_connection_busy()</a></span>,
+       <span class="function"><a class="function" href="function.pg-connection-reset.html">pg_connection_reset()</a></span>,
+       <span class="function"><a class="function" href="function.pg-connection-status.html">pg_connection_status()</a></span>,
+       <span class="function"><a class="function" href="function.pg-last-error.html">pg_last_error()</a></span>,
+       <span class="function"><a class="function" href="function.pg-last-notice.html">pg_last_notice()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-create.html">pg_lo_create()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-export.html">pg_lo_export()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-import.html">pg_lo_import()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-open.html">pg_lo_open()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-unlink.html">pg_lo_unlink()</a></span>,
+       <span class="function"><a class="function" href="function.pg-host.html">pg_host()</a></span>,
+       <span class="function"><a class="function" href="function.pg-port.html">pg_port()</a></span>,
+       <span class="function"><a class="function" href="function.pg-dbname.html">pg_dbname()</a></span>,
+       <span class="function"><a class="function" href="function.pg-options.html">pg_options()</a></span>,
+       <span class="function"><a class="function" href="function.pg-copy-from.html">pg_copy_from()</a></span>,
+       <span class="function"><a class="function" href="function.pg-copy-to.html">pg_copy_to()</a></span>,
+       <span class="function"><a class="function" href="function.pg-end-copy.html">pg_end_copy()</a></span>,
+       <span class="function"><a class="function" href="function.pg-put-line.html">pg_put_line()</a></span>,
+       <span class="function"><a class="function" href="function.pg-tty.html">pg_tty()</a></span>,
+       <span class="function"><a class="function" href="function.pg-trace.html">pg_trace()</a></span>,
+       <span class="function"><a class="function" href="function.pg-untrace.html">pg_untrace()</a></span>,
+       <span class="function"><a class="function" href="function.pg-set-client-encoding.html">pg_set_client_encoding()</a></span>,
+       <span class="function"><a class="function" href="function.pg-client-encoding.html">pg_client_encoding()</a></span>,
+       <span class="function"><a class="function" href="function.pg-meta-data.html">pg_meta_data()</a></span>,
+       <span class="function"><a class="function" href="function.pg-convert.html">pg_convert()</a></span>,
+       <span class="function"><a class="function" href="function.pg-insert.html">pg_insert()</a></span>,
+       <span class="function"><a class="function" href="function.pg-select.html">pg_select()</a></span>,
+       <span class="function"><a class="function" href="function.pg-delete.html">pg_delete()</a></span>,
+       <span class="function"><a class="function" href="function.pg-update.html">pg_update()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.pg-close.html">pg_close()</a></span>
+      </td>
+      <td>Link to PostgreSQL database</td>
+     </tr>
+
+     <tr>
+      <td>pgsql link persistent</td>
+      <td>
+       <span class="function"><a class="function" href="function.pg-pconnect.html">pg_pconnect()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.pg-affected-rows.html">pg_affected_rows()</a></span>,
+       <span class="function"><a class="function" href="function.pg-query.html">pg_query()</a></span>,
+       <span class="function"><a class="function" href="function.pg-send-query.html">pg_send_query()</a></span>,
+       <span class="function"><a class="function" href="function.pg-get-result.html">pg_get_result()</a></span>,
+       <span class="function"><a class="function" href="function.pg-connection-busy.html">pg_connection_busy()</a></span>,
+       <span class="function"><a class="function" href="function.pg-connection-reset.html">pg_connection_reset()</a></span>,
+       <span class="function"><a class="function" href="function.pg-connection-status.html">pg_connection_status()</a></span>,
+       <span class="function"><a class="function" href="function.pg-last-error.html">pg_last_error()</a></span>,
+       <span class="function"><a class="function" href="function.pg-last-notice.html">pg_last_notice()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-create.html">pg_lo_create()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-export.html">pg_lo_export()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-import.html">pg_lo_import()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-open.html">pg_lo_open()</a></span>,
+       <span class="function"><a class="function" href="function.pg-lo-unlink.html">pg_lo_unlink()</a></span>,
+       <span class="function"><a class="function" href="function.pg-host.html">pg_host()</a></span>,
+       <span class="function"><a class="function" href="function.pg-port.html">pg_port()</a></span>,
+       <span class="function"><a class="function" href="function.pg-dbname.html">pg_dbname()</a></span>,
+       <span class="function"><a class="function" href="function.pg-options.html">pg_options()</a></span>,
+       <span class="function"><a class="function" href="function.pg-copy-from.html">pg_copy_from()</a></span>,
+       <span class="function"><a class="function" href="function.pg-copy-to.html">pg_copy_to()</a></span>,
+       <span class="function"><a class="function" href="function.pg-end-copy.html">pg_end_copy()</a></span>,
+       <span class="function"><a class="function" href="function.pg-put-line.html">pg_put_line()</a></span>,
+       <span class="function"><a class="function" href="function.pg-tty.html">pg_tty()</a></span>,
+       <span class="function"><a class="function" href="function.pg-trace.html">pg_trace()</a></span>,
+       <span class="function"><a class="function" href="function.pg-untrace.html">pg_untrace()</a></span>,
+       <span class="function"><a class="function" href="function.pg-set-client-encoding.html">pg_set_client_encoding()</a></span>,
+       <span class="function"><a class="function" href="function.pg-client-encoding.html">pg_client_encoding()</a></span>,
+       <span class="function"><a class="function" href="function.pg-meta-data.html">pg_meta_data()</a></span>,
+       <span class="function"><a class="function" href="function.pg-convert.html">pg_convert()</a></span>,
+       <span class="function"><a class="function" href="function.pg-insert.html">pg_insert()</a></span>,
+       <span class="function"><a class="function" href="function.pg-select.html">pg_select()</a></span>,
+       <span class="function"><a class="function" href="function.pg-delete.html">pg_delete()</a></span>,
+       <span class="function"><a class="function" href="function.pg-update.html">pg_update()</a></span>
+      </td>
+      <td>
+       None
+      </td>
+      <td>Persistent link to PostgreSQL database</td>
+     </tr>
+
+     <tr>
+      <td>pgsql result</td>
+      <td>
+       <span class="function"><a class="function" href="function.pg-execute.html">pg_execute()</a></span>,
+       <span class="function"><a class="function" href="function.pg-query.html">pg_query()</a></span>,
+       <span class="function"><a class="function" href="function.pg-query-params.html">pg_query_params()</a></span>,
+       <span class="function"><a class="function" href="function.pg-get-result.html">pg_get_result()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.pg-fetch-array.html">pg_fetch_array()</a></span>,
+       <span class="function"><a class="function" href="function.pg-fetch-object.html">pg_fetch_object()</a></span>,
+       <span class="function"><a class="function" href="function.pg-fetch-result.html">pg_fetch_result()</a></span>,
+       <span class="function"><a class="function" href="function.pg-fetch-row.html">pg_fetch_row()</a></span>,
+       <span class="function"><a class="function" href="function.pg-field-is-null.html">pg_field_is_null()</a></span>,
+       <span class="function"><a class="function" href="function.pg-field-name.html">pg_field_name()</a></span>,
+       <span class="function"><a class="function" href="function.pg-field-num.html">pg_field_num()</a></span>,
+       <span class="function"><a class="function" href="function.pg-field-prtlen.html">pg_field_prtlen()</a></span>,
+       <span class="function"><a class="function" href="function.pg-field-size.html">pg_field_size()</a></span>,
+       <span class="function"><a class="function" href="function.pg-field-type.html">pg_field_type()</a></span>,
+       <span class="function"><a class="function" href="function.pg-last-oid.html">pg_last_oid()</a></span>,
+       <span class="function"><a class="function" href="function.pg-num-fields.html">pg_num_fields()</a></span>,
+       <span class="function"><a class="function" href="function.pg-num-rows.html">pg_num_rows()</a></span>,
+       <span class="function"><a class="function" href="function.pg-result-error.html">pg_result_error()</a></span>,
+       <span class="function"><a class="function" href="function.pg-result-status.html">pg_result_status()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.pg-free-result.html">pg_free_result()</a></span>
+      </td>
+      <td>PostgreSQL result</td>
+     </tr>
+
+     <tr>
+      <td>pgsql string</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+     </tr>
+
+     <tr>
+      <td>pspell</td>
+      <td>
+       <span class="function"><a class="function" href="function.pspell-new.html">pspell_new()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-new-config.html">pspell_new_config()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-new-personal.html">pspell_new_personal()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.pspell-add-to-personal.html">pspell_add_to_personal()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-add-to-session.html">pspell_add_to_session()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-check.html">pspell_check()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-clear-session.html">pspell_clear_session()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-config-ignore.html">pspell_config_ignore()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-config-mode.html">pspell_config_mode()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-config-personal.html">pspell_config_personal()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-config-repl.html">pspell_config_repl()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-config-runtogether.html">pspell_config_runtogether()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-config-save-repl.html">pspell_config_save_repl()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-save-wordlist.html">pspell_save_wordlist()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-store-replacement.html">pspell_store_replacement()</a></span>,
+       <span class="function"><a class="function" href="function.pspell-suggest.html">pspell_suggest()</a></span>
+      </td>
+      <td>
+       None
+      </td>
+      <td>pspell dictionary</td>
+     </tr>
+
+     <tr>
+      <td>pspell config</td>
+      <td>
+       <span class="function"><a class="function" href="function.pspell-config-create.html">pspell_config_create()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.pspell-new-config.html">pspell_new_config()</a></span>
+      </td>
+      <td>
+       None
+      </td>
+      <td>pspell configuration </td>
+     </tr>
+
+     <tr>
+      <td>shmop</td>
+      <td>
+       <span class="function"><a class="function" href="function.shmop-open.html">shmop_open()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.shmop-read.html">shmop_read()</a></span>,
+       <span class="function"><a class="function" href="function.shmop-write.html">shmop_write()</a></span>,
+       <span class="function"><a class="function" href="function.shmop-size.html">shmop_size()</a></span>,
+       <span class="function"><a class="function" href="function.shmop-delete.html">shmop_delete()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.shmop-close.html">shmop_close()</a></span>
+      </td>
+      <td>Shared memory block handle (prior to PHP 8.0.0)</td>
+     </tr>
+
+     <tr>
+      <td>Socket</td>
+      <td>
+       <span class="function"><a class="function" href="function.socket-accept.html">socket_accept()</a></span>,
+       <span class="function"><a class="function" href="function.socket-addrinfo-bind.html">socket_addrinfo_bind()</a></span>,
+       <span class="function"><a class="function" href="function.socket-addrinfo-connect.html">socket_addrinfo_connect()</a></span>,
+       <span class="function"><a class="function" href="function.socket-create.html">socket_create()</a></span>,
+       <span class="function"><a class="function" href="function.socket-create-listen.html">socket_create_listen()</a></span>,
+       <span class="function"><a class="function" href="function.socket-import-stream.html">socket_import_stream()</a></span>,
+       <span class="function"><a class="function" href="function.socket-wsaprotocol-info-import.html">socket_wsaprotocol_info_import()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.socket-accept.html">socket_accept()</a></span>,
+       <span class="function"><a class="function" href="function.socket-bind.html">socket_bind()</a></span>,
+       <span class="function"><a class="function" href="function.socket-clear-error.html">socket_clear_error()</a></span>,
+       <span class="function"><a class="function" href="function.socket-connect.html">socket_connect()</a></span>,
+       <span class="function"><a class="function" href="function.socket-get-option.html">socket_get_option()</a></span>,
+       <span class="function"><a class="function" href="function.socket-getpeername.html">socket_getpeername()</a></span>,
+       <span class="function"><a class="function" href="function.socket-getsockname.html">socket_getsockname()</a></span>,
+       <span class="function"><a class="function" href="function.socket-last-error.html">socket_last_error()</a></span>,
+       <span class="function"><a class="function" href="function.socket-listen.html">socket_listen()</a></span>,
+       <span class="function"><a class="function" href="function.socket-read.html">socket_read()</a></span>,
+       <span class="function"><a class="function" href="function.socket-recv.html">socket_recv()</a></span>,
+       <span class="function"><a class="function" href="function.socket-recvfrom.html">socket_recvfrom()</a></span>,
+       <span class="function"><a class="function" href="function.socket-recvmsg.html">socket_recvmsg()</a></span>,
+       <span class="function"><a class="function" href="function.socket-select.html">socket_select()</a></span>,
+       <span class="function"><a class="function" href="function.socket-send.html">socket_send()</a></span>,
+       <span class="function"><a class="function" href="function.socket-sendmsg.html">socket_sendmsg()</a></span>,
+       <span class="function"><a class="function" href="function.socket-sendto.html">socket_sendto()</a></span>,
+       <span class="function"><a class="function" href="function.socket-set-block.html">socket_set_block()</a></span>,
+       <span class="function"><a class="function" href="function.socket-set-nonblock.html">socket_set_nonblock()</a></span>,
+       <span class="function"><a class="function" href="function.socket-set-option.html">socket_set_option()</a></span>,
+       <span class="function"><a class="function" href="function.socket-shutdown.html">socket_shutdown()</a></span>,
+       <span class="function"><a class="function" href="function.socket-write.html">socket_write()</a></span>,
+       <span class="function"><a class="function" href="function.socket-wsaprotocol-info-export.html">socket_wsaprotocol_info_export()</a></span>,
+       <span class="function"><a class="function" href="function.socket-wsaprotocol-info-release.html">socket_wsaprotocol_info_release()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.socket-close.html">socket_close()</a></span>
+      </td>
+      <td>Socket (sockets extension)</td>
+     </tr>
+
+     <tr>
+      <td>stream</td>
+      <td>
+       <span class="function"><a class="function" href="function.opendir.html">opendir()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.readdir.html">readdir()</a></span>,
+       <span class="function"><a class="function" href="function.rewinddir.html">rewinddir()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.closedir.html">closedir()</a></span>
+      </td>
+      <td>Dir handle</td>
+     </tr>
+
+     <tr>
+      <td>stream</td>
+      <td>
+       <span class="function"><a class="function" href="function.fopen.html">fopen()</a></span>,
+       <span class="function"><a class="function" href="function.tmpfile.html">tmpfile()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.feof.html">feof()</a></span>,
+       <span class="function"><a class="function" href="function.fflush.html">fflush()</a></span>,
+       <span class="function"><a class="function" href="function.fgetc.html">fgetc()</a></span>,
+       <span class="function"><a class="function" href="function.fgetcsv.html">fgetcsv()</a></span>,
+       <span class="function"><a class="function" href="function.fgets.html">fgets()</a></span>,
+       <span class="function"><a class="function" href="function.fgetss.html">fgetss()</a></span>,
+       <span class="function"><a class="function" href="function.flock.html">flock()</a></span>,
+       <span class="function"><a class="function" href="function.fpassthru.html">fpassthru()</a></span>,
+       <span class="function"><a class="function" href="function.fputs.html">fputs()</a></span>,
+       <span class="function"><a class="function" href="function.fwrite.html">fwrite()</a></span>,
+       <span class="function"><a class="function" href="function.fread.html">fread()</a></span>,
+       <span class="function"><a class="function" href="function.fseek.html">fseek()</a></span>,
+       <span class="function"><a class="function" href="function.ftell.html">ftell()</a></span>,
+       <span class="function"><a class="function" href="function.fstat.html">fstat()</a></span>,
+       <span class="function"><a class="function" href="function.ftruncate.html">ftruncate()</a></span>,
+       <span class="function"><a class="function" href="function.set-file-buffer.html">set_file_buffer()</a></span>,
+       <span class="function"><a class="function" href="function.rewind.html">rewind()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.fclose.html">fclose()</a></span>
+      </td>
+      <td>File handle</td>
+     </tr>
+
+     <tr>
+      <td>stream</td>
+      <td>
+       <span class="function"><a class="function" href="function.popen.html">popen()</a></span>,
+       <span class="function"><a class="function" href="function.fsockopen.html">fsockopen()</a></span>,
+       <span class="function"><a class="function" href="function.pfsockopen.html">pfsockopen()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.feof.html">feof()</a></span>,
+       <span class="function"><a class="function" href="function.fflush.html">fflush()</a></span>,
+       <span class="function"><a class="function" href="function.fgetc.html">fgetc()</a></span>,
+       <span class="function"><a class="function" href="function.fgetcsv.html">fgetcsv()</a></span>,
+       <span class="function"><a class="function" href="function.fgets.html">fgets()</a></span>,
+       <span class="function"><a class="function" href="function.fgetss.html">fgetss()</a></span>,
+       <span class="function"><a class="function" href="function.fpassthru.html">fpassthru()</a></span>,
+       <span class="function"><a class="function" href="function.fputs.html">fputs()</a></span>,
+       <span class="function"><a class="function" href="function.fwrite.html">fwrite()</a></span>,
+       <span class="function"><a class="function" href="function.fread.html">fread()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.pclose.html">pclose()</a></span>
+      </td>
+      <td>Process handle</td>
+     </tr>
+
+     <tr>
+      <td>socket</td>
+      <td>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.fflush.html">fflush()</a></span>,
+       <span class="function"><a class="function" href="function.fgetc.html">fgetc()</a></span>,
+       <span class="function"><a class="function" href="function.fgetcsv.html">fgetcsv()</a></span>,
+       <span class="function"><a class="function" href="function.fgets.html">fgets()</a></span>,
+       <span class="function"><a class="function" href="function.fgetss.html">fgetss()</a></span>,
+       <span class="function"><a class="function" href="function.fpassthru.html">fpassthru()</a></span>,
+       <span class="function"><a class="function" href="function.fputs.html">fputs()</a></span>,
+       <span class="function"><a class="function" href="function.fwrite.html">fwrite()</a></span>,
+       <span class="function"><a class="function" href="function.fread.html">fread()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.fclose.html">fclose()</a></span>
+      </td>
+      <td>Socket handle</td>
+     </tr>
+
+     <tr>
+      <td>SSH2 Session</td>
+      <td>
+       <span class="function"><a class="function" href="function.ssh2-connect.html">ssh2_connect()</a></span>
+      </td>
+      <td>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.ssh2-disconnect.html">ssh2_disconnect()</a></span>
+      </td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>SSH2 Listener</td>
+      <td>
+       <span class="function"><a class="function" href="function.ssh2-forward-listen.html">ssh2_forward_listen()</a></span>
+      </td>
+      <td>
+      </td>
+      <td>
+       <span class="function">
+      </span></td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>SSH2 SFTP</td>
+      <td>
+       <span class="function"><a class="function" href="function.ssh2-sftp.html">ssh2_sftp()</a></span>
+      </td>
+      <td>
+      </td>
+      <td>
+       <span class="function">
+      </span></td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>SSH2 Publickey Subsystem</td>
+      <td>
+       <span class="function"><a class="function" href="function.ssh2-publickey-init.html">ssh2_publickey_init()</a></span>
+      </td>
+      <td>
+      </td>
+      <td>
+       <span class="function">
+      </span></td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td>sysvmsg queue</td>
+      <td>
+       <span class="function"><a class="function" href="function.msg-get-queue.html">msg_get_queue()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.msg-queue-exists.html">msg_queue_exists()</a></span>,
+       <span class="function"><a class="function" href="function.msg-receive.html">msg_receive()</a></span>,
+       <span class="function"><a class="function" href="function.msg-send.html">msg_send()</a></span>,
+       <span class="function"><a class="function" href="function.msg-set-queue.html">msg_set_queue()</a></span>,
+       <span class="function"><a class="function" href="function.msg-stat-queue.html">msg_stat_queue()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.msg-remove-queue.html">msg_remove_queue()</a></span>
+      </td>
+      <td>System V Message Queue</td>
+     </tr>
+
+     <tr>
+      <td>sysvsem</td>
+      <td>
+       <span class="function"><a class="function" href="function.sem-get.html">sem_get()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.sem-acquire.html">sem_acquire()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.sem-release.html">sem_release()</a></span>
+      </td>
+      <td>System V Semaphore</td>
+     </tr>
+
+     <tr>
+      <td>sysvshm</td>
+      <td>
+       <span class="function"><a class="function" href="function.shm-attach.html">shm_attach()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.shm-remove.html">shm_remove()</a></span>,
+       <span class="function"><a class="function" href="function.shm-put-var.html">shm_put_var()</a></span>,
+       <span class="function"><a class="function" href="function.shm-get-var.html">shm_get_var()</a></span>,
+       <span class="function"><a class="function" href="function.shm-remove-var.html">shm_remove_var()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.shm-detach.html">shm_detach()</a></span>
+      </td>
+      <td>System V Shared Memory</td>
+     </tr>
+
+     <tr>
+      <td>wddx</td>
+      <td>
+       <span class="function"><a class="function" href="function.wddx-packet-start.html">wddx_packet_start()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.wddx-add-vars.html">wddx_add_vars()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.wddx-packet-end.html">wddx_packet_end()</a></span>
+      </td>
+      <td>WDDX packet</td>
+     </tr>
+
+     <tr>
+      <td>xml</td>
+      <td>
+       <span class="function"><a class="function" href="function.xml-parser-create.html">xml_parser_create()</a></span>,
+       <span class="function"><a class="function" href="function.xml-parser-create-ns.html">xml_parser_create_ns()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.xml-set-object.html">xml_set_object()</a></span>,
+       <span class="function"><a class="function" href="function.xml-set-element-handler.html">xml_set_element_handler()</a></span>,
+       <span class="function"><a class="function" href="function.xml-set-character-data-handler.html">xml_set_character_data_handler()</a></span>,
+       <span class="function"><a class="function" href="function.xml-set-processing-instruction-handler.html">xml_set_processing_instruction_handler()</a></span>,
+       <span class="function"><a class="function" href="function.xml-set-default-handler.html">xml_set_default_handler()</a></span>,
+       <span class="function"><a class="function" href="function.xml-set-unparsed-entity-decl-handler.html">xml_set_unparsed_entity_decl_handler()</a></span>,
+       <span class="function"><a class="function" href="function.xml-set-notation-decl-handler.html">xml_set_notation_decl_handler()</a></span>,
+       <span class="function"><a class="function" href="function.xml-set-external-entity-ref-handler.html">xml_set_external_entity_ref_handler()</a></span>,
+       <span class="function"><a class="function" href="function.xml-parse.html">xml_parse()</a></span>,
+       <span class="function"><a class="function" href="function.xml-get-error-code.html">xml_get_error_code()</a></span>,
+       <span class="function"><a class="function" href="function.xml-error-string.html">xml_error_string()</a></span>,
+       <span class="function"><a class="function" href="function.xml-get-current-line-number.html">xml_get_current_line_number()</a></span>,
+       <span class="function"><a class="function" href="function.xml-get-current-column-number.html">xml_get_current_column_number()</a></span>,
+       <span class="function"><a class="function" href="function.xml-get-current-byte-index.html">xml_get_current_byte_index()</a></span>,
+       <span class="function"><a class="function" href="function.xml-parse-into-struct.html">xml_parse_into_struct()</a></span>,
+       <span class="function"><a class="function" href="function.xml-parser-set-option.html">xml_parser_set_option()</a></span>,
+       <span class="function"><a class="function" href="function.xml-parser-get-option.html">xml_parser_get_option()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.xml-parser-free.html">xml_parser_free()</a></span>
+      </td>
+      <td>XML parser (prior to PHP 8.0.0)</td>
+     </tr>
+
+     <tr>
+      <td>zlib</td>
+      <td>
+       <span class="function"><a class="function" href="function.gzopen.html">gzopen()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.gzeof.html">gzeof()</a></span>,
+       <span class="function"><a class="function" href="function.gzgetc.html">gzgetc()</a></span>,
+       <span class="function"><a class="function" href="function.gzgets.html">gzgets()</a></span>,
+       <span class="function"><a class="function" href="function.gzgetss.html">gzgetss()</a></span>,
+       <span class="function"><a class="function" href="function.gzpassthru.html">gzpassthru()</a></span>,
+       <span class="function"><a class="function" href="function.gzputs.html">gzputs()</a></span>,
+       <span class="function"><a class="function" href="function.gzread.html">gzread()</a></span>,
+       <span class="function"><a class="function" href="function.gzrewind.html">gzrewind()</a></span>,
+       <span class="function"><a class="function" href="function.gzseek.html">gzseek()</a></span>,
+       <span class="function"><a class="function" href="function.gztell.html">gztell()</a></span>,
+       <span class="function"><a class="function" href="function.gzwrite.html">gzwrite()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.gzclose.html">gzclose()</a></span>
+      </td>
+      <td>gz-compressed file</td>
+     </tr>
+
+     <tr>
+      <td>zlib.deflate</td>
+      <td>
+       <span class="function"><a class="function" href="function.deflate-init.html">deflate_init()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.deflate-add.html">deflate_add()</a></span>
+      </td>
+      <td>
+       None
+      </td>
+      <td>incremental deflate context (prior to PHP 8.0.0)</td>
+     </tr>
+
+     <tr>
+      <td>zlib.inflate</td>
+      <td>
+       <span class="function"><a class="function" href="function.inflate-init.html">inflate_init()</a></span>
+      </td>
+      <td>
+       <span class="function"><a class="function" href="function.inflate-add.html">inflate_add()</a></span>,
+       <span class="function"><a class="function" href="function.inflate-get-read-len.html">inflate_get_read_len()</a></span>,
+       <span class="function"><a class="function" href="function.inflate-get-status.html">inflate_get_status()</a></span>
+      </td>
+      <td>
+       None
+      </td>
+      <td>incremental inflate context (prior to PHP 8.0.0)</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <p></p>
+</div>
+</div></div></body></html>

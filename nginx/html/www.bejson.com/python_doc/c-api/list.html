@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>列表对象-BeJSON.com</title><meta name="keywords" content="列表对象"><meta name="description" content="返回 list 中列表对象的长度；这等于在列表对象调用 len(list) 。"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="字典对象" href="dict.html" rel="next">
+    <link title="元组对象" href="tuple.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/c-api/list.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="tuple.html">元组对象</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="dict.html">字典对象</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="字典对象" accesskey="N" href="dict.html">下一页</a> |</li>
+        <li class="right">
+          <a title="元组对象" accesskey="P" href="tuple.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python/C API 参考手册</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="concrete.html">具体的对象层</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">列表对象</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="list-objects">
+<span id="listobjects"></span><h1>列表对象<a title="永久链接至标题" class="headerlink" href="#list-objects">¶</a></h1>
+<span class="target" id="index-0"></span><dl class="c type">
+<dt class="sig sig-object c" id="c.PyListObject">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyListObject</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.PyListObject">¶</a><br></dt>
+<dd><p>这个C类型 <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> 的子类型代表一个Python列表对象。</p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyList_Type">
+<a title="PyTypeObject" class="reference internal" href="type.html#c.PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyList_Type</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.PyList_Type">¶</a><br></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>这是个属于 <a title="PyTypeObject" class="reference internal" href="type.html#c.PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> 的代表Python列表类型的实例。在Python层面和类型 <a title="list" class="reference internal" href="../library/stdtypes.html#list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> 是同一个对象。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyList_Check</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_Check">¶</a><br></dt>
+<dd><p>如果 <em>p</em> 是一个 list 对象或者 list 类型的子类型的实例则返回真值。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_CheckExact">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyList_CheckExact</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_CheckExact">¶</a><br></dt>
+<dd><p>如果 <em>p</em> 是一个 list 对象但不是 list 类型的子类型的实例则返回真值。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_New">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyList_New</span></span></span><span class="sig-paren">(</span><a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">len</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_New">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>成功时返回一个长度为 <em>len</em> 的新列表，失败时返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>当 <em>len</em> 大于零时，被返回的列表对象项目被设成 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。因此你不能用类似C函数 <a title="PySequence_SetItem" class="reference internal" href="sequence.html#c.PySequence_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PySequence_SetItem()</span></code></a> 的抽象API或者用C函数 <a title="PyList_SetItem" class="reference internal" href="#c.PyList_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyList_SetItem()</span></code></a> 将所有项目设置成真实对象前对Python代码公开这个对象。</p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_Size">
+<a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyList_Size</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_Size">¶</a><br></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p id="index-1">返回 <em>list</em> 中列表对象的长度；这等于在列表对象调用 <code class="docutils literal notranslate"><span class="pre">len(list)</span></code> 。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_GET_SIZE">
+<a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyList_GET_SIZE</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_GET_SIZE">¶</a><br></dt>
+<dd><p>Similar to <a title="PyList_Size" class="reference internal" href="#c.PyList_Size"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyList_Size()</span></code></a>, but without error checking.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_GetItem">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyList_GetItem</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span>, <a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_GetItem">¶</a><br></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>返回 <em>list</em> 所指向列表中 <em>index</em> 位置上的对象。 位置值必须为非负数；不支持从列表末尾进行索引。 如果 <em>index</em> 超出边界 (&lt;0 or &gt;=len(list))，则返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> 并设置 <a title="IndexError" class="reference internal" href="../library/exceptions.html#IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a> 异常。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_GET_ITEM">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyList_GET_ITEM</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span>, <a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">i</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_GET_ITEM">¶</a><br></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>Similar to <a title="PyList_GetItem" class="reference internal" href="#c.PyList_GetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyList_GetItem()</span></code></a>, but without error checking.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_SetItem">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyList_SetItem</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span>, <a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">item</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_SetItem">¶</a><br></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>将列表中索引为 <em>index</em> 的项设为 <em>item</em>。 成功时返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>。 如果 <em>index</em> 超出范围则返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code> 并设定 <a title="IndexError" class="reference internal" href="../library/exceptions.html#IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a> 异常。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>此函数会“偷走”一个对 <em>item</em> 的引用并丢弃一个对列表中受影响位置上的已有条目的引用。</p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_SET_ITEM">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyList_SET_ITEM</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span>, <a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">i</span></span>, <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_SET_ITEM">¶</a><br></dt>
+<dd><p>不带错误检测的宏版本 <a title="PyList_SetItem" class="reference internal" href="#c.PyList_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyList_SetItem()</span></code></a>。 这通常只被用于新列表中之前没有内容的位置进行填充。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>该宏会“偷走”一个对 <em>item</em> 的引用，但与 <a title="PyList_SetItem" class="reference internal" href="#c.PyList_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyList_SetItem()</span></code></a> 不同的是它 <em>不会</em> 丢弃对任何被替换条目的引用；在 <em>list</em> 的 <em>i</em> 位置上的任何引用都将被泄露。</p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_Insert">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyList_Insert</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span>, <a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">item</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_Insert">¶</a><br></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>将条目 <em>item</em> 插入到列表 <em>list</em> 索引号 <em>index</em> 之前的位置。 如果成功将返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>；如果不成功则返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code> 并设置一个异常。 相当于 <code class="docutils literal notranslate"><span class="pre">list.insert(index,</span> <span class="pre">item)</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_Append">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyList_Append</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span>, <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">item</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_Append">¶</a><br></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>将对象 <em>item</em> 添加到列表 <em>list</em> 的末尾。 如果成功将返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>；如果不成功则返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code> 并设置一个异常。 相当于 <code class="docutils literal notranslate"><span class="pre">list.append(item)</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_GetSlice">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyList_GetSlice</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span>, <a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">low</span></span>, <a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">high</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_GetSlice">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>返回一个对象列表，包含 <em>list</em> 当中位于 <em>low</em> 和 <em>high</em> <em>之间</em> 的对象。 如果不成功则返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> 并设置异常。 相当于 <code class="docutils literal notranslate"><span class="pre">list[low:high]</span></code>。 不支持从列表末尾进行索引。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_SetSlice">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyList_SetSlice</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span>, <a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">low</span></span>, <a title="Py_ssize_t" class="reference internal" href="intro.html#c.Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">high</span></span>, <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">itemlist</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_SetSlice">¶</a><br></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>将 <em>list</em> 当中 <em>low</em> 与 <em>high</em> 之间的切片设为 <em>itemlist</em> 的内容。 相当于 <code class="docutils literal notranslate"><span class="pre">list[low:high]</span> <span class="pre">=</span> <span class="pre">itemlist</span></code>。 <em>itemlist</em> 可以为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>，表示赋值为一个空列表（删除切片）。 成功时返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>，失败时返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code>。 这里不支持从列表末尾进行索引。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_Sort">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyList_Sort</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_Sort">¶</a><br></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>对 <em>list</em> 中的条目进行原地排序。 成功时返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>，失败时返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code>。 这等价于 <code class="docutils literal notranslate"><span class="pre">list.sort()</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_Reverse">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyList_Reverse</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_Reverse">¶</a><br></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>对 <em>list</em> 中的条目进行原地反转。 成功时返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>，失败时返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code>。 这等价于 <code class="docutils literal notranslate"><span class="pre">list.reverse()</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyList_AsTuple">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyList_AsTuple</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyList_AsTuple">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p id="index-2">返回一个新的元组对象，其中包含 <em>list</em> 的内容；等价于 <code class="docutils literal notranslate"><span class="pre">tuple(list)</span></code>。</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="tuple.html">元组对象</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="dict.html">字典对象</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="字典对象" href="dict.html">下一页</a> |</li>
+        <li class="right">
+          <a title="元组对象" href="tuple.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python/C API 参考手册</a> »</li>
+          <li class="nav-item nav-item-2"><a href="concrete.html">具体的对象层</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">列表对象</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

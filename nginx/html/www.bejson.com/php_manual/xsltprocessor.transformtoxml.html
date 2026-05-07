@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Transform to XML-BeJSON.com</title><meta name="keywords" content="Transform to XML"><meta name="description" content="XSLTProcessor::transformToXml(PHP 5, PHP 7, PHP 8)XSLTProcessor::transformToXml — Transform to XML说明public XSLTProcessor::transformToXml(object $docum">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="xsltprocessor.transformtouri.html">« XSLTProcessor::transformToUri</a></li>
+      <li style="float: right;"><a href="refs.ui.html">图形用户界面(GUI) 扩展 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.xsltprocessor.html">XSLTProcessor</a></li>
+    <li>Transform to XML</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="xsltprocessor.transformtoxml">
+ <div class="refnamediv">
+  <h1 class="refname">XSLTProcessor::transformToXml</h1>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">XSLTProcessor::transformToXml</span> — <span class="dc-title">Transform to XML</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-xsltprocessor.transformtoxml-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>XSLTProcessor::transformToXml</strong></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$document</code></span>): <span class="type"><span class="type">string</span>|<span class="type">null</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+   Transforms the source node to a string applying the stylesheet given by
+   the <span class="function"><a class="function" href="xsltprocessor.importstylesheet.html">xsltprocessor::importStylesheet()</a></span> method.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-xsltprocessor.transformtoxml-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">document</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The <span class="type"><a class="type DOMDocument" href="class.domdocument.html">DOMDocument</a></span> or <span class="type"><a class="type SimpleXMLElement" href="class.simplexmlelement.html">SimpleXMLElement</a></span> object to
+       be transformed.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-xsltprocessor.transformtoxml-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   The result of the transformation as a string or <strong><code>false</code></strong> on error.
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-xsltprocessor.transformtoxml-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-5314">
+    <p><strong>示例 #1 Transforming to a string</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Load&nbsp;the&nbsp;XML&nbsp;source<br></span><span style="color: rgb(0, 0, 187);">$xml&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DOMDocument</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$xml</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">load</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'collection.xml'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$xsl&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DOMDocument</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$xsl</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">load</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'collection.xsl'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Configure&nbsp;the&nbsp;transformer<br></span><span style="color: rgb(0, 0, 187);">$proc&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">XSLTProcessor</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$proc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">importStyleSheet</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xsl</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;attach&nbsp;the&nbsp;xsl&nbsp;rules<br><br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$proc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">transformToXML</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xml</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Hey! Welcome to Nicolas Eliaszewicz's sweet CD collection!
+
+&lt;h1&gt;Fight for your mind&lt;/h1&gt;&lt;h2&gt;by Ben Harper - 1995&lt;/h2&gt;&lt;hr&gt;
+&lt;h1&gt;Electric Ladyland&lt;/h1&gt;&lt;h2&gt;by Jimi Hendrix - 1997&lt;/h2&gt;&lt;hr&gt;
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-xsltprocessor.transformtoxml-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="xsltprocessor.transformtodoc.html" rel="rdfs-seeAlso">XSLTProcessor::transformToDoc()</a> - Transform to a DOMDocument</span></li>
+    <li class="member"><span class="function"><a class="function" href="xsltprocessor.transformtouri.html" rel="rdfs-seeAlso">XSLTProcessor::transformToUri()</a> - Transform to URI</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

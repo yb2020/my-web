@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set collation strength-BeJSON.com</title><meta name="keywords" content="Set collation strength"><meta name="description" content="面向对象风格 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="collator.setattribute.html">« Collator::setAttribute</a></li>
+      <li style="float: right;"><a href="collator.sortwithsortkeys.html">Collator::sortWithSortKeys »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.collator.html">Collator</a></li>
+    <li>Set collation strength</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="collator.setstrength">
+ <div class="refnamediv">
+  <h1 class="refname">Collator::setStrength</h1>
+  <h1 class="refname">collator_set_strength</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">Collator::setStrength</span> -- <span class="refname">collator_set_strength</span> — <span class="dc-title">Set collation strength</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-collator.setstrength-description">
+  <h3 class="title">说明</h3>
+  <p class="para">
+   面向对象风格
+  </p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Collator::setStrength</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$strength</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   过程化风格
+  </p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>collator_set_strength</strong></span>(<span class="methodparam"><span class="type"><a class="type Collator" href="class.collator.html">Collator</a></span> <code class="parameter">$object</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$strength</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   The
+   <a class="link external" href="http://www.icu-project.org/">»&nbsp;ICU</a>
+   Collation Service supports many levels of comparison (named "Levels", but
+   also known as "Strengths"). Having these categories enables ICU to sort
+   strings precisely according to local conventions. However, by allowing the
+   levels to be selectively employed, searching for a string in text can be
+   performed with various matching conditions.
+  </p>
+  <p class="para">
+   <ol type="1">
+    <li class="listitem">
+     <p class="para"> 
+      <em class="emphasis">Primary Level</em>:
+      Typically, this is used to denote differences between base characters
+      (for example, "a" &lt; "b"). It is the strongest difference. For
+      example, dictionaries are divided into different sections by base
+      character. This is also called the <code class="literal">level 1</code> strength.
+     </p>
+    </li>
+    <li class="listitem">
+     <p class="para"> 
+      <em class="emphasis">Secondary Level</em>:
+      Accents in the characters are considered secondary differences (for
+      example, "as" &lt; "às" &lt; "at"). Other differences between letters
+      can also be considered secondary differences, depending on the language.
+      A secondary difference is ignored when there is a primary difference
+      anywhere in the strings. This is also called the <code class="literal">level 2</code> strength.
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        Note: In some languages (such as Danish), certain accented letters are
+        considered to be separate base characters. In most languages, however,
+        an accented letter only has a secondary difference from the unaccented
+        version of that letter.
+       </p>
+      <p></p></blockquote>
+     <p></p>
+    </li>
+    <li class="listitem">
+     <p class="para"> 
+      <em class="emphasis">Tertiary Level</em>:
+      Upper and lower case differences in characters are distinguished at
+      the tertiary level (for example, "ao" &lt; "Ao" &lt; "aò"). In addition,
+      a variant of a letter differs from the base form on the tertiary level
+      (such as "A" and " "). Another example is the difference between large
+      and small Kana. A tertiary difference is ignored when there is a primary
+      or secondary difference anywhere in the strings. This is also called the
+      <code class="literal">level 3</code> strength.
+     </p>
+    </li>
+    <li class="listitem">
+     <p class="para"> 
+      <em class="emphasis">Quaternary Level</em>:
+      When punctuation is ignored (see Ignoring Punctuations ) at levels 1-3,
+      an additional level can be used to distinguish words with and without
+      punctuation (for example, "ab" &lt; "a-b" &lt; "aB"). This difference is
+      ignored when there is a primary, secondary or tertiary difference. This
+      is also known as the <code class="literal">level 4</code> strength. The quaternary level should only
+      be used if ignoring punctuation is required or when processing Japanese
+      text (see Hiragana processing).
+     </p>
+    </li>
+    <li class="listitem">
+     <p class="para"> 
+      <em class="emphasis">Identical Level</em>:
+      When all other levels are equal, the identical level is used as a
+      tiebreaker. The Unicode code point values of the NFD form of each string
+      are compared at this level, just in case there is no difference at
+      levels 1-4. For example, Hebrew cantillation marks are only distinguished
+      at this level. This level should be used sparingly, as only code point
+      values differences between two strings is an extremely rare occurrence.
+      Using this level substantially decreases the performance for both
+      incremental comparison and sort key generation (as well as increasing
+      the sort key length). It is also known as <code class="literal">level 5</code> strength.
+     </p>
+    </li>
+   </ol>
+  <p></p>
+  <p class="para">
+   For example, people may choose to ignore accents or ignore accents and case
+   when searching for text. Almost all characters are distinguished by the
+   first three levels, and in most locales the default value is thus Tertiary.
+   However, if Alternate is set to be Shifted, then the Quaternary strength
+   can be used to break ties among whitespace, punctuation, and symbols that
+   would otherwise be ignored. If very fine distinctions among characters are
+   required, then the Identical strength can be used (for example, Identical
+   Strength distinguishes between the Mathematical Bold Small A and the
+   Mathematical Italic Small A.). However, using levels higher than Tertiary
+   the Identical strength result in significantly longer sort keys, and slower
+   string comparison performance for equal strings.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-collator.setstrength-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">object</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <span class="classname"><a class="classname" href="class.collator.html">Collator</a></span> object.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">strength</code></dt>
+
+     <dd>
+
+      <p class="para">Strength to set.</p>
+      <p class="para">
+       Possible values are:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <p class="para">
+          <strong><code>Collator::PRIMARY</code></strong>
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <strong><code>Collator::SECONDARY</code></strong>
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <strong><code>Collator::TERTIARY</code></strong>
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <strong><code>Collator::QUATERNARY</code></strong>
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <strong><code>Collator::IDENTICAL</code></strong>
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <strong><code>Collator::DEFAULT_STRENGTH</code></strong>
+         </p>
+        </li>
+       </ul>
+      <p></p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-collator.setstrength-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-collator.setstrength-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2240">
+    <p><strong>示例 #1 <span class="function"><strong>collator_set_strength()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$arr&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(&nbsp;</span><span style="color: rgb(221, 0, 0);">'aò'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Ao'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'ao'&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$coll&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">collator_create</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(221, 0, 0);">'en_US'&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Sort&nbsp;array&nbsp;using&nbsp;default&nbsp;strength.<br></span><span style="color: rgb(0, 0, 187);">collator_sort</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$coll</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$arr&nbsp;</span><span style="color: rgb(0, 119, 0);">);&nbsp;<br></span><span style="color: rgb(0, 0, 187);">var_export</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$arr&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Sort&nbsp;array&nbsp;using&nbsp;primary&nbsp;strength.<br></span><span style="color: rgb(0, 0, 187);">collator_set_strength</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$coll</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">Collator</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">PRIMARY&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">collator_sort</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$coll</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$arr&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_export</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$arr&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>array (
+  0 =&gt; 'ao',
+  1 =&gt; 'Ao',
+  2 =&gt; 'aò',
+)
+array (
+  0 =&gt; 'aò',
+  1 =&gt; 'Ao',
+  2 =&gt; 'ao',
+)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-collator.setstrength-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a class="link" href="class.collator.html#intl.collator-constants"><span class="classname"></span><a class="classname" href="class.collator.html">Collator</a> constants</li>
+    <li class="member"><span class="function"><a class="function" href="collator.getstrength.html" rel="rdfs-seeAlso">collator_get_strength()</a> - Get current collation strength</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

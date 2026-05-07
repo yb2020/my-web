@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>xml.sax.saxutils --- SAX 工具集-BeJSON.com</title><meta name="keywords" content="xml.sax.saxutils --- SAX 工具集"><meta name="description" content="xml.sax.handler --- SAX 处理句柄的基类"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="xml.sax.xmlreader --- 用于 XML 解析器的接口" href="xml.sax.reader.html" rel="next">
+    <link title="xml.sax.handler --- SAX 处理句柄的基类" href="xml.sax.handler.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/xml.sax.utils.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="xml.sax.handler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.sax.handler</span></code> --- SAX 处理句柄的基类</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="xml.sax.reader.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.sax.xmlreader</span></code> --- 用于 XML 解析器的接口</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="xml.sax.xmlreader --- 用于 XML 解析器的接口" accesskey="N" href="xml.sax.reader.html">下一页</a> |</li>
+        <li class="right">
+          <a title="xml.sax.handler --- SAX 处理句柄的基类" accesskey="P" href="xml.sax.handler.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="markup.html">结构化标记处理工具</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.sax.saxutils</span></code> --- SAX 工具集</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-xml.sax.saxutils">
+<span id="xml-sax-saxutils-sax-utilities"></span><h1><a title="xml.sax.saxutils: Convenience functions and classes for use with SAX." class="reference internal" href="#module-xml.sax.saxutils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.sax.saxutils</span></code></a> --- SAX 工具集<a title="永久链接至标题" class="headerlink" href="#module-xml.sax.saxutils">¶</a></h1>
+<p><strong>源代码:</strong> <a class="reference external" href="">Lib/xml/sax/saxutils.py</a></p>
+<hr class="docutils">
+<p><a title="xml.sax.saxutils: Convenience functions and classes for use with SAX." class="reference internal" href="#module-xml.sax.saxutils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.sax.saxutils</span></code></a> 模块包含一些在创建 SAX 应用程序时十分有用的类和函数，它们可以被直接使用，或者是作为基类使用。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="xml.sax.saxutils.escape">
+<span class="sig-prename descclassname"><span class="pre">xml.sax.saxutils.</span></span><span class="sig-name descname"><span class="pre">escape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entities</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#xml.sax.saxutils.escape">¶</a></dt>
+<dd><p>对数据字符串中的 <code class="docutils literal notranslate"><span class="pre">'&amp;'</span></code>, <code class="docutils literal notranslate"><span class="pre">'&lt;'</span></code> 和 <code class="docutils literal notranslate"><span class="pre">'&gt;'</span></code> 进行转义。</p>
+<p>你可以通过传入一个字典作为可选的 <em>entities</em> 形参来对其他字符串数据进行转义。 字典的键和值必须为字符串；每个键将被替换为其所对应的值。 字符 <code class="docutils literal notranslate"><span class="pre">'&amp;'</span></code>, <code class="docutils literal notranslate"><span class="pre">'&lt;'</span></code> 和 <code class="docutils literal notranslate"><span class="pre">'&gt;'</span></code> 总是会被转义，即使提供了 <em>entities</em>。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xml.sax.saxutils.unescape">
+<span class="sig-prename descclassname"><span class="pre">xml.sax.saxutils.</span></span><span class="sig-name descname"><span class="pre">unescape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entities</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#xml.sax.saxutils.unescape">¶</a></dt>
+<dd><p>对字符串数据中的 <code class="docutils literal notranslate"><span class="pre">'&amp;amp;'</span></code>, <code class="docutils literal notranslate"><span class="pre">'&amp;lt;'</span></code> 和 <code class="docutils literal notranslate"><span class="pre">'&amp;gt;'</span></code> 进行反转义。</p>
+<p>你可以通过传入一个字典作为可选的 <em>entities</em> 形参来对其他数据字符串进行转义。 字典的键和值必须都为字符串；每个键将被替换为所对应的值。 <code class="docutils literal notranslate"><span class="pre">'&amp;amp'</span></code>, <code class="docutils literal notranslate"><span class="pre">'&amp;lt;'</span></code> 和 <code class="docutils literal notranslate"><span class="pre">'&amp;gt;'</span></code> 将总是保持不被转义，即使提供了 <em>entities</em>。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xml.sax.saxutils.quoteattr">
+<span class="sig-prename descclassname"><span class="pre">xml.sax.saxutils.</span></span><span class="sig-name descname"><span class="pre">quoteattr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entities</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#xml.sax.saxutils.quoteattr">¶</a></dt>
+<dd><p>类似于 <a title="xml.sax.saxutils.escape" class="reference internal" href="#xml.sax.saxutils.escape"><code class="xref py py-func docutils literal notranslate"><span class="pre">escape()</span></code></a>，但还会对 <em>data</em> 进行处理以将其用作属性值。 返回值是 <em>data</em> 加上任何额外要求的替换的带引号版本。<a title="xml.sax.saxutils.quoteattr" class="reference internal" href="#xml.sax.saxutils.quoteattr"><code class="xref py py-func docutils literal notranslate"><span class="pre">quoteattr()</span></code></a> 将基于 <em>data</em> 的内容选择一个引号字符，以尽量避免在字符串中编码任何引号字符。 如果单双引号字符在 <em>data</em> 中都存在，则双引号字符将被编码并且 <em>data</em> 将使用双引号来标记。 结果字符串可被直接用作属性值:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><span title="Hide the prompts and output" class="copybutton" style="border-radius: 0px 3px 0px 0px; border: 1px solid rgb(170, 204, 153); top: 0px; right: 0px; color: rgb(170, 204, 153); padding-right: 0.2em; padding-left: 0.2em; font-family: monospace; position: absolute; cursor: pointer;">&gt;&gt;&gt;</span><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">"&lt;element attr=</span><span class="si">%s</span><span class="s2">&gt;"</span> <span class="o">%</span> <span class="n">quoteattr</span><span class="p">(</span><span class="s2">"ab ' cd </span><span class="se">\"</span><span class="s2"> ef"</span><span class="p">))</span>
+<span class="go">&lt;element attr="ab ' cd &amp;quot; ef"&gt;</span>
+</pre></div>
+</div>
+<p>此函数适用于为 HTML 或任何使用引用实体语法的 SGML 生成属性值。</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="xml.sax.saxutils.XMLGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xml.sax.saxutils.</span></span><span class="sig-name descname"><span class="pre">XMLGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'iso-8859-1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_empty_elements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#xml.sax.saxutils.XMLGenerator">¶</a></dt>
+<dd><p>这个类通过将 SAX 事件写回到 XML 文档来实现 <a title="xml.sax.handler.ContentHandler" class="reference internal" href="xml.sax.handler.html#xml.sax.handler.ContentHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContentHandler</span></code></a> 接口。 换句话说，使用 <a title="xml.sax.saxutils.XMLGenerator" class="reference internal" href="#xml.sax.saxutils.XMLGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLGenerator</span></code></a> 作为内容处理程序将重新产生所解析的原始文档。 <em>out</em> 应当为一个文件类对象，它默认将为 <em>sys.stdout</em>。 <em>encoding</em> 为输出流的编码格式，它默认将为 <code class="docutils literal notranslate"><span class="pre">'iso-8859-1'</span></code>。 <em>short_empty_elements</em> 控制不包含内容的元素的格式化：如为 <code class="docutils literal notranslate"><span class="pre">False</span></code> (默认值) 则它们会以开始/结束标记对的形式被发送，如果设为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 则它们会以单个自结束标记的形式被发送。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.2 新版功能: </span><em>short_empty_elements</em> 形参。</p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="xml.sax.saxutils.XMLFilterBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xml.sax.saxutils.</span></span><span class="sig-name descname"><span class="pre">XMLFilterBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#xml.sax.saxutils.XMLFilterBase">¶</a></dt>
+<dd><p>这个类被设计用来分隔 <a title="xml.sax.xmlreader.XMLReader" class="reference internal" href="xml.sax.reader.html#xml.sax.xmlreader.XMLReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLReader</span></code></a> 和客户端应用的事件处理程序。 在默认情况下，它除了将请求传送给读取器并将事件传送给处理程序之外什么都不做，但其子类可以重载特定的方法以在传送它们的时候修改事件流或配置请求。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xml.sax.saxutils.prepare_input_source">
+<span class="sig-prename descclassname"><span class="pre">xml.sax.saxutils.</span></span><span class="sig-name descname"><span class="pre">prepare_input_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#xml.sax.saxutils.prepare_input_source">¶</a></dt>
+<dd><p>此函数接受一个输入源和一个可选的基准 URL 并返回一个经过完整解析可供读取的 <a title="xml.sax.xmlreader.InputSource" class="reference internal" href="xml.sax.reader.html#xml.sax.xmlreader.InputSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputSource</span></code></a>。 输入源的给出形式可以为字符串、文件类对象或 <a title="xml.sax.xmlreader.InputSource" class="reference internal" href="xml.sax.reader.html#xml.sax.xmlreader.InputSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputSource</span></code></a> 对象；解析器将使用此函数来针对它们的 <code class="xref py py-meth docutils literal notranslate"><span class="pre">parse()</span></code> 方法实现多态 <em>source</em> 参数。</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="xml.sax.handler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.sax.handler</span></code> --- SAX 处理句柄的基类</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="xml.sax.reader.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.sax.xmlreader</span></code> --- 用于 XML 解析器的接口</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="xml.sax.xmlreader --- 用于 XML 解析器的接口" href="xml.sax.reader.html">下一页</a> |</li>
+        <li class="right">
+          <a title="xml.sax.handler --- SAX 处理句柄的基类" href="xml.sax.handler.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="markup.html">结构化标记处理工具</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.sax.saxutils</span></code> --- SAX 工具集</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

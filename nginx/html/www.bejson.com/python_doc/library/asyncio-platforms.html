@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>平台支持-BeJSON.com</title><meta name="keywords" content="平台支持"><meta name="description" content="策略"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="Extending" href="asyncio-extending.html" rel="next">
+    <link title="策略" href="asyncio-policy.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/asyncio-platforms.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">平台支持</a><ul>
+<li><a class="reference internal" href="#all-platforms">所有平台</a></li>
+<li><a class="reference internal" href="#windows">Windows</a><ul>
+<li><a class="reference internal" href="#subprocess-support-on-windows">Windows的子进程支持</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#macos">macOS</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="asyncio-policy.html">策略</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="asyncio-extending.html">Extending</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="Extending" accesskey="N" href="asyncio-extending.html">下一页</a> |</li>
+        <li class="right">
+          <a title="策略" accesskey="P" href="asyncio-policy.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="ipc.html">网络和进程间通信</a> »</li>
+          <li class="nav-item nav-item-3"><a accesskey="U" href="asyncio.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code> --- 异步 I/O</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">平台支持</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="platform-support">
+<span id="asyncio-platform-support"></span><h1>平台支持<a title="永久链接至标题" class="headerlink" href="#platform-support">¶</a></h1>
+<p><a title="asyncio: Asynchronous I/O." class="reference internal" href="asyncio.html#module-asyncio"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 模块被设计为可移植的,但由于平台的底层架构和功能，一些平台存在细微的差异和限制。</p>
+<section id="all-platforms">
+<h2>所有平台<a title="永久链接至标题" class="headerlink" href="#all-platforms">¶</a></h2>
+<ul class="simple">
+<li><p><a title="asyncio.loop.add_reader" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.add_reader"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.add_reader()</span></code></a> 和 <a title="asyncio.loop.add_writer" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.add_writer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.add_writer()</span></code></a> 不能用来监视文件I/O。</p></li>
+</ul>
+</section>
+<section id="windows">
+<h2>Windows<a title="永久链接至标题" class="headerlink" href="#windows">¶</a></h2>
+<p><strong>源代码:</strong> <a class="reference external" href="">Lib/asyncio/proactor_events.py</a>, <a class="reference external" href="">Lib/asyncio/windows_events.py</a>, <a class="reference external" href="">Lib/asyncio/windows_utils.py</a></p>
+<hr class="docutils">
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.8 版更改: </span>在 Windows 上，<a title="asyncio.ProactorEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.ProactorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code></a> 现在是默认的事件循环。</p>
+</div>
+<p>Windows上的所有事件循环都不支持以下方法:</p>
+<ul class="simple">
+<li><p>不支持 <a title="asyncio.loop.create_unix_connection" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.create_unix_connection"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.create_unix_connection()</span></code></a> 和 <a title="asyncio.loop.create_unix_server" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.create_unix_server"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.create_unix_server()</span></code></a> 。 <a title="socket.AF_UNIX" class="reference internal" href="socket.html#socket.AF_UNIX"><code class="xref py py-data docutils literal notranslate"><span class="pre">socket.AF_UNIX</span></code></a> 套接字相关参数仅限于Unix。</p></li>
+<li><p>不支持 <a title="asyncio.loop.add_signal_handler" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.add_signal_handler"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.add_signal_handler()</span></code></a> 和 <a title="asyncio.loop.remove_signal_handler" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.remove_signal_handler"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.remove_signal_handler()</span></code></a> 。</p></li>
+</ul>
+<p><a title="asyncio.SelectorEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.SelectorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorEventLoop</span></code></a> 有下列限制:</p>
+<ul class="simple">
+<li><p><a title="selectors.SelectSelector" class="reference internal" href="selectors.html#selectors.SelectSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectSelector</span></code></a> 只被用于等待套接字事件：它支持套接字且最多支持512个套接字。</p></li>
+<li><p><a title="asyncio.loop.add_reader" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.add_reader"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.add_reader()</span></code></a> 和 <a title="asyncio.loop.add_writer" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.add_writer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.add_writer()</span></code></a> 只接受套接字处理回调函数(如管道、文件描述符等都不支持)。</p></li>
+<li><p>因为不支持管道，所以  <a title="asyncio.loop.connect_read_pipe" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.connect_read_pipe"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.connect_read_pipe()</span></code></a> 和 <a title="asyncio.loop.connect_write_pipe" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.connect_write_pipe"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.connect_write_pipe()</span></code></a> 方法没有实现。</p></li>
+<li><p>不支持 <a class="reference internal" href="asyncio-subprocess.html#asyncio-subprocess"><span class="std std-ref">Subprocesses</span></a> ，也就是  <a title="asyncio.loop.subprocess_exec" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.subprocess_exec"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.subprocess_exec()</span></code></a> 和 <a title="asyncio.loop.subprocess_shell" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.subprocess_shell"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.subprocess_shell()</span></code></a> 方法没有实现。</p></li>
+</ul>
+<p><a title="asyncio.ProactorEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.ProactorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code></a> 有下列限制:</p>
+<ul class="simple">
+<li><p>不支持  <a title="asyncio.loop.add_reader" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.add_reader"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.add_reader()</span></code></a> 和 <a title="asyncio.loop.add_writer" class="reference internal" href="asyncio-eventloop.html#asyncio.loop.add_writer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.add_writer()</span></code></a> 方法。</p></li>
+</ul>
+<p>The resolution of the monotonic clock on Windows is usually around 15.6
+milliseconds.  The best resolution is 0.5 milliseconds. The resolution depends on the
+hardware (availability of <a class="reference external" href="">HPET</a>) and on the
+Windows configuration.</p>
+<section id="subprocess-support-on-windows">
+<span id="asyncio-windows-subprocess"></span><h3>Windows的子进程支持<a title="永久链接至标题" class="headerlink" href="#subprocess-support-on-windows">¶</a></h3>
+<p>在 Windows 上，默认的事件循环 <a title="asyncio.ProactorEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.ProactorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code></a> 支持子进程，而 <a title="asyncio.SelectorEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.SelectorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorEventLoop</span></code></a> 则不支持。</p>
+<p>也不支持 <a title="asyncio.AbstractEventLoopPolicy.set_child_watcher" class="reference internal" href="asyncio-policy.html#asyncio.AbstractEventLoopPolicy.set_child_watcher"><code class="xref py py-meth docutils literal notranslate"><span class="pre">policy.set_child_watcher()</span></code></a> 函数，<a title="asyncio.ProactorEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.ProactorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code></a> 有不同的机制来监视子进程。</p>
+</section>
+</section>
+<section id="macos">
+<h2>macOS<a title="永久链接至标题" class="headerlink" href="#macos">¶</a></h2>
+<p>完整支持流行的macOS版本。</p>
+<p class="rubric">macOS &lt;= 10.8</p>
+<p>在 macOS 10.6, 10.7 和 10.8 上，默认的事件循环使用 <a title="selectors.KqueueSelector" class="reference internal" href="selectors.html#selectors.KqueueSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">selectors.KqueueSelector</span></code></a>，在这些版本上它并不支持字符设备。 可以手工配置 <a title="asyncio.SelectorEventLoop" class="reference internal" href="asyncio-eventloop.html#asyncio.SelectorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorEventLoop</span></code></a> 来使用 <a title="selectors.SelectSelector" class="reference internal" href="selectors.html#selectors.SelectSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectSelector</span></code></a> 或 <a title="selectors.PollSelector" class="reference internal" href="selectors.html#selectors.PollSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">PollSelector</span></code></a> 以在这些较老版本的 macOS 上支持字符设备。 例如:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">selectors</span>
+
+<span class="n">selector</span> <span class="o">=</span> <span class="n">selectors</span><span class="o">.</span><span class="n">SelectSelector</span><span class="p">()</span>
+<span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">SelectorEventLoop</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span>
+<span class="n">asyncio</span><span class="o">.</span><span class="n">set_event_loop</span><span class="p">(</span><span class="n">loop</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">平台支持</a><ul>
+<li><a class="reference internal" href="#all-platforms">所有平台</a></li>
+<li><a class="reference internal" href="#windows">Windows</a><ul>
+<li><a class="reference internal" href="#subprocess-support-on-windows">Windows的子进程支持</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#macos">macOS</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="asyncio-policy.html">策略</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="asyncio-extending.html">Extending</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="Extending" href="asyncio-extending.html">下一页</a> |</li>
+        <li class="right">
+          <a title="策略" href="asyncio-policy.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="ipc.html">网络和进程间通信</a> »</li>
+          <li class="nav-item nav-item-3"><a href="asyncio.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code> --- 异步 I/O</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">平台支持</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

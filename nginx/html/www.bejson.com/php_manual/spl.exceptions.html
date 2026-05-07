@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>异常-BeJSON.com</title><meta name="keywords" content="异常"><meta name="description" content="SPL 提供一系列标准异常。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="seekableiterator.seek.html">« SeekableIterator::seek</a></li>
+      <li style="float: right;"><a href="class.badfunctioncallexception.html">BadFunctionCallException »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.spl.html">SPL</a></li>
+    <li>异常</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="part" id="spl.exceptions">
+
+ <h1>异常</h1>
+<h2>目录</h2><ul class="chunklist chunklist_part"><li><a href="class.badfunctioncallexception.html">BadFunctionCallException</a></li><li><a href="class.badmethodcallexception.html">BadMethodCallException</a></li><li><a href="class.domainexception.html">DomainException</a></li><li><a href="class.invalidargumentexception.html">InvalidArgumentException</a></li><li><a href="class.lengthexception.html">LengthException</a></li><li><a href="class.logicexception.html">LogicException</a></li><li><a href="class.outofboundsexception.html">OutOfBoundsException</a></li><li><a href="class.outofrangeexception.html">OutOfRangeException</a></li><li><a href="class.overflowexception.html">OverflowException</a></li><li><a href="class.rangeexception.html">RangeException</a></li><li><a href="class.runtimeexception.html">RuntimeException</a></li><li><a href="class.underflowexception.html">UnderflowException</a></li><li><a href="class.unexpectedvalueexception.html">UnexpectedValueException</a></li></ul>
+
+
+ <div class="partintro">
+  <p class="para">SPL 提供一系列标准异常。</p><p class="para">可参考<a class="xref" href="reserved.exceptions.html">预定义异常</a>。</p>
+
+  <div class="section" id="spl.exceptions.tree">
+   <h2 class="title">SPL Exceptions Class Tree</h2>
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara"><span class="classname"><a class="classname" href="class.logicexception.html">LogicException</a></span> (extends <span class="classname"><a class="classname" href="class.exception.html">Exception</a></span>)</span>
+     <ul class="itemizedlist">
+      <li class="listitem">
+       <span class="simpara"><span class="classname"><a class="classname" href="class.badfunctioncallexception.html">BadFunctionCallException</a></span></span>
+       <ul class="itemizedlist">
+        <li class="listitem"><span class="simpara"><span class="classname"><a class="classname" href="class.badmethodcallexception.html">BadMethodCallException</a></span></span></li>
+       </ul>
+      </li>
+      <li class="listitem"><span class="simpara"><span class="classname"><a class="classname" href="class.domainexception.html">DomainException</a></span></span></li>
+      <li class="listitem"><span class="simpara"><span class="classname"><a class="classname" href="class.invalidargumentexception.html">InvalidArgumentException</a></span></span></li>
+      <li class="listitem"><span class="simpara"><span class="classname"><a class="classname" href="class.lengthexception.html">LengthException</a></span></span></li>
+      <li class="listitem"><span class="simpara"><span class="classname"><a class="classname" href="class.outofrangeexception.html">OutOfRangeException</a></span></span></li>
+     </ul>
+    </li>
+    <li class="listitem">
+     <span class="simpara"><span class="classname"><a class="classname" href="class.runtimeexception.html">RuntimeException</a></span> (extends <span class="classname"><a class="classname" href="class.exception.html">Exception</a></span>)</span>
+     <ul class="itemizedlist">
+      <li class="listitem"><span class="simpara"><span class="classname"><a class="classname" href="class.outofboundsexception.html">OutOfBoundsException</a></span></span></li>
+      <li class="listitem"><span class="simpara"><span class="classname"><a class="classname" href="class.overflowexception.html">OverflowException</a></span></span></li>
+      <li class="listitem"><span class="simpara"><span class="classname"><a class="classname" href="class.rangeexception.html">RangeException</a></span></span></li>
+      <li class="listitem"><span class="simpara"><span class="classname"><a class="classname" href="class.underflowexception.html">UnderflowException</a></span></span></li>
+      <li class="listitem"><span class="simpara"><span class="classname"><a class="classname" href="class.unexpectedvalueexception.html">UnexpectedValueException</a></span></span></li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+</div>
+</div></div></body></html>

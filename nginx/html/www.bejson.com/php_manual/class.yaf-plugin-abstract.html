@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Yaf_Plugin_Abstract class-BeJSON.com</title><meta name="keywords" content="The Yaf_Plugin_Abstract class"><meta name="description" content="Plugins 可以让你轻松地定制和扩展框架 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="yaf-loader.setlibrarypath.html">« Yaf_Loader::setLibraryPath</a></li>
+      <li style="float: right;"><a href="yaf-plugin-abstract.dispatchloopshutdown.html">Yaf_Plugin_Abstract::dispatchLoopShutdown »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.yaf.html">Yaf</a></li>
+    <li>The Yaf_Plugin_Abstract class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.yaf-plugin-abstract">
+
+ <h1 class="title">The Yaf_Plugin_Abstract class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(Yaf &gt;=1.0.0)</p>
+
+
+  <div class="section" id="yaf-plugin-abstract.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+     Plugins 可以让你轻松地定制和扩展框架
+   </p>
+   <p class="para">
+       插件(Plugins)是一个类。
+       基于组件定义的类会有所变化 -- 你可能需要去实现这些接口。
+       但实际上，该插件(Plugin)本身就是一个类。
+   </p>
+   <p class="para">
+     一个插件(plugin)会被<span class="methodname"><a class="methodname" href="yaf-dispatcher.registerplugin.html">Yaf_Dispatcher::registerPlugin()</a></span>加载到Yaf框架中，
+     在框架注册(registerd)后，插件(plugin)类中定义方法将会在恰当的时间被该接口执行。
+   </p>
+  </div>
+
+
+ <div class="section">
+  <h2 class="title">范例</h2>
+  <div class="example" id="example-3808">
+   <p><strong>示例 #1 Plugin example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;bootstrap&nbsp;class&nbsp;should&nbsp;be&nbsp;defined&nbsp;under&nbsp;./application/Bootstrap.php&nbsp;*/<br>&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">Bootstrap&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">Yaf_Bootstrap_Abstract&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">_initPlugin</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Yaf_Dispatcher&nbsp;$dispatcher</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;register&nbsp;a&nbsp;plugin&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$dispatcher</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">registerPlugin</span><span style="color: rgb(0, 119, 0);">(new&nbsp;</span><span style="color: rgb(0, 0, 187);">TestPlugin</span><span style="color: rgb(0, 119, 0);">());<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;plugin&nbsp;class&nbsp;should&nbsp;be&nbsp;placed&nbsp;under&nbsp;./application/plugins/&nbsp;*/<br>&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">TestPlugin&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">Yaf_Plugin_Abstract&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">routerStartup</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Yaf_Request_Abstract&nbsp;$request</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">Yaf_Response_Abstract&nbsp;$response</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;在路由之前执行,这个钩子里，你可以做url重写等功能&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"routerStartup"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">routerShutdown</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Yaf_Request_Abstract&nbsp;$request</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">Yaf_Response_Abstract&nbsp;$response</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;路由完成后，在这个钩子里，你可以做登陆检测等功能*/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"routerShutdown"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">dispatchLoopStartup</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Yaf_Request_Abstract&nbsp;$request</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">Yaf_Response_Abstract&nbsp;$response</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"dispatchLoopStartup"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">preDispatch</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Yaf_Request_Abstract&nbsp;$request</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">Yaf_Response_Abstract&nbsp;$response</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"preDispatch"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">postDispatch</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Yaf_Request_Abstract&nbsp;$request</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">Yaf_Response_Abstract&nbsp;$response</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"postDispatch"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">dispatchLoopShutdown</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Yaf_Request_Abstract&nbsp;$request</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">Yaf_Response_Abstract&nbsp;$response</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;final&nbsp;hoook<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;this&nbsp;hook&nbsp;user&nbsp;can&nbsp;do&nbsp;loging&nbsp;or&nbsp;implement&nbsp;layout&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"dispatchLoopShutdown"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;Class&nbsp;</span><span style="color: rgb(0, 0, 187);">IndexController&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">Yaf_Controller_Abstract&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">indexAction</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">FALSE</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(255, 128, 0);">//prevent&nbsp;rendering<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">}<br>&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$config&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"application"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"directory"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">dirname</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">__FILE__</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"/application/"</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br>&nbsp;&nbsp;&nbsp;);<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$app&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Yaf_Application</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$config</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$app</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">bootstrap</span><span style="color: rgb(0, 119, 0);">()-&gt;</span><span style="color: rgb(0, 0, 187);">run</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>string(13) "routerStartup"
+string(14) "routerShutdown"
+string(19) "dispatchLoopStartup"
+string(11) "preDispatch"
+string(12) "postDispatch"
+string(20) "dispatchLoopShutdown"
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+  <div class="section" id="yaf-plugin-abstract.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">Yaf_Plugin_Abstract</strong>
+     </span>
+     {</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="yaf-plugin-abstract.dispatchloopshutdown.html">dispatchLoopShutdown</a></span>(<span class="methodparam"><span class="type"><a class="type Yaf_Request_Abstract" href="class.yaf-request-abstract.html">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>, <span class="methodparam"><span class="type"><a class="type Yaf_Response_Abstract" href="class.yaf-response-abstract.html">Yaf_Response_Abstract</a></span> <code class="parameter">$response</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="yaf-plugin-abstract.dispatchloopstartup.html">dispatchLoopStartup</a></span>(<span class="methodparam"><span class="type"><a class="type Yaf_Request_Abstract" href="class.yaf-request-abstract.html">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>, <span class="methodparam"><span class="type"><a class="type Yaf_Response_Abstract" href="class.yaf-response-abstract.html">Yaf_Response_Abstract</a></span> <code class="parameter">$response</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="yaf-plugin-abstract.postdispatch.html">postDispatch</a></span>(<span class="methodparam"><span class="type"><a class="type Yaf_Request_Abstract" href="class.yaf-request-abstract.html">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>, <span class="methodparam"><span class="type"><a class="type Yaf_Response_Abstract" href="class.yaf-response-abstract.html">Yaf_Response_Abstract</a></span> <code class="parameter">$response</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="yaf-plugin-abstract.predispatch.html">preDispatch</a></span>(<span class="methodparam"><span class="type"><a class="type Yaf_Request_Abstract" href="class.yaf-request-abstract.html">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>, <span class="methodparam"><span class="type"><a class="type Yaf_Response_Abstract" href="class.yaf-response-abstract.html">Yaf_Response_Abstract</a></span> <code class="parameter">$response</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="yaf-plugin-abstract.preresponse.html">preResponse</a></span>(<span class="methodparam"><span class="type"><a class="type Yaf_Request_Abstract" href="class.yaf-request-abstract.html">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>, <span class="methodparam"><span class="type"><a class="type Yaf_Response_Abstract" href="class.yaf-response-abstract.html">Yaf_Response_Abstract</a></span> <code class="parameter">$response</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="yaf-plugin-abstract.routershutdown.html">routerShutdown</a></span>(<span class="methodparam"><span class="type"><a class="type Yaf_Request_Abstract" href="class.yaf-request-abstract.html">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>, <span class="methodparam"><span class="type"><a class="type Yaf_Response_Abstract" href="class.yaf-response-abstract.html">Yaf_Response_Abstract</a></span> <code class="parameter">$response</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="yaf-plugin-abstract.routerstartup.html">routerStartup</a></span>(<span class="methodparam"><span class="type"><a class="type Yaf_Request_Abstract" href="class.yaf-request-abstract.html">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>, <span class="methodparam"><span class="type"><a class="type Yaf_Response_Abstract" href="class.yaf-response-abstract.html">Yaf_Response_Abstract</a></span> <code class="parameter">$response</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="yaf-plugin-abstract.dispatchloopshutdown.html">Yaf_Plugin_Abstract::dispatchLoopShutdown</a> — The dispatchLoopShutdown purpose</li><li><a href="yaf-plugin-abstract.dispatchloopstartup.html">Yaf_Plugin_Abstract::dispatchLoopStartup</a> — The dispatchLoopStartup purpose</li><li><a href="yaf-plugin-abstract.postdispatch.html">Yaf_Plugin_Abstract::postDispatch</a> — The postDispatch purpose</li><li><a href="yaf-plugin-abstract.predispatch.html">Yaf_Plugin_Abstract::preDispatch</a> — The preDispatch purpose</li><li><a href="yaf-plugin-abstract.preresponse.html">Yaf_Plugin_Abstract::preResponse</a> — The preResponse purpose</li><li><a href="yaf-plugin-abstract.routershutdown.html">Yaf_Plugin_Abstract::routerShutdown</a> — The routerShutdown purpose</li><li><a href="yaf-plugin-abstract.routerstartup.html">Yaf_Plugin_Abstract::routerStartup</a> — RouterStartup hook</li></ul>
+</div>
+</div></div></body></html>

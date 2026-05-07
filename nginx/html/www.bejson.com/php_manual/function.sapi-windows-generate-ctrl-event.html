@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Send a CTRL event to another process-BeJSON.com</title><meta name="keywords" content="Send a CTRL event to another process"><meta name="description" content="The CTRL even to send; either PHP_WINDOWS_EVENT_CTRL_C or PHP_WINDOWS_EVENT_CTRL_BREAK. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.sapi-windows-cp-set.html">« sapi_windows_cp_set</a></li>
+      <li style="float: right;"><a href="function.sapi-windows-set-ctrl-handler.html">sapi_windows_set_ctrl_handler »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.misc.html">杂项 函数</a></li>
+    <li>Send a CTRL event to another process</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.sapi-windows-generate-ctrl-event">
+ <div class="refnamediv">
+  <h1 class="refname">sapi_windows_generate_ctrl_event</h1>
+  <p class="verinfo">(PHP 7 &gt;= 7.4.0, PHP 8)</p><p class="refpurpose"><span class="refname">sapi_windows_generate_ctrl_event</span> — <span class="dc-title">Send a CTRL event to another process</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.sapi-windows-generate-ctrl-event-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>sapi_windows_generate_ctrl_event</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$event</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$pid</code><span class="initializer"> = 0</span></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Sends a CTRL event to another process in the same process group.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.sapi-windows-generate-ctrl-event-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">event</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The <code class="literal">CTRL</code> even to send;
+      either <strong><code>PHP_WINDOWS_EVENT_CTRL_C</code></strong>
+      or <strong><code>PHP_WINDOWS_EVENT_CTRL_BREAK</code></strong>.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">pid</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The ID of the process to which to send the event to. If <code class="literal">0</code>
+      is given, the event is sent to all processes of the process group.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.sapi-windows-generate-ctrl-event-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.sapi-windows-generate-ctrl-event-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="sapi-windows-generate-ctrl-event.example.basic">
+   <p><strong>示例 #1 Basic <span class="function"><strong>sapi_windows_generate_ctrl_event()</strong></span> Usage</strong></p>
+   <div class="example-contents"><p>
+     This example shows how to pass along <code class="literal">CTRL+BREAK</code> events to a child
+     process. In this case the child process echoes <code class="literal">I'm still alive</code>
+     every second, until the user presses <code class="literal">CTRL+BREAK</code>, what causes
+     only the child process to be terminated.
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;forward&nbsp;CTRL+BREAK&nbsp;events&nbsp;to&nbsp;the&nbsp;child&nbsp;process<br></span><span style="color: rgb(0, 0, 187);">sapi_windows_set_ctrl_handler</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'sapi_windows_generate_ctrl_event'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;create&nbsp;a&nbsp;child&nbsp;process&nbsp;which&nbsp;echoes&nbsp;every&nbsp;second<br></span><span style="color: rgb(0, 0, 187);">$cmd&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[</span><span style="color: rgb(221, 0, 0);">'php'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'-r'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'while&nbsp;(true)&nbsp;{&nbsp;echo&nbsp;"I\'m&nbsp;still&nbsp;alive\n";&nbsp;sleep(1);&nbsp;}'</span><span style="color: rgb(0, 119, 0);">];<br></span><span style="color: rgb(0, 0, 187);">$descspec&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array([</span><span style="color: rgb(221, 0, 0);">'pipe'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'r'</span><span style="color: rgb(0, 119, 0);">],&nbsp;[</span><span style="color: rgb(221, 0, 0);">'pipe'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'w'</span><span style="color: rgb(0, 119, 0);">],&nbsp;[</span><span style="color: rgb(221, 0, 0);">'pipe'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'w'</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[</span><span style="color: rgb(221, 0, 0);">'create_process_group'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">];<br></span><span style="color: rgb(0, 0, 187);">$proc&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">proc_open</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$cmd</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$descspec</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$pipes</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br>while&nbsp;(</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">fgets</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$pipes</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]);<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.sapi-windows-generate-ctrl-event-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a class="function" href="function.proc-open.html" rel="rdfs-seeAlso">proc_open()</a> - 执行一个命令，并且打开用来输入/输出的文件指针。</span></li>
+   <li class="member"><span class="function"><a class="function" href="function.sapi-windows-set-ctrl-handler.html" rel="rdfs-seeAlso">sapi_windows_set_ctrl_handler()</a> - Set or remove a CTRL event handler</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

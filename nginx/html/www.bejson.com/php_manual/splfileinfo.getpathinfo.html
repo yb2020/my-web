@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Gets an SplFileInfo object for the path-BeJSON.com</title><meta name="keywords" content="Gets an SplFileInfo object for the path"><meta name="description" content="SplFileInfo::getPathInfo(PHP 5 >= 5.1.2, PHP 7, PHP 8)SplFileInfo::getPathInfo — Gets an SplFileInfo object for the path说明public SplFileInfo::getPathI">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="splfileinfo.getpath.html">« SplFileInfo::getPath</a></li>
+      <li style="float: right;"><a href="splfileinfo.getpathname.html">SplFileInfo::getPathname »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.splfileinfo.html">SplFileInfo</a></li>
+    <li>Gets an SplFileInfo object for the path</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="splfileinfo.getpathinfo">
+ <div class="refnamediv">
+  <h1 class="refname">SplFileInfo::getPathInfo</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SplFileInfo::getPathInfo</span> — <span class="dc-title">Gets an SplFileInfo object for the path</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-splfileinfo.getpathinfo-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>SplFileInfo::getPathInfo</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$class</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type SplFileInfo" href="class.splfileinfo.html">SplFileInfo</a></span></span></div>
+
+  <p class="para rdfs-comment">
+   Gets an <span class="classname"><a class="classname" href="class.splfileinfo.html">SplFileInfo</a></span> object for the parent of the current file.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-splfileinfo.getpathinfo-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">class</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Name of an <span class="classname"><a class="classname" href="class.splfileinfo.html">SplFileInfo</a></span> derived class to use, or itself if <strong><code>null</code></strong>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-splfileinfo.getpathinfo-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns an <span class="classname"><a class="classname" href="class.splfileinfo.html">SplFileInfo</a></span> object for the parent path of the file on success, or <strong><code>null</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-splfileinfo.getpathinfo-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">class</code> is now nullable.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-splfileinfo.getpathinfo-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3583">
+    <p><strong>示例 #1 <span class="function"><strong>SplFileInfo::getPathInfo()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$info&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SplFileInfo</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'/usr/bin/php'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$parent_info&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$info</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getPathInfo</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$parent_info</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getRealPath</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>string(8) "/usr/bin"
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-splfileinfo.getpathinfo-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="splfileinfo.setinfoclass.html" rel="rdfs-seeAlso">SplFileInfo::setInfoClass()</a> - Sets the class used with SplFileInfo::getFileInfo and SplFileInfo::getPathInfo</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

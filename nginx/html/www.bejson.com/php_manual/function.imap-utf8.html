@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Converts MIME-encoded text to UTF-8-BeJSON.com</title><meta name="keywords" content="Converts MIME-encoded text to UTF-8"><meta name="description" content="imap_utf8(PHP 4, PHP 5, PHP 7, PHP 8)imap_utf8 — Converts MIME-encoded text to UTF-8说明imap_utf8(string $mime_encoded_text): stringConverts the given m">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.imap-utf8-to-mutf7.html">« imap_utf8_to_mutf7</a></li>
+      <li style="float: right;"><a href="book.mail.html">Mail »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.imap.html">IMAP 函数</a></li>
+    <li>Converts MIME-encoded text to UTF-8</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.imap-utf8">
+ <div class="refnamediv">
+  <h1 class="refname">imap_utf8</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imap_utf8</span> — <span class="dc-title">Converts MIME-encoded text to UTF-8</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imap-utf8-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>imap_utf8</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$mime_encoded_text</code></span>): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   Converts the given <code class="parameter">mime_encoded_text</code> to
+   UTF-8, if the declared charset is known to libc-client.
+   Otherwise the given text is decoded, but not converted to UTF-8.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imap-utf8-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">mime_encoded_text</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A MIME encoded string. MIME encoding method and the UTF-8 
+       specification are described in <a class="link external" href="http://www.faqs.org/rfcs/rfc2047">»&nbsp;RFC2047</a> and <a class="link external" href="http://www.faqs.org/rfcs/rfc2044">»&nbsp;RFC2044</a> respectively.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imap-utf8-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns the decoded string, if possible converted to UTF-8.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.imap-utf8-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="imap-utf8.example.basic">
+   <p><strong>示例 #1 Basic <span class="function"><strong>imap_utf8()</strong></span> Usage</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">imap_utf8</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Johannes&nbsp;=?ISO-8859-1?Q?Schl=FCter?="</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>Johannes Schlüter
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.imap-utf8-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.imap-mime-header-decode.html" rel="rdfs-seeAlso">imap_mime_header_decode()</a> - Decode MIME header elements</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

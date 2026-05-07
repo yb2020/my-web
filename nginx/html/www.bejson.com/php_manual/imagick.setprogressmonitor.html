@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Description-BeJSON.com</title><meta name="keywords" content="Description"><meta name="description" content="The progress function to call. It should return true if image processing should continue, or false if it should be cancelled. The offset parameter ind">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="imagick.setpointsize.html">« Imagick::setPointSize</a></li>
+      <li style="float: right;"><a href="imagick.setregistry.html">Imagick::setRegistry »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.imagick.html">Imagick</a></li>
+    <li>Description</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="imagick.setprogressmonitor">
+ <div class="refnamediv">
+  <h1 class="refname">Imagick::setProgressMonitor</h1>
+  <p class="verinfo">(PECL imagick 3 &gt;= 3.3.0)</p><p class="refpurpose"><span class="refname">Imagick::setProgressMonitor</span> — <span class="dc-title">Description</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-imagick.setprogressmonitor-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Imagick::setProgressMonitor</strong></span>(<span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Set a callback that will be called during the processing of the Imagick image.
+  </p>
+
+ 
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-imagick.setprogressmonitor-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">callback</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The progress function to call. It should return true if image processing should continue, or false if it should be cancelled. The offset parameter indicates the progress and the span parameter indicates the total amount of work needed to be done.
+     </p>
+     
+     <div class="methodsynopsis dc-description">
+      <span class="methodname">
+       <span class="replaceable">callback</span>
+      </span>(<span class="methodparam">
+       <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$offset</code>
+      </span>, <span class="methodparam">
+       <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span>
+        <code class="parameter">$span</code>
+      </span>): <span class="type">bool</span></div>
+
+
+     <div class="caution"><strong class="caution">警告</strong>
+      <p class="para">
+       The values passed to the callback function are not consistent. In particular the span parameter can increase during image processing. Because of this calculating the percentage complete of an image operation is not trivial.
+      </p>
+     </div>
+     
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-imagick.setprogressmonitor-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>。
+  </p>
+ </div>
+
+
+
+
+
+ <div class="refsect1 examples" id="refsect1-imagick.setprogressmonitor-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+    <div class="example" id="example-2816">
+      <p><strong>示例 #1  <span class="function"><strong>Imagick::setProgressMonitor()</strong></span></strong></p>
+      <div class="example-contents">
+      <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$abortReason&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$imagick&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;\</span><span style="color: rgb(0, 0, 187);">Imagick</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">realpath</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">control</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getImagePath</span><span style="color: rgb(0, 119, 0);">()));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$startTime&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">time</span><span style="color: rgb(0, 119, 0);">();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$callback&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;function&nbsp;(</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$span</span><span style="color: rgb(0, 119, 0);">)&nbsp;&nbsp;use&nbsp;(</span><span style="color: rgb(0, 0, 187);">$startTime</span><span style="color: rgb(0, 119, 0);">,&nbsp;&amp;</span><span style="color: rgb(0, 0, 187);">$abortReason</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(((</span><span style="color: rgb(0, 0, 187);">100&nbsp;</span><span style="color: rgb(0, 119, 0);">*&nbsp;</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(0, 119, 0);">)&nbsp;/&nbsp;</span><span style="color: rgb(0, 0, 187);">$span</span><span style="color: rgb(0, 119, 0);">)&nbsp;&nbsp;&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">20</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$abortReason&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Processing&nbsp;reached&nbsp;20%"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">false</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$nowTime&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">time</span><span style="color: rgb(0, 119, 0);">();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$nowTime&nbsp;</span><span style="color: rgb(0, 119, 0);">-&nbsp;</span><span style="color: rgb(0, 0, 187);">$startTime&nbsp;</span><span style="color: rgb(0, 119, 0);">&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$abortReason&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Image&nbsp;processing&nbsp;took&nbsp;more&nbsp;than&nbsp;5&nbsp;seconds"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">false</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;((</span><span style="color: rgb(0, 0, 187);">$offset&nbsp;</span><span style="color: rgb(0, 119, 0);">%&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">)&nbsp;==&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Progress:&nbsp;</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(221, 0, 0);">&nbsp;/&nbsp;</span><span style="color: rgb(0, 0, 187);">$span</span><span style="color: rgb(221, 0, 0);">&nbsp;&lt;br/&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$imagick</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setProgressMonitor</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$callback</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$imagick</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">waveImage</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">15</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Data&nbsp;len&nbsp;is:&nbsp;"</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(0, 0, 187);">strlen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$imagick</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getImageBlob</span><span style="color: rgb(0, 119, 0);">());<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch(\</span><span style="color: rgb(0, 0, 187);">ImagickException&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$abortReason&nbsp;</span><span style="color: rgb(0, 119, 0);">!=&nbsp;</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Image&nbsp;processing&nbsp;was&nbsp;aborted:&nbsp;"</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(0, 0, 187);">$abortReason</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(221, 0, 0);">"&lt;br/&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"ImagickException&nbsp;caught:&nbsp;"</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getMessage</span><span style="color: rgb(0, 119, 0);">().</span><span style="color: rgb(221, 0, 0);">"&nbsp;Exception&nbsp;type&nbsp;is&nbsp;"</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(0, 0, 187);">get_class</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+    </div>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

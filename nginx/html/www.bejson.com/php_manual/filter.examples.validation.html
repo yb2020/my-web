@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Validation-BeJSON.com</title><meta name="keywords" content="Validation"><meta name="description" content="Validation示例 #1 Validating email addresses with filter_var()<?php$email_a = 'joe@example.com';$email_b = 'bogus';if (filter_var($email_a, FILTER_VALID">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="filter.examples.html">« 范例</a></li>
+      <li style="float: right;"><a href="filter.examples.sanitization.html">Sanitization »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="filter.examples.html">范例</a></li>
+    <li>Validation</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="filter.examples.validation">
+  <h1 class="title">Validation</h1>
+  <p class="para">
+   <div class="example" id="example-4934">
+    <p><strong>示例 #1 Validating email addresses with <span class="function"><a class="function" href="function.filter-var.html">filter_var()</a></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$email_a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'joe@example.com'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$email_b&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'bogus'</span><span style="color: rgb(0, 119, 0);">;<br><br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">filter_var</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$email_a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_VALIDATE_EMAIL</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Email&nbsp;address&nbsp;'</span><span style="color: rgb(0, 0, 187);">$email_a</span><span style="color: rgb(221, 0, 0);">'&nbsp;is&nbsp;considered&nbsp;valid.\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">filter_var</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$email_b</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_VALIDATE_EMAIL</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Email&nbsp;address&nbsp;'</span><span style="color: rgb(0, 0, 187);">$email_b</span><span style="color: rgb(221, 0, 0);">'&nbsp;is&nbsp;considered&nbsp;valid.\n"</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Email&nbsp;address&nbsp;'</span><span style="color: rgb(0, 0, 187);">$email_b</span><span style="color: rgb(221, 0, 0);">'&nbsp;is&nbsp;considered&nbsp;invalid.\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Email address 'joe@example.com' is considered valid.
+Email address 'bogus' is considered invalid.
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+
+  <p class="para">
+   <div class="example" id="example-4935">
+    <p><strong>示例 #2 Validating IP addresses with <span class="function"><a class="function" href="function.filter-var.html">filter_var()</a></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$ip_a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'127.0.0.1'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$ip_b&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'42.42'</span><span style="color: rgb(0, 119, 0);">;<br><br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">filter_var</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ip_a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_VALIDATE_IP</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"IP&nbsp;address&nbsp;'</span><span style="color: rgb(0, 0, 187);">$ip_a</span><span style="color: rgb(221, 0, 0);">'&nbsp;is&nbsp;considered&nbsp;valid."</span><span style="color: rgb(0, 119, 0);">;<br>}<br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">filter_var</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ip_b</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_VALIDATE_IP</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"IP&nbsp;address&nbsp;'</span><span style="color: rgb(0, 0, 187);">$ip_b</span><span style="color: rgb(221, 0, 0);">'&nbsp;is&nbsp;considered&nbsp;valid."</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>IP address '127.0.0.1' is considered valid.
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+
+  <p class="para">
+   <div class="example" id="example-4936">
+    <p><strong>示例 #3 Passing options to <span class="function"><a class="function" href="function.filter-var.html">filter_var()</a></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$int_a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'1'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$int_b&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'-1'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$int_c&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'4'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'options'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'min_range'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'max_range'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br>);<br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">filter_var</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$int_a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_VALIDATE_INT</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">)&nbsp;!==&nbsp;</span><span style="color: rgb(0, 0, 187);">FALSE</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Integer&nbsp;A&nbsp;'</span><span style="color: rgb(0, 0, 187);">$int_a</span><span style="color: rgb(221, 0, 0);">'&nbsp;is&nbsp;considered&nbsp;valid&nbsp;(between&nbsp;0&nbsp;and&nbsp;3).\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">filter_var</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$int_b</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_VALIDATE_INT</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">)&nbsp;!==&nbsp;</span><span style="color: rgb(0, 0, 187);">FALSE</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Integer&nbsp;B&nbsp;'</span><span style="color: rgb(0, 0, 187);">$int_b</span><span style="color: rgb(221, 0, 0);">'&nbsp;is&nbsp;considered&nbsp;valid&nbsp;(between&nbsp;0&nbsp;and&nbsp;3).\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">filter_var</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$int_c</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_VALIDATE_INT</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">)&nbsp;!==&nbsp;</span><span style="color: rgb(0, 0, 187);">FALSE</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Integer&nbsp;C&nbsp;'</span><span style="color: rgb(0, 0, 187);">$int_c</span><span style="color: rgb(221, 0, 0);">'&nbsp;is&nbsp;considered&nbsp;valid&nbsp;(between&nbsp;0&nbsp;and&nbsp;3).\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'options'</span><span style="color: rgb(0, 119, 0);">][</span><span style="color: rgb(221, 0, 0);">'default'</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">;<br>if&nbsp;((</span><span style="color: rgb(0, 0, 187);">$int_c&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">filter_var</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$int_c</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">FILTER_VALIDATE_INT</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">))&nbsp;!==&nbsp;</span><span style="color: rgb(0, 0, 187);">FALSE</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Integer&nbsp;C&nbsp;'</span><span style="color: rgb(0, 0, 187);">$int_c</span><span style="color: rgb(221, 0, 0);">'&nbsp;is&nbsp;considered&nbsp;valid&nbsp;(between&nbsp;0&nbsp;and&nbsp;3)."</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Integer A '1' is considered valid (between 0 and 3).
+Integer C '1' is considered valid (between 0 and 3).
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div></div></div></body></html>

@@ -1,0 +1,486 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>New Features-BeJSON.com</title><meta name="keywords" content="New Features"><meta name="description" content="Octal integers can now use an explicit 0o/0O prefix in integer literals, similarly to binary and hexadecimal integer literals. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="migration81.html">« 从 PHP 8.0.x 移植到 PHP 8.1.x</a></li>
+      <li style="float: right;"><a href="migration81.new-classes.html">新的类和接口 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration81.html">从 PHP 8.0.x 移植到 PHP 8.1.x</a></li>
+    <li>New Features</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="migration81.new-features">
+ <h1 class="title">New Features</h1>
+
+ <div class="sect2" id="migration81.new-features.core">
+  <h3 class="title">PHP Core</h3>
+
+  <div class="sect3" id="migration81.new-features.core.octal-literal-prefix">
+   <h4 class="title">Integer Octal Literal Prefix</h4>
+
+   <p class="para">
+    Octal integers can now use an explicit
+    <code class="literal">0o</code>/<code class="literal">0O</code>
+    prefix in integer literals,
+    similarly to binary and hexadecimal integer literals.
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>014</span><span style="color: rgb(0, 119, 0);">;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;Non-prefix&nbsp;octal&nbsp;literal<br></span><span style="color: rgb(0, 0, 187);">0o14</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;Prefixed&nbsp;octal&nbsp;literal<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   <p></p>
+   
+  </div>
+
+  <div class="sect3" id="migration81.new-features.core.unpacking-string-keys">
+   <h4 class="title">Array Unpacking with String Keys</h4>
+
+   <p class="para">
+    Added support for <a class="link" href="language.types.array.html#language.types.array.unpacking">array unpacking with strings keys</a>.
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$arr1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'a'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'b'</span><span style="color: rgb(0, 119, 0);">];<br></span><span style="color: rgb(0, 0, 187);">$arr2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[...</span><span style="color: rgb(0, 0, 187);">$arr1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'c'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'d'</span><span style="color: rgb(0, 119, 0);">];&nbsp;</span><span style="color: rgb(255, 128, 0);">//[1,&nbsp;'a'&nbsp;=&gt;&nbsp;'b',&nbsp;'c'&nbsp;=&gt;&nbsp;'d']<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   <p></p>
+   
+  </div>
+
+  <div class="sect3" id="migration81.new-features.core.named-arg-after-unpack">
+   <h4 class="title">Named Argument After Argument Unpacking</h4>
+
+   <p class="para">
+    It is now possible to specify named arguments after an argument unpack.
+    
+    e.g.
+    foo(...$args, named: $arg).
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.new-features.core.upload-full-path-key">
+   <h4 class="title">full-path Key for File Uploads</h4>
+
+   <p class="para">
+    File uploads now provide an additional <code class="literal">full_path</code> key,
+    which contains the full path (rather than just the basename) of the uploaded file.
+    This is intended for use in conjunction with "upload webkitdirectory".
+   </p>
+   
+  </div>
+
+  <div class="sect3" id="migration81.new-features.core.enums">
+   <h4 class="title">Enumerations</h4>
+
+   <p class="para">
+    Support for <a class="link" href="language.enumerations.html">Enumerations</a> has been added.
+    
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.new-features.core.fibers">
+   <h4 class="title">Fibers</h4>
+
+   <p class="para">
+    Support for <a class="link" href="language.fibers.html">Fibers</a> has been added.
+    
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.new-features.core.callable-syntax">
+   <h4 class="title">First Class Callable Syntax</h4>
+
+   <p class="para">
+    Closures for callables can now be created using <a class="link" href="functions.first_class_callable_syntax.html">the syntax <code class="code">myFunc(...)</code></a>,
+    which is identical to <code class="code">Closure::fromCallable('myFunc')</code>.
+    
+   </p>
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <span class="simpara">
+     The <code class="code">...</code> is part of the syntax, and not an omission.
+    </span>
+   </p></blockquote>
+  </div>
+
+  <div class="sect3" id="migration81.new-features.core.intersection-types">
+   <h4 class="title">Intersection Types</h4>
+
+   <p class="para">
+    Support for <a class="link" href="language.types.declarations.html#language.types.declarations.composite.intersection">intersection types</a> has been added.
+    
+   </p>
+   <div class="caution"><strong class="caution">警告</strong>
+    <p class="simpara">
+     <a class="link" href="language.types.declarations.html#language.types.declarations.composite.intersection">
+      Intersection types</a> cannot be used together with
+     <a class="link" href="language.types.declarations.html#language.types.declarations.composite.union">
+      union types</a>
+    </p>
+   </div>
+  </div>
+
+  <div class="sect3" id="migration81.new-features.core.never-type">
+   <h4 class="title">Never type</h4>
+
+   <p class="para">
+    A new return only type <span class="type"><span class="type never">never</span></span> has been added.
+    This indicates that a function either <span class="function"><a class="function" href="function.exit.html">exit()</a></span>,
+    throws an exception, or doesn't terminate.
+    
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.new-features.core.new-in-initializer">
+   <h4 class="title"><a class="link" href="language.oop5.basic.html#language.oop5.basic.new"><code class="literal">new</code></a> in Initializers</h4>
+
+   <p class="para">
+    It is now possible to use <code class="code">new ClassName()</code> expressions as the
+    default value of a parameter, static variable, global constant initializers,
+    and as attribute arguments.
+    Objects can also be passed to <span class="function"><a class="function" href="function.define.html">define()</a></span> now.
+    
+   </p>
+   
+  </div>
+
+  <div class="sect3" id="migration81.new-features.core.readonly">
+   <h4 class="title">Readonly properties</h4>
+
+   <p class="para">
+    Support for <a class="link" href="language.oop5.properties.html#language.oop5.properties.readonly-properties">readonly</a> has been added.
+    
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.new-features.core.final-constants">
+   <h4 class="title">Final class constants</h4>
+
+   <p class="para">
+    Added support for <a class="link" href="language.oop5.final.html#language.oop5.final.example.php81">the <span class="modifier">final</span> modifier for class constants</a>.
+    Also, interface constants become overridable by default.
+    
+   </p>
+  </div>
+
+ </div>
+
+ <div class="sect2" id="migration81.new-features.curl">
+  <h3 class="title">CURL</h3>
+
+  <p class="para">
+   Added the <strong><code>CURLOPT_DOH_URL</code></strong> option.
+  </p>
+
+  <p class="para">
+   Added options for blob certificate when libcurl &gt;= 7.71.0:
+  </p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code>CURLOPT_ISSUERCERT_BLOB</code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code>CURLOPT_PROXY_ISSUERCERT</code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code>CURLOPT_PROXY_ISSUERCERT_BLOB</code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code>CURLOPT_PROXY_SSLCERT_BLOB</code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code>CURLOPT_PROXY_SSLKEY_BLOB</code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code>CURLOPT_SSLCERT_BLOB</code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code>CURLOPT_SSLKEY_BLOB</code></strong></span>
+   </li>
+  </ul>
+
+  <p class="para">
+   Added <span class="classname"><a class="classname" href="class.curlstringfile.html">CURLStringFile</a></span>, which can be used to post
+   a file from a <span class="type">string</span> rather than a file:
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$file&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">CURLStringFile</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'filename.txt'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'text/plain'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">curl_setopt</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$curl</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">CURLOPT_POSTFIELDS</span><span style="color: rgb(0, 119, 0);">,&nbsp;[</span><span style="color: rgb(221, 0, 0);">'file'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+ <div class="sect2" id="migration81.new-features.fpm">
+  <h3 class="title">FPM</h3>
+
+  <p class="para">
+   Added openmetrics status format. It can be used by Prometheus to fetch FPM
+   metrics.
+  </p>
+  <p class="para">
+   Added new pool option for the dynamic process manager called
+   <code class="literal">pm.max_spawn_rate</code>. It allows to start a number of children
+   at a faster rate when dynamic pm is selected.
+   The default value is <code class="literal">32</code> which was the previous
+   hard coded value.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration81.new-features.gd">
+  <h3 class="title">GD</h3>
+
+  <p class="para">
+   Avif support is now available through
+   <span class="function"><a class="function" href="function.imagecreatefromavif.html">imagecreatefromavif()</a></span> and
+   <span class="function"><a class="function" href="function.imageavif.html">imageavif()</a></span>,
+   if libgd has been built with Avif support.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration81.new-features.hash">
+  <h3 class="title">Hash</h3>
+
+  <p class="para">
+   The following functions <span class="function"><a class="function" href="function.hash.html">hash()</a></span>,
+   <span class="function"><a class="function" href="function.hash-file.html">hash_file()</a></span>, and <span class="function"><a class="function" href="function.hash-init.html">hash_init()</a></span>
+   now support an additional optional <code class="parameter">options</code>
+   argument, which can be used to pass algorithm specific data.
+  </p>
+
+  <div class="sect3" id="migration81.new-features.hash.murmurhash3">
+   <h4 class="title">MurmurHash3</h4>
+
+   <p class="para">
+    Added support for <code class="literal">MurmurHash3</code> with streaming
+    support. The following variants are implemented:
+   </p>
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara">murmur3a, 32-bit hash</span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">murmur3c, 128-bit hash for x86</span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">murmur3f, 128-bit hash for x64</span>
+    </li>
+   </ul>
+
+   <p class="para">
+    The initial hash state can be passed through the <code class="literal">seed</code>
+    key in the <code class="parameter">options</code> array, for example:
+
+    <div class="informalexample">
+     <div class="example-contents">
+      <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$h&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">hash</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"murmur3f"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">options</span><span style="color: rgb(0, 119, 0);">:&nbsp;[</span><span style="color: rgb(221, 0, 0);">"seed"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">42</span><span style="color: rgb(0, 119, 0);">]);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$h</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+
+    A valid seed value is within the range from <code class="literal">0</code>
+    to the platform defined <strong><code>UINT_MAX</code></strong>, usually
+    <code class="literal">4294967295</code>.
+   <p></p>
+  </div>
+
+  <div class="sect3" id="migration81.new-features.hash.xxhash">
+   <h4 class="title">xxHash</h4>
+
+   <p class="para">
+    Added support for <code class="literal">xxHash</code>.
+    The following variants are implemented:
+   </p>
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara">xxh32, 32-bit hash</span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">xxh64, 64-bit hash</span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">xxh3, 64-bit hash</span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">xxh128, 128-bit hash</span>
+    </li>
+   </ul>
+
+   <p class="para">
+    The initial hash state can be passed through the <code class="literal">seed</code>
+    key in the <code class="parameter">options</code> array, for example:
+
+    <div class="informalexample">
+     <div class="example-contents">
+      <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$h&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">hash</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"xxh3"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">options</span><span style="color: rgb(0, 119, 0);">:&nbsp;[</span><span style="color: rgb(221, 0, 0);">"seed"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">42</span><span style="color: rgb(0, 119, 0);">]);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$h</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+
+    Secret usage is supported through passing the <code class="literal">secret</code>
+    key in the <code class="parameter">options</code> array, too:
+
+    <div class="informalexample">
+     <div class="example-contents">
+      <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$h&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">hash</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"xxh3"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">options</span><span style="color: rgb(0, 119, 0);">:&nbsp;[</span><span style="color: rgb(221, 0, 0);">"secret"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">"at&nbsp;least&nbsp;136&nbsp;bytes&nbsp;long&nbsp;secret&nbsp;here"</span><span style="color: rgb(0, 119, 0);">]);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$h</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+
+    The quality of the custom secret is crucial for the quality of the resulting hash.
+    It is highly recommended for the secret to use the best possible entropy.
+   <p></p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration81.new-features.mysqli">
+  <h3 class="title">MySQLi</h3>
+
+  <div class="sect3" id="migration81.new-features.mysqli.local_infile_directory">
+   <h4 class="title">New INI directive <code class="literal">mysqli.local_infile_directory</code></h4>
+
+   <p class="para">
+    The <a class="link" href="mysqli.configuration.html#ini.mysqli.local-infile-directory">mysqli.local_infile_directory</a>
+    INI directive has been added, which can be used to specify a directory from
+    which files are allowed to be loaded. It is only meaningful if
+    <a class="link" href="mysqli.configuration.html#ini.mysqli.allow-local-infile">mysqli.allow_local_infile</a>
+    is not enabled, as all directories are allowed in that case.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.new-features.mysqli.bind-in-execute">
+   <h4 class="title">Binding parameters in execute</h4>
+
+   <p class="para">
+    It is now possible to bind parameters by passing them as an array to
+    <span class="methodname"><a class="methodname" href="mysqli-stmt.execute.html">mysqli_stmt::execute()</a></span>. All values will be bound as
+    strings. Only list arrays are allowed. This new feature is not available
+    when MySQLi is compiled with libmysqlclient.
+    
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$stmt&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">prepare</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'INSERT&nbsp;INTO&nbsp;users(id,&nbsp;name)&nbsp;VALUES(?,?)'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$username</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   <p></p>
+  </div>
+
+  <div class="sect3" id="migration81.new-features.mysqli.mysqli_fetch_column">
+   <h4 class="title">New method <span class="methodname"><a class="methodname" href="mysqli-result.fetch-column.html">mysqli_result::fetch_column()</a></span></h4>
+
+   <p class="para">
+    <span class="methodname"><a class="methodname" href="mysqli-result.fetch-column.html">mysqli_result::fetch_column()</a></span>
+    has been added to allow fetching a single scalar value from the result set.
+    The new method accepts an optional 0-based <code class="parameter">column</code>
+    parameter of type <span class="type">int</span> specifying which column to fetch from.
+    
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SELECT&nbsp;username&nbsp;FROM&nbsp;users&nbsp;WHERE&nbsp;id&nbsp;=&nbsp;123'</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">fetch_column</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   <p></p>
+  </div>
+
+ </div>
+
+ <div class="sect2" id="migration81.new-features.pdo_mysql">
+  <h3 class="title">PDO</h3>
+
+  <p class="para">
+   The <strong><code>PDO::MYSQL_ATTR_LOCAL_INFILE_DIRECTORY</code></strong> attribute
+   has been added, which can be used to specify a directory from which files
+   are allowed to be loaded.
+   It is only meaningful if <strong><code>PDO::MYSQL_ATTR_LOCAL_INFILE</code></strong>
+   is not enabled, as all directories are allowed in that case.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration81.new-features.pdo_sqlite">
+  <h3 class="title">PDO_SQLite</h3>
+
+  <p class="para">
+   SQLite's <code class="literal">"file:"</code> DSN syntax is now supported,
+   which allows specifying additional flags.
+   This feature is not available if open_basedir is set.
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">new&nbsp;</span><span style="color: rgb(0, 0, 187);">PDO</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'sqlite:file:path/to/sqlite.db?mode=ro'</span><span style="color: rgb(0, 119, 0);">)<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+ <div class="sect2" id="migration81.new-features.posix">
+  <h3 class="title">POSIX</h3>
+
+  <p class="para">
+   Added <strong><code>POSIX_RLIMIT_KQUEUES</code></strong> and <strong><code>POSIX_RLIMIT_NPTS</code></strong>.
+   These rlimits are only available on FreeBSD.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration81.new-features.standard">
+  <h3 class="title">Standard</h3>
+
+  <p class="para">
+   <span class="function"><a class="function" href="function.fputcsv.html">fputcsv()</a></span> now accepts a new
+   <code class="parameter">eol</code> argument which allows to define a custom
+   End of Line sequence, the default remains the same and is <code class="literal">"\n"</code>.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration81.new-features.spl">
+  <h3 class="title">SPL</h3>
+
+  <p class="para">
+   <span class="methodname"><a class="methodname" href="splfileobject.fputcsv.html">SplFileObject::fputcsv()</a></span> now accepts a new
+   <code class="parameter">eol</code> argument which allows to define a custom
+   End of Line sequence, the default remains the same and is <code class="literal">"\n"</code>.
+  </p>
+ </div>
+
+</div></div></div></body></html>

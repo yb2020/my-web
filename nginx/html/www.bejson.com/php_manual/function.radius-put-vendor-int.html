@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Attaches a vendor specific integer attribute-BeJSON.com</title><meta name="keywords" content="Attaches a vendor specific integer attribute"><meta name="description" content="A request must be created via radius_create_request() before this function can be called.">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.radius-put-vendor-attr.html">« radius_put_vendor_attr</a></li>
+      <li style="float: right;"><a href="function.radius-put-vendor-string.html">radius_put_vendor_string »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.radius.html">Radius 函数</a></li>
+    <li>Attaches a vendor specific integer attribute</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.radius-put-vendor-int">
+ <div class="refnamediv">
+  <h1 class="refname">radius_put_vendor_int</h1>
+  <p class="verinfo">(PECL radius &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">radius_put_vendor_int</span> — <span class="dc-title">Attaches a vendor specific integer attribute</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.radius-put-vendor-int-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>radius_put_vendor_int</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$radius_handle</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$vendor</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$value</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$tag</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Attaches a vendor specific integer attribute to the current RADIUS request.
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: <p class="para">A request must be created via <span class="function"><a class="function" href="function.radius-create-request.html">radius_create_request()</a></span> before this function can be called.</p><p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.radius-put-vendor-int-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    <dt>
+<code class="parameter">radius_handle</code></dt>
+<dd>
+<p class="para">The RADIUS resource.</p></dd>
+
+    <dt>
+<code class="parameter">vendor</code></dt>
+<dd>
+<p class="para">The vendor ID.</p></dd>
+
+    <dt>
+<code class="parameter">type</code></dt>
+<dd>
+<p class="para">The attribute type.</p></dd>
+
+    
+     <dt>
+<code class="parameter">value</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The attribute value.
+      </p>
+     </dd>
+
+    
+    <dt>
+<code class="parameter">options</code></dt>
+<dd>
+<p class="para">A bitmask of the attribute options. The available options include <a class="link" href="radius.constants.options.html#constant.radius-option-tagged"><strong><code>RADIUS_OPTION_TAGGED</code></strong></a> and <a class="link" href="radius.constants.options.html#constant.radius-option-salt"><strong><code>RADIUS_OPTION_SALT</code></strong></a>.</p></dd>
+
+    <dt>
+<code class="parameter">tag</code></dt>
+<dd>
+<p class="para">The attribute tag. This parameter is ignored unless the <a class="link" href="radius.constants.options.html#constant.radius-option-tagged"><strong><code>RADIUS_OPTION_TAGGED</code></strong></a> option is set.</p></dd>
+
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.radius-put-vendor-int-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.radius-put-vendor-int-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>PECL radius 1.3.0</td>
+       <td>
+        The <code class="parameter">options</code> and <code class="parameter">tag</code>
+        parameters were added.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.radius-put-vendor-int-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.radius-put-vendor-string.html" rel="rdfs-seeAlso">radius_put_vendor_string()</a> - Attaches a vendor specific string attribute</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

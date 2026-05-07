@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>获取私钥-BeJSON.com</title><meta name="keywords" content="获取私钥"><meta name="description" content="openssl_pkey_get_private(PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8)openssl_pkey_get_private — 获取私钥说明openssl_pkey_get_private(mixed $key, string $passphrase ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.openssl-pkey-get-details.html">« openssl_pkey_get_details</a></li>
+      <li style="float: right;"><a href="function.openssl-pkey-get-public.html">openssl_pkey_get_public »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.openssl.html">OpenSSL 函数</a></li>
+    <li>获取私钥</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.openssl-pkey-get-private">
+ <div class="refnamediv">
+  <h1 class="refname">openssl_pkey_get_private</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_pkey_get_private</span> — <span class="dc-title">获取私钥</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.openssl-pkey-get-private-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>openssl_pkey_get_private</strong></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$passphrase</code><span class="initializer"> = ""</span></span>): <span class="type">resource</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><a class="function" href="function.openssl-get-privatekey.html">openssl_get_privatekey()</a></span> 解析
+   <code class="parameter">key</code> 供其他函数使用。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.openssl-pkey-get-private-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">key</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">key</code> 可以是如下密钥之一：
+       <ol type="1">
+        <li class="listitem"><span class="simpara">如下格式的字符串
+         <var class="filename">file://path/to/file.pem</var>。该文件必须包含 PEM 编码的证书或者私钥 (可能都包含了).
+         </span>
+        </li>
+        <li class="listitem"><span class="simpara">一个PEM格式的私钥。</span></li>
+       </ol>
+      <p></p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">passphrase</code></dt>
+
+     <dd>
+
+      <p class="para">
+       如果指定的密钥已被加密了(受密码保护)，可选参数 <code class="parameter">passphrase</code> 是必须要的。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.openssl-pkey-get-private-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功，返回真实的密钥资源标识符，失败，返回 <strong><code>false</code></strong> .
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

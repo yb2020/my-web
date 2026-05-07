@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set bit-BeJSON.com</title><meta name="keywords" content="Set bit"><meta name="description" content="gmp_setbit(PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8)gmp_setbit — Set bit说明gmp_setbit(GMP $num, int $index, bool $value = true): voidSets bit index in num. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.gmp-scan1.html">« gmp_scan1</a></li>
+      <li style="float: right;"><a href="function.gmp-sign.html">gmp_sign »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.gmp.html">GMP 函数</a></li>
+    <li>Set bit</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.gmp-setbit">
+ <div class="refnamediv">
+  <h1 class="refname">gmp_setbit</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">gmp_setbit</span> — <span class="dc-title">Set bit</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.gmp-setbit-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>gmp_setbit</strong></span>(<span class="methodparam"><span class="type"><a class="type GMP" href="class.gmp.html">GMP</a></span> <code class="parameter">$num</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$value</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type"><span class="type void">void</span></span></div>
+
+  <p class="para rdfs-comment">
+   Sets bit <code class="parameter">index</code> in <code class="parameter">num</code>. 
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.gmp-setbit-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">num</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The value to modify.
+      </p>
+      <p class="para"><span class="classname"><a class="classname" href="class.gmp.html">GMP</a></span> 对象或 <span class="type">int</span> ，或数字<span class="type">string</span>。</p> 
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">index</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The index of the bit to set.  Index 0 represents the least significant bit.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">value</code></dt>
+
+     <dd>
+
+      <p class="para">
+       True to set the bit (set it to 1/on); false to clear the bit (set it to 0/off).
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.gmp-setbit-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   <span class="classname"><a class="classname" href="class.gmp.html">GMP</a></span> 对象。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.gmp-setbit-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3012">
+    <p><strong>示例 #1 <span class="function"><strong>gmp_setbit()</strong></span> example - 0 index</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_init</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"2"</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">'&nbsp;-&gt;&nbsp;0b'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">gmp_setbit</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;0b10&nbsp;now&nbsp;becomes&nbsp;0b11<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">'&nbsp;-&gt;&nbsp;0b'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>2 -&gt; 0b10
+3 -&gt; 0b11
+</pre></div>
+    </div>
+   </div>
+
+   <div class="example" id="example-3013">
+    <p><strong>示例 #2 <span class="function"><strong>gmp_setbit()</strong></span> example - 1 index</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_init</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"0xfd"</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">'&nbsp;-&gt;&nbsp;0b'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">gmp_setbit</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;index&nbsp;starts&nbsp;at&nbsp;0<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">'&nbsp;-&gt;&nbsp;0b'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>253 -&gt; 0b11111101
+255 -&gt; 0b11111111
+</pre></div>
+    </div>
+   </div>
+   
+   <div class="example" id="example-3014">
+    <p><strong>示例 #3 <span class="function"><strong>gmp_setbit()</strong></span> example - clearing a bit</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_init</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"0xff"</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">'&nbsp;-&gt;&nbsp;0b'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">gmp_setbit</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">false</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;clear&nbsp;bit&nbsp;at&nbsp;index&nbsp;0<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">'&nbsp;-&gt;&nbsp;0b'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">gmp_strval</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>255 -&gt; 0b11111111
+254 -&gt; 0b11111110
+</pre></div>
+    </div>
+   </div>
+   
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.gmp-setbit-notes">
+  <h3 class="title">注释</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    Unlike most of the other GMP functions, <span class="function"><strong>gmp_setbit()</strong></span>
+    must be called with a GMP object that already exists (using
+    <span class="function"><a class="function" href="function.gmp-init.html">gmp_init()</a></span> for example). One will not be
+    automatically created.
+   </p>
+  <p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.gmp-setbit-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.gmp-clrbit.html" rel="rdfs-seeAlso">gmp_clrbit()</a> - Clear bit</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.gmp-testbit.html" rel="rdfs-seeAlso">gmp_testbit()</a> - Tests if a bit is set</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

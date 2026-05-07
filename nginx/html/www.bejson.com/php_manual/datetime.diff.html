@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns the difference between two DateTime objects-BeJSON.com</title><meta name="keywords" content="Returns the difference between two DateTime objects"><meta name="description" content="面向对象风格">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.datetimeinterface.html">« DateTimeInterface</a></li>
+      <li style="float: right;"><a href="datetime.format.html">DateTime::format »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.datetimeinterface.html">DateTimeInterface</a></li>
+    <li>Returns the difference between two DateTime objects</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="datetime.diff">
+ <div class="refnamediv">
+  <h1 class="refname">DateTime::diff</h1>
+  <h1 class="refname">DateTimeImmutable::diff</h1>
+  <h1 class="refname">DateTimeInterface::diff</h1>
+  <h1 class="refname">date_diff</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTime::diff</span> -- <span class="refname">DateTimeImmutable::diff</span> -- <span class="refname">DateTimeInterface::diff</span> -- <span class="refname">date_diff</span> — <span class="dc-title">Returns the difference between two DateTime objects</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-datetime.diff-description">
+  <h3 class="title">说明</h3>
+  <p class="para">面向对象风格</p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>DateTime::diff</strong></span>(<span class="methodparam"><span class="type"><a class="type DateTimeInterface" href="class.datetimeinterface.html">DateTimeInterface</a></span> <code class="parameter">$targetObject</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$absolute</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><a class="type DateInterval" href="class.dateinterval.html">DateInterval</a></span></div>
+
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTimeImmutable::diff</strong></span>(<span class="methodparam"><span class="type"><a class="type DateTimeInterface" href="class.datetimeinterface.html">DateTimeInterface</a></span> <code class="parameter">$targetObject</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$absolute</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><a class="type DateInterval" href="class.dateinterval.html">DateInterval</a></span></div>
+
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTimeInterface::diff</strong></span>(<span class="methodparam"><span class="type"><a class="type DateTimeInterface" href="class.datetimeinterface.html">DateTimeInterface</a></span> <code class="parameter">$targetObject</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$absolute</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><a class="type DateInterval" href="class.dateinterval.html">DateInterval</a></span></div>
+
+  <p class="para rdfs-comment">过程化风格</p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><a class="methodname" href="function.date-diff.html">date_diff</a></span>(<span class="methodparam"><span class="type"><a class="type DateTimeInterface" href="class.datetimeinterface.html">DateTimeInterface</a></span> <code class="parameter">$baseObject</code></span>, <span class="methodparam"><span class="type"><a class="type DateTimeInterface" href="class.datetimeinterface.html">DateTimeInterface</a></span> <code class="parameter">$targetObject</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$absolute</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><a class="type DateInterval" href="class.dateinterval.html">DateInterval</a></span></div>
+
+  <p class="para rdfs-comment">
+   Returns the difference between two <span class="classname"><a class="classname" href="class.datetimeinterface.html">DateTimeInterface</a></span>
+   objects.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-datetime.diff-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">datetime</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The date to compare to.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">absolute</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Should the interval be forced to be positive?
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-datetime.diff-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   The <span class="classname"><a class="classname" href="class.dateinterval.html">DateInterval</a></span> object represents the
+   difference between the two dates 或者在失败时返回 <strong><code>false</code></strong>.
+  </p>
+  <p class="para">
+   The return value more specifically represents the interval to apply to the
+   original object (<code class="parameter">$this</code> or
+   <code class="parameter">$originObject</code>) to arrive at the
+   <code class="parameter">$targetObject</code>. This process is not always
+   reversible.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-datetime.diff-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-2003">
+   <p><strong>示例 #1 <span class="function"><strong>DateTime::diff()</strong></span> example</strong></p>
+   <div class="example-contents"><p>面向对象风格</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$origin&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DateTime</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'2009-10-11'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$target&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DateTime</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'2009-10-13'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$interval&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$origin</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">diff</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$target</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$interval</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">format</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'%R%a&nbsp;days'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>过程化风格</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$origin&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">date_create</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'2009-10-11'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$target&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">date_create</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'2009-10-13'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$interval&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">date_diff</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$origin</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$target</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$interval</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">format</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'%R%a&nbsp;days'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>+2 days
+</pre></div>
+   </div>
+  </div>
+  <div class="example" id="example-2004">
+   <p><strong>示例 #2 <span class="classname"><a class="classname" href="class.datetime.html">DateTime</a></span> object comparison</strong></p>
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <p class="para">
+     DateTime objects can be compared using
+     <a class="link" href="language.operators.comparison.html">comparison operators</a>.
+    </p>
+   <p></p></blockquote>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$date1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DateTime</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"now"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$date2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DateTime</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"tomorrow"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$date1&nbsp;</span><span style="color: rgb(0, 119, 0);">==&nbsp;</span><span style="color: rgb(0, 0, 187);">$date2</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$date1&nbsp;</span><span style="color: rgb(0, 119, 0);">&lt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$date2</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$date1&nbsp;</span><span style="color: rgb(0, 119, 0);">&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$date2</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+  <div class="example-contents"><p>以上例程会输出：</p></div>
+  <div class="example-contents screen">
+<div class="cdata"><pre>bool(false)
+bool(true)
+bool(false)
+</pre></div>
+  </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-datetime.diff-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a class="function" href="dateinterval.format.html" rel="rdfs-seeAlso">DateInterval::format()</a> - Formats the interval</span></li>
+   <li class="member"><span class="function"><a class="function" href="datetime.add.html" rel="rdfs-seeAlso">DateTime::add()</a> - 给一个 DateTime 对象增加一定量的天，月，年，小时，分钟
+   以及秒。</span></li>
+   <li class="member"><span class="function"><a class="function" href="datetime.sub.html" rel="rdfs-seeAlso">DateTime::sub()</a> - 对一个 DateTime 对象减去一定量的
+   日、月、年、小时、分钟和秒。</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

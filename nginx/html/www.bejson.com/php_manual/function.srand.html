@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>播下随机数发生器种子-BeJSON.com</title><meta name="keywords" content="播下随机数发生器种子"><meta name="description" content="srand(PHP 4, PHP 5, PHP 7, PHP 8)srand — 播下随机数发生器种子说明srand(int $seed = ?): void用 seed 播下随机数发生器种子。seed 参数没有给出时，会被设为随时数。 注意: 不再需要用 srand() 或 mt_srand() ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.sqrt.html">« sqrt</a></li>
+      <li style="float: right;"><a href="function.tan.html">tan »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.math.html">Math 函数</a></li>
+    <li>播下随机数发生器种子</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.srand">
+   <div class="refnamediv">
+    <h1 class="refname">srand</h1>
+    <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">srand</span> — <span class="dc-title">播下随机数发生器种子</span></p>
+
+   </div>
+ <div class="refsect1 description" id="refsect1-function.srand-description">
+  <h3 class="title">说明</h3>
+   <div class="methodsynopsis dc-description">
+    <span class="methodname"><strong>srand</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$seed</code><span class="initializer"> = ?</span></span>): <span class="type"><span class="type void">void</span></span></div>
+
+    <p class="para rdfs-comment">
+     用 <code class="parameter">seed</code> 播下随机数发生器种子。<code class="parameter">seed</code> 参数没有给出时，会被设为随时数。
+    </p>
+  
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">不再需要用
+<span class="function"><strong>srand()</strong></span> 或 <span class="function"><a class="function" href="function.mt-srand.html">mt_srand()</a></span>
+给随机数发生器播种，因为现在是由系统自动完成的。</span></p></blockquote>
+  
+   </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.srand-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">seed</code></dt>
+
+     <dd>
+
+      <p class="para">
+       可选的种子值
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.srand-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   没有返回值。
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.srand-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>Since 4.2.0</td>
+       <td>
+        <code class="parameter">seed</code>  成为可选，省略时会默认使用随机值。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.srand-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3056">
+    <p><strong>示例 #1 <span class="function"><strong>srand()</strong></span> 例子</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;seed&nbsp;with&nbsp;microseconds<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">make_seed</span><span style="color: rgb(0, 119, 0);">()<br>{<br>&nbsp;&nbsp;list(</span><span style="color: rgb(0, 0, 187);">$usec</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$sec</span><span style="color: rgb(0, 119, 0);">)&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">explode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">microtime</span><span style="color: rgb(0, 119, 0);">());<br>&nbsp;&nbsp;return&nbsp;(float)&nbsp;</span><span style="color: rgb(0, 0, 187);">$sec&nbsp;</span><span style="color: rgb(0, 119, 0);">+&nbsp;((float)&nbsp;</span><span style="color: rgb(0, 0, 187);">$usec&nbsp;</span><span style="color: rgb(0, 119, 0);">*&nbsp;</span><span style="color: rgb(0, 0, 187);">100000</span><span style="color: rgb(0, 119, 0);">);<br>}<br></span><span style="color: rgb(0, 0, 187);">srand</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">make_seed</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">$randval&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">rand</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.srand-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.rand.html" rel="rdfs-seeAlso">rand()</a> - 产生一个随机整数</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.getrandmax.html" rel="rdfs-seeAlso">getrandmax()</a> - 显示随机数最大的可能值</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.mt-srand.html" rel="rdfs-seeAlso">mt_srand()</a> - 播下一个更好的随机数发生器种子</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+  </div></div></div></body></html>

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Makes event pending-BeJSON.com</title><meta name="keywords" content="Makes event pending"><meta name="description" content="If Event::add() is called on an already pending event, libevent will leave it pending and re-schedule it with the given timeout(if specified). If in t">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.event.html">« Event</a></li>
+      <li style="float: right;"><a href="event.addsignal.html">Event::addSignal »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.event.html">Event</a></li>
+    <li>Makes event pending</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="event.add">
+ <div class="refnamediv">
+  <h1 class="refname">Event::add</h1>
+  <p class="verinfo">(PECL event &gt;= 1.2.6-beta)</p><p class="refpurpose"><span class="refname">Event::add</span> — <span class="dc-title">Makes event pending</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-event.add-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="methodname"><strong>Event::add</strong></span>(<span class="methodparam">
+    <span class="type">float</span>
+     <code class="parameter">$timeout</code>
+   <span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Marks event pending. Non-pending event will never occur, and the event
+   callback will never be called. In conjunction with
+   <span class="methodname"><a class="methodname" href="event.del.html">Event::del()</a></span>
+   an event could be re-scheduled by user at any time.
+  </p>
+  <p class="para">
+   If
+   <span class="methodname"><strong>Event::add()</strong></span>
+   is called on an already pending event, libevent will leave it pending and
+   re-schedule it with the given timeout(if specified). If in this case
+   timeout is not specified,
+   <span class="methodname"><strong>Event::add()</strong></span>
+   has no effect.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-event.add-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+
+     <code class="parameter">timeout</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Timeout in seconds.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-event.add-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-event.add-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-4129">
+   <p><strong>示例 #1 Adding a custom signal</strong></p>
+   <div class="example-contents">
+    <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">/*<br>Launch&nbsp;it&nbsp;in&nbsp;a&nbsp;terminal&nbsp;window:<br><br>$&nbsp;php&nbsp;examples/signal.php<br><br>In&nbsp;another&nbsp;terminal&nbsp;window&nbsp;find&nbsp;out&nbsp;the&nbsp;pid&nbsp;and&nbsp;send&nbsp;SIGTERM,&nbsp;e.g.:<br><br>$&nbsp;ps&nbsp;aux&nbsp;|&nbsp;grep&nbsp;examp<br>ruslan&nbsp;&nbsp;&nbsp;&nbsp;3976&nbsp;&nbsp;0.2&nbsp;&nbsp;0.0&nbsp;139896&nbsp;11256&nbsp;pts/1&nbsp;&nbsp;&nbsp;&nbsp;S+&nbsp;&nbsp;&nbsp;10:25&nbsp;&nbsp;&nbsp;0:00&nbsp;php&nbsp;examples/signal.php<br>ruslan&nbsp;&nbsp;&nbsp;&nbsp;3978&nbsp;&nbsp;0.0&nbsp;&nbsp;0.0&nbsp;&nbsp;&nbsp;9572&nbsp;&nbsp;&nbsp;864&nbsp;pts/2&nbsp;&nbsp;&nbsp;&nbsp;S+&nbsp;&nbsp;&nbsp;10:26&nbsp;&nbsp;&nbsp;0:00&nbsp;grep&nbsp;--color=auto&nbsp;examp<br>$&nbsp;kill&nbsp;-TERM&nbsp;3976<br><br>At&nbsp;the&nbsp;first&nbsp;terminal&nbsp;window&nbsp;you&nbsp;should&nbsp;catch&nbsp;the&nbsp;following:<br><br>Caught&nbsp;signal&nbsp;15<br>*/<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">MyEventSignal&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$ev</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">__construct</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">base&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">ev&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">Event</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">signal</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">SIGTERM</span><span style="color: rgb(0, 119, 0);">,&nbsp;array(</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'eventSighandler'</span><span style="color: rgb(0, 119, 0);">));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">ev</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">add</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">eventSighandler</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$no</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$c</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Caught&nbsp;signal&nbsp;</span><span style="color: rgb(0, 0, 187);">$no</span><span style="color: rgb(221, 0, 0);">\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">base</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">exit</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$base&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">EventBase</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$c&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MyEventSignal</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">loop</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>Caught signal 15
+</pre></div>
+   </div>
+  </div>
+
+  <div class="example" id="example-4130">
+   <p><strong>示例 #2 Adding a timer</strong></p>
+   <div class="example-contents">
+    <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$base&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">EventBase</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$n&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$e&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">Event</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">timer</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">,&nbsp;function(</span><span style="color: rgb(0, 0, 187);">$n</span><span style="color: rgb(0, 119, 0);">)&nbsp;use&nbsp;(&amp;</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 0, 187);">$n</span><span style="color: rgb(221, 0, 0);">&nbsp;seconds&nbsp;elapsed\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">delTimer</span><span style="color: rgb(0, 119, 0);">();<br>},&nbsp;</span><span style="color: rgb(0, 0, 187);">$n</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">add</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$n</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">loop</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+    <div class="cdata"><pre>2 seconds elapsed
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-event.add-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="methodname"><strong>Event::add()</strong></span></li>
+   <li class="member"><span class="methodname"><a class="methodname" href="event.del.html" rel="rdfs-seeAlso">Event::del()</a> - Makes event non-pending</span></li>
+   <li class="member"><span class="methodname"><a class="methodname" href="event.signal.html" rel="rdfs-seeAlso">Event::signal()</a> - Constructs signal event object</span></li>
+   <li class="member"><span class="methodname"><a class="methodname" href="event.timer.html" rel="rdfs-seeAlso">Event::timer()</a> - Constructs timer event object</span></li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>

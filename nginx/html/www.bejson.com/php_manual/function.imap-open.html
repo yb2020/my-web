@@ -1,0 +1,412 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Open an IMAP stream to a mailbox-BeJSON.com</title><meta name="keywords" content="Open an IMAP stream to a mailbox"><meta name="description" content="This function can also be used to open streams to POP3 and NNTP servers, but some functions and features are only available on IMAP servers. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.imap-num-recent.html">« imap_num_recent</a></li>
+      <li style="float: right;"><a href="function.imap-ping.html">imap_ping »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.imap.html">IMAP 函数</a></li>
+    <li>Open an IMAP stream to a mailbox</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.imap-open">
+ <div class="refnamediv">
+  <h1 class="refname">imap_open</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imap_open</span> — <span class="dc-title">Open an <abbr title="Internet Message Access Protocol">IMAP</abbr> stream to a mailbox</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imap-open-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>imap_open</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$mailbox</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$user</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span><br>): <span class="type"><span class="type"><span class="type IMAP\Connection">IMAP\Connection</span></span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+   Opens an <abbr title="Internet Message Access Protocol">IMAP</abbr> stream to a <code class="parameter">mailbox</code>.
+  </p>
+  <p class="para">
+   This function can also be used to open streams to <abbr title="Post Office Protocol version 3">POP3</abbr> and
+   <abbr title="Network News Transfer Protocol">NNTP</abbr> servers, but some functions and features are only
+   available on <abbr title="Internet Message Access Protocol">IMAP</abbr> servers.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imap-open-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">mailbox</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A mailbox name consists of a server and a mailbox path on this server.
+       The special name <code class="literal">INBOX</code> stands for the current users
+       personal mailbox. Mailbox names that contain international characters
+       besides those in the printable ASCII space have to be encoded with
+       <span class="function"><a class="function" href="function.imap-utf7-encode.html">imap_utf7_encode()</a></span>.
+      </p>
+      <div class="warning"><strong class="warning">警告</strong><p class="simpara">
+Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, unless
+<a class="link" href="imap.configuration.html#ini.imap.enable-insecure-rsh">imap.enable_insecure_rsh</a> is disabled.
+</p></div>
+      <p class="para">
+       The server part, which is enclosed in '{' and '}', consists of the servers
+       name or ip address, an optional port (prefixed by ':'), and an optional
+       protocol specification (prefixed by '/'). 
+      </p>
+      <p class="para">
+       The server part is mandatory in all mailbox
+       parameters. 
+      </p>
+      <p class="para">
+       All names which start with <code class="literal">{</code> are remote names, and are
+       in the form <code class="literal">"{" remote_system_name [":" port] [flags] "}"
+       [mailbox_name]</code> where:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <code class="literal">remote_system_name</code> - Internet domain name or
+          bracketed IP address of server.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <code class="literal">port</code> - optional TCP port number, default is the
+          default port for that service
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <code class="literal">flags</code> - optional flags, see following table.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <code class="literal">mailbox_name</code> - remote mailbox name, default is INBOX
+         </span>
+        </li>
+       </ul>
+      <p></p>
+      <p class="para">
+       <table class="doctable table">
+        <caption><strong>Optional flags for names</strong></caption>
+        
+         <thead>
+          <tr>
+           <th>Flag</th>
+           <th>Description</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td><code class="literal">/service=</code><em class="emphasis">service</em></td>
+           <td>mailbox access service, default is "imap"</td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/user=</code><em class="emphasis">user</em></td>
+           <td>remote user name for login on the server</td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/authuser=</code><em class="emphasis">user</em></td>
+           <td>remote authentication user; if specified this is the user name
+            whose password is used (e.g. administrator)</td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/anonymous</code></td>
+           <td>remote access as anonymous user</td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/debug</code></td>
+           <td>record protocol telemetry in application's debug log</td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/secure</code></td>
+           <td>do not transmit a plaintext password over the network</td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/imap</code>, <code class="literal">/imap2</code>,
+            <code class="literal">/imap2bis</code>, <code class="literal">/imap4</code>,
+            <code class="literal">/imap4rev1</code></td>
+           <td>equivalent to <code class="literal">/service=imap</code></td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/pop3</code></td>
+           <td>equivalent to <code class="literal">/service=pop3</code></td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/nntp</code></td>
+           <td>equivalent to <code class="literal">/service=nntp</code></td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/norsh</code></td>
+           <td>do not use rsh or ssh to establish a preauthenticated IMAP
+            session</td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/ssl</code></td>
+           <td>use the <code class="literal">Secure Socket Layer</code> to encrypt the session</td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/validate-cert</code></td>
+           <td>validate certificates from TLS/SSL server (this is the default
+            behavior)</td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/novalidate-cert</code></td>
+           <td>do not validate certificates from TLS/SSL server, needed if
+            server uses self-signed certificates</td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/tls</code></td>
+           <td>force use of <code class="literal">start-TLS</code> to encrypt the session, and reject
+            connection to servers that do not support it</td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/notls</code></td>
+           <td>do not do <code class="literal">start-TLS</code> to encrypt the session, even with servers
+            that support it</td>
+          </tr>
+
+          <tr>
+           <td><code class="literal">/readonly</code></td>
+           <td>request read-only mailbox open (IMAP only; ignored on NNTP, and
+            an error with SMTP and POP3)</td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      <p></p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">user</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The user name
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">password</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The password associated with the <code class="parameter">user</code>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The <code class="parameter">flags</code> are a bit mask with one or more of
+       the following:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>OP_READONLY</code></strong> - Open mailbox read-only
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>OP_ANONYMOUS</code></strong> - Don't use or update a
+          <var class="filename">.newsrc</var> for news (NNTP only)
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>OP_HALFOPEN</code></strong> - For <abbr title="Internet Message Access Protocol">IMAP</abbr>
+          and <abbr title="Network News Transfer Protocol">NNTP</abbr> names, open a connection but
+          don't open a mailbox.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>CL_EXPUNGE</code></strong> - Expunge mailbox automatically upon mailbox close
+          (see also <span class="function"><a class="function" href="function.imap-delete.html">imap_delete()</a></span> and
+          <span class="function"><a class="function" href="function.imap-expunge.html">imap_expunge()</a></span>)
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>OP_DEBUG</code></strong> - Debug protocol negotiations
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>OP_SHORTCACHE</code></strong> - Short (<code class="literal">elt</code>-only) caching
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>OP_SILENT</code></strong> - Don't pass up events (internal use)
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>OP_PROTOTYPE</code></strong> - Return driver prototype
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>OP_SECURE</code></strong> - Don't do non-secure authentication
+         </span>
+        </li>
+       </ul>
+      <p></p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">retries</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Number of maximum connect attempts
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">options</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Connection parameters, the following (string) keys maybe used 
+       to set one or more connection parameters:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <code class="literal">DISABLE_AUTHENTICATOR</code> - Disable authentication properties
+         </span>
+        </li>
+       </ul>
+      <p></p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imap-open-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns an <span class="classname"><strong class="classname">IMAP\Connection</strong></span> instance on success, 或者在失败时返回 <strong><code>false</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.imap-open-changelog">
+  <h3 class="title">更新日志</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>版本</th>
+      <th>说明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.1.0</td>
+      <td>
+       Returns an <span class="classname"><strong class="classname">IMAP\Connection</strong></span> instance now;
+       previously, a <a class="link" href="language.types.resource.html">资源(resource)</a> was returned.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.imap-open-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2940">
+    <p><strong>示例 #1 Different use of <span class="function"><strong>imap_open()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;an&nbsp;IMAP&nbsp;server&nbsp;running&nbsp;on&nbsp;port&nbsp;143&nbsp;on&nbsp;the&nbsp;local&nbsp;machine,<br>//&nbsp;do&nbsp;the&nbsp;following:<br></span><span style="color: rgb(0, 0, 187);">$mbox&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">imap_open</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"{localhost:143}INBOX"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"user_id"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"password"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;a&nbsp;POP3&nbsp;server&nbsp;on&nbsp;port&nbsp;110&nbsp;on&nbsp;the&nbsp;local&nbsp;server,&nbsp;use:<br></span><span style="color: rgb(0, 0, 187);">$mbox&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">imap_open&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"{localhost:110/pop3}INBOX"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"user_id"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"password"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;an&nbsp;SSL&nbsp;IMAP&nbsp;or&nbsp;POP3&nbsp;server,&nbsp;add&nbsp;/ssl&nbsp;after&nbsp;the&nbsp;protocol<br>//&nbsp;specification:<br></span><span style="color: rgb(0, 0, 187);">$mbox&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">imap_open&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"{localhost:993/imap/ssl}INBOX"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"user_id"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"password"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;an&nbsp;SSL&nbsp;IMAP&nbsp;or&nbsp;POP3&nbsp;server&nbsp;with&nbsp;a&nbsp;self-signed&nbsp;certificate,<br>//&nbsp;add&nbsp;/ssl/novalidate-cert&nbsp;after&nbsp;the&nbsp;protocol&nbsp;specification:<br></span><span style="color: rgb(0, 0, 187);">$mbox&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">imap_open&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"{localhost:995/pop3/ssl/novalidate-cert}"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"user_id"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"password"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;an&nbsp;NNTP&nbsp;server&nbsp;on&nbsp;port&nbsp;119&nbsp;on&nbsp;the&nbsp;local&nbsp;server,&nbsp;use:<br></span><span style="color: rgb(0, 0, 187);">$nntp&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">imap_open&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"{localhost:119/nntp}comp.test"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">""</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">""</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;a&nbsp;remote&nbsp;server&nbsp;replace&nbsp;"localhost"&nbsp;with&nbsp;the&nbsp;name&nbsp;or&nbsp;the<br>//&nbsp;IP&nbsp;address&nbsp;of&nbsp;the&nbsp;server&nbsp;you&nbsp;want&nbsp;to&nbsp;connect&nbsp;to.<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-2941">
+    <p><strong>示例 #2 <span class="function"><strong>imap_open()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$mbox&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">imap_open</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"{imap.example.org:143}"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"username"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"password"</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;h1&gt;Mailboxes&lt;/h1&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$folders&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">imap_listmailbox</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$mbox</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"{imap.example.org:143}"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"*"</span><span style="color: rgb(0, 119, 0);">);<br><br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$folders&nbsp;</span><span style="color: rgb(0, 119, 0);">==&nbsp;</span><span style="color: rgb(0, 0, 187);">false</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Call&nbsp;failed&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$folders&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$val</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$val&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;h1&gt;Headers&nbsp;in&nbsp;INBOX&lt;/h1&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$headers&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">imap_headers</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$mbox</span><span style="color: rgb(0, 119, 0);">);<br><br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$headers&nbsp;</span><span style="color: rgb(0, 119, 0);">==&nbsp;</span><span style="color: rgb(0, 0, 187);">false</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Call&nbsp;failed&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$headers&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$val</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$val&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">imap_close</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$mbox</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.imap-open-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.imap-close.html" rel="rdfs-seeAlso">imap_close()</a> - Close an IMAP stream</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

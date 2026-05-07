@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Request an interactive shell-BeJSON.com</title><meta name="keywords" content="Request an interactive shell"><meta name="description" content="ssh2_shell(PECL ssh2 >= 0.9.0)ssh2_shell — Request an interactive shell说明ssh2_shell(    resource $session,    string $term_type = " ?array"="" vanilla",="">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.ssh2-sftp.html">« ssh2_sftp</a></li>
+      <li style="float: right;"><a href="function.ssh2-tunnel.html">ssh2_tunnel »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.ssh2.html">SSH2 函数</a></li>
+    <li>Request an interactive shell</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.ssh2-shell">
+ <div class="refnamediv">
+  <h1 class="refname">ssh2_shell</h1>
+  <p class="verinfo">(PECL ssh2 &gt;= 0.9.0)</p><p class="refpurpose"><span class="refname">ssh2_shell</span> — <span class="dc-title">Request an interactive shell</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.ssh2-shell-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>ssh2_shell</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$session</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$term_type</code><span class="initializer"> = "vanilla"</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$env</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$width</code><span class="initializer"> = 80</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code><span class="initializer"> = 25</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$width_height_type</code><span class="initializer"> = SSH2_TERM_UNIT_CHARS</span></span><br>): <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+   Open a shell at the remote end and allocate a stream for it.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.ssh2-shell-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">session</code></dt>
+
+     <dd>
+
+      <p class="para">
+       An SSH connection link identifier, obtained from a call to
+       <span class="function"><a class="function" href="function.ssh2-connect.html">ssh2_connect()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">term_type</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">term_type</code> should correspond to one of the
+       entries in the target system's <code class="literal">/etc/termcap</code> file.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">env</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">env</code> may be passed as an associative array of
+       name/value pairs to set in the target environment.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">width</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Width of the virtual terminal.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">height</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Height of the virtual terminal.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">width_height_type</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">width_height_type</code> should be one of
+       <strong><code>SSH2_TERM_UNIT_CHARS</code></strong> or
+       <strong><code>SSH2_TERM_UNIT_PIXELS</code></strong>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.ssh2-shell-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns a stream <a class="link" href="language.types.resource.html">资源(resource)</a> on success,  或者在失败时返回 <strong><code>false</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.ssh2-shell-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4431">
+    <p><strong>示例 #1 Requesting an interactive shell</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$connection&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">ssh2_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'shell.example.com'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">22</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">ssh2_auth_password</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$connection</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'username'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$stream&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">ssh2_shell</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$connection</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'vt102'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">80</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">24</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">SSH2_TERM_UNIT_CHARS</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.ssh2-shell-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.ssh2-exec.html" rel="rdfs-seeAlso">ssh2_exec()</a> - Execute a command on a remote server</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.ssh2-tunnel.html" rel="rdfs-seeAlso">ssh2_tunnel()</a> - Open a tunnel through a remote server</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.ssh2-fetch-stream.html" rel="rdfs-seeAlso">ssh2_fetch_stream()</a> - Fetch an extended data stream</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns an array of information describing this server-BeJSON.com</title><meta name="keywords" content="Returns an array of information describing this server"><meta name="description" content="When the driver is connected to a load balancer, this method will return the backing server's » hello command response from the initial connection han">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mongodb-driver-server.gethost.html">« MongoDB\Driver\Server::getHost</a></li>
+      <li style="float: right;"><a href="mongodb-driver-server.getlatency.html">MongoDB\Driver\Server::getLatency »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-driver-server.html">MongoDB\Driver\Server</a></li>
+    <li>Returns an array of information describing this server</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="mongodb-driver-server.getinfo">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\Driver\Server::getInfo</h1>
+  <p class="verinfo">(mongodb &gt;=1.0.0)</p><p class="refpurpose"><span class="refname">MongoDB\Driver\Server::getInfo</span> — <span class="dc-title">Returns an array of information describing this server</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongodb-driver-server.getinfo-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Server::getInfo</strong></span>(): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   Returns an array of information describing the server. This array is derived
+   from the most recent
+   <a class="link external" href="https://www.mongodb.com/docs/manual/reference/command/hello/">»&nbsp;hello</a>
+   command response obtained through
+   <a class="link external" href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst">»&nbsp;server monitoring</a>.
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    When the driver is connected to a load balancer, this method will return
+    the backing server's
+    <a class="link external" href="https://www.mongodb.com/docs/manual/reference/command/hello/">»&nbsp;hello</a>
+    command response from the initial connection handshake. This is in contrast
+    to other methods (e.g. <span class="function"><a class="function" href="mongodb-driver-server.gettype.html">MongoDB\Driver\Server::getType()</a></span>),
+    which will return information about the load balancer itself.
+   </p>
+  <p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongodb-driver-server.getinfo-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-server.getinfo-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns an array of information describing this server.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongodb-driver-server.getinfo-errors">
+  <h3 class="title">错误／异常</h3>
+  <ul class="simplelist">
+   <li class="member">Throws <span class="classname"><a class="classname" href="class.mongodb-driver-exception-invalidargumentexception.html">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li>
+  </ul>
+ </div>
+
+
+
+ <div class="refsect1 examples" id="refsect1-mongodb-driver-server.getinfo-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-1326">
+   <p><strong>示例 #1 <span class="function"><strong>MongoDB\Driver\Server::getInfo()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$manager&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Manager</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'mongodb://localhost:27017/'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$rp&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">ReadPreference</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'primary'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$server&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$manager</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">selectServer</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$rp</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$server</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getInfo</span><span style="color: rgb(0, 119, 0);">());<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>array(23) {
+  ["helloOk"]=&gt;
+  bool(true)
+  ["topologyVersion"]=&gt;
+  array(2) {
+    ["processId"]=&gt;
+    object(MongoDB\BSON\ObjectId)#4 (1) {
+      ["oid"]=&gt;
+      string(24) "617b6d696a3a89d2f77e6df0"
+    }
+    ["counter"]=&gt;
+    int(6)
+  }
+  ["hosts"]=&gt;
+  array(1) {
+    [0]=&gt;
+    string(15) "localhost:27017"
+  }
+  ["setName"]=&gt;
+  string(3) "rs0"
+  ["setVersion"]=&gt;
+  int(1)
+  ["ismaster"]=&gt;
+  bool(true)
+  ["secondary"]=&gt;
+  bool(false)
+  ["primary"]=&gt;
+  string(15) "localhost:27017"
+  ["me"]=&gt;
+  string(15) "localhost:27017"
+  ["electionId"]=&gt;
+  object(MongoDB\BSON\ObjectId)#5 (1) {
+    ["oid"]=&gt;
+    string(24) "7fffffff0000000000000001"
+  }
+  ["lastWrite"]=&gt;
+  array(4) {
+    ["opTime"]=&gt;
+    array(2) {
+      ["ts"]=&gt;
+      object(MongoDB\BSON\Timestamp)#6 (2) {
+        ["increment"]=&gt;
+        string(1) "1"
+        ["timestamp"]=&gt;
+        string(10) "1635478989"
+      }
+      ["t"]=&gt;
+      int(1)
+    }
+    ["lastWriteDate"]=&gt;
+    object(MongoDB\BSON\UTCDateTime)#7 (1) {
+      ["milliseconds"]=&gt;
+      string(13) "1635478989000"
+    }
+    ["majorityOpTime"]=&gt;
+    array(2) {
+      ["ts"]=&gt;
+      object(MongoDB\BSON\Timestamp)#8 (2) {
+        ["increment"]=&gt;
+        string(1) "1"
+        ["timestamp"]=&gt;
+        string(10) "1635478989"
+      }
+      ["t"]=&gt;
+      int(1)
+    }
+    ["majorityWriteDate"]=&gt;
+    object(MongoDB\BSON\UTCDateTime)#9 (1) {
+      ["milliseconds"]=&gt;
+      string(13) "1635478989000"
+    }
+  }
+  ["maxBsonObjectSize"]=&gt;
+  int(16777216)
+  ["maxMessageSizeBytes"]=&gt;
+  int(48000000)
+  ["maxWriteBatchSize"]=&gt;
+  int(100000)
+  ["localTime"]=&gt;
+  object(MongoDB\BSON\UTCDateTime)#10 (1) {
+    ["milliseconds"]=&gt;
+    string(13) "1635478992136"
+  }
+  ["logicalSessionTimeoutMinutes"]=&gt;
+  int(30)
+  ["connectionId"]=&gt;
+  int(3)
+  ["minWireVersion"]=&gt;
+  int(0)
+  ["maxWireVersion"]=&gt;
+  int(13)
+  ["readOnly"]=&gt;
+  bool(false)
+  ["ok"]=&gt;
+  float(1)
+  ["$clusterTime"]=&gt;
+  array(2) {
+    ["clusterTime"]=&gt;
+    object(MongoDB\BSON\Timestamp)#11 (2) {
+      ["increment"]=&gt;
+      string(1) "1"
+      ["timestamp"]=&gt;
+      string(10) "1635478989"
+    }
+    ["signature"]=&gt;
+    array(2) {
+      ["hash"]=&gt;
+      object(MongoDB\BSON\Binary)#12 (2) {
+        ["data"]=&gt;
+        string(20) ""
+        ["type"]=&gt;
+        int(0)
+      }
+      ["keyId"]=&gt;
+      int(0)
+    }
+  }
+  ["operationTime"]=&gt;
+  object(MongoDB\BSON\Timestamp)#13 (2) {
+    ["increment"]=&gt;
+    string(1) "1"
+    ["timestamp"]=&gt;
+    string(10) "1635478989"
+  }
+}
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-mongodb-driver-server.getinfo-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>PECL mongodb 1.11.0</td>
+       <td>
+        When the driver is connected to a load balancer, this method returns
+        the backing server's <code class="literal">hello</code> command response from the
+        initial connection handshake.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongodb-driver-server.getinfo-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><strong>MongoDB\Driver\ServerDescription::getHelloResponse()</strong></span></li>
+   <li class="member"><a class="link external" href="https://www.mongodb.com/docs/manual/reference/command/hello/">»&nbsp;hello</a> command in the MongoDB manual</li>
+   <li class="member"><a class="link external" href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst">»&nbsp;Server Discovery and Monitoring Specification</a></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

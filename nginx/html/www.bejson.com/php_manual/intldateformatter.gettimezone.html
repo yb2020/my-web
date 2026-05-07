@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get formatterʼs timezone-BeJSON.com</title><meta name="keywords" content="Get formatterʼs timezone"><meta name="description" content="面向对象风格 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="intldateformatter.getcalendarobject.html">« IntlDateFormatter::getCalendarObject</a></li>
+      <li style="float: right;"><a href="intldateformatter.islenient.html">IntlDateFormatter::isLenient »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.intldateformatter.html">IntlDateFormatter</a></li>
+    <li>Get formatterʼs timezone</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="intldateformatter.gettimezone">
+ <div class="refnamediv">
+  <h1 class="refname">IntlDateFormatter::getTimeZone</h1>
+  <h1 class="refname">datefmt_get_timezone</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8, PECL intl &gt;= 3.0.0)</p><p class="refpurpose"><span class="refname">IntlDateFormatter::getTimeZone</span> -- <span class="refname">datefmt_get_timezone</span> — <span class="dc-title">Get formatterʼs timezone</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-intldateformatter.gettimezone-description">
+  <h3 class="title">说明</h3>
+  <p class="para">
+   面向对象风格
+  </p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>IntlDateFormatter::getTimeZone</strong></span>(): <span class="type"><span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+   过程化风格
+  </p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>datefmt_get_timezone</strong></span>(<span class="methodparam"><span class="type"><a class="type IntlDateFormatter" href="class.intldateformatter.html">IntlDateFormatter</a></span> <code class="parameter">$formatter</code></span>): <span class="type"><span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  
+  <p class="para rdfs-comment">
+   Returns an <span class="classname"><a class="classname" href="class.intltimezone.html">IntlTimeZone</a></span> object representing the
+   timezone that will be used by this object to format dates and times. When
+   formatting <span class="classname"><a class="classname" href="class.intlcalendar.html">IntlCalendar</a></span> and
+   <span class="classname"><a class="classname" href="class.datetime.html">DateTime</a></span> objects with this
+   <span class="classname"><a class="classname" href="class.intldateformatter.html">IntlDateFormatter</a></span>, the timezone used will be the one
+   returned by this method, not the one associated with the objects being
+   formatted.
+  </p>
+  
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-intldateformatter.gettimezone-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-intldateformatter.gettimezone-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   The associated <span class="classname"><a class="classname" href="class.intltimezone.html">IntlTimeZone</a></span>
+   object 或者在失败时返回 <strong><code>false</code></strong>.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-intldateformatter.gettimezone-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2389">
+    <p><strong>示例 #1 <span class="function"><strong>IntlDateFormatter::getTimeZone()</strong></span> examples</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$madrid&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlDateFormatter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">create</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">NULL</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">NULL</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">NULL</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Europe/Madrid'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$lisbon&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlDateFormatter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">create</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">NULL</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">NULL</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">NULL</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Europe/Lisbon'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$madrid</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getTimezone</span><span style="color: rgb(0, 119, 0);">());<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$madrid</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getTimezone</span><span style="color: rgb(0, 119, 0);">()-&gt;</span><span style="color: rgb(0, 0, 187);">getDisplayName</span><span style="color: rgb(0, 119, 0);">(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">false</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlTimeZone</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">DISPLAY_GENERIC_LOCATION</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"en_US"</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$lisbon</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getTimeZone</span><span style="color: rgb(0, 119, 0);">()-&gt;</span><span style="color: rgb(0, 0, 187);">getId</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(255, 128, 0);">//The&nbsp;id&nbsp;can&nbsp;also&nbsp;be&nbsp;retrieved&nbsp;with&nbsp;-&gt;getTimezoneId()<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$lisbon</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getTimeZoneId</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>object(IntlTimeZone)#4 (4) {
+  ["valid"]=&gt;
+  bool(true)
+  ["id"]=&gt;
+  string(13) "Europe/Madrid"
+  ["rawOffset"]=&gt;
+  int(3600000)
+  ["currentOffset"]=&gt;
+  int(7200000)
+}
+Spain Time
+Europe/Lisbon
+Europe/Lisbon
+
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-intldateformatter.gettimezone-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="intldateformatter.gettimezoneid.html" rel="rdfs-seeAlso">IntlDateFormatter::getTimeZoneId()</a> - Get the timezone-id used for the IntlDateFormatter</span></li>
+    <li class="member"><span class="function"><a class="function" href="intldateformatter.settimezone.html" rel="rdfs-seeAlso">IntlDateFormatter::setTimeZone()</a> - Sets formatterʼs timezone</span></li>
+    <li class="member"><span class="classname"><a class="classname" href="class.intltimezone.html">IntlTimeZone</a></span></li>
+   </ul>
+  <p></p>
+ </div>
+
+ 
+</div></div></div></body></html>

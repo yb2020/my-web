@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tk图形用户界面(GUI)-BeJSON.com</title><meta name="keywords" content="Tk图形用户界面(GUI)"><meta name="description" content="shlex —— 简单的词法分析"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="tkinter —— Tcl/Tk 的 Python 接口" href="tkinter.html" rel="next">
+    <link title="shlex —— 简单的词法分析" href="shlex.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/tk.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="shlex.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shlex</span></code> —— 简单的词法分析</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="tkinter.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter</span></code> —— Tcl/Tk 的 Python 接口</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="tkinter —— Tcl/Tk 的 Python 接口" accesskey="N" href="tkinter.html">下一页</a> |</li>
+        <li class="right">
+          <a title="shlex —— 简单的词法分析" accesskey="P" href="shlex.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a accesskey="U" href="index.html">Python 标准库</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">Tk图形用户界面(GUI)</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="graphical-user-interfaces-with-tk">
+<span id="tkinter"></span><h1>Tk图形用户界面(GUI)<a title="永久链接至标题" class="headerlink" href="#graphical-user-interfaces-with-tk">¶</a></h1>
+<p id="index-0">Tcl/Tk集成到Python中已经有一些年头了。Python程序员可以通过 <a title="tkinter: Interface to Tcl/Tk for graphical user interfaces" class="reference internal" href="tkinter.html#module-tkinter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter</span></code></a> 包和它的扩展， <a title="tkinter.tix: Tk Extension Widgets for Tkinter" class="reference internal" href="tkinter.tix.html#module-tkinter.tix"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.tix</span></code></a> 模块和 <a title="tkinter.ttk: Tk themed widget set" class="reference internal" href="tkinter.ttk.html#module-tkinter.ttk"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.ttk</span></code></a> 模块，来使用这套鲁棒的、平台无关的窗口工具集。</p>
+<p><a title="tkinter: Interface to Tcl/Tk for graphical user interfaces" class="reference internal" href="tkinter.html#module-tkinter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter</span></code></a> 包是使用面向对象方式对 Tcl/Tk 进行的一层薄包装。 使用 <a title="tkinter: Interface to Tcl/Tk for graphical user interfaces" class="reference internal" href="tkinter.html#module-tkinter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter</span></code></a>，你不需要写 Tcl 代码，但你将需要参阅 Tk 文档，有时还需要参阅 Tcl 文档。 <a title="tkinter: Interface to Tcl/Tk for graphical user interfaces" class="reference internal" href="tkinter.html#module-tkinter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter</span></code></a> 是一组包装器，它将 Tk 的可视化部件实现为相应的 Python 类。</p>
+<p><a title="tkinter: Interface to Tcl/Tk for graphical user interfaces" class="reference internal" href="tkinter.html#module-tkinter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter</span></code></a> 的主要特点是速度很快，并且通常直接附带在 Python 中。 虽然它的官方文档做得不好，但还是有许多可用的资源，包括：在线参考、教程、入门书等等。 <a title="tkinter: Interface to Tcl/Tk for graphical user interfaces" class="reference internal" href="tkinter.html#module-tkinter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter</span></code></a> 还有众所周知的较过时的外观界面，这在 Tk 8.5 中已得到很大改进。 无论如何，你还可以考虑许多其他的 GUI 库。 Python wiki 例出了一些替代性的 <a class="reference external" href="">GUI 框架和工具</a>。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter</span></code> —— Tcl/Tk 的 Python 接口</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#architecture">架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#tkinter-modules">Tkinter 模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#tkinter-life-preserver">Tkinter 拾遗</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#a-hello-world-program">A Hello World Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#important-tk-concepts">Important Tk Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#understanding-how-tkinter-wraps-tcl-tk">Understanding How Tkinter Wraps Tcl/Tk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#how-do-i-what-option-does">How do I...? What option does...?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#navigating-the-tcl-tk-reference-manual">Navigating the Tcl/Tk Reference Manual</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#threading-model">线程模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#handy-reference">快速参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#setting-options">可选配置项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#the-packer">包装器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#packer-options">包装器的参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#coupling-widget-variables">部件与变量的关联</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#the-window-manager">窗口管理器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#tk-option-data-types">Tk 参数的数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#bindings-and-events">绑定和事件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#the-index-parameter">index 参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#images">图片</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#file-handlers">文件处理程序</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.colorchooser.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.colorchooser</span></code> --- 颜色选择对话框</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.font.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.font</span></code> --- Tkinter 字体封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialog.html">Tkinter 对话框</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dialog.html#module-tkinter.simpledialog"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.simpledialog</span></code> --- 标准 Tkinter 输入对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dialog.html#module-tkinter.filedialog"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.filedialog</span></code> --- 文件选择对话框.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dialog.html#native-load-save-dialogs">原生的载入/保存对话框.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dialog.html#module-tkinter.commondialog"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.commondialog</span></code> --- 对话窗口模板</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.messagebox.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.messagebox</span></code> --- Tkinter 消息提示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.scrolledtext.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.scrolledtext</span></code> --- 滚动文字控件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.dnd.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.dnd</span></code> --- 拖放操作支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.ttk.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.ttk</span></code> --- Tk 风格的控件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.ttk.html#using-ttk">ttk 的用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.ttk.html#ttk-widgets">ttk 控件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.ttk.html#widget">控件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#standard-options">标准属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#scrollable-widget-options">可滚动控件的属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#label-options">标签控件的属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#compatibility-options">兼容性属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#widget-states">控件状态</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#ttk-widget">ttk.Widget</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.ttk.html#combobox">Combobox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#options">属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#virtual-events">虚拟事件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#ttk-combobox">ttk.Combobox</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.ttk.html#spinbox">Spinbox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#id1">属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#id2">虚拟事件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#ttk-spinbox">ttk.Spinbox</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.ttk.html#notebook">Notebook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#id3">属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#tab-options">Tab 属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#tab-identifiers">Tab ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#id4">虚拟事件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#ttk-notebook">ttk.Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.ttk.html#progressbar">Progressbar</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#id5">属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#ttk-progressbar">ttk.Progressbar</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.ttk.html#separator">Separator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#id6">属性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.ttk.html#sizegrip">Sizegrip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#platform-specific-notes">与平台相关的注意事项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#bugs">Bug</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.ttk.html#treeview">Treeview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#id7">属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#item-options">数据项的属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#tag-options">tag 属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#column-identifiers">列标识</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#id8">虚拟事件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#ttk-treeview">ttk.Treeview</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.ttk.html#ttk-styling">Ttk 样式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.ttk.html#layouts">布局</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.tix.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.tix</span></code> --- TK扩展包</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.tix.html#using-tix">使用 Tix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.tix.html#tix-widgets">Tix 部件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.tix.html#basic-widgets">基本部件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.tix.html#file-selectors">文件选择器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.tix.html#hierarchical-listbox">层级式列表框</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.tix.html#tabular-listbox">表格式列表框</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.tix.html#manager-widgets">管理器部件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.tix.html#image-types">图像类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.tix.html#miscellaneous-widgets">其他部件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.tix.html#form-geometry-manager">表单布局管理器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.tix.html#tix-commands">Tix 命令</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="idle.html">IDLE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="idle.html#menus">目录</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#file-menu-shell-and-editor">文件菜单 （命令行和编辑器）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#edit-menu-shell-and-editor">编辑菜单（命令行和编辑器）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#format-menu-editor-window-only">格式菜单（仅 window 编辑器）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#run-menu-editor-window-only">运行菜单（仅 window 编辑器）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#shell-menu-shell-window-only">Shell 菜单（仅限 Shell 窗口）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#debug-menu-shell-window-only">调试菜单（仅限 Shell 窗口）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#options-menu-shell-and-editor">选项菜单（命令行和编辑器）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#window-menu-shell-and-editor">Window 菜单（命令行和编辑器）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#help-menu-shell-and-editor">帮助菜单（命令行和编辑器）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#context-menus">上下文菜单</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="idle.html#editing-and-navigation">编辑和导航</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#editor-windows">编辑窗口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#key-bindings">按键绑定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#automatic-indentation">自动缩进</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#completions">补全</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#calltips">提示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#code-context">代码上下文</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#python-shell-window">Python Shell 窗口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#text-colors">文本颜色</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="idle.html#startup-and-code-execution">启动和代码执行</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#command-line-usage">命令行用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#startup-failure">启动失败</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#running-user-code">运行用户代码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#user-output-in-shell">Shell中的用户输出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#developing-tkinter-applications">开发 tkinter 应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#running-without-a-subprocess">在没有子进程的情况下运行</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="idle.html#help-and-preferences">帮助和偏好</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#help-sources">帮助源</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#setting-preferences">首选项设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#idle-on-macos">macOS 上的IDLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idle.html#extensions">扩展</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="shlex.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shlex</span></code> —— 简单的词法分析</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="tkinter.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter</span></code> —— Tcl/Tk 的 Python 接口</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="tkinter —— Tcl/Tk 的 Python 接口" href="tkinter.html">下一页</a> |</li>
+        <li class="right">
+          <a title="shlex —— 简单的词法分析" href="shlex.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">Tk图形用户界面(GUI)</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

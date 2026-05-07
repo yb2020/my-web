@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/doc/layui/layui-v2.6.8/layui/css/layui.css" rel="stylesheet">
+    <link href="/other/online_gushi_name/css/index.css" rel="stylesheet">
+    <link href="/other/online_gushi_name/css/gushi.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="root-detail">
+<div class="app">
+    <div class="view search-box">
+        <div class="layui-form-item m20">
+            <div class="layui-col-md12">
+                <div class="layui-form-item book-selector">
+                    <div class="inputGroup">
+                        <input id="shijing" name="book" type="radio" value="shijing" checked="">
+                        <label for="shijing">诗经</label>
+                    </div>
+                    <div class="inputGroup">
+                        <input id="chuci" name="book" type="radio" value="chuci">
+                        <label for="chuci">楚辞</label>
+                    </div>
+                    <div class="inputGroup">
+                        <input id="tangshi" name="book" type="radio" value="tangshi">
+                        <label for="tangshi">唐诗</label>
+                    </div>
+                    <div class="inputGroup">
+                        <input id="songci" name="book" type="radio" value="songci">
+                        <label for="songci">宋词</label>
+                    </div>
+                    <div class="inputGroup">
+                        <input id="yuefu" name="book" type="radio" value="yuefu">
+                        <label for="yuefu">乐府诗集</label>
+                    </div>
+                    <div class="inputGroup">
+                        <input id="gushi" name="book" type="radio" value="gushi">
+                        <label for="gushi">古诗三百首</label>
+                    </div>
+                    <div class="inputGroup">
+                        <input id="cifu" name="book" type="radio" value="cifu">
+                        <label for="cifu">著名辞赋</label>
+                    </div>
+                </div>
+                <select class="layui-select w110" id="select-gushi">
+                    <option value="2">双名</option>
+                    <option value="1">单名</option>
+                    <option value="3">复名</option>
+                </select> <input type="text" name="family-name" id="query" value="" required=""
+                                 autocomplete="off" placeholder="输入姓氏"
+                                 class="layui-input layui-input-custom">
+                <button class="layui-btn layui-btn-normal btn-go">查询</button>
+                <wavy></wavy>
+                <div class="app gushi-div" style="display: none; ">
+                    <div class="view m20 layui-form" style="overflow-y:scroll;height:460px">
+                        <fieldset class="layui-elem-field layui-field-title site-title">
+                            <legend><a name="default">结果</a></legend>
+                        </fieldset>
+                        <ul class="result-container"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+</body>
+<script type="text/javascript" src="/devtools/sqldesigner/js/jquery.min.js"></script>
+<script type="text/javascript" src="/doc/layui/layui-v2.6.8/layui/layui.js"></script>
+<script type="text/javascript" src="/other/online_gushi_name/js/gushi.js"></script>
+
+</html>

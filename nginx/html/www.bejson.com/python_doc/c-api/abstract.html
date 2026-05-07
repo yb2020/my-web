@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>抽象对象层-BeJSON.com</title><meta name="keywords" content="抽象对象层"><meta name="description" content="编解码器注册与支持功能"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="对象协议" href="object.html" rel="next">
+    <link title="编解码器注册与支持功能" href="codec.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/c-api/abstract.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="codec.html">编解码器注册与支持功能</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="object.html">对象协议</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="对象协议" accesskey="N" href="object.html">下一页</a> |</li>
+        <li class="right">
+          <a title="编解码器注册与支持功能" accesskey="P" href="codec.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a accesskey="U" href="index.html">Python/C API 参考手册</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">抽象对象层</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="abstract-objects-layer">
+<span id="abstract"></span><h1>抽象对象层<a title="永久链接至标题" class="headerlink" href="#abstract-objects-layer">¶</a></h1>
+<p>本章中的函数与 Python对象交互，无论其类型，或具有广泛类的对象类型（例如，所有数值类型，或所有序列类型）。当使用对象类型并不适用时，他们会产生一个 Python 异常。</p>
+<p>这些函数是不可能用于未正确初始化的对象的，如一个列表对象被 <a title="PyList_New" class="reference internal" href="list.html#c.PyList_New"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyList_New()</span></code></a> 创建，但其中的项目没有被设置为一些非``NULL``的值。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="object.html">对象协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="call.html">调用协议</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="call.html#the-tp-call-protocol"><em>tp_call</em> 协议</a></li>
+<li class="toctree-l2"><a class="reference internal" href="call.html#the-vectorcall-protocol">Vectorcall 协议</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="call.html#recursion-control">递归控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="call.html#vectorcall-support-api">Vectorcall 支持 API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="call.html#object-calling-api">调用对象的 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="call.html#call-support-api">调用支持 API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="number.html">数字协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sequence.html">序列协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mapping.html">映射协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iter.html">迭代器协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buffer.html">缓冲协议</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buffer.html#buffer-structure">缓冲区结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buffer.html#buffer-request-types">缓冲区请求的类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="buffer.html#request-independent-fields">与请求无关的字段</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buffer.html#readonly-format">只读，格式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buffer.html#shape-strides-suboffsets">形状，步幅，子偏移量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buffer.html#contiguity-requests">连续性的请求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buffer.html#compound-requests">复合请求</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="buffer.html#complex-arrays">复杂数组</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="buffer.html#numpy-style-shape-and-strides">NumPy-风格：形状和步幅</a></li>
+<li class="toctree-l3"><a class="reference internal" href="buffer.html#pil-style-shape-strides-and-suboffsets">PIL-风格：形状，步幅和子偏移量</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="buffer.html#buffer-related-functions">缓冲区相关函数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objbuffer.html">旧缓冲协议</a></li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="codec.html">编解码器注册与支持功能</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="object.html">对象协议</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="对象协议" href="object.html">下一页</a> |</li>
+        <li class="right">
+          <a title="编解码器注册与支持功能" href="codec.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python/C API 参考手册</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">抽象对象层</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

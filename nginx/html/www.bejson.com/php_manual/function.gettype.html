@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>获取变量的类型-BeJSON.com</title><meta name="keywords" content="获取变量的类型"><meta name="description" content="gettype(PHP 4, PHP 5, PHP 7, PHP 8)gettype — 获取变量的类型说明gettype(mixed $value): string返回 PHP value 变量的类型。 对于类型检查，请使用 is_* 函数。 参数value要检查类型的变量。 返回值返回字符串，可">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.get-resource-type.html">« get_resource_type</a></li>
+      <li style="float: right;"><a href="function.intval.html">intval »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.var.html">Variable handling 函数</a></li>
+    <li>获取变量的类型</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.gettype">
+ <div class="refnamediv">
+  <h1 class="refname">gettype</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">gettype</span> — <span class="dc-title">获取变量的类型</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.gettype-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>gettype</strong></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   返回 PHP <code class="parameter">value</code> 变量的类型。
+   对于类型检查，请使用 <code class="literal">is_*</code> 函数。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.gettype-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">value</code></dt>
+
+     <dd>
+
+      <p class="para">
+       要检查类型的变量。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.gettype-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   返回字符串，可能值为：
+   <ul class="simplelist">
+    <li class="member">
+      <code class="literal">"boolean"</code>
+     </li>
+    <li class="member">
+     <code class="literal">"integer"</code>
+    </li>
+    <li class="member">
+     <code class="literal">"double"</code>
+     （由于历史原因，如果是浮点型，则返回 <code class="literal">"double"</code>，而不仅仅是 <code class="literal">"float"</code>）
+    </li>
+    <li class="member">
+     <code class="literal">"string"</code>
+    </li>
+    <li class="member">
+     <code class="literal">"array"</code>
+    </li>
+    <li class="member">
+     <code class="literal">"object"</code>
+    </li>
+    <li class="member">
+     <code class="literal">"resource"</code>
+    </li>
+    <li class="member">
+     <code class="literal">"resource (closed)"</code> 自 PHP 7.2.0 起
+    </li>
+    <li class="member">
+     <code class="literal">"NULL"</code>
+    </li>
+    <li class="member">
+     <code class="literal">"unknown type"</code>
+    </li>
+   </ul>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.gettype-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-5093">
+    <p><strong>示例 #1 <span class="function"><strong>gettype()</strong></span> 示例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1.</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">NULL</span><span style="color: rgb(0, 119, 0);">,&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">stdClass</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'foo'</span><span style="color: rgb(0, 119, 0);">);<br><br>foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$data&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">gettype</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>integer
+double
+NULL
+object
+string
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.gettype-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>
+        现在，已关闭的资源报告为 <code class="literal">'resource (closed)'</code>。
+        此前，已关闭的资源报告为 <code class="literal">'unknown type'</code>。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.gettype-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.settype.html" rel="rdfs-seeAlso">settype()</a> - 设置变量的类型</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.get-class.html" rel="rdfs-seeAlso">get_class()</a> - 返回对象的类名</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-array.html" rel="rdfs-seeAlso">is_array()</a> - 检测变量是否是数组</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-bool.html" rel="rdfs-seeAlso">is_bool()</a> - 检测变量是否是布尔值</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-callable.html" rel="rdfs-seeAlso">is_callable()</a> - 检测参数是否为合法的可调用结构</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-float.html" rel="rdfs-seeAlso">is_float()</a> - 检测变量是否是浮点型</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-int.html" rel="rdfs-seeAlso">is_int()</a> - 检测变量是否是整数</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-null.html" rel="rdfs-seeAlso">is_null()</a> - 检测变量是否为 null</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-numeric.html" rel="rdfs-seeAlso">is_numeric()</a> - 检测变量是否为数字或数字字符串</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-object.html" rel="rdfs-seeAlso">is_object()</a> - 检测变量是否是一个对象</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-resource.html" rel="rdfs-seeAlso">is_resource()</a> - 检测变量是否为资源类型</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-scalar.html" rel="rdfs-seeAlso">is_scalar()</a> - 检测变量是否是一个标量</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.is-string.html" rel="rdfs-seeAlso">is_string()</a> - 检测变量是否是字符串</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.function-exists.html" rel="rdfs-seeAlso">function_exists()</a> - 如果给定的函数已经被定义就返回 true</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.method-exists.html" rel="rdfs-seeAlso">method_exists()</a> - 检查类的方法是否存在</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

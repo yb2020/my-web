@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>安装-BeJSON.com</title><meta name="keywords" content="安装"><meta name="description" content="此扩展已被移至 » PECL 资源库且不再与 PHP 捆绑。7.4.0 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="recode.requirements.html">« 需求</a></li>
+      <li style="float: right;"><a href="recode.configuration.html">运行时配置 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="recode.setup.html">安装／配置</a></li>
+    <li>安装</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="recode.installation">
+ <h1 class="title">安装</h1>
+
+ <div class="section" id="recode.installation.php74">
+  <h2 class="title">PHP 7.4</h2>
+  <p class="para">
+   此扩展已被移至
+<a class="link external" href="https://pecl.php.net/">»&nbsp;PECL</a> 资源库且不再与 PHP 捆绑。7.4.0
+  </p>
+  <p class="para">
+   安装此 PECL 扩展相关的信息可在手册中标题为
+<a class="link" href="install.pecl.html">PECL
+扩展的安装</a>章节中找到。更多信息如新的发行版本、下载、源文件、
+维护人员信息及变更日志等，都在此处：
+   <a class="link external" href="https://pecl.php.net/package/recode">»&nbsp;https://pecl.php.net/package/recode</a>.
+  </p>
+ </div>
+
+ <div class="section" id="recode.installation.phplt74">
+  <h2 class="title">PHP &lt; 7.4</h2>
+  <p class="para">
+   To be able to use the functions defined in this
+   module you must compile your PHP interpreter using the
+   <strong class="option configure">--with-recode[=DIR]</strong>
+   option.
+  </p>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    Crashes and startup problems of PHP may be encountered
+    when loading the recode as extension <em class="emphasis">after</em> loading any extension of <a class="link" href="ref.mysql.html">mysql</a> or <a class="link" href="ref.imap.html">imap</a>. Loading the recode before those
+    extension has proved to fix the problem.  This is due a technical problem
+    that both the c-client library used by imap and recode have their own
+    <code class="literal">hash_lookup()</code> function and both mysql and recode have
+    their own <code class="literal">hash_insert</code> function.
+   </p>
+  </div>
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara"><a class="link" href="book.imap.html">IMAP</a>，<a class="link" href="book.recode.html">recode</a>，和 <a class="link" href="book.yaz.html">YAZ</a>
+扩展不能同时使用，因为它们共享了相同 的内部符号。注意：Yaz
+2.0 及以上版本不存在此问题。</p></div>
+ </div>
+</div></div></div></body></html>

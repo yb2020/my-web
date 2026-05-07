@@ -1,0 +1,1081 @@
+import * as opentype from "/static/bejson/font/dist/opentype.module.min.js";
+
+const form = document.forms.head;
+form.oninput = renderText;
+
+var cellCount = 100,
+    cellWidth = 56,
+    cellHeight = 50,
+    cellMarginTop = 1,
+    cellMarginBottom = 8,
+    cellMarginLeftRight = 1,
+    glyphMargin = 5,
+    pixelRatio = window.devicePixelRatio || 1;
+
+var pageSelected, font, fontScale, fontSize, fontBaseline, glyphScale, glyphSize, glyphBaseline;
+
+var pageTotal = 5;
+var fontData = {
+    name: "font",
+    fileName: "",
+    glyphIndex: -1,
+    drawPoints: false,
+    drawArrows: false,
+};
+
+function enableHighDPICanvas(canvas) {
+    if (typeof canvas === 'string') {
+        canvas = document.getElementById(canvas);
+    }
+    var pixelRatio = window.devicePixelRatio || 1;
+    if (pixelRatio === 1) return;
+    var oldWidth = canvas.width;
+    var oldHeight = canvas.height;
+    canvas.width = oldWidth * pixelRatio;
+    canvas.height = oldHeight * pixelRatio;
+    canvas.style.width = oldWidth + 'px';
+    canvas.style.height = oldHeight + 'px';
+    canvas.getContext('2d').scale(pixelRatio, pixelRatio);
+}
+
+function showErrorMessage(message) {
+    var el = document.getElementById('message');
+    if (!message || message.trim().length === 0) {
+        el.style.display = 'none';
+    } else {
+        el.style.display = 'block';
+    }
+    el.innerHTML = message;
+}
+
+function pathCommandToString(cmd) {
+    var str = '<strong>' + cmd.type + '</strong> ' +
+        ((cmd.x !== undefined) ? 'x=' + cmd.x + ' y=' + cmd.y + ' ' : '') +
+        ((cmd.x1 !== undefined) ? 'x1=' + cmd.x1 + ' y1=' + cmd.y1 + ' ' : '') +
+        ((cmd.x2 !== undefined) ? 'x2=' + cmd.x2 + ' y2=' + cmd.y2 : '');
+    return str;
+}
+
+function contourToString(contour) {
+    return '<pre class="contour">' + contour.map(function (point) {
+        return '<span class="' + (point.onCurve ? 'on' : 'off') + 'curve">x=' + point.x + ' y=' + point.y + '</span>';
+    }).join('\n') + '</pre>';
+}
+
+function formatUnicode(unicode) {
+    unicode = unicode.toString(16);
+    if (unicode.length > 4) {
+        return ("000000" + unicode.toUpperCase()).substr(-6)
+    } else {
+        return ("0000" + unicode.toUpperCase()).substr(-4)
+    }
+}
+
+function unicode2Char(unicodeStr, formatType = 0) {
+    var s = String.fromCharCode(parseInt(unicodeStr, 16));
+
+    // 1 路径，替换斜杠和冒号
+    if (formatType == 1) {
+        // CR LF 换行
+        if (unicodeStr == "000D" || unicodeStr == "000A") {
+            return "";
+        }
+        return s.replace("/", "")
+            .replace("\\", "")
+            .replace(":", "");
+    }
+    // 2 csv, 替换逗号和单个双引号
+    else if (formatType == 2) {
+        // CR LF 换行
+        if (unicodeStr == "000D" || unicodeStr == "000A") {
+            return "";
+        }
+        return s.replace(",", "")
+            .replace('"', "");
+    }
+    else {
+        return s;
+    }
+}
+
+function displayGlyphData(glyphIndex) {
+    if (glyphIndex < 0) {
+        return;
+    }
+
+    const font = window.font;
+    fontData.glyphIndex = glyphIndex;
+    var glyph = font.glyphs.get(glyphIndex);
+
+    var igSN = document.getElementById("glyph-sn"),
+        igName = document.getElementById("input-name"),
+        igChar = document.getElementById("input-char"),
+        igXMin = document.getElementById("input-xmin"),
+        igXMax = document.getElementById("input-xmax"),
+        igYMin = document.getElementById("input-ymin"),
+        igYMax = document.getElementById("input-ymax"),
+        igWidth = document.getElementById("input-width"),
+        igBearing = document.getElementById("input-bearing"),
+        copyName = document.getElementById("copy-name"),
+        copyChar = document.getElementById("copy-char");
+
+    igSN.value = glyph.index + 1;
+    igName.value = getValueDesc(glyph.name);
+    copyName.disabled = igName.value == "" ? true : false;
+
+    if (glyph.unicodes.length > 0) {
+        var unicodeStr = glyph.unicodes.map(formatUnicode).join(', ');
+        igChar.value = unicode2Char(unicodeStr);
+        copyChar.disabled = false;
+    } else {
+        igChar.value = "";
+        copyChar.disabled = true;
+    }
+    showUnicode();
+
+    igXMin.value = getValueDesc(glyph.xMin);
+    igXMax.value = getValueDesc(glyph.xMax);
+    igYMin.value = getValueDesc(glyph.yMin);
+    igYMax.value = getValueDesc(glyph.yMax);
+    igWidth.value = getValueDesc(glyph.advanceWidth);
+    igBearing.value = getValueDesc(glyph.leftSideBearing);
+
+    var html = "";
+    if (glyph.numberOfContours > 0) {
+        var contours = glyph.getContours();
+        html += '<span class="text-muted mx-2" style="margin-left:20px ">轮廓:</span><div id="glyph-contours">' + contours.map(contourToString).join('\n') + '</div>';
+    } else if (glyph.isComposite) {
+        html += '<span class="text-muted mx-2" style="margin-left:20px ">复合字形:</span><ul><li>' +
+            glyph.components.map(function (component) {
+                if (component.matchedPoints === undefined) {
+                    return 'glyph ' + component.glyphIndex + ' at dx=' + component.dx + ', dy=' + component.dy;
+                } else {
+                    return 'glyph ' + component.glyphIndex + ' at matchedPoints=[' + component.matchedPoints + ']';
+                }
+            }).join('</li><li>') + '</li></ul>';
+    } else if (glyph.path) {
+        html += '<span class="text-muted mx-2" style="margin-left:20px ">路径:</span><pre>  ' + glyph.path.commands.map(pathCommandToString).join('\n  ') + '\n</pre>';
+    }
+    document.getElementById('path-data').innerHTML = html;
+}
+
+document.getElementById("unicode-format").addEventListener("change", showUnicode);
+document.getElementById("unicode-case").addEventListener("change", showUnicode);
+
+function showUnicode() {
+    var valueEl = document.getElementById("input-unicode"),
+        copyUnicode = document.getElementById("copy-unicode"),
+        formatEl = document.getElementById("unicode-format"),
+        caseEl = document.getElementById("unicode-case");
+
+    var glyph = window.font.glyphs.get(fontData.glyphIndex);
+    if (glyph.unicodes.length > 0) {
+        var unicodeStr = glyph.unicodes.map(formatUnicode).join(', ');
+        var formatType = formatEl.value;
+        var caseType = caseEl.value;
+
+        // 转小写
+        if (caseType == "2") {
+            unicodeStr = unicodeStr.toLowerCase();
+        }
+
+        // 格式化
+        switch (formatType) {
+            case "1": unicodeStr = unicodeStr; break; // 4E00
+            case "2": unicodeStr = `U+${unicodeStr}`; break; // U+4E00
+            case "3": unicodeStr = unicodeToUtf8(glyph.unicode); break; // \xe4\xb8\x80
+            case "4": unicodeStr = `\\u${unicodeStr}`; break; // \u4E00
+            case "5": unicodeStr = `\\u{${unicodeStr}}`; break; // \u{4E00}
+            case "6": unicodeStr = `&#${glyph.unicode};`; break; // &#19968;
+            case "7": unicodeStr = `&#x${glyph.unicode.toString(16)};`; break; // &#x4e00;
+            default: break;
+        }
+
+        valueEl.value = unicodeStr;
+        valueEl.disabled = false;
+        copyUnicode.disabled = false;
+        formatEl.disabled = false;
+        caseEl.disabled = false;
+    } else {
+        valueEl.value = "";
+        valueEl.disabled = true;
+        copyUnicode.disabled = true;
+        formatEl.disabled = true;
+        caseEl.disabled = true;
+    }
+}
+
+function unicodeToUtf8(codePoint) {
+    const utf8Bytes = [];
+    const bytes = [];
+
+    if (codePoint < 0x80) {
+        bytes.push(codePoint);
+    } else if (codePoint < 0x800) {
+        bytes.push(0xc0 | (codePoint >> 6));
+        bytes.push(0x80 | (codePoint & 0x3f));
+    } else {
+        bytes.push(0xe0 | (codePoint >> 12));
+        bytes.push(0x80 | ((codePoint >> 6) & 0x3f));
+        bytes.push(0x80 | (codePoint & 0x3f));
+    }
+
+    for (let j = 0; j < bytes.length; j++) {
+        utf8Bytes.push(bytes[j].toString(16).padStart(2, '0'));
+    }
+
+    const utf8Sequence = "\\x" + utf8Bytes.join("\\x");
+    return utf8Sequence;
+}
+
+
+// 复制 名称、字符、unicode
+// document.getElementById("copy-name").addEventListener("click", copyInputValue);
+// document.getElementById("copy-char").addEventListener("click", copyInputValue);
+//
+//复制
+new ClipboardJS('#copy-name', {
+    text: function (trigger) {
+        var html = $("#input-name").val();
+        if (html) {
+            msgSuccess('复制成功');
+            return html;
+        } else {
+            return false;
+        }
+    }
+});
+//复制
+new ClipboardJS('#copy-char', {
+    text: function (trigger) {
+        var html = $("#input-char").val();
+        if (html) {
+            msgSuccess('复制成功');
+            return html;
+        } else {
+            return false;
+        }
+    }
+});
+//复制
+new ClipboardJS('#copy-unicode', {
+    text: function (trigger) {
+        var html = $("#input-unicode").val();
+        if (html) {
+            msgSuccess('复制成功');
+            return html;
+        } else {
+            return false;
+        }
+    }
+});
+// function copyInputValue(e) {
+//     var parentElement = e.target.parentElement;
+//     var v = parentElement.querySelector('input[type="text"]').value;
+//     if (v == "")
+//         return;
+//     copyToClipboard(v, `已复制`)
+// }
+// document.getElementById("copy-unicode").addEventListener("click", e => {
+//     var parentElement = e.target.parentElement;
+//     var v = document.getElementById("input-unicode").value;
+//     if (v == "")
+//         return;
+//     copyToClipboard(v, `已复制`)
+// });
+
+// 导出选中字形
+document.getElementById("export-svg").addEventListener("click", e => {
+    const font = window.font;
+    if (fontData.glyphIndex < 0) {
+        return;
+    }
+    var glyph = font.glyphs.get(fontData.glyphIndex);
+    const svgDocument = glyphs2SVG(glyph);
+    saveToTxt(svgDocument, getSVGFileName(glyph));
+});
+
+// 复制选中字形
+
+new ClipboardJS('#copy-svg', {
+    text: function (trigger) {
+        const font = window.font;
+        if (fontData.glyphIndex < 0) {
+            return;
+        }
+        var glyph = font.glyphs.get(fontData.glyphIndex);
+        var html = glyphs2SVG(glyph);
+        if (html) {
+            msgSuccess('复制成功');
+            return html;
+        } else {
+            return false;
+        }
+    }
+});
+document.getElementById("copy-svg").addEventListener("click", e => {
+    const font = window.font;
+    if (fontData.glyphIndex < 0) {
+        return;
+    }
+    var glyph = font.glyphs.get(fontData.glyphIndex);
+    const svgDocument = glyphs2SVG(glyph);
+
+});
+
+// 导出所有字形
+document.getElementById("export-all-svg").addEventListener("click", e => {
+    const font = window.font;
+
+    var zip = new JSZip();
+    for (let i = 0; i < font.glyphs.length; i++) {
+        var glyph = font.glyphs.get(i);
+        var svgDocument = glyphs2SVG(glyph);
+        var name = getSVGFileName(glyph);
+        zip.file(name, svgDocument);
+    }
+
+    zip.generateAsync({ type: 'blob' })
+        .then(function (content) {
+            const url = URL.createObjectURL(content);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = fontData.name + "_" + getTimeStr() + '.zip';
+            link.click();
+
+            URL.revokeObjectURL(url);
+        });
+});
+
+// 字形转svg
+function glyphs2SVG(glyph) {
+    const { x1, y1, x2, y2 } = glyph.getBoundingBox();
+    const w = x2 - x1;
+    const h = y2 - y1;
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="${x1} ${y1} ${w} ${h}">${glyph.toSVG()}</svg>`;
+}
+
+// 获得svg文件名
+function getSVGFileName(glyph) {
+    var unicodeStr = "";
+    var char = ""
+    if (glyph.unicodes.length > 0) {
+        unicodeStr = glyph.unicodes.map(formatUnicode).join(', ');
+        char = unicode2Char(unicodeStr, 1);
+        if (glyph.unicode == 0) {
+            unicodeStr = "0000"
+            char = ""
+        }
+    }
+    return `${glyph.index + 1}_${unicodeStr}_${char}_${getValueDesc(glyph.name)}.svg`;
+}
+
+
+// 返回 20231024_0953_59
+function getTimeStr() {
+    var currentDate = new Date();
+
+    var year = currentDate.getFullYear().toString();
+    var month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    var day = currentDate.getDate().toString().padStart(2, '0');
+
+    var hours = currentDate.getHours().toString().padStart(2, '0');
+    var minutes = currentDate.getMinutes().toString().padStart(2, '0');
+    var seconds = currentDate.getSeconds().toString().padStart(3, '0');
+
+    return year + month + day + '_' + hours + minutes + '_' + seconds;
+}
+
+// 导出 iconfont.css
+document.getElementById("export-css").addEventListener("click", e => {
+    var font = window.font;
+    // 读取各字形的css样式名
+    var cssNames = [];
+    for (let i = 0; i < font.glyphs.length; i++) {
+        const glyph = font.glyphs.glyphs[i];
+        if (glyph.name == "" || glyph.unicode == undefined) {
+            continue;
+        }
+        var unicodeStr = glyph.unicodes.map(formatUnicode).join(', ').toLowerCase();
+        cssNames.push(`.icon-${glyph.name}:before {\n  content: "\\${unicodeStr}";\n}`);
+    }
+
+    // 拼接css开头
+    var textToSave = `@font-face {
+font-family: "iconfont";
+src: url('iconfont.ttf?t=${Date.now()}') format('truetype');
+}
+
+.iconfont {
+font-family: "iconfont" !important;
+font-size: 16px;
+font-style: normal;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+${cssNames.join("\n\n")}
+`
+    // 保存
+    saveToTxt(textToSave, 'iconfont.css');
+});
+
+
+// 导出 csv
+document.getElementById("export-csv").addEventListener("click", e => {
+    var arr = [];
+    for (let i = 0; i < window.font.glyphs.length; i++) {
+        var glyph = window.font.glyphs.get(i);
+        arr.push(getCSVRow(glyph));
+    }
+    var textToSave = `序号,Unicode,字符,名称,字符集
+${arr.join("\n")}
+备注：由于csv格式限制，“字符”列里面删除了 英文逗号(002C)，英文双引号(0022)吗，CR换行符(000D)，LF换行符(000A)`;
+    saveToTxt(textToSave, 'charset.csv');
+});
+
+function getCSVRow(glyph) {
+    var unicodeStr = "";
+    var char = "";
+    var gbDesc = "";
+    if (glyph.unicodes.length > 0) {
+        unicodeStr = glyph.unicodes.map(formatUnicode).join(', ');
+        char = unicode2Char(unicodeStr, 2);
+
+        // unicode有多个值时，会用逗号隔开，因此导出csv时需要用双引号括起来
+        if (glyph.unicodes.length > 1) {
+            unicodeStr = '"' + unicodeStr + '"';
+        }
+        if (glyph.unicode == 0) {
+            unicodeStr = "0000"
+            char = ""
+        }
+        // 标记GB2312字符集
+        if (isUnicodeInGB2312("\\u" + unicodeStr)) {
+            gbDesc = "GB2312";
+            console.log(1);
+        }
+    }
+    var name = getValueDesc(glyph.name);
+
+    return `${glyph.index + 1},${unicodeStr},${char},${name},${gbDesc}`
+}
+
+function isUnicodeInGB2312(char) {
+    // A1A1－FEFE
+    // var pattern = /^[\\u4E00-\\u9FA5]+$/;
+    var pattern = /^[\\uA1A1-\\uFEFE]+$/;
+    return pattern.test(char);
+}
+
+// 保存为文本文件
+function saveToTxt(textToSave, downloadName = "1.txt") {
+    const blob = new Blob([textToSave], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = downloadName;
+    link.click();
+
+    URL.revokeObjectURL(url);
+}
+
+var arrowLength = 10,
+    arrowAperture = 4;
+
+function drawArrow(ctx, x1, y1, x2, y2) {
+    var dx = x2 - x1,
+        dy = y2 - y1,
+        segmentLength = Math.sqrt(dx * dx + dy * dy),
+        unitx = dx / segmentLength,
+        unity = dy / segmentLength,
+        basex = x2 - arrowLength * unitx,
+        basey = y2 - arrowLength * unity,
+        normalx = arrowAperture * unity,
+        normaly = -arrowAperture * unitx;
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(basex + normalx, basey + normaly);
+    ctx.lineTo(basex - normalx, basey - normaly);
+    ctx.lineTo(x2, y2);
+    ctx.closePath();
+    ctx.fill();
+}
+
+// 搜索
+document.getElementById("search").addEventListener("click", e => {
+    var v = document.getElementById("search-char").value;
+    if (v == "")
+        return;
+
+    var unicode = 0;
+    if (v.indexOf("\\u") == 0) {
+        // unicode搜索
+        unicode = parseInt(v.substr(2), 16);
+    }
+    else {
+        //字符搜索
+        // 只支持搜索一个字符
+        v = v[0];
+        unicode = v.charCodeAt(0).toString(10);
+    }
+
+    const font = window.font;
+    if (font == undefined)
+        return;
+
+    var index = -1;
+    for (let i = 0; i < font.glyphs.length; i++) {
+        const glyph = font.glyphs.glyphs[i];
+        if (glyph.unicode == unicode) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index == -1) {
+        alert("该字体不包含字符 " + v + " !");
+    } else {
+        pageSelected = Math.floor(index / cellCount);
+        generatePagination()
+        displayGlyph(index);
+        displayGlyphData(index);
+    }
+});
+
+function isASCII(str) {
+    for (let i = 0; i < str.length; i++) {
+        const code = str.charCodeAt(i);
+        if (code > 127) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// 绘制字符的 曲线控制点 和 箭头
+document.getElementById("draw-points").addEventListener("change", changeDrawOption);
+document.getElementById("draw-arrows").addEventListener("change", changeDrawOption);
+function changeDrawOption(e) {
+    fontData.drawPoints = document.getElementById("draw-points").checked;
+    fontData.drawArrows = document.getElementById("draw-arrows").checked;
+    displayGlyph(fontData.glyphIndex);
+}
+
+/**
+ * This function is Path.prototype.draw with an arrow
+ * at the end of each contour.
+ */
+function drawPathWithArrows(ctx, path) {
+    var i, cmd, x1, y1, x2, y2;
+    var arrows = [];
+    ctx.beginPath();
+    for (i = 0; i < path.commands.length; i += 1) {
+        cmd = path.commands[i];
+        if (cmd.type === 'M') {
+            if (x1 !== undefined) {
+                arrows.push([ctx, x1, y1, x2, y2]);
+            }
+            ctx.moveTo(cmd.x, cmd.y);
+        } else if (cmd.type === 'L') {
+            ctx.lineTo(cmd.x, cmd.y);
+            x1 = x2;
+            y1 = y2;
+        } else if (cmd.type === 'C') {
+            ctx.bezierCurveTo(cmd.x1, cmd.y1, cmd.x2, cmd.y2, cmd.x, cmd.y);
+            x1 = cmd.x2;
+            y1 = cmd.y2;
+        } else if (cmd.type === 'Q') {
+            ctx.quadraticCurveTo(cmd.x1, cmd.y1, cmd.x, cmd.y);
+            x1 = cmd.x1;
+            y1 = cmd.y1;
+        } else if (cmd.type === 'Z') {
+            arrows.push([ctx, x1, y1, x2, y2]);
+            ctx.closePath();
+        }
+        x2 = cmd.x;
+        y2 = cmd.y;
+    }
+    if (path.fill) {
+        ctx.fillStyle = path.fill;
+        ctx.fill();
+    }
+    if (path.stroke && fontData.drawArrows) {
+        ctx.strokeStyle = path.stroke;
+        ctx.lineWidth = path.strokeWidth;
+        ctx.stroke();
+    }
+    ctx.fillStyle = '#000000';
+
+    // 绘制箭头
+    if (fontData.drawArrows) {
+        arrows.forEach(function (arrow) {
+            drawArrow.apply(null, arrow);
+        });
+    }
+}
+
+function displayGlyph(glyphIndex) {
+    var canvas = document.getElementById('glyph'),
+        ctx = canvas.getContext('2d'),
+        width = canvas.width / pixelRatio,
+        height = canvas.height / pixelRatio;
+    ctx.clearRect(0, 0, width, height);
+    if (glyphIndex < 0) return;
+    var glyph = window.font.glyphs.get(glyphIndex),
+        glyphWidth = glyph.advanceWidth * glyphScale,
+        xmin = (width - glyphWidth) / 2,
+        xmax = (width + glyphWidth) / 2,
+        x0 = xmin,
+        markSize = 10;
+    window.glyph = glyph;
+
+    ctx.fillStyle = '#606060';
+    ctx.fillRect(xmin - markSize + 1, glyphBaseline, markSize, 1);
+    ctx.fillRect(xmin, glyphBaseline, 1, markSize);
+    ctx.fillRect(xmax, glyphBaseline, markSize, 1);
+    ctx.fillRect(xmax, glyphBaseline, 1, markSize);
+    ctx.textAlign = 'center';
+    ctx.fillText('0', xmin, glyphBaseline + markSize + 10);
+    ctx.fillText(glyph.advanceWidth, xmax, glyphBaseline + markSize + 10);
+
+    ctx.fillStyle = '#000000';
+    var path = glyph.getPath(x0, glyphBaseline, glyphSize);
+    path.fill = '#5E5E5E';
+    path.stroke = '#000000';
+    path.strokeWidth = 1.5;
+    drawPathWithArrows(ctx, path);
+    if (fontData.drawPoints) {
+        glyph.drawPoints(ctx, x0, glyphBaseline, glyphSize);
+    }
+}
+
+function renderGlyphItem(canvas, glyphIndex) {
+    var cellMarkSize = 8;
+    var ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, cellWidth, cellHeight);
+    if (glyphIndex >= window.font.numGlyphs) return;
+
+    ctx.fillStyle = '#606060';
+    ctx.font = '9px sans-serif';
+    ctx.fillText(glyphIndex + 1, 1, cellHeight - 1);
+    var glyph = window.font.glyphs.get(glyphIndex),
+        glyphWidth = glyph.advanceWidth * fontScale,
+        xmin = (cellWidth - glyphWidth) / 2,
+        xmax = (cellWidth + glyphWidth) / 2,
+        x0 = xmin;
+
+    ctx.fillStyle = '#a0a0a0';
+    ctx.fillRect(xmin - cellMarkSize + 1, fontBaseline, cellMarkSize, 1);
+    ctx.fillRect(xmin, fontBaseline, 1, cellMarkSize);
+    ctx.fillRect(xmax, fontBaseline, cellMarkSize, 1);
+    ctx.fillRect(xmax, fontBaseline, 1, cellMarkSize);
+
+    ctx.fillStyle = '#000000';
+    glyph.draw(ctx, x0, fontBaseline, fontSize);
+}
+
+function displayGlyphPage() {
+    var firstGlyph = pageSelected * cellCount;
+    for (var i = 0; i < cellCount; i++) {
+        renderGlyphItem(document.getElementById('g' + i), firstGlyph + i);
+    }
+}
+
+function initGlyphDisplay(font) {
+    var glyphBgCanvas = document.getElementById('glyph-bg'),
+        w = glyphBgCanvas.width / pixelRatio,
+        h = glyphBgCanvas.height / pixelRatio,
+        glyphW = w - glyphMargin * 2,
+        glyphH = h - glyphMargin * 2,
+        head = font.tables.head,
+        maxHeight = head.yMax - head.yMin,
+        ctx = glyphBgCanvas.getContext('2d');
+
+    glyphScale = Math.min(glyphW / (head.xMax - head.xMin), glyphH / maxHeight);
+    glyphSize = glyphScale * font.unitsPerEm;
+    glyphBaseline = glyphMargin + glyphH * head.yMax / maxHeight;
+
+    function hline(text, yunits) {
+        const ypx = glyphBaseline - yunits * glyphScale;
+        ctx.fillText(text, 2, ypx + 3);
+        ctx.fillRect(80, ypx, w, 1);
+    }
+
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = '#a0a0a0'; // #ee5c4f
+    hline('基准', 0);
+    hline('          yMax', font.tables.head.yMax);
+    hline('          yMin', font.tables.head.yMin);
+    hline('上升部', font.tables.hhea.ascender);
+    hline('下降部', font.tables.hhea.descender);
+    hline('排版升部', font.tables.os2.sTypoAscender);
+    hline('排版降部', font.tables.os2.sTypoDescender);
+
+
+    var obj = {};
+    if (font.names.hasOwnProperty("windows"))
+        obj = font.names["windows"];
+    else if (font.names.hasOwnProperty("macintosh"))
+        obj = font.names["macintosh"];
+    var vName = readZhPossible(obj["postScriptName"])
+    var vFamily = readZhPossible(obj["fontSubfamily"])
+    var vVersion = readZhPossible(obj["version"])
+
+    fontData.name = getFontZhName(font);
+
+    var fontTile = document.getElementById("font-title");
+    var fileName = document.getElementById("file-name");
+    var fontSum = document.getElementById("font-summary");
+
+    fontTile.innerText = `${fontData.name}`;
+    fileName.innerText = `${fontData.fileName}`;
+    fontSum.innerText = `${vName} · ${vFamily} · ${vVersion} · 共 ${font.numGlyphs} 个字符形`;
+
+    showFontInfo(font);
+}
+
+
+// 显示字体信息
+function showFontInfo(font) {
+    var langDict = {
+        postScriptName: "PostScript名称",
+        fontFamily: "字体家族名称",
+        designer: "设计师",
+        manufacturer: "生产商",
+        manufacturerURL: "生产商网址",
+        copyright: "版权描述",
+        license: "授权许可",
+        licenseURL: "授权许可网址",
+        trademark: "商标",
+        fullName: "全名",
+        description: "描述",
+        fontSubfamily: "样式名称",
+        version: "版本",
+        uniqueID: "唯一名称",
+    }
+
+    var row, td, th;
+    var table = document.getElementById('table');
+    table.innerHTML = '';
+
+    // name信息
+    ['unicode', 'macintosh', 'windows'].forEach(platform => {
+        var platformNames = (font.names ? font.names[platform] : null);
+
+        if (!platformNames) return;
+
+        row = table.insertRow();
+        th = document.createElement("th");
+        th.textContent = platform;
+        th.colSpan = 2;
+        th.style.textAlign = "center";
+        row.appendChild(th);
+
+        var properties = sortKeys(platformNames);
+        for (var i = 0; i < properties.length; i++) {
+            var property = properties[i];
+            var translations = platformNames[property];
+            var langs = sortKeys(translations);
+            var values = [];
+            for (var j = 0; j < langs.length; j++) {
+                var lang = langs[j];
+                var esclang = escapeHtml(lang);
+
+                values.push('<span class="label label-badge" style="margin-right: 10px">' + esclang + '</span>'
+                    + escapeHtml(translations[lang]) + '</span> ');
+            }
+
+            // 汉化名称
+            var keyName = escapeHtml(property);
+            if (langDict.hasOwnProperty(keyName)) {
+                keyName = langDict[keyName];
+            }
+
+            row = table.insertRow();
+            td = row.insertCell(0);
+            td.innerText = keyName;
+            td.style.whiteSpace = "nowrap";
+            td.style.textAlign = "right";
+            row.insertCell(1).innerHTML = values.join("<br>");
+        }
+    });
+
+    var moreDict = {
+        ascender: "上升部",
+        descender: "下降部",
+        defaultWidthX: "字形宽度",
+        numGlyphs: "字形数",
+        unitsPerEm: 'UPM值',
+        outlinesFormat: '轮廓形式',
+
+        numberOfHMetrics: '',
+        nominalWidthX: '',
+        gsubrsBias: '',
+        subrsBias: '',
+        isCIDFont: '',
+    }
+
+    row = table.insertRow();
+    th = document.createElement("th");
+    th.textContent = "更多";
+    th.colSpan = 2;
+    th.style.textAlign = "center";
+    row.appendChild(th);
+
+    for (let k in moreDict) {
+        if (!font.hasOwnProperty(k))
+            continue;
+
+        row = table.insertRow();
+        td = row.insertCell(0);
+        td.innerText = moreDict[k] != "" ? moreDict[k] : k;
+        td.style.whiteSpace = "nowrap";
+        td.style.textAlign = "right"
+        row.insertCell(1).innerText = font[k];
+    }
+}
+
+function sortKeys(dict) {
+    var keys = [];
+    for (var key in dict) {
+        keys.push(key);
+    }
+    keys.sort();
+    return keys;
+}
+
+function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\u0022/g, '&quot;')
+        .replace(/\u0027/g, '&#039;');
+}
+
+function getFontZhName(font) {
+    var obj = {};
+    if (font.names.hasOwnProperty("windows")) {
+        obj = font.names["windows"]
+    } else if (font.names.hasOwnProperty("macintosh")) {
+        obj = font.names["macintosh"]
+    } else {
+        return "";
+    }
+
+    if (obj.fullName.hasOwnProperty("zh")) {
+        return obj.fullName.zh
+    }
+    else if (obj.fullName.hasOwnProperty("en")) {
+        return obj.fullName.en
+    }
+
+    return ""
+}
+
+function readZhPossible(obj) {
+    if (obj == undefined)
+        return "";
+
+    if (obj.hasOwnProperty("zh"))
+        return obj["zh"]
+
+    if (obj.hasOwnProperty("en"))
+        return obj["en"]
+
+    var values = Object.values(obj);
+    if (values.length > 0)
+        return [0];
+    else
+        return "";
+}
+
+function onFontLoaded(font) {
+    window.font = font;
+
+    var w = cellWidth - cellMarginLeftRight * 2,
+        h = cellHeight - cellMarginTop - cellMarginBottom,
+        head = font.tables.head,
+        maxHeight = head.yMax - head.yMin;
+    fontScale = Math.min(w / (head.xMax - head.xMin), h / maxHeight);
+    fontSize = fontScale * font.unitsPerEm;
+    fontBaseline = cellMarginTop + h * head.yMax / maxHeight;
+
+    var numPages = Math.ceil(font.numGlyphs / cellCount);
+    pageTotal = numPages;
+    pageSelected = 0;
+    initGlyphDisplay(font);
+    generatePagination()
+    displayGlyph(0);
+    displayGlyphData(0);
+
+    renderText();
+}
+
+function renderText() {
+    const font = window.font;
+    if (!font) return;
+    const textToRender = form.textField.value;
+    var previewCtx = document.getElementById('preview').getContext('2d');
+    var options = {
+        kerning: form.kerning.checked,
+        hinting: form.hinting.checked,
+        features: {
+            liga: form.ligatures.checked,
+            rlig: form.ligatures.checked
+        }
+    };
+    previewCtx.clearRect(0, 0, 1140, 300);
+    const fontSize = +form.fontsize.value;
+    font.draw(previewCtx, textToRender, 0, 200, fontSize, options);
+    if (form.drawPoints.checked) {
+        font.drawPoints(previewCtx, textToRender, 0, 200, fontSize, options);
+    }
+    if (form.drawMetrics.checked) {
+        font.drawMetrics(previewCtx, textToRender, 0, 200, fontSize, options);
+    }
+}
+
+document.getElementById("page-prev").addEventListener("click", function () {
+    if (pageSelected > 0) {
+        pageSelected--;
+        generatePagination();
+    }
+});
+
+document.getElementById("page-next").addEventListener("click", function () {
+    if (pageSelected < pageTotal - 1) {
+        pageSelected++;
+        generatePagination();
+    }
+});
+
+// 生成分页组件
+function generatePagination() {
+    var ele = document.getElementById("page-input");
+    ele.max = pageTotal;
+    ele.value = pageSelected + 1;
+    document.getElementById("page-total").value = " / " + pageTotal + " 页";
+    displayGlyphPage();
+}
+
+// 跳转至 输入框事件
+document.getElementById("page-input").addEventListener("change", e => {
+    var num = parseInt(document.getElementById("page-input").value);
+    num = Math.max(1, num);
+    if (num > pageTotal)
+        num = pageTotal;
+    pageSelected = num - 1;
+    generatePagination();
+});
+
+// 改变单页字形数
+document.getElementById("page-select").addEventListener("change", e => {
+    cellCount = parseInt(e.target.value);
+    pageTotal = Math.ceil(window.font.numGlyphs / cellCount);
+    pageSelected = Math.floor(fontData.glyphIndex / cellCount);
+
+    document.getElementById('glyph-list').innerHTML = "";
+    prepareGlyphList();
+
+    generatePagination();
+});
+
+function getValueDesc(variable) {
+    if (typeof variable === 'undefined') {
+        return "";
+    } else {
+        return variable;
+    }
+}
+
+// 显示toast
+function showToast(msg) {
+    const toast = document.getElementById("toast");
+    toast.textContent = msg;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000);
+}
+
+// 复制到剪贴板
+// function copyToClipboard(text, msg) {
+//     navigator.clipboard.writeText(text)
+//         .then(() => {
+//             showToast(msg);
+//         })
+//         .catch((error) => {
+//             showToast("无法将文本复制到剪贴板:", error);
+//         });
+// }
+
+function cellSelect(event) {
+    if (!window.font) return;
+    var firstGlyphIndex = pageSelected * cellCount,
+        cellIndex = +event.target.id.substr(1),
+        glyphIndex = firstGlyphIndex + cellIndex;
+    if (glyphIndex < window.font.numGlyphs) {
+        displayGlyph(glyphIndex);
+        displayGlyphData(glyphIndex);
+    }
+}
+
+function prepareGlyphList() {
+    var marker = document.getElementById('glyph-list'),
+        parent = marker.parentElement;
+    for (var i = 0; i < cellCount; i++) {
+        var canvas = document.createElement('canvas');
+        canvas.width = cellWidth;
+        canvas.height = cellHeight;
+        canvas.className = 'item';
+        canvas.id = 'g' + i;
+        canvas.addEventListener('click', cellSelect, false);
+        // enableHighDPICanvas(canvas);
+        marker.appendChild(canvas)
+    }
+}
+
+const loadScript = (src) => new Promise((onload, onerror) => document.head.append(Object.assign(document.createElement('script'), { src, onload, onerror })));
+async function display(file, name) {
+    fontData.fileName = getFileName(name);
+    const isWoff2 = name.endsWith('.woff2');
+    if (isWoff2 && !window.Module) {
+        const wasmReady = new Promise((onRuntimeInitialized) => window.Module = { onRuntimeInitialized });
+        // await loadScript('https://unpkg.com/wawoff2@2.0.1/build/decompress_binding.js'); // wawoff2 is globaly loaded as 'Module'
+        await loadScript('/static/bejson/font/dist/decompress_binding.js'); // wawoff2 is globaly loaded as 'Module'
+        await wasmReady; // WASM has called our onRuntimeInitialized() resolver
+    }
+    try {
+        const data = await file.arrayBuffer();
+        onFontLoaded(opentype.parse(isWoff2 ? Module.decompress(data) : data));
+        showErrorMessage('');
+    } catch (err) {
+        showErrorMessage(err.toString());
+    }
+}
+
+function getFileName(filePath) {
+    var startIndex = filePath.lastIndexOf('/') + 1;
+    return filePath.substring(startIndex);
+}
+
+form.fontFile.onchange = function (e) {
+    if (e.target.files.length != 0) {
+        display(e.target.files[0], e.target.files[0].name);
+    }
+};
+
+enableHighDPICanvas('glyph-bg');
+enableHighDPICanvas('glyph');
+
+prepareGlyphList();
+
+// FontAwesome.otf
+// FiraSansMedium.woff
+const fontFileName = '/static/bejson/font/fonts/fontawesome-webfont-4.7.0.woff2';
+display(await fetch(fontFileName), fontFileName);

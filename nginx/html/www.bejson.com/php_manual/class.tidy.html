@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The tidy class-BeJSON.com</title><meta name="keywords" content="The tidy class"><meta name="description" content="An HTML node in an HTML file, as detected by tidy. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="tidy.examples.basic.html">« Tidy example</a></li>
+      <li style="float: right;"><a href="tidy.body.html">tidy::body »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.tidy.html">Tidy</a></li>
+    <li>The tidy class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.tidy">
+ <h1 class="title">The <span class="classname"><a class="classname" href="class.tidy.html">tidy</a></span> class</h1>
+ 
+ 
+ <div class="partintro"><p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL tidy &gt;= 0.5.2)</p>
+ 
+
+  <div class="section" id="tidy.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    An HTML node in an HTML file, as detected by tidy.
+   </p>
+  </div>
+
+ 
+  <div class="section" id="tidy.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">tidy</strong>
+     </span>
+     {</div>
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 属性 */</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span> <span class="type">string</span> <var class="varname"><a href="tidy.props.errorbuffer.html">$<var class="varname">errorBuffer</var></a></var>;</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.construct.html">__construct</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$filename</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$config</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$useIncludePath</code><span class="initializer"> = <strong><code>false</code></strong></span></span><br>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.body.html">body</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type tidyNode" href="class.tidynode.html">tidyNode</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.cleanrepair.html">cleanRepair</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.diagnose.html">diagnose</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="methodname"><strong>tidy_get_error_buffer</strong></span>(<span class="methodparam"><span class="type"><a class="type tidy" href="class.tidy.html">tidy</a></span> <code class="parameter">$tidy</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.getconfig.html">getConfig</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.gethtmlver.html">getHtmlVer</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.getopt.html">getOpt</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$option</code></span>): <span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">bool</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.getoptdoc.html">getOptDoc</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$option</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.getrelease.html">getRelease</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.getstatus.html">getStatus</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.head.html">head</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type tidyNode" href="class.tidynode.html">tidyNode</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.html.html">html</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type tidyNode" href="class.tidynode.html">tidyNode</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.isxhtml.html">isXhtml</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.isxml.html">isXml</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.parsefile.html">parseFile</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$config</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$useIncludePath</code><span class="initializer"> = <strong><code>false</code></strong></span></span><br>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="methodname"><strong>tidy_parse_file</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$config</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$useIncludePath</code><span class="initializer"> = <strong><code>false</code></strong></span></span><br>): <span class="type"><span class="type"><a class="type tidy" href="class.tidy.html">tidy</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.parsestring.html">parseString</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$config</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="methodname"><strong>tidy_parse_string</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$config</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type"><a class="type tidy" href="class.tidy.html">tidy</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="tidy.repairfile.html">repairFile</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$config</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$useIncludePath</code><span class="initializer"> = <strong><code>false</code></strong></span></span><br>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="tidy.repairstring.html">repairString</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$config</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="tidy.root.html">root</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type tidyNode" href="class.tidynode.html">tidyNode</a></span></span></div>
+
+   }</div>
+
+
+  </div>
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="tidy.body.html">tidy::body</a> — Returns a tidyNode object starting from the &lt;body&gt; tag of the tidy parse tree</li><li><a href="tidy.cleanrepair.html">tidy::cleanRepair</a> — Execute configured cleanup and repair operations on parsed markup</li><li><a href="tidy.construct.html">tidy::__construct</a> — Constructs a new tidy object</li><li><a href="tidy.diagnose.html">tidy::diagnose</a> — Run configured diagnostics on parsed and repaired markup</li><li><a href="tidy.props.errorbuffer.html">tidy::$errorBuffer</a> — Return warnings and errors which occurred parsing the specified document</li><li><a href="tidy.getconfig.html">tidy::getConfig</a> — Get current Tidy configuration</li><li><a href="tidy.gethtmlver.html">tidy::getHtmlVer</a> — Get the Detected HTML version for the specified document</li><li><a href="tidy.getopt.html">tidy::getOpt</a> — Returns the value of the specified configuration option for the tidy document</li><li><a href="tidy.getoptdoc.html">tidy::getOptDoc</a> — Returns the documentation for the given option name</li><li><a href="tidy.getrelease.html">tidy::getRelease</a> — Get release date (version) for Tidy library</li><li><a href="tidy.getstatus.html">tidy::getStatus</a> — Get status of specified document</li><li><a href="tidy.head.html">tidy::head</a> — Returns a tidyNode object starting from the &lt;head&gt; tag of the tidy parse tree</li><li><a href="tidy.html.html">tidy::html</a> — Returns a tidyNode object starting from the &lt;html&gt; tag of the tidy parse tree</li><li><a href="tidy.isxhtml.html">tidy::isXhtml</a> — Indicates if the document is a XHTML document</li><li><a href="tidy.isxml.html">tidy::isXml</a> — Indicates if the document is a generic (non HTML/XHTML) XML document</li><li><a href="tidy.parsefile.html">tidy::parseFile</a> — Parse markup in file or URI</li><li><a href="tidy.parsestring.html">tidy::parseString</a> — Parse a document stored in a string</li><li><a href="tidy.repairfile.html">tidy::repairFile</a> — Repair a file and return it as a string</li><li><a href="tidy.repairstring.html">tidy::repairString</a> — Repair a string using an optionally provided configuration file</li><li><a href="tidy.root.html">tidy::root</a> — Returns a tidyNode object representing the root of the tidy parse tree</li></ul>
+</div>
+</div></div></body></html>

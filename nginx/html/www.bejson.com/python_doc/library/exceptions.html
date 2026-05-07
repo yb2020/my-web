@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>内置异常-BeJSON.com</title><meta name="keywords" content="内置异常"><meta name="description" content="下面列出的内置异常可通过解释器或内置函数来生成。除非另有说明，它们都会具有一个提示导致错误详细原因的“关联值”。 这可以是一个字符串或由多个信息项（例如一个错误码和一个解释错误的字符串）组成的元组。 关联值通常会作为参数被传递给异常类的构造器。"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="文本处理服务" href="text.html" rel="next">
+    <link title="内置类型" href="stdtypes.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/exceptions.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">内置异常</a><ul>
+<li><a class="reference internal" href="#exception-context">Exception context</a></li>
+<li><a class="reference internal" href="#inheriting-from-built-in-exceptions">Inheriting from built-in exceptions</a></li>
+<li><a class="reference internal" href="#base-classes">基类</a></li>
+<li><a class="reference internal" href="#concrete-exceptions">具体异常</a><ul>
+<li><a class="reference internal" href="#os-exceptions">OS 异常</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#warnings">警告</a></li>
+<li><a class="reference internal" href="#exception-groups">Exception groups</a></li>
+<li><a class="reference internal" href="#exception-hierarchy">异常层次结构</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="stdtypes.html">内置类型</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="text.html">文本处理服务</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="文本处理服务" accesskey="N" href="text.html">下一页</a> |</li>
+        <li class="right">
+          <a title="内置类型" accesskey="P" href="stdtypes.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a accesskey="U" href="index.html">Python 标准库</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">内置异常</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="built-in-exceptions">
+<span id="bltin-exceptions"></span><h1>内置异常<a title="永久链接至标题" class="headerlink" href="#built-in-exceptions">¶</a></h1>
+<p id="index-0">在 Python 中，所有异常必须为一个派生自 <a title="BaseException" class="reference internal" href="#BaseException"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a> 的类的实例。 在带有提及一个特定类的 <a class="reference internal" href="../reference/compound_stmts.html#except"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> 子句的 <a class="reference internal" href="../reference/compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> 语句中，该子句也会处理任何派生自该类的异常类（但不处理 <em>它</em> 所派生出的异常类）。 通过子类化创建的两个不相关异常类永远是不等效的，既使它们具有相同的名称。</p>
+<p id="index-1">下面列出的内置异常可通过解释器或内置函数来生成。除非另有说明，它们都会具有一个提示导致错误详细原因的“关联值”。 这可以是一个字符串或由多个信息项（例如一个错误码和一个解释错误的字符串）组成的元组。 关联值通常会作为参数被传递给异常类的构造器。</p>
+<p>用户代码可以引发内置异常。 这可被用于测试异常处理程序或报告错误条件，“就像” 在解释器引发了相同异常的情况时一样；但是请注意，没有任何机制能防止用户代码引发不适当的错误。</p>
+<p>内置异常类可以被子类化以定义新的异常；鼓励程序员从 <a title="Exception" class="reference internal" href="#Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a> 类或它的某个子类而不是从 <a title="BaseException" class="reference internal" href="#BaseException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseException</span></code></a> 来派生新的异常。 关于定义异常的更多信息可以在 Python 教程的 <a class="reference internal" href="../tutorial/errors.html#tut-userexceptions"><span class="std std-ref">用户自定义异常</span></a> 部分查看。</p>
+<section id="exception-context">
+<h2>Exception context<a title="永久链接至标题" class="headerlink" href="#exception-context">¶</a></h2>
+<p>When raising a new exception while another exception
+is already being handled, the new exception's
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">__context__</span></code> attribute is automatically set to the handled
+exception.  An exception may be handled when an <a class="reference internal" href="../reference/compound_stmts.html#except"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> or
+<a class="reference internal" href="../reference/compound_stmts.html#finally"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">finally</span></code></a> clause, or a <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement, is used.</p>
+<p>This implicit exception context can be
+supplemented with an explicit cause by using <code class="xref std std-keyword docutils literal notranslate"><span class="pre">from</span></code> with
+<a class="reference internal" href="../reference/simple_stmts.html#raise"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code></a>:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="n">new_exc</span> <span class="kn">from</span> <span class="nn">original_exc</span>
+</pre></div>
+</div>
+<p>跟在 <a class="reference internal" href="../reference/simple_stmts.html#raise"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">from</span></code></a> 之后一表达式必须为一个异常或 <code class="docutils literal notranslate"><span class="pre">None</span></code>。 它将在所引发的异常上被设置为 <code class="xref py py-attr docutils literal notranslate"><span class="pre">__cause__</span></code>。 设置 <code class="xref py py-attr docutils literal notranslate"><span class="pre">__cause__</span></code> 还会隐式地将 <code class="xref py py-attr docutils literal notranslate"><span class="pre">__suppress_context__</span></code> 属性设为 <code class="docutils literal notranslate"><span class="pre">True</span></code>，这样使用 <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">new_exc</span> <span class="pre">from</span> <span class="pre">None</span></code> 可以有效地将旧异常替换为新异常来显示其目的 (例如将 <a title="KeyError" class="reference internal" href="#KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> 转换为 <a title="AttributeError" class="reference internal" href="#AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a>)，同时让旧异常在 <code class="xref py py-attr docutils literal notranslate"><span class="pre">__context__</span></code> 中保持可用状态以便在调试时进行内省。</p>
+<p>除了异常本身的回溯以外，默认的回溯还会显示这些串连的异常。 <code class="xref py py-attr docutils literal notranslate"><span class="pre">__cause__</span></code> 中的显式串连异常如果存在将总是显示。 <code class="xref py py-attr docutils literal notranslate"><span class="pre">__context__</span></code> 中的隐式串连异常仅在 <code class="xref py py-attr docutils literal notranslate"><span class="pre">__cause__</span></code> 为 <a title="None" class="reference internal" href="constants.html#None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> 并且 <code class="xref py py-attr docutils literal notranslate"><span class="pre">__suppress_context__</span></code> 为假值时显示。</p>
+<p>不论在哪种情况下，异常本身总会在任何串连异常之后显示，以便回溯的最后一行总是显示所引发的最后一个异常。</p>
+</section>
+<section id="inheriting-from-built-in-exceptions">
+<h2>Inheriting from built-in exceptions<a title="永久链接至标题" class="headerlink" href="#inheriting-from-built-in-exceptions">¶</a></h2>
+<p>User code can create subclasses that inherit from an exception type.
+It's recommended to only subclass one exception type at a time to avoid
+any possible conflicts between how the bases handle the <code class="docutils literal notranslate"><span class="pre">args</span></code>
+attribute, as well as due to possible memory layout incompatibilities.</p>
+<div class="impl-detail compound">
+<p><strong>CPython implementation detail:</strong> Most built-in exceptions are implemented in C for efficiency, see:
+<a class="reference external" href="">Objects/exceptions.c</a>.  Some have custom memory layouts
+which makes it impossible to create a subclass that inherits from
+multiple exception types. The memory layout of a type is an implementation
+detail and might change between Python versions, leading to new
+conflicts in the future.  Therefore, it's recommended to avoid
+subclassing multiple exception types altogether.</p>
+</div>
+</section>
+<section id="base-classes">
+<h2>基类<a title="永久链接至标题" class="headerlink" href="#base-classes">¶</a></h2>
+<p>下列异常主要被用作其他异常的基类。</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="BaseException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BaseException</span></span><a title="永久链接至目标" class="headerlink" href="#BaseException">¶</a></dt>
+<dd><p>所有内置异常的基类。 它不应该被用户自定义类直接继承 (这种情况请使用 <a title="Exception" class="reference internal" href="#Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a>)。 如果在此类的实例上调用 <a title="str" class="reference internal" href="stdtypes.html#str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a>，则会返回实例的参数表示，或者当没有参数时返回空字符串。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BaseException.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a title="永久链接至目标" class="headerlink" href="#BaseException.args">¶</a></dt>
+<dd><p>传给异常构造器的参数元组。 某些内置异常 (例如 <a title="OSError" class="reference internal" href="#OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>) 接受特定数量的参数并赋予此元组中的元素特殊的含义，而其他异常通常只接受一个给出错误信息的单独字符串。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BaseException.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tb</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#BaseException.with_traceback">¶</a></dt>
+<dd><p>此方法会将 <em>tb</em> 设为新的异常回溯信息并返回异常对象。 它在 <span class="target" id="index-18"></span><a class="pep reference external" href=""><strong>PEP 3134</strong></a> 的异常链特性可用之前更为常用。 下面的例子演示了我们如何将一个 <code class="docutils literal notranslate"><span class="pre">SomeException</span></code> 实例转换为 <code class="docutils literal notranslate"><span class="pre">OtherException</span></code> 实例而保留回溯信息。  异常一旦被引发，当前帧会被推至 <code class="docutils literal notranslate"><span class="pre">OtherException</span></code> 的回溯栈顶端，就像当我们允许原始 <code class="docutils literal notranslate"><span class="pre">SomeException</span></code> 被传播给调用方时它的回溯栈将会发生的情形一样。:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="o">...</span>
+<span class="k">except</span> <span class="n">SomeException</span><span class="p">:</span>
+    <span class="n">tb</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">raise</span> <span class="n">OtherException</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">tb</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BaseException.add_note">
+<span class="sig-name descname"><span class="pre">add_note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#BaseException.add_note">¶</a></dt>
+<dd><p>Add the string <code class="docutils literal notranslate"><span class="pre">note</span></code> to the exception's notes which appear in the standard
+traceback after the exception string. A <a title="TypeError" class="reference internal" href="#TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> is raised if <code class="docutils literal notranslate"><span class="pre">note</span></code>
+is not a string.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.11 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BaseException.__notes__">
+<span class="sig-name descname"><span class="pre">__notes__</span></span><a title="永久链接至目标" class="headerlink" href="#BaseException.__notes__">¶</a></dt>
+<dd><p>A list of the notes of this exception, which were added with <a title="BaseException.add_note" class="reference internal" href="#BaseException.add_note"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_note()</span></code></a>.
+This attribute is created when <a title="BaseException.add_note" class="reference internal" href="#BaseException.add_note"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_note()</span></code></a> is called.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.11 新版功能.</span></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="Exception">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Exception</span></span><a title="永久链接至目标" class="headerlink" href="#Exception">¶</a></dt>
+<dd><p>所有内置的非系统退出类异常都派生自此类。 所有用户自定义异常也应当派生自此类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ArithmeticError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ArithmeticError</span></span><a title="永久链接至目标" class="headerlink" href="#ArithmeticError">¶</a></dt>
+<dd><p>此基类用于派生针对各种算术类错误而引发的内置异常: <a title="OverflowError" class="reference internal" href="#OverflowError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OverflowError</span></code></a>, <a title="ZeroDivisionError" class="reference internal" href="#ZeroDivisionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a>, <a title="FloatingPointError" class="reference internal" href="#FloatingPointError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FloatingPointError</span></code></a>。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="BufferError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BufferError</span></span><a title="永久链接至目标" class="headerlink" href="#BufferError">¶</a></dt>
+<dd><p>当与 <a class="reference internal" href="../c-api/buffer.html#bufferobjects"><span class="std std-ref">缓冲区</span></a> 相关的操作无法执行时将被引发。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="LookupError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LookupError</span></span><a title="永久链接至目标" class="headerlink" href="#LookupError">¶</a></dt>
+<dd><p>此基类用于派生当映射或序列所使用的键或索引无效时引发的异常: <a title="IndexError" class="reference internal" href="#IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a>, <a title="KeyError" class="reference internal" href="#KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a>。 这可以通过 <a title="codecs.lookup" class="reference internal" href="codecs.html#codecs.lookup"><code class="xref py py-func docutils literal notranslate"><span class="pre">codecs.lookup()</span></code></a> 来直接引发。</p>
+</dd></dl>
+
+</section>
+<section id="concrete-exceptions">
+<h2>具体异常<a title="永久链接至标题" class="headerlink" href="#concrete-exceptions">¶</a></h2>
+<p>以下异常属于经常被引发的异常。</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="AssertionError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AssertionError</span></span><a title="永久链接至目标" class="headerlink" href="#AssertionError">¶</a></dt>
+<dd><p id="index-3">当 <a class="reference internal" href="../reference/simple_stmts.html#assert"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">assert</span></code></a> 语句失败时将被引发。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="AttributeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AttributeError</span></span><a title="永久链接至目标" class="headerlink" href="#AttributeError">¶</a></dt>
+<dd><p>当属性引用 (参见 <a class="reference internal" href="../reference/expressions.html#attribute-references"><span class="std std-ref">属性引用</span></a>) 或赋值失败时将被引发。 （当一个对象根本不支持属性引用或属性赋值时则将引发 <a title="TypeError" class="reference internal" href="#TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>。）</p>
+<p><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code> 和 <code class="xref py py-attr docutils literal notranslate"><span class="pre">obj</span></code> 属性可以使用构造器的仅限关键字参数来设置。 它们如果被设置则分别代表要尝试访问的属性名称以及所访问的该属性的对象。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.10 版更改: </span>增加了 <code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code> 和 <code class="xref py py-attr docutils literal notranslate"><span class="pre">obj</span></code> 属性。</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="EOFError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EOFError</span></span><a title="永久链接至目标" class="headerlink" href="#EOFError">¶</a></dt>
+<dd><p>当 <a title="input" class="reference internal" href="functions.html#input"><code class="xref py py-func docutils literal notranslate"><span class="pre">input()</span></code></a> 函数未读取任何数据即达到文件结束条件 (EOF) 时将被引发。 （另外，<code class="xref py py-meth docutils literal notranslate"><span class="pre">io.IOBase.read()</span></code> 和 <a title="io.IOBase.readline" class="reference internal" href="io.html#io.IOBase.readline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">io.IOBase.readline()</span></code></a> 方法在遇到 EOF 则将返回一个空字符串。）</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="FloatingPointError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FloatingPointError</span></span><a title="永久链接至目标" class="headerlink" href="#FloatingPointError">¶</a></dt>
+<dd><p>目前未被使用。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="GeneratorExit">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GeneratorExit</span></span><a title="永久链接至目标" class="headerlink" href="#GeneratorExit">¶</a></dt>
+<dd><p>当一个 <a class="reference internal" href="../glossary.html#term-generator"><span class="xref std std-term">generator</span></a> 或 <a class="reference internal" href="../glossary.html#term-coroutine"><span class="xref std std-term">coroutine</span></a> 被关闭时将被引发；参见 <a title="generator.close" class="reference internal" href="../reference/expressions.html#generator.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">generator.close()</span></code></a> 和 <a title="coroutine.close" class="reference internal" href="../reference/datamodel.html#coroutine.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">coroutine.close()</span></code></a>。 它直接继承自 <a title="BaseException" class="reference internal" href="#BaseException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseException</span></code></a> 而不是 <a title="Exception" class="reference internal" href="#Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a>，因为从技术上来说它并不是一个错误。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ImportError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ImportError</span></span><a title="永久链接至目标" class="headerlink" href="#ImportError">¶</a></dt>
+<dd><p>当 <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> 语句尝试加载模块遇到麻烦时将被引发。 并且当 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span></code> 中的 "from list" 存在无法找到的名称时也会被引发。</p>
+<p><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code> 与 <code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code> 属性可通过对构造器使用仅关键字参数来设定。 设定后它们将分别表示被尝试导入的模块名称与触发异常的任意文件所在路径。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.3 版更改: </span>添加了 <code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code> 与 <code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code> 属性。</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ModuleNotFoundError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ModuleNotFoundError</span></span><a title="永久链接至目标" class="headerlink" href="#ModuleNotFoundError">¶</a></dt>
+<dd><p><a title="ImportError" class="reference internal" href="#ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> 的子类，当一个模块无法被定位时将由 <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> 引发。 当在 <a title="sys.modules" class="reference internal" href="sys.html#sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a> 中找到 <code class="docutils literal notranslate"><span class="pre">None</span></code> 时也会被引发。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.6 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="IndexError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IndexError</span></span><a title="永久链接至目标" class="headerlink" href="#IndexError">¶</a></dt>
+<dd><p>当序列抽取超出范围时将被引发。 （切片索引会被静默截短到允许的范围；如果指定索引不是整数则 <a title="TypeError" class="reference internal" href="#TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> 会被引发。）</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="KeyError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">KeyError</span></span><a title="永久链接至目标" class="headerlink" href="#KeyError">¶</a></dt>
+<dd><p>当在现有键集合中找不到指定的映射（字典）键时将被引发。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="KeyboardInterrupt">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">KeyboardInterrupt</span></span><a title="永久链接至目标" class="headerlink" href="#KeyboardInterrupt">¶</a></dt>
+<dd><p>当用户按下中断键 (通常为 <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Control</kbd>-<kbd class="kbd docutils literal notranslate">C</kbd></kbd> 或 <kbd class="kbd docutils literal notranslate">Delete</kbd>) 时将被引发。 在执行期间，会定期检测中断信号。 该异常继承自 <a title="BaseException" class="reference internal" href="#BaseException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseException</span></code></a> 以确保不会被处理 <a title="Exception" class="reference internal" href="#Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a> 的代码意外捕获，这样可以避免退出解释器。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Catching a <a title="KeyboardInterrupt" class="reference internal" href="#KeyboardInterrupt"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a> requires special consideration.
+Because it can be raised at unpredictable points, it may, in some
+circumstances, leave the running program in an inconsistent state. It is
+generally best to allow <a title="KeyboardInterrupt" class="reference internal" href="#KeyboardInterrupt"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a> to end the program as
+quickly as possible or avoid raising it entirely. (See
+<a class="reference internal" href="signal.html#handlers-and-exceptions"><span class="std std-ref">Note on Signal Handlers and Exceptions</span></a>.)</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="MemoryError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MemoryError</span></span><a title="永久链接至目标" class="headerlink" href="#MemoryError">¶</a></dt>
+<dd><p>当一个操作耗尽内存但情况仍可（通过删除一些对象）进行挽救时将被引发。 关联的值是一个字符串，指明是哪种（内部）操作耗尽了内存。 请注意由于底层的内存管理架构（C 的 <code class="xref c c-func docutils literal notranslate"><span class="pre">malloc()</span></code> 函数），解释器也许并不总是能够从这种情况下完全恢复；但它毕竟可以引发一个异常，这样就能打印出栈回溯信息，以便找出导致问题的失控程序。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="NameError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NameError</span></span><a title="永久链接至目标" class="headerlink" href="#NameError">¶</a></dt>
+<dd><p>当某个局部或全局名称未找到时将被引发。 此异常仅用于非限定名称。 关联的值是一条错误信息，其中包含未找到的名称。</p>
+<p><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code> 属性可以使用构造器的仅限关键字参数来设置。 它如果被设置则代表要尝试访问的变量名称。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.10 版更改: </span>增加了 <code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code> 属性。</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="NotImplementedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NotImplementedError</span></span><a title="永久链接至目标" class="headerlink" href="#NotImplementedError">¶</a></dt>
+<dd><p>此异常派生自 <a title="RuntimeError" class="reference internal" href="#RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>。 在用户自定义的基类中，抽象方法应当在其要求所派生类重载该方法，或是在其要求所开发的类提示具体实现尚待添加时引发此异常。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>它不应当用来表示一个运算符或方法根本不能被支持 -- 在此情况下应当让特定运算符 / 方法保持未定义，或者在子类中将其设为 <a title="None" class="reference internal" href="constants.html#None"><code class="xref py py-data docutils literal notranslate"><span class="pre">None</span></code></a>。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code> 和 <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code> 不可互换，即使它们有相似的名称和用途。 请参阅 <a title="NotImplemented" class="reference internal" href="constants.html#NotImplemented"><code class="xref py py-data docutils literal notranslate"><span class="pre">NotImplemented</span></code></a> 了解有关何时使用它们的详细说明。</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="OSError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OSError</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#OSError">¶</a></dt>
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OSError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errno</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strerror</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">winerror</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">filename2</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span></dt>
+<dd><p id="index-4">此异常在一个系统函数返回系统相关的错误时将被引发，此类错误包括 I/O 操作失败例如 "文件未找到" 或 "磁盘已满" 等（不包括非法参数类型或其他偶然性错误）。</p>
+<p>构造器的第二种形式可设置如下所述的相应属性。 如果未指定这些属性则默认为 <a title="None" class="reference internal" href="constants.html#None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>。 为了能向下兼容，如果传入了三个参数，则 <a title="BaseException.args" class="reference internal" href="#BaseException.args"><code class="xref py py-attr docutils literal notranslate"><span class="pre">args</span></code></a> 属性将仅包含由前两个构造器参数组成的 2 元组。</p>
+<p>构造器实际返回的往往是 <a title="OSError" class="reference internal" href="#OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> 的某个子类，如下文 <a class="reference internal" href="#os-exceptions">OS exceptions</a> 中所描述的。 具体的子类取决于最终的 <a title="OSError.errno" class="reference internal" href="#OSError.errno"><code class="xref py py-attr docutils literal notranslate"><span class="pre">errno</span></code></a> 值。 此行为仅在直接或通过别名来构造 <a title="OSError" class="reference internal" href="#OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> 时发生，并且在子类化时不会被继承。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="OSError.errno">
+<span class="sig-name descname"><span class="pre">errno</span></span><a title="永久链接至目标" class="headerlink" href="#OSError.errno">¶</a></dt>
+<dd><p>来自于 C 变量 <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> 的数字错误码。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="OSError.winerror">
+<span class="sig-name descname"><span class="pre">winerror</span></span><a title="永久链接至目标" class="headerlink" href="#OSError.winerror">¶</a></dt>
+<dd><p>在 Windows 下，此参数将给出原生的 Windows 错误码。 而 <a title="OSError.errno" class="reference internal" href="#OSError.errno"><code class="xref py py-attr docutils literal notranslate"><span class="pre">errno</span></code></a> 属性将是该原生错误码在 POSIX 平台下的近似转换形式。</p>
+<p>在 Windows 下，如果 <em>winerror</em> 构造器参数是一个整数，则 <a title="OSError.errno" class="reference internal" href="#OSError.errno"><code class="xref py py-attr docutils literal notranslate"><span class="pre">errno</span></code></a> 属性会根据 Windows 错误码来确定，而 <em>errno</em> 参数会被忽略。 在其他平台上，<em>winerror</em> 参数会被忽略，并且 <a title="OSError.winerror" class="reference internal" href="#OSError.winerror"><code class="xref py py-attr docutils literal notranslate"><span class="pre">winerror</span></code></a> 属性将不存在。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="OSError.strerror">
+<span class="sig-name descname"><span class="pre">strerror</span></span><a title="永久链接至目标" class="headerlink" href="#OSError.strerror">¶</a></dt>
+<dd><p>操作系统所提供的相应错误信息。 它在 POSIX 平台中由 C 函数 <code class="xref c c-func docutils literal notranslate"><span class="pre">perror()</span></code> 来格式化，在 Windows 中则是由 <code class="xref c c-func docutils literal notranslate"><span class="pre">FormatMessage()</span></code>。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="OSError.filename">
+<span class="sig-name descname"><span class="pre">filename</span></span><a title="永久链接至目标" class="headerlink" href="#OSError.filename">¶</a></dt>
+<dt class="sig sig-object py" id="OSError.filename2">
+<span class="sig-name descname"><span class="pre">filename2</span></span><a title="永久链接至目标" class="headerlink" href="#OSError.filename2">¶</a></dt>
+<dd><p>对于与文件系统路径有关 (例如 <a title="open" class="reference internal" href="functions.html#open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> 或 <a title="os.unlink" class="reference internal" href="os.html#os.unlink"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.unlink()</span></code></a>) 的异常，<a title="OSError.filename" class="reference internal" href="#OSError.filename"><code class="xref py py-attr docutils literal notranslate"><span class="pre">filename</span></code></a> 是传给函数的文件名。 对于涉及两个文件系统路径的函数 (例如 <a title="os.rename" class="reference internal" href="os.html#os.rename"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.rename()</span></code></a>)，<a title="OSError.filename2" class="reference internal" href="#OSError.filename2"><code class="xref py py-attr docutils literal notranslate"><span class="pre">filename2</span></code></a> 将是传给函数的第二个文件名。</p>
+</dd></dl>
+
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.3 版更改: </span><a title="EnvironmentError" class="reference internal" href="#EnvironmentError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EnvironmentError</span></code></a>, <a title="IOError" class="reference internal" href="#IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a>, <a title="WindowsError" class="reference internal" href="#WindowsError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">WindowsError</span></code></a>, <a title="socket.error" class="reference internal" href="socket.html#socket.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">socket.error</span></code></a>, <a title="select.error" class="reference internal" href="select.html#select.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">select.error</span></code></a> 与 <code class="xref py py-exc docutils literal notranslate"><span class="pre">mmap.error</span></code> 已被合并到 <a title="OSError" class="reference internal" href="#OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>，构造器可能返回其中一个子类。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.4 版更改: </span><a title="OSError.filename" class="reference internal" href="#OSError.filename"><code class="xref py py-attr docutils literal notranslate"><span class="pre">filename</span></code></a> 属性现在是传给函数的原始文件名，而不是基于 <a class="reference internal" href="../glossary.html#term-filesystem-encoding-and-error-handler"><span class="xref std std-term">filesystem encoding and error handler</span></a> 进行编码或解码之后的名称。 此外，还添加了 <em>filename2</em> 构造器参数和属性。</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="OverflowError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OverflowError</span></span><a title="永久链接至目标" class="headerlink" href="#OverflowError">¶</a></dt>
+<dd><p>当算术运算的结果大到无法表示时将被引发。 这对整数来说不可能发生（宁可引发 <a title="MemoryError" class="reference internal" href="#MemoryError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">MemoryError</span></code></a> 也不会放弃尝试）。 但是出于历史原因，有时也会在整数超出要求范围的情况下引发 OverflowError。 因为在 C 中缺少对浮点异常处理的标准化，大多数浮点运算都不会做检查。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="RecursionError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RecursionError</span></span><a title="永久链接至目标" class="headerlink" href="#RecursionError">¶</a></dt>
+<dd><p>此异常派生自 <a title="RuntimeError" class="reference internal" href="#RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>。 它会在解释器检测发现超过最大递归深度 (参见 <a title="sys.getrecursionlimit" class="reference internal" href="sys.html#sys.getrecursionlimit"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.getrecursionlimit()</span></code></a>) 时被引发。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.5 新版功能: </span>在此之前将只引发 <a title="RuntimeError" class="reference internal" href="#RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>。</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ReferenceError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ReferenceError</span></span><a title="永久链接至目标" class="headerlink" href="#ReferenceError">¶</a></dt>
+<dd><p>此异常将在使用 <a title="weakref.proxy" class="reference internal" href="weakref.html#weakref.proxy"><code class="xref py py-func docutils literal notranslate"><span class="pre">weakref.proxy()</span></code></a> 函数所创建的弱引用来访问该引用的某个已被作为垃圾回收的属性时被引发。 有关弱引用的更多信息请参阅 <a title="weakref: Support for weak references and weak dictionaries." class="reference internal" href="weakref.html#module-weakref"><code class="xref py py-mod docutils literal notranslate"><span class="pre">weakref</span></code></a> 模块。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="RuntimeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RuntimeError</span></span><a title="永久链接至目标" class="headerlink" href="#RuntimeError">¶</a></dt>
+<dd><p>当检测到一个不归属于任何其他类别的错误时将被引发。 关联的值是一个指明究竟发生了什么问题的字符串。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="StopIteration">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StopIteration</span></span><a title="永久链接至目标" class="headerlink" href="#StopIteration">¶</a></dt>
+<dd><p>由内置函数 <a title="next" class="reference internal" href="functions.html#next"><code class="xref py py-func docutils literal notranslate"><span class="pre">next()</span></code></a> 和 <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> 的 <a title="iterator.__next__" class="reference internal" href="stdtypes.html#iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> 方法所引发，用来表示该迭代器不能产生下一项。</p>
+<p>该异常对象只有一个属性 <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code>，它在构造该异常时作为参数给出，默认值为 <a title="None" class="reference internal" href="constants.html#None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>。</p>
+<p>当一个 <a class="reference internal" href="../glossary.html#term-generator"><span class="xref std std-term">generator</span></a> 或 <a class="reference internal" href="../glossary.html#term-coroutine"><span class="xref std std-term">coroutine</span></a> 函数返回时，将引发一个新的 <a title="StopIteration" class="reference internal" href="#StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> 实例，函数返回的值将被用作异常构造器的 <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> 形参。</p>
+<p>如果某个生成器代码直接或间接地引发了 <a title="StopIteration" class="reference internal" href="#StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a>，它会被转换为 <a title="RuntimeError" class="reference internal" href="#RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> (并将 <a title="StopIteration" class="reference internal" href="#StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> 保留为导致新异常的原因)。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.3 版更改: </span>添加了 <code class="docutils literal notranslate"><span class="pre">value</span></code> 属性及其被生成器函数用作返回值的功能。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.5 版更改: </span>引入了通过 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">generator_stop</span></code> 来实现 RuntimeError 转换，参见 <span class="target" id="index-19"></span><a class="pep reference external" href=""><strong>PEP 479</strong></a>。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.7 版更改: </span>默认对所有代码启用 <span class="target" id="index-20"></span><a class="pep reference external" href=""><strong>PEP 479</strong></a>: 在生成器中引发的 <a title="StopIteration" class="reference internal" href="#StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> 错误将被转换为 <a title="RuntimeError" class="reference internal" href="#RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>。</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="StopAsyncIteration">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StopAsyncIteration</span></span><a title="永久链接至目标" class="headerlink" href="#StopAsyncIteration">¶</a></dt>
+<dd><p>必须由一个 <a class="reference internal" href="../glossary.html#term-asynchronous-iterator"><span class="xref std std-term">asynchronous iterator</span></a> 对象的 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__anext__()</span></code> 方法来引发以停止迭代操作。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.5 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="SyntaxError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SyntaxError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">details</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#SyntaxError">¶</a></dt>
+<dd><p>当解析器遇到语法错误时引发。 这可以发生在 <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> 语句，对内置函数 <a title="compile" class="reference internal" href="functions.html#compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a>, <a title="exec" class="reference internal" href="functions.html#exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> 或 <a title="eval" class="reference internal" href="functions.html#eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> 的调用，或是读取原始脚本或标准输入（也包括交互模式）的时候。</p>
+<p>异常实例的 <a title="str" class="reference internal" href="stdtypes.html#str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a> 只返回错误消息。 错误详情为一个元组，其成员也可在单独的属性中分别获取。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SyntaxError.filename">
+<span class="sig-name descname"><span class="pre">filename</span></span><a title="永久链接至目标" class="headerlink" href="#SyntaxError.filename">¶</a></dt>
+<dd><p>发生语法错误所在文件的名称。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SyntaxError.lineno">
+<span class="sig-name descname"><span class="pre">lineno</span></span><a title="永久链接至目标" class="headerlink" href="#SyntaxError.lineno">¶</a></dt>
+<dd><p>发生错误所在文件中的行号。  行号索引从 1 开始：文件中首行的 <code class="docutils literal notranslate"><span class="pre">lineno</span></code> 为 1。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SyntaxError.offset">
+<span class="sig-name descname"><span class="pre">offset</span></span><a title="永久链接至目标" class="headerlink" href="#SyntaxError.offset">¶</a></dt>
+<dd><p>发生错误所在文件中的列号。 列号索引从 1 开始：行中首个字符的 <code class="docutils literal notranslate"><span class="pre">offset</span></code> 为 1。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SyntaxError.text">
+<span class="sig-name descname"><span class="pre">text</span></span><a title="永久链接至目标" class="headerlink" href="#SyntaxError.text">¶</a></dt>
+<dd><p>错误所涉及的源代码文本。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SyntaxError.end_lineno">
+<span class="sig-name descname"><span class="pre">end_lineno</span></span><a title="永久链接至目标" class="headerlink" href="#SyntaxError.end_lineno">¶</a></dt>
+<dd><p>发生的错误在文件中的末尾行号。 这个索引是从 1 开始的：文件中首行的 <code class="docutils literal notranslate"><span class="pre">lineno</span></code> 为 1。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SyntaxError.end_offset">
+<span class="sig-name descname"><span class="pre">end_offset</span></span><a title="永久链接至目标" class="headerlink" href="#SyntaxError.end_offset">¶</a></dt>
+<dd><p>发生的错误在文件中的末尾列号。 这个索引是从 1 开始：行中首个字符的 <code class="docutils literal notranslate"><span class="pre">offset</span></code> 为 1。</p>
+</dd></dl>
+
+<p>对于 f-字符串字段中的错误，消息会带有 "f-string: " 前缀并且其位置是基于替换表达式构建的文本中的位置。 例如，编译 f'Bad {a b} field' 将产生这样的 args 属性: ('f-string: ...', ('', 1, 2, '(a b)n', 1, 5))。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.10 版更改: </span>增加了 <a title="SyntaxError.end_lineno" class="reference internal" href="#SyntaxError.end_lineno"><code class="xref py py-attr docutils literal notranslate"><span class="pre">end_lineno</span></code></a> 和 <a title="SyntaxError.end_offset" class="reference internal" href="#SyntaxError.end_offset"><code class="xref py py-attr docutils literal notranslate"><span class="pre">end_offset</span></code></a> 属性。</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="IndentationError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IndentationError</span></span><a title="永久链接至目标" class="headerlink" href="#IndentationError">¶</a></dt>
+<dd><p>与不正确的缩进相关的语法错误的基类。 这是 <a title="SyntaxError" class="reference internal" href="#SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> 的一个子类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="TabError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TabError</span></span><a title="永久链接至目标" class="headerlink" href="#TabError">¶</a></dt>
+<dd><p>当缩进包含对制表符和空格符不一致的使用时将被引发。 这是 <a title="IndentationError" class="reference internal" href="#IndentationError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndentationError</span></code></a> 的一个子类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="SystemError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SystemError</span></span><a title="永久链接至目标" class="headerlink" href="#SystemError">¶</a></dt>
+<dd><p>当解释器发现内部错误，但情况看起来尚未严重到要放弃所有希望时将被引发。 关联的值是一个指明发生了什么问题的字符串（表示为低层级的符号）。</p>
+<p>你应当将此问题报告给你所用 Python 解释器的作者或维护人员。 请确认报告 Python 解释器的版本号 (<code class="docutils literal notranslate"><span class="pre">sys.version</span></code>; 它也会在交互式 Python 会话开始时被打印出来)，具体的错误消息（异常所关联的值）以及可能触发该错误的程序源码。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="SystemExit">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SystemExit</span></span><a title="永久链接至目标" class="headerlink" href="#SystemExit">¶</a></dt>
+<dd><p>此异常由 <a title="sys.exit" class="reference internal" href="sys.html#sys.exit"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.exit()</span></code></a> 函数引发。 它继承自 <a title="BaseException" class="reference internal" href="#BaseException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseException</span></code></a> 而不是 <a title="Exception" class="reference internal" href="#Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a> 以确保不会被处理 <a title="Exception" class="reference internal" href="#Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a> 的代码意外捕获。 这允许此异常正确地向上传播并导致解释器退出。 如果它未被处理，则 Python 解释器就将退出；不会打印任何栈回溯信息。 构造器接受的可选参数与传递给 <a title="sys.exit" class="reference internal" href="sys.html#sys.exit"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.exit()</span></code></a> 的相同。 如果该值为一个整数，则它指明系统退出状态码（会传递给 C 的 <code class="xref c c-func docutils literal notranslate"><span class="pre">exit()</span></code> 函数）；如果该值为 <code class="docutils literal notranslate"><span class="pre">None</span></code>，则退出状态码为零；如果该值为其他类型（例如字符串），则会打印对象的值并将退出状态码设为一。</p>
+<p>对 <a title="sys.exit" class="reference internal" href="sys.html#sys.exit"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.exit()</span></code></a> 的调用会被转换为一个异常以便能执行清理处理程序 (<a class="reference internal" href="../reference/compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> 语句的 <a class="reference internal" href="../reference/compound_stmts.html#finally"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">finally</span></code></a> 子句)，并且使得调试器可以执行一段脚本而不必冒失去控制的风险。 如果绝对确实地需要立即退出（例如在调用 <a title="os.fork" class="reference internal" href="os.html#os.fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fork()</span></code></a> 之后的子进程中）则可使用 <a title="os._exit" class="reference internal" href="os.html#os._exit"><code class="xref py py-func docutils literal notranslate"><span class="pre">os._exit()</span></code></a>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="SystemExit.code">
+<span class="sig-name descname"><span class="pre">code</span></span><a title="永久链接至目标" class="headerlink" href="#SystemExit.code">¶</a></dt>
+<dd><p>传给构造器的退出状态码或错误信息（默认为 <code class="docutils literal notranslate"><span class="pre">None</span></code>。）</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="TypeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TypeError</span></span><a title="永久链接至目标" class="headerlink" href="#TypeError">¶</a></dt>
+<dd><p>当一个操作或函数被应用于类型不适当的对象时将被引发。 关联的值是一个字符串，给出有关类型不匹配的详情。</p>
+<p>此异常可以由用户代码引发，以表明尝试对某个对象进行的操作不受支持也不应当受支持。 如果某个对象应当支持给定的操作但尚未提供相应的实现，所要引发的适当异常应为 <a title="NotImplementedError" class="reference internal" href="#NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a>。</p>
+<p>传入参数的类型错误 (例如在要求 <a title="int" class="reference internal" href="functions.html#int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> 时却传入了 <a title="list" class="reference internal" href="stdtypes.html#list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>) 应当导致 <a title="TypeError" class="reference internal" href="#TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>，但传入参数的值错误 (例如传入要求范围之外的数值) 则应当导致 <a title="ValueError" class="reference internal" href="#ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="UnboundLocalError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UnboundLocalError</span></span><a title="永久链接至目标" class="headerlink" href="#UnboundLocalError">¶</a></dt>
+<dd><p>当在函数或方法中对某个局部变量进行引用，但该变量并未绑定任何值时将被引发。 此异常是 <a title="NameError" class="reference internal" href="#NameError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NameError</span></code></a> 的一个子类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="UnicodeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UnicodeError</span></span><a title="永久链接至目标" class="headerlink" href="#UnicodeError">¶</a></dt>
+<dd><p>当发生与 Unicode 相关的编码或解码错误时将被引发。 此异常是 <a title="ValueError" class="reference internal" href="#ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 的一个子类。</p>
+<p><a title="UnicodeError" class="reference internal" href="#UnicodeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnicodeError</span></code></a> 具有一些描述编码或解码错误的属性。 例如 <code class="docutils literal notranslate"><span class="pre">err.object[err.start:err.end]</span></code> 会给出导致编解码器失败的特定无效输入。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UnicodeError.encoding">
+<span class="sig-name descname"><span class="pre">encoding</span></span><a title="永久链接至目标" class="headerlink" href="#UnicodeError.encoding">¶</a></dt>
+<dd><p>引发错误的编码名称。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UnicodeError.reason">
+<span class="sig-name descname"><span class="pre">reason</span></span><a title="永久链接至目标" class="headerlink" href="#UnicodeError.reason">¶</a></dt>
+<dd><p>描述特定编解码器错误的字符串。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UnicodeError.object">
+<span class="sig-name descname"><span class="pre">object</span></span><a title="永久链接至目标" class="headerlink" href="#UnicodeError.object">¶</a></dt>
+<dd><p>编解码器试图要编码或解码的对象。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UnicodeError.start">
+<span class="sig-name descname"><span class="pre">start</span></span><a title="永久链接至目标" class="headerlink" href="#UnicodeError.start">¶</a></dt>
+<dd><p><a title="object" class="reference internal" href="functions.html#object"><code class="xref py py-attr docutils literal notranslate"><span class="pre">object</span></code></a> 中无效数据的开始位置索引。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UnicodeError.end">
+<span class="sig-name descname"><span class="pre">end</span></span><a title="永久链接至目标" class="headerlink" href="#UnicodeError.end">¶</a></dt>
+<dd><p><a title="object" class="reference internal" href="functions.html#object"><code class="xref py py-attr docutils literal notranslate"><span class="pre">object</span></code></a> 中无效数据的末尾位置索引（不含）。</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="UnicodeEncodeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UnicodeEncodeError</span></span><a title="永久链接至目标" class="headerlink" href="#UnicodeEncodeError">¶</a></dt>
+<dd><p>当在编码过程中发生与 Unicode 相关的错误时将被引发。 此异常是 <a title="UnicodeError" class="reference internal" href="#UnicodeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnicodeError</span></code></a> 的一个子类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="UnicodeDecodeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UnicodeDecodeError</span></span><a title="永久链接至目标" class="headerlink" href="#UnicodeDecodeError">¶</a></dt>
+<dd><p>当在解码过程中发生与 Unicode 相关的错误时将被引发。 此异常是 <a title="UnicodeError" class="reference internal" href="#UnicodeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnicodeError</span></code></a> 的一个子类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="UnicodeTranslateError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UnicodeTranslateError</span></span><a title="永久链接至目标" class="headerlink" href="#UnicodeTranslateError">¶</a></dt>
+<dd><p>在转写过程中发生与 Unicode 相关的错误时将被引发。 此异常是 <a title="UnicodeError" class="reference internal" href="#UnicodeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnicodeError</span></code></a> 的一个子类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ValueError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValueError</span></span><a title="永久链接至目标" class="headerlink" href="#ValueError">¶</a></dt>
+<dd><p>当操作或函数接收到具有正确类型但值不适合的参数，并且情况不能用更精确的异常例如 <a title="IndexError" class="reference internal" href="#IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a> 来描述时将被引发。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ZeroDivisionError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ZeroDivisionError</span></span><a title="永久链接至目标" class="headerlink" href="#ZeroDivisionError">¶</a></dt>
+<dd><p>当除法或取余运算的第二个参数为零时将被引发。 关联的值是一个字符串，指明操作数和运算的类型。</p>
+</dd></dl>
+
+<p>下列异常被保留以与之前的版本相兼容；从 Python 3.3 开始，它们都是 <a title="OSError" class="reference internal" href="#OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> 的别名。</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="EnvironmentError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EnvironmentError</span></span><a title="永久链接至目标" class="headerlink" href="#EnvironmentError">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="IOError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IOError</span></span><a title="永久链接至目标" class="headerlink" href="#IOError">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="WindowsError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">WindowsError</span></span><a title="永久链接至目标" class="headerlink" href="#WindowsError">¶</a></dt>
+<dd><p>限在 Windows 中可用。</p>
+</dd></dl>
+
+<section id="os-exceptions">
+<h3>OS 异常<a title="永久链接至标题" class="headerlink" href="#os-exceptions">¶</a></h3>
+<p>下列异常均为 <a title="OSError" class="reference internal" href="#OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> 的子类，它们将根据系统错误代码被引发。</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="BlockingIOError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BlockingIOError</span></span><a title="永久链接至目标" class="headerlink" href="#BlockingIOError">¶</a></dt>
+<dd><p>Raised when an operation would block on an object (e.g. socket) set
+for non-blocking operation.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.EAGAIN" class="reference internal" href="errno.html#errno.EAGAIN"><code class="xref py py-data docutils literal notranslate"><span class="pre">EAGAIN</span></code></a>, <a title="errno.EALREADY" class="reference internal" href="errno.html#errno.EALREADY"><code class="xref py py-data docutils literal notranslate"><span class="pre">EALREADY</span></code></a>,
+<a title="errno.EWOULDBLOCK" class="reference internal" href="errno.html#errno.EWOULDBLOCK"><code class="xref py py-data docutils literal notranslate"><span class="pre">EWOULDBLOCK</span></code></a> and <a title="errno.EINPROGRESS" class="reference internal" href="errno.html#errno.EINPROGRESS"><code class="xref py py-data docutils literal notranslate"><span class="pre">EINPROGRESS</span></code></a>.</p>
+<p>除了 <a title="OSError" class="reference internal" href="#OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> 已有的属性，<a title="BlockingIOError" class="reference internal" href="#BlockingIOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BlockingIOError</span></code></a> 还有一个额外属性：</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BlockingIOError.characters_written">
+<span class="sig-name descname"><span class="pre">characters_written</span></span><a title="永久链接至目标" class="headerlink" href="#BlockingIOError.characters_written">¶</a></dt>
+<dd><p>一个整数，表示在被阻塞前已写入到流的字符数。 当使用来自 <a title="io: Core tools for working with streams." class="reference internal" href="io.html#module-io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">io</span></code></a> 模块的带缓冲 I/O 类时此属性可用。</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ChildProcessError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ChildProcessError</span></span><a title="永久链接至目标" class="headerlink" href="#ChildProcessError">¶</a></dt>
+<dd><p>Raised when an operation on a child process failed.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.ECHILD" class="reference internal" href="errno.html#errno.ECHILD"><code class="xref py py-data docutils literal notranslate"><span class="pre">ECHILD</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ConnectionError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConnectionError</span></span><a title="永久链接至目标" class="headerlink" href="#ConnectionError">¶</a></dt>
+<dd><p>与连接相关问题的基类。</p>
+<p>其子类有 <a title="BrokenPipeError" class="reference internal" href="#BrokenPipeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BrokenPipeError</span></code></a>, <a title="ConnectionAbortedError" class="reference internal" href="#ConnectionAbortedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ConnectionAbortedError</span></code></a>, <a title="ConnectionRefusedError" class="reference internal" href="#ConnectionRefusedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ConnectionRefusedError</span></code></a> 和 <a title="ConnectionResetError" class="reference internal" href="#ConnectionResetError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ConnectionResetError</span></code></a>。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="BrokenPipeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BrokenPipeError</span></span><a title="永久链接至目标" class="headerlink" href="#BrokenPipeError">¶</a></dt>
+<dd><p>A subclass of <a title="ConnectionError" class="reference internal" href="#ConnectionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ConnectionError</span></code></a>, raised when trying to write on a
+pipe while the other end has been closed, or trying to write on a socket
+which has been shutdown for writing.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.EPIPE" class="reference internal" href="errno.html#errno.EPIPE"><code class="xref py py-data docutils literal notranslate"><span class="pre">EPIPE</span></code></a> and <a title="errno.ESHUTDOWN" class="reference internal" href="errno.html#errno.ESHUTDOWN"><code class="xref py py-data docutils literal notranslate"><span class="pre">ESHUTDOWN</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ConnectionAbortedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConnectionAbortedError</span></span><a title="永久链接至目标" class="headerlink" href="#ConnectionAbortedError">¶</a></dt>
+<dd><p>A subclass of <a title="ConnectionError" class="reference internal" href="#ConnectionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ConnectionError</span></code></a>, raised when a connection attempt
+is aborted by the peer.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.ECONNABORTED" class="reference internal" href="errno.html#errno.ECONNABORTED"><code class="xref py py-data docutils literal notranslate"><span class="pre">ECONNABORTED</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ConnectionRefusedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConnectionRefusedError</span></span><a title="永久链接至目标" class="headerlink" href="#ConnectionRefusedError">¶</a></dt>
+<dd><p>A subclass of <a title="ConnectionError" class="reference internal" href="#ConnectionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ConnectionError</span></code></a>, raised when a connection attempt
+is refused by the peer.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.ECONNREFUSED" class="reference internal" href="errno.html#errno.ECONNREFUSED"><code class="xref py py-data docutils literal notranslate"><span class="pre">ECONNREFUSED</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ConnectionResetError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConnectionResetError</span></span><a title="永久链接至目标" class="headerlink" href="#ConnectionResetError">¶</a></dt>
+<dd><p>A subclass of <a title="ConnectionError" class="reference internal" href="#ConnectionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ConnectionError</span></code></a>, raised when a connection is
+reset by the peer.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.ECONNRESET" class="reference internal" href="errno.html#errno.ECONNRESET"><code class="xref py py-data docutils literal notranslate"><span class="pre">ECONNRESET</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="FileExistsError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FileExistsError</span></span><a title="永久链接至目标" class="headerlink" href="#FileExistsError">¶</a></dt>
+<dd><p>Raised when trying to create a file or directory which already exists.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.EEXIST" class="reference internal" href="errno.html#errno.EEXIST"><code class="xref py py-data docutils literal notranslate"><span class="pre">EEXIST</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="FileNotFoundError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FileNotFoundError</span></span><a title="永久链接至目标" class="headerlink" href="#FileNotFoundError">¶</a></dt>
+<dd><p>Raised when a file or directory is requested but doesn't exist.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.ENOENT" class="reference internal" href="errno.html#errno.ENOENT"><code class="xref py py-data docutils literal notranslate"><span class="pre">ENOENT</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="InterruptedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InterruptedError</span></span><a title="永久链接至目标" class="headerlink" href="#InterruptedError">¶</a></dt>
+<dd><p>当系统调用被输入信号中断时将被引发。 对应于 <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.EINTR" class="reference internal" href="errno.html#errno.EINTR"><code class="xref py py-data docutils literal notranslate"><span class="pre">EINTR</span></code></a>。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.5 版更改: </span>当系统调用被某个信号中断时，Python 现在会重试系统调用，除非该信号的处理程序引发了其它异常 (原理参见 <span class="target" id="index-21"></span><a class="pep reference external" href=""><strong>PEP 475</strong></a>) 而不是引发 <a title="InterruptedError" class="reference internal" href="#InterruptedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InterruptedError</span></code></a>。</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="IsADirectoryError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IsADirectoryError</span></span><a title="永久链接至目标" class="headerlink" href="#IsADirectoryError">¶</a></dt>
+<dd><p>Raised when a file operation (such as <a title="os.remove" class="reference internal" href="os.html#os.remove"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.remove()</span></code></a>) is requested
+on a directory.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.EISDIR" class="reference internal" href="errno.html#errno.EISDIR"><code class="xref py py-data docutils literal notranslate"><span class="pre">EISDIR</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="NotADirectoryError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NotADirectoryError</span></span><a title="永久链接至目标" class="headerlink" href="#NotADirectoryError">¶</a></dt>
+<dd><p>Raised when a directory operation (such as <a title="os.listdir" class="reference internal" href="os.html#os.listdir"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.listdir()</span></code></a>) is requested on
+something which is not a directory.  On most POSIX platforms, it may also be
+raised if an operation attempts to open or traverse a non-directory file as if
+it were a directory.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.ENOTDIR" class="reference internal" href="errno.html#errno.ENOTDIR"><code class="xref py py-data docutils literal notranslate"><span class="pre">ENOTDIR</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="PermissionError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PermissionError</span></span><a title="永久链接至目标" class="headerlink" href="#PermissionError">¶</a></dt>
+<dd><p>Raised when trying to run an operation without the adequate access
+rights - for example filesystem permissions.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.EACCES" class="reference internal" href="errno.html#errno.EACCES"><code class="xref py py-data docutils literal notranslate"><span class="pre">EACCES</span></code></a> and <a title="errno.EPERM" class="reference internal" href="errno.html#errno.EPERM"><code class="xref py py-data docutils literal notranslate"><span class="pre">EPERM</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ProcessLookupError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ProcessLookupError</span></span><a title="永久链接至目标" class="headerlink" href="#ProcessLookupError">¶</a></dt>
+<dd><p>Raised when a given process doesn't exist.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.ESRCH" class="reference internal" href="errno.html#errno.ESRCH"><code class="xref py py-data docutils literal notranslate"><span class="pre">ESRCH</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="TimeoutError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TimeoutError</span></span><a title="永久链接至目标" class="headerlink" href="#TimeoutError">¶</a></dt>
+<dd><p>Raised when a system function timed out at the system level.
+Corresponds to <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> <a title="errno.ETIMEDOUT" class="reference internal" href="errno.html#errno.ETIMEDOUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">ETIMEDOUT</span></code></a>.</p>
+</dd></dl>
+
+<div class="versionadded">
+<p><span class="versionmodified added">3.3 新版功能: </span>添加了以上所有 <a title="OSError" class="reference internal" href="#OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> 的子类。</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<p><span class="target" id="index-22"></span><a class="pep reference external" href=""><strong>PEP 3151</strong></a> - 重写 OS 和 IO 异常的层次结构</p>
+</div>
+</section>
+</section>
+<section id="warnings">
+<span id="warning-categories-as-exceptions"></span><h2>警告<a title="永久链接至标题" class="headerlink" href="#warnings">¶</a></h2>
+<p>下列异常被用作警告类别；请参阅 <a class="reference internal" href="warnings.html#warning-categories"><span class="std std-ref">警告类别</span></a> 文档了解详情。</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="Warning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Warning</span></span><a title="永久链接至目标" class="headerlink" href="#Warning">¶</a></dt>
+<dd><p>警告类别的基类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="UserWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UserWarning</span></span><a title="永久链接至目标" class="headerlink" href="#UserWarning">¶</a></dt>
+<dd><p>用户代码所产生警告的基类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="DeprecationWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeprecationWarning</span></span><a title="永久链接至目标" class="headerlink" href="#DeprecationWarning">¶</a></dt>
+<dd><p>如果所发出的警告是针对其他 Python 开发者的，则以此作为与已弃用特性相关警告的基类。</p>
+<p>会被默认警告过滤器忽略，在 <code class="docutils literal notranslate"><span class="pre">__main__</span></code> 模块中的情况除外 (<span class="target" id="index-23"></span><a class="pep reference external" href=""><strong>PEP 565</strong></a>)。 启用 <a class="reference internal" href="devmode.html#devmode"><span class="std std-ref">Python 开发模式</span></a> 时会显示此警告。</p>
+<p>The deprecation policy is described in <span class="target" id="index-10"></span><a class="pep reference external" href=""><strong>PEP 387</strong></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="PendingDeprecationWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PendingDeprecationWarning</span></span><a title="永久链接至目标" class="headerlink" href="#PendingDeprecationWarning">¶</a></dt>
+<dd><p>对于已过时并预计在未来弃用，但目前尚未弃用的特性相关警告的基类。</p>
+<p>这个类很少被使用，因为针对未来可能的弃用发出警告的做法并不常见，而针对当前已有的弃用则推荐使用 <a title="DeprecationWarning" class="reference internal" href="#DeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a>。</p>
+<p>会被默认警告过滤器忽略。 启用 <a class="reference internal" href="devmode.html#devmode"><span class="std std-ref">Python 开发模式</span></a> 时会显示此警告。</p>
+<p>The deprecation policy is described in <span class="target" id="index-11"></span><a class="pep reference external" href=""><strong>PEP 387</strong></a>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="SyntaxWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SyntaxWarning</span></span><a title="永久链接至目标" class="headerlink" href="#SyntaxWarning">¶</a></dt>
+<dd><p>与模糊的语法相关的警告的基类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="RuntimeWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RuntimeWarning</span></span><a title="永久链接至目标" class="headerlink" href="#RuntimeWarning">¶</a></dt>
+<dd><p>与模糊的运行时行为相关的警告的基类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="FutureWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FutureWarning</span></span><a title="永久链接至目标" class="headerlink" href="#FutureWarning">¶</a></dt>
+<dd><p>如果所发出的警告是针对以 Python 所编写应用的最终用户的，则以此作为与已弃用特性相关警告的基类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ImportWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ImportWarning</span></span><a title="永久链接至目标" class="headerlink" href="#ImportWarning">¶</a></dt>
+<dd><p>与在模块导入中可能的错误相关的警告的基类。</p>
+<p>会被默认警告过滤器忽略。 启用 <a class="reference internal" href="devmode.html#devmode"><span class="std std-ref">Python 开发模式</span></a> 时会显示此警告。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="UnicodeWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UnicodeWarning</span></span><a title="永久链接至目标" class="headerlink" href="#UnicodeWarning">¶</a></dt>
+<dd><p>与 Unicode 相关的警告的基类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="EncodingWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EncodingWarning</span></span><a title="永久链接至目标" class="headerlink" href="#EncodingWarning">¶</a></dt>
+<dd><p>与编码格式相关的警告的基类。</p>
+<p>请参阅 <a class="reference internal" href="io.html#io-encoding-warning"><span class="std std-ref">选择性的 EncodingWarning</span></a> 来了解详情。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.10 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="BytesWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BytesWarning</span></span><a title="永久链接至目标" class="headerlink" href="#BytesWarning">¶</a></dt>
+<dd><p>与 <a title="bytes" class="reference internal" href="stdtypes.html#bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> 和 <a title="bytearray" class="reference internal" href="stdtypes.html#bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> 相关的警告的基类。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ResourceWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ResourceWarning</span></span><a title="永久链接至目标" class="headerlink" href="#ResourceWarning">¶</a></dt>
+<dd><p>资源使用相关警告的基类。</p>
+<p>会被默认警告过滤器忽略。 启用 <a class="reference internal" href="devmode.html#devmode"><span class="std std-ref">Python 开发模式</span></a> 时会显示此警告。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.2 新版功能.</span></p>
+</div>
+</dd></dl>
+
+</section>
+<section id="exception-groups">
+<h2>Exception groups<a title="永久链接至标题" class="headerlink" href="#exception-groups">¶</a></h2>
+<p>The following are used when it is necessary to raise multiple unrelated
+exceptions. They are part of the exception hierarchy so they can be
+handled with <a class="reference internal" href="../reference/compound_stmts.html#except"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> like all other exceptions. In addition,
+they are recognised by <a class="reference internal" href="../reference/compound_stmts.html#except-star"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except*</span></code></a>, which matches
+their subgroups based on the types of the contained exceptions.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="ExceptionGroup">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ExceptionGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excs</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#ExceptionGroup">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="BaseExceptionGroup">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BaseExceptionGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excs</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#BaseExceptionGroup">¶</a></dt>
+<dd><p>Both of these exception types wrap the exceptions in the sequence <code class="docutils literal notranslate"><span class="pre">excs</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">msg</span></code> parameter must be a string. The difference between the two
+classes is that <a title="BaseExceptionGroup" class="reference internal" href="#BaseExceptionGroup"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseExceptionGroup</span></code></a> extends <a title="BaseException" class="reference internal" href="#BaseException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseException</span></code></a> and
+it can wrap any exception, while <a title="ExceptionGroup" class="reference internal" href="#ExceptionGroup"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ExceptionGroup</span></code></a> extends <a title="Exception" class="reference internal" href="#Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a>
+and it can only wrap subclasses of <a title="Exception" class="reference internal" href="#Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a>. This design is so that
+<code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception</span></code> catches an <a title="ExceptionGroup" class="reference internal" href="#ExceptionGroup"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ExceptionGroup</span></code></a> but not
+<a title="BaseExceptionGroup" class="reference internal" href="#BaseExceptionGroup"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseExceptionGroup</span></code></a>.</p>
+<p>The <a title="BaseExceptionGroup" class="reference internal" href="#BaseExceptionGroup"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseExceptionGroup</span></code></a> constructor returns an <a title="ExceptionGroup" class="reference internal" href="#ExceptionGroup"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ExceptionGroup</span></code></a>
+rather than a <a title="BaseExceptionGroup" class="reference internal" href="#BaseExceptionGroup"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseExceptionGroup</span></code></a> if all contained exceptions are
+<a title="Exception" class="reference internal" href="#Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a> instances, so it can be used to make the selection
+automatic. The <a title="ExceptionGroup" class="reference internal" href="#ExceptionGroup"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ExceptionGroup</span></code></a> constructor, on the other hand,
+raises a <a title="TypeError" class="reference internal" href="#TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> if any contained exception is not an
+<a title="Exception" class="reference internal" href="#Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a> subclass.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BaseExceptionGroup.message">
+<span class="sig-name descname"><span class="pre">message</span></span><a title="永久链接至目标" class="headerlink" href="#BaseExceptionGroup.message">¶</a></dt>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">msg</span></code> argument to the constructor. This is a read-only attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BaseExceptionGroup.exceptions">
+<span class="sig-name descname"><span class="pre">exceptions</span></span><a title="永久链接至目标" class="headerlink" href="#BaseExceptionGroup.exceptions">¶</a></dt>
+<dd><p>A tuple of the exceptions in the <code class="docutils literal notranslate"><span class="pre">excs</span></code> sequence given to the
+constructor. This is a read-only attribute.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BaseExceptionGroup.subgroup">
+<span class="sig-name descname"><span class="pre">subgroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#BaseExceptionGroup.subgroup">¶</a></dt>
+<dd><p>Returns an exception group that contains only the exceptions from the
+current group that match <em>condition</em>, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the result is empty.</p>
+<p>The condition can be either a function that accepts an exception and returns
+true for those that should be in the subgroup, or it can be an exception type
+or a tuple of exception types, which is used to check for a match using the
+same check that is used in an <code class="docutils literal notranslate"><span class="pre">except</span></code> clause.</p>
+<p>The nesting structure of the current exception is preserved in the result,
+as are the values of its <a title="BaseExceptionGroup.message" class="reference internal" href="#BaseExceptionGroup.message"><code class="xref py py-attr docutils literal notranslate"><span class="pre">message</span></code></a>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">__traceback__</span></code>,
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">__cause__</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">__context__</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">__notes__</span></code> fields.
+Empty nested groups are omitted from the result.</p>
+<p>The condition is checked for all exceptions in the nested exception group,
+including the top-level and any nested exception groups. If the condition is
+true for such an exception group, it is included in the result in full.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BaseExceptionGroup.split">
+<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#BaseExceptionGroup.split">¶</a></dt>
+<dd><p>Like <a title="BaseExceptionGroup.subgroup" class="reference internal" href="#BaseExceptionGroup.subgroup"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subgroup()</span></code></a>, but returns the pair <code class="docutils literal notranslate"><span class="pre">(match,</span> <span class="pre">rest)</span></code> where <code class="docutils literal notranslate"><span class="pre">match</span></code>
+is <code class="docutils literal notranslate"><span class="pre">subgroup(condition)</span></code> and <code class="docutils literal notranslate"><span class="pre">rest</span></code> is the remaining non-matching
+part.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BaseExceptionGroup.derive">
+<span class="sig-name descname"><span class="pre">derive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">excs</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#BaseExceptionGroup.derive">¶</a></dt>
+<dd><p>Returns an exception group with the same <a title="BaseExceptionGroup.message" class="reference internal" href="#BaseExceptionGroup.message"><code class="xref py py-attr docutils literal notranslate"><span class="pre">message</span></code></a>,
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">__traceback__</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">__cause__</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">__context__</span></code>
+and <code class="xref py py-attr docutils literal notranslate"><span class="pre">__notes__</span></code> but which wraps the exceptions in <code class="docutils literal notranslate"><span class="pre">excs</span></code>.</p>
+<p>This method is used by <a title="BaseExceptionGroup.subgroup" class="reference internal" href="#BaseExceptionGroup.subgroup"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subgroup()</span></code></a> and <a title="BaseExceptionGroup.split" class="reference internal" href="#BaseExceptionGroup.split"><code class="xref py py-meth docutils literal notranslate"><span class="pre">split()</span></code></a>. A
+subclass needs to override it in order to make <a title="BaseExceptionGroup.subgroup" class="reference internal" href="#BaseExceptionGroup.subgroup"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subgroup()</span></code></a>
+and <a title="BaseExceptionGroup.split" class="reference internal" href="#BaseExceptionGroup.split"><code class="xref py py-meth docutils literal notranslate"><span class="pre">split()</span></code></a> return instances of the subclass rather
+than <a title="ExceptionGroup" class="reference internal" href="#ExceptionGroup"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ExceptionGroup</span></code></a>.</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><span title="Hide the prompts and output" class="copybutton" style="border-radius: 0px 3px 0px 0px; border: 1px solid rgb(170, 204, 153); top: 0px; right: 0px; color: rgb(170, 204, 153); padding-right: 0.2em; padding-left: 0.2em; font-family: monospace; position: absolute; cursor: pointer;">&gt;&gt;&gt;</span><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyGroup</span><span class="p">(</span><span class="n">ExceptionGroup</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">derive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">MyGroup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MyGroup</span><span class="p">(</span><span class="s2">"eg"</span><span class="p">,</span> <span class="p">[</span><span class="ne">ValueError</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="ne">TypeError</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">)</span>
+<span class="go">(MyGroup('eg', [TypeError(2)]), MyGroup('eg', [ValueError(1)]))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Note that <a title="BaseExceptionGroup" class="reference internal" href="#BaseExceptionGroup"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseExceptionGroup</span></code></a> defines <code class="xref py py-meth docutils literal notranslate"><span class="pre">__new__()</span></code>, so
+subclasses that need a different constructor signature need to
+override that rather than <code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code>. For example, the following
+defines an exception group subclass which accepts an exit_code and
+and constructs the group's message from it.</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Errors</span><span class="p">(</span><span class="n">ExceptionGroup</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">exit_code</span><span class="p">):</span>
+      <span class="bp">self</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="n">Errors</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"exit code: </span><span class="si">{</span><span class="n">exit_code</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">exit_code</span> <span class="o">=</span> <span class="n">exit_code</span>
+      <span class="k">return</span> <span class="bp">self</span>
+
+   <span class="k">def</span> <span class="nf">derive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">excs</span><span class="p">):</span>
+      <span class="k">return</span> <span class="n">Errors</span><span class="p">(</span><span class="n">excs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">exit_code</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">3.11 新版功能.</span></p>
+</div>
+</dd></dl>
+
+</section>
+<section id="exception-hierarchy">
+<h2>异常层次结构<a title="永久链接至标题" class="headerlink" href="#exception-hierarchy">¶</a></h2>
+<p>内置异常的类层级结构如下：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BaseException
+ ├── BaseExceptionGroup
+ ├── GeneratorExit
+ ├── KeyboardInterrupt
+ ├── SystemExit
+ └── Exception
+      ├── ArithmeticError
+      │    ├── FloatingPointError
+      │    ├── OverflowError
+      │    └── ZeroDivisionError
+      ├── AssertionError
+      ├── AttributeError
+      ├── BufferError
+      ├── EOFError
+      ├── ExceptionGroup [BaseExceptionGroup]
+      ├── ImportError
+      │    └── ModuleNotFoundError
+      ├── LookupError
+      │    ├── IndexError
+      │    └── KeyError
+      ├── MemoryError
+      ├── NameError
+      │    └── UnboundLocalError
+      ├── OSError
+      │    ├── BlockingIOError
+      │    ├── ChildProcessError
+      │    ├── ConnectionError
+      │    │    ├── BrokenPipeError
+      │    │    ├── ConnectionAbortedError
+      │    │    ├── ConnectionRefusedError
+      │    │    └── ConnectionResetError
+      │    ├── FileExistsError
+      │    ├── FileNotFoundError
+      │    ├── InterruptedError
+      │    ├── IsADirectoryError
+      │    ├── NotADirectoryError
+      │    ├── PermissionError
+      │    ├── ProcessLookupError
+      │    └── TimeoutError
+      ├── ReferenceError
+      ├── RuntimeError
+      │    ├── NotImplementedError
+      │    └── RecursionError
+      ├── StopAsyncIteration
+      ├── StopIteration
+      ├── SyntaxError
+      │    └── IndentationError
+      │         └── TabError
+      ├── SystemError
+      ├── TypeError
+      ├── ValueError
+      │    └── UnicodeError
+      │         ├── UnicodeDecodeError
+      │         ├── UnicodeEncodeError
+      │         └── UnicodeTranslateError
+      └── Warning
+           ├── BytesWarning
+           ├── DeprecationWarning
+           ├── EncodingWarning
+           ├── FutureWarning
+           ├── ImportWarning
+           ├── PendingDeprecationWarning
+           ├── ResourceWarning
+           ├── RuntimeWarning
+           ├── SyntaxWarning
+           ├── UnicodeWarning
+           └── UserWarning
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">内置异常</a><ul>
+<li><a class="reference internal" href="#exception-context">Exception context</a></li>
+<li><a class="reference internal" href="#inheriting-from-built-in-exceptions">Inheriting from built-in exceptions</a></li>
+<li><a class="reference internal" href="#base-classes">基类</a></li>
+<li><a class="reference internal" href="#concrete-exceptions">具体异常</a><ul>
+<li><a class="reference internal" href="#os-exceptions">OS 异常</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#warnings">警告</a></li>
+<li><a class="reference internal" href="#exception-groups">Exception groups</a></li>
+<li><a class="reference internal" href="#exception-hierarchy">异常层次结构</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="stdtypes.html">内置类型</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="text.html">文本处理服务</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="文本处理服务" href="text.html">下一页</a> |</li>
+        <li class="right">
+          <a title="内置类型" href="stdtypes.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">内置异常</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

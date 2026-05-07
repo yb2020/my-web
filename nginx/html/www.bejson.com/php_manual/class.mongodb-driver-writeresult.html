@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoDB\Driver\WriteResult class-BeJSON.com</title><meta name="keywords" content="The MongoDB\Driver\WriteResult class"><meta name="description" content="The MongoDB\Driver\WriteResult class encapsulates information about an executed MongoDB\Driver\BulkWrite and may be returned by MongoDB\Driver\Manager">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mongodb-driver-writeerror.getmessage.html">« MongoDB\Driver\WriteError::getMessage</a></li>
+      <li style="float: right;"><a href="mongodb-driver-writeresult.getdeletedcount.html">MongoDB\Driver\WriteResult::getDeletedCount »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mongodb.html">MongoDB\Driver</a></li>
+    <li>The MongoDB\Driver\WriteResult class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.mongodb-driver-writeresult">
+
+ <h1 class="title">The MongoDB\Driver\WriteResult class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(mongodb &gt;=1.0.0)</p>
+
+
+  <div class="section" id="mongodb-driver-writeresult.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    The <span class="classname"><strong class="classname">MongoDB\Driver\WriteResult</strong></span> class encapsulates
+    information about an executed
+    <span class="classname"><a class="classname" href="class.mongodb-driver-bulkwrite.html">MongoDB\Driver\BulkWrite</a></span> and may be returned by
+    <span class="methodname"><a class="methodname" href="mongodb-driver-manager.executebulkwrite.html">MongoDB\Driver\Manager::executeBulkWrite()</a></span>.
+
+   </p>
+  </div>
+
+
+  <div class="section" id="mongodb-driver-writeresult.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="modifier">final</span>
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">MongoDB\Driver\WriteResult</strong>
+     </span>
+     {</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="mongodb-driver-writeresult.getdeletedcount.html">getDeletedCount</a></span>(): <span class="type"><span class="type">?</span><span class="type">int</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="mongodb-driver-writeresult.getinsertedcount.html">getInsertedCount</a></span>(): <span class="type"><span class="type">?</span><span class="type">int</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="mongodb-driver-writeresult.getmatchedcount.html">getMatchedCount</a></span>(): <span class="type"><span class="type">?</span><span class="type">int</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="mongodb-driver-writeresult.getmodifiedcount.html">getModifiedCount</a></span>(): <span class="type"><span class="type">?</span><span class="type">int</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="mongodb-driver-writeresult.getserver.html">getServer</a></span>(): <span class="type"><a class="type MongoDB\Driver\Server" href="class.mongodb-driver-server.html">MongoDB\Driver\Server</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="mongodb-driver-writeresult.getupsertedcount.html">getUpsertedCount</a></span>(): <span class="type"><span class="type">?</span><span class="type">int</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="mongodb-driver-writeresult.getupsertedids.html">getUpsertedIds</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="mongodb-driver-writeresult.getwriteconcernerror.html">getWriteConcernError</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type MongoDB\Driver\WriteConcernError" href="class.mongodb-driver-writeconcernerror.html">MongoDB\Driver\WriteConcernError</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="mongodb-driver-writeresult.getwriteerrors.html">getWriteErrors</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="mongodb-driver-writeresult.isacknowledged.html">isAcknowledged</a></span>(): <span class="type">bool</span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-driver-writeresult.getdeletedcount.html">MongoDB\Driver\WriteResult::getDeletedCount</a> — Returns the number of documents deleted</li><li><a href="mongodb-driver-writeresult.getinsertedcount.html">MongoDB\Driver\WriteResult::getInsertedCount</a> — Returns the number of documents inserted (excluding upserts)</li><li><a href="mongodb-driver-writeresult.getmatchedcount.html">MongoDB\Driver\WriteResult::getMatchedCount</a> — Returns the number of documents selected for update</li><li><a href="mongodb-driver-writeresult.getmodifiedcount.html">MongoDB\Driver\WriteResult::getModifiedCount</a> — Returns the number of existing documents updated</li><li><a href="mongodb-driver-writeresult.getserver.html">MongoDB\Driver\WriteResult::getServer</a> — Returns the server associated with this write result</li><li><a href="mongodb-driver-writeresult.getupsertedcount.html">MongoDB\Driver\WriteResult::getUpsertedCount</a> — Returns the number of documents inserted by an upsert</li><li><a href="mongodb-driver-writeresult.getupsertedids.html">MongoDB\Driver\WriteResult::getUpsertedIds</a> — Returns an array of identifiers for upserted documents</li><li><a href="mongodb-driver-writeresult.getwriteconcernerror.html">MongoDB\Driver\WriteResult::getWriteConcernError</a> — Returns any write concern error that occurred</li><li><a href="mongodb-driver-writeresult.getwriteerrors.html">MongoDB\Driver\WriteResult::getWriteErrors</a> — Returns any write errors that occurred</li><li><a href="mongodb-driver-writeresult.isacknowledged.html">MongoDB\Driver\WriteResult::isAcknowledged</a> — Returns whether the write was acknowledged</li></ul>
+</div>
+</div></div></body></html>

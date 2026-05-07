@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>shell 元字符转义-BeJSON.com</title><meta name="keywords" content="shell 元字符转义"><meta name="description" content="反斜线（\）会在以下字符之前插入： &amp;#;`|*?~<>^()[]{}$\, \x0A 和 \xFF。 ' 和 " "="" 字符都会被空格代替。="" !="" 和="" %="" 平台上，所有这些字符以及="" windows="" 在="" 仅在不配对儿的时候被转义。="">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.escapeshellarg.html">« escapeshellarg</a></li>
+      <li style="float: right;"><a href="function.exec.html">exec »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.exec.html">程序执行函数</a></li>
+    <li>shell 元字符转义</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.escapeshellcmd">
+ <div class="refnamediv">
+  <h1 class="refname">escapeshellcmd</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">escapeshellcmd</span> — <span class="dc-title">shell 元字符转义</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.escapeshellcmd-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>escapeshellcmd</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$command</code></span>): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>escapeshellcmd()</strong></span> 对字符串中可能会欺骗 
+   shell 命令执行任意命令的字符进行转义。
+   此函数保证用户输入的数据在传送到 
+   <span class="function"><a class="function" href="function.exec.html">exec()</a></span> 或
+   <span class="function"><a class="function" href="function.system.html">system()</a></span> 函数，或者 <a class="link" href="language.operators.execution.html">执行操作符</a> 之前进行转义。
+  </p>
+  <p class="para">
+    反斜线（\）会在以下字符之前插入：
+   <code class="literal">&amp;#;`|*?~&lt;&gt;^()[]{}$\</code>, <code class="literal">\x0A</code>
+   和 <code class="literal">\xFF</code>。 <code class="literal">'</code> 和 <code class="literal">"</code>
+   仅在不配对儿的时候被转义。
+   在 Windows 平台上，所有这些字符以及 <code class="literal">%</code> 和 <code class="literal">!</code> 字符都会被空格代替。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.escapeshellcmd-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">command</code></dt>
+
+     <dd>
+
+      <p class="para">
+        要转义的命令。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.escapeshellcmd-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   转义后的字符串。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.escapeshellcmd-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3253">
+    <p><strong>示例 #1 <span class="function"><strong>escapeshellcmd()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;我们故意允许任意数量的参数<br></span><span style="color: rgb(0, 0, 187);">$command&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'./configure&nbsp;'</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(0, 0, 187);">$_POST</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'configure_options'</span><span style="color: rgb(0, 119, 0);">];<br><br></span><span style="color: rgb(0, 0, 187);">$escaped_command&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">escapeshellcmd</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$command</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;<br></span><span style="color: rgb(0, 0, 187);">system</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$escaped_command</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.escapeshellcmd-notes">
+   <div class="warning"><strong class="warning">警告</strong>
+    <p class="para">
+     <span class="function"><strong>escapeshellcmd()</strong></span> 应被用在完整的命令字符串上。
+     即使如此，攻击者还是可以传入任意数量的参数。
+     请使用 <span class="function"><a class="function" href="function.escapeshellarg.html">escapeshellarg()</a></span> 函数
+     对单个参数进行转义。
+    </p>
+   </div>
+ </div>
+
+ 
+ <div class="refsect1 changelog" id="refsect1-function.escapeshellcmd-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.43, 5.5.27, 5.6.11</td>
+       <td>
+        感叹号会被空格所替换。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.escapeshellcmd-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.escapeshellarg.html" rel="rdfs-seeAlso">escapeshellarg()</a> - 把字符串转码为可以在 shell 命令里使用的参数</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.exec.html" rel="rdfs-seeAlso">exec()</a> - 执行一个外部程序</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.popen.html" rel="rdfs-seeAlso">popen()</a> - 打开进程文件指针</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.system.html" rel="rdfs-seeAlso">system()</a> - 执行外部程序，并且显示输出</span></li>
+    <li class="member"><a class="link" href="language.operators.execution.html">执行运算符</a></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

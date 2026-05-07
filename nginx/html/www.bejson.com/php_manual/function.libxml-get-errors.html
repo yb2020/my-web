@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Retrieve array of errors-BeJSON.com</title><meta name="keywords" content="Retrieve array of errors"><meta name="description" content="此函数没有参数。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.libxml-disable-entity-loader.html">« libxml_disable_entity_loader</a></li>
+      <li style="float: right;"><a href="function.libxml-get-last-error.html">libxml_get_last_error »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.libxml.html">libxml 函数</a></li>
+    <li>Retrieve array of errors</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.libxml-get-errors">
+ <div class="refnamediv">
+  <h1 class="refname">libxml_get_errors</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">libxml_get_errors</span> — <span class="dc-title">
+   Retrieve array of errors
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.libxml-get-errors-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>libxml_get_errors</strong></span>(): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   Retrieve array of errors.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.libxml-get-errors-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.libxml-get-errors-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns an array with <span class="type"><a class="type LibXMLError" href="class.libxmlerror.html">LibXMLError</a></span> objects if there are any
+   errors in the buffer, or an empty array otherwise.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.libxml-get-errors-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-5238">
+    <p><strong>示例 #1 A <span class="function"><strong>libxml_get_errors()</strong></span> example</strong></p>
+    <div class="example-contents"><p>
+     This example demonstrates how to build a simple libxml error handler.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>libxml_use_internal_errors</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$xmlstr&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;&lt;&lt;&lt;&nbsp;XML<br></span><span style="color: rgb(221, 0, 0);">&lt;?xml&nbsp;version='1.0'&nbsp;standalone='yes'?&gt;<br>&lt;movies&gt;<br>&nbsp;&lt;movie&gt;<br>&nbsp;&nbsp;&lt;titles&gt;PHP:&nbsp;Behind&nbsp;the&nbsp;Parser&lt;/title&gt;<br>&nbsp;&lt;/movie&gt;<br>&lt;/movies&gt;<br></span><span style="color: rgb(0, 119, 0);">XML;<br><br></span><span style="color: rgb(0, 0, 187);">$doc&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">simplexml_load_string</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xmlstr</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$xml&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">explode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$xmlstr</span><span style="color: rgb(0, 119, 0);">);<br><br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$doc&nbsp;</span><span style="color: rgb(0, 119, 0);">===&nbsp;</span><span style="color: rgb(0, 0, 187);">false</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$errors&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">libxml_get_errors</span><span style="color: rgb(0, 119, 0);">();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$errors&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">display_xml_error</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$xml</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">libxml_clear_errors</span><span style="color: rgb(0, 119, 0);">();<br>}<br><br><br>function&nbsp;</span><span style="color: rgb(0, 0, 187);">display_xml_error</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$xml</span><span style="color: rgb(0, 119, 0);">)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$return&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$xml</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">line&nbsp;</span><span style="color: rgb(0, 119, 0);">-&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$return&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(0, 0, 187);">str_repeat</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'-'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">column</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"^\n"</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;switch&nbsp;(</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">level</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(0, 0, 187);">LIBXML_ERR_WARNING</span><span style="color: rgb(0, 119, 0);">:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$return&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Warning&nbsp;</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">code</span><span style="color: rgb(221, 0, 0);">:&nbsp;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(0, 0, 187);">LIBXML_ERR_ERROR</span><span style="color: rgb(0, 119, 0);">:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$return&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Error&nbsp;</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">code</span><span style="color: rgb(221, 0, 0);">:&nbsp;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(0, 0, 187);">LIBXML_ERR_FATAL</span><span style="color: rgb(0, 119, 0);">:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$return&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Fatal&nbsp;Error&nbsp;</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">code</span><span style="color: rgb(221, 0, 0);">:&nbsp;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$return&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(0, 0, 187);">trim</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">message</span><span style="color: rgb(0, 119, 0);">)&nbsp;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n&nbsp;&nbsp;Line:&nbsp;</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">line</span><span style="color: rgb(221, 0, 0);">"&nbsp;</span><span style="color: rgb(0, 119, 0);">.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n&nbsp;&nbsp;Column:&nbsp;</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">column</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">file</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$return&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n&nbsp;&nbsp;File:&nbsp;</span><span style="color: rgb(0, 0, 187);">$error</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">file</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 0, 187);">$return</span><span style="color: rgb(221, 0, 0);">\n\n--------------------------------------------\n\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>  &lt;titles&gt;PHP: Behind the Parser&lt;/title&gt;
+----------------------------------------------^
+Fatal Error 76: Opening and ending tag mismatch: titles line 4 and title
+  Line: 4
+  Column: 46
+
+--------------------------------------------
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.libxml-get-errors-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.libxml-get-last-error.html" rel="rdfs-seeAlso">libxml_get_last_error()</a> - Retrieve last error from libxml</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.libxml-clear-errors.html" rel="rdfs-seeAlso">libxml_clear_errors()</a> - Clear libxml error buffer</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

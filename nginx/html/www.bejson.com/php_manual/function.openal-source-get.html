@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Retrieve an OpenAL source property-BeJSON.com</title><meta name="keywords" content="Retrieve an OpenAL source property"><meta name="description" content="An Open AL(Source) resource (previously created by openal_source_create()). ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.openal-source-destroy.html">« openal_source_destroy</a></li>
+      <li style="float: right;"><a href="function.openal-source-pause.html">openal_source_pause »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.openal.html">OpenAL 函数</a></li>
+    <li>Retrieve an OpenAL source property</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.openal-source-get">
+ <div class="refnamediv">
+  <h1 class="refname">openal_source_get</h1>
+  <p class="verinfo">(PECL openal &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">openal_source_get</span> — <span class="dc-title">
+   Retrieve an OpenAL source property
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.openal-source-get-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>openal_source_get</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$source</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$property</code></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.openal-source-get-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">source</code></dt>
+
+    <dd>
+
+     <p class="para">
+      An <a class="link" href="openal.resources.html">Open AL(Source)</a> resource
+      (previously created by <span class="function"><a class="function" href="function.openal-source-create.html">openal_source_create()</a></span>).
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">property</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Property to get, one of:
+      <strong><code>AL_SOURCE_RELATIVE</code></strong> (int),
+      <strong><code>AL_SOURCE_STATE</code></strong> (int),
+      <strong><code>AL_PITCH</code></strong> (float),
+      <strong><code>AL_GAIN</code></strong> (float),
+      <strong><code>AL_MIN_GAIN</code></strong> (float),
+      <strong><code>AL_MAX_GAIN</code></strong> (float),
+      <strong><code>AL_MAX_DISTANCE</code></strong> (float),
+      <strong><code>AL_ROLLOFF_FACTOR</code></strong> (float),
+      <strong><code>AL_CONE_OUTER_GAIN</code></strong> (float),
+      <strong><code>AL_CONE_INNER_ANGLE</code></strong> (float),
+      <strong><code>AL_CONE_OUTER_ANGLE</code></strong> (float),
+      <strong><code>AL_REFERENCE_DISTANCE</code></strong> (float),
+      <strong><code>AL_POSITION</code></strong> (array(float,float,float)),
+      <strong><code>AL_VELOCITY</code></strong> (array(float,float,float)),
+      <strong><code>AL_DIRECTION</code></strong> (array(float,float,float)).
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.openal-source-get-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns the type associated with the property being retrieved
+   或者在失败时返回 <strong><code>false</code></strong>.
+  </p>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.openal-source-get-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.openal-source-create.html" rel="rdfs-seeAlso">openal_source_create()</a> - Generate a source resource</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.openal-source-set.html" rel="rdfs-seeAlso">openal_source_set()</a> - Set source property</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.openal-source-play.html" rel="rdfs-seeAlso">openal_source_play()</a> - Start playing the source</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

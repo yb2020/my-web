@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Security consideration-BeJSON.com</title><meta name="keywords" content="Security consideration"><meta name="description" content="This extension needs administrator privileges for some actions such as create, delete, start, stop, pause and continue. This requirement can cause an ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="win32service.resources.html">« 资源类型</a></li>
+      <li style="float: right;"><a href="win32service.constants.html">预定义常量 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="win32service.setup.html">安装／配置</a></li>
+    <li>Security consideration</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="win32service.security">
+  <h1 class="title">Security consideration</h1>
+  <p class="para">
+   This extension needs administrator privileges for some actions such as 
+   <a class="link" href="function.win32-create-service.html">create</a>, 
+   <a class="link" href="function.win32-delete-service.html">delete</a>, 
+   <a class="link" href="function.win32-start-service.html">start</a>, 
+   <a class="link" href="function.win32-stop-service.html">stop</a>, 
+   <a class="link" href="function.win32-pause-service.html">pause</a> and 
+   <a class="link" href="function.win32-continue-service.html">continue</a>.
+   This requirement can cause an elevation of privileges if the service 
+   control is available from the web interface or remote control.
+  </p>
+  <p class="para">
+   You can set the ACL on the service after adding it into SCM to delegate the 
+   current administration tasks to an non administrator account or service account.
+   For further instructions, see the
+   <a class="link external" href="https://support.microsoft.com/en-us/help/914392/best-practices-and-guidance-for-writers-of-service-discretionary-acces">»&nbsp;Microsoft Knowledge Base</a>.
+  </p>
+ </div></div></div></body></html>

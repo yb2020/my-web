@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>简介-BeJSON.com</title><meta name="keywords" content="简介"><meta name="description" content="This extension allows the loading of shared libraries (.DLL or .so), calling of C functions and accessing of C data structures in pure PHP, without ha">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="book.ffi.html">« FFI</a></li>
+      <li style="float: right;"><a href="ffi.setup.html">安装／配置 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.ffi.html">FFI</a></li>
+    <li>简介</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="preface" id="intro.ffi">
+  <h1 class="title">简介</h1>
+  <p class="para">
+   This extension allows the loading of shared libraries (<var class="filename">.DLL</var> or 
+   <var class="filename">.so</var>), calling of C functions and accessing of C data structures
+   in pure PHP, without having to have deep knowledge of the Zend extension API, and
+   without having to learn a third “intermediate” language.
+   The public API is implemented as a single class <span class="classname"><a class="classname" href="class.ffi.html">FFI</a></span> with
+   several static methods (some of them may be called dynamically), and overloaded object
+   methods, which perform the actual interaction with C data.
+  </p>
+  <div class="caution"><strong class="caution">警告</strong>
+   <p class="para">
+    FFI is dangerous, since it allows to interface with the system on a very low level.
+    The FFI extension should only be used by developers having a working knowledge of C
+    and the used C APIs. To minimize the risk, the FFI API usage may be restricted
+    with the <a class="link" href="ffi.configuration.html#ini.ffi.enable">ffi.enable</a> <var class="filename">php.ini</var> directive.
+   </p>
+  </div>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    The FFI extension does not render the classic PHP extension API obsolete; it is merely
+    provided for ad-hoc interfacing with C functions and data structures.
+   </p>
+  <p></p></blockquote>
+  <div class="tip"><strong class="tip">小技巧</strong>
+   <p class="para">
+    Currently, accessing FFI data structures is significantly (about 2 times) slower
+    than accessing native PHP arrays and objects. Therefore, it makes no sense to use
+    the FFI extension for speed; however, it may make sense to use it to reduce memory
+    consumption.
+   </p>
+  </div>
+ </div></div></div></body></html>

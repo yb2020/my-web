@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns an array of identifiers for upserted documents-BeJSON.com</title><meta name="keywords" content="Returns an array of identifiers for upserted documents"><meta name="description" content="此函数没有参数。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mongodb-driver-writeresult.getupsertedcount.html">« MongoDB\Driver\WriteResult::getUpsertedCount</a></li>
+      <li style="float: right;"><a href="mongodb-driver-writeresult.getwriteconcernerror.html">MongoDB\Driver\WriteResult::getWriteConcernError »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-driver-writeresult.html">MongoDB\Driver\WriteResult</a></li>
+    <li>Returns an array of identifiers for upserted documents</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="mongodb-driver-writeresult.getupsertedids">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\Driver\WriteResult::getUpsertedIds</h1>
+  <p class="verinfo">(mongodb &gt;=1.0.0)</p><p class="refpurpose"><span class="refname">MongoDB\Driver\WriteResult::getUpsertedIds</span> — <span class="dc-title">Returns an array of identifiers for upserted documents</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongodb-driver-writeresult.getupsertedids-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\WriteResult::getUpsertedIds</strong></span>(): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongodb-driver-writeresult.getupsertedids-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-writeresult.getupsertedids-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns an array of identifiers (i.e. <code class="literal">"_id"</code> field values)
+   for upserted documents. The array keys will correspond to the index of the
+   write operation (from <span class="classname"><a class="classname" href="class.mongodb-driver-bulkwrite.html">MongoDB\Driver\BulkWrite</a></span>)
+   responsible for the upsert.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongodb-driver-writeresult.getupsertedids-errors">
+  <h3 class="title">错误／异常</h3>
+  <ul class="simplelist">
+   <li class="member">Throws <span class="classname"><a class="classname" href="class.mongodb-driver-exception-invalidargumentexception.html">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li>
+  </ul>
+ </div>
+
+
+
+ <div class="refsect1 examples" id="refsect1-mongodb-driver-writeresult.getupsertedids-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-1341">
+   <p><strong>示例 #1 <span class="function"><strong>MongoDB\Driver\WriteResult::getUpsertedIds()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$manager&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Manager</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$bulk&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">BulkWrite</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$bulk</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">insert</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">'x'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">$bulk</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">update</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">'x'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">],&nbsp;[</span><span style="color: rgb(221, 0, 0);">'$set'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;[</span><span style="color: rgb(221, 0, 0);">'y'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">]]);<br></span><span style="color: rgb(0, 0, 187);">$bulk</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">update</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">'x'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">],&nbsp;[</span><span style="color: rgb(221, 0, 0);">'$set'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;[</span><span style="color: rgb(221, 0, 0);">'y'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]],&nbsp;[</span><span style="color: rgb(221, 0, 0);">'upsert'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">$bulk</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">update</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">'x'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">],&nbsp;[</span><span style="color: rgb(221, 0, 0);">'$set'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;[</span><span style="color: rgb(221, 0, 0);">'y'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">]],&nbsp;[</span><span style="color: rgb(221, 0, 0);">'upsert'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">$bulk</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">delete</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">'x'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]);<br><br></span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$manager</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">executeBulkWrite</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'db.collection'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$bulk</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getUpsertedIds</span><span style="color: rgb(0, 119, 0);">());<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>array(2) {
+  [2]=&gt;
+  object(MongoDB\BSON\ObjectId)#4 (1) {
+    ["oid"]=&gt;
+    string(24) "580e62a224f2302f191b880b"
+  }
+  [3]=&gt;
+  object(MongoDB\BSON\ObjectId)#5 (1) {
+    ["oid"]=&gt;
+    string(24) "580e62a224f2302f191b880c"
+  }
+}
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+
+ <div class="refsect1 seealso" id="refsect1-mongodb-driver-writeresult.getupsertedids-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="methodname"><a class="methodname" href="mongodb-driver-writeresult.getupsertedcount.html" rel="rdfs-seeAlso">MongoDB\Driver\WriteResult::getUpsertedCount()</a> - Returns the number of documents inserted by an upsert</span></li>
+   <li class="member"><span class="methodname"><a class="methodname" href="mongodb-driver-writeresult.isacknowledged.html" rel="rdfs-seeAlso">MongoDB\Driver\WriteResult::isAcknowledged()</a> - Returns whether the write was acknowledged</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

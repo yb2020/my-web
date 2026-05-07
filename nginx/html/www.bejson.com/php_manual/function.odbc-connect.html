@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Connect to a datasource-BeJSON.com</title><meta name="keywords" content="Connect to a datasource"><meta name="description" content="The connection id returned by this functions is needed by other ODBC functions. You can have multiple connections open at once as long as they either ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.odbc-commit.html">« odbc_commit</a></li>
+      <li style="float: right;"><a href="function.odbc-cursor.html">odbc_cursor »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.uodbc.html">ODBC 函数</a></li>
+    <li>Connect to a datasource</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.odbc-connect">
+ <div class="refnamediv">
+  <h1 class="refname">odbc_connect</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">odbc_connect</span> — <span class="dc-title">Connect to a datasource</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.odbc-connect-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>odbc_connect</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$dsn</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$user</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$cursor_option</code><span class="initializer"> = <strong><code>SQL_CUR_USE_DRIVER</code></strong></span></span><br>): <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="simpara">
+   The connection id returned by this functions is needed by other
+   ODBC functions. You can have multiple connections open at once as long as
+   they either use different db or different credentials.
+  </p>
+  <p class="simpara">
+   With some ODBC drivers, executing a complex stored procedure may
+   fail with an error similar to: "Cannot open a cursor on a stored
+   procedure that has anything other than a single select statement
+   in it".  Using SQL_CUR_USE_ODBC may avoid that error. Also, some
+   drivers don't support the optional row_number parameter in
+   <span class="function"><a class="function" href="function.odbc-fetch-row.html">odbc_fetch_row()</a></span>. SQL_CUR_USE_ODBC might help
+   in that case, too.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.odbc-connect-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">dsn</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The database source name for the connection. Alternatively, a
+       DSN-less connection string can be used.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">user</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The username.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">password</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The password.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">cursor_option</code></dt>
+
+     <dd>
+
+      <p class="para">
+       This sets the type of cursor to be used
+       for this connection. This parameter is not normally needed, but
+       can be useful for working around problems with some ODBC drivers.
+      </p>
+      <span class="simpara">
+       The following constants are defined for cursortype:
+      </span>
+      <p class="para">
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          SQL_CUR_USE_IF_NEEDED
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          SQL_CUR_USE_ODBC
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          SQL_CUR_USE_DRIVER
+         </span>
+        </li>
+       </ul>
+      <p></p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.odbc-connect-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns an ODBC connection,  或者在失败时返回 <strong><code>false</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.odbc-connect-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-985">
+    <p><strong>示例 #1 DSN-less connections</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Microsoft&nbsp;SQL&nbsp;Server&nbsp;using&nbsp;the&nbsp;SQL&nbsp;Native&nbsp;Client&nbsp;10.0&nbsp;ODBC&nbsp;Driver&nbsp;-&nbsp;allows&nbsp;connection&nbsp;to&nbsp;SQL&nbsp;7,&nbsp;2000,&nbsp;2005&nbsp;and&nbsp;2008<br></span><span style="color: rgb(0, 0, 187);">$connection&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">odbc_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Driver={SQL&nbsp;Server&nbsp;Native&nbsp;Client&nbsp;10.0};Server=</span><span style="color: rgb(0, 0, 187);">$server</span><span style="color: rgb(221, 0, 0);">;Database=</span><span style="color: rgb(0, 0, 187);">$database</span><span style="color: rgb(221, 0, 0);">;"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$user</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$password</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Microsoft&nbsp;Access<br></span><span style="color: rgb(0, 0, 187);">$connection&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">odbc_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Driver={Microsoft&nbsp;Access&nbsp;Driver&nbsp;(*.mdb)};Dbq=</span><span style="color: rgb(0, 0, 187);">$mdbFilename</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$user</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$password</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Microsoft&nbsp;Excel<br></span><span style="color: rgb(0, 0, 187);">$excelFile&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">realpath</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'C:/ExcelData.xls'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$excelDir&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">dirname</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$excelFile</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$connection&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">odbc_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Driver={Microsoft&nbsp;Excel&nbsp;Driver&nbsp;(*.xls)};DriverId=790;Dbq=</span><span style="color: rgb(0, 0, 187);">$excelFile</span><span style="color: rgb(221, 0, 0);">;DefaultDir=</span><span style="color: rgb(0, 0, 187);">$excelDir</span><span style="color: rgb(221, 0, 0);">"&nbsp;</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">''</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">''</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.odbc-connect-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member">For persistent connections: <span class="function"><a class="function" href="function.odbc-pconnect.html" rel="rdfs-seeAlso">odbc_pconnect()</a> - Open a persistent database connection</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

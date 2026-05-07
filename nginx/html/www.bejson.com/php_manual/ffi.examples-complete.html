@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>A Complete PHP/FFI/preloading Example-BeJSON.com</title><meta name="keywords" content="A Complete PHP/FFI/preloading Example"><meta name="description" content="A Complete PHP/FFI/preloading Examplephp.iniffi.enable=preloadopcache.preload=preload.phppreload.php<?phpFFI::load(__DIR__ . " dummy.h");opcache_compi"="">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="ffi.examples-callback.html">« PHP Callbacks</a></li>
+      <li style="float: right;"><a href="class.ffi.html">FFI »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ffi.examples.html">范例</a></li>
+    <li>A Complete PHP/FFI/preloading Example</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="ffi.examples-complete">
+  <h1 class="title">A Complete PHP/FFI/preloading Example</h1>
+  <div class="example" id="example-516">
+   <div class="example-contents"><p><var class="filename">php.ini</var></p></div>
+   <div class="example-contents">
+<div class="inicode"><pre class="inicode">ffi.enable=preload
+opcache.preload=preload.php</pre>
+</div>
+   </div>
+
+   <div class="example-contents"><p><var class="filename">preload.php</var></p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>FFI</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">load</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">__DIR__&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">"/dummy.h"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">opcache_compile_file</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">__DIR__&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">"/dummy.php"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p><var class="filename">dummy.h</var></p></div>
+   <div class="example-contents">
+<div class="ccode"><pre class="ccode">#define FFI_SCOPE "DUMMY"
+#define FFI_LIB "libc.so.6"
+ 
+int printf(const char *format, ...);</pre>
+</div>
+   </div>
+
+   <div class="example-contents"><p><var class="filename">dummy.php</var></p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">final&nbsp;class&nbsp;</span><span style="color: rgb(0, 0, 187);">Dummy&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;static&nbsp;</span><span style="color: rgb(0, 0, 187);">$ffi&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">__construct</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">is_null</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">self</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">$ffi</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">self</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">$ffi&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">FFI</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">scope</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"DUMMY"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">printf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$format</span><span style="color: rgb(0, 119, 0);">,&nbsp;...</span><span style="color: rgb(0, 0, 187);">$args</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(int)</span><span style="color: rgb(0, 0, 187);">self</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">$ffi</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$format</span><span style="color: rgb(0, 119, 0);">,&nbsp;...</span><span style="color: rgb(0, 0, 187);">$args</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p><var class="filename">test.php</var></p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$d&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Dummy</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$d</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">printf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Hello&nbsp;%s!\n"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"world"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div></div></div></body></html>

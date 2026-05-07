@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>回退（Backed）枚举-BeJSON.com</title><meta name="keywords" content="回退（Backed）枚举"><meta name="description" content="默认情况下枚举条目实现形式不是标量。 它们是纯粹的对象实例。 不过，很多时候也需要在数据库、数据存储对象中来回读写枚举条目。 因此，能够内置支持标量形式也很有用（更易序列化）。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="language.enumerations.basics.html">« 枚举基础</a></li>
+      <li style="float: right;"><a href="language.enumerations.methods.html">枚举方法 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.enumerations.html">枚举</a></li>
+    <li>回退（Backed）枚举</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="language.enumerations.backed">
+  <h1 class="title">回退（Backed）枚举</h1>
+
+  <p class="para">
+   默认情况下枚举条目实现形式不是标量。
+   它们是纯粹的对象实例。
+   不过，很多时候也需要在数据库、数据存储对象中来回读写枚举条目。
+   因此，能够内置支持标量形式也很有用（更易序列化）。
+  </p>
+
+  <p class="para">按以下语法，定义标量形式的枚举：</p>
+
+  <div class="example-contents">
+   <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>enum&nbsp;Suit</span><span style="color: rgb(0, 119, 0);">:&nbsp;</span><span style="color: rgb(0, 0, 187);">string<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(0, 0, 187);">Hearts&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'H'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(0, 0, 187);">Diamonds&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'D'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(0, 0, 187);">Clubs&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'C'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(0, 0, 187);">Spades&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'S'</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+  <p class="para">
+   由于有标量的条目回退（Backed）到一个更简单值，又叫回退条目（Backed Case）。
+   包含所有回退条目的 Enum 又叫“回退 Enum”（Backed Enum）。
+   回退 Enum 只能包含回退条目。
+   纯粹 Enum 只能包含纯粹条目。
+  </p>
+
+  <p class="para">
+   回退枚举仅能回退到 <code class="literal">int</code> 或 <code class="literal">string</code> 里的一种类型，
+   且同时仅支持使用一种类型（就是说，不能联合 <code class="literal">int|string</code>）。
+   如果枚举为标量形式，所有的条目必须明确定义唯一的标量值。
+   无法自动生成标量（比如：连续的数字）。
+   回退条目必须是唯一的；两个回退条目不能有相同的标量。
+   然而，也可以用常量引用到条目，实际上是创建了个别名。
+   参见 <a class="link" href="language.enumerations.constants.html">枚举常量</a>。
+  </p>
+
+  <p class="para">
+   条目等同的值，必须是个字面量或它的表达式。
+   不能是常量和常量表达式。
+   换言之，允许 <code class="literal">1 + 1</code>，
+   不允许 <code class="literal">1 + SOME_CONST</code>。
+  </p>
+
+  <p class="para">
+   回退条目有个额外的只读属性 <code class="literal">value</code>，
+   它是定义时指定的值。
+  </p>
+
+  <div class="example-contents">
+   <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">print&nbsp;</span><span style="color: rgb(0, 0, 187);">Suit</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">Clubs</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">value</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;输出&nbsp;"C"<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+  <p class="para">
+   为了确保 <code class="literal">value</code> 的只读性，
+   无法将变量传引用给它。
+   也就是说，以下会抛出错误：
+  </p>
+
+  <div class="example-contents">
+   <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$suit&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">Suit</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">Clubs</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$ref&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;&amp;</span><span style="color: rgb(0, 0, 187);">$suit</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">value</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Error:&nbsp;Cannot&nbsp;acquire&nbsp;reference&nbsp;to&nbsp;property&nbsp;Suit::$value<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+  <p class="para">
+   回退枚举实现了内置的 <span class="interfacename"><a class="interfacename" href="class.backedenum.html">BackedEnum</a></span> interface，
+   暴露了两个额外的方法：
+  </p>
+
+  <ul class="simplelist">
+   <li class="member">
+    <code class="literal">from(int|string): self</code> 能够根据标量返回对应的枚举条目。
+    如果找不到该值，会抛出 <span class="classname"><a class="classname" href="class.valueerror.html">ValueError</a></span>。
+    主要用于输入标量为可信的情况，使用一个不存在的枚举值，可以考虑为需终止应用的错误。
+   </li>
+   <li class="member">
+    <code class="literal">tryFrom(int|string): ?self</code> 能够根据标量返回对应的枚举条目。
+    如果找不到该值，会返回 <code class="literal">null</code>。
+    主要用于输入标量不可信的情况，调用者需要自己实现默认值的逻辑或错误的处理。
+   </li>
+  </ul>
+
+  <p class="para">
+   <code class="literal">from()</code> 和 <code class="literal">tryFrom()</code> 方法也遵循基本的严格/松散类型规则。
+   系统在弱类型模式下接受传入 integer 和 string，并自动强制转换对应值。
+   传入 float 也能运行，并且强制转换。
+   在严格类型模式下，为 string 回退枚举的 <code class="literal">from()</code> 传入 integer 会导致
+   <span class="classname"><a class="classname" href="class.typeerror.html">TypeError</a></span>，反之亦然；float 都会出现有问题。
+   其他所有的参数类型，在以上所有模式中都会抛出 TypeError。
+  </p>
+
+  <div class="example-contents">
+   <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$record&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">get_stuff_from_database</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$id</span><span style="color: rgb(0, 119, 0);">);<br>print&nbsp;</span><span style="color: rgb(0, 0, 187);">$record</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'suit'</span><span style="color: rgb(0, 119, 0);">];<br><br></span><span style="color: rgb(0, 0, 187);">$suit&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">Suit</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">from</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$record</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'suit'</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;无效数据抛出&nbsp;ValueError："X"&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;scalar&nbsp;value&nbsp;for&nbsp;enum&nbsp;"Suit"<br></span><span style="color: rgb(0, 119, 0);">print&nbsp;</span><span style="color: rgb(0, 0, 187);">$suit</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">value</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$suit&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">Suit</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">tryFrom</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'A'</span><span style="color: rgb(0, 119, 0);">)&nbsp;??&nbsp;</span><span style="color: rgb(0, 0, 187);">Suit</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">Spades</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;无效数据返回&nbsp;null，因此会用&nbsp;Suit::Spades&nbsp;代替。<br></span><span style="color: rgb(0, 119, 0);">print&nbsp;</span><span style="color: rgb(0, 0, 187);">$suit</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">value</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+  <p class="para">手动为回退枚举定义 <code class="literal">from()</code> 或 <code class="literal">tryFrom()</code> 方法会导致 fatal 错误。</p>
+
+ </div></div></div></body></html>

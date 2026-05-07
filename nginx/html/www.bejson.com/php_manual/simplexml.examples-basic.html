@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Basic SimpleXML usage-BeJSON.com</title><meta name="keywords" content="Basic SimpleXML usage"><meta name="description" content="Many examples in this reference require an XML string. Instead of repeating this string in every example, we put it into a file which we include in ea">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="simplexml.examples.html">« 范例</a></li>
+      <li style="float: right;"><a href="simplexml.examples-errors.html">Dealing with XML errors »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="simplexml.examples.html">范例</a></li>
+    <li>Basic SimpleXML usage</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="simplexml.examples-basic">
+  <h1 class="title">Basic SimpleXML usage</h1>
+  <p class="para">
+   Many examples in this reference require an XML string. Instead of
+   repeating this string in every example, we put it into a file which
+   we include in each example. This included file is shown in the 
+   following example section. Alternatively, you could create an XML
+   document and read it with <span class="function"><a class="function" href="function.simplexml-load-file.html">simplexml_load_file()</a></span>.
+  </p>
+  <p class="para">
+   <div class="example" id="example-5242">
+    <p><strong>示例 #1 Include file example.php with XML string</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$xmlstr&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;&lt;&lt;&lt;XML<br></span><span style="color: rgb(221, 0, 0);">&lt;?xml&nbsp;version='1.0'&nbsp;standalone='yes'?&gt;<br>&lt;movies&gt;<br>&nbsp;&lt;movie&gt;<br>&nbsp;&nbsp;&lt;title&gt;PHP:&nbsp;Behind&nbsp;the&nbsp;Parser&lt;/title&gt;<br>&nbsp;&nbsp;&lt;characters&gt;<br>&nbsp;&nbsp;&nbsp;&lt;character&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Ms.&nbsp;Coder&lt;/name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;actor&gt;Onlivia&nbsp;Actora&lt;/actor&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/character&gt;<br>&nbsp;&nbsp;&nbsp;&lt;character&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Mr.&nbsp;Coder&lt;/name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;actor&gt;El&nbsp;Act&amp;#211;r&lt;/actor&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/character&gt;<br>&nbsp;&nbsp;&lt;/characters&gt;<br>&nbsp;&nbsp;&lt;plot&gt;<br>&nbsp;&nbsp;&nbsp;So,&nbsp;this&nbsp;language.&nbsp;It's&nbsp;like,&nbsp;a&nbsp;programming&nbsp;language.&nbsp;Or&nbsp;is&nbsp;it&nbsp;a<br>&nbsp;&nbsp;&nbsp;scripting&nbsp;language?&nbsp;All&nbsp;is&nbsp;revealed&nbsp;in&nbsp;this&nbsp;thrilling&nbsp;horror&nbsp;spoof<br>&nbsp;&nbsp;&nbsp;of&nbsp;a&nbsp;documentary.<br>&nbsp;&nbsp;&lt;/plot&gt;<br>&nbsp;&nbsp;&lt;great-lines&gt;<br>&nbsp;&nbsp;&nbsp;&lt;line&gt;PHP&nbsp;solves&nbsp;all&nbsp;my&nbsp;web&nbsp;problems&lt;/line&gt;<br>&nbsp;&nbsp;&lt;/great-lines&gt;<br>&nbsp;&nbsp;&lt;rating&nbsp;type="thumbs"&gt;7&lt;/rating&gt;<br>&nbsp;&nbsp;&lt;rating&nbsp;type="stars"&gt;5&lt;/rating&gt;<br>&nbsp;&lt;/movie&gt;<br>&lt;/movies&gt;<br></span><span style="color: rgb(0, 119, 0);">XML;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+  <p class="para">
+   The simplicity of SimpleXML appears most clearly when one extracts
+   a string or number from a basic XML document.
+   <div class="example" id="example-5243">
+    <p><strong>示例 #2 Getting <code class="literal">&lt;plot&gt;</code></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">'example.php'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$movies&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SimpleXMLElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xmlstr</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$movies</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">movie</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]-&gt;</span><span style="color: rgb(0, 0, 187);">plot</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+   So, this language. It's like, a programming language. Or is it a
+   scripting language? All is revealed in this thrilling horror spoof
+   of a documentary.
+
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   Accessing elements within an XML document that contain characters not permitted under 
+   PHP's naming convention (e.g. the hyphen) can be accomplished by encapsulating the
+   element name within braces and the apostrophe.
+   <div class="example" id="example-5244">
+    <p><strong>示例 #3 Getting <code class="literal">&lt;line&gt;</code></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">'example.php'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$movies&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SimpleXMLElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xmlstr</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$movies</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">movie</span><span style="color: rgb(0, 119, 0);">-&gt;{</span><span style="color: rgb(221, 0, 0);">'great-lines'</span><span style="color: rgb(0, 119, 0);">}-&gt;</span><span style="color: rgb(0, 0, 187);">line</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>PHP solves all my web problems
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-5245">
+    <p><strong>示例 #4 Accessing non-unique elements in SimpleXML</strong></p>
+    <div class="example-contents"><p>
+     When multiple instances of an element exist as children of
+     a single parent element, normal iteration techniques apply.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">'example.php'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$movies&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SimpleXMLElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xmlstr</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;For&nbsp;each&nbsp;&lt;character&gt;&nbsp;node,&nbsp;we&nbsp;echo&nbsp;a&nbsp;separate&nbsp;&lt;name&gt;.&nbsp;*/<br></span><span style="color: rgb(0, 119, 0);">foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$movies</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">movie</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">characters</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">character&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$character</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$character</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">name</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'&nbsp;played&nbsp;by&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$character</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">actor</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Ms. Coder played by Onlivia Actora
+Mr. Coder played by El ActÓr
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    Properties (<code class="literal">$movies-&gt;movie</code> in previous example) are not
+    arrays. They are <a class="link" href="class.iterator.html">iterable</a> and
+    <a class="link" href="class.arrayaccess.html">accessible</a> objects.
+   </p>
+  <p></p></blockquote>
+  <p class="para">
+   <div class="example" id="example-5246">
+    <p><strong>示例 #5 Using attributes</strong></p>
+    <div class="example-contents"><p>
+     So far, we have only covered the work of reading element names
+     and their values. SimpleXML can also access element attributes.
+     Access attributes of an element just as you would elements
+     of an <span class="type">array</span>.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">'example.php'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$movies&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SimpleXMLElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xmlstr</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;Access&nbsp;the&nbsp;&lt;rating&gt;&nbsp;nodes&nbsp;of&nbsp;the&nbsp;first&nbsp;movie.<br>&nbsp;*&nbsp;Output&nbsp;the&nbsp;rating&nbsp;scale,&nbsp;too.&nbsp;*/<br></span><span style="color: rgb(0, 119, 0);">foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$movies</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">movie</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]-&gt;</span><span style="color: rgb(0, 0, 187);">rating&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$rating</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;switch((string)&nbsp;</span><span style="color: rgb(0, 0, 187);">$rating</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'type'</span><span style="color: rgb(0, 119, 0);">])&nbsp;{&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;Get&nbsp;attributes&nbsp;as&nbsp;element&nbsp;indices<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">case&nbsp;</span><span style="color: rgb(221, 0, 0);">'thumbs'</span><span style="color: rgb(0, 119, 0);">:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$rating</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'&nbsp;thumbs&nbsp;up'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: rgb(221, 0, 0);">'stars'</span><span style="color: rgb(0, 119, 0);">:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$rating</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'&nbsp;stars'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>7 thumbs up5 stars
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-5247">
+    <p><strong>示例 #6 Comparing Elements and Attributes with Text</strong></p>
+    <div class="example-contents"><p>
+     To compare an element or attribute with a string or pass it into a 
+     function that requires a string, you must cast it to a string using 
+     <code class="literal">(string)</code>. Otherwise, PHP treats the element as an object.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">'example.php'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$movies&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SimpleXMLElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xmlstr</span><span style="color: rgb(0, 119, 0);">);<br><br>if&nbsp;((string)&nbsp;</span><span style="color: rgb(0, 0, 187);">$movies</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">movie</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">title&nbsp;</span><span style="color: rgb(0, 119, 0);">==&nbsp;</span><span style="color: rgb(221, 0, 0);">'PHP:&nbsp;Behind&nbsp;the&nbsp;Parser'</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: rgb(221, 0, 0);">'My&nbsp;favorite&nbsp;movie.'</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">htmlentities</span><span style="color: rgb(0, 119, 0);">((string)&nbsp;</span><span style="color: rgb(0, 0, 187);">$movies</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">movie</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">title</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>My favorite movie.PHP: Behind the Parser
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-5248">
+    <p><strong>示例 #7 Comparing Two Elements</strong></p>
+    <div class="example-contents"><p>
+     Two SimpleXMLElements are considered different even if they point to the
+     same element.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">'example.php'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$movies1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SimpleXMLElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xmlstr</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$movies2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SimpleXMLElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xmlstr</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$movies1&nbsp;</span><span style="color: rgb(0, 119, 0);">==&nbsp;</span><span style="color: rgb(0, 0, 187);">$movies2</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>bool(false)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-5249">
+    <p><strong>示例 #8 Using XPath</strong></p>
+    <div class="example-contents"><p>
+     SimpleXML includes built-in <abbr title="XML Path Language">XPath</abbr> support.
+     To find all <code class="literal">&lt;character&gt;</code> elements:
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">'example.php'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$movies&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SimpleXMLElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xmlstr</span><span style="color: rgb(0, 119, 0);">);<br><br>foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$movies</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">xpath</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'//character'</span><span style="color: rgb(0, 119, 0);">)&nbsp;as&nbsp;</span><span style="color: rgb(0, 0, 187);">$character</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$character</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">name</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'&nbsp;played&nbsp;by&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$character</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">actor</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>
+     '<code class="literal">//</code>' serves as a wildcard. To specify absolute
+     paths, omit one of the slashes.
+    </p></div>
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Ms. Coder played by Onlivia Actora
+Mr. Coder played by El ActÓr
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-5250">
+    <p><strong>示例 #9 Setting values</strong></p>
+    <div class="example-contents"><p>
+     Data in SimpleXML doesn't have to be constant. The object allows
+     for manipulation of all of its elements.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">'example.php'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$movies&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SimpleXMLElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xmlstr</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$movies</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">movie</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]-&gt;</span><span style="color: rgb(0, 0, 187);">characters</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">character</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]-&gt;</span><span style="color: rgb(0, 0, 187);">name&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Miss&nbsp;Coder'</span><span style="color: rgb(0, 119, 0);">;<br><br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$movies</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">asXML</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>&lt;?xml version="1.0" standalone="yes"?&gt;
+&lt;movies&gt;
+ &lt;movie&gt;
+  &lt;title&gt;PHP: Behind the Parser&lt;/title&gt;
+  &lt;characters&gt;
+   &lt;character&gt;
+    &lt;name&gt;Miss Coder&lt;/name&gt;
+    &lt;actor&gt;Onlivia Actora&lt;/actor&gt;
+   &lt;/character&gt;
+   &lt;character&gt;
+    &lt;name&gt;Mr. Coder&lt;/name&gt;
+    &lt;actor&gt;El Act&amp;#xD3;r&lt;/actor&gt;
+   &lt;/character&gt;
+  &lt;/characters&gt;
+  &lt;plot&gt;
+   So, this language. It's like, a programming language. Or is it a
+   scripting language? All is revealed in this thrilling horror spoof
+   of a documentary.
+  &lt;/plot&gt;
+  &lt;great-lines&gt;
+   &lt;line&gt;PHP solves all my web problems&lt;/line&gt;
+  &lt;/great-lines&gt;
+  &lt;rating type="thumbs"&gt;7&lt;/rating&gt;
+  &lt;rating type="stars"&gt;5&lt;/rating&gt;
+ &lt;/movie&gt;
+&lt;/movies&gt;
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-5251">
+    <p><strong>示例 #10 Adding elements and attributes</strong></p>
+    <div class="example-contents"><p>
+     SimpleXML has had the ability to easily add children and
+     attributes.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">'example.php'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$movies&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SimpleXMLElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xmlstr</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$character&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$movies</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">movie</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]-&gt;</span><span style="color: rgb(0, 0, 187);">characters</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addChild</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'character'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$character</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addChild</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'name'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Mr.&nbsp;Parser'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$character</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addChild</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'actor'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'John&nbsp;Doe'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$rating&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$movies</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">movie</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]-&gt;</span><span style="color: rgb(0, 0, 187);">addChild</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'rating'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'PG'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$rating</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addAttribute</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'type'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'mpaa'</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$movies</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">asXML</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>&lt;?xml version="1.0" standalone="yes"?&gt;
+&lt;movies&gt;
+ &lt;movie&gt;
+  &lt;title&gt;PHP: Behind the Parser&lt;/title&gt;
+  &lt;characters&gt;
+   &lt;character&gt;
+    &lt;name&gt;Ms. Coder&lt;/name&gt;
+    &lt;actor&gt;Onlivia Actora&lt;/actor&gt;
+   &lt;/character&gt;
+   &lt;character&gt;
+    &lt;name&gt;Mr. Coder&lt;/name&gt;
+    &lt;actor&gt;El Act&amp;#xD3;r&lt;/actor&gt;
+   &lt;/character&gt;
+  &lt;character&gt;&lt;name&gt;Mr. Parser&lt;/name&gt;&lt;actor&gt;John Doe&lt;/actor&gt;&lt;/character&gt;&lt;/characters&gt;
+  &lt;plot&gt;
+   So, this language. It's like, a programming language. Or is it a
+   scripting language? All is revealed in this thrilling horror spoof
+   of a documentary.
+  &lt;/plot&gt;
+  &lt;great-lines&gt;
+   &lt;line&gt;PHP solves all my web problems&lt;/line&gt;
+  &lt;/great-lines&gt;
+  &lt;rating type="thumbs"&gt;7&lt;/rating&gt;
+  &lt;rating type="stars"&gt;5&lt;/rating&gt;
+ &lt;rating type="mpaa"&gt;PG&lt;/rating&gt;&lt;/movie&gt;
+&lt;/movies&gt;
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-5252">
+    <p><strong>示例 #11 DOM Interoperability</strong></p>
+    <div class="example-contents"><p>
+     PHP has a mechanism to convert XML nodes between SimpleXML
+     and DOM formats. This example shows how one might change
+     a DOM element to SimpleXML.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$dom&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DOMDocument</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$dom</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">loadXML</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'&lt;books&gt;&lt;book&gt;&lt;title&gt;blah&lt;/title&gt;&lt;/book&gt;&lt;/books&gt;'</span><span style="color: rgb(0, 119, 0);">);<br>if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$dom</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Error&nbsp;while&nbsp;parsing&nbsp;the&nbsp;document'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$books&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">simplexml_import_dom</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$dom</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$books</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">book</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]-&gt;</span><span style="color: rgb(0, 0, 187);">title</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>blah
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div></div></div></body></html>

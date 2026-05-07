@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>stringprep --- 因特网字符串预备-BeJSON.com</title><meta name="keywords" content="stringprep --- 因特网字符串预备"><meta name="description" content="unicodedata --- Unicode 数据库"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="readline --- GNU readline 接口" href="readline.html" rel="next">
+    <link title="unicodedata --- Unicode 数据库" href="unicodedata.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/stringprep.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="unicodedata.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodedata</span></code> --- Unicode 数据库</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="readline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readline</span></code> --- GNU readline 接口</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="readline --- GNU readline 接口" accesskey="N" href="readline.html">下一页</a> |</li>
+        <li class="right">
+          <a title="unicodedata --- Unicode 数据库" accesskey="P" href="unicodedata.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="text.html">文本处理服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">stringprep</span></code> --- 因特网字符串预备</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-stringprep">
+<span id="stringprep-internet-string-preparation"></span><h1><a title="stringprep: String preparation, as per RFC 3453" class="reference internal" href="#module-stringprep"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stringprep</span></code></a> --- 因特网字符串预备<a title="永久链接至标题" class="headerlink" href="#module-stringprep">¶</a></h1>
+<p><strong>源代码:</strong> <a class="reference external" href="">Lib/stringprep.py</a></p>
+<hr class="docutils">
+<p>在标识因特网上的事物（例如主机名），经常需要比较这些标识是否（相等）。 这种比较的具体执行可能会取决于应用域的不同，例如是否要区分大小写等等。 有时也可能需要限制允许的标识为仅由“可打印”字符组成。</p>
+<p><span class="target" id="index-4"></span><a class="rfc reference external" href=""><strong>RFC 3454</strong></a> 定义了在因特网协议中 Unicode 字符串的“预备”过程。 在将字符串连线传输之前，它们会先使用预备过程进行处理，之后它们将具有特定的标准形式。 该 RFC 定义了一系列表格，它们可以被组合为选项配置。 每个配置必须定义所使用的表格，<code class="docutils literal notranslate"><span class="pre">stringprep</span></code> 过程的其他可选项也是配置的组成部分。 <code class="docutils literal notranslate"><span class="pre">stringprep</span></code> 配置的一个例子是 <code class="docutils literal notranslate"><span class="pre">nameprep</span></code>，它被用于国际化域名。</p>
+<p>模块 <a title="stringprep: String preparation, as per RFC 3453" class="reference internal" href="#module-stringprep"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stringprep</span></code></a> 仅公开了来自 <span class="target" id="index-5"></span><a class="rfc reference external" href=""><strong>RFC 3454</strong></a> 的表格。 由于这些如果表格如果表示为字典或列表将会非常庞大，该模块在内部使用 Unicode 字符数据库。 该模块本身的源代码是使用 <code class="docutils literal notranslate"><span class="pre">mkstringprep.py</span></code> 工具生成的。</p>
+<p>因此，这些表格以函数而非数据结构的形式公开。 在 RFC 中有两种表格：集合与映射。 对于集合，<a title="stringprep: String preparation, as per RFC 3453" class="reference internal" href="#module-stringprep"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stringprep</span></code></a> 提供了“特征函数”，即如果形参是集合的一部分则返回值为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 的函数。 对于映射，它提供了映射函数：它会根据给定的键返回所关联的值。 以下是模块中所有可用函数的列表。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_a1">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_a1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_a1">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableA.1 (Unicode 3.2 中的未分配码位)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_b1">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_b1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_b1">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableB.1 (通常映射为空值)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.map_table_b2">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">map_table_b2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.map_table_b2">¶</a></dt>
+<dd><p>返回 <em>code</em> 依据 tableB.2 (配合 NFKC 使用的大小写转换映射) 所映射的值。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.map_table_b3">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">map_table_b3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.map_table_b3">¶</a></dt>
+<dd><p>返回 <em>code</em> 依据 tableB.3 (不附带正规化的大小写折叠映射) 所映射的值。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c11">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c11</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c11">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.1.1  (ASCII 空白字符)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c12">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c12</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c12">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.1.2  (非 ASCII 空白字符)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c11_c12">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c11_c12</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c11_c12">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.1  (空白字符，C.1.1 和 C.1.2 的并集)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c21">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c21</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c21">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.2.1  (ASCII 控制字符)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c22">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c22</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c22">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.2.2  (非 ASCII 控制字符)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c21_c22">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c21_c22</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c21_c22">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.2  (控制字符，C.2.1 和 C.2.2 的并集)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c3">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c3">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.3  (私有使用)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c4">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c4">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.4  (非字符码位)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c5">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c5">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.5  (替代码)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c6">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c6</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c6">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.6  (不适用于纯文本)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c7">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c7</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c7">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.7  (不适用于规范表示)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c8">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c8">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.8  (改变显示属性或已弃用)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_c9">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_c9</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_c9">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableC.9  (标记字符)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_d1">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_d1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_d1">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableD.1  (带有双向属性 "R" 或 "AL" 的字符)。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringprep.in_table_d2">
+<span class="sig-prename descclassname"><span class="pre">stringprep.</span></span><span class="sig-name descname"><span class="pre">in_table_d2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#stringprep.in_table_d2">¶</a></dt>
+<dd><p>确定 <em>code</em> 是否属于 tableD.2  (带有双向属性 "L" 的字符)。</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="unicodedata.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodedata</span></code> --- Unicode 数据库</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="readline.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readline</span></code> --- GNU readline 接口</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="readline --- GNU readline 接口" href="readline.html">下一页</a> |</li>
+        <li class="right">
+          <a title="unicodedata --- Unicode 数据库" href="unicodedata.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="text.html">文本处理服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">stringprep</span></code> --- 因特网字符串预备</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set select grouping criteria-BeJSON.com</title><meta name="keywords" content="Set select grouping criteria"><meta name="description" content="The grouping criteria. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mysql-xdevapi-tableselect.execute.html">« TableSelect::execute</a></li>
+      <li style="float: right;"><a href="mysql-xdevapi-tableselect.having.html">TableSelect::having »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mysql-xdevapi-tableselect.html">mysql_xdevapi\TableSelect</a></li>
+    <li>Set select grouping criteria</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="mysql-xdevapi-tableselect.groupby">
+ <div class="refnamediv">
+  <h1 class="refname">TableSelect::groupBy</h1>
+  <p class="verinfo">(No version information available, might only be in Git)</p><p class="refpurpose"><span class="refname">TableSelect::groupBy</span> — <span class="dc-title">Set select grouping criteria</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mysql-xdevapi-tableselect.groupby-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>mysql_xdevapi\TableSelect::groupBy</strong></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$sort_expr</code></span>): <span class="type"><a class="type mysql_xdevapi\TableSelect" href="class.mysql-xdevapi-tableselect.html">mysql_xdevapi\TableSelect</a></span></div>
+
+  <p class="para rdfs-comment">
+   Sets a grouping criteria for the result set.
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mysql-xdevapi-tableselect.groupby-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">sort_expr</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The grouping criteria.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mysql-xdevapi-tableselect.groupby-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   A TableSelect object.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mysql-xdevapi-tableselect.groupby-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-1700">
+   <p><strong>示例 #1 <span class="function"><strong>mysql_xdevapi\TableSelect::groupBy()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$session&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">mysql_xdevapi</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">getSession</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"mysqlx://user:password@localhost"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$session</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">sql</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"DROP&nbsp;DATABASE&nbsp;IF&nbsp;EXISTS&nbsp;addressbook"</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$session</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">sql</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"CREATE&nbsp;DATABASE&nbsp;addressbook"</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$session</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">sql</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"CREATE&nbsp;TABLE&nbsp;addressbook.names(name&nbsp;text,&nbsp;age&nbsp;int)"</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$session</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">sql</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"INSERT&nbsp;INTO&nbsp;addressbook.names&nbsp;values&nbsp;('John',&nbsp;42),&nbsp;('Sam',&nbsp;42)"</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$session</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">sql</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"INSERT&nbsp;INTO&nbsp;addressbook.names&nbsp;values&nbsp;('Suki',&nbsp;31)"</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$schema&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$session</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getSchema</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"addressbook"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$table&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$schema</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getTable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"names"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$table</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">select</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'count(*)&nbsp;as&nbsp;count'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'age'</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;-&gt;</span><span style="color: rgb(0, 0, 187);">groupBy</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'age'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">orderBy</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'age&nbsp;asc'</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$row&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">fetchAll</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$row</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [0] =&gt; Array
+        (
+            [count] =&gt; 1
+            [age] =&gt; 31
+        )
+    [1] =&gt; Array
+        (
+            [count] =&gt; 2
+            [age] =&gt; 42
+        )
+)
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+</div></div></div></body></html>

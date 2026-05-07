@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Character sets-BeJSON.com</title><meta name="keywords" content="Character sets"><meta name="description" content="Ideally a proper character set will be set at the server level, and doing this is described within the » Character Set Configuration section of the My">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mysqlinfo.concepts.buffering.html">« Buffered and Unbuffered queries</a></li>
+      <li style="float: right;"><a href="book.mysqli.html">Mysqli »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="mysqlinfo.concepts.html">Concepts</a></li>
+    <li>Character sets</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="mysqlinfo.concepts.charset">
+  <h2 class="title">Character sets</h2>
+
+  <p class="para">
+   Ideally a proper character set will be set at the server level, and doing this is described
+   within the <a class="link external" href="http://dev.mysql.com/doc/mysql/en/charset-configuration.html">»&nbsp;Character Set Configuration</a>
+   section of the MySQL Server manual. Alternatively, each MySQL API offers a method to set 
+   the character set at runtime.
+  </p>
+
+  <div class="caution"><strong class="caution">警告</strong>
+   <h1 class="title">The character set and character escaping</h1>
+   <p class="para">
+    The character set should be understood and defined, as it has an affect on every
+    action, and includes security implications. For example, the escaping mechanism
+    (e.g., <span class="function"><a class="function" href="mysqli.real-escape-string.html">mysqli_real_escape_string()</a></span> for mysqli and <span class="methodname"><a class="methodname" href="pdo.quote.html">PDO::quote()</a></span> for PDO_MySQL) will adhere to
+    this setting. It is important to realize that these functions will not use the character
+    set that is defined with a query, so for example the following will not have an effect
+    on them:
+   </p>
+  </div>
+
+  <div class="example" id="example-1388">
+   <p><strong>示例 #1 Problems with setting the character set with SQL</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$mysqli&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"localhost"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"my_user"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"my_password"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"world"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Will&nbsp;NOT&nbsp;affect&nbsp;$mysqli-&gt;real_escape_string();<br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"SET&nbsp;NAMES&nbsp;utf8mb4"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Will&nbsp;NOT&nbsp;affect&nbsp;$mysqli-&gt;real_escape_string();<br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"SET&nbsp;CHARACTER&nbsp;SET&nbsp;utf8mb4"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;But,&nbsp;this&nbsp;will&nbsp;affect&nbsp;$mysqli-&gt;real_escape_string();<br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">set_charset</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'utf8mb4'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;But,&nbsp;this&nbsp;will&nbsp;NOT&nbsp;affect&nbsp;it&nbsp;(UTF-8&nbsp;vs&nbsp;utf8mb4)&nbsp;--&nbsp;don't&nbsp;use&nbsp;dashes&nbsp;here<br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">set_charset</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'UTF-8'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+
+  <p class="para">
+   Below are examples that demonstrate how to properly alter the character set at runtime
+   using each API.
+  </p>
+  
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <strong>Possible UTF-8 confusion</strong><br>
+   <p class="para">
+    Because character set names in MySQL do not contain dashes, the string 
+    "utf8" is valid in MySQL to set the character set to UTF-8 (up to 3 byte UTF-8 Unicode Encoding). The string 
+    "UTF-8" is not valid, as using "UTF-8" will fail to change the character set and will throw an error.
+   </p>
+  <p></p></blockquote>
+
+  <div class="example" id="example-1389">
+   <p><strong>示例 #2 Setting the character set example: mysqli</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$mysqli&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"localhost"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"my_user"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"my_password"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"world"</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Initial&nbsp;character&nbsp;set:&nbsp;'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">character_set_name</span><span style="color: rgb(0, 119, 0);">()&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br><br>if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">set_charset</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'utf8mb4'</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">printf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Error&nbsp;loading&nbsp;character&nbsp;set&nbsp;utf8mb4:&nbsp;%s\n"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">error</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>}<br><br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Your&nbsp;current&nbsp;character&nbsp;set&nbsp;is:&nbsp;'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">character_set_name</span><span style="color: rgb(0, 119, 0);">()&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+
+  <div class="example" id="example-1390">
+   <p><strong>示例 #3 Setting the character set example: <a class="link" href="ref.pdo-mysql.connection.html">pdo_mysql</a></strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$pdo&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">PDO</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"mysql:host=localhost;dbname=world;charset=utf8mb4"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'my_user'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'my_pass'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+
+ </div></div></div></body></html>

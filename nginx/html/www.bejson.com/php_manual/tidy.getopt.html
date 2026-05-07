@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns the value of the specified configuration option for the tidy document-BeJSON.com</title><meta name="keywords" content="Returns the value of the specified configuration option for the tidy document"><meta name="description" content="面向对象风格">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="tidy.gethtmlver.html">« tidy::getHtmlVer</a></li>
+      <li style="float: right;"><a href="tidy.getoptdoc.html">tidy::getOptDoc »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.tidy.html">tidy</a></li>
+    <li>Returns the value of the specified configuration option for the tidy document</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="tidy.getopt">
+ <div class="refnamediv">
+  <h1 class="refname">tidy::getOpt</h1>
+  <h1 class="refname">tidy_getopt</h1>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL tidy &gt;= 0.5.2)</p><p class="refpurpose"><span class="refname">tidy::getOpt</span> -- <span class="refname">tidy_getopt</span> — <span class="dc-title">Returns the value of the specified configuration option for the tidy document</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-tidy.getopt-description">
+  <h3 class="title">说明</h3>
+  <p class="para">面向对象风格</p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>tidy::getOpt</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$option</code></span>): <span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">bool</span></span></div>
+
+  <p class="para rdfs-comment">过程化风格</p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>tidy_getopt</strong></span>(<span class="methodparam"><span class="type"><a class="type tidy" href="class.tidy.html">tidy</a></span> <code class="parameter">$tidy</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$option</code></span>): <span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">bool</span></span></div>
+
+  <p class="para rdfs-comment">
+   Returns the value of the specified <code class="parameter">option</code> for the
+   specified tidy <code class="parameter">tidy</code>.  
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-tidy.getopt-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">tidy</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The <span class="classname"><a class="classname" href="class.tidy.html">Tidy</a></span> 对象。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">option</code></dt>
+
+     <dd>
+
+      <p class="para">
+       You will find a list with each configuration option and their types
+       at: <a class="link external" href="http://api.html-tidy.org/#quick-reference">»&nbsp;http://api.html-tidy.org/#quick-reference</a>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-tidy.getopt-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns the value of the specified <code class="parameter">option</code>.
+   The return type depends on the type of the specified one. 
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-tidy.getopt-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3696">
+    <p><strong>示例 #1 <span class="function"><strong>tidy_getopt()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$html&nbsp;</span><span style="color: rgb(0, 119, 0);">=</span><span style="color: rgb(221, 0, 0);">'&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;"-//W3C//DTD&nbsp;HTML&nbsp;3.2//EN"&gt;<br>&lt;html&gt;&lt;head&gt;&lt;title&gt;Title&lt;/title&gt;&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;p&gt;&lt;img&nbsp;src="img.png"&gt;&lt;/p&gt;<br><br>&lt;/body&gt;&lt;/html&gt;'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$config&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'accessibility-check'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'alt-text'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'some&nbsp;text'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$tidy&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">tidy</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$tidy</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">parseString</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$html</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$config</span><span style="color: rgb(0, 119, 0);">);<br><br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$tidy</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getOpt</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'accessibility-check'</span><span style="color: rgb(0, 119, 0);">));&nbsp;</span><span style="color: rgb(255, 128, 0);">//integer<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$tidy</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getOpt</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'lower-literals'</span><span style="color: rgb(0, 119, 0);">));&nbsp;</span><span style="color: rgb(255, 128, 0);">//boolean<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$tidy</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getOpt</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'alt-text'</span><span style="color: rgb(0, 119, 0);">));&nbsp;</span><span style="color: rgb(255, 128, 0);">//string<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>int(3)
+bool(true)
+string(9) "some text"
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

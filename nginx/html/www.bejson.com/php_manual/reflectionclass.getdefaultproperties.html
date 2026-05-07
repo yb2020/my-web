@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>获取默认属性-BeJSON.com</title><meta name="keywords" content="获取默认属性"><meta name="description" content="This method only works for static properties when used on internal classes. The default value of a static class property can not be tracked when using">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="reflectionclass.getconstructor.html">« ReflectionClass::getConstructor</a></li>
+      <li style="float: right;"><a href="reflectionclass.getdoccomment.html">ReflectionClass::getDocComment »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.reflectionclass.html">ReflectionClass</a></li>
+    <li>获取默认属性</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="reflectionclass.getdefaultproperties">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionClass::getDefaultProperties</h1>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionClass::getDefaultProperties</span> — <span class="dc-title">获取默认属性</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionclass.getdefaultproperties-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::getDefaultProperties</strong></span>(): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   获取类的默认属性（包括了继承的属性）。
+  </p>  
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    This method only works for static properties when used on internal classes.
+    The default value of a static class property can not be tracked when using
+    this method on user defined classes.
+   </p>
+  <p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionclass.getdefaultproperties-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-reflectionclass.getdefaultproperties-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   默认属性的<span class="type"><span class="type 数组">数组</span></span>，其键是属性的名称，其值是属性的默认值或者在属性没有默认值时是 <strong><code>null</code></strong>。
+   这个函数不区分静态和非静态属性，也不考虑可见性修饰符。 
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-reflectionclass.getdefaultproperties-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4980">
+    <p><strong>示例 #1 <span class="methodname"><strong>ReflectionClass::getDefaultProperties()</strong></span> 例子</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">Bar&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;</span><span style="color: rgb(0, 0, 187);">$inheritedProperty&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'inheritedDefault'</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">Foo&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">Bar&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: rgb(0, 0, 187);">$property&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'propertyDefault'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: rgb(0, 0, 187);">$privateProperty&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'privatePropertyDefault'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;</span><span style="color: rgb(0, 0, 187);">$staticProperty&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'staticProperty'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: rgb(0, 0, 187);">$defaultlessProperty</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$reflectionClass&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">ReflectionClass</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'Foo'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$reflectionClass</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getDefaultProperties</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>array(5) {
+   ["staticProperty"]=&gt;
+   string(14) "staticProperty"
+   ["property"]=&gt;
+   string(15) "propertyDefault"
+   ["privateProperty"]=&gt;
+   string(22) "privatePropertyDefault"
+   ["defaultlessProperty"]=&gt;
+   NULL
+   ["inheritedProperty"]=&gt;
+   string(16) "inheritedDefault"
+}
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-reflectionclass.getdefaultproperties-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="reflectionclass.getproperties.html" rel="rdfs-seeAlso">ReflectionClass::getProperties()</a> - 获取一组属性</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="reflectionclass.getstaticproperties.html" rel="rdfs-seeAlso">ReflectionClass::getStaticProperties()</a> - 获取静态（static）属性</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="reflectionclass.getproperty.html" rel="rdfs-seeAlso">ReflectionClass::getProperty()</a> - 获取类的一个属性的 ReflectionProperty</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

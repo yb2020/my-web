@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get the query timeout value of the request-BeJSON.com</title><meta name="keywords" content="Get the query timeout value of the request"><meta name="description" content="cubrid_get_query_timeout(PECL CUBRID >= 8.4.1)cubrid_get_query_timeout — Get the query timeout value of the request说明cubrid_get_query_timeout(resource">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.cubrid-get-db-parameter.html">« cubrid_get_db_parameter</a></li>
+      <li style="float: right;"><a href="function.cubrid-get-server-info.html">cubrid_get_server_info »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.cubrid.html">CUBRID 函数</a></li>
+    <li>Get the query timeout value of the request</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.cubrid-get-query-timeout">
+ <div class="refnamediv">
+  <h1 class="refname">cubrid_get_query_timeout</h1>
+  <p class="verinfo">(PECL CUBRID &gt;= 8.4.1)</p><p class="refpurpose"><span class="refname">cubrid_get_query_timeout</span> — <span class="dc-title">Get the query timeout value of the request</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.cubrid-get-query-timeout-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>cubrid_get_query_timeout</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$req_identifier</code></span>): <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+   The <span class="function"><strong>cubrid_get_query_timeout()</strong></span> function is used to get
+   the query timeout of the request.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.cubrid-get-query-timeout-parameters">
+ <h3 class="title">参数</h3>
+ <p class="para">
+  <dl>
+    
+  <dt>
+<code class="parameter">req_identifier</code></dt>
+
+  <dd>
+<p class="para">Request identifier.</p></dd>
+
+   
+  </dl>
+
+  <p></p>
+ </div>
+
+
+  <div class="refsect1 returnvalues" id="refsect1-function.cubrid-get-query-timeout-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns the query timeout value in milliseconds of the current request on success, 或者在失败时返回 <strong><code>false</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.cubrid-get-query-timeout-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-1122">
+   <p><strong>示例 #1 <span class="function"><strong>cubrid_get_query_timeout()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$host&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"localhost"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$port&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">33000</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$db&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"demodb"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$conn&nbsp;</span><span style="color: rgb(0, 119, 0);">=<br></span><span style="color: rgb(0, 0, 187);">cubrid_connect_with_url</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"CUBRID:</span><span style="color: rgb(0, 0, 187);">$host</span><span style="color: rgb(221, 0, 0);">:</span><span style="color: rgb(0, 0, 187);">$port</span><span style="color: rgb(221, 0, 0);">:</span><span style="color: rgb(0, 0, 187);">$db</span><span style="color: rgb(221, 0, 0);">:::?login_timeout=50000&amp;query_timeout=5000&amp;disconnect_on_query_timeout=yes"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$req&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">cubrid_prepare</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"SELECT&nbsp;*&nbsp;FROM&nbsp;code"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$timeout&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">cubrid_get_query_timeout</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$req</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$timeout</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">cubrid_set_query_timeout</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$req</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1000</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$timeout&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">cubrid_get_query_timeout</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$req</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$timeout</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">cubrid_close</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>int(5000)
+int(1000)
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.cubrid-get-query-timeout-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+   <li class="member"><span class="function"><a class="function" href="function.cubrid-set-query-timeout.html" rel="rdfs-seeAlso">cubrid_set_query_timeout()</a> - Set the timeout time of query execution</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

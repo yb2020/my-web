@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>ArrayAccess（数组式访问）接口-BeJSON.com</title><meta name="keywords" content="ArrayAccess（数组式访问）接口"><meta name="description" content="提供像访问数组一样访问对象的能力的接口。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="throwable.tostring.html">« Throwable::__toString</a></li>
+      <li style="float: right;"><a href="arrayaccess.offsetexists.html">ArrayAccess::offsetExists »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reserved.interfaces.html">预定义接口</a></li>
+    <li>ArrayAccess（数组式访问）接口</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.arrayaccess">
+
+ <h1 class="title">ArrayAccess（数组式访问）接口</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5, PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="arrayaccess.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    提供像访问数组一样访问对象的能力的接口。
+   </p>
+  </div>
+
+
+  <div class="section" id="arrayaccess.synopsis">
+   <h2 class="title">接口摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="oointerface">
+      <span class="modifier">interface</span> <strong class="interfacename">ArrayAccess</strong></span> {</div>
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayaccess.offsetexists.html">offsetExists</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$offset</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayaccess.offsetget.html">offsetGet</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$offset</code></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayaccess.offsetset.html">offsetSet</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$offset</code></span>, <span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayaccess.offsetunset.html">offsetUnset</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$offset</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+   }</div>
+
+
+  </div>
+
+  <div class="section" id="arrayaccess.examples">
+   <div class="example" id="arrayaccess.example.basic">
+    <p><strong>示例 #1 Basic usage</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">Obj&nbsp;</span><span style="color: rgb(0, 119, 0);">implements&nbsp;</span><span style="color: rgb(0, 0, 187);">ArrayAccess&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: rgb(0, 0, 187);">$container&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">__construct</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">container&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"one"&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"two"&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"three"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">offsetSet</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">is_null</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">container</span><span style="color: rgb(0, 119, 0);">[]&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">container</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">offsetExists</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">container</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(0, 119, 0);">]);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">offsetUnset</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">container</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(0, 119, 0);">]);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">offsetGet</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">container</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(0, 119, 0);">])&nbsp;?&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">container</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$offset</span><span style="color: rgb(0, 119, 0);">]&nbsp;:&nbsp;</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$obj&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Obj</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(isset(</span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"two"</span><span style="color: rgb(0, 119, 0);">]));<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"two"</span><span style="color: rgb(0, 119, 0);">]);<br>unset(</span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"two"</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(isset(</span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"two"</span><span style="color: rgb(0, 119, 0);">]));<br></span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"two"</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(221, 0, 0);">"A&nbsp;value"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"two"</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">[]&nbsp;=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Append&nbsp;1'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">[]&nbsp;=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Append&nbsp;2'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">[]&nbsp;=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Append&nbsp;3'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>bool(true)
+int(2)
+bool(false)
+string(7) "A value"
+obj Object
+(
+    [container:obj:private] =&gt; Array
+        (
+            [one] =&gt; 1
+            [three] =&gt; 3
+            [two] =&gt; A value
+            [0] =&gt; Append 1
+            [1] =&gt; Append 2
+            [2] =&gt; Append 3
+        )
+
+)
+</pre></div>
+    </div>
+   </div>
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="arrayaccess.offsetexists.html">ArrayAccess::offsetExists</a> — 检查一个偏移位置是否存在</li><li><a href="arrayaccess.offsetget.html">ArrayAccess::offsetGet</a> — 获取一个偏移位置的值</li><li><a href="arrayaccess.offsetset.html">ArrayAccess::offsetSet</a> — 设置一个偏移位置的值</li><li><a href="arrayaccess.offsetunset.html">ArrayAccess::offsetUnset</a> — 复位一个偏移位置的值</li></ul>
+</div>
+</div></div></body></html>

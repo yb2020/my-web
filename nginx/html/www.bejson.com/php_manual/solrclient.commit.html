@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Finalizes all add/deletes made to the index-BeJSON.com</title><meta name="keywords" content="Finalizes all add/deletes made to the index"><meta name="description" content="SolrClient::commit(PECL solr >= 0.9.2)SolrClient::commit — Finalizes all add/deletes made to the index说明public SolrClient::commit(bool $softCommit = f">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="solrclient.adddocuments.html">« SolrClient::addDocuments</a></li>
+      <li style="float: right;"><a href="solrclient.construct.html">SolrClient::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.solrclient.html">SolrClient</a></li>
+    <li>Finalizes all add/deletes made to the index</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="solrclient.commit">
+ <div class="refnamediv">
+  <h1 class="refname">SolrClient::commit</h1>
+  <p class="verinfo">(PECL solr &gt;= 0.9.2)</p><p class="refpurpose"><span class="refname">SolrClient::commit</span> — <span class="dc-title">Finalizes all add/deletes made to the index</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-solrclient.commit-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>SolrClient::commit</strong></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$softCommit</code><span class="initializer"> = <strong><code>false</code></strong></span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$waitSearcher</code><span class="initializer"> = <strong><code>true</code></strong></span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$expungeDeletes</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><a class="type SolrUpdateResponse" href="class.solrupdateresponse.html">SolrUpdateResponse</a></span></div>
+
+  <p class="para rdfs-comment">
+   This method finalizes all add/deletes made to the index.
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-solrclient.commit-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">softCommit</code></dt>
+
+     <dd>
+
+      <p class="para">
+       This will refresh the 'view' of the index in a more performant manner, but without "on-disk" guarantees. (Solr4.0+)
+      </p>
+      <p class="para">
+          A soft commit is much faster since it only makes index changes visible and does not fsync index files or write a new index descriptor. 
+          If the JVM crashes or there is a loss of power, changes that occurred after the last hard commit will be lost. 
+          Search collections that have near-real-time requirements (that want index changes to be quickly visible to searches) will want to soft commit often but hard commit less frequently. 
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">waitSearcher</code></dt>
+
+     <dd>
+
+      <p class="para">
+       block until a new searcher is opened and registered as the main query searcher, making the changes visible. 
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">expungeDeletes</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Merge segments with deletes away. (Solr1.4+)
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-solrclient.commit-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns a <span class="classname"><a class="classname" href="class.solrupdateresponse.html">SolrUpdateResponse</a></span> object on success or throws an exception on failure.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 errors" id="refsect1-solrclient.commit-errors">
+  <h3 class="title">错误／异常</h3>
+  <p class="para">
+   Throws <span class="classname"><a class="classname" href="class.solrclientexception.html">SolrClientException</a></span> if the client had failed, or there was a connection issue.
+  </p>
+  <p class="para">
+   Throws <span class="classname"><a class="classname" href="class.solrserverexception.html">SolrServerException</a></span> if the Solr Server had failed to process the request.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 changelog" id="refsect1-solrclient.commit-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>PECL solr 1.1.0, 2.0.0</td>
+       <td>
+        $maxSegments removed
+       </td>
+      </tr>
+
+      <tr>
+       <td>PECL solr 2.0.0b</td>
+       <td>
+        API Changed: SolrClient::commit ([ int $maxSegments = 0 [, bool $softCommit = false [, bool $waitSearcher = true[, bool $expungeDeletes = false ]]] )
+       </td>
+      </tr>
+
+      
+      <tr>
+       <td>PECL solr 0.9.2</td>
+       <td>
+        Signature: SolrClient::commit ([ int $maxSegments = 1 [, bool $waitFlush = true [, bool $waitSearcher = true ]]] ). 
+        $waitFlush: Block until index changes are flushed to disk.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-solrclient.commit-notes">
+  <h3 class="title">注释</h3>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+        PECL Solr &gt;= 2.0 only supports Solr Server &gt;= 4.0 
+   </p>
+  </div>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-solrclient.commit-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="solrclient.optimize.html" rel="rdfs-seeAlso">SolrClient::optimize()</a> - Defragments the index</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="solrclient.rollback.html" rel="rdfs-seeAlso">SolrClient::rollback()</a> - Rollbacks all add/deletes made to the index since the last commit</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

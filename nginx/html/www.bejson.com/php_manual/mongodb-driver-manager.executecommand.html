@@ -1,0 +1,344 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Execute a database command-BeJSON.com</title><meta name="keywords" content="Execute a database command"><meta name="description" content="This method applies no special logic to the command. Although this method accepts " incorporated"="" be="" will="" which="" options,="" "writeconcern"="" and="" readconcern"="">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mongodb-driver-manager.executebulkwrite.html">« MongoDB\Driver\Manager::executeBulkWrite</a></li>
+      <li style="float: right;"><a href="mongodb-driver-manager.executequery.html">MongoDB\Driver\Manager::executeQuery »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-driver-manager.html">MongoDB\Driver\Manager</a></li>
+    <li>Execute a database command</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="mongodb-driver-manager.executecommand">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\Driver\Manager::executeCommand</h1>
+  <p class="verinfo">(mongodb &gt;=1.0.0)</p><p class="refpurpose"><span class="refname">MongoDB\Driver\Manager::executeCommand</span> — <span class="dc-title">Execute a database command</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongodb-driver-manager.executecommand-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Manager::executeCommand</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>, <span class="methodparam"><span class="type"><a class="type MongoDB\Driver\Command" href="class.mongodb-driver-command.html">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>): <span class="type"><a class="type MongoDB\Driver\Cursor" href="class.mongodb-driver-cursor.html">MongoDB\Driver\Cursor</a></span></div>
+
+  <p class="para rdfs-comment">
+   Selects a server according to the <code class="literal">"readPreference"</code> option
+   and executes the command on that server. By default, the read preference from
+   the <a class="link" href="mongodb-driver-manager.construct.html#mongodb-driver-manager.construct-uri">MongoDB Connection
+   URI</a> will be used.
+  </p>
+  <p class="para">
+   This method applies no special logic to the command. Although this method
+   accepts <code class="literal">"readConcern"</code> and
+   <code class="literal">"writeConcern"</code> options, which will be incorporated into
+   the command document, those options will not default to corresponding values
+   from the <a class="link" href="mongodb-driver-manager.construct.html#mongodb-driver-manager.construct-uri">MongoDB
+   Connection URI</a> nor will the MongoDB server version be taken into
+   account. Users are therefore encouraged to use specific read and/or write
+   command methods if possible.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongodb-driver-manager.executecommand-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+   
+    <dt>
+<code class="parameter">db</code> (<span class="type">string</span>)</dt>
+
+    <dd>
+
+     <p class="para">
+      The name of the database on which to execute the command.
+     </p>
+    </dd>
+
+   
+
+   
+   
+    <dt>
+<code class="parameter">command</code> (<span class="classname"><a class="classname" href="class.mongodb-driver-command.html">MongoDB\Driver\Command</a></span>)</dt>
+
+    <dd>
+
+     <p class="para">
+      The command to execute.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt>
+<code class="parameter">options</code></dt>
+
+    <dd>
+
+     <p class="para">
+      <table class="doctable table">
+       <caption><strong>options</strong></caption>
+       
+        <thead>
+         <tr>
+          <th>Option</th>
+          <th>Type</th>
+          <th>Description</th>
+         </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+         
+         <tr>
+          <td>readConcern</td>
+          <td><span class="classname"><a class="classname" href="class.mongodb-driver-readconcern.html">MongoDB\Driver\ReadConcern</a></span></td>
+          <td>
+           <p class="para">
+            A read concern to apply to the operation.
+           </p>
+           <p class="para">
+            This option is available in MongoDB 3.2+ and will result in an
+            exception at execution time if specified for an older server
+            version.
+           </p>
+          </td>
+         </tr>
+
+
+         
+         <tr>
+          <td>readPreference</td>
+          <td><span class="classname"><a class="classname" href="class.mongodb-driver-readpreference.html">MongoDB\Driver\ReadPreference</a></span></td>
+          <td>
+           <p class="para">
+            A read preference to use for selecting a server for the operation.
+           </p>
+          </td>
+         </tr>
+
+
+         
+         <tr>
+          <td>session</td>
+          <td><span class="classname"><strong class="classname">MongoDB\Driver\Session</strong></span></td>
+          <td>
+           <p class="para">
+            A session to associate with the operation.
+           </p>
+          </td>
+         </tr>
+
+
+         
+         <tr>
+          <td>writeConcern</td>
+          <td><span class="classname"><a class="classname" href="class.mongodb-driver-writeconcern.html">MongoDB\Driver\WriteConcern</a></span></td>
+          <td>
+           <p class="para">
+            A write concern to apply to the operation.
+           </p>
+          </td>
+         </tr>
+
+
+        </tbody>
+       
+      </table>
+
+     <p></p>
+     
+     <div class="warning"><strong class="warning">警告</strong>
+      <p class="para">
+       If you are using a <code class="literal">"session"</code> which has a transaction
+       in progress, you cannot specify a <code class="literal">"readConcern"</code> or
+       <code class="literal">"writeConcern"</code> option. This will result in an
+       <span class="classname"><a class="classname" href="class.mongodb-driver-exception-invalidargumentexception.html">MongoDB\Driver\Exception\InvalidArgumentException</a></span>
+       being thrown. Instead, you should set these two options when you create
+       the transaction with
+       <span class="methodname"><strong>MongoDB\Driver\Session::startTransaction()</strong></span>.
+      </p>
+     </div>
+
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-manager.executecommand-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">Returns <span class="classname"><a class="classname" href="class.mongodb-driver-cursor.html">MongoDB\Driver\Cursor</a></span> on success.</p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongodb-driver-manager.executecommand-errors">
+  <h3 class="title">错误／异常</h3>
+  <ul class="simplelist">
+   <li class="member">Throws <span class="classname"><a class="classname" href="class.mongodb-driver-exception-invalidargumentexception.html">MongoDB\Driver\Exception\InvalidArgumentException</a></span> if the <code class="literal">"session"</code> option is used with an associated transaction in combination with a <code class="literal">"readConcern"</code> or <code class="literal">"writeConcern"</code> option.</li>
+   <li class="member">Throws <span class="classname"><a class="classname" href="class.mongodb-driver-exception-invalidargumentexception.html">MongoDB\Driver\Exception\InvalidArgumentException</a></span> if the <code class="literal">"session"</code> option is used in combination with an unacknowledged write concern.</li>
+   <li class="member">Throws <span class="classname"><a class="classname" href="class.mongodb-driver-exception-invalidargumentexception.html">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li><li class="member">Throws <span class="classname"><a class="classname" href="class.mongodb-driver-exception-connectionexception.html">MongoDB\Driver\Exception\ConnectionException</a></span> if connection to the server fails (for reasons other than authentication).</li><li class="member">Throws <span class="classname"><a class="classname" href="class.mongodb-driver-exception-authenticationexception.html">MongoDB\Driver\Exception\AuthenticationException</a></span> if authentication is needed and fails.</li>
+   <li class="member">Throws <span class="classname"><a class="classname" href="class.mongodb-driver-exception-runtimeexception.html">MongoDB\Driver\Exception\RuntimeException</a></span> on other errors (e.g. invalid command, issuing a write command to a secondary).</li>
+  </ul>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-mongodb-driver-manager.executecommand-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>PECL mongodb 1.4.4</td>
+       <td>
+        <span class="classname"><a class="classname" href="class.mongodb-driver-exception-invalidargumentexception.html">MongoDB\Driver\Exception\InvalidArgumentException</a></span>
+        will be thrown if the <code class="literal">"session"</code> option is used in
+        combination with an unacknowledged write concern.
+       </td>
+      </tr>
+
+      <tr>
+       <td>PECL mongodb 1.4.0</td>
+       <td>
+        The third parameter is now an <code class="parameter">options</code> array.
+        For backwards compatibility, this paramater will still accept a
+        <span class="classname"><a class="classname" href="class.mongodb-driver-readpreference.html">MongoDB\Driver\ReadPreference</a></span> object.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mongodb-driver-manager.executecommand-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-1277">
+   <p><strong>示例 #1 <span class="function"><strong>MongoDB\Driver\Manager::executeCommand()</strong></span> with a command returning a single result document</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$manager&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Manager</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'mongodb://localhost:27017'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$command&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Command</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">'ping'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]);<br><br>try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$cursor&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$manager</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">executeCommand</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'admin'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$command</span><span style="color: rgb(0, 119, 0);">);<br>}&nbsp;catch(</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getMessage</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>}<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;The&nbsp;ping&nbsp;command&nbsp;returns&nbsp;a&nbsp;single&nbsp;result&nbsp;document,&nbsp;so&nbsp;we&nbsp;need&nbsp;to&nbsp;access&nbsp;the<br>&nbsp;*&nbsp;first&nbsp;result&nbsp;in&nbsp;the&nbsp;cursor.&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">$response&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$cursor</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">toArray</span><span style="color: rgb(0, 119, 0);">()[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">];<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$response</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>array(1) {
+  ["ok"]=&gt;
+  float(1)
+}
+</pre></div>
+   </div>
+  </div>
+  <div class="example" id="example-1278">
+   <p><strong>示例 #2 <span class="function"><strong>MongoDB\Driver\Manager::executeCommand()</strong></span> with a command returning a cursor</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$manager&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Manager</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"mongodb://localhost:27017"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$bulk&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">BulkWrite</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$bulk</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">insert</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">'x'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'y'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'foo'</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">$bulk</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">insert</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">'x'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'y'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'bar'</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">$bulk</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">insert</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">'x'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'y'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'bar'</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">$manager</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">executeBulkWrite</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'db.collection'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$bulk</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$command&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Command</span><span style="color: rgb(0, 119, 0);">([<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'aggregate'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'collection'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'pipeline'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[</span><span style="color: rgb(221, 0, 0);">'$group'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;[</span><span style="color: rgb(221, 0, 0);">'_id'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'$y'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'sum'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;[</span><span style="color: rgb(221, 0, 0);">'$sum'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'$x'</span><span style="color: rgb(0, 119, 0);">]]],<br>&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'cursor'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">stdClass</span><span style="color: rgb(0, 119, 0);">,<br>]);<br></span><span style="color: rgb(0, 0, 187);">$cursor&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$manager</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">executeCommand</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'db'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$command</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;The&nbsp;aggregate&nbsp;command&nbsp;can&nbsp;optionally&nbsp;return&nbsp;its&nbsp;results&nbsp;in&nbsp;a&nbsp;cursor&nbsp;instead<br>&nbsp;*&nbsp;of&nbsp;a&nbsp;single&nbsp;result&nbsp;document.&nbsp;In&nbsp;this&nbsp;case,&nbsp;we&nbsp;can&nbsp;iterate&nbsp;on&nbsp;the&nbsp;cursor<br>&nbsp;*&nbsp;directly&nbsp;to&nbsp;access&nbsp;those&nbsp;results.&nbsp;*/<br></span><span style="color: rgb(0, 119, 0);">foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$cursor&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$document</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$document</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>object(stdClass)#6 (2) {
+  ["_id"]=&gt;
+  string(3) "bar"
+  ["sum"]=&gt;
+  int(10)
+}
+object(stdClass)#7 (2) {
+  ["_id"]=&gt;
+  string(3) "foo"
+  ["sum"]=&gt;
+  int(2)
+}
+</pre></div>
+   </div>
+  </div>
+
+  <div class="example" id="example-1279">
+   <p><strong>示例 #3 Limiting execution time for a command</strong></p>
+   <div class="example-contents"><p>
+    The execution time of a command may be limited by specifying a value for
+    <code class="literal">"maxTimeMS"</code> in the
+    <span class="classname"><a class="classname" href="class.mongodb-driver-command.html">MongoDB\Driver\Command</a></span> document. Note that this time
+    limit is enforced on the server side and does not take network latency into
+    account. See
+    <a class="link external" href="https://www.mongodb.com/docs/manual/tutorial/terminate-running-operations/#maxtimems">»&nbsp;Terminate Running Operations</a>
+    in the MongoDB manual for more information.
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$manager&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Manager</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'mongodb://localhost:27017'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$command&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Command</span><span style="color: rgb(0, 119, 0);">([<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'count'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'collection'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'query'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;[</span><span style="color: rgb(221, 0, 0);">'x'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;[</span><span style="color: rgb(221, 0, 0);">'$gt'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]],<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'maxTimeMS'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1000</span><span style="color: rgb(0, 119, 0);">,<br>]);<br><br></span><span style="color: rgb(0, 0, 187);">$cursor&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$manager</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">executeCommand</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'db'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$command</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$cursor</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">toArray</span><span style="color: rgb(0, 119, 0);">()[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>
+    If the command fails to complete after one second of execution time on the
+    server, a
+    <span class="classname"><a class="classname" href="class.mongodb-driver-exception-executiontimeoutexception.html">MongoDB\Driver\Exception\ExecutionTimeoutException</a></span>
+    will be thrown.
+   </p></div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-mongodb-driver-manager.executecommand-notes">
+  <h3 class="title">注释</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    If a secondary <code class="parameter">readPreference</code> is used, it is the
+    caller's responsibility to ensure that the
+    <code class="parameter">command</code> can be executed on a secondary. No validation
+    is done by the driver.
+   </span>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongodb-driver-manager.executecommand-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="classname"><a class="classname" href="class.mongodb-driver-command.html">MongoDB\Driver\Command</a></span></li>
+   <li class="member"><span class="classname"><a class="classname" href="class.mongodb-driver-cursor.html">MongoDB\Driver\Cursor</a></span></li>
+   <li class="member"><span class="function"><a class="function" href="mongodb-driver-manager.executereadcommand.html" rel="rdfs-seeAlso">MongoDB\Driver\Manager::executeReadCommand()</a> - Execute a database command that reads</span></li>
+   <li class="member"><span class="function"><a class="function" href="mongodb-driver-manager.executereadwritecommand.html" rel="rdfs-seeAlso">MongoDB\Driver\Manager::executeReadWriteCommand()</a> - Execute a database command that reads and writes</span></li>
+   <li class="member"><span class="function"><a class="function" href="mongodb-driver-manager.executewritecommand.html" rel="rdfs-seeAlso">MongoDB\Driver\Manager::executeWriteCommand()</a> - Execute a database command that writes</span></li>
+   <li class="member"><span class="function"><a class="function" href="mongodb-driver-server.executecommand.html" rel="rdfs-seeAlso">MongoDB\Driver\Server::executeCommand()</a> - Execute a database command on this server</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

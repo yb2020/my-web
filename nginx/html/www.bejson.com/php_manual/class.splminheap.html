@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The SplMinHeap class-BeJSON.com</title><meta name="keywords" content="The SplMinHeap class"><meta name="description" content="The SplMinHeap class provides the main functionalities of a heap, keeping the minimum on the top. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="splmaxheap.compare.html">« SplMaxHeap::compare</a></li>
+      <li style="float: right;"><a href="splminheap.compare.html">SplMinHeap::compare »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="spl.datastructures.html">数据结构</a></li>
+    <li>The SplMinHeap class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.splminheap">
+ <h1 class="title">The SplMinHeap class</h1>
+ 
+ 
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p>
+ 
+
+  <div class="section" id="splminheap.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    The SplMinHeap class provides the main functionalities of a heap, keeping the minimum on the top.
+   </p>
+  </div>
+
+ 
+  <div class="section" id="splminheap.synopsis">
+   <h2 class="title">类摘要</h2>
+ 
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">SplMinHeap</strong>
+     </span>
+
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.splheap.html">SplHeap</a>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">protected</span> <span class="methodname"><a class="methodname" href="splminheap.compare.html">compare</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value1</code></span>, <span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value2</code></span>): <span class="type">int</span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">protected</span> <span class="methodname"><a class="methodname" href="splheap.compare.html">SplHeap::compare</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value1</code></span>, <span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value2</code></span>): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splheap.count.html">SplHeap::count</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splheap.current.html">SplHeap::current</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splheap.extract.html">SplHeap::extract</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splheap.insert.html">SplHeap::insert</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splheap.iscorrupted.html">SplHeap::isCorrupted</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splheap.isempty.html">SplHeap::isEmpty</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splheap.key.html">SplHeap::key</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splheap.next.html">SplHeap::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splheap.recoverfromcorruption.html">SplHeap::recoverFromCorruption</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splheap.rewind.html">SplHeap::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splheap.top.html">SplHeap::top</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splheap.valid.html">SplHeap::valid</a></span>(): <span class="type">bool</span></div>
+
+   }</div>
+ 
+  </div>
+
+
+
+ 
+ </div>
+ 
+ 
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="splminheap.compare.html">SplMinHeap::compare</a> — Compare elements in order to place them correctly in the heap while sifting up</li></ul>
+</div>
+</div></div></body></html>

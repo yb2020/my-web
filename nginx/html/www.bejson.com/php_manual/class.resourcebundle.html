@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The ResourceBundle class-BeJSON.com</title><meta name="keywords" content="The ResourceBundle class"><meta name="description" content="Localized software products often require sets of data that are to be customized depending on current locale, e.g.: messages, labels, formatting patte">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="intldateformatter.settimezone.html">« IntlDateFormatter::setTimeZone</a></li>
+      <li style="float: right;"><a href="resourcebundle.count.html">ResourceBundle::count »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.intl.html">intl</a></li>
+    <li>The ResourceBundle class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.resourcebundle">
+ <h1 class="title">The ResourceBundle class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.3.2, PHP 7, PHP 8, PECL intl &gt;= 2.0.0)</p>
+
+  
+  <div class="section" id="resourcebundle.intro">
+   <h2 class="title">简介</h2>
+   <p class="simpara">
+    Localized software products often require sets of data that are to be customized
+    depending on current locale, e.g.: messages, labels, formatting patterns. ICU 
+    resource mechanism allows to define sets of resources that the application can 
+    load on locale basis, while accessing them in unified locale-independent fashion.
+   </p>
+   <p class="simpara">
+    This class implements access to ICU resource data files. These files are binary data
+    arrays which ICU uses to store the localized data. 
+   </p>
+   <p class="simpara">
+    ICU resource bundle can hold simple resources and complex resources. Complex resources
+    are containers which can be either integer-indexed or string-indexed (just like PHP arrays).
+    Simple resources can be of the following types: string, integer, binary data field 
+    or integer array.
+   </p>
+   <p class="simpara">
+    <span class="classname"><strong class="classname">ResourceBundle</strong></span> supports direct access to the data through array access
+    pattern and iteration via <a class="link" href="control-structures.foreach.html">foreach</a>,
+    as well as access via class methods. The result will be PHP value for simple resources and
+    <span class="classname"><strong class="classname">ResourceBundle</strong></span> object for complex ones. All resources are read-only.
+   </p>
+  </div>
+  
+
+  <div class="section" id="resourcebundle.synopsis">
+   <h2 class="title">类摘要</h2>
+
+   
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">ResourceBundle</strong>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a class="interfacename" href="class.iteratoraggregate.html">IteratorAggregate</a></span><span class="oointerface">,  <a class="interfacename" href="class.countable.html">Countable</a></span> {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="resourcebundle.create.html">__construct</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$locale</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$bundle</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fallback</code><span class="initializer"> = <strong><code>true</code></strong></span></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="resourcebundle.count.html">count</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="resourcebundle.create.html">create</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$locale</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$bundle</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fallback</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type ResourceBundle" href="class.resourcebundle.html">ResourceBundle</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="resourcebundle.geterrorcode.html">getErrorCode</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="resourcebundle.geterrormessage.html">getErrorMessage</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="resourcebundle.get.html">get</a></span>(<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$index</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fallback</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="resourcebundle.locales.html">getLocales</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$bundle</code></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+   }</div>
+   
+
+   <div class="section">
+    <h2 class="title">更新日志</h2>
+    <table class="doctable informaltable">
+     
+      <thead>
+       <tr>
+        <th>版本</th>
+        <th>说明</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr>
+        <td>8.0.0</td>
+        <td>
+         <span class="classname"><strong class="classname">ResourceBundle</strong></span> implements
+         <span class="interfacename"><a class="interfacename" href="class.iteratoraggregate.html">IteratorAggregate</a></span> now.
+         Previously, <span class="interfacename"><a class="interfacename" href="class.traversable.html">Traversable</a></span> was implemented instead.
+        </td>
+       </tr>
+
+       <tr>
+        <td>7.4.0</td>
+        <td>
+         <span class="classname"><strong class="classname">ResourceBundle</strong></span> implements
+         <span class="interfacename"><a class="interfacename" href="class.countable.html">Countable</a></span> now.
+        </td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </div>
+  </div>
+
+
+
+  <div class="section" id="resourcebundle.seealso">
+   <h2 class="title">参见</h2>
+   <p class="para">
+    <ul class="simplelist">
+     <li class="member">
+      <a class="link external" href="http://userguide.icu-project.org/locale/resources">»&nbsp;
+       ICU Resource Management
+      </a>
+     </li>
+     <li class="member">
+      <a class="link external" href="http://userguide.icu-project.org/icudata">»&nbsp;ICU Data</a>
+     </li>
+    </ul>
+   <p></p>
+  </div>
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="resourcebundle.count.html">ResourceBundle::count</a> — Get number of elements in the bundle</li><li><a href="resourcebundle.create.html">ResourceBundle::create</a> — Create a resource bundle</li><li><a href="resourcebundle.geterrorcode.html">ResourceBundle::getErrorCode</a> — Get bundle's last error code</li><li><a href="resourcebundle.geterrormessage.html">ResourceBundle::getErrorMessage</a> — Get bundle's last error message</li><li><a href="resourcebundle.get.html">ResourceBundle::get</a> — Get data from the bundle</li><li><a href="resourcebundle.locales.html">ResourceBundle::getLocales</a> — Get supported locales</li></ul>
+</div>
+</div></div></body></html>

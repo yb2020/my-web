@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Multiple Statements-BeJSON.com</title><meta name="keywords" content="Multiple Statements"><meta name="description" content="MySQL optionally allows having multiple statements in one statement string, but it requires special handling. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mysqli.quickstart.stored-procedures.html">« Stored Procedures</a></li>
+      <li style="float: right;"><a href="mysqli.quickstart.transactions.html">API support for transactions »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="mysqli.quickstart.html">Quick start guide</a></li>
+    <li>Multiple Statements</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="mysqli.quickstart.multiple-statement">
+  <h1 class="title">Multiple Statements</h1>
+  <p class="para">
+   MySQL optionally allows having multiple statements in one statement string, 
+   but it requires special handling.
+  </p>
+  <p class="para">
+   Multiple statements or multi queries must be executed
+   with <span class="methodname"><a class="methodname" href="mysqli.multi-query.html">mysqli::multi_query()</a></span>. The individual statements
+   of the statement string are separated by semicolon.
+   Then, all result sets returned by the executed statements must be fetched.
+  </p>
+  <p class="para">
+   The MySQL server allows having statements that do return result sets and
+   statements that do not return result sets in one multiple statement.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1413">
+    <p><strong>示例 #1 Multiple Statements</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>mysqli_report</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">MYSQLI_REPORT_ERROR&nbsp;</span><span style="color: rgb(0, 119, 0);">|&nbsp;</span><span style="color: rgb(0, 0, 187);">MYSQLI_REPORT_STRICT</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$mysqli&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"example.com"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"user"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"password"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"database"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"DROP&nbsp;TABLE&nbsp;IF&nbsp;EXISTS&nbsp;test"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"CREATE&nbsp;TABLE&nbsp;test(id&nbsp;INT)"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$sql&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"SELECT&nbsp;COUNT(*)&nbsp;AS&nbsp;_num&nbsp;FROM&nbsp;test;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT&nbsp;INTO&nbsp;test(id)&nbsp;VALUES&nbsp;(1);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT&nbsp;COUNT(*)&nbsp;AS&nbsp;_num&nbsp;FROM&nbsp;test;&nbsp;"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">multi_query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$sql</span><span style="color: rgb(0, 119, 0);">);<br><br>do&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">store_result</span><span style="color: rgb(0, 119, 0);">())&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">fetch_all</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">MYSQLI_ASSOC</span><span style="color: rgb(0, 119, 0);">));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">free</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}&nbsp;while&nbsp;(</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">next_result</span><span style="color: rgb(0, 119, 0);">());</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>array(1) {
+  [0]=&gt;
+  array(1) {
+    ["_num"]=&gt;
+    string(1) "0"
+  }
+}
+array(1) {
+  [0]=&gt;
+  array(1) {
+    ["_num"]=&gt;
+    string(1) "1"
+  }
+}
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <em class="emphasis">Security considerations</em>
+  </p>
+  <p class="para">
+   The API functions <span class="methodname"><a class="methodname" href="mysqli.query.html">mysqli::query()</a></span> and
+   <span class="methodname"><a class="methodname" href="mysqli.real-query.html">mysqli::real_query()</a></span> do not set a connection flag necessary
+   for activating multi queries in the server. An extra API call is used for
+   multiple statements to reduce the damage of accidental SQL injection
+   attacks. An attacker may try to add statements such as
+   <code class="literal">; DROP DATABASE mysql</code> or <code class="literal">; SELECT SLEEP(999)</code>.
+   If the attacker succeeds in adding SQL to the statement string but
+   <code class="literal">mysqli::multi_query</code> is not used, the server will not
+   execute the injected and malicious SQL statement.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1414">
+    <p><strong>示例 #2 SQL Injection</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$mysqli&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"example.com"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"user"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"password"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"database"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"SELECT&nbsp;1;&nbsp;DROP&nbsp;TABLE&nbsp;mysql.user"</span><span style="color: rgb(0, 119, 0);">);<br>if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Error&nbsp;executing&nbsp;query:&nbsp;("&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">errno&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">")&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">error</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Error executing query: (1064) You have an error in your SQL syntax;
+check the manual that corresponds to your MySQL server version for the right syntax 
+to use near 'DROP TABLE mysql.user' at line 1
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <em class="emphasis">Prepared statements</em>
+  </p>
+  <p class="para">
+   Use of the multiple statement with prepared statements is not supported.
+  </p>
+  <p class="para">
+   <em class="emphasis">See also</em>
+  </p>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="mysqli.query.html">mysqli::query()</a></span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="mysqli.multi-query.html">mysqli::multi_query()</a></span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="mysqli.next-result.html">mysqli::next_result()</a></span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="mysqli.more-results.html">mysqli::more_results()</a></span></li>
+   </ul>
+  <p></p>
+ </div></div></div></body></html>

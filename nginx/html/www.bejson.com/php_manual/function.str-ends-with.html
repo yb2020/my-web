@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Checks if a string ends with a given substring-BeJSON.com</title><meta name="keywords" content="Checks if a string ends with a given substring"><meta name="description" content="str_ends_with(PHP 8)str_ends_with — Checks if a string ends with a given substring说明str_ends_with(string $haystack, string $needle): boolPerforms a ca">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.str-contains.html">« str_contains</a></li>
+      <li style="float: right;"><a href="function.str-getcsv.html">str_getcsv »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.strings.html">字符串 函数</a></li>
+    <li>Checks if a string ends with a given substring</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.str-ends-with">
+ <div class="refnamediv">
+  <h1 class="refname">str_ends_with</h1>
+  <p class="verinfo">(PHP 8)</p><p class="refpurpose"><span class="refname">str_ends_with</span> — <span class="dc-title">Checks if a string ends with a given substring</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.str-ends-with-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>str_ends_with</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Performs a case-sensitive check indicating if
+   <code class="parameter">haystack</code> ends with <code class="parameter">needle</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.str-ends-with-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">haystack</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The string to search in.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">needle</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The substring to search for in the <code class="parameter">haystack</code>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.str-ends-with-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> if <code class="parameter">haystack</code> ends with
+   <code class="parameter">needle</code>, <strong><code>false</code></strong> otherwise.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.str-ends-with-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4703">
+    <p><strong>示例 #1 Using the empty string <code class="literal">''</code></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">if&nbsp;(</span><span style="color: rgb(0, 0, 187);">str_ends_with</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'abc'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">''</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"All&nbsp;strings&nbsp;end&nbsp;with&nbsp;the&nbsp;empty&nbsp;string"</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>All strings end with the empty string
+</pre></div>
+    </div>
+   </div>
+
+   <div class="example" id="example-4704">
+    <p><strong>示例 #2 Showing case-sensitivity</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'The&nbsp;lazy&nbsp;fox&nbsp;jumped&nbsp;over&nbsp;the&nbsp;fence'</span><span style="color: rgb(0, 119, 0);">;<br><br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">str_ends_with</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$string</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'fence'</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;string&nbsp;ends&nbsp;with&nbsp;'fence'\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">str_ends_with</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$string</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Fence'</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'The&nbsp;string&nbsp;ends&nbsp;with&nbsp;"fence"'</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'"fence"&nbsp;was&nbsp;not&nbsp;found&nbsp;because&nbsp;the&nbsp;case&nbsp;does&nbsp;not&nbsp;match'</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>The string ends with 'fence'
+"fence" was not found because the case does not match
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.str-ends-with-notes">
+  <h3 class="title">注释</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">此函数可安全用于二进制对象。</span></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.str-ends-with-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.str-contains.html" rel="rdfs-seeAlso">str_contains()</a> - Determine if a string contains a given substring</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.str-starts-with.html" rel="rdfs-seeAlso">str_starts_with()</a> - Checks if a string starts with a given substring</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.stripos.html" rel="rdfs-seeAlso">stripos()</a> - 查找字符串首次出现的位置（不区分大小写）</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.strrpos.html" rel="rdfs-seeAlso">strrpos()</a> - 计算指定字符串在目标字符串中最后一次出现的位置</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.strripos.html" rel="rdfs-seeAlso">strripos()</a> - 计算指定字符串在目标字符串中最后一次出现的位置（不区分大小写）</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.strstr.html" rel="rdfs-seeAlso">strstr()</a> - 查找字符串的首次出现</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.strpbrk.html" rel="rdfs-seeAlso">strpbrk()</a> - 在字符串中查找一组字符的任何一个字符</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.substr.html" rel="rdfs-seeAlso">substr()</a> - 返回字符串的子串</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.preg-match.html" rel="rdfs-seeAlso">preg_match()</a> - 执行匹配正则表达式</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>http.cookies --- HTTP状态管理-BeJSON.com</title><meta name="keywords" content="http.cookies --- HTTP状态管理"><meta name="description" content="http.server --- HTTP 服务器"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="http.cookiejar —— HTTP 客户端的 Cookie 处理" href="http.cookiejar.html" rel="next">
+    <link title="http.server --- HTTP 服务器" href="http.server.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/http.cookies.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookies</span></code> --- HTTP状态管理</a><ul>
+<li><a class="reference internal" href="#cookie-objects">Cookie 对象</a></li>
+<li><a class="reference internal" href="#morsel-objects">Morsel 对象</a></li>
+<li><a class="reference internal" href="#example">示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="http.server.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.server</span></code> --- HTTP 服务器</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="http.cookiejar.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookiejar</span></code> —— HTTP 客户端的 Cookie 处理</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="http.cookiejar —— HTTP 客户端的 Cookie 处理" accesskey="N" href="http.cookiejar.html">下一页</a> |</li>
+        <li class="right">
+          <a title="http.server --- HTTP 服务器" accesskey="P" href="http.server.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="internet.html">互联网协议和支持</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookies</span></code> --- HTTP状态管理</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-http.cookies">
+<span id="http-cookies-http-state-management"></span><h1><a title="http.cookies: Support for HTTP state management (cookies)." class="reference internal" href="#module-http.cookies"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookies</span></code></a> --- HTTP状态管理<a title="永久链接至标题" class="headerlink" href="#module-http.cookies">¶</a></h1>
+<p><strong>源代码:</strong> <a class="reference external" href="">Lib/http/cookies.py</a></p>
+<hr class="docutils">
+<p><a title="http.cookies: Support for HTTP state management (cookies)." class="reference internal" href="#module-http.cookies"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookies</span></code></a> 模块定义的类将 cookie 的概念抽象了出来，这是一种 HTTP 状态的管理机制。它既支持简单的纯字符串形式的 cookie，也为任何可序列化数据类型的 cookie 提供抽象。</p>
+<p>以前，该模块严格套用 <span class="target" id="index-16"></span><a class="rfc reference external" href=""><strong>RFC 2109</strong></a> 和 <span class="target" id="index-17"></span><a class="rfc reference external" href=""><strong>RFC 2068</strong></a> 规范中描述的解析规则。后来人们发现，MSIE 3.0 并不遵循这些规范中的字符规则，而且目前许多浏览器和服务器在处理 cookie 时也放宽了解析规则。 因此，这里用到的解析规则没有那么严格。</p>
+<p>字符集 <a title="string.ascii_letters" class="reference internal" href="string.html#string.ascii_letters"><code class="xref py py-data docutils literal notranslate"><span class="pre">string.ascii_letters</span></code></a> 、 <a title="string.digits" class="reference internal" href="string.html#string.digits"><code class="xref py py-data docutils literal notranslate"><span class="pre">string.digits</span></code></a> 和 <code class="docutils literal notranslate"><span class="pre">!#$%&amp;'*+-.^_`|~:</span></code>  给出了本模块允许出现在 cookie 名称中的有效字符集（如 <a title="http.cookies.Morsel.key" class="reference internal" href="#http.cookies.Morsel.key"><code class="xref py py-attr docutils literal notranslate"><span class="pre">key</span></code></a>）。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.3 版更改: </span>“:”字符可用于有效的 cookie 名称。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>当遇到无效 cookie 时会触发 <a title="http.cookies.CookieError" class="reference internal" href="#http.cookies.CookieError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">CookieError</span></code></a>，所以若 cookie 数据来自浏览器，一定要做好应对无效数据的准备，并在解析时捕获 <a title="http.cookies.CookieError" class="reference internal" href="#http.cookies.CookieError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">CookieError</span></code></a>。</p>
+</div>
+<dl class="py exception">
+<dt class="sig sig-object py" id="http.cookies.CookieError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">http.cookies.</span></span><span class="sig-name descname"><span class="pre">CookieError</span></span><a title="永久链接至目标" class="headerlink" href="#http.cookies.CookieError">¶</a></dt>
+<dd><p>出现异常的原因，可能是不符合 <span class="target" id="index-18"></span><a class="rfc reference external" href=""><strong>RFC 2109</strong></a> ：属性不正确、<em class="mailheader">Set-Cookie</em> 头部信息不正确等等。</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="http.cookies.BaseCookie">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">http.cookies.</span></span><span class="sig-name descname"><span class="pre">BaseCookie</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.BaseCookie">¶</a></dt>
+<dd><p>类似字典的对象，字典键为字符串，字典值是 <a title="http.cookies.Morsel" class="reference internal" href="#http.cookies.Morsel"><code class="xref py py-class docutils literal notranslate"><span class="pre">Morsel</span></code></a> 实例。请注意，在将键值关联时，首先会把值转换为包含键和值的 <a title="http.cookies.Morsel" class="reference internal" href="#http.cookies.Morsel"><code class="xref py py-class docutils literal notranslate"><span class="pre">Morsel</span></code></a> 对象。</p>
+<p>若给出 <em>input</em> ，将会传给 <a title="http.cookies.BaseCookie.load" class="reference internal" href="#http.cookies.BaseCookie.load"><code class="xref py py-meth docutils literal notranslate"><span class="pre">load()</span></code></a> 方法。</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="http.cookies.SimpleCookie">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">http.cookies.</span></span><span class="sig-name descname"><span class="pre">SimpleCookie</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.SimpleCookie">¶</a></dt>
+<dd><p>该类派生于 <a title="http.cookies.BaseCookie" class="reference internal" href="#http.cookies.BaseCookie"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseCookie</span></code></a>，并覆盖了 <code class="xref py py-meth docutils literal notranslate"><span class="pre">value_decode()</span></code> 和 <code class="xref py py-meth docutils literal notranslate"><span class="pre">value_encode()</span></code> 方法。SimpleCookie 允许用字符串作为 cookie 值。在设置值时，SimpleCookie 将调用内置的 <a title="str" class="reference internal" href="stdtypes.html#str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a> 将其转换为字符串。从 HTTP 接收到的值将作为字符串保存。</p>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<dl class="simple">
+<dt><a title="http.cookiejar: Classes for automatic handling of HTTP cookies." class="reference internal" href="http.cookiejar.html#module-http.cookiejar"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookiejar</span></code></a> 模块</dt><dd><p>处理网络 <em>客户端</em> 的 HTTP cookie。 <a title="http.cookiejar: Classes for automatic handling of HTTP cookies." class="reference internal" href="http.cookiejar.html#module-http.cookiejar"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookiejar</span></code></a> 和 <a title="http.cookies: Support for HTTP state management (cookies)." class="reference internal" href="#module-http.cookies"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookies</span></code></a> 模块相互没有依赖关系。</p>
+</dd>
+<dt><span class="target" id="index-19"></span><a class="rfc reference external" href=""><strong>RFC 2109</strong></a> - HTTP状态管理机制</dt><dd><p>这是本模块实现的状态管理规范。</p>
+</dd>
+</dl>
+</div>
+<section id="cookie-objects">
+<span id="id1"></span><h2>Cookie 对象<a title="永久链接至标题" class="headerlink" href="#cookie-objects">¶</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.BaseCookie.value_decode">
+<span class="sig-prename descclassname"><span class="pre">BaseCookie.</span></span><span class="sig-name descname"><span class="pre">value_decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.BaseCookie.value_decode">¶</a></dt>
+<dd><p>由字符串返回元组 <code class="docutils literal notranslate"><span class="pre">(real_value,</span> <span class="pre">coded_value)</span></code>。<code class="docutils literal notranslate"><span class="pre">real_value</span></code> 可为任意类型。<a title="http.cookies.BaseCookie" class="reference internal" href="#http.cookies.BaseCookie"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseCookie</span></code></a> 中的此方法未实现任何解码工作——只为能被子类重写。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.BaseCookie.value_encode">
+<span class="sig-prename descclassname"><span class="pre">BaseCookie.</span></span><span class="sig-name descname"><span class="pre">value_encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.BaseCookie.value_encode">¶</a></dt>
+<dd><p>返回元组 <code class="docutils literal notranslate"><span class="pre">(real_value,</span> <span class="pre">coded_value)</span></code>。<em>val</em> 可为任意类型，<code class="docutils literal notranslate"><span class="pre">coded_value</span></code> 则会转换为字符串。 <a title="http.cookies.BaseCookie" class="reference internal" href="#http.cookies.BaseCookie"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseCookie</span></code></a> 中的此方法未实现任何编码工作——只为能被子类重写。</p>
+<p>通常在 <em>value_decode</em> 的取值范围内，<a title="http.cookies.BaseCookie.value_encode" class="reference internal" href="#http.cookies.BaseCookie.value_encode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">value_encode()</span></code></a> 和 <a title="http.cookies.BaseCookie.value_decode" class="reference internal" href="#http.cookies.BaseCookie.value_decode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">value_decode()</span></code></a> 应为可互逆操作。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.BaseCookie.output">
+<span class="sig-prename descclassname"><span class="pre">BaseCookie.</span></span><span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Set-Cookie:'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\r\n'</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.BaseCookie.output">¶</a></dt>
+<dd><p>返回可作为 HTTP 标头信息发送的字符串表示。 <em>attrs</em> 和 <em>header</em> 会传给每个 <a title="http.cookies.Morsel" class="reference internal" href="#http.cookies.Morsel"><code class="xref py py-class docutils literal notranslate"><span class="pre">Morsel</span></code></a> 的 <a title="http.cookies.BaseCookie.output" class="reference internal" href="#http.cookies.BaseCookie.output"><code class="xref py py-meth docutils literal notranslate"><span class="pre">output()</span></code></a> 方法。 <em>sep</em> 用来将标头连接在一起，默认为 <code class="docutils literal notranslate"><span class="pre">'\r\n'</span></code> (CRLF) 组合。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.BaseCookie.js_output">
+<span class="sig-prename descclassname"><span class="pre">BaseCookie.</span></span><span class="sig-name descname"><span class="pre">js_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.BaseCookie.js_output">¶</a></dt>
+<dd><p>返回一段可供嵌入的 JavaScript 代码，若在支持 JavaScript 的浏览器上运行，其作用如同发送 HTTP 头部信息一样。</p>
+<p><em>attrs</em> 的含义与 <a title="http.cookies.BaseCookie.output" class="reference internal" href="#http.cookies.BaseCookie.output"><code class="xref py py-meth docutils literal notranslate"><span class="pre">output()</span></code></a> 的相同。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.BaseCookie.load">
+<span class="sig-prename descclassname"><span class="pre">BaseCookie.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rawdata</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.BaseCookie.load">¶</a></dt>
+<dd><p>若 <em>rawdata</em> 为字符串，则会作为 <code class="docutils literal notranslate"><span class="pre">HTTP_COOKIE</span></code> 进行解析，并将找到的值添加为 <a title="http.cookies.Morsel" class="reference internal" href="#http.cookies.Morsel"><code class="xref py py-class docutils literal notranslate"><span class="pre">Morsel</span></code></a>。 如果是字典值，则等价于:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">rawdata</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">cookie</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="morsel-objects">
+<span id="id2"></span><h2>Morsel 对象<a title="永久链接至标题" class="headerlink" href="#morsel-objects">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="http.cookies.Morsel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">http.cookies.</span></span><span class="sig-name descname"><span class="pre">Morsel</span></span><a title="永久链接至目标" class="headerlink" href="#http.cookies.Morsel">¶</a></dt>
+<dd><p>对键/值对的抽象，带有 <span class="target" id="index-20"></span><a class="rfc reference external" href=""><strong>RFC 2109</strong></a> 的部分属性。</p>
+<p>morsel 对象类似于字典，键的组成是常量——均为有效的 <span class="target" id="index-21"></span><a class="rfc reference external" href=""><strong>RFC 2109</strong></a> 属性，包括：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expires</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">path</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">comment</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">domain</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max-age</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">secure</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">httponly</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">samesite</span></code></p></li>
+</ul>
+<p><code class="xref py py-attr docutils literal notranslate"><span class="pre">httponly</span></code> 属性指明了该 cookie 仅在 HTTP 请求中传输，且不能通过 JavaScript 访问。这是为了减轻某些跨站脚本攻击的危害。</p>
+<p><code class="xref py py-attr docutils literal notranslate"><span class="pre">samesite</span></code> 属性指明了浏览器不得与跨站请求一起发送该 cookie。这有助于减轻 CSRF 攻击的危害。此属性的有效值为 “Strict”和“Lax”。</p>
+<p>键不区分大小写，默认值为 <code class="docutils literal notranslate"><span class="pre">''</span></code>。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.5 版更改: </span>现在，<code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code> 会同时考虑 <a title="http.cookies.Morsel.key" class="reference internal" href="#http.cookies.Morsel.key"><code class="xref py py-attr docutils literal notranslate"><span class="pre">key</span></code></a> 和 <a title="http.cookies.Morsel.value" class="reference internal" href="#http.cookies.Morsel.value"><code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code></a> 。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.7 版更改: </span>Attributes <a title="http.cookies.Morsel.key" class="reference internal" href="#http.cookies.Morsel.key"><code class="xref py py-attr docutils literal notranslate"><span class="pre">key</span></code></a>, <a title="http.cookies.Morsel.value" class="reference internal" href="#http.cookies.Morsel.value"><code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code></a> and
+<a title="http.cookies.Morsel.coded_value" class="reference internal" href="#http.cookies.Morsel.coded_value"><code class="xref py py-attr docutils literal notranslate"><span class="pre">coded_value</span></code></a> are read-only.  Use <a title="http.cookies.Morsel.set" class="reference internal" href="#http.cookies.Morsel.set"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set()</span></code></a> for
+setting them.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.8 版更改: </span>增加对 <code class="xref py py-attr docutils literal notranslate"><span class="pre">samesite</span></code> 属性的支持。</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="http.cookies.Morsel.value">
+<span class="sig-prename descclassname"><span class="pre">Morsel.</span></span><span class="sig-name descname"><span class="pre">value</span></span><a title="永久链接至目标" class="headerlink" href="#http.cookies.Morsel.value">¶</a></dt>
+<dd><p>Cookie的值。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="http.cookies.Morsel.coded_value">
+<span class="sig-prename descclassname"><span class="pre">Morsel.</span></span><span class="sig-name descname"><span class="pre">coded_value</span></span><a title="永久链接至目标" class="headerlink" href="#http.cookies.Morsel.coded_value">¶</a></dt>
+<dd><p>编码后的 cookie 值——也即要发送的内容。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="http.cookies.Morsel.key">
+<span class="sig-prename descclassname"><span class="pre">Morsel.</span></span><span class="sig-name descname"><span class="pre">key</span></span><a title="永久链接至目标" class="headerlink" href="#http.cookies.Morsel.key">¶</a></dt>
+<dd><p>cookie 名称</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.Morsel.set">
+<span class="sig-prename descclassname"><span class="pre">Morsel.</span></span><span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coded_value</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.Morsel.set">¶</a></dt>
+<dd><p>设置 <em>key</em>、<em>value</em> 和 <em>coded_value</em> 属性。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.Morsel.isReservedKey">
+<span class="sig-prename descclassname"><span class="pre">Morsel.</span></span><span class="sig-name descname"><span class="pre">isReservedKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.Morsel.isReservedKey">¶</a></dt>
+<dd><p>判断 <em>K</em> 是否属于 <a title="http.cookies.Morsel" class="reference internal" href="#http.cookies.Morsel"><code class="xref py py-class docutils literal notranslate"><span class="pre">Morsel</span></code></a> 的键。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.Morsel.output">
+<span class="sig-prename descclassname"><span class="pre">Morsel.</span></span><span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Set-Cookie:'</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.Morsel.output">¶</a></dt>
+<dd><p>返回 morsel 的字符串形式，适用于作为 HTTP 头部信息进行发送。默认包含所有属性，除非给出 <em>attrs</em> 属性列表。<em>header</em> 默认为 <code class="docutils literal notranslate"><span class="pre">"Set-Cookie:"</span></code>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.Morsel.js_output">
+<span class="sig-prename descclassname"><span class="pre">Morsel.</span></span><span class="sig-name descname"><span class="pre">js_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.Morsel.js_output">¶</a></dt>
+<dd><p>返回一段可供嵌入的 JavaScript 代码，若在支持 JavaScript 的浏览器上运行，其作用如同发送 HTTP 头部信息一样。</p>
+<p><em>attrs</em> 的含义与 <a title="http.cookies.Morsel.output" class="reference internal" href="#http.cookies.Morsel.output"><code class="xref py py-meth docutils literal notranslate"><span class="pre">output()</span></code></a> 的相同。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.Morsel.OutputString">
+<span class="sig-prename descclassname"><span class="pre">Morsel.</span></span><span class="sig-name descname"><span class="pre">OutputString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.Morsel.OutputString">¶</a></dt>
+<dd><p>返回 morsel 的字符串形式，不含 HTTP 或 JavaScript 数据。</p>
+<p><em>attrs</em> 的含义与 <a title="http.cookies.Morsel.output" class="reference internal" href="#http.cookies.Morsel.output"><code class="xref py py-meth docutils literal notranslate"><span class="pre">output()</span></code></a> 的相同。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.Morsel.update">
+<span class="sig-prename descclassname"><span class="pre">Morsel.</span></span><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.Morsel.update">¶</a></dt>
+<dd><p>用字典 <em>values</em> 中的值更新  morsel 字典中的值。若有 <em>values</em> 字典中的键不是有效的 <span class="target" id="index-22"></span><a class="rfc reference external" href=""><strong>RFC 2109</strong></a> 属性，则会触发错误。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.5 版更改: </span>无效键会触发错误。</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.Morsel.copy">
+<span class="sig-prename descclassname"><span class="pre">Morsel.</span></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.Morsel.copy">¶</a></dt>
+<dd><p>返回 morsel 对象的浅表复制副本。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.5 版更改: </span>返回一个 morsel 对象，而非字典。</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="http.cookies.Morsel.setdefault">
+<span class="sig-prename descclassname"><span class="pre">Morsel.</span></span><span class="sig-name descname"><span class="pre">setdefault</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#http.cookies.Morsel.setdefault">¶</a></dt>
+<dd><p>若 key 不是有效的 <span class="target" id="index-23"></span><a class="rfc reference external" href=""><strong>RFC 2109</strong></a> 属性则触发错误，否则与 <a title="dict.setdefault" class="reference internal" href="stdtypes.html#dict.setdefault"><code class="xref py py-meth docutils literal notranslate"><span class="pre">dict.setdefault()</span></code></a> 相同。</p>
+</dd></dl>
+
+</section>
+<section id="example">
+<span id="cookie-example"></span><h2>示例<a title="永久链接至标题" class="headerlink" href="#example">¶</a></h2>
+<p>以下例子演示了 <a title="http.cookies: Support for HTTP state management (cookies)." class="reference internal" href="#module-http.cookies"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookies</span></code></a> 模块的用法。</p>
+<div class="highlight-pycon3 notranslate" style="position: relative;"><div class="highlight"><span title="Hide the prompts and output" class="copybutton" style="border-radius: 0px 3px 0px 0px; border: 1px solid rgb(170, 204, 153); top: 0px; right: 0px; color: rgb(170, 204, 153); padding-right: 0.2em; padding-left: 0.2em; font-family: monospace; position: absolute; cursor: pointer;">&gt;&gt;&gt;</span><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">http</span> <span class="kn">import</span> <span class="n">cookies</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">cookies</span><span class="o">.</span><span class="n">SimpleCookie</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">[</span><span class="s2">"fig"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"newton"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">[</span><span class="s2">"sugar"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"wafer"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="c1"># generate HTTP headers</span>
+<span class="go">Set-Cookie: fig=newton</span>
+<span class="go">Set-Cookie: sugar=wafer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">output</span><span class="p">())</span> <span class="c1"># same thing</span>
+<span class="go">Set-Cookie: fig=newton</span>
+<span class="go">Set-Cookie: sugar=wafer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">cookies</span><span class="o">.</span><span class="n">SimpleCookie</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">[</span><span class="s2">"rocky"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"road"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">[</span><span class="s2">"rocky"</span><span class="p">][</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"/cookie"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">header</span><span class="o">=</span><span class="s2">"Cookie:"</span><span class="p">))</span>
+<span class="go">Cookie: rocky=road; Path=/cookie</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">[],</span> <span class="n">header</span><span class="o">=</span><span class="s2">"Cookie:"</span><span class="p">))</span>
+<span class="go">Cookie: rocky=road</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">cookies</span><span class="o">.</span><span class="n">SimpleCookie</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"chips=ahoy; vienna=finger"</span><span class="p">)</span> <span class="c1"># load from a string (HTTP header)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="go">Set-Cookie: chips=ahoy</span>
+<span class="go">Set-Cookie: vienna=finger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">cookies</span><span class="o">.</span><span class="n">SimpleCookie</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'keebler="E=everybody; L=</span><span class="se">\\</span><span class="s1">"Loves</span><span class="se">\\</span><span class="s1">"; fudge=</span><span class="se">\\</span><span class="s1">012;";'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="go">Set-Cookie: keebler="E=everybody; L=\"Loves\"; fudge=\012;"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">cookies</span><span class="o">.</span><span class="n">SimpleCookie</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">[</span><span class="s2">"oreo"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"doublestuff"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">[</span><span class="s2">"oreo"</span><span class="p">][</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"/"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="go">Set-Cookie: oreo=doublestuff; Path=/</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">cookies</span><span class="o">.</span><span class="n">SimpleCookie</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">[</span><span class="s2">"twix"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"none for you"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">[</span><span class="s2">"twix"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+<span class="go">'none for you'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">cookies</span><span class="o">.</span><span class="n">SimpleCookie</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">[</span><span class="s2">"number"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># equivalent to C["number"] = str(7)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">[</span><span class="s2">"string"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"seven"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">[</span><span class="s2">"number"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+<span class="go">'7'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">[</span><span class="s2">"string"</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+<span class="go">'seven'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="go">Set-Cookie: number=7</span>
+<span class="go">Set-Cookie: string=seven</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookies</span></code> --- HTTP状态管理</a><ul>
+<li><a class="reference internal" href="#cookie-objects">Cookie 对象</a></li>
+<li><a class="reference internal" href="#morsel-objects">Morsel 对象</a></li>
+<li><a class="reference internal" href="#example">示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="http.server.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.server</span></code> --- HTTP 服务器</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="http.cookiejar.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookiejar</span></code> —— HTTP 客户端的 Cookie 处理</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="http.cookiejar —— HTTP 客户端的 Cookie 处理" href="http.cookiejar.html">下一页</a> |</li>
+        <li class="right">
+          <a title="http.server --- HTTP 服务器" href="http.server.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="internet.html">互联网协议和支持</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.cookies</span></code> --- HTTP状态管理</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

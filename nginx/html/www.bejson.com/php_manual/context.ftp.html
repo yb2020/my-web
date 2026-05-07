@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>FTP 上下文选项列表-BeJSON.com</title><meta name="keywords" content="FTP 上下文选项列表"><meta name="description" content="ftp:// 和 ftps:// 传输的上下文选项。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="context.http.html">« HTTP context 选项</a></li>
+      <li style="float: right;"><a href="context.ssl.html">SSL 上下文选项 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="context.html">上下文（Context）选项和参数</a></li>
+    <li>FTP 上下文选项列表</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="context.ftp">
+ <div class="refnamediv">
+  <h1 class="refname">FTP 上下文选项</h1>
+  <p class="refpurpose"><span class="refname">FTP 上下文选项</span> — <span class="dc-title">FTP 上下文选项列表</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-context.ftp-description">
+  <h3 class="title">说明</h3>
+  <p class="para">
+   <code class="literal">ftp://</code> 和 <code class="literal">ftps://</code> 传输的上下文选项。
+  </p>
+ </div>
+
+
+ <div class="refsect1 options" id="refsect1-context.ftp-options">
+  <h3 class="title">可选项</h3>
+  <p class="para">
+   <dl>
+    
+     <dt id="context.ftp.overwrite">
+      <code class="parameter">overwrite</code>
+      <span class="type">bool</span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       允许覆盖远程服务器上已有的文件。仅适用于写入模式（上传）。
+      </p>
+      <p class="para">
+       默认为 <strong><code>false</code></strong>。
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ftp.resume-pos">
+      <code class="parameter">resume_pos</code>
+      <span class="type">int</span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       开始传输的文件偏移量。仅适用于读取模式（下载）。
+      </p>
+      <p class="para">
+       默认为 <code class="literal">0</code> （文件开头）。
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ftp.proxy">
+      <code class="parameter">proxy</code>
+      <span class="type">string</span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       通过 http 代理服务器代理 FTP 请求。 仅适用于文件读取操作。 例如：<code class="literal">tcp://squid.example.com:8000</code>。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-context.ftp-notes">
+  <h3 class="title">注释</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <strong>底层套接字流上下文选项</strong><br>
+   <span class="simpara">
+    <a class="link" href="transports.inet.html">底层传输</a> 可能支持其他上下文选项
+    对于 <code class="literal">ftp://</code> 流，请参阅 <code class="literal">tcp://</code> 传输的上下文选项。
+    对于 <code class="literal">ftps://</code> 流，请参阅 <code class="literal">ssl://</code> 传输的上下文选项。
+   </span>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-context.ftp-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a class="xref" href="wrappers.ftp.html">ftp://</a></li>
+    <li class="member"><a class="xref" href="context.socket.html">套接字上下文选项</a></li>
+    <li class="member"><a class="xref" href="context.ssl.html">SSL 上下文选项</a></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

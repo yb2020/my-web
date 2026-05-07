@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>continue-BeJSON.com</title><meta name="keywords" content="continue"><meta name="description" content="continue 在循环结构用用来跳过本次循环中剩余的代码并在条件求值为真时开始执行下一次循环。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="control-structures.break.html">« break</a></li>
+      <li style="float: right;"><a href="control-structures.switch.html">switch »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.control-structures.html">流程控制</a></li>
+    <li>continue</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="control-structures.continue">
+ <h1 class="title">continue</h1>
+ <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p>
+ <p class="simpara">
+  <code class="literal">continue</code>
+  在循环结构用用来跳过本次循环中剩余的代码并在条件求值为真时开始执行下一次循环。
+ </p>
+ <blockquote class="note"><p><strong class="note">注意</strong>: 
+  <span class="simpara">
+   在 PHP 中
+   <a class="link" href="control-structures.switch.html">switch</a>
+   语句被认为是可以使用 <code class="literal">continue</code> 的一种循环结构。
+   <code class="literal">continue</code> 的行为类似于没有传递参数的 
+   <code class="literal">break</code> ，但会引发警告，因为这可能是一个错误。
+   如果 <code class="literal">switch</code> 在循环内，
+   <code class="literal">continue 2</code> 将会外部循环中的下一个迭代中继续。
+  </span>
+ </p></blockquote>
+ <p class="simpara">
+  <code class="literal">continue</code> 接受一个可选的数字参数来决定跳过几重循环到循环结尾。默认值是
+  <code class="literal">1</code>，即跳到当前循环末尾。
+ </p>
+ <p class="para">
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$arr&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$key&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!(</span><span style="color: rgb(0, 0, 187);">$key&nbsp;</span><span style="color: rgb(0, 119, 0);">%&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">))&nbsp;{&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;忽略偶数成员<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">continue;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">do_something_odd</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$i&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">;<br>while&nbsp;(</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">++&nbsp;&lt;&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Outer&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Middle&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Inner&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"This&nbsp;never&nbsp;gets&nbsp;output.&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Neither&nbsp;does&nbsp;this.&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ <p></p>
+ <p class="para">
+  省略 <code class="literal">continue</code>
+  后面的分号会导致混淆。以下例子示意了不应该这样做。
+ </p>
+ <p class="para">
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">for&nbsp;(</span><span style="color: rgb(0, 0, 187);">$i&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(0, 0, 187);">$i&nbsp;</span><span style="color: rgb(0, 119, 0);">&lt;&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">;&nbsp;++</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$i&nbsp;</span><span style="color: rgb(0, 119, 0);">==&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(221, 0, 0);">\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <p class="para">
+    希望得到的结果是：
+   </p>
+   <div class="example-contents screen">
+<div class="cdata"><pre>0
+1
+3
+4
+</pre></div>
+   </div>
+  </div>
+ <p></p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong><code class="literal">continue</code> 的更新记录</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>版本</th>
+      <th>说明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.3.0</td>
+      <td>
+      在 <code class="literal">switch</code> 中 <code class="literal">continue</code> 语句试图代替 <code class="literal">break</code>
+      语句将会触发 <strong><code>E_WARNING</code></strong> 。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ <p></p>
+</div></div></div></body></html>

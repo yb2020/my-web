@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>暂停当前 fiber 的执行-BeJSON.com</title><meta name="keywords" content="暂停当前 fiber 的执行"><meta name="description" content="当 fiber 恢复后，此方法的返回值是 Fiber::resume() 所提供的值。 如果 fiber 使用 Fiber::throw() 恢复，则把传入的异常在调用本方法的位置抛出。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="fiber.isterminated.html">« Fiber::isTerminated</a></li>
+      <li style="float: right;"><a href="fiber.getcurrent.html">Fiber::getCurrent »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.fiber.html">Fiber</a></li>
+    <li>暂停当前 fiber 的执行</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="fiber.suspend">
+ <div class="refnamediv">
+  <h1 class="refname">Fiber::suspend</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.1.0)</p><p class="refpurpose"><span class="refname">Fiber::suspend</span> — <span class="dc-title">暂停当前 fiber 的执行</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-fiber.suspend-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>Fiber::suspend</strong></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+
+  <p class="para rdfs-comment">
+   暂停当前 fiber 的执行。调用 <span class="methodname"><a class="methodname" href="fiber.start.html">Fiber::start()</a></span>、 
+   <span class="methodname"><a class="methodname" href="fiber.resume.html">Fiber::resume()</a></span>、 <span class="methodname"><a class="methodname" href="fiber.throw.html">Fiber::throw()</a></span> 
+   将执行切换到当前 fiber 时，提供给本方法的值，也将是这几个方法所返回的值，
+  </p>
+  <p class="para">
+   当 fiber 恢复后，此方法的返回值是 <span class="methodname"><a class="methodname" href="fiber.resume.html">Fiber::resume()</a></span> 所提供的值。
+   如果 fiber 使用 <span class="methodname"><a class="methodname" href="fiber.throw.html">Fiber::throw()</a></span> 恢复，则把传入的异常在调用本方法的位置抛出。
+  </p>
+  <p class="para">
+   如果此方法是用 fiber 外部调用，将会抛出 <span class="classname"><a class="classname" href="class.fibererror.html">FiberError</a></span>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-fiber.suspend-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">value</code></dt>
+
+    <dd>
+
+     <p class="para">
+      该值会在调用 <span class="methodname"><a class="methodname" href="fiber.start.html">Fiber::start()</a></span>、 
+      <span class="methodname"><a class="methodname" href="fiber.resume.html">Fiber::resume()</a></span>、 <span class="methodname"><a class="methodname" href="fiber.throw.html">Fiber::throw()</a></span> 时作为返回值，并将执行切换到当前 fiber。
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-fiber.suspend-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   提供给 <span class="methodname"><a class="methodname" href="fiber.resume.html">Fiber::resume()</a></span> 的值。
+  </p>
+ </div>
+
+
+
+</div></div></div></body></html>

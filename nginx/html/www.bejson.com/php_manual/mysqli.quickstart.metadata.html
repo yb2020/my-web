@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Metadata-BeJSON.com</title><meta name="keywords" content="Metadata"><meta name="description" content="A MySQL result set contains metadata. The metadata describes the columns found in the result set. All metadata sent by MySQL is accessible through the">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mysqli.quickstart.transactions.html">« API support for transactions</a></li>
+      <li style="float: right;"><a href="mysqli.setup.html">安装／配置 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="mysqli.quickstart.html">Quick start guide</a></li>
+    <li>Metadata</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="mysqli.quickstart.metadata">
+  <h1 class="title">Metadata</h1>
+  <p class="para">
+   A MySQL result set contains metadata. The metadata describes the columns
+   found in the result set. All metadata sent by MySQL is accessible
+   through the <code class="literal">mysqli</code> interface.
+   The extension performs no or negligible changes to the
+   information it receives.
+   Differences between MySQL server versions are not aligned.
+  </p>
+  <p class="para">
+   Meta data is access through the <span class="classname"><a class="classname" href="class.mysqli-result.html">mysqli_result</a></span> interface.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1417">
+    <p><strong>示例 #1 Accessing result set meta data</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>mysqli_report</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">MYSQLI_REPORT_ERROR&nbsp;</span><span style="color: rgb(0, 119, 0);">|&nbsp;</span><span style="color: rgb(0, 0, 187);">MYSQLI_REPORT_STRICT</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$mysqli&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"example.com"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"user"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"password"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"database"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"SELECT&nbsp;1&nbsp;AS&nbsp;_one,&nbsp;'Hello'&nbsp;AS&nbsp;_two&nbsp;FROM&nbsp;DUAL"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">fetch_fields</span><span style="color: rgb(0, 119, 0);">());</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>array(2) {
+  [0]=&gt;
+  object(stdClass)#3 (13) {
+    ["name"]=&gt;
+    string(4) "_one"
+    ["orgname"]=&gt;
+    string(0) ""
+    ["table"]=&gt;
+    string(0) ""
+    ["orgtable"]=&gt;
+    string(0) ""
+    ["def"]=&gt;
+    string(0) ""
+    ["db"]=&gt;
+    string(0) ""
+    ["catalog"]=&gt;
+    string(3) "def"
+    ["max_length"]=&gt;
+    int(1)
+    ["length"]=&gt;
+    int(1)
+    ["charsetnr"]=&gt;
+    int(63)
+    ["flags"]=&gt;
+    int(32897)
+    ["type"]=&gt;
+    int(8)
+    ["decimals"]=&gt;
+    int(0)
+  }
+  [1]=&gt;
+  object(stdClass)#4 (13) {
+    ["name"]=&gt;
+    string(4) "_two"
+    ["orgname"]=&gt;
+    string(0) ""
+    ["table"]=&gt;
+    string(0) ""
+    ["orgtable"]=&gt;
+    string(0) ""
+    ["def"]=&gt;
+    string(0) ""
+    ["db"]=&gt;
+    string(0) ""
+    ["catalog"]=&gt;
+    string(3) "def"
+    ["max_length"]=&gt;
+    int(5)
+    ["length"]=&gt;
+    int(5)
+    ["charsetnr"]=&gt;
+    int(8)
+    ["flags"]=&gt;
+    int(1)
+    ["type"]=&gt;
+    int(253)
+    ["decimals"]=&gt;
+    int(31)
+  }
+}
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <em class="emphasis">Prepared statements</em>
+  </p>
+  <p class="para">
+   Meta data of result sets created using prepared statements are accessed
+   the same way. A suitable <span class="classname"><a class="classname" href="class.mysqli-result.html">mysqli_result</a></span> handle is
+   returned by <span class="methodname"><a class="methodname" href="mysqli-stmt.result-metadata.html">mysqli_stmt::result_metadata()</a></span>.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1418">
+    <p><strong>示例 #2 Prepared statements metadata</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>mysqli_report</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">MYSQLI_REPORT_ERROR&nbsp;</span><span style="color: rgb(0, 119, 0);">|&nbsp;</span><span style="color: rgb(0, 0, 187);">MYSQLI_REPORT_STRICT</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$mysqli&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"example.com"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"user"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"password"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"database"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$stmt&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">prepare</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"SELECT&nbsp;1&nbsp;AS&nbsp;_one,&nbsp;'Hello'&nbsp;AS&nbsp;_two&nbsp;FROM&nbsp;DUAL"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">result_metadata</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">fetch_fields</span><span style="color: rgb(0, 119, 0);">());</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+  <p class="para">
+   <em class="emphasis">See also</em>
+  </p>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="mysqli.query.html">mysqli::query()</a></span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="mysqli-result.fetch-fields.html">mysqli_result::fetch_fields()</a></span></li>
+   </ul>
+  <p></p>
+ </div></div></div></body></html>

@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The XSLTProcessor class-BeJSON.com</title><meta name="keywords" content="The XSLTProcessor class"><meta name="description" content="The XSLTProcessor class(PHP 5, PHP 7, PHP 8)简介类摘要class XSLTProcessor  {/* 方法 */public getParameter(string $namespace, string $name): string|falsepubli">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="xsl.examples-errors.html">« Error handling with libxml error handling functions</a></li>
+      <li style="float: right;"><a href="xsltprocessor.construct.html">XSLTProcessor::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.xsl.html">XSL</a></li>
+    <li>The XSLTProcessor class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.xsltprocessor">
+ <h1 class="title">The XSLTProcessor class</h1>
+ 
+ 
+ <div class="partintro"><p class="verinfo">(PHP 5, PHP 7, PHP 8)</p>
+ 
+
+  <div class="section" id="xsltprocessor.intro">
+   <h2 class="title">简介</h2>
+
+   <p class="para">
+    
+   </p>
+  </div>
+
+ 
+  <div class="section" id="xsltprocessor.synopsis">
+   <h2 class="title">类摘要</h2>
+ 
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">XSLTProcessor</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xsltprocessor.getparameter.html">getParameter</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xsltprocessor.getsecurityprefs.html">getSecurityPrefs</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xsltprocessor.hasexsltsupport.html">hasExsltSupport</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span>
+   <span class="methodname"><a class="methodname" href="xsltprocessor.importstylesheet.html">importStylesheet</a></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$stylesheet</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xsltprocessor.registerphpfunctions.html">registerPHPFunctions</a></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$functions</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xsltprocessor.removeparameter.html">removeParameter</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xsltprocessor.setparameter.html">setParameter</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xsltprocessor.setparameter.html">setParameter</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xsltprocessor.setprofiling.html">setProfiling</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$filename</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xsltprocessor.setsecurityprefs.html">setSecurityPrefs</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$preferences</code></span>): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xsltprocessor.transformtodoc.html">transformToDoc</a></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$document</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$returnClass</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type"><a class="type DOMDocument" href="class.domdocument.html">DOMDocument</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xsltprocessor.transformtouri.html">transformToURI</a></span>(<span class="methodparam"><span class="type"><a class="type DOMDocument" href="class.domdocument.html">DOMDocument</a></span> <code class="parameter">$doc</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$uri</code></span>): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xsltprocessor.transformtoxml.html">transformToXml</a></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$document</code></span>): <span class="type"><span class="type">string</span>|<span class="type">null</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+   }</div>
+
+ 
+  </div>
+ 
+ </div>
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="xsltprocessor.construct.html">XSLTProcessor::__construct</a> — Creates a new XSLTProcessor object</li><li><a href="xsltprocessor.getparameter.html">XSLTProcessor::getParameter</a> — Get value of a parameter</li><li><a href="xsltprocessor.getsecurityprefs.html">XSLTProcessor::getSecurityPrefs</a> — Get security preferences</li><li><a href="xsltprocessor.hasexsltsupport.html">XSLTProcessor::hasExsltSupport</a> — Determine if PHP has EXSLT support</li><li><a href="xsltprocessor.importstylesheet.html">XSLTProcessor::importStylesheet</a> — Import stylesheet</li><li><a href="xsltprocessor.registerphpfunctions.html">XSLTProcessor::registerPHPFunctions</a> — Enables the ability to use PHP functions as XSLT functions</li><li><a href="xsltprocessor.removeparameter.html">XSLTProcessor::removeParameter</a> — Remove parameter</li><li><a href="xsltprocessor.setparameter.html">XSLTProcessor::setParameter</a> — Set value for a parameter</li><li><a href="xsltprocessor.setprofiling.html">XSLTProcessor::setProfiling</a> — Sets profiling output file</li><li><a href="xsltprocessor.setsecurityprefs.html">XSLTProcessor::setSecurityPrefs</a> — Set security preferences</li><li><a href="xsltprocessor.transformtodoc.html">XSLTProcessor::transformToDoc</a> — Transform to a DOMDocument</li><li><a href="xsltprocessor.transformtouri.html">XSLTProcessor::transformToUri</a> — Transform to URI</li><li><a href="xsltprocessor.transformtoxml.html">XSLTProcessor::transformToXml</a> — Transform to XML</li></ul>
+</div>
+</div></div></body></html>

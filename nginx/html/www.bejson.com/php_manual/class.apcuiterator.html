@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>APCUIterator 类-BeJSON.com</title><meta name="keywords" content="APCUIterator 类"><meta name="description" content="APCUIterator 类可以更轻松的迭代大型 APCu 缓存。 它所支持的逐步迭代功能对于遍历大型缓存非常有用，每次加锁后只会获取指定数量（默认 100 条）的缓存条目就会释放锁而非一直锁住整个缓存，以便其他活动对缓存进行操作。 此外，使用正则表达式匹配是更高效的，因为它已经被移到了 C 语言层">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.apcu-store.html">« apcu_store</a></li>
+      <li style="float: right;"><a href="apcuiterator.construct.html">APCUIterator::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.apcu.html">APCu</a></li>
+    <li>APCUIterator 类</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.apcuiterator">
+
+ <h1 class="title">APCUIterator 类</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PECL apcu &gt;= 5.0.0)</p>
+
+
+  <div class="section" id="apcuiterator.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    <span class="classname"><strong class="classname">APCUIterator</strong></span> 类可以更轻松的迭代大型 APCu 缓存。
+    它所支持的逐步迭代功能对于遍历大型缓存非常有用，每次加锁后只会获取指定数量（默认 100 条）的缓存条目就会释放锁而非一直锁住整个缓存，以便其他活动对缓存进行操作。
+    此外，使用正则表达式匹配是更高效的，因为它已经被移到了 C 语言层级（C level）。
+   </p>
+  </div>
+
+
+  <div class="section" id="apcuiterator.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">APCUIterator</strong>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a class="interfacename" href="class.iterator.html">Iterator</a></span> {</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="apcuiterator.current.html">current</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="apcuiterator.gettotalcount.html">getTotalCount</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="apcuiterator.gettotalhits.html">getTotalHits</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="apcuiterator.gettotalsize.html">getTotalSize</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="apcuiterator.key.html">key</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="apcuiterator.next.html">next</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="apcuiterator.rewind.html">rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="apcuiterator.valid.html">valid</a></span>(): <span class="type">bool</span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="apcuiterator.construct.html">APCUIterator::__construct</a> — Constructs an APCUIterator iterator object</li><li><a href="apcuiterator.current.html">APCUIterator::current</a> — Get current item</li><li><a href="apcuiterator.gettotalcount.html">APCUIterator::getTotalCount</a> — Get total count</li><li><a href="apcuiterator.gettotalhits.html">APCUIterator::getTotalHits</a> — Get total cache hits</li><li><a href="apcuiterator.gettotalsize.html">APCUIterator::getTotalSize</a> — Get total cache size</li><li><a href="apcuiterator.key.html">APCUIterator::key</a> — Get iterator key</li><li><a href="apcuiterator.next.html">APCUIterator::next</a> — Move pointer to next item</li><li><a href="apcuiterator.rewind.html">APCUIterator::rewind</a> — Rewinds iterator</li><li><a href="apcuiterator.valid.html">APCUIterator::valid</a> — Checks if current position is valid</li></ul>
+</div>
+</div></div></body></html>

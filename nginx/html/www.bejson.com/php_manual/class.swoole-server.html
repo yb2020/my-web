@@ -1,0 +1,398 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Swoole\Server class-BeJSON.com</title><meta name="keywords" content="The Swoole\Server class"><meta name="description" content="The Swoole\Server class(PECL swoole >= 1.9.0)简介类摘要class Swoole\Server  {/* 方法 */public addlistener(string $host, int $port, string $socket_type): void">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="swoole-serialize.unpack.html">« Swoole\Serialize::unpack</a></li>
+      <li style="float: right;"><a href="swoole-server.addlistener.html">Swoole\Server::addlistener »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.swoole.html">Swoole</a></li>
+    <li>The Swoole\Server class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.swoole-server">
+
+ <h1 class="title">The Swoole\Server class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PECL swoole &gt;= 1.9.0)</p>
+
+
+  <div class="section" id="swoole-server.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+
+   </p>
+  </div>
+
+
+  <div class="section" id="swoole-server.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">Swoole\Server</strong>
+     </span>
+     {</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.addlistener.html">addlistener</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$socket_type</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.addprocess.html">addProcess</a></span>(<span class="methodparam"><span class="type"><a class="type swoole_process" href="class.swoole-process.html">swoole_process</a></span> <code class="parameter">$process</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.after.html">after</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$after_time_ms</code></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$param</code><span class="initializer"> = ?</span></span>): <span class="type"><span class="type ReturnType">ReturnType</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.bind.html">bind</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$uid</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.cleartimer.html">clearTimer</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$timer_id</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="methodname"><strong>swoole_timer_clear</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$timer_id</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.close.html">close</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$reset</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.confirm.html">confirm</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.connection-info.html">connection_info</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$reactor_id</code><span class="initializer"> = ?</span></span>): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.connection-list.html">connection_list</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$start_fd</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$pagesize</code><span class="initializer"> = ?</span></span>): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.defer.html">defer</a></span>(<span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server-port.destruct.html">Swoole\Server\Port::__destruct</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server-port.on.html">Swoole\Server\Port::on</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$event_name</code></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type"><span class="type ReturnType">ReturnType</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server-port.set.html">Swoole\Server\Port::set</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$settings</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.exist.html">exist</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.finish.html">finish</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.getclientinfo.html">getClientInfo</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$reactor_id</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$ignore_error</code><span class="initializer"> = ?</span></span>): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.getclientlist.html">getClientList</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$start_fd</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$pagesize</code><span class="initializer"> = ?</span></span>): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.getlasterror.html">getLastError</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.heartbeat.html">heartbeat</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$if_close_connection</code></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.listen.html">listen</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$socket_type</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.on.html">on</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$event_name</code></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.pause.html">pause</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.protect.html">protect</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_protected</code><span class="initializer"> = ?</span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.reload.html">reload</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.resume.html">resume</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.send.html">send</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$reactor_id</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.sendfile.html">sendfile</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.sendmessage.html">sendMessage</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$worker_id</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.sendto.html">sendto</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$ip</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$server_socket</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.sendwait.html">sendwait</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$fd</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.set.html">set</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$settings</code></span>): <span class="type"><span class="type ReturnType">ReturnType</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.shutdown.html">shutdown</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.start.html">start</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.stats.html">stats</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.stop.html">stop</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$worker_id</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.task.html">task</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_worker_id</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code><span class="initializer"> = ?</span></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.taskwait.html">taskwait</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>, <span class="methodparam"><span class="type">float</span> <code class="parameter">$timeout</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$worker_id</code><span class="initializer"> = ?</span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.taskwaitmulti.html">taskWaitMulti</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$tasks</code></span>, <span class="methodparam"><span class="type">double</span> <code class="parameter">$timeout_ms</code><span class="initializer"> = ?</span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="swoole-server.tick.html">tick</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$interval_ms</code></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="swoole-server.addlistener.html">Swoole\Server::addlistener</a> — Add a new listener to the server.</li><li><a href="swoole-server.addprocess.html">Swoole\Server::addProcess</a> — Add a user defined swoole_process to the server.</li><li><a href="swoole-server.after.html">Swoole\Server::after</a> — Trigger a callback function after a period of time.</li><li><a href="swoole-server.bind.html">Swoole\Server::bind</a> — Bind the connection to a user defined user ID.</li><li><a href="swoole-server.cleartimer.html">Swoole\Server::clearTimer</a> — Stop and destory a timer.</li><li><a href="swoole-server.close.html">Swoole\Server::close</a> — Close a connection to the client.</li><li><a href="swoole-server.confirm.html">Swoole\Server::confirm</a> — Check status of the connection.</li><li><a href="swoole-server.connection-info.html">Swoole\Server::connection_info</a> — Get the connection info by file description.</li><li><a href="swoole-server.connection-list.html">Swoole\Server::connection_list</a> — Get all of the established connections.</li><li><a href="swoole-server.construct.html">Swoole\Server::__construct</a> — Construct a Swoole server.</li><li><a href="swoole-server.defer.html">Swoole\Server::defer</a> — Delay execution of the callback function at the end of current EventLoop.</li><li><a href="swoole-server-port.construct.html">Swoole\Server\Port::__construct</a> — Construct a server port</li><li><a href="swoole-server-port.destruct.html">Swoole\Server\Port::__destruct</a> — Destory server port</li><li><a href="swoole-server-port.on.html">Swoole\Server\Port::on</a> — Register callback functions by event.</li><li><a href="swoole-server-port.set.html">Swoole\Server\Port::set</a> — Set protocol of the server port.</li><li><a href="swoole-server.exist.html">Swoole\Server::exist</a> — Check if the connection is existed.</li><li><a href="swoole-server.finish.html">Swoole\Server::finish</a> — Used in task process for sending result to the worker process when the task is finished.</li><li><a href="swoole-server.getclientinfo.html">Swoole\Server::getClientInfo</a> — Get the connection info by file description.</li><li><a href="swoole-server.getclientlist.html">Swoole\Server::getClientList</a> — Get all of the established connections.</li><li><a href="swoole-server.getlasterror.html">Swoole\Server::getLastError</a> — Get the error code of the most recent error.</li><li><a href="swoole-server.heartbeat.html">Swoole\Server::heartbeat</a> — Check all the connections on the server.</li><li><a href="swoole-server.listen.html">Swoole\Server::listen</a> — Listen on the given IP and port, socket type.</li><li><a href="swoole-server.on.html">Swoole\Server::on</a> — Register a callback function by event name.</li><li><a href="swoole-server.pause.html">Swoole\Server::pause</a> — Stop receiving data from the connection.</li><li><a href="swoole-server.protect.html">Swoole\Server::protect</a> — Set the connection to be protected mode.</li><li><a href="swoole-server.reload.html">Swoole\Server::reload</a> — Restart all the worker process.</li><li><a href="swoole-server.resume.html">Swoole\Server::resume</a> — Start receving data from the connection.</li><li><a href="swoole-server.send.html">Swoole\Server::send</a> — Send data to the client.</li><li><a href="swoole-server.sendfile.html">Swoole\Server::sendfile</a> — Send file to the connection.</li><li><a href="swoole-server.sendmessage.html">Swoole\Server::sendMessage</a> — Send message to worker processes by ID.</li><li><a href="swoole-server.sendto.html">Swoole\Server::sendto</a> — Send data to the remote UDP address.</li><li><a href="swoole-server.sendwait.html">Swoole\Server::sendwait</a> — Send data to the remote socket in the blocking way.</li><li><a href="swoole-server.set.html">Swoole\Server::set</a> — Set the runtime settings of the swoole server.</li><li><a href="swoole-server.shutdown.html">Swoole\Server::shutdown</a> — Shutdown the master server process, this function can be called in worker processes.</li><li><a href="swoole-server.start.html">Swoole\Server::start</a> — Start the Swoole server.</li><li><a href="swoole-server.stats.html">Swoole\Server::stats</a> — Get the stats of the Swoole server.</li><li><a href="swoole-server.stop.html">Swoole\Server::stop</a> — Stop the Swoole server.</li><li><a href="swoole-server.task.html">Swoole\Server::task</a> — Send data to the task worker processes.</li><li><a href="swoole-server.taskwait.html">Swoole\Server::taskwait</a> — Send data to the task worker processes in blocking way.</li><li><a href="swoole-server.taskwaitmulti.html">Swoole\Server::taskWaitMulti</a> — Execute multiple tasks concurrently.</li><li><a href="swoole-server.tick.html">Swoole\Server::tick</a> — Repeats a given function at every given time-interval.</li></ul>
+</div>
+</div></div></body></html>

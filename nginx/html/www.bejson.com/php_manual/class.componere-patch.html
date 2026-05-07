@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Componere\Patch class-BeJSON.com</title><meta name="keywords" content="The Componere\Patch class"><meta name="description" content="The Patch class allows the programmer to change the type of an instance at runtime without registering a new Definition ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="componere-definition.getclosures.html">« Componere\Definition::getClosures</a></li>
+      <li style="float: right;"><a href="componere-patch.construct.html">Componere\Patch::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.componere.html">Componere</a></li>
+    <li>The Componere\Patch class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.componere-patch">
+
+ <h1 class="title">The Componere\Patch class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(Componere 2 &gt;= 2.1.0)</p>
+
+
+  <div class="section" id="componere-patch.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    The Patch class allows the programmer to change the type of an instance at runtime without registering a new Definition
+   </p>
+   <p class="para">
+    When a Patch is destroyed it is reverted, so that instances that were patched during the lifetime of the Patch are restored to their formal type.
+   </p>
+  </div>
+
+
+  <div class="section" id="componere-patch.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">final</span>
+      <span class="modifier">class</span> <strong class="classname">Componere\Patch</strong>
+     </span>
+     
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.componere-abstract-definition.html">Componere\Abstract\Definition</a>
+     </span>
+     {</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constructors */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="componere-patch.construct.html">__construct</a></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$instance</code></span>)</div>
+<div class="constructorsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="componere-patch.construct.html">__construct</a></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$instance</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$interfaces</code></span>)</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="componere-patch.apply.html">apply</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="componere-patch.revert.html">revert</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="componere-patch.isapplied.html">isApplied</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="componere-patch.derive.html">derive</a></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$instance</code></span>): <span class="type"><span class="type Patch">Patch</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="componere-patch.getclosure.html">getClosure</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type"><a class="type Closure" href="class.closure.html">Closure</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="componere-patch.getclosures.html">getClosures</a></span>(): <span class="type">array</span></div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="componere-abstract-definition.addinterface.html">Componere\Abstract\Definition::addInterface</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$interface</code></span>): <span class="type"><span class="type Definition">Definition</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="componere-abstract-definition.addmethod.html">Componere\Abstract\Definition::addMethod</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type"><a class="type Componere\Method" href="class.componere-method.html">Componere\Method</a></span> <code class="parameter">$method</code></span>): <span class="type"><span class="type Definition">Definition</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="componere-abstract-definition.addtrait.html">Componere\Abstract\Definition::addTrait</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$trait</code></span>): <span class="type"><span class="type Definition">Definition</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="componere-abstract-definition.getreflector.html">Componere\Abstract\Definition::getReflector</a></span>(): <span class="type"><a class="type ReflectionClass" href="class.reflectionclass.html">ReflectionClass</a></span></div>
+
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="componere-patch.construct.html">Componere\Patch::__construct</a> — Patch Construction</li><li><a href="componere-patch.apply.html">Componere\Patch::apply</a> — Application</li><li><a href="componere-patch.revert.html">Componere\Patch::revert</a> — Reversal</li><li><a href="componere-patch.isapplied.html">Componere\Patch::isApplied</a> — State Detection</li><li><a href="componere-patch.derive.html">Componere\Patch::derive</a> — Patch Derivation</li><li><a href="componere-patch.getclosure.html">Componere\Patch::getClosure</a> — Get Closure</li><li><a href="componere-patch.getclosures.html">Componere\Patch::getClosures</a> — Get Closures</li></ul>
+</div>
+</div></div></body></html>

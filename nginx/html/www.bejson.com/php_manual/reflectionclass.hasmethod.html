@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>检查方法是否已定义-BeJSON.com</title><meta name="keywords" content="检查方法是否已定义"><meta name="description" content="ReflectionClass::hasMethod(PHP 5 >= 5.1.2, PHP 7, PHP 8)ReflectionClass::hasMethod — 检查方法是否已定义说明public ReflectionClass::hasMethod(string $name): bool检">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="reflectionclass.hasconstant.html">« ReflectionClass::hasConstant</a></li>
+      <li style="float: right;"><a href="reflectionclass.hasproperty.html">ReflectionClass::hasProperty »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.reflectionclass.html">ReflectionClass</a></li>
+    <li>检查方法是否已定义</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="reflectionclass.hasmethod">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionClass::hasMethod</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionClass::hasMethod</span> — <span class="dc-title">检查方法是否已定义</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionclass.hasmethod-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::hasMethod</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   检查一个类中指定的方法是否已定义。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionclass.hasmethod-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       要检查的方法的名称。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-reflectionclass.hasmethod-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   如果有这个方法返回 <strong><code>true</code></strong>，否则返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-reflectionclass.hasmethod-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4998">
+    <p><strong>示例 #1 <span class="methodname"><strong>ReflectionClass::hasMethod()</strong></span> 例子</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">Class&nbsp;</span><span style="color: rgb(0, 0, 187);">C&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">publicFoo</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">protectedFoo</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">privateFoo</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">staticFoo</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$rc&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">ReflectionClass</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"C"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$rc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">hasMethod</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'publicFoo'</span><span style="color: rgb(0, 119, 0);">));<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$rc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">hasMethod</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'protectedFoo'</span><span style="color: rgb(0, 119, 0);">));<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$rc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">hasMethod</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'privateFoo'</span><span style="color: rgb(0, 119, 0);">));<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$rc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">hasMethod</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'staticFoo'</span><span style="color: rgb(0, 119, 0);">));<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;C&nbsp;should&nbsp;not&nbsp;have&nbsp;method&nbsp;bar<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$rc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">hasMethod</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'bar'</span><span style="color: rgb(0, 119, 0);">));<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Method&nbsp;names&nbsp;are&nbsp;case&nbsp;insensitive<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$rc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">hasMethod</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'PUBLICfOO'</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>bool(true)
+bool(true)
+bool(true)
+bool(true)
+bool(false)
+bool(true)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-reflectionclass.hasmethod-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="reflectionclass.hasconstant.html" rel="rdfs-seeAlso">ReflectionClass::hasConstant()</a> - 检查常量是否已经定义</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="reflectionclass.hasproperty.html" rel="rdfs-seeAlso">ReflectionClass::hasProperty()</a> - 检查属性是否已定义</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

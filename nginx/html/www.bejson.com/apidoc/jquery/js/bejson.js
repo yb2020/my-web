@@ -1,0 +1,10 @@
+document.writeln("<script>");
+document.writeln("var _hmt = _hmt || [];");
+document.writeln("(function() {");
+document.writeln("  var hm = document.createElement(\"script\");");
+document.writeln("  hm.src = \"https://hm.baidu.com/hm.js?4aa52dbe1c3f25aa133d68ee023b1c61\";");
+document.writeln("  var s = document.getElementsByTagName(\"script\")[0]; ");
+document.writeln("  s.parentNode.insertBefore(hm, s);");
+document.writeln("})();");
+document.writeln("</script>");
+document.writeln("");

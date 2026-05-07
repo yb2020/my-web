@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>Moss风格的css颜色渐变工具</title>
+
+    <meta name="keywords" content="Moss风格的css颜色渐变工具,bejson渐变色工具" />
+    <meta name="description" content="Moss风格的颜色渐变工具，由#134E5E,#71B280等共计2种颜色组成的css渐变工具" />
+    <link href="/static/bejson/css/gradient.css" rel="stylesheet" />
+    <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/static/bejson/js/html2canvas.min.js"></script>
+    <script>
+        var dirs=new Array();
+        dirs[0]="to left";
+        dirs[1]="to top";
+        dirs[2]="to right";
+        dirs[3]="to bottom";
+        var idx=2;        var color1='rgb(255, 0, 153)';
+        var color2='rgb(73, 50, 64)';
+        var style=" linear-gradient("+dirs[idx]+", rgb(19,78,94),rgb(113,178,128))";
+
+        $().ready(function(){
+            $("#detail_main").css({"background":style});
+            $("#js-direction").click(function(){
+                idx++;
+                idx=idx%4;
+                var style=" linear-gradient("+dirs[idx]+", rgb(19,78,94),rgb(113,178,128))";
+                $("#detail_main").css({"background":style})
+                var str='background: '+dirs[idx]+';  /* fallback for old browsers */\n';
+                str=str+'background: -webkit-linear-gradient('+dirs[idx]+', rgb(19,78,94),rgb(113,178,128));  /* Chrome 10-25, Safari 5.1-6 */\n';
+                str=str+'background: linear-gradient('+dirs[idx]+', rgb(19,78,94),rgb(113,178,128)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */';
+                document.getElementById("showcodetext").value=str;
+            });
+            var isshow=false;
+            $("#js-code").click(function(){
+                if(isshow==false){
+                    isshow=true;
+                    $("#showcodetext").show();
+                }else{
+                    isshow=false;
+                    $("#showcodetext").hide();
+                }
+            });
+            $("#js-download").click(function(){
+                html2canvas(document.querySelector("#detail_main")).then(canvas => {
+                    convertCanvasToImg(canvas);
+
+                });
+
+            });
+        });
+        function convertCanvasToImg(canvas) {
+            // canvas base64 转 blob
+            var myBlob = dataURLtoBlob(canvas.toDataURL('img/png', 0.92))
+            // blob转URL对象
+            myUrl = URL.createObjectURL(myBlob)
+            // 创建a标签，下载图片
+            downImg(myUrl)
+        }
+        function dataURLtoBlob(dataurl) {
+            var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new Blob([u8arr], { type: mime });
+        }
+
+        //下载图片 filename是图片名称
+        function downImg(url) {
+            // 创建a标签 并设置其相关属性，最后触发其点击事件
+            let a = document.createElement("a")
+            let clickEvent = document.createEvent("MouseEvents");
+            a.setAttribute("href", url)
+            a.setAttribute("download", "bejson")
+            a.setAttribute("target", '_blank')
+            clickEvent.initEvent('click', true, true)
+            a.dispatchEvent(clickEvent);
+        }
+    </script>
+</head>
+<body>
+<div class="grandient_detail ">
+    <h1>
+        Moss风格的css颜色渐变工具
+    </h1>
+    <div class="detail_menu">
+        <div class="detail_menu_left">
+            <a href="/" target="_blank">bejson首页</a>><a href="/colortool/gradient/"target="_blank">ui颜色渐变css工具</a>><a href="#">Moss风格的css颜色渐变工具</a>
+        </div>
+        <div class="detail_section detail_section_swatch tac">
+            
+                <li   class="hex mono">
+						<span class="hex__block"
+                              style="background: #134E5E;"></span>
+                    <span class="hex_name"> #134E5E</span>
+
+                </li>
+                 <span class="hex_arrow">→&nbsp;</span>            
+                <li   class="hex mono">
+						<span class="hex__block"
+                              style="background: #71B280;"></span>
+                    <span class="hex_name"> #71B280</span>
+
+                </li>
+                            
+        </div>
+        <div class="detail_section tar">
+            <ul class="actionbar_nav">
+                <li class="actionbar_nav-item">
+                    <a href="#nogo" id="js-direction" title="旋转90度" class="actionbar_nav_link">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="19" viewBox="0 0 16 19"
+                            class="actionbar_nav-icon actionbar_nav-icon--rotate">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M-4-1h24v24H-4z"></path>
+                                <path fill="#000" fill-rule="nonzero"
+                                      d="M11.55 4.55L7 0v3.07C3.06 3.56 0 6.92 0 11s3.05 7.44 7 7.93v-2.02c-2.84-.48-5-2.94-5-5.91s2.16-5.43 5-5.91V9l4.55-4.45zM15.93 10a7.906 7.906 0 0 0-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47h2.02zM9 16.9v2.02c1.39-.17 2.74-.71 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03zm3.89-2.42l1.42 1.41c.9-1.16 1.45-2.5 1.62-3.89h-2.02c-.14.87-.48 1.72-1.02 2.48z">
+                                </path>
+                            </g>
+                        </svg>
+                    </a>
+                </li>
+                <li class="actionbar_nav-item">
+                    <a href="#openCodeModal" id="js-code" title="查看css代码" class="actionbar_nav_link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                             height="12" viewBox="0 0 20 12"
+                             class="actionbar_nav-icon actionbar_nav-icon--code">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M-2-6h24v24H-2z"></path>
+                                <path fill="#000" fill-rule="nonzero"
+                                      d="M7.4 10.6L2.8 6l4.6-4.6L6 0 0 6l6 6 1.4-1.4zm5.2 0L17.2 6l-4.6-4.6L14 0l6 6-6 6-1.4-1.4z">
+                                </path>
+                            </g>
+                        </svg>
+                    </a>
+                </li>
+
+                <li class="actionbar_nav-item">
+                    <a href="#nogo" id="js-download"
+                       title="下载图片" class="actionbar_nav_link">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg" width="14" height="17" viewBox="0 0 14 17"
+                            class="actionbar_nav-icon actionbar_nav-icon--download">
+                            <g fill="none" fill-rule="evenodd">
+                                <path fill="#000" fill-rule="nonzero"
+                                      d="M14 6h-4V0H4v6H0l7 7 7-7zM0 15v2h14v-2H0z"></path>
+                                <path d="M-5-3h24v24H-5z"></path>
+                            </g>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="showcode" id="showcode">
+				<textarea id="showcodetext" onclick="this.select();">background: #134E5E;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, rgb(19,78,94),rgb(113,178,128));  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, rgb(19,78,94),rgb(113,178,128)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */</textarea>
+    </div>
+    <div class="detail_main" id="detail_main" >
+
+    </div>
+</div>
+</body>
+</html>

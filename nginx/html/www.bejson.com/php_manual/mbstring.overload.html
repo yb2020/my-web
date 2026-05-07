@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>函数重载功能-BeJSON.com</title><meta name="keywords" content="函数重载功能"><meta name="description" content="本特性自 PHP 7.2.0 起废弃，并且自 PHP 8.0.0 起被移除。 强烈建议不要使用本特性。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mbstring.supported-encodings.html">« 支持的字符编码</a></li>
+      <li style="float: right;"><a href="mbstring.php4.req.html">PHP字符编码的要求 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mbstring.html">多字节字符串</a></li>
+    <li>函数重载功能</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="chapter" id="mbstring.overload">
+ <h1>
+  函数重载功能
+ </h1>
+
+ 
+ <p class="para">
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara"> 本特性自 PHP 7.2.0 
+起<em class="emphasis">废弃</em>，并且自 PHP 8.0.0 起被<em class="emphasis">移除</em>。
+强烈建议不要使用本特性。</p></div>
+ <p></p>
+ <p class="para">
+  你也许常常会发现现存的 PHP 应用很难运行在多字节环境下。
+  发生这种情况的原因是大多数那种 PHP 应用使用了标准的字符串函数，类似 <span class="function"><a class="function" href="function.substr.html">substr()</a></span>，已知无法处理多字节编码的字符串。
+ </p>
+ <p class="para">
+  mbstring 支持一个“函数重载”功能，将对应的多字节版本重载到标准字符处理函数上，例如你能够让这类应用在不修改代码的前提下添加多字节的处理能力。
+  比如，启用函数重载后，<span class="function"><a class="function" href="function.mb-substr.html">mb_substr()</a></span> 将会代替 <span class="function"><a class="function" href="function.substr.html">substr()</a></span> 被调用。
+  在很多情况下这个功能允许让仅支持单字节编码的应用简单地和多字节环境对接。
+ </p>
+ <p class="para">
+  要使用函数重载功能，设置 <var class="filename">php.ini</var> 里的 <code class="literal">mbstring.func_overload</code> 为正值，就是表示为重载函数分类的位掩码组合。
+  要重载 <span class="function"><a class="function" href="function.mail.html">mail()</a></span> 函数需要设置它为 1。字符串函数设置为 2，正则表达式函数为 4。 
+  例如，当它设置为 7， mail、strings 和 正则表达式函数将都会被重载。
+  以下列表显示了重载的函数。
+  <table class="doctable table">
+   <caption><strong>被重载的函数</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>mbstring.func_overload 的值</th>
+      <th>原始函数</th>
+      <th>重载后的函数</th>
+     </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+     <tr>
+      <td>1</td>
+      <td><span class="function"><a class="function" href="function.mail.html">mail()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-send-mail.html">mb_send_mail()</a></span></td>
+     </tr>
+
+     <tr>
+      <td>2</td>
+      <td><span class="function"><a class="function" href="function.strlen.html">strlen()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-strlen.html">mb_strlen()</a></span></td>
+     </tr>
+
+     <tr>
+      <td>2</td>
+      <td><span class="function"><a class="function" href="function.strpos.html">strpos()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-strpos.html">mb_strpos()</a></span></td>
+     </tr>
+
+     <tr>
+      <td>2</td>
+      <td><span class="function"><a class="function" href="function.strrpos.html">strrpos()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-strrpos.html">mb_strrpos()</a></span></td>
+     </tr>
+
+     <tr>
+      <td>2</td>
+      <td><span class="function"><a class="function" href="function.substr.html">substr()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-substr.html">mb_substr()</a></span></td>
+     </tr>
+
+     <tr>
+      <td>2</td>
+      <td><span class="function"><a class="function" href="function.strtolower.html">strtolower()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-strtolower.html">mb_strtolower()</a></span></td>
+     </tr>
+
+     <tr>
+      <td>2</td>
+      <td><span class="function"><a class="function" href="function.strtoupper.html">strtoupper()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-strtoupper.html">mb_strtoupper()</a></span></td>
+     </tr>
+
+     <tr>
+      <td>2</td>
+      <td><span class="function"><a class="function" href="function.stripos.html">stripos()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-stripos.html">mb_stripos()</a></span></td>
+     </tr>
+
+     <tr>
+      <td>2</td>
+      <td><span class="function"><a class="function" href="function.strripos.html">strripos()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-strripos.html">mb_strripos()</a></span></td>
+     </tr>
+
+     <tr>
+      <td>2</td>
+      <td><span class="function"><a class="function" href="function.strstr.html">strstr()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-strstr.html">mb_strstr()</a></span></td>
+     </tr>
+
+     <tr>
+      <td>2</td>
+      <td><span class="function"><a class="function" href="function.stristr.html">stristr()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-stristr.html">mb_stristr()</a></span></td>
+     </tr>
+
+     <tr>
+      <td>2</td>
+      <td><span class="function"><a class="function" href="function.strrchr.html">strrchr()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-strrchr.html">mb_strrchr()</a></span></td>
+     </tr>
+
+     <tr>
+      <td>2</td>
+      <td><span class="function"><a class="function" href="function.substr-count.html">substr_count()</a></span></td>
+      <td><span class="function"><a class="function" href="function.mb-substr-count.html">mb_substr_count()</a></span></td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ <p></p>
+ <blockquote class="note"><p><strong class="note">注意</strong>: 
+  <p class="para">
+   不推荐每个目录的范围（context）内使用函数重载选项，因为还无法确定在生产环境中是否稳定，也许会导致不确定的行为。
+  </p>
+ <p></p></blockquote>
+</div>
+</div></div></body></html>

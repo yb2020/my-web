@@ -1,0 +1,355 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>运行时配置-BeJSON.com</title><meta name="keywords" content="运行时配置"><meta name="description" content="这些函数的行为受 php.ini 中的设置影响。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="memcache.installation.html">« 安装</a></li>
+      <li style="float: right;"><a href="memcache.resources.html">资源类型 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="memcache.setup.html">安装／配置</a></li>
+    <li>运行时配置</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="memcache.ini">
+ <h1 class="title">运行时配置</h1>
+ <p class="simpara">
+这些函数的行为受 <var class="filename">php.ini</var> 中的设置影响。
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>Memcache配置选项</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>名字</th>
+      <th>默认</th>
+      <th>可修改范围</th>
+      <th>更新日志</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.allow-failover">memcache.allow_failover</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since memcache 2.0.2.</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.max-failover-attempts">memcache.max_failover_attempts</a></td>
+      <td>"20"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since memcache 2.1.0.</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.chunk-size">memcache.chunk_size</a></td>
+      <td>"8192"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since memcache 2.0.2.</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.default-port">memcache.default_port</a></td>
+      <td>"11211"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since memcache 2.0.2.</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.hash-strategy">memcache.hash_strategy</a></td>
+      <td>"standard"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since memcache 2.2.0.</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.hash-function">memcache.hash_function</a></td>
+      <td>"crc32"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since memcache 2.2.0.</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="session.configuration.html#ini.session.save-handler">session.save_handler</a></td>
+      <td>"files"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Supported since memcache 2.1.2</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="session.configuration.html#ini.session.save-path">session.save_path</a></td>
+      <td>""</td>
+      <td>PHP_INI_ALL</td>
+      <td>Supported since memcache 2.1.2</td>
+     </tr>
+
+      <tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.protocol">memcache.protocol</a></td>
+      <td>ascii</td>
+      <td>&gt;PHP_INI_ALL</td>
+      <td>Supported since memcache 3.0.0</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.redundancy">memcache.redundancy</a></td>
+      <td>1</td>
+      <td>&gt;PHP_INI_ALL</td>
+      <td>Supported since memcache 3.0.0</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.session-redundancy">memcache.session_redundancy</a></td>
+      <td>2</td>
+      <td>&gt;PHP_INI_ALL</td>
+      <td>Supported since memcache 3.0.0</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.compress-threshold">memcache.compress_threshold</a></td>
+      <td>20000</td>
+      <td>&gt;PHP_INI_ALL</td>
+      <td>Supported since memcache 3.0.3</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.lock-timeout">memcache.lock_timeout</a></td>
+      <td>15</td>
+      <td>&gt;PHP_INI_ALL</td>
+      <td>Supported since memcache 3.0.4</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  有关 PHP_INI_* 样式的更多详情与定义，见 <a class="xref" href="configuration.changes.modes.html">配置可被设定范围</a>。
+ <p></p>
+
+<p class="para">这是配置指令的简短说明。</p>
+
+<p class="para">
+ <dl>
+  
+  
+   <dt id="ini.memcache.allow-failover">
+    <code class="parameter">memcache.allow_failover</code>
+    <span class="type">bool</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     是否在发生错误时（对用户）透明的转移到其他服务器。
+    </p>
+   </dd>
+
+  
+  
+  
+   <dt id="ini.memcache.max-failover-attempts">
+    <code class="parameter">memcache.max_failover_attempts</code>
+    <span class="type">int</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+    定义在写入和获取数据时最多尝试的服务器次数（即：故障转移最大尝试数），仅和
+    memcache.allow_failover结合使用。
+    </p>
+   </dd>
+
+  
+  
+  
+   <dt id="ini.memcache.chunk-size">
+    <code class="parameter">memcache.chunk_size</code>
+    <span class="type">int</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+    数据传输块大小，这个值越小网络I/O次数越多，如果发现莫名的速度降低， 可以尝试将此值调至32768。
+    </p>
+   </dd>
+
+  
+  
+  
+   <dt id="ini.memcache.default-port">
+    <code class="parameter">memcache.default_port</code>
+    <span class="type">string</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+    在尝试连接memcache的时候如果没有单独指定端口默认使用的TCP端口号。
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="ini.memcache.hash-strategy">
+    <code class="parameter">memcache.hash_strategy</code>
+    <span class="type">string</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+    控制key到服务器的映射（分布式）策略。值 
+     <code class="literal">consistent</code>允许服务器增减而不会（大量）导致健的重新映射
+     （译注：参见http://tech.idv2.com/2008/07/24/memcached-004/），设置为
+     <code class="literal">standard</code>则使用余数方式进行key的映射。
+    </p>
+   </dd>
+
+  
+  
+  
+   <dt id="ini.memcache.hash-function">
+    <code class="parameter">memcache.hash_function</code>
+    <span class="type">string</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+    控制在key-server映射时使用哪个hash函数<code class="literal">crc32</code> 
+    标明使用标准CRC32进行hash，<code class="literal">fnv</code>则说明使用FNV-1a。
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="ini.memcache.session-handler">
+    <code class="parameter">session.save_handler</code>
+    <span class="type">string</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+    当值为<code class="literal">memcache</code>时标记使用memcache作为session处理器。
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="ini.memcache.save-path">
+    <code class="parameter">session.save_path</code>
+    <span class="type">string</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+    定义一个逗号分割的用于session存储的服务器url列表，例如：
+     <code class="literal">"tcp://host1:11211, tcp://host2:11211"</code>.
+    </p>
+    <p class="para">
+    每个url可以包含参数，这些参数于方法<span class="function"><a class="function" href="memcache.addserver.html">Memcache::addServer()</a></span>的参数相同。比如： 
+     <code class="literal">"tcp://host1:11211?persistent=1&amp;weight=1&amp;timeout=1&amp;retry_interval=15"</code>
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="ini.memcache.protocol">
+    <code class="parameter">memcache.protocol</code>
+    <span class="type">string</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="ini.memcache.redundancy">
+    <code class="parameter">memcache.redundancy</code>
+    <span class="type">int</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="ini.memcache.session-redundancy">
+    <code class="parameter">memcache.session_redundancy</code>
+    <span class="type">int</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="ini.memcache.compress-threshold">
+    <code class="parameter">memcache.compress_threshold</code>
+    <span class="type">int</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="ini.memcache.lock-timeout">
+    <code class="parameter">memcache.lock_timeout</code>
+    <span class="type">int</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     
+    </p>
+   </dd>
+
+  
+ </dl>
+
+<p></p>
+</div></div></div></body></html>

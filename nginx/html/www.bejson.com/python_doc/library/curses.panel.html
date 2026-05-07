@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>curses.panel --- curses 的面板栈扩展-BeJSON.com</title><meta name="keywords" content="curses.panel --- curses 的面板栈扩展"><meta name="description" content="curses.ascii --- 用于 ASCII 字符的工具"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="platform --- 获取底层平台的标识数据" href="platform.html" rel="next">
+    <link title="curses.ascii --- 用于 ASCII 字符的工具" href="curses.ascii.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/curses.panel.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.panel</span></code> --- curses 的面板栈扩展</a><ul>
+<li><a class="reference internal" href="#functions">函数</a></li>
+<li><a class="reference internal" href="#panel-objects">Panel 对象</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="curses.ascii.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.ascii</span></code> --- 用于 ASCII 字符的工具</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="platform.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">platform</span></code> ---  获取底层平台的标识数据</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="platform --- 获取底层平台的标识数据" accesskey="N" href="platform.html">下一页</a> |</li>
+        <li class="right">
+          <a title="curses.ascii --- 用于 ASCII 字符的工具" accesskey="P" href="curses.ascii.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="allos.html">通用操作系统服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.panel</span></code> --- curses 的面板栈扩展</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-curses.panel">
+<span id="curses-panel-a-panel-stack-extension-for-curses"></span><h1><a title="curses.panel: A panel stack extension that adds depth to  curses windows." class="reference internal" href="#module-curses.panel"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.panel</span></code></a> --- curses 的面板栈扩展<a title="永久链接至标题" class="headerlink" href="#module-curses.panel">¶</a></h1>
+<hr class="docutils">
+<p>面板是具有添加深度功能的窗口，因此它们可以从上至下堆叠为栈，只有显示每个窗口的可见部分会显示出来。 面板可以在栈中被添加、上移或下移，也可以被移除。</p>
+<section id="functions">
+<span id="cursespanel-functions"></span><h2>函数<a title="永久链接至标题" class="headerlink" href="#functions">¶</a></h2>
+<p><a title="curses.panel: A panel stack extension that adds depth to  curses windows." class="reference internal" href="#module-curses.panel"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.panel</span></code></a> 模块定义了以下函数:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="curses.panel.bottom_panel">
+<span class="sig-prename descclassname"><span class="pre">curses.panel.</span></span><span class="sig-name descname"><span class="pre">bottom_panel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.bottom_panel">¶</a></dt>
+<dd><p>返回面板栈中的底部面板。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="curses.panel.new_panel">
+<span class="sig-prename descclassname"><span class="pre">curses.panel.</span></span><span class="sig-name descname"><span class="pre">new_panel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">win</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.new_panel">¶</a></dt>
+<dd><p>返回一个面板对象，将其与给定的窗口 <em>win</em> 相关联。 请注意你必须显式地保持所返回的面板对象。 如果你不这样做，面板对象会被垃圾回收并从面板栈中被移除。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="curses.panel.top_panel">
+<span class="sig-prename descclassname"><span class="pre">curses.panel.</span></span><span class="sig-name descname"><span class="pre">top_panel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.top_panel">¶</a></dt>
+<dd><p>返回面板栈中的顶部面板。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="curses.panel.update_panels">
+<span class="sig-prename descclassname"><span class="pre">curses.panel.</span></span><span class="sig-name descname"><span class="pre">update_panels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.update_panels">¶</a></dt>
+<dd><p>在面板栈发生改变后更新虚拟屏幕。 这不会调用 <a title="curses.doupdate" class="reference internal" href="curses.html#curses.doupdate"><code class="xref py py-func docutils literal notranslate"><span class="pre">curses.doupdate()</span></code></a>，因此你不必自己执行此操作。</p>
+</dd></dl>
+
+</section>
+<section id="panel-objects">
+<span id="curses-panel-objects"></span><h2>Panel 对象<a title="永久链接至标题" class="headerlink" href="#panel-objects">¶</a></h2>
+<p>Panel 对象，如上面 <a title="curses.panel.new_panel" class="reference internal" href="#curses.panel.new_panel"><code class="xref py py-func docutils literal notranslate"><span class="pre">new_panel()</span></code></a> 所返回的对象，是带有栈顺序的多个窗口。 总是会有一个窗口与确定内容的面板相关联，面板方法会负责窗口在面板栈中的深度。</p>
+<p>Panel 对象具有以下方法:</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.above">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">above</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.Panel.above">¶</a></dt>
+<dd><p>返回当前面板之上的面板。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.below">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">below</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.Panel.below">¶</a></dt>
+<dd><p>返回当前面板之下的面板。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.bottom">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">bottom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.Panel.bottom">¶</a></dt>
+<dd><p>将面板推至栈底部。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.hidden">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">hidden</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.Panel.hidden">¶</a></dt>
+<dd><p>如果面板被隐藏（不可见）则返回 <code class="docutils literal notranslate"><span class="pre">True</span></code>，否则返回 <code class="docutils literal notranslate"><span class="pre">False</span></code>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.hide">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">hide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.Panel.hide">¶</a></dt>
+<dd><p>隐藏面板。 这不会删除对象，它只是让窗口在屏幕上不可见。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.move">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.Panel.move">¶</a></dt>
+<dd><p>将面板移至屏幕坐标 <code class="docutils literal notranslate"><span class="pre">(y,</span> <span class="pre">x)</span></code>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.replace">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">win</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.Panel.replace">¶</a></dt>
+<dd><p>将与面板相关联的窗口改为窗口 <em>win</em>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.set_userptr">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">set_userptr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.Panel.set_userptr">¶</a></dt>
+<dd><p>将面板的用户指向设为 <em>obj</em>。 这被用来将任意数据与面板相关联，数据可以是任何 Python 对象。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.show">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.Panel.show">¶</a></dt>
+<dd><p>显示面板（面板可能已被隐藏）。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.top">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">top</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.Panel.top">¶</a></dt>
+<dd><p>将面板推至栈顶部。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.userptr">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">userptr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.Panel.userptr">¶</a></dt>
+<dd><p>返回面板的用户指针。 这可以是任何 Python 对象。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="curses.panel.Panel.window">
+<span class="sig-prename descclassname"><span class="pre">Panel.</span></span><span class="sig-name descname"><span class="pre">window</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#curses.panel.Panel.window">¶</a></dt>
+<dd><p>返回与面板相关联的窗口对象。</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.panel</span></code> --- curses 的面板栈扩展</a><ul>
+<li><a class="reference internal" href="#functions">函数</a></li>
+<li><a class="reference internal" href="#panel-objects">Panel 对象</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="curses.ascii.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.ascii</span></code> --- 用于 ASCII 字符的工具</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="platform.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">platform</span></code> ---  获取底层平台的标识数据</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="platform --- 获取底层平台的标识数据" href="platform.html">下一页</a> |</li>
+        <li class="right">
+          <a title="curses.ascii --- 用于 ASCII 字符的工具" href="curses.ascii.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="allos.html">通用操作系统服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">curses.panel</span></code> --- curses 的面板栈扩展</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns a bucket object from the brigade to operate on-BeJSON.com</title><meta name="keywords" content="Returns a bucket object from the brigade to operate on"><meta name="description" content="stream_bucket_make_writeable(PHP 5, PHP 7, PHP 8)stream_bucket_make_writeable — Returns a bucket object from the brigade to operate on 说明stream_bucket">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.stream-bucket-append.html">« stream_bucket_append</a></li>
+      <li style="float: right;"><a href="function.stream-bucket-new.html">stream_bucket_new »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.stream.html">Stream 函数</a></li>
+    <li>Returns a bucket object from the brigade to operate on</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.stream-bucket-make-writeable">
+ <div class="refnamediv">
+  <h1 class="refname">stream_bucket_make_writeable</h1>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">stream_bucket_make_writeable</span> — <span class="dc-title">
+   Returns a bucket object from the brigade to operate on
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.stream-bucket-make-writeable-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>stream_bucket_make_writeable</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$brigade</code></span>): <span class="type"><span class="type">?</span><span class="type">object</span></span></div>
+
+  <p class="para rdfs-comment">
+   This function is called whenever there is the need to access and operate on the content contains in a brigade. It is
+   typically called from <span class="methodname"><a class="methodname" href="php-user-filter.filter.html">php_user_filter::filter()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.stream-bucket-make-writeable-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">brigade</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The brigade to return a bucket object from.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.stream-bucket-make-writeable-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns a bucket object with the properties listed below or <strong><code>null</code></strong>.
+   <dl>
+    
+     <dt>
+
+      <span class="property">data</span>
+      (<span class="type">string</span>)
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">data</code> <code class="literal">bucket</code> The current string in the bucket.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+
+      <span class="property">datalen</span>
+      (<span class="type">integer</span>)
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">datalen</code> <code class="literal">bucket</code> The length of the string in the bucket.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.stream-bucket-make-writeable-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.stream-bucket-append.html" rel="rdfs-seeAlso">stream_bucket_append()</a> - Append bucket to brigade</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.stream-bucket-prepend.html" rel="rdfs-seeAlso">stream_bucket_prepend()</a> - Prepend bucket to brigade</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

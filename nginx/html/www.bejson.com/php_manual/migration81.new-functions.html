@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>新函数-BeJSON.com</title><meta name="keywords" content="新函数"><meta name="description" content="自 libsodium 1.0.18 起，Ristretto255 函数已经可用。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="migration81.new-classes.html">« 新的类和接口</a></li>
+      <li style="float: right;"><a href="migration81.constants.html">新的全局常量 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration81.html">从 PHP 8.0.x 移植到 PHP 8.1.x</a></li>
+    <li>新函数</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="migration81.new-functions">
+ <h1 class="title">新函数</h1>
+
+ <div class="sect2" id="migration81.new-functions.core">
+  <h3 class="title">PHP 核心中新增的函数</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.array-is-list.html">array_is_list()</a></span>
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration81.new-functions.pcntl">
+  <h3 class="title">进程控制</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.pcntl-rfork.html">pcntl_rfork()</a></span>
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration81.new-functions.reflection">
+  <h3 class="title">反射</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getclosureusedvariables.html">ReflectionFunctionAbstract::getClosureUsedVariables()</a></span>
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration81.new-functions.standard">
+  <h3 class="title">常规</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.fsync.html">fsync()</a></span>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <span class="function"><a class="function" href="function.fdatasync.html">fdatasync()</a></span>
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration81.new-functions.sodium">
+  <h3 class="title">Sodium</h3>
+
+  <div class="sect3">
+   <h4 class="title">XChaCha20</h4>
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-stream-xchacha20.html">sodium_crypto_stream_xchacha20()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-stream-xchacha20-keygen.html">sodium_crypto_stream_xchacha20_keygen()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-stream-xchacha20-xor.html">sodium_crypto_stream_xchacha20_xor()</a></span>
+     </span>
+    </li>
+   </ul>
+  </div>
+
+  <div class="sect3">
+   <h4 class="title">Ristretto255</h4>
+
+   <p class="para">
+    自 libsodium 1.0.18 起，Ristretto255 函数已经可用。
+   </p>
+
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-add.html">sodium_crypto_core_ristretto255_add()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-from-hash.html">sodium_crypto_core_ristretto255_from_hash()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-is-valid-point.html">sodium_crypto_core_ristretto255_is_valid_point()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-random.html">sodium_crypto_core_ristretto255_random()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-scalar-add.html">sodium_crypto_core_ristretto255_scalar_add()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-scalar-complement.html">sodium_crypto_core_ristretto255_scalar_complement()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-scalar-invert.html">sodium_crypto_core_ristretto255_scalar_invert()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-scalar-mul.html">sodium_crypto_core_ristretto255_scalar_mul()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-scalar-negate.html">sodium_crypto_core_ristretto255_scalar_negate()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-scalar-random.html">sodium_crypto_core_ristretto255_scalar_random()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-scalar-reduce.html">sodium_crypto_core_ristretto255_scalar_reduce()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-scalar-sub.html">sodium_crypto_core_ristretto255_scalar_sub()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-core-ristretto255-sub.html">sodium_crypto_core_ristretto255_sub()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-scalarmult-ristretto255.html">sodium_crypto_scalarmult_ristretto255()</a></span>
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <span class="function"><a class="function" href="function.sodium-crypto-scalarmult-ristretto255-base.html">sodium_crypto_scalarmult_ristretto255_base()</a></span>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </div>
+
+</div></div></div></body></html>

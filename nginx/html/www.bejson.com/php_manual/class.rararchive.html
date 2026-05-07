@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The RarArchive class-BeJSON.com</title><meta name="keywords" content="The RarArchive class"><meta name="description" content="This class represents a RAR archive, which may be formed by several volumes (parts) and which contains a number of RAR entries (i.e., files, directori">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.rar-wrapper-cache-stats.html">« rar_wrapper_cache_stats</a></li>
+      <li style="float: right;"><a href="rararchive.close.html">RarArchive::close »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.rar.html">Rar</a></li>
+    <li>The RarArchive class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.rararchive">
+
+ <h1 class="title">The RarArchive class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PECL rar &gt;= 2.0.0)</p>
+
+
+  <div class="section" id="rararchive.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    This class represents a RAR archive, which may be formed by several volumes (parts) and which contains
+    a number of RAR entries (i.e., files, directories and other special objects such as symbolic links).
+   </p>
+   <p class="para">
+    Objects of this class can be traversed, yielding the entries stored in the respective RAR archive.
+    Those entries can also be obtained through <span class="methodname"><a class="methodname" href="rararchive.getentry.html">RarArchive::getEntry()</a></span> and
+    <span class="methodname"><a class="methodname" href="rararchive.getentries.html">RarArchive::getEntries()</a></span>.
+   </p>
+  </div>
+
+
+  <div class="section" id="rararchive.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">final</span>
+      <span class="modifier">class</span> <strong class="classname">RarArchive</strong>
+     </span>
+     
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a class="interfacename" href="class.traversable.html">Traversable</a></span> {</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="rararchive.close.html">close</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="rararchive.getcomment.html">getComment</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="rararchive.getentries.html">getEntries</a></span>(): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="rararchive.getentry.html">getEntry</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$entryname</code></span>): <span class="type"><span class="type"><a class="type RarEntry" href="class.rarentry.html">RarEntry</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="rararchive.isbroken.html">isBroken</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="rararchive.issolid.html">isSolid</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="rararchive.open.html">open</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code><span class="initializer"> = NULL</span></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$volume_callback</code><span class="initializer"> = NULL</span></span>): <span class="type"><span class="type"><a class="type RarArchive" href="class.rararchive.html">RarArchive</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="rararchive.setallowbroken.html">setAllowBroken</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$allow_broken</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="rararchive.tostring.html">__toString</a></span>(): <span class="type">string</span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="rararchive.close.html">RarArchive::close</a> — Close RAR archive and free all resources</li><li><a href="rararchive.getcomment.html">RarArchive::getComment</a> — Get comment text from the RAR archive</li><li><a href="rararchive.getentries.html">RarArchive::getEntries</a> — Get full list of entries from the RAR archive</li><li><a href="rararchive.getentry.html">RarArchive::getEntry</a> — Get entry object from the RAR archive</li><li><a href="rararchive.isbroken.html">RarArchive::isBroken</a> — Test whether an archive is broken (incomplete)</li><li><a href="rararchive.issolid.html">RarArchive::isSolid</a> — Check whether the RAR archive is solid</li><li><a href="rararchive.open.html">RarArchive::open</a> — Open RAR archive</li><li><a href="rararchive.setallowbroken.html">RarArchive::setAllowBroken</a> — Whether opening broken archives is allowed</li><li><a href="rararchive.tostring.html">RarArchive::__toString</a> — Get text representation</li></ul>
+</div>
+</div></div></body></html>

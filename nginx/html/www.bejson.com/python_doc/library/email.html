@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>email --- 电子邮件与 MIME 处理包-BeJSON.com</title><meta name="keywords" content="email --- 电子邮件与 MIME 处理包"><meta name="description" content="互联网数据处理"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="email.message: 表示一封电子邮件信息" href="email.message.html" rel="next">
+    <link title="互联网数据处理" href="netdata.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/email.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="netdata.html">互联网数据处理</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="email.message.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.message</span></code>: 表示一封电子邮件信息</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="email.message: 表示一封电子邮件信息" accesskey="N" href="email.message.html">下一页</a> |</li>
+        <li class="right">
+          <a title="互联网数据处理" accesskey="P" href="netdata.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="netdata.html">互联网数据处理</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> --- 电子邮件与 MIME 处理包</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-email">
+<span id="email-an-email-and-mime-handling-package"></span><h1><a title="email: Package supporting the parsing, manipulating, and generating email messages." class="reference internal" href="#module-email"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code></a> --- 电子邮件与 MIME 处理包<a title="永久链接至标题" class="headerlink" href="#module-email">¶</a></h1>
+<p><strong>源代码:</strong> <a class="reference external" href="">Lib/email/__init__.py</a></p>
+<hr class="docutils">
+<p><a title="email: Package supporting the parsing, manipulating, and generating email messages." class="reference internal" href="#module-email"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code></a> 包是一个用于管理电子邮件消息的库。 它 <em>并非</em> 被设计为执行向 SMTP (<span class="target" id="index-16"></span><a class="rfc reference external" href=""><strong>RFC 2821</strong></a>), NNTP 或其他服务器发送电子邮件消息的操作；这些是 <a title="smtplib: SMTP protocol client (requires sockets)." class="reference internal" href="smtplib.html#module-smtplib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smtplib</span></code></a> 和 <a title="nntplib: NNTP protocol client (requires sockets). (已移除)" class="reference internal" href="nntplib.html#module-nntplib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nntplib</span></code></a> 等模块的功能。 <a title="email: Package supporting the parsing, manipulating, and generating email messages." class="reference internal" href="#module-email"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code></a> 包试图尽可能地遵循 RFC，支持 <span class="target" id="index-17"></span><a class="rfc reference external" href=""><strong>RFC 5322</strong></a> 和 <span class="target" id="index-18"></span><a class="rfc reference external" href=""><strong>RFC 6532</strong></a>，以及与 MIME 相关的各个 RFC 例如 <span class="target" id="index-19"></span><a class="rfc reference external" href=""><strong>RFC 2045</strong></a>, <span class="target" id="index-20"></span><a class="rfc reference external" href=""><strong>RFC 2046</strong></a>, <span class="target" id="index-21"></span><a class="rfc reference external" href=""><strong>RFC 2047</strong></a>, <span class="target" id="index-22"></span><a class="rfc reference external" href=""><strong>RFC 2183</strong></a> 和 <span class="target" id="index-23"></span><a class="rfc reference external" href=""><strong>RFC 2231</strong></a>。</p>
+<p>email 包的总体结构可以分为三个主要组件，另外还有第四个组件用于控制其他组件的行为。</p>
+<p>这个包的中心组件是代表电子邮件消息的“对象模型”。 应用程序主要通过在 <a title="email.message: The base class representing email messages." class="reference internal" href="email.message.html#module-email.message"><code class="xref py py-mod docutils literal notranslate"><span class="pre">message</span></code></a> 子模块中定义的对象模型接口与这个包进行交互。 应用程序可以使用此 API 来询问有关现有电子邮件的问题、构造新的电子邮件，或者添加或移除自身也使用相同对象模型接口的电子邮件子组件。 也就是说，遵循电子邮件消息及其 MIME 子组件的性质，电子邮件对象模型是所有提供 <a title="email.message.EmailMessage" class="reference internal" href="email.message.html#email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> API 的对象所构成的树状结构。</p>
+<p>这个包的另外两个主要组件是 <a title="email.parser: Parse flat text email messages to produce a message object structure." class="reference internal" href="email.parser.html#module-email.parser"><code class="xref py py-mod docutils literal notranslate"><span class="pre">parser</span></code></a> 和 <a title="email.generator: Generate flat text email messages from a message structure." class="reference internal" href="email.generator.html#module-email.generator"><code class="xref py py-mod docutils literal notranslate"><span class="pre">generator</span></code></a>。 parser 接受电子邮件消息的序列化版本（字节流）并将其转换为 <a title="email.message.EmailMessage" class="reference internal" href="email.message.html#email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> 对象树。 generator 接受  <a title="email.message.EmailMessage" class="reference internal" href="email.message.html#email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> 并将其转回序列化的字节流。 (parser 和 generator 还能处理文本字符流，但不建议这种用法，因为这很容易导致某种形式的无效消息。</p>
+<p>控制组件是 <a title="email.policy: Controlling the parsing and generating of messages" class="reference internal" href="email.policy.html#module-email.policy"><code class="xref py py-mod docutils literal notranslate"><span class="pre">policy</span></code></a> 模块。 每一个 <a title="email.message.EmailMessage" class="reference internal" href="email.message.html#email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a>、每一个 <a title="email.generator: Generate flat text email messages from a message structure." class="reference internal" href="email.generator.html#module-email.generator"><code class="xref py py-mod docutils literal notranslate"><span class="pre">generator</span></code></a> 和每一个 <a title="email.parser: Parse flat text email messages to produce a message object structure." class="reference internal" href="email.parser.html#module-email.parser"><code class="xref py py-mod docutils literal notranslate"><span class="pre">parser</span></code></a> 都有一个相关联的 <a title="email.policy: Controlling the parsing and generating of messages" class="reference internal" href="email.policy.html#module-email.policy"><code class="xref py py-mod docutils literal notranslate"><span class="pre">policy</span></code></a> 对象来控制其行为。 通常应用程序只有在 <a title="email.message.EmailMessage" class="reference internal" href="email.message.html#email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> 被创建时才需要指明控制策略，或者通过直接实例代 <a title="email.message.EmailMessage" class="reference internal" href="email.message.html#email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a>  来新建电子邮件，或者通过使用 <a title="email.parser: Parse flat text email messages to produce a message object structure." class="reference internal" href="email.parser.html#module-email.parser"><code class="xref py py-mod docutils literal notranslate"><span class="pre">parser</span></code></a> 来解析输入流。 但是策略也可以在使用 <a title="email.generator: Generate flat text email messages from a message structure." class="reference internal" href="email.generator.html#module-email.generator"><code class="xref py py-mod docutils literal notranslate"><span class="pre">generator</span></code></a> 序列化消息时被更改。 例如，这允许从磁盘解析通用电子邮件消息，而在将消息发送到电子邮件服务器时使用标准 SMTP 设置对其进行序列化。</p>
+<p>email 包会尽量地对应用程序隐藏各种控制类 RFC 的细节。 从概念上讲应用程序应当能够将电子邮件消息视为 Unicode 文本和二进制附件的结构化树，而不必担心在序列化时要如何表示它们。 但在实际中，经常有必要至少了解一部分控制类 MIME 消息及其结构的规划，特别是 MIME "内容类型" 的名称和性质以及它们是如何标识多部分文档的。 在大多数情况下这些知识应当仅对于更复杂的应用程序来说才是必需的，并且即便在那时它也应当仅是特定的高层级结构，而不是如何表示这些结构的细节信息。 由于 MIME 内容类型被广泛应用于现代因特网软件（而非只是电子邮件），因此这对许多程序员来说将是很熟悉的概念。</p>
+<p>以下小节描述了 <a title="email: Package supporting the parsing, manipulating, and generating email messages." class="reference internal" href="#module-email"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code></a> 包的具体功能。 我们会从 <a title="email.message: The base class representing email messages." class="reference internal" href="email.message.html#module-email.message"><code class="xref py py-mod docutils literal notranslate"><span class="pre">message</span></code></a> 对象模型开始，它是应用程序将要使用的主要接口，之后是 <a title="email.parser: Parse flat text email messages to produce a message object structure." class="reference internal" href="email.parser.html#module-email.parser"><code class="xref py py-mod docutils literal notranslate"><span class="pre">parser</span></code></a> 和 <a title="email.generator: Generate flat text email messages from a message structure." class="reference internal" href="email.generator.html#module-email.generator"><code class="xref py py-mod docutils literal notranslate"><span class="pre">generator</span></code></a> 组件。 然后我们会介绍 <a title="email.policy: Controlling the parsing and generating of messages" class="reference internal" href="email.policy.html#module-email.policy"><code class="xref py py-mod docutils literal notranslate"><span class="pre">policy</span></code></a> 控制组件，它将完成对这个库的主要组件的处理。</p>
+<p>接下来的三个小节会介绍这个包可能引发的异常以及 <a title="email.parser: Parse flat text email messages to produce a message object structure." class="reference internal" href="email.parser.html#module-email.parser"><code class="xref py py-mod docutils literal notranslate"><span class="pre">parser</span></code></a> 可能检测到的缺陷（即与 RFC 不相符）。 然后我们会介绍 <a title="email.headerregistry: Automatic Parsing of headers based on the field name" class="reference internal" href="email.headerregistry.html#module-email.headerregistry"><code class="xref py py-mod docutils literal notranslate"><span class="pre">headerregistry</span></code></a> 和 <a title="email.contentmanager: Storing and Retrieving Content from MIME Parts" class="reference internal" href="email.contentmanager.html#module-email.contentmanager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">contentmanager</span></code></a> 子组件，它们分别提供了用于更精细地操纵标题和载荷的工具。 这两个组件除了包含使用与生成非简单消息的相关特性，还记录了它们的可扩展性 API，这将是高级应用程序所感兴趣的内容。</p>
+<p>在此之后是一组使用之前小节所介绍的 API 的基本部分的示例。</p>
+<p>前面的内容是 email 包的现代（对 Unicode 支持良好）API。 从 <a title="email.message.Message" class="reference internal" href="email.compat32-message.html#email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 类开始的其余小节则介绍了旧式  <a title="email.policy.compat32" class="reference internal" href="email.policy.html#email.policy.compat32"><code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code></a> API，它会更直接地处理如何表示电子邮件消息的细节。 <a title="email.policy.compat32" class="reference internal" href="email.policy.html#email.policy.compat32"><code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code></a> API <em>不会</em> 向应用程序隐藏 RFC 的相关细节，但对于需要进行此种层级操作的应用程序来说将是很有用的工具。 此文档对于因向下兼容理由而仍然使用 <a title="email.policy.compat32" class="reference internal" href="email.policy.html#email.policy.compat32"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compat32</span></code></a> API 的应用程序也是很适合的。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.6 版更改: </span>文档经过重新组织和撰写以鼓励使用新的 <a title="email.message.EmailMessage" class="reference internal" href="email.message.html#email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a>/<a title="email.policy.EmailPolicy" class="reference internal" href="email.policy.html#email.policy.EmailPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailPolicy</span></code></a> API。</p>
+</div>
+<p><a title="email: Package supporting the parsing, manipulating, and generating email messages." class="reference internal" href="#module-email"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code></a> 包文档的内容:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="email.message.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.message</span></code>: 表示一封电子邮件信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.parser.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.parser</span></code>: 解析电子邮件信息</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="email.parser.html#feedparser-api">FeedParser API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.parser.html#parser-api">Parser API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.parser.html#additional-notes">附加说明</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="email.generator.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.generator</span></code>: 生成 MIME 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.policy.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.policy</span></code>: Policy 对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.errors.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.errors</span></code>: 异常和缺陷类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.headerregistry.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.headerregistry</span></code>: 自定义标头对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.contentmanager.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.contentmanager</span></code>: 管理 MIME 内容</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="email.contentmanager.html#content-manager-instances">内容管理器实例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="email.examples.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code>: 示例</a></li>
+</ul>
+</div>
+<p>旧式 API:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="email.compat32-message.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.message.Message</span></code>: 使用 <code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code> API 来表示电子邮件消息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.mime.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime</span></code>: 从头创建电子邮件和 MIME 对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.header.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.header</span></code>: 国际化标头</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.charset.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.charset</span></code>: 表示字符集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.encoders.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.encoders</span></code>: 编码器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.utils</span></code>: 其他工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.iterators.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.iterators</span></code>: 迭代器</a></li>
+</ul>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<dl class="simple">
+<dt><a title="smtplib: SMTP protocol client (requires sockets)." class="reference internal" href="smtplib.html#module-smtplib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smtplib</span></code></a> 模块</dt><dd><p>SMTP (简单邮件传输协议) 客户端</p>
+</dd>
+<dt><a title="poplib: POP3 protocol client (requires sockets)." class="reference internal" href="poplib.html#module-poplib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">poplib</span></code></a> 模块</dt><dd><p>POP (邮局协议) 客户端</p>
+</dd>
+<dt><a title="imaplib: IMAP4 protocol client (requires sockets)." class="reference internal" href="imaplib.html#module-imaplib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imaplib</span></code></a> 模块</dt><dd><p>IMAP (互联网消息访问协议) 客户端</p>
+</dd>
+<dt><a title="nntplib: NNTP protocol client (requires sockets). (已移除)" class="reference internal" href="nntplib.html#module-nntplib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nntplib</span></code></a> 模块</dt><dd><p>NNTP (网络新闻传输协议) 客户端</p>
+</dd>
+<dt><a title="mailbox: Manipulate mailboxes in various formats" class="reference internal" href="mailbox.html#module-mailbox"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mailbox</span></code></a> 模块</dt><dd><p>创建、读取和管理使用保存在磁盘中的多种标准格式的消息集的工具。</p>
+</dd>
+<dt><a title="smtpd: A SMTP server implementation in Python. (已移除)" class="reference internal" href="smtpd.html#module-smtpd"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smtpd</span></code></a> 模块</dt><dd><p>SMTP 服务器框架 (主要适用于测试)</p>
+</dd>
+</dl>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="netdata.html">互联网数据处理</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="email.message.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.message</span></code>: 表示一封电子邮件信息</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="email.message: 表示一封电子邮件信息" href="email.message.html">下一页</a> |</li>
+        <li class="right">
+          <a title="互联网数据处理" href="netdata.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="netdata.html">互联网数据处理</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> --- 电子邮件与 MIME 处理包</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

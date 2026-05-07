@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Makes the next result of the specified statement active-BeJSON.com</title><meta name="keywords" content="Makes the next result of the specified statement active"><meta name="description" content="sqlsrv_next_result(No version information available, might only be in Git)sqlsrv_next_result — Makes the next result of the specified statement active">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.sqlsrv-has-rows.html">« sqlsrv_has_rows</a></li>
+      <li style="float: right;"><a href="function.sqlsrv-num-fields.html">sqlsrv_num_fields »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.sqlsrv.html">SQLSRV 函数</a></li>
+    <li>Makes the next result of the specified statement active</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.sqlsrv-next-result">
+ <div class="refnamediv">
+  <h1 class="refname">sqlsrv_next_result</h1>
+  <p class="verinfo">(No version information available, might only be in Git)</p><p class="refpurpose"><span class="refname">sqlsrv_next_result</span> — <span class="dc-title">Makes the next result of the specified statement active</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.sqlsrv-next-result-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>sqlsrv_next_result</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stmt</code></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+
+  <p class="para rdfs-comment">
+   Makes the next result of the specified statement active. Results include result 
+   sets, row counts, and output parameters.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-function.sqlsrv-next-result-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">stmt</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The statement on which the next result is being called.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.sqlsrv-next-result-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> if the next result was successfully retrieved, <strong><code>false</code></strong> if an error 
+   occurred, and <strong><code>null</code></strong> if there are no more results to retrieve.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-function.sqlsrv-next-result-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-1956">
+    <p><strong>示例 #1 <span class="function"><strong>sqlsrv_next_result()</strong></span> example</strong></p>
+    <div class="example-contents"><p>
+    The following example executes a batch query that inserts into a table and 
+    then selects from the table. This produces two results on the statement: 
+    one for the rows affected by the INSERT and one for the rows returned by 
+    the SELECT. To get to the rows returned by the SELECT, 
+    <span class="function"><strong>sqlsrv_next_result()</strong></span> must be called to move past the first result.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$serverName&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"serverName\sqlexpress"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$connectionInfo&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(</span><span style="color: rgb(221, 0, 0);">"Database"</span><span style="color: rgb(0, 119, 0);">=&gt;</span><span style="color: rgb(221, 0, 0);">"dbName"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"UID"</span><span style="color: rgb(0, 119, 0);">=&gt;</span><span style="color: rgb(221, 0, 0);">"userName"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"PWD"</span><span style="color: rgb(0, 119, 0);">=&gt;</span><span style="color: rgb(221, 0, 0);">"password"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$conn&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">sqlsrv_connect</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$serverName</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$connectionInfo</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"INSERT&nbsp;INTO&nbsp;Table_1&nbsp;(id,&nbsp;data)&nbsp;VALUES&nbsp;(?,?);&nbsp;SELECT&nbsp;*&nbsp;FROM&nbsp;TABLE_1;"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$params&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"some&nbsp;data"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$stmt&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">sqlsrv_query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$params</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Consume&nbsp;the&nbsp;first&nbsp;result&nbsp;(rows&nbsp;affected&nbsp;by&nbsp;INSERT)&nbsp;without&nbsp;calling&nbsp;sqlsrv_next_result.<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Rows&nbsp;affected:&nbsp;"</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(0, 0, 187);">sqlsrv_rows_affected</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">).</span><span style="color: rgb(221, 0, 0);">"&lt;br&nbsp;/&gt;"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Move&nbsp;to&nbsp;the&nbsp;next&nbsp;result&nbsp;and&nbsp;display&nbsp;results.<br></span><span style="color: rgb(0, 0, 187);">$next_result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">sqlsrv_next_result</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">);<br>if(&nbsp;</span><span style="color: rgb(0, 0, 187);">$next_result&nbsp;</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;while(&nbsp;</span><span style="color: rgb(0, 0, 187);">$row&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">sqlsrv_fetch_array</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">SQLSRV_FETCH_ASSOC</span><span style="color: rgb(0, 119, 0);">)){<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$row</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'id'</span><span style="color: rgb(0, 119, 0);">].</span><span style="color: rgb(221, 0, 0);">":&nbsp;"</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(0, 0, 187);">$row</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'data'</span><span style="color: rgb(0, 119, 0);">].</span><span style="color: rgb(221, 0, 0);">"&lt;br&nbsp;/&gt;"</span><span style="color: rgb(0, 119, 0);">;&nbsp;<br>&nbsp;&nbsp;&nbsp;}<br>}&nbsp;elseif(&nbsp;</span><span style="color: rgb(0, 0, 187);">is_null</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$next_result</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"No&nbsp;more&nbsp;results.&lt;br&nbsp;/&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">sqlsrv_errors</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">));<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.sqlsrv-next-result-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.sqlsrv-query.html" rel="rdfs-seeAlso">sqlsrv_query()</a> - Prepares and executes a query</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.sqlsrv-fetch-array.html" rel="rdfs-seeAlso">sqlsrv_fetch_array()</a> - Returns a row as an array</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.sqlsrv-rows-affected.html" rel="rdfs-seeAlso">sqlsrv_rows_affected()</a> - Returns the number of rows modified by the last INSERT, UPDATE, or 
+  DELETE query executed</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>上下文变量对象-BeJSON.com</title><meta name="keywords" content="上下文变量对象"><meta name="description" content="协程对象"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="DateTime 对象" href="datetime.html" rel="next">
+    <link title="协程对象" href="coro.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/c-api/contextvars.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="coro.html">协程对象</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="datetime.html">DateTime 对象</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="DateTime 对象" accesskey="N" href="datetime.html">下一页</a> |</li>
+        <li class="right">
+          <a title="协程对象" accesskey="P" href="coro.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python/C API 参考手册</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="concrete.html">具体的对象层</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">上下文变量对象</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="context-variables-objects">
+<span id="contextvarsobjects"></span><h1>上下文变量对象<a title="永久链接至标题" class="headerlink" href="#context-variables-objects">¶</a></h1>
+<div class="versionchanged" id="contextvarsobjects-pointertype-change">
+<p><span class="versionmodified changed">在 3.7.1 版更改: </span></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>在 Python 3.7.1 中，所有上下文变量 C API 的签名被 <strong>更改</strong> 为使用 <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> 指针而不是 <a title="PyContext" class="reference internal" href="#c.PyContext"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyContext</span></code></a>, <a title="PyContextVar" class="reference internal" href="#c.PyContextVar"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyContextVar</span></code></a> 以及 <a title="PyContextToken" class="reference internal" href="#c.PyContextToken"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyContextToken</span></code></a>，例如:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// in 3.7.0:</span>
+<span class="n">PyContext</span><span class="w"> </span><span class="o">*</span><span class="nf">PyContext_New</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// in 3.7.1+:</span>
+<span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="nf">PyContext_New</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>请参阅 <a class="reference external" href="">bpo-34762</a> 了解详情。</p>
+</div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">3.7 新版功能.</span></p>
+</div>
+<p>本节深入介绍了 <a title="contextvars: Context Variables" class="reference internal" href="../library/contextvars.html#module-contextvars"><code class="xref py py-mod docutils literal notranslate"><span class="pre">contextvars</span></code></a> 模块的公用 C API。</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PyContext">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContext</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.PyContext">¶</a><br></dt>
+<dd><p>用于表示 <a title="contextvars.Context" class="reference internal" href="../library/contextvars.html#contextvars.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">contextvars.Context</span></code></a> 对象的 C 结构体。</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PyContextVar">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContextVar</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.PyContextVar">¶</a><br></dt>
+<dd><p>用于表示 <a title="contextvars.ContextVar" class="reference internal" href="../library/contextvars.html#contextvars.ContextVar"><code class="xref py py-class docutils literal notranslate"><span class="pre">contextvars.ContextVar</span></code></a> 对象的 C 结构体。</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PyContextToken">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContextToken</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.PyContextToken">¶</a><br></dt>
+<dd><p>用于表示 <a title="contextvars.Token" class="reference internal" href="../library/contextvars.html#contextvars.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">contextvars.Token</span></code></a> 对象的 C 结构体。</p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyContext_Type">
+<a title="PyTypeObject" class="reference internal" href="type.html#c.PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContext_Type</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.PyContext_Type">¶</a><br></dt>
+<dd><p>表示 <em>context</em> 类型的类型对象。</p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyContextVar_Type">
+<a title="PyTypeObject" class="reference internal" href="type.html#c.PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContextVar_Type</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.PyContextVar_Type">¶</a><br></dt>
+<dd><p>表示 <em>context variable</em> 类型的类型对象。</p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyContextToken_Type">
+<a title="PyTypeObject" class="reference internal" href="type.html#c.PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContextToken_Type</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.PyContextToken_Type">¶</a><br></dt>
+<dd><p>表示 <em>context variable token</em> 类型的类型对象。</p>
+</dd></dl>
+
+<p>类型检查宏：</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyContext_CheckExact">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContext_CheckExact</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyContext_CheckExact">¶</a><br></dt>
+<dd><p>如果 <em>o</em> 的类型为 <a title="PyContext_Type" class="reference internal" href="#c.PyContext_Type"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyContext_Type</span></code></a> 则返回真值。 <em>o</em> 必须不为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyContextVar_CheckExact">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContextVar_CheckExact</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyContextVar_CheckExact">¶</a><br></dt>
+<dd><p>如果 <em>o</em> 的类型为 <a title="PyContextVar_Type" class="reference internal" href="#c.PyContextVar_Type"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyContextVar_Type</span></code></a> 则返回真值。 <em>o</em> 必须不为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyContextToken_CheckExact">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContextToken_CheckExact</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyContextToken_CheckExact">¶</a><br></dt>
+<dd><p>如果 <em>o</em> 的类型为 <a title="PyContextToken_Type" class="reference internal" href="#c.PyContextToken_Type"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyContextToken_Type</span></code></a> 则返回真值。 <em>o</em> 必须不为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<p>上下文对象管理函数:</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyContext_New">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyContext_New</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyContext_New">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>创建一个新的空上下文对象。 如果发生错误则返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyContext_Copy">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyContext_Copy</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyContext_Copy">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>创建所传入的 <em>ctx</em> 上下文对象的浅拷贝。 如果发生错误则返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyContext_CopyCurrent">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyContext_CopyCurrent</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyContext_CopyCurrent">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>创建当前线程上下文的浅拷贝。 如果发生错误则返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyContext_Enter">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContext_Enter</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyContext_Enter">¶</a><br></dt>
+<dd><p>将 <em>ctx</em> 设为当前线程的当前上下文。 成功时返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>，出错时返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyContext_Exit">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContext_Exit</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyContext_Exit">¶</a><br></dt>
+<dd><p>取消激活 <em>ctx</em> 上下文并将之前的上下文恢复为当前线程的当前上下文。 成功时返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>，出错时返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code>。</p>
+</dd></dl>
+
+<p>上下文变量函数:</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyContextVar_New">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyContextVar_New</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">def</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyContextVar_New">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>创建一个新的 <code class="docutils literal notranslate"><span class="pre">ContextVar</span></code> 对象。 形参 <em>name</em> 用于自我检查和调试目的。 形参 <em>def</em> 为上下文变量指定默认值，或为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> 表示无默认值。 如果发生错误，这个函数会返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyContextVar_Get">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContextVar_Get</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">var</span></span>, <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">default_value</span></span>, <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyContextVar_Get">¶</a><br></dt>
+<dd><p>获取上下文变量的值。如果在查找过程中发生错误，返回' ' -1 ' '，如果没有发生错误，无论是否找到值，都返回' ' 0 ' '，</p>
+<p>如果找到上下文变量，<em>value</em> 将是指向它的指针。 如果上下文变量 <em>没有</em> 找到，<em>value</em> 将指向：</p>
+<ul class="simple">
+<li><p><em>default_value</em>，如果非``NULL``;</p></li>
+<li><p><em>var</em> 的默认值，如果不是 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NULL</span></code></p></li>
+</ul>
+<p>除了返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>，这个函数会返回一个新的引用。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyContextVar_Set">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyContextVar_Set</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">var</span></span>, <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyContextVar_Set">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>在当前上下文中将 <em>var</em> 设为 <em>value</em>。 返回针对此修改的新凭据对象，或者如果发生错误则返回 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyContextVar_Reset">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyContextVar_Reset</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">var</span></span>, <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">token</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyContextVar_Reset">¶</a><br></dt>
+<dd><p>将上下文变量 <em>var</em> 的状态重置为它在返回 <em>token</em> 的 <a title="PyContextVar_Set" class="reference internal" href="#c.PyContextVar_Set"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyContextVar_Set()</span></code></a> 被调用之前的状态。 此函数成功时返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>，出错时返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code>。</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="coro.html">协程对象</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="datetime.html">DateTime 对象</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="DateTime 对象" href="datetime.html">下一页</a> |</li>
+        <li class="right">
+          <a title="协程对象" href="coro.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python/C API 参考手册</a> »</li>
+          <li class="nav-item nav-item-2"><a href="concrete.html">具体的对象层</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">上下文变量对象</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

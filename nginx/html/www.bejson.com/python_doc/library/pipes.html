@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>pipes --- 终端管道接口-BeJSON.com</title><meta name="keywords" content="pipes --- 终端管道接口"><meta name="description" content="ossaudiodev --- 访问兼容OSS的音频设备"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="smtpd --- SMTP 服务器" href="smtpd.html" rel="next">
+    <link title="ossaudiodev --- 访问兼容OSS的音频设备" href="ossaudiodev.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/pipes.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pipes</span></code> --- 终端管道接口</a><ul>
+<li><a class="reference internal" href="#template-objects">模板对象</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="ossaudiodev.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ossaudiodev</span></code>  --- 访问兼容OSS的音频设备</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="smtpd.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smtpd</span></code> --- SMTP 服务器</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="smtpd --- SMTP 服务器" accesskey="N" href="smtpd.html">下一页</a> |</li>
+        <li class="right">
+          <a title="ossaudiodev --- 访问兼容OSS的音频设备" accesskey="P" href="ossaudiodev.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="superseded.html">被取代的模块</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">pipes</span></code> --- 终端管道接口</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-pipes">
+<span id="pipes-interface-to-shell-pipelines"></span><h1><a title="pipes: A Python interface to Unix shell pipelines. (已移除) (Unix)" class="reference internal" href="#module-pipes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pipes</span></code></a> --- 终端管道接口<a title="永久链接至标题" class="headerlink" href="#module-pipes">¶</a></h1>
+<p><strong>源代码：</strong> <a class="reference external" href="">Lib/pipes.py</a></p>
+<div class="deprecated-removed">
+<p><span class="versionmodified">Deprecated since version 3.11, will be removed in version 3.13: </span>The <a title="pipes: A Python interface to Unix shell pipelines. (已移除) (Unix)" class="reference internal" href="#module-pipes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pipes</span></code></a> module is deprecated
+(see <span class="target" id="index-0"></span><a class="pep reference external" href=""><strong>PEP 594</strong></a> for details).
+Please use the <a title="subprocess: Subprocess management." class="reference internal" href="subprocess.html#module-subprocess"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a> module instead.</p>
+</div>
+<hr class="docutils">
+<p><a title="pipes: A Python interface to Unix shell pipelines. (已移除) (Unix)" class="reference internal" href="#module-pipes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pipes</span></code></a> 定义了一个类用来抽象 <em>pipeline</em> 的概念 --- 将数据从一个文件转到另一文件的转换器序列。</p>
+<p>由于模块使用了 <strong class="program">/bin/sh</strong> 命令行，因此要求有 POSIX 或兼容 <a title="os.system" class="reference internal" href="os.html#os.system"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.system()</span></code></a> 和 <a title="os.popen" class="reference internal" href="os.html#os.popen"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.popen()</span></code></a> 的终端程序。</p>
+<p class="availability"><a class="reference internal" href="intro.html#availability"><span class="std std-ref">可用性</span></a>: Unix。 在 VxWorks 上不可用。</p>
+<p><a title="pipes: A Python interface to Unix shell pipelines. (已移除) (Unix)" class="reference internal" href="#module-pipes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pipes</span></code></a> 模块定义了以下的类:</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pipes.Template">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pipes.</span></span><span class="sig-name descname"><span class="pre">Template</span></span><a title="永久链接至目标" class="headerlink" href="#pipes.Template">¶</a></dt>
+<dd><p>对管道的抽象。</p>
+</dd></dl>
+
+<p>示例:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><span title="Hide the prompts and output" class="copybutton" style="border-radius: 0px 3px 0px 0px; border: 1px solid rgb(170, 204, 153); top: 0px; right: 0px; color: rgb(170, 204, 153); padding-right: 0.2em; padding-left: 0.2em; font-family: monospace; position: absolute; cursor: pointer;">&gt;&gt;&gt;</span><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pipes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">pipes</span><span class="o">.</span><span class="n">Template</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'tr a-z A-Z'</span><span class="p">,</span> <span class="s1">'--'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'pipefile'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'hello world'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="s1">'pipefile'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="go">'HELLO WORLD'</span>
+</pre></div>
+</div>
+<section id="template-objects">
+<span id="id1"></span><h2>模板对象<a title="永久链接至标题" class="headerlink" href="#template-objects">¶</a></h2>
+<p>模板对象有以下方法:</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pipes.Template.reset">
+<span class="sig-prename descclassname"><span class="pre">Template.</span></span><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#pipes.Template.reset">¶</a></dt>
+<dd><p>将一个管道模板恢复为初始状态。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pipes.Template.clone">
+<span class="sig-prename descclassname"><span class="pre">Template.</span></span><span class="sig-name descname"><span class="pre">clone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#pipes.Template.clone">¶</a></dt>
+<dd><p>返回一个新的等价的管道模板。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pipes.Template.debug">
+<span class="sig-prename descclassname"><span class="pre">Template.</span></span><span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flag</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#pipes.Template.debug">¶</a></dt>
+<dd><p>如果 <em>flag</em> 为真值，则启用调试。 否则禁用调试。 当启用调试时，要执行的命令会被打印出来，并且会给予终端 <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-x</span></code> 命令以输出更详细的信息。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pipes.Template.append">
+<span class="sig-prename descclassname"><span class="pre">Template.</span></span><span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#pipes.Template.append">¶</a></dt>
+<dd><p>在末尾添加一个新的动作。 <em>cmd</em> 变量必须为一个有效的 bourne 终端命令。 <em>kind</em> 变量由两个字母组成。</p>
+<p>第一个字母可以为 <code class="docutils literal notranslate"><span class="pre">'-'</span></code> (这表示命令将读取其标准输入), <code class="docutils literal notranslate"><span class="pre">'f'</span></code> (这表示命令将读取在命令行中给定的文件) 或 <code class="docutils literal notranslate"><span class="pre">'.'</span></code> (这表示命令将不读取输入，因而必须放在前面。)</p>
+<p>类似地，第二个字母可以为 <code class="docutils literal notranslate"><span class="pre">'-'</span></code> (这表示命令将写入到标准输出), <code class="docutils literal notranslate"><span class="pre">'f'</span></code> (这表示命令将写入在命令行中给定的文件) 或 <code class="docutils literal notranslate"><span class="pre">'.'</span></code> (这表示命令将不执行写入，因而必须放在末尾。)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pipes.Template.prepend">
+<span class="sig-prename descclassname"><span class="pre">Template.</span></span><span class="sig-name descname"><span class="pre">prepend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#pipes.Template.prepend">¶</a></dt>
+<dd><p>在开头添加一个新的动作。 请参阅 <a title="pipes.Template.append" class="reference internal" href="#pipes.Template.append"><code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code></a> 获取相应参数的说明。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pipes.Template.open">
+<span class="sig-prename descclassname"><span class="pre">Template.</span></span><span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#pipes.Template.open">¶</a></dt>
+<dd><p>返回一个文件类对象，打开到 <em>file</em>，但是将从管道读取或写入。 请注意只能给出 <code class="docutils literal notranslate"><span class="pre">'r'</span></code>, <code class="docutils literal notranslate"><span class="pre">'w'</span></code> 中的一个。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pipes.Template.copy">
+<span class="sig-prename descclassname"><span class="pre">Template.</span></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#pipes.Template.copy">¶</a></dt>
+<dd><p>通过管道将 <em>infile</em> 拷贝到 <em>outfile</em>。</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pipes</span></code> --- 终端管道接口</a><ul>
+<li><a class="reference internal" href="#template-objects">模板对象</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="ossaudiodev.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ossaudiodev</span></code>  --- 访问兼容OSS的音频设备</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="smtpd.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smtpd</span></code> --- SMTP 服务器</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="smtpd --- SMTP 服务器" href="smtpd.html">下一页</a> |</li>
+        <li class="right">
+          <a title="ossaudiodev --- 访问兼容OSS的音频设备" href="ossaudiodev.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="superseded.html">被取代的模块</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">pipes</span></code> --- 终端管道接口</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

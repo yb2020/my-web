@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>根据指定格式解析输入的字符-BeJSON.com</title><meta name="keywords" content="根据指定格式解析输入的字符"><meta name="description" content="指定的格式字符串中的任意空白匹配输入字符串的任意空白.也就是说即使是格式字符串中的一个制表符 \t 也能匹配输入 字符串中的一个单一空格字符 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.sprintf.html">« sprintf</a></li>
+      <li style="float: right;"><a href="function.str-contains.html">str_contains »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.strings.html">字符串 函数</a></li>
+    <li>根据指定格式解析输入的字符</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.sscanf">
+ <div class="refnamediv">
+  <h1 class="refname">sscanf</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">sscanf</span> — <span class="dc-title">根据指定格式解析输入的字符</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.sscanf-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>sscanf</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>, <span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter reference">&amp;$...</code><span class="initializer"> = ?</span></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+
+  <p class="para rdfs-comment">
+   这个函数 <span class="function"><strong>sscanf()</strong></span> 输入类似
+   <span class="function"><a class="function" href="function.printf.html">printf()</a></span>。 <span class="function"><strong>sscanf()</strong></span>
+   读取字符串<code class="parameter">str</code> 然后根据指定格式<code class="parameter">format</code>解析, 格式的描述文档见 <span class="function"><a class="function" href="function.sprintf.html">sprintf()</a></span>。
+  </p>
+  <p class="para">
+   指定的格式字符串中的任意空白匹配输入字符串的任意空白.也就是说即使是格式字符串中的一个制表符 \t 也能匹配输入
+   字符串中的一个单一空格字符
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.sscanf-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">str</code></dt>
+
+     <dd>
+
+      <p class="para">
+       将要被解析的 <span class="type"><span class="type 字符串">字符串</span></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">format</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The interpreted format for 解析<code class="parameter">str</code>的格式, 除了以下不同外，其余的见
+       <span class="function"><a class="function" href="function.sprintf.html">sprintf()</a></span>的描述文档:
+       <ul class="simplelist">
+        <li class="member">
+         函数不区分语言地区
+        </li>
+        <li class="member">
+         <code class="literal">F</code>, <code class="literal">g</code>, <code class="literal">G</code> 和
+         <code class="literal">b</code> 不被支持.
+        </li>
+        <li class="member">
+         <code class="literal">D</code> 表示十进制数字.
+        </li>
+        <li class="member">
+         <code class="literal">i</code> stands for integer with base detection.
+        </li>
+        <li class="member">
+         <code class="literal">n</code> 代表目前已经处理的字符数。
+        </li>
+        <li class="member">
+         <code class="literal">s</code> 遇到任意空格字符时停止读取。
+        </li>
+       </ul>
+      <p></p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">...</code></dt>
+
+     <dd>
+
+      <p class="para">
+       可以选参数将以引用方式传入，它们的值将被设置为解析匹配的值
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.sscanf-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   如果仅传入了两个参数给这个函数，解析后将返回一个数组，否则，如果可选参数被传入，这个函数将返回被设置了值的个数
+  </p>
+  <p class="para">
+   如果<code class="parameter">format</code>存在的子字符串比
+   <code class="parameter">str</code>内可用的多,
+   <code class="literal">-1</code> 将被返回.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.sscanf-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4699">
+    <p><strong>示例 #1 <span class="function"><strong>sscanf()</strong></span> 例子</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;getting&nbsp;the&nbsp;serial&nbsp;number<br></span><span style="color: rgb(0, 119, 0);">list(</span><span style="color: rgb(0, 0, 187);">$serial</span><span style="color: rgb(0, 119, 0);">)&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">sscanf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"SN/2350001"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"SN/%d"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;and&nbsp;the&nbsp;date&nbsp;of&nbsp;manufacturing<br></span><span style="color: rgb(0, 0, 187);">$mandate&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"January&nbsp;01&nbsp;2000"</span><span style="color: rgb(0, 119, 0);">;<br>list(</span><span style="color: rgb(0, 0, 187);">$month</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$day</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$year</span><span style="color: rgb(0, 119, 0);">)&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">sscanf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$mandate</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"%s&nbsp;%d&nbsp;%d"</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Item&nbsp;</span><span style="color: rgb(0, 0, 187);">$serial</span><span style="color: rgb(221, 0, 0);">&nbsp;was&nbsp;manufactured&nbsp;on:&nbsp;</span><span style="color: rgb(0, 0, 187);">$year</span><span style="color: rgb(221, 0, 0);">-"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">substr</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$month</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"-</span><span style="color: rgb(0, 0, 187);">$day</span><span style="color: rgb(221, 0, 0);">\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+  <p class="para">
+   If optional parameters are passed, the function will return the
+   number of assigned values.
+  </p>
+  <p class="para">
+   <div class="example" id="example-4700">
+    <p><strong>示例 #2 <span class="function"><strong>sscanf()</strong></span> - using optional parameters</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;get&nbsp;author&nbsp;info&nbsp;and&nbsp;generate&nbsp;DocBook&nbsp;entry<br></span><span style="color: rgb(0, 0, 187);">$auth&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"24\tLewis&nbsp;Carroll"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$n&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">sscanf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$auth</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"%d\t%s&nbsp;%s"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$id</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$first</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$last</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;author&nbsp;id='</span><span style="color: rgb(0, 0, 187);">$id</span><span style="color: rgb(221, 0, 0);">'&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;firstname&gt;</span><span style="color: rgb(0, 0, 187);">$first</span><span style="color: rgb(221, 0, 0);">&lt;/firstname&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;surname&gt;</span><span style="color: rgb(0, 0, 187);">$last</span><span style="color: rgb(221, 0, 0);">&lt;/surname&gt;<br>&lt;/author&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.sscanf-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.fscanf.html" rel="rdfs-seeAlso">fscanf()</a> - 从文件中格式化输入</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.printf.html" rel="rdfs-seeAlso">printf()</a> - 输出格式化字符串</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.sprintf.html" rel="rdfs-seeAlso">sprintf()</a> - 返回格式化字符串</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>实例方法对象-BeJSON.com</title><meta name="keywords" content="实例方法对象"><meta name="description" content="方法是绑定的函数对象。 方法总是会被绑定到一个用户自定义类的实例。 未绑定方法（绑定到一个类的方法）已不再可用。"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="Cell 对象" href="cell.html" rel="next">
+    <link title="Function 对象" href="function.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/c-api/method.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">实例方法对象</a></li>
+<li><a class="reference internal" href="#method-objects">方法对象</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="function.html">Function 对象</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="cell.html">Cell 对象</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="Cell 对象" accesskey="N" href="cell.html">下一页</a> |</li>
+        <li class="right">
+          <a title="Function 对象" accesskey="P" href="function.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python/C API 参考手册</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="concrete.html">具体的对象层</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">实例方法对象</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="instance-method-objects">
+<span id="instancemethod-objects"></span><h1>实例方法对象<a title="永久链接至标题" class="headerlink" href="#instance-method-objects">¶</a></h1>
+<p id="index-0">实例方法是 <a title="PyCFunction" class="reference internal" href="structures.html#c.PyCFunction"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyCFunction</span></code></a> 的包装器，也是将 <a title="PyCFunction" class="reference internal" href="structures.html#c.PyCFunction"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyCFunction</span></code></a> 绑定到类对象的一种新方式。 它替代了原先的调用 <code class="docutils literal notranslate"><span class="pre">PyMethod_New(func,</span> <span class="pre">NULL,</span> <span class="pre">class)</span></code>。</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyInstanceMethod_Type">
+<a title="PyTypeObject" class="reference internal" href="type.html#c.PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyInstanceMethod_Type</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.PyInstanceMethod_Type">¶</a><br></dt>
+<dd><p>这个 <a title="PyTypeObject" class="reference internal" href="type.html#c.PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> 实例代表 Python 实例方法类型。 它并不对 Python 程序公开。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyInstanceMethod_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyInstanceMethod_Check</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyInstanceMethod_Check">¶</a><br></dt>
+<dd><p>如果 <em>o</em> 是一个实例方法对象 (类型为 <a title="PyInstanceMethod_Type" class="reference internal" href="#c.PyInstanceMethod_Type"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyInstanceMethod_Type</span></code></a>) 则返回真值。 形参必须不为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyInstanceMethod_New">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyInstanceMethod_New</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">func</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyInstanceMethod_New">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>Return a new instance method object, with <em>func</em> being any callable object.
+<em>func</em> is the function that will be called when the instance method is
+called.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyInstanceMethod_Function">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyInstanceMethod_Function</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">im</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyInstanceMethod_Function">¶</a><br></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>返回关联到实例方法 <em>im</em> 的函数对象。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyInstanceMethod_GET_FUNCTION">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyInstanceMethod_GET_FUNCTION</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">im</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyInstanceMethod_GET_FUNCTION">¶</a><br></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>宏版本的 <a title="PyInstanceMethod_Function" class="reference internal" href="#c.PyInstanceMethod_Function"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyInstanceMethod_Function()</span></code></a>，略去了错误检测。</p>
+</dd></dl>
+
+</section>
+<section id="method-objects">
+<span id="id1"></span><h1>方法对象<a title="永久链接至标题" class="headerlink" href="#method-objects">¶</a></h1>
+<p id="index-1">方法是绑定的函数对象。 方法总是会被绑定到一个用户自定义类的实例。 未绑定方法（绑定到一个类的方法）已不再可用。</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyMethod_Type">
+<a title="PyTypeObject" class="reference internal" href="type.html#c.PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_Type</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.PyMethod_Type">¶</a><br></dt>
+<dd><p id="index-2">这个 <a title="PyTypeObject" class="reference internal" href="type.html#c.PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> 实例代表 Python 方法类型。 它作为 <code class="docutils literal notranslate"><span class="pre">types.MethodType</span></code> 向 Python 程序公开。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMethod_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_Check</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMethod_Check">¶</a><br></dt>
+<dd><p>如果 <em>o</em> 是一个方法对象 (类型为 <a title="PyMethod_Type" class="reference internal" href="#c.PyMethod_Type"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyMethod_Type</span></code></a>) 则返回真值。 形参必须不为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMethod_New">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_New</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">func</span></span>, <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">self</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMethod_New">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>返回一个新的方法对象，<em>func</em> 应为任意可调用对象，<em>self</em> 为该方法应绑定的实例。 在方法被调用时 <em>func</em> 将作为函数被调用。 <em>self</em> 必须不为 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMethod_Function">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_Function</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">meth</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMethod_Function">¶</a><br></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>返回关联到方法 <em>meth</em> 的函数对象。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMethod_GET_FUNCTION">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_GET_FUNCTION</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">meth</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMethod_GET_FUNCTION">¶</a><br></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>宏版本的 <a title="PyMethod_Function" class="reference internal" href="#c.PyMethod_Function"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMethod_Function()</span></code></a>，略去了错误检测。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMethod_Self">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_Self</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">meth</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMethod_Self">¶</a><br></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>返回关联到方法 <em>meth</em> 的实例。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyMethod_GET_SELF">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyMethod_GET_SELF</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">meth</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyMethod_GET_SELF">¶</a><br></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>宏版本的 <a title="PyMethod_Self" class="reference internal" href="#c.PyMethod_Self"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMethod_Self()</span></code></a>，略去了错误检测。</p>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">实例方法对象</a></li>
+<li><a class="reference internal" href="#method-objects">方法对象</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="function.html">Function 对象</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="cell.html">Cell 对象</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="Cell 对象" href="cell.html">下一页</a> |</li>
+        <li class="right">
+          <a title="Function 对象" href="function.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python/C API 参考手册</a> »</li>
+          <li class="nav-item nav-item-2"><a href="concrete.html">具体的对象层</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">实例方法对象</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

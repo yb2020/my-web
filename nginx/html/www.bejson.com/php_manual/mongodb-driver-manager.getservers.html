@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Return the servers to which this manager is connected-BeJSON.com</title><meta name="keywords" content="Return the servers to which this manager is connected"><meta name="description" content="此函数没有参数。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mongodb-driver-manager.getreadpreference.html">« MongoDB\Driver\Manager::getReadPreference</a></li>
+      <li style="float: right;"><a href="mongodb-driver-manager.getwriteconcern.html">MongoDB\Driver\Manager::getWriteConcern »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-driver-manager.html">MongoDB\Driver\Manager</a></li>
+    <li>Return the servers to which this manager is connected</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="mongodb-driver-manager.getservers">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\Driver\Manager::getServers</h1>
+  <p class="verinfo">(mongodb &gt;=1.0.0)</p><p class="refpurpose"><span class="refname">MongoDB\Driver\Manager::getServers</span> — <span class="dc-title">Return the servers to which this manager is connected</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongodb-driver-manager.getservers-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Manager::getServers</strong></span>(): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   Returns an <span class="type">array</span> of <span class="classname"><a class="classname" href="class.mongodb-driver-server.html">MongoDB\Driver\Server</a></span>
+   instances to which this manager is connected.
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    Since the driver connects to the database lazily, this method may return an
+    empty <span class="type">array</span> if called before executing an operation on the
+    <span class="classname"><a class="classname" href="class.mongodb-driver-manager.html">MongoDB\Driver\Manager</a></span>.
+   </span>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongodb-driver-manager.getservers-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-manager.getservers-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns an <span class="type">array</span> of <span class="classname"><a class="classname" href="class.mongodb-driver-server.html">MongoDB\Driver\Server</a></span>
+   instances to which this manager is connected.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongodb-driver-manager.getservers-errors">
+  <h3 class="title">错误／异常</h3>
+  <ul class="simplelist">
+   <li class="member">Throws <span class="classname"><a class="classname" href="class.mongodb-driver-exception-invalidargumentexception.html">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li>
+  </ul>
+ </div>
+
+
+
+ <div class="refsect1 examples" id="refsect1-mongodb-driver-manager.getservers-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-1284">
+   <p><strong>示例 #1 <span class="function"><strong>MongoDB\Driver\Manager::getServers()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$manager&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Manager</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"mongodb://localhost:27017"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;The&nbsp;driver&nbsp;connects&nbsp;to&nbsp;the&nbsp;database&nbsp;server&nbsp;lazily,&nbsp;so&nbsp;Manager::getServers()<br>&nbsp;*&nbsp;may&nbsp;initially&nbsp;return&nbsp;an&nbsp;empty&nbsp;array.&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$manager</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getServers</span><span style="color: rgb(0, 119, 0);">());<br><br></span><span style="color: rgb(0, 0, 187);">$command&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MongoDB</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Driver</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Command</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">'ping'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">$manager</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">executeCommand</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'db'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$command</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$manager</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getServers</span><span style="color: rgb(0, 119, 0);">());<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>array(0) {
+}
+array(1) {
+  [0]=&gt;
+  object(MongoDB\Driver\Server)#3 (10) {
+    ["host"]=&gt;
+    string(9) "localhost"
+    ["port"]=&gt;
+    int(27017)
+    ["type"]=&gt;
+    int(1)
+    ["is_primary"]=&gt;
+    bool(false)
+    ["is_secondary"]=&gt;
+    bool(false)
+    ["is_arbiter"]=&gt;
+    bool(false)
+    ["is_hidden"]=&gt;
+    bool(false)
+    ["is_passive"]=&gt;
+    bool(false)
+    ["last_hello_response"]=&gt;
+    array(8) {
+      ["isWritablePrimary"]=&gt;
+      bool(true)
+      ["maxBsonObjectSize"]=&gt;
+      int(16777216)
+      ["maxMessageSizeBytes"]=&gt;
+      int(48000000)
+      ["maxWriteBatchSize"]=&gt;
+      int(1000)
+      ["localTime"]=&gt;
+      object(MongoDB\BSON\UTCDateTime)#4 (1) {
+        ["milliseconds"]=&gt;
+        int(1447267964517)
+      }
+      ["maxWireVersion"]=&gt;
+      int(3)
+      ["minWireVersion"]=&gt;
+      int(0)
+      ["ok"]=&gt;
+      float(1)
+    }
+    ["round_trip_time"]=&gt;
+    int(554)
+  }
+}
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+
+ <div class="refsect1 seealso" id="refsect1-mongodb-driver-manager.getservers-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="classname"><a class="classname" href="class.mongodb-driver-server.html">MongoDB\Driver\Server</a></span></li>
+   <li class="member"><span class="function"><a class="function" href="mongodb-driver-manager.selectserver.html" rel="rdfs-seeAlso">MongoDB\Driver\Manager::selectServer()</a> - Select a server matching a read preference</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>返回所有编译并加载模块名的 array-BeJSON.com</title><meta name="keywords" content="返回所有编译并加载模块名的 array"><meta name="description" content="get_loaded_extensions(PHP 4, PHP 5, PHP 7, PHP 8)get_loaded_extensions — 返回所有编译并加载模块名的 array说明get_loaded_extensions(bool $zend_extensions = false): ar">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.get-included-files.html">« get_included_files</a></li>
+      <li style="float: right;"><a href="function.get-magic-quotes-gpc.html">get_magic_quotes_gpc »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.info.html">PHP 选项/信息 函数</a></li>
+    <li>返回所有编译并加载模块名的 array</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.get-loaded-extensions">
+ <div class="refnamediv">
+  <h1 class="refname">get_loaded_extensions</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">get_loaded_extensions</span> — <span class="dc-title">返回所有编译并加载模块名的 array</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.get-loaded-extensions-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>get_loaded_extensions</strong></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$zend_extensions</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   该函数返回了 PHP 解析器里所有编译并加载的模块名。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.get-loaded-extensions-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">zend_extensions</code></dt>
+
+     <dd>
+
+      <p class="para">
+       只返回 Zend 扩展，并非类似 mysqli 的普通扩展。默认是 <strong><code>false</code></strong> (返回普通扩展)。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.get-loaded-extensions-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   返回所有模块名的一个索引数组(array)。
+  </p>
+ </div>
+
+
+
+ <div class="refsect1 examples" id="refsect1-function.get-loaded-extensions-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-546">
+    <p><strong>示例 #1 <span class="function"><strong>get_loaded_extensions()</strong></span> 范例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">get_loaded_extensions</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+   [0] =&gt; xml
+   [1] =&gt; wddx
+   [2] =&gt; standard
+   [3] =&gt; session
+   [4] =&gt; posix
+   [5] =&gt; pgsql
+   [6] =&gt; pcre
+   [7] =&gt; gd
+   [8] =&gt; ftp
+   [9] =&gt; db
+   [10] =&gt; calendar
+   [11] =&gt; bcmath
+)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.get-loaded-extensions-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.get-extension-funcs.html" rel="rdfs-seeAlso">get_extension_funcs()</a> - 返回模块函数名称的数组</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.extension-loaded.html" rel="rdfs-seeAlso">extension_loaded()</a> - 检查一个扩展是否已经加载</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.dl.html" rel="rdfs-seeAlso">dl()</a> - 运行时载入一个 PHP 扩展</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.phpinfo.html" rel="rdfs-seeAlso">phpinfo()</a> - 输出关于 PHP 配置的信息</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

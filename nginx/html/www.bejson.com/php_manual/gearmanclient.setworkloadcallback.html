@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set a callback for accepting incremental data updates-BeJSON.com</title><meta name="keywords" content="Set a callback for accepting incremental data updates"><meta name="description" content="GearmanClient::setWorkloadCallback(PECL gearman >= 0.5.0)GearmanClient::setWorkloadCallback — Set a callback for accepting incremental data updates说明p">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="gearmanclient.setwarningcallback.html">« GearmanClient::setWarningCallback</a></li>
+      <li style="float: right;"><a href="gearmanclient.timeout.html">GearmanClient::timeout »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.gearmanclient.html">GearmanClient</a></li>
+    <li>Set a callback for accepting incremental data updates</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="gearmanclient.setworkloadcallback">
+ <div class="refnamediv">
+  <h1 class="refname">GearmanClient::setWorkloadCallback</h1>
+  <p class="verinfo">(PECL gearman &gt;= 0.5.0)</p><p class="refpurpose"><span class="refname">GearmanClient::setWorkloadCallback</span> — <span class="dc-title">Set a callback for accepting incremental data updates</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-gearmanclient.setworkloadcallback-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>GearmanClient::setWorkloadCallback</strong></span>(<span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Sets a function to be called when a worker needs to send back data prior to job completion.
+   A worker can do this when it needs to send updates, send partial results, or flush data
+   during long running jobs.  The callback should accept a single argument, a 
+   <span class="classname"><a class="classname" href="class.gearmantask.html">GearmanTask</a></span> object.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-gearmanclient.setworkloadcallback-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">callback</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A function to call
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-gearmanclient.setworkloadcallback-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-gearmanclient.setworkloadcallback-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.setdatacallback.html" rel="rdfs-seeAlso">GearmanClient::setDataCallback()</a> - Callback function when there is a data packet for a task</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.setcompletecallback.html" rel="rdfs-seeAlso">GearmanClient::setCompleteCallback()</a> - Set a function to be called on task completion</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.setcreatedcallback.html" rel="rdfs-seeAlso">GearmanClient::setCreatedCallback()</a> - Set a callback for when a task is queued</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.setexceptioncallback.html" rel="rdfs-seeAlso">GearmanClient::setExceptionCallback()</a> - Set a callback for worker exceptions</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.setfailcallback.html" rel="rdfs-seeAlso">GearmanClient::setFailCallback()</a> - Set callback for job failure</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.setstatuscallback.html" rel="rdfs-seeAlso">GearmanClient::setStatusCallback()</a> - Set a callback for collecting task status</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="gearmanclient.setwarningcallback.html" rel="rdfs-seeAlso">GearmanClient::setWarningCallback()</a> - Set a callback for worker warnings</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

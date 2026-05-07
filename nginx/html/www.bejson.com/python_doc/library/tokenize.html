@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>tokenize --- 对 Python 代码使用的标记解析器-BeJSON.com</title><meta name="keywords" content="tokenize --- 对 Python 代码使用的标记解析器"><meta name="description" content="keyword --- 检验Python关键字"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="tabnanny --- 模糊缩进检测" href="tabnanny.html" rel="next">
+    <link title="keyword --- 检验Python关键字" href="keyword.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/tokenize.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code> --- 对 Python 代码使用的标记解析器</a><ul>
+<li><a class="reference internal" href="#tokenizing-input">对输入进行解析标记</a></li>
+<li><a class="reference internal" href="#command-line-usage">命令行用法</a></li>
+<li><a class="reference internal" href="#examples">例子</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="keyword.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">keyword</span></code> --- 检验Python关键字</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="tabnanny.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tabnanny</span></code> --- 模糊缩进检测</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="tabnanny --- 模糊缩进检测" accesskey="N" href="tabnanny.html">下一页</a> |</li>
+        <li class="right">
+          <a title="keyword --- 检验Python关键字" accesskey="P" href="keyword.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="language.html">Python 语言服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code> --- 对 Python 代码使用的标记解析器</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-tokenize">
+<span id="tokenize-tokenizer-for-python-source"></span><h1><a title="tokenize: Lexical scanner for Python source code." class="reference internal" href="#module-tokenize"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code></a> --- 对 Python 代码使用的标记解析器<a title="永久链接至标题" class="headerlink" href="#module-tokenize">¶</a></h1>
+<p><strong>源码：</strong> <a class="reference external" href="">Lib/tokenize.py</a></p>
+<hr class="docutils">
+<p><a title="tokenize: Lexical scanner for Python source code." class="reference internal" href="#module-tokenize"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code></a> 模块为 Python 源代码提供了一个词法扫描器，用 Python 实现。该模块中的扫描器也将注释作为标记返回，这使得它对于实现“漂亮的输出器”非常有用，包括用于屏幕显示的着色器。</p>
+<p>为了简化标记流的处理，所有的 <a class="reference internal" href="../reference/lexical_analysis.html#operators"><span class="std std-ref">运算符</span></a> 和 <a class="reference internal" href="../reference/lexical_analysis.html#delimiters"><span class="std std-ref">定界符</span></a> 以及 <a title="Ellipsis" class="reference internal" href="constants.html#Ellipsis"><code class="xref py py-data docutils literal notranslate"><span class="pre">Ellipsis</span></code></a> 返回时都会打上通用的 <a title="token.OP" class="reference internal" href="token.html#token.OP"><code class="xref py py-data docutils literal notranslate"><span class="pre">OP</span></code></a> 标记。 可以通过 <a title="tokenize.tokenize" class="reference internal" href="#tokenize.tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize.tokenize()</span></code></a> 返回的 <a class="reference internal" href="../glossary.html#term-named-tuple"><span class="xref std std-term">named tuple</span></a> 对象的 <code class="docutils literal notranslate"><span class="pre">exact_type</span></code> 属性来获得确切的标记类型。</p>
+<section id="tokenizing-input">
+<h2>对输入进行解析标记<a title="永久链接至标题" class="headerlink" href="#tokenizing-input">¶</a></h2>
+<p>主要的入口是一个 <a class="reference internal" href="../glossary.html#term-generator"><span class="xref std std-term">generator</span></a>:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="tokenize.tokenize">
+<span class="sig-prename descclassname"><span class="pre">tokenize.</span></span><span class="sig-name descname"><span class="pre">tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">readline</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#tokenize.tokenize">¶</a></dt>
+<dd><p>生成器 <a title="tokenize.tokenize" class="reference internal" href="#tokenize.tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize()</span></code></a> 需要一个 <em>readline</em> 参数，这个参数必须是一个可调用对象，且能提供与文件对象的 <a title="io.IOBase.readline" class="reference internal" href="io.html#io.IOBase.readline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">io.IOBase.readline()</span></code></a> 方法相同的接口。每次调用这个函数都要 返回字节类型输入的一行数据。</p>
+<p>生成器产生 5 个具有这些成员的元组：令牌类型；令牌字符串；指定令牌在源中开始的行和列的 2 元组 <code class="docutils literal notranslate"><span class="pre">(srow,</span> <span class="pre">scol)</span></code> ；指定令牌在源中结束的行和列的 2 元组 <code class="docutils literal notranslate"><span class="pre">(erow,</span> <span class="pre">ecol)</span></code> ；以及发现令牌的行。所传递的行（最后一个元组项）是 <em>实际的</em> 行。 5 个元组以 <a class="reference internal" href="../glossary.html#term-named-tuple"><span class="xref std std-term">named tuple</span></a> 的形式返回，字段名是： <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">string</span> <span class="pre">start</span> <span class="pre">end</span> <span class="pre">line</span></code> 。</p>
+<p>返回的 <a class="reference internal" href="../glossary.html#term-named-tuple"><span class="xref std std-term">named tuple</span></a> 有一个额外的属性，名为 <code class="docutils literal notranslate"><span class="pre">exact_type</span></code> ，包含了 <a title="token.OP" class="reference internal" href="token.html#token.OP"><code class="xref py py-data docutils literal notranslate"><span class="pre">OP</span></code></a> 标记的确切操作符类型。 对于所有其他标记类型， <code class="docutils literal notranslate"><span class="pre">exact_type</span></code> 等于命名元组的 <code class="docutils literal notranslate"><span class="pre">type</span></code> 字段。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.1 版更改: </span>增加了对 named tuple 的支持。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.3 版更改: </span>添加了对 <code class="docutils literal notranslate"><span class="pre">exact_type</span></code> 的支持。</p>
+</div>
+<p>根据:pep:<cite>263</cite> ， <a title="tokenize.tokenize" class="reference internal" href="#tokenize.tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize()</span></code></a> 通过寻找 UTF-8 BOM 或编码 cookie 来确定文件的源编码。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tokenize.generate_tokens">
+<span class="sig-prename descclassname"><span class="pre">tokenize.</span></span><span class="sig-name descname"><span class="pre">generate_tokens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">readline</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#tokenize.generate_tokens">¶</a></dt>
+<dd><p>对读取 unicode 字符串而不是字节的源进行标记。</p>
+<p>和 <a title="tokenize.tokenize" class="reference internal" href="#tokenize.tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize()</span></code></a> 一样， <em>readline</em> 参数是一个返回单行输入的可调用参数。然而， <a title="tokenize.generate_tokens" class="reference internal" href="#tokenize.generate_tokens"><code class="xref py py-func docutils literal notranslate"><span class="pre">generate_tokens()</span></code></a> 希望 <em>readline</em> 返回一个 str 对象而不是字节。</p>
+<p>其结果是一个产生具名元组的的迭代器，与 <a title="tokenize.tokenize" class="reference internal" href="#tokenize.tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize()</span></code></a> 完全一样。 它不会产生 <a title="token.ENCODING" class="reference internal" href="token.html#token.ENCODING"><code class="xref py py-data docutils literal notranslate"><span class="pre">ENCODING</span></code></a> 标记。</p>
+</dd></dl>
+
+<p>所有来自 <a title="token: Constants representing terminal nodes of the parse tree." class="reference internal" href="token.html#module-token"><code class="xref py py-mod docutils literal notranslate"><span class="pre">token</span></code></a> 模块的常量也可从 <a title="tokenize: Lexical scanner for Python source code." class="reference internal" href="#module-tokenize"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code></a> 导出。</p>
+<p>提供了另一个函数来逆转标记化过程。这对于创建对脚本进行标记、修改标记流并写回修改后脚本的工具很有用。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="tokenize.untokenize">
+<span class="sig-prename descclassname"><span class="pre">tokenize.</span></span><span class="sig-name descname"><span class="pre">untokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#tokenize.untokenize">¶</a></dt>
+<dd><p>将令牌转换为 Python 源代码。 <em>iterable</em> 必须返回至少有两个元素的序列，即令牌类型和令牌字符串。任何额外的序列元素都会被忽略。</p>
+<p>重构的脚本以单个字符串的形式返回。 结果被保证为标记回与输入相匹配，因此转换是无损的，并保证来回操作。 该保证只适用于标记类型和标记字符串，因为标记之间的间距（列位置）可能会改变。</p>
+<p>它返回字节，使用 <a title="token.ENCODING" class="reference internal" href="token.html#token.ENCODING"><code class="xref py py-data docutils literal notranslate"><span class="pre">ENCODING</span></code></a> 标记进行编码，这是由 <a title="tokenize.tokenize" class="reference internal" href="#tokenize.tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize()</span></code></a> 输出的第一个标记序列。如果输入中没有编码令牌，它将返回一个字符串。</p>
+</dd></dl>
+
+<p><a title="tokenize.tokenize" class="reference internal" href="#tokenize.tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize()</span></code></a> 需要检测它所标记源文件的编码。它用来做这件事的函数是可用的：</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="tokenize.detect_encoding">
+<span class="sig-prename descclassname"><span class="pre">tokenize.</span></span><span class="sig-name descname"><span class="pre">detect_encoding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">readline</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#tokenize.detect_encoding">¶</a></dt>
+<dd><p><a title="tokenize.detect_encoding" class="reference internal" href="#tokenize.detect_encoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_encoding()</span></code></a> 函数用于检测解码 Python 源文件时应使用的编码。它需要一个参数， readline ，与 <a title="tokenize.tokenize" class="reference internal" href="#tokenize.tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize()</span></code></a> 生成器的使用方式相同。</p>
+<p>它最多调用 readline 两次，并返回所使用的编码（作为一个字符串）和它所读入的任何行（不是从字节解码的）的 list 。</p>
+<p>它从 UTF-8 BOM 或编码 cookie 的存在中检测编码格式，如 <span class="target" id="index-3"></span><a class="pep reference external" href=""><strong>PEP 263</strong></a> 所指明的。 如果 BOM 和 cookie 都存在，但不一致，将会引发 <a title="SyntaxError" class="reference internal" href="exceptions.html#SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a>。 请注意，如果找到 BOM ，将返回 <code class="docutils literal notranslate"><span class="pre">'utf-8-sig'</span></code> 作为编码格式。</p>
+<p>如果没有指定编码，那么将返回默认的 <code class="docutils literal notranslate"><span class="pre">'utf-8'</span></code> 编码.</p>
+<p>使用 <a title="tokenize.open" class="reference internal" href="#tokenize.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> 来打开 Python 源文件：它使用 <a title="tokenize.detect_encoding" class="reference internal" href="#tokenize.detect_encoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_encoding()</span></code></a> 来检测文件编码。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tokenize.open">
+<span class="sig-prename descclassname"><span class="pre">tokenize.</span></span><span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#tokenize.open">¶</a></dt>
+<dd><p>使用由 <a title="tokenize.detect_encoding" class="reference internal" href="#tokenize.detect_encoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_encoding()</span></code></a> 检测到的编码，以只读模式打开一个文件。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.2 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="tokenize.TokenError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tokenize.</span></span><span class="sig-name descname"><span class="pre">TokenError</span></span><a title="永久链接至目标" class="headerlink" href="#tokenize.TokenError">¶</a></dt>
+<dd><p>当文件中任何地方没有完成 docstring 或可能被分割成几行的表达式时触发，例如:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="s2">"""Beginning of</span>
+<span class="s2">docstring</span>
+</pre></div>
+</div>
+<p>或者:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span>
+ <span class="mi">2</span><span class="p">,</span>
+ <span class="mi">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>注意，未封闭的单引号字符串不会导致错误发生。它们被标记为 <a title="token.ERRORTOKEN" class="reference internal" href="token.html#token.ERRORTOKEN"><code class="xref py py-data docutils literal notranslate"><span class="pre">ERRORTOKEN</span></code></a> ，然后是其内容的标记化。</p>
+</section>
+<section id="command-line-usage">
+<span id="tokenize-cli"></span><h2>命令行用法<a title="永久链接至标题" class="headerlink" href="#command-line-usage">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">3.3 新版功能.</span></p>
+</div>
+<p><a title="tokenize: Lexical scanner for Python source code." class="reference internal" href="#module-tokenize"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code></a> 模块可以作为一个脚本从命令行执行。这很简单:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python -m tokenize <span class="o">[</span>-e<span class="o">]</span> <span class="o">[</span>filename.py<span class="o">]</span>
+</pre></div>
+</div>
+<p>可以接受以下选项：</p>
+<dl class="std cmdoption">
+<dt class="sig sig-object std" id="cmdoption-tokenize-h">
+<span id="cmdoption-tokenize-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a title="永久链接至目标" class="headerlink" href="#cmdoption-tokenize-h">¶</a></dt>
+<dd><p>显示此帮助信息并退出</p>
+</dd></dl>
+
+<dl class="std cmdoption">
+<dt class="sig sig-object std" id="cmdoption-tokenize-e">
+<span id="cmdoption-tokenize-exact"></span><span class="sig-name descname"><span class="pre">-e</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--exact</span></span><span class="sig-prename descclassname"></span><a title="永久链接至目标" class="headerlink" href="#cmdoption-tokenize-e">¶</a></dt>
+<dd><p>使用确切的类型显示令牌名称</p>
+</dd></dl>
+
+<p>如果 <code class="file docutils literal notranslate"><span class="pre">filename.py</span></code> 被指定，其内容会被标记到 stdout 。否则，标记化将在 stdin 上执行。</p>
+</section>
+<section id="examples">
+<h2>例子<a title="永久链接至标题" class="headerlink" href="#examples">¶</a></h2>
+<p>脚本改写器的例子，它将 float 文本转换为 Decimal 对象:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tokenize</span> <span class="kn">import</span> <span class="n">tokenize</span><span class="p">,</span> <span class="n">untokenize</span><span class="p">,</span> <span class="n">NUMBER</span><span class="p">,</span> <span class="n">STRING</span><span class="p">,</span> <span class="n">NAME</span><span class="p">,</span> <span class="n">OP</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+
+<span class="k">def</span> <span class="nf">decistmt</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="sd">"""Substitute Decimals for floats in a string of statements.</span>
+
+<span class="sd">    &gt;&gt;&gt; from decimal import Decimal</span>
+<span class="sd">    &gt;&gt;&gt; s = 'print(+21.3e-5*-.1234/81.7)'</span>
+<span class="sd">    &gt;&gt;&gt; decistmt(s)</span>
+<span class="sd">    "print (+Decimal ('21.3e-5')*-Decimal ('.1234')/Decimal ('81.7'))"</span>
+
+<span class="sd">    The format of the exponent is inherited from the platform C library.</span>
+<span class="sd">    Known cases are "e-007" (Windows) and "e-07" (not Windows).  Since</span>
+<span class="sd">    we're only showing 12 digits, and the 13th isn't close to 5, the</span>
+<span class="sd">    rest of the output should be platform-independent.</span>
+
+<span class="sd">    &gt;&gt;&gt; exec(s)  #doctest: +ELLIPSIS</span>
+<span class="sd">    -3.21716034272e-0...7</span>
+
+<span class="sd">    Output from calculations with Decimal should be identical across all</span>
+<span class="sd">    platforms.</span>
+
+<span class="sd">    &gt;&gt;&gt; exec(decistmt(s))</span>
+<span class="sd">    -3.217160342717258261933904529E-7</span>
+<span class="sd">    """</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">tokenize</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">))</span><span class="o">.</span><span class="n">readline</span><span class="p">)</span>  <span class="c1"># tokenize the string</span>
+    <span class="k">for</span> <span class="n">toknum</span><span class="p">,</span> <span class="n">tokval</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">toknum</span> <span class="o">==</span> <span class="n">NUMBER</span> <span class="ow">and</span> <span class="s1">'.'</span> <span class="ow">in</span> <span class="n">tokval</span><span class="p">:</span>  <span class="c1"># replace NUMBER tokens</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+                <span class="p">(</span><span class="n">NAME</span><span class="p">,</span> <span class="s1">'Decimal'</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">OP</span><span class="p">,</span> <span class="s1">'('</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">STRING</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">tokval</span><span class="p">)),</span>
+                <span class="p">(</span><span class="n">OP</span><span class="p">,</span> <span class="s1">')'</span><span class="p">)</span>
+            <span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">toknum</span><span class="p">,</span> <span class="n">tokval</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">untokenize</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>从命令行进行标记化的例子。 脚本:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">)</span>
+
+<span class="n">say_hello</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>将被标记为以下输出，其中第一列是发现标记的行 / 列坐标范围，第二列是标记的名称，最后一列是标记的值（如果有）。</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python -m tokenize hello.py
+<span class="go">0,0-0,0:            ENCODING       'utf-8'</span>
+<span class="go">1,0-1,3:            NAME           'def'</span>
+<span class="go">1,4-1,13:           NAME           'say_hello'</span>
+<span class="go">1,13-1,14:          OP             '('</span>
+<span class="go">1,14-1,15:          OP             ')'</span>
+<span class="go">1,15-1,16:          OP             ':'</span>
+<span class="go">1,16-1,17:          NEWLINE        '\n'</span>
+<span class="go">2,0-2,4:            INDENT         '    '</span>
+<span class="go">2,4-2,9:            NAME           'print'</span>
+<span class="go">2,9-2,10:           OP             '('</span>
+<span class="go">2,10-2,25:          STRING         '"Hello, World!"'</span>
+<span class="go">2,25-2,26:          OP             ')'</span>
+<span class="go">2,26-2,27:          NEWLINE        '\n'</span>
+<span class="go">3,0-3,1:            NL             '\n'</span>
+<span class="go">4,0-4,0:            DEDENT         ''</span>
+<span class="go">4,0-4,9:            NAME           'say_hello'</span>
+<span class="go">4,9-4,10:           OP             '('</span>
+<span class="go">4,10-4,11:          OP             ')'</span>
+<span class="go">4,11-4,12:          NEWLINE        '\n'</span>
+<span class="go">5,0-5,0:            ENDMARKER      ''</span>
+</pre></div>
+</div>
+<p>可以使用 <a class="reference internal" href="#cmdoption-tokenize-e"><code class="xref std std-option docutils literal notranslate"><span class="pre">-e</span></code></a> 选项来显示确切的标记类型名称。</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python -m tokenize -e hello.py
+<span class="go">0,0-0,0:            ENCODING       'utf-8'</span>
+<span class="go">1,0-1,3:            NAME           'def'</span>
+<span class="go">1,4-1,13:           NAME           'say_hello'</span>
+<span class="go">1,13-1,14:          LPAR           '('</span>
+<span class="go">1,14-1,15:          RPAR           ')'</span>
+<span class="go">1,15-1,16:          COLON          ':'</span>
+<span class="go">1,16-1,17:          NEWLINE        '\n'</span>
+<span class="go">2,0-2,4:            INDENT         '    '</span>
+<span class="go">2,4-2,9:            NAME           'print'</span>
+<span class="go">2,9-2,10:           LPAR           '('</span>
+<span class="go">2,10-2,25:          STRING         '"Hello, World!"'</span>
+<span class="go">2,25-2,26:          RPAR           ')'</span>
+<span class="go">2,26-2,27:          NEWLINE        '\n'</span>
+<span class="go">3,0-3,1:            NL             '\n'</span>
+<span class="go">4,0-4,0:            DEDENT         ''</span>
+<span class="go">4,0-4,9:            NAME           'say_hello'</span>
+<span class="go">4,9-4,10:           LPAR           '('</span>
+<span class="go">4,10-4,11:          RPAR           ')'</span>
+<span class="go">4,11-4,12:          NEWLINE        '\n'</span>
+<span class="go">5,0-5,0:            ENDMARKER      ''</span>
+</pre></div>
+</div>
+<p>以编程方式对文件进行标记的例子，用 <a title="tokenize.generate_tokens" class="reference internal" href="#tokenize.generate_tokens"><code class="xref py py-func docutils literal notranslate"><span class="pre">generate_tokens()</span></code></a> 读取 unicode 字符串而不是字节:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tokenize</span>
+
+<span class="k">with</span> <span class="n">tokenize</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'hello.py'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">tokenize</span><span class="o">.</span><span class="n">generate_tokens</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>或者通过 <a title="tokenize.tokenize" class="reference internal" href="#tokenize.tokenize"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize()</span></code></a> 直接读取字节数据:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tokenize</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'hello.py'</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">tokenize</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code> --- 对 Python 代码使用的标记解析器</a><ul>
+<li><a class="reference internal" href="#tokenizing-input">对输入进行解析标记</a></li>
+<li><a class="reference internal" href="#command-line-usage">命令行用法</a></li>
+<li><a class="reference internal" href="#examples">例子</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="keyword.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">keyword</span></code> --- 检验Python关键字</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="tabnanny.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tabnanny</span></code> --- 模糊缩进检测</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="tabnanny --- 模糊缩进检测" href="tabnanny.html">下一页</a> |</li>
+        <li class="right">
+          <a title="keyword --- 检验Python关键字" href="keyword.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="language.html">Python 语言服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code> --- 对 Python 代码使用的标记解析器</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Prepares for an Extended Service Request-BeJSON.com</title><meta name="keywords" content="Prepares for an Extended Service Request"><meta name="description" content="Many Z39.50 Servers do not support Extended Services. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.yaz-es-result.html">« yaz_es_result</a></li>
+      <li style="float: right;"><a href="function.yaz-get-option.html">yaz_get_option »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.yaz.html">YAZ 函数</a></li>
+    <li>Prepares for an Extended Service Request</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.yaz-es">
+ <div class="refnamediv">
+  <h1 class="refname">yaz_es</h1>
+  <p class="verinfo">(PECL yaz &gt;= 0.9.0)</p><p class="refpurpose"><span class="refname">yaz_es</span> — <span class="dc-title">
+   Prepares for an Extended Service Request
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.yaz-es-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>yaz_es</strong></span>(<span class="methodparam">
+    <span class="type">resource</span> <code class="parameter">$id</code>
+   </span>, <span class="methodparam">
+    <span class="type">string</span> <code class="parameter">$type</code>
+   </span>, <span class="methodparam">
+    <span class="type">array</span> <code class="parameter">$args</code>
+   </span>): <span class="type"><span class="type void">void</span></span></div>
+
+  <p class="para rdfs-comment">
+   This function prepares for an Extended Service Request.
+   Extended Services is family of various Z39.50 facilities, such
+   as Record Update, Item Order, Database administration etc.
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    Many Z39.50 Servers do not support Extended Services.
+   </p>
+  <p></p></blockquote>
+  <p class="para">
+   The <span class="function"><strong>yaz_es()</strong></span> creates an Extended Service Request
+   packages and puts it into a queue of operations.
+   Use <span class="function"><a class="function" href="function.yaz-wait.html">yaz_wait()</a></span> to send the request(s) to the server.
+   After completion of <span class="function"><a class="function" href="function.yaz-wait.html">yaz_wait()</a></span> the result of
+   the Extended Service operation should be expected with
+   a call to <span class="function"><a class="function" href="function.yaz-es-result.html">yaz_es_result()</a></span>.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.yaz-es-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">id</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The connection resource returned by <span class="function"><a class="function" href="function.yaz-connect.html">yaz_connect()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">type</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A string which represents the type of the Extended Service: 
+       <code class="literal">itemorder</code> (Item Order),
+       <code class="literal">create</code> (Create Database),
+       <code class="literal">drop</code> (Drop Database),
+       <code class="literal">commit</code> (Commit Operation),
+       <code class="literal">update</code> (Update Record),
+       <code class="literal">xmlupdate</code> (XML Update).
+       Each type is specified in the following section.
+      </p>
+     </dd>
+
+    
+
+    
+     <dt>
+<code class="parameter">args</code></dt>
+
+     <dd>
+
+      <p class="para">
+       An array with extended service options plus
+       package specific options. The options are identical to
+       those offered in the C API of ZOOM C. Refer to
+       the ZOOM <a class="link external" href="http://www.indexdata.dk/yaz/doc/zoom.tkl">»&nbsp;Extended Services</a>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.yaz-es-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   没有返回值。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.yaz-es-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-4482">
+   <p><strong>示例 #1 Record Update</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$con&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">yaz_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"myhost/database"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$args&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array&nbsp;(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"record"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;gils&gt;&lt;title&gt;some&nbsp;title&lt;/title&gt;&lt;/gils&gt;"</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"syntax"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">"xml"</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"action"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">"specialUpdate"<br></span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">yaz_es</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$con</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"update"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$args</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">yaz_wait</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">yaz_es_result</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$id</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.yaz-es-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.yaz-es-result.html" rel="rdfs-seeAlso">yaz_es_result()</a> - Inspects Extended Services Result</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

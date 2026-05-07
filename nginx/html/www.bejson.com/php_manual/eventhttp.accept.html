@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Makes an HTTP server accept connections on the specified socket stream or resource-BeJSON.com</title><meta name="keywords" content="Makes an HTTP server accept connections on the specified socket stream or resource"><meta name="description" content="Can be called multiple times to accept connections on different sockets. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.eventhttp.html">« EventHttp</a></li>
+      <li style="float: right;"><a href="eventhttp.addserveralias.html">EventHttp::addServerAlias »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.eventhttp.html">EventHttp</a></li>
+    <li>Makes an HTTP server accept connections on the specified socket stream or resource</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="eventhttp.accept">
+ <div class="refnamediv">
+  <h1 class="refname">EventHttp::accept</h1>
+  <p class="verinfo">(PECL event &gt;= 1.2.6-beta)</p><p class="refpurpose"><span class="refname">EventHttp::accept</span> — <span class="dc-title">Makes an HTTP server accept connections on the specified socket stream or resource</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-eventhttp.accept-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="methodname"><strong>EventHttp::accept</strong></span>(<span class="methodparam">
+    <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span>
+     <code class="parameter">$socket</code>
+   </span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Makes an HTTP server accept connections on the specified socket stream or
+   resource. The socket should be ready to accept connections.
+  </p>
+  <p class="para">
+   Can be called multiple times to accept connections on different sockets.
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    To bind a socket,
+    <code class="literal">listen</code>
+    , and
+    <code class="literal">
+     accept</code>
+    connections on the socket in s single call use
+    <span class="methodname"><a class="methodname" href="eventhttp.bind.html">EventHttp::bind()</a></span>
+    .
+    <span class="methodname"><strong>EventHttp::accept()</strong></span>
+    is needed only if one already has a socket ready to accept connections.
+   </p>
+  <p></p></blockquote>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-eventhttp.accept-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+
+     <code class="parameter">socket</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Socket resource, stream or numeric file descriptor representing a socket
+      ready to accept connections.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-eventhttp.accept-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-eventhttp.accept-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-4144">
+   <p><strong>示例 #1 
+    <span class="function"><strong>EventHttp::accept()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$base&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">EventBase</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$http&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">EventHttp</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$addresses&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array&nbsp;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">8091&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">"127.0.0.1"</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">8092&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">"127.0.0.2"</span><span style="color: rgb(0, 119, 0);">,<br>);<br></span><span style="color: rgb(0, 0, 187);">$i&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$socket&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array();<br><br>foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$addresses&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$port&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$ip</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$ip</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"&nbsp;"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$port</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$socket</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">socket_create</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">AF_INET</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">SOCK_STREAM</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">SOL_TCP</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">socket_bind</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$socket</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">],&nbsp;</span><span style="color: rgb(0, 0, 187);">$ip</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$port</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(</span><span style="color: rgb(221, 0, 0);">"socket_bind&nbsp;failed\n"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">socket_listen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$socket</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">],&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">socket_set_nonblock</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$socket</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">]);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$http</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">accept</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$socket</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">]))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Accept&nbsp;failed\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;++</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$http</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setCallback</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"/some-page"</span><span style="color: rgb(0, 119, 0);">,&nbsp;function()&nbsp;{<br>&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"(some-page)\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"URI:&nbsp;"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$req</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getUri</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$req</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">sendReply</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">200</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"OK"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"OK\n"</span><span style="color: rgb(0, 119, 0);">;<br>});<br><br></span><span style="color: rgb(0, 0, 187);">$http</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setDefaultCallback</span><span style="color: rgb(0, 119, 0);">(function(</span><span style="color: rgb(0, 0, 187);">$req</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"URI:&nbsp;"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$req</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getUri</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$req</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">sendReply</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">200</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"OK"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"OK\n"</span><span style="color: rgb(0, 119, 0);">;<br>});<br><br></span><span style="color: rgb(0, 0, 187);">$signal&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">Event</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">signal</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">SIGINT</span><span style="color: rgb(0, 119, 0);">,&nbsp;function&nbsp;()&nbsp;use&nbsp;(</span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Caught&nbsp;SIGINT.&nbsp;Stopping...\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">stop</span><span style="color: rgb(0, 119, 0);">();<br>});<br></span><span style="color: rgb(0, 0, 187);">$signal</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">add</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$base</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">dispatch</span><span style="color: rgb(0, 119, 0);">();<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"END\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;We&nbsp;didn't&nbsp;close&nbsp;sockets,&nbsp;since&nbsp;Libevent&nbsp;already&nbsp;sets<br>//&nbsp;CLOSE_ON_FREE&nbsp;and&nbsp;CLOSE_ON_EXEC&nbsp;flags&nbsp;on&nbsp;the&nbsp;file&nbsp;<br>//&nbsp;descriptor&nbsp;associated&nbsp;with&nbsp;the&nbsp;sockets.<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>Client:
+$ nc 127.0.0.1 8091
+GET /about HTTP/1.0
+Connection: close
+
+HTTP/1.0 200 OK
+Content-Type: text/html; charset=ISO-8859-1
+Connection: close
+
+Server:
+127.0.0.1 8091
+127.0.0.2 8092
+URI: /about
+OK
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-eventhttp.accept-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member">
+    <span class="methodname"><a class="methodname" href="eventhttp.bind.html" rel="rdfs-seeAlso">EventHttp::bind()</a> - Binds an HTTP server on the specified address and port</span>
+   </li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>

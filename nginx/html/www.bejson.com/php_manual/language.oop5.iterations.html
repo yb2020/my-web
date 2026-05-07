@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>遍历对象-BeJSON.com</title><meta name="keywords" content="遍历对象"><meta name="description" content="PHP 提供了一种定义对象的方法使其可以通过单元列表来遍历，例如用 foreach 语句。默认情况下，所有可见属性都将被用于遍历。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="language.oop5.overloading.html">« 重载</a></li>
+      <li style="float: right;"><a href="language.oop5.magic.html">魔术方法 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.oop5.html">类与对象</a></li>
+    <li>遍历对象</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="language.oop5.iterations">
+ <h1 class="title">遍历对象</h1>
+ <p class="para">
+  PHP 提供了一种定义对象的方法使其可以通过单元列表来遍历，例如用 <a class="link" href="control-structures.foreach.html">foreach</a>
+  语句。默认情况下，所有<a class="link" href="language.oop5.visibility.html">可见</a>属性都将被用于遍历。
+ </p>
+
+ <div class="example" id="example-264">
+  <p><strong>示例 #1 简单的对象遍历</strong></p>
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">MyClass<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: rgb(0, 0, 187);">$var1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'value&nbsp;1'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: rgb(0, 0, 187);">$var2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'value&nbsp;2'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: rgb(0, 0, 187);">$var3&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'value&nbsp;3'</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;</span><span style="color: rgb(0, 0, 187);">$protected&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'protected&nbsp;var'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$private&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'private&nbsp;var'</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">iterateVisible</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"MyClass::iterateVisible:\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$this&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$key&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 0, 187);">$key</span><span style="color: rgb(221, 0, 0);">&nbsp;=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(221, 0, 0);">\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$class&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">MyClass</span><span style="color: rgb(0, 119, 0);">();<br><br>foreach(</span><span style="color: rgb(0, 0, 187);">$class&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$key&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 0, 187);">$key</span><span style="color: rgb(221, 0, 0);">&nbsp;=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(221, 0, 0);">\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br><br><br></span><span style="color: rgb(0, 0, 187);">$class</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">iterateVisible</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+  <div class="example-contents"><p>以上例程会输出：</p></div> 
+  <div class="example-contents screen">
+<div class="cdata"><pre>var1 =&gt; value 1
+var2 =&gt; value 2
+var3 =&gt; value 3
+
+MyClass::iterateVisible:
+var1 =&gt; value 1
+var2 =&gt; value 2
+var3 =&gt; value 3
+protected =&gt; protected var
+private =&gt; private var
+</pre></div>
+  </div>
+ </div>
+ <p class="para">
+  如上所示，<a class="link" href="control-structures.foreach.html">foreach</a> 遍历了所有其能够访问的<a class="link" href="language.oop5.visibility.html">可见</a>属性。
+ </p>
+
+ <div class="simplesect">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a class="link" href="language.generators.html">生成器</a></li>
+    <li class="member"><span class="interfacename"><a class="interfacename" href="class.iterator.html">Iterator</a></span></li>
+    <li class="member"><span class="interfacename"><a class="interfacename" href="class.iteratoraggregate.html">IteratorAggregate</a></span></li>
+    <li class="member"><a class="link" href="spl.iterators.html">SPL 迭代器</a></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

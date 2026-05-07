@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The parallel\Events class-BeJSON.com</title><meta name="keywords" content="The parallel\Events class"><meta name="description" content="The Event loop monitors the state of sets of futures and or channels (targets) in order to perform read (parallel\Future::value(), parallel\Channel::r">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="parallel-channel.close.html">« parallel\Channel::close</a></li>
+      <li style="float: right;"><a href="parallel-events.setblocking.html">parallel\Events::setBlocking »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.parallel.html">parallel</a></li>
+    <li>The parallel\Events class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.parallel-events">
+
+ <h1 class="title">The parallel\Events class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(0.9.0)</p>
+  <div class="section">
+    <h2 class="title">The Event Loop</h2>
+    <p class="para">
+     The Event loop monitors the state of sets of futures and or channels (targets) in order to perform read (<span class="methodname"><a class="methodname" href="parallel-future.value.html">parallel\Future::value()</a></span>, <span class="methodname"><a class="methodname" href="parallel-channel.recv.html">parallel\Channel::recv()</a></span>) and write (<span class="methodname"><a class="methodname" href="parallel-channel.send.html">parallel\Channel::send()</a></span>) operations as the targets become available and the operations may be performed without blocking the event loop.
+    </p>
+  </div>
+  <div class="section" id="parallel-events.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">final</span>
+      <span class="modifier">class</span> <strong class="classname">parallel\Events</strong>
+     </span>
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a class="interfacename" href="class.countable.html">Countable</a></span><span class="oointerface">,  <a class="interfacename" href="class.traversable.html">Traversable</a></span> {</div>
+
+   
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Input */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parallel-events.setinput.html">setInput</a></span>(<span class="methodparam"><span class="type"><span class="type Input">Input</span></span> <code class="parameter">$input</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Targets */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parallel-events.addchannel.html">addChannel</a></span>(<span class="methodparam"><span class="type"><a class="type parallel\Channel" href="class.parallel-channel.html">parallel\Channel</a></span> <code class="parameter">$channel</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parallel-events.addfuture.html">addFuture</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type"><a class="type parallel\Future" href="class.parallel-future.html">parallel\Future</a></span> <code class="parameter">$future</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parallel-events.remove.html">remove</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$target</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Behaviour */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parallel-events.setblocking.html">setBlocking</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$blocking</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parallel-events.settimeout.html">setTimeout</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Polling */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="parallel-events.poll.html">poll</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type parallel\Events\Event" href="class.parallel-events-event.html">parallel\Events\Event</a></span></span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="parallel-events.setblocking.html">parallel\Events::setBlocking</a> — Behaviour</li><li><a href="parallel-events.settimeout.html">parallel\Events::setTimeout</a> — Behaviour</li><li><a href="parallel-events.setinput.html">parallel\Events::setInput</a> — Input</li><li><a href="parallel-events.addchannel.html">parallel\Events::addChannel</a> — Targets</li><li><a href="parallel-events.addfuture.html">parallel\Events::addFuture</a> — Targets</li><li><a href="parallel-events.remove.html">parallel\Events::remove</a> — Targets</li><li><a href="parallel-events.poll.html">parallel\Events::poll</a> — Polling</li></ul>
+</div>
+</div></div></body></html>

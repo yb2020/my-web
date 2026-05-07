@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索-BeJSON.com</title><meta name="keywords" content="搜索"><meta name="description" content="搜寻包含多个字的词汇时， 只有所含所有内容都匹配时才会出现。 "><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    
+    <script id="documentation_options" src="static/documentation_options.js" data-url_root="./"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/translations.js"></script>
+    
+    <script src="static/sidebar.js"></script>
+    
+    <script src="static/searchtools.js"></script>
+    <script src="static/language_data.js"></script>
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="about.html" rel="author">
+    <link title="索引" href="genindex.html" rel="index">
+    <link title="搜索" href="#" rel="search">
+    <link title="版权所有" href="copyright.html" rel="copyright">
+    
+  <script src="searchindex.js" defer=""></script>
+  
+    <link href="https://www.bejson.com/python_doc/search.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="static/copybutton.js" type="text/javascript"></script>
+            <script src="static/menu.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        var GLOSSARY_PAGE = 'glossary.html';
+
+        jQuery(function() {
+            $.getJSON("static/glossary.json", function(glossary) {
+                var RESULT_TEMPLATE = '<div style="display: none" class="admonition seealso" id="glossary-result">' +
+                                      '  <p class="topic-title">' +
+                                      '    <a class="glossary-title" href="#"></a>' +
+                                      '  </p>' +
+                                      '  <div class="glossary-body"></div>' +
+                                      '</div>';
+                $("#search-results").prepend(RESULT_TEMPLATE);
+
+                var params = $.getQueryParameters();
+                if (params.q) {
+                    var search_param = params.q[0].toLowerCase();
+                    var glossary_item = glossary[search_param];
+                    if (glossary_item) {
+                        var resultDiv = $("#glossary-result");
+
+                        // set up the title text with a link to the glossary page
+                        resultDiv.find(".glossary-title").text('Glossary: ' + glossary_item.title);
+                        var link_target = search_param.replace(/ /g, '-');
+                        resultDiv.find(".glossary-title").attr(
+                            'href', GLOSSARY_PAGE + '#term-' + link_target
+                        );
+
+                        // rewrite any anchor links (to other glossary terms)
+                        // to have a full reference to the glossary page
+                        var body = $(glossary_item.body).children();
+                        body.find("a[href^='#']").each(function() {
+                            var current_url = $(this).attr('href');
+                            $(this).attr('href', GLOSSARY_PAGE + current_url);
+                        });
+                        resultDiv.find(".glossary-body").html(body);
+
+                        resultDiv.show();
+                    } else {
+                        $("#glossary-result").hide('');
+                    }
+                }
+            });
+        });
+    </script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="py-modindex.html">模块</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="static/py.svg"></li><li><a href="https://www.bejson.com">Bejson.com</a> »</li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="index.html">3.12.0a0 Documentation</a> »
+    </li>
+
+        <li class="nav-item nav-item-this"><a href="">搜索</a></li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <h1 id="search-documentation">搜索</h1>
+  
+  <noscript>
+  &lt;div class="admonition warning"&gt;
+  &lt;p&gt;
+    请激活 JavaScript 以开启搜索功能。
+  &lt;/p&gt;
+  &lt;/div&gt;
+  </noscript>
+  
+  
+  <p>
+    搜寻包含多个字的词汇时，
+    只有所含所有内容都匹配时才会出现。
+  </p>
+  
+  
+  <form action="" method="get">
+    <input name="q" aria-labelledby="search-documentation" spellcheck="false" type="text" value="" autocapitalize="off" autocorrect="off" autocomplete="off">
+    <input type="submit" value="搜索">
+    <span id="search-progress" style="padding-left: 10px;"></span>
+  </form>
+  
+  
+  
+  <div id="search-results"><div class="admonition seealso" id="glossary-result" style="display: none;">  <p class="topic-title">    <a class="glossary-title" href="#"></a>  </p>  <div class="glossary-body"></div></div>
+  
+  </div>
+  
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="py-modindex.html">模块</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="static/py.svg"></li><li><a href="https://www.bejson.com">Bejson.com</a> »</li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="index.html">3.12.0a0 Documentation</a> »
+    </li>
+
+        <li class="nav-item nav-item-this"><a href="">搜索</a></li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

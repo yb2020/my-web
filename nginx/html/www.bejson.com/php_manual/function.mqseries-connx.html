@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>MQSeries MQCONNX-BeJSON.com</title><meta name="keywords" content="MQSeries MQCONNX"><meta name="description" content="The mqseries_connx() call is like the mqseries_conn() (MQCONN) call, except that MQCONNX allows options to be specified to control the way that the ca">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.mqseries-conn.html">« mqseries_conn</a></li>
+      <li style="float: right;"><a href="function.mqseries-disc.html">mqseries_disc »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.mqseries.html">mqseries 函数</a></li>
+    <li>MQSeries MQCONNX</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.mqseries-connx">
+ <div class="refnamediv">
+  <h1 class="refname">mqseries_connx</h1>
+  <p class="verinfo">(PECL mqseries &gt;= 0.10.0)</p><p class="refpurpose"><span class="refname">mqseries_connx</span> — <span class="dc-title">MQSeries MQCONNX</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.mqseries-connx-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>mqseries_connx</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$qManagerName</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&amp;$connOptions</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter reference">&amp;$hconn</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter reference">&amp;$compCode</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter reference">&amp;$reason</code></span><br>): <span class="type"><span class="type void">void</span></span></div>
+
+  <p class="para rdfs-comment">
+   The
+   <span class="function"><strong>mqseries_connx()</strong></span>
+   (MQCONNX) call connects an application program to a queue manager. It
+   provides a queue manager connection handle, which is used by the application
+   on subsequent MQ calls.
+  </p>
+  <p class="para">
+   The <span class="function"><strong>mqseries_connx()</strong></span> call is like the 
+   <span class="function"><a class="function" href="function.mqseries-conn.html">mqseries_conn()</a></span> (MQCONN) call, except that MQCONNX 
+   allows options to be specified to control the way that the call works.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-function.mqseries-connx-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+
+      <code class="parameter">qManagerName</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">Name of queue manager.</p>
+      <p class="para">Name of the queue manager the application wishes to connect.</p>
+     </dd>
+
+    
+    
+     <dt>
+
+      <code class="parameter">connOps</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">Options that control the action of function</p>
+      <p class="para">See also the MQCNO structure.</p>
+     </dd>
+
+    
+    
+    
+     <dt>
+
+      <code class="parameter">hConn</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">Connection handle.</p>
+      <p class="para">This handle represents the connection to the queue manager.</p>
+     </dd>
+
+    
+    
+     <dt>
+
+      <code class="parameter">compCode</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">Completion code.</p>
+     </dd>
+
+    
+    
+     <dt>
+
+      <code class="parameter">reason</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">Reason code qualifying the compCode.</p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.mqseries-connx-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">没有返回值。</p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-function.mqseries-connx-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4312">
+    <p><strong>示例 #1 
+     <span class="function"><strong>mqseries_connx()</strong></span>
+     example
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>&nbsp;&nbsp;&nbsp;&nbsp;$mqcno&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Version'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">MQSERIES_MQCNO_VERSION_2</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Options'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">MQSERIES_MQCNO_STANDARD_BINDING</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'MQCD'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'ChannelName'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'MQNX9420.CLIENT'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'ConnectionName'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'localhost'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'TransportType'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">MQSERIES_MQXPT_TCP</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">mqseries_connx</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'MQNX9420'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$mqcno</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$comp_code</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(0, 0, 187);">$reason</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$comp_code&nbsp;</span><span style="color: rgb(0, 119, 0);">!==&nbsp;</span><span style="color: rgb(0, 0, 187);">MQSERIES_MQCC_OK</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">printf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Connx&nbsp;CompCode:%d&nbsp;Reason:%d&nbsp;Text:%s&lt;br&gt;\n"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$comp_code</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$reason</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">mqseries_strerror</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$reason</span><span style="color: rgb(0, 119, 0);">));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-4313">
+    <p><strong>示例 #2 
+     <span class="function"><strong>mqseries_connx()</strong></span>
+     example using SSL connection &amp; OCSP Responder URL
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>&nbsp;&nbsp;&nbsp;&nbsp;$mqcno&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Version'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">4</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(255, 128, 0);">//MQCNO_VERSION_4<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Options'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">MQSERIES_MQCNO_STANDARD_BINDING</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'MQCD'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Version'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">7</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(255, 128, 0);">//MQCD_VERSION_7<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'ConnectionName'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'localhost'</span><span style="color: rgb(0, 119, 0);">,&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'TransportType'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">MQSERIES_MQXPT_TCP</span><span style="color: rgb(0, 119, 0);">,&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'ChannelName'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'CONNECTIONCHANNEL'</span><span style="color: rgb(0, 119, 0);">,&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'SSLCipherSpec'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'NULL_SHA'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">),&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'MQSCO'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'KeyRepository'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'/var/mqm/qmgrs/QUEUEMGR/ssl/key'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(255, 128, 0);">//Local&nbsp;path&nbsp;where&nbsp;the&nbsp;SSL&nbsp;key&nbsp;repository&nbsp;can&nbsp;be&nbsp;found<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'MQAIR'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Version'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(255, 128, 0);">//MQAIR_VERSION_2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'AuthInfoType'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(255, 128, 0);">//MQAIT_OCSP&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'OCSPResponderURL'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'http://dummy.OCSP.responder'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>&nbsp;&nbsp;&nbsp;&nbsp;);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">mqseries_connx</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'QUEUEMGR'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$mqcno</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$comp_code</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(0, 0, 187);">$reason</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$comp_code&nbsp;</span><span style="color: rgb(0, 119, 0);">!==&nbsp;</span><span style="color: rgb(0, 0, 187);">MQSERIES_MQCC_OK</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">printf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Connx&nbsp;CompCode:%d&nbsp;Reason:%d&nbsp;Text:%s&lt;br&gt;\n"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$comp_code</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$reason</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">mqseries_strerror</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$reason</span><span style="color: rgb(0, 119, 0);">));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.mqseries-connx-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.mqseries-disc.html" rel="rdfs-seeAlso">mqseries_disc()</a> - MQSeries MQDISC</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

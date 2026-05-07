@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns the number of columns for the most recent query-BeJSON.com</title><meta name="keywords" content="Returns the number of columns for the most recent query"><meta name="description" content="面向对象风格">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mysqli.error.html">« mysqli::$error</a></li>
+      <li style="float: right;"><a href="mysqli.get-charset.html">mysqli::get_charset »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mysqli.html">MySQLi</a></li>
+    <li>Returns the number of columns for the most recent query</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="mysqli.field-count">
+ <div class="refnamediv">
+  <h1 class="refname">mysqli::$field_count</h1>
+  <h1 class="refname">mysqli_field_count</h1>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mysqli::$field_count</span> -- <span class="refname">mysqli_field_count</span> — <span class="dc-title">Returns the number of columns for the most recent query</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mysqli.field-count-description">
+  <h3 class="title">说明</h3>
+  <p class="para">面向对象风格</p>
+  <div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli.field-count.html">$mysqli-&gt;field_count</a></var>;</div>
+
+  <p class="para">过程化风格</p>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>mysqli_field_count</strong></span>(<span class="methodparam"><span class="type"><a class="type mysqli" href="class.mysqli.html">mysqli</a></span> <code class="parameter">$mysql</code></span>): <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+   Returns the number of columns for the most recent query on the connection
+   represented by the <code class="parameter">mysql</code> parameter. This function
+   can be useful when using the <span class="function"><a class="function" href="mysqli.store-result.html">mysqli_store_result()</a></span>
+   function to determine if the query should have produced a non-empty result
+   set or not without knowing the nature of the query.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mysqli.field-count-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    <dt>
+
+<code class="parameter">mysql</code></dt>
+<dd>
+<p class="para">仅以过程化样式：由<span class="function"><a class="function" href="function.mysqli-connect.html">mysqli_connect()</a></span> 或 <span class="function"><a class="function" href="mysqli.init.html">mysqli_init()</a></span>
+返回的 <span class="classname"><a class="classname" href="class.mysqli.html">mysqli</a></span> 对象。</p></dd>
+
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mysqli.field-count-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   An integer representing the number of fields in a result set.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mysqli.field-count-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-1434">
+   <p><strong>示例 #1 <var class="varname">$mysqli-&gt;field_count</var> example</strong></p>
+   <div class="example-contents"><p>面向对象风格</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$mysqli&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"localhost"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"my_user"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"my_password"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"test"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(221, 0, 0);">"DROP&nbsp;TABLE&nbsp;IF&nbsp;EXISTS&nbsp;friends"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(221, 0, 0);">"CREATE&nbsp;TABLE&nbsp;friends&nbsp;(id&nbsp;int,&nbsp;name&nbsp;varchar(20))"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(221, 0, 0);">"INSERT&nbsp;INTO&nbsp;friends&nbsp;VALUES&nbsp;(1,'Hartmut'),&nbsp;(2,&nbsp;'Ulf')"</span><span style="color: rgb(0, 119, 0);">);<br><br><br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">real_query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"SELECT&nbsp;*&nbsp;FROM&nbsp;friends"</span><span style="color: rgb(0, 119, 0);">);<br><br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">field_count</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;this&nbsp;was&nbsp;a&nbsp;select/show&nbsp;or&nbsp;describe&nbsp;query&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">store_result</span><span style="color: rgb(0, 119, 0);">();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;process&nbsp;resultset&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$row&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">fetch_row</span><span style="color: rgb(0, 119, 0);">();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;free&nbsp;resultset&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">close</span><span style="color: rgb(0, 119, 0);">();<br>}<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;close&nbsp;connection&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">close</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>过程化风格</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$link&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"localhost"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"my_user"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"my_password"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"test"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">mysqli_query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"DROP&nbsp;TABLE&nbsp;IF&nbsp;EXISTS&nbsp;friends"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">mysqli_query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"CREATE&nbsp;TABLE&nbsp;friends&nbsp;(id&nbsp;int,&nbsp;name&nbsp;varchar(20))"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">mysqli_query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"INSERT&nbsp;INTO&nbsp;friends&nbsp;VALUES&nbsp;(1,'Hartmut'),&nbsp;(2,&nbsp;'Ulf')"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">mysqli_real_query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"SELECT&nbsp;*&nbsp;FROM&nbsp;friends"</span><span style="color: rgb(0, 119, 0);">);<br><br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">mysqli_field_count</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;this&nbsp;was&nbsp;a&nbsp;select/show&nbsp;or&nbsp;describe&nbsp;query&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli_store_result</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;process&nbsp;resultset&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$row&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli_fetch_row</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;free&nbsp;resultset&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli_free_result</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;close&nbsp;connection&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">mysqli_close</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+
+</div></div></div></body></html>

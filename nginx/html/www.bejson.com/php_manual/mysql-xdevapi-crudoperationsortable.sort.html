@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Sort results-BeJSON.com</title><meta name="keywords" content="Sort results"><meta name="description" content="One or more sorting expressions can be provided. The evaluation is from left to right, and each expression is separated by a comma. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.mysql-xdevapi-crudoperationsortable.html">« mysql_xdevapi\CrudOperationSortable</a></li>
+      <li style="float: right;"><a href="class.mysql-xdevapi-databaseobject.html">mysql_xdevapi\DatabaseObject »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mysql-xdevapi-crudoperationsortable.html">mysql_xdevapi\CrudOperationSortable</a></li>
+    <li>Sort results</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="mysql-xdevapi-crudoperationsortable.sort">
+ <div class="refnamediv">
+  <h1 class="refname">CrudOperationSortable::sort</h1>
+  <p class="verinfo">(No version information available, might only be in Git)</p><p class="refpurpose"><span class="refname">CrudOperationSortable::sort</span> — <span class="dc-title">Sort results</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mysql-xdevapi-crudoperationsortable.sort-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><strong>mysql_xdevapi\CrudOperationSortable::sort</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$sort_expr</code></span>): <span class="type"><a class="type mysql_xdevapi\CrudOperationSortable" href="class.mysql-xdevapi-crudoperationsortable.html">mysql_xdevapi\CrudOperationSortable</a></span></div>
+
+  <p class="para rdfs-comment">
+   Sort the result set by the field selected in the sort_expr argument. The allowed
+   orders are ASC (Ascending) or DESC (Descending). This operation is equivalent to the 'ORDER BY' SQL operation
+   and it follows the same set of rules.
+  </p>
+
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara">本函数还未编写文档，仅有参数列表。</p></div>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mysql-xdevapi-crudoperationsortable.sort-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">sort_expr</code></dt>
+
+    <dd>
+
+     <p class="para">
+      One or more sorting expressions can be provided. The evaluation is from left to right,
+      and each expression is separated by a comma.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mysql-xdevapi-crudoperationsortable.sort-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   A CrudOperationSortable object.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mysql-xdevapi-crudoperationsortable.sort-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-1597">
+   <p><strong>示例 #1 <span class="function"><strong>mysql_xdevapi\CrudOperationSortable::sort()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$res&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$coll</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">find</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'job&nbsp;like&nbsp;\'Cavia\''</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">sort</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'age&nbsp;desc'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'_id&nbsp;desc'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">execute</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+
+
+</div></div></div></body></html>

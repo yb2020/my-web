@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>从结果中提取所有行作为一个数组-BeJSON.com</title><meta name="keywords" content="从结果中提取所有行作为一个数组"><meta name="description" content="pg_fetch_all(PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8)pg_fetch_all — 从结果中提取所有行作为一个数组说明pg_fetch_all(resource $result): arraypg_fetch_all() 从结果资源中返回一个包含有所有的行">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.pg-fetch-all-columns.html">« pg_fetch_all_columns</a></li>
+      <li style="float: right;"><a href="function.pg-fetch-array.html">pg_fetch_array »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.pgsql.html">PostgreSQL 函数</a></li>
+    <li>从结果中提取所有行作为一个数组</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.pg-fetch-all">
+   <div class="refnamediv">
+    <h1 class="refname">pg_fetch_all</h1>
+    <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_fetch_all</span> — <span class="dc-title">从结果中提取所有行作为一个数组</span></p>
+
+   </div>
+   <div class="refsect1 unknown-seealsp" id="refsect1-function.pg-fetch-all-unknown-seealsp">
+    <h3 class="title">说明</h3>
+    <div class="methodsynopsis dc-description">
+     <span class="methodname"><strong>pg_fetch_all</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>): <span class="type">array</span></div>
+
+    <p class="para rdfs-comment">
+     <span class="function"><strong>pg_fetch_all()</strong></span>
+     从结果资源中返回一个包含有所有的行（元组/记录）的数组。如果没有更多行可供提取，则返回 <strong><code>false</code></strong>。
+    </p>
+    <p class="para">
+     <div class="example" id="example-1882">
+      <p><strong>示例 #1 <span class="function"><strong>pg_fetch_all()</strong></span> 例子</strong></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$conn&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">pg_pconnect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"dbname=publisher"</span><span style="color: rgb(0, 119, 0);">);<br>if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"An&nbsp;error&nbsp;occured.\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>}<br></span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">pg_query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"SELECT&nbsp;*&nbsp;FROM&nbsp;authors"</span><span style="color: rgb(0, 119, 0);">);<br>if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"An&nbsp;error&nbsp;occured.\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>}<br></span><span style="color: rgb(0, 0, 187);">$arr&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">pg_fetch_all</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$arr</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    <p></p>
+    <p class="para">
+     参见 <span class="function"><a class="function" href="function.pg-fetch-row.html">pg_fetch_row()</a></span>，<span class="function"><a class="function" href="function.pg-fetch-array.html">pg_fetch_array()</a></span>，<span class="function"><a class="function" href="function.pg-fetch-object.html">pg_fetch_object()</a></span>
+     和 <span class="function"><a class="function" href="function.pg-fetch-result.html">pg_fetch_result()</a></span>。
+    </p>
+   </div>
+
+  </div></div></div></body></html>

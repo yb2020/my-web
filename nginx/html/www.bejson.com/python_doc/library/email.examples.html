@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>email: 示例-BeJSON.com</title><meta name="keywords" content="email: 示例"><meta name="description" content="email.contentmanager: 管理 MIME 内容"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="email.message.Message: 使用 compat32 API 来表示电子邮件消息" href="email.compat32-message.html" rel="next">
+    <link title="email.contentmanager: 管理 MIME 内容" href="email.contentmanager.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/email.examples.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="email.contentmanager.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.contentmanager</span></code>: 管理 MIME 内容</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="email.compat32-message.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.message.Message</span></code>: 使用 <code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code> API 来表示电子邮件消息</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="email.message.Message: 使用 compat32 API 来表示电子邮件消息" accesskey="N" href="email.compat32-message.html">下一页</a> |</li>
+        <li class="right">
+          <a title="email.contentmanager: 管理 MIME 内容" accesskey="P" href="email.contentmanager.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="netdata.html">互联网数据处理</a> »</li>
+          <li class="nav-item nav-item-3"><a accesskey="U" href="email.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> --- 电子邮件与 MIME 处理包</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code>: 示例</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="email-examples">
+<span id="id1"></span><h1><a title="email: Package supporting the parsing, manipulating, and generating email messages." class="reference internal" href="email.html#module-email"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code></a>: 示例<a title="永久链接至标题" class="headerlink" href="#email-examples">¶</a></h1>
+<p>以下是一些如何使用 <a title="email: Package supporting the parsing, manipulating, and generating email messages." class="reference internal" href="email.html#module-email"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code></a> 包来读取、写入和发送简单电子邮件以及更复杂的MIME邮件的示例。</p>
+<p>首先，让我们看看如何创建和发送简单的文本消息（文本内容和地址都可能包含unicode字符）：</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="c1"># Import smtplib for the actual sending function</span>
+<span class="kn">import</span> <span class="nn">smtplib</span>
+
+<span class="c1"># Import the email modules we'll need</span>
+<span class="kn">from</span> <span class="nn">email.message</span> <span class="kn">import</span> <span class="n">EmailMessage</span>
+
+<span class="c1"># Open the plain text file whose name is in textfile for reading.</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">textfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="c1"># Create a text/plain message</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">EmailMessage</span><span class="p">()</span>
+    <span class="n">msg</span><span class="o">.</span><span class="n">set_content</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="c1"># me == the sender's email address</span>
+<span class="c1"># you == the recipient's email address</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">'Subject'</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'The contents of </span><span class="si">{</span><span class="n">textfile</span><span class="si">}</span><span class="s1">'</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">'From'</span><span class="p">]</span> <span class="o">=</span> <span class="n">me</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">'To'</span><span class="p">]</span> <span class="o">=</span> <span class="n">you</span>
+
+<span class="c1"># Send the message via our own SMTP server.</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">'localhost'</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>解析 <span class="target" id="index-2"></span><a class="rfc reference external" href=""><strong>RFC 822</strong></a> 标题可以通过使用 <a title="email.parser: Parse flat text email messages to produce a message object structure." class="reference internal" href="email.parser.html#module-email.parser"><code class="xref py py-mod docutils literal notranslate"><span class="pre">parser</span></code></a> 模块中的类来轻松完成：</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="c1"># Import the email modules we'll need</span>
+<span class="kn">from</span> <span class="nn">email.parser</span> <span class="kn">import</span> <span class="n">BytesParser</span><span class="p">,</span> <span class="n">Parser</span>
+<span class="kn">from</span> <span class="nn">email.policy</span> <span class="kn">import</span> <span class="n">default</span>
+
+<span class="c1"># If the e-mail headers are in a file, uncomment these two lines:</span>
+<span class="c1"># with open(messagefile, 'rb') as fp:</span>
+<span class="c1">#     headers = BytesParser(policy=default).parse(fp)</span>
+
+<span class="c1">#  Or for parsing headers in a string (this is an uncommon operation), use:</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="n">Parser</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="n">default</span><span class="p">)</span><span class="o">.</span><span class="n">parsestr</span><span class="p">(</span>
+        <span class="s1">'From: Foo Bar &lt;user@example.com&gt;</span><span class="se">\n</span><span class="s1">'</span>
+        <span class="s1">'To: &lt;someone_else@example.com&gt;</span><span class="se">\n</span><span class="s1">'</span>
+        <span class="s1">'Subject: Test message</span><span class="se">\n</span><span class="s1">'</span>
+        <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+        <span class="s1">'Body would go here</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+
+<span class="c1">#  Now the header items can be accessed as a dictionary:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'To: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s1">'to'</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'From: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s1">'from'</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Subject: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s1">'subject'</span><span class="p">]))</span>
+
+<span class="c1"># You can also access the parts of the addresses:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Recipient username: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s1">'to'</span><span class="p">]</span><span class="o">.</span><span class="n">addresses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">username</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Sender name: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s1">'from'</span><span class="p">]</span><span class="o">.</span><span class="n">addresses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">display_name</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>以下是如何发送包含可能在目录中的一系列家庭照片的MIME消息示例：</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="c1"># Import smtplib for the actual sending function.</span>
+<span class="kn">import</span> <span class="nn">smtplib</span>
+
+<span class="c1"># Here are the email package modules we'll need.</span>
+<span class="kn">from</span> <span class="nn">email.message</span> <span class="kn">import</span> <span class="n">EmailMessage</span>
+
+<span class="c1"># Create the container email message.</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">EmailMessage</span><span class="p">()</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">'Subject'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Our family reunion'</span>
+<span class="c1"># me == the sender's email address</span>
+<span class="c1"># family = the list of all recipients' email addresses</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">'From'</span><span class="p">]</span> <span class="o">=</span> <span class="n">me</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">'To'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
+<span class="n">msg</span><span class="o">.</span><span class="n">preamble</span> <span class="o">=</span> <span class="s1">'You will not see this in a MIME-aware mail reader.</span><span class="se">\n</span><span class="s1">'</span>
+
+<span class="c1"># Open the files in binary mode.  You can also omit the subtype</span>
+<span class="c1"># if you want MIMEImage to guess it.</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">pngfiles</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">img_data</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">msg</span><span class="o">.</span><span class="n">add_attachment</span><span class="p">(</span><span class="n">img_data</span><span class="p">,</span> <span class="n">maintype</span><span class="o">=</span><span class="s1">'image'</span><span class="p">,</span>
+                                 <span class="n">subtype</span><span class="o">=</span><span class="s1">'png'</span><span class="p">)</span>
+
+<span class="c1"># Send the email via our own SMTP server.</span>
+<span class="k">with</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">'localhost'</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>以下是如何将目录的全部内容作为电子邮件消息发送的示例： <a class="footnote-reference brackets" id="id2" href="#id3">1</a></p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="sd">"""Send the contents of a directory as a MIME message."""</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="c1"># For guessing MIME type based on file name extension</span>
+<span class="kn">import</span> <span class="nn">mimetypes</span>
+
+<span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
+
+<span class="kn">from</span> <span class="nn">email.message</span> <span class="kn">import</span> <span class="n">EmailMessage</span>
+<span class="kn">from</span> <span class="nn">email.policy</span> <span class="kn">import</span> <span class="n">SMTP</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"""</span><span class="se">\</span>
+<span class="s2">Send the contents of a directory as a MIME message.</span>
+<span class="s2">Unless the -o option is given, the email is sent by forwarding to your local</span>
+<span class="s2">SMTP server, which then does the normal delivery process.  Your local machine</span>
+<span class="s2">must be running an SMTP server.</span>
+<span class="s2">"""</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-d'</span><span class="p">,</span> <span class="s1">'--directory'</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">"""Mail the contents of the specified directory,</span>
+<span class="s2">                        otherwise use the current directory.  Only the regular</span>
+<span class="s2">                        files in the directory are sent, and we don't recurse to</span>
+<span class="s2">                        subdirectories."""</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-o'</span><span class="p">,</span> <span class="s1">'--output'</span><span class="p">,</span>
+                        <span class="n">metavar</span><span class="o">=</span><span class="s1">'FILE'</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">"""Print the composed message to FILE instead of</span>
+<span class="s2">                        sending the message to the SMTP server."""</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-s'</span><span class="p">,</span> <span class="s1">'--sender'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">'The value of the From: header (required)'</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-r'</span><span class="p">,</span> <span class="s1">'--recipient'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">action</span><span class="o">=</span><span class="s1">'append'</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">'RECIPIENT'</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="p">[],</span> <span class="n">dest</span><span class="o">=</span><span class="s1">'recipients'</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">'A To: header value (at least one required)'</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">directory</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">directory</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">directory</span><span class="p">:</span>
+        <span class="n">directory</span> <span class="o">=</span> <span class="s1">'.'</span>
+    <span class="c1"># Create the message</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">EmailMessage</span><span class="p">()</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s1">'Subject'</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'Contents of directory </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s1">'To'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">recipients</span><span class="p">)</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s1">'From'</span><span class="p">]</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">sender</span>
+    <span class="n">msg</span><span class="o">.</span><span class="n">preamble</span> <span class="o">=</span> <span class="s1">'You will not see this in a MIME-aware mail reader.</span><span class="se">\n</span><span class="s1">'</span>
+
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="c1"># Guess the content type based on the file's extension.  Encoding</span>
+        <span class="c1"># will be ignored, although we should check for simple things like</span>
+        <span class="c1"># gzip'd or compressed files.</span>
+        <span class="n">ctype</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="n">mimetypes</span><span class="o">.</span><span class="n">guess_type</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ctype</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># No guess could be made, or the file is encoded (compressed), so</span>
+            <span class="c1"># use a generic bag-of-bits type.</span>
+            <span class="n">ctype</span> <span class="o">=</span> <span class="s1">'application/octet-stream'</span>
+        <span class="n">maintype</span><span class="p">,</span> <span class="n">subtype</span> <span class="o">=</span> <span class="n">ctype</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="n">msg</span><span class="o">.</span><span class="n">add_attachment</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
+                               <span class="n">maintype</span><span class="o">=</span><span class="n">maintype</span><span class="p">,</span>
+                               <span class="n">subtype</span><span class="o">=</span><span class="n">subtype</span><span class="p">,</span>
+                               <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
+    <span class="c1"># Now send or store the message</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">as_bytes</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="n">SMTP</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">'localhost'</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>以下是如何将上述MIME消息解压缩到文件目录中的示例：</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="sd">"""Unpack a MIME message into a directory of files."""</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">email</span>
+<span class="kn">import</span> <span class="nn">mimetypes</span>
+
+<span class="kn">from</span> <span class="nn">email.policy</span> <span class="kn">import</span> <span class="n">default</span>
+
+<span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"""</span><span class="se">\</span>
+<span class="s2">Unpack a MIME message into a directory of files.</span>
+<span class="s2">"""</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-d'</span><span class="p">,</span> <span class="s1">'--directory'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">"""Unpack the MIME message into the named</span>
+<span class="s2">                        directory, which will be created if it doesn't already</span>
+<span class="s2">                        exist."""</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'msgfile'</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">msgfile</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">message_from_binary_file</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">policy</span><span class="o">=</span><span class="n">default</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">directory</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">msg</span><span class="o">.</span><span class="n">walk</span><span class="p">():</span>
+        <span class="c1"># multipart/* are just containers</span>
+        <span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">get_content_maintype</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'multipart'</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="c1"># Applications should really sanitize the given filename so that an</span>
+        <span class="c1"># email message can't be used to overwrite important files</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">get_filename</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="p">:</span>
+            <span class="n">ext</span> <span class="o">=</span> <span class="n">mimetypes</span><span class="o">.</span><span class="n">guess_extension</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">get_content_type</span><span class="p">())</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ext</span><span class="p">:</span>
+                <span class="c1"># Use a generic bag-of-bits extension</span>
+                <span class="n">ext</span> <span class="o">=</span> <span class="s1">'.bin'</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'part-</span><span class="si">{</span><span class="n">counter</span><span class="si">:</span><span class="s1">03d</span><span class="si">}{</span><span class="n">ext</span><span class="si">}</span><span class="s1">'</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">get_payload</span><span class="p">(</span><span class="n">decode</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>以下是如何使用备用纯文本版本创建 HTML 消息的示例。 为了让事情变得更有趣，我们在 html 部分中包含了一个相关的图像，我们保存了一份我们要发送的内容到硬盘中，然后发送它。</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="kn">import</span> <span class="nn">smtplib</span>
+
+<span class="kn">from</span> <span class="nn">email.message</span> <span class="kn">import</span> <span class="n">EmailMessage</span>
+<span class="kn">from</span> <span class="nn">email.headerregistry</span> <span class="kn">import</span> <span class="n">Address</span>
+<span class="kn">from</span> <span class="nn">email.utils</span> <span class="kn">import</span> <span class="n">make_msgid</span>
+
+<span class="c1"># Create the base text message.</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">EmailMessage</span><span class="p">()</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">'Subject'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Ayons asperges pour le déjeuner"</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">'From'</span><span class="p">]</span> <span class="o">=</span> <span class="n">Address</span><span class="p">(</span><span class="s2">"Pepé Le Pew"</span><span class="p">,</span> <span class="s2">"pepe"</span><span class="p">,</span> <span class="s2">"example.com"</span><span class="p">)</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">'To'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Address</span><span class="p">(</span><span class="s2">"Penelope Pussycat"</span><span class="p">,</span> <span class="s2">"penelope"</span><span class="p">,</span> <span class="s2">"example.com"</span><span class="p">),</span>
+             <span class="n">Address</span><span class="p">(</span><span class="s2">"Fabrette Pussycat"</span><span class="p">,</span> <span class="s2">"fabrette"</span><span class="p">,</span> <span class="s2">"example.com"</span><span class="p">))</span>
+<span class="n">msg</span><span class="o">.</span><span class="n">set_content</span><span class="p">(</span><span class="s2">"""</span><span class="se">\</span>
+<span class="s2">Salut!</span>
+
+<span class="s2">Cela ressemble à un excellent recipie[1] déjeuner.</span>
+
+<span class="s2">[1] http://www.yummly.com/recipe/Roasted-Asparagus-Epicurious-203718</span>
+
+<span class="s2">--Pepé</span>
+<span class="s2">"""</span><span class="p">)</span>
+
+<span class="c1"># Add the html version.  This converts the message into a multipart/alternative</span>
+<span class="c1"># container, with the original text message as the first part and the new html</span>
+<span class="c1"># message as the second part.</span>
+<span class="n">asparagus_cid</span> <span class="o">=</span> <span class="n">make_msgid</span><span class="p">()</span>
+<span class="n">msg</span><span class="o">.</span><span class="n">add_alternative</span><span class="p">(</span><span class="s2">"""</span><span class="se">\</span>
+<span class="s2">&lt;html&gt;</span>
+<span class="s2">  &lt;head&gt;&lt;/head&gt;</span>
+<span class="s2">  &lt;body&gt;</span>
+<span class="s2">    &lt;p&gt;Salut!&lt;/p&gt;</span>
+<span class="s2">    &lt;p&gt;Cela ressemble à un excellent</span>
+<span class="s2">        &lt;a href="http://www.yummly.com/recipe/Roasted-Asparagus-Epicurious-203718"&gt;</span>
+<span class="s2">            recipie</span>
+<span class="s2">        &lt;/a&gt; déjeuner.</span>
+<span class="s2">    &lt;/p&gt;</span>
+<span class="s2">    &lt;img src="cid:</span><span class="si">{asparagus_cid}</span><span class="s2">" /&gt;</span>
+<span class="s2">  &lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">"""</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">asparagus_cid</span><span class="o">=</span><span class="n">asparagus_cid</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">subtype</span><span class="o">=</span><span class="s1">'html'</span><span class="p">)</span>
+<span class="c1"># note that we needed to peel the &lt;&gt; off the msgid for use in the html.</span>
+
+<span class="c1"># Now add the related image to the html part.</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"roasted-asparagus.jpg"</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">img</span><span class="p">:</span>
+    <span class="n">msg</span><span class="o">.</span><span class="n">get_payload</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">add_related</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="s1">'image'</span><span class="p">,</span> <span class="s1">'jpeg'</span><span class="p">,</span>
+                                     <span class="n">cid</span><span class="o">=</span><span class="n">asparagus_cid</span><span class="p">)</span>
+
+<span class="c1"># Make a local copy of what we are going to send.</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'outgoing.msg'</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+
+<span class="c1"># Send the message via local SMTP server.</span>
+<span class="k">with</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">'localhost'</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>如果我们发送最后一个示例中的消息，这是我们可以处理它的一种方法：</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">mimetypes</span>
+<span class="kn">import</span> <span class="nn">webbrowser</span>
+
+<span class="c1"># Import the email modules we'll need</span>
+<span class="kn">from</span> <span class="nn">email</span> <span class="kn">import</span> <span class="n">policy</span>
+<span class="kn">from</span> <span class="nn">email.parser</span> <span class="kn">import</span> <span class="n">BytesParser</span>
+
+<span class="c1"># An imaginary module that would make this work and be safe.</span>
+<span class="kn">from</span> <span class="nn">imaginary</span> <span class="kn">import</span> <span class="n">magic_html_parser</span>
+
+<span class="c1"># In a real program you'd get the filename from the arguments.</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'outgoing.msg'</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">BytesParser</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="n">policy</span><span class="o">.</span><span class="n">default</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+
+<span class="c1"># Now the header items can be accessed as a dictionary, and any non-ASCII will</span>
+<span class="c1"># be converted to unicode:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'To:'</span><span class="p">,</span> <span class="n">msg</span><span class="p">[</span><span class="s1">'to'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'From:'</span><span class="p">,</span> <span class="n">msg</span><span class="p">[</span><span class="s1">'from'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Subject:'</span><span class="p">,</span> <span class="n">msg</span><span class="p">[</span><span class="s1">'subject'</span><span class="p">])</span>
+
+<span class="c1"># If we want to print a preview of the message content, we can extract whatever</span>
+<span class="c1"># the least formatted payload is and print the first three lines.  Of course,</span>
+<span class="c1"># if the message has no plain text part printing the first three lines of html</span>
+<span class="c1"># is probably useless, but this is just a conceptual example.</span>
+<span class="n">simplest</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get_body</span><span class="p">(</span><span class="n">preferencelist</span><span class="o">=</span><span class="p">(</span><span class="s1">'plain'</span><span class="p">,</span> <span class="s1">'html'</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">simplest</span><span class="o">.</span><span class="n">get_content</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="n">keepends</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]))</span>
+
+<span class="n">ans</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"View full message?"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">ans</span><span class="o">.</span><span class="n">lower</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'n'</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+<span class="c1"># We can extract the richest alternative in order to display it:</span>
+<span class="n">richest</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get_body</span><span class="p">()</span>
+<span class="n">partfiles</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">if</span> <span class="n">richest</span><span class="p">[</span><span class="s1">'content-type'</span><span class="p">]</span><span class="o">.</span><span class="n">maintype</span> <span class="o">==</span> <span class="s1">'text'</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">richest</span><span class="p">[</span><span class="s1">'content-type'</span><span class="p">]</span><span class="o">.</span><span class="n">subtype</span> <span class="o">==</span> <span class="s1">'plain'</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">richest</span><span class="o">.</span><span class="n">get_content</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">richest</span><span class="p">[</span><span class="s1">'content-type'</span><span class="p">]</span><span class="o">.</span><span class="n">subtype</span> <span class="o">==</span> <span class="s1">'html'</span><span class="p">:</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="n">richest</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Don't know how to display </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">richest</span><span class="o">.</span><span class="n">get_content_type</span><span class="p">()))</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<span class="k">elif</span> <span class="n">richest</span><span class="p">[</span><span class="s1">'content-type'</span><span class="p">]</span><span class="o">.</span><span class="n">content_type</span> <span class="o">==</span> <span class="s1">'multipart/related'</span><span class="p">:</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">richest</span><span class="o">.</span><span class="n">get_body</span><span class="p">(</span><span class="n">preferencelist</span><span class="o">=</span><span class="p">(</span><span class="s1">'html'</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">richest</span><span class="o">.</span><span class="n">iter_attachments</span><span class="p">():</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">get_filename</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">fn</span><span class="p">:</span>
+            <span class="n">extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">get_filename</span><span class="p">())[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">extension</span> <span class="o">=</span> <span class="n">mimetypes</span><span class="o">.</span><span class="n">guess_extension</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">get_content_type</span><span class="p">())</span>
+        <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="n">extension</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">get_content</span><span class="p">())</span>
+            <span class="c1"># again strip the &lt;&gt; to go from email form of cid to html form.</span>
+            <span class="n">partfiles</span><span class="p">[</span><span class="n">part</span><span class="p">[</span><span class="s1">'content-id'</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Don't know how to display </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">richest</span><span class="o">.</span><span class="n">get_content_type</span><span class="p">()))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">'w'</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c1"># The magic_html_parser has to rewrite the href="cid:...." attributes to</span>
+    <span class="c1"># point to the filenames in partfiles.  It also has to do a safety-sanitize</span>
+    <span class="c1"># of the html.  It could be written using html.parser.</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">magic_html_parser</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">get_content</span><span class="p">(),</span> <span class="n">partfiles</span><span class="p">))</span>
+<span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">partfiles</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+
+<span class="c1"># Of course, there are lots of email messages that could break this simple</span>
+<span class="c1"># minded program, but it will handle the most common ones.</span>
+</pre></div>
+</div>
+<p>直到输出提示，上面的输出是：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>To: Penelope Pussycat &lt;penelope@example.com&gt;, Fabrette Pussycat &lt;fabrette@example.com&gt;
+From: Pepé Le Pew &lt;pepe@example.com&gt;
+Subject: Ayons asperges pour le déjeuner
+
+Salut!
+
+Cela ressemble à un excellent recipie[1] déjeuner.
+</pre></div>
+</div>
+<p class="rubric">备注</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>感谢 Matthew Dixon Cowles 提供最初的灵感和示例。</p>
+</dd>
+</dl>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="email.contentmanager.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.contentmanager</span></code>: 管理 MIME 内容</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="email.compat32-message.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.message.Message</span></code>: 使用 <code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code> API 来表示电子邮件消息</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="email.message.Message: 使用 compat32 API 来表示电子邮件消息" href="email.compat32-message.html">下一页</a> |</li>
+        <li class="right">
+          <a title="email.contentmanager: 管理 MIME 内容" href="email.contentmanager.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="netdata.html">互联网数据处理</a> »</li>
+          <li class="nav-item nav-item-3"><a href="email.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> --- 电子邮件与 MIME 处理包</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code>: 示例</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

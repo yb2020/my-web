@@ -1,0 +1,239 @@
+#app section {
+    margin: 1.2em 0;
+    border: 1px solid #e2e2e2;
+    display: block;
+    padding: 0.4em 1.2em;
+    border-radius: 5px;
+}
+
+.form-control-lg {
+    min-height: calc(1.5em + 1rem + 2px);
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+}
+
+
+
+#sprite.active {
+    display: block;
+}
+
+#sprite {
+    display: none;
+    text-align: left;
+    margin: 10px 0;
+}
+
+#app section header {
+    font-size: 1.2em;
+    position: relative;
+    top: -1em;
+    border-radius: 5px;
+    border: 1px solid #e2e2e2;
+    background: #f2f2f2;
+    padding: 0 5px;
+    display: inline-block;
+}
+
+#app section .content {
+    margin: 5px;
+}
+
+#files {
+    font-size: .9em;
+    margin: 10px 0;
+    padding: 0;
+    list-style-type: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+#file-warnings:empty {
+    margin-bottom: 0;
+}
+
+#app section ul {
+    margin: 0;
+    padding: 0;
+}
+
+#file-warnings:empty:before {
+    content: '';
+}
+
+#file-warnings:before {
+    content: 'Errors';
+    color: red;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+#app section ul li {
+    margin: 5px 0;
+    list-style-type: none;
+}
+
+#files li {
+    margin: 5px;
+    min-height: 20px;
+    line-height: 20px;
+    padding: 5px 10px;
+    border: solid 1px #e2e2e2;
+    background: #f1f1f1;
+}
+
+#files .controls {
+    float: left;
+    border-right: 1px solid;
+    margin-right: 10px;
+    color: #999;
+    padding-right: 11px;
+}
+
+#files canvas {
+    margin-right: 5px;
+    float: left;
+}
+
+.hide {
+    display: none;
+}
+
+#files .details {
+    padding-left: 8px;
+    font-size: .8em;
+    color: #666;
+    float: right;
+    margin-right: 15px;
+}
+
+#files .details:before {
+    content: '[ ';
+}
+
+#files .details:after {
+    content: ' ]';
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.field {
+    zoom: 1;
+    margin: 1em 2px;
+}
+
+.radio input + span:hover, .radio input:checked + span {
+    background-color: #339;
+}
+
+.radio input + span {
+    font-size: .8em;
+    padding: 3px 6px;
+    background-color: #aaa;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.radio input {
+    display: none;
+}
+
+.code-toolbar :not(pre) > code[class*=language-], .code-toolbar pre[class*=language-] {
+    padding-top: 2rem;
+}
+
+code[class*=language-], pre, pre[class*=language-] {
+    color: #4f5067;
+}
+
+pre, pre[class*=language-] {
+    margin: 0;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background-color: #f7f7fc;
+    font-size: .875em;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item {
+    display: inline-block;
+}
+
+#exportCss, #exportHtml {
+    width: 100%;
+}
+
+code[class*=language-], pre, pre[class*=language-] {
+    color: #4f5067;
+}
+
+code[class*=language-], pre[class*=language-] {
+    color: #000;
+    background: #f7f7fc;
+    text-shadow: 0 1px #fff;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    text-align: left;
+    white-space: pre-wrap;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item {
+    display: inline-block;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button {
+    display: inline-block;
+    margin: 0.375rem 0.5rem;
+    padding: 0.25rem 0.75rem;
+    transition: color .25s ease-in-out, background-color .25s ease-in-out, border-color .25s ease-in-out;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(118, 109, 244, .35);
+    background-color: transparent;
+    color: #766df4 !important;
+    box-shadow: none;
+}
+
+.language-css {
+    background: #f7f7fc
+}
+.select-file{
+    display: inline-block;
+    padding: 12px 33px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 6px;
+
+}
+
+
+
+.memo{
+    text-align: left;
+}

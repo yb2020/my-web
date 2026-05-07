@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The CallbackFilterIterator class-BeJSON.com</title><meta name="keywords" content="The CallbackFilterIterator class"><meta name="description" content="The CallbackFilterIterator class(PHP 5 >= 5.4.0, PHP 7, PHP 8)简介类摘要class CallbackFilterIterator  extends FilterIterator  {/* 方法 */public __construct(I">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="cachingiterator.valid.html">« CachingIterator::valid</a></li>
+      <li style="float: right;"><a href="callbackfilteriterator.accept.html">CallbackFilterIterator::accept »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="spl.iterators.html">迭代器</a></li>
+    <li>The CallbackFilterIterator class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.callbackfilteriterator">
+
+ <h1 class="title">The CallbackFilterIterator class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="callbackfilteriterator.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+
+   </p>
+  </div>
+
+
+  <div class="section" id="callbackfilteriterator.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">CallbackFilterIterator</strong>
+     </span>
+
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.filteriterator.html">FilterIterator</a>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="callbackfilteriterator.construct.html">__construct</a></span>(<span class="methodparam"><span class="type"><a class="type Iterator" href="class.iterator.html">Iterator</a></span> <code class="parameter">$iterator</code></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="callbackfilteriterator.accept.html">accept</a></span>(): <span class="type">bool</span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.accept.html">FilterIterator::accept</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.current.html">FilterIterator::current</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.getinneriterator.html">FilterIterator::getInnerIterator</a></span>(): <span class="type"><a class="type Iterator" href="class.iterator.html">Iterator</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.key.html">FilterIterator::key</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.next.html">FilterIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.rewind.html">FilterIterator::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.valid.html">FilterIterator::valid</a></span>(): <span class="type">bool</span></div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.current.html">IteratorIterator::current</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.getinneriterator.html">IteratorIterator::getInnerIterator</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type Iterator" href="class.iterator.html">Iterator</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.key.html">IteratorIterator::key</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.next.html">IteratorIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.rewind.html">IteratorIterator::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.valid.html">IteratorIterator::valid</a></span>(): <span class="type">bool</span></div>
+
+   }</div>
+
+
+  </div>
+
+  
+  <div class="section" id="callbackfilteriterator.examples">
+   <h2 class="title">范例</h2>
+   <p class="para">
+    The callback should accept up to three arguments:
+    the current item, the current key and the iterator, respectively.
+   </p>
+   <div class="example" id="callbackfilteriterator.examples.args">
+    <p><strong>示例 #1 Available callback arguments</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(255, 128, 0);">/**<br>&nbsp;*&nbsp;Callback&nbsp;for&nbsp;CallbackFilterIterator<br>&nbsp;*<br>&nbsp;*&nbsp;@param&nbsp;$current&nbsp;&nbsp;&nbsp;Current&nbsp;item's&nbsp;value<br>&nbsp;*&nbsp;@param&nbsp;$key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current&nbsp;item's&nbsp;key<br>&nbsp;*&nbsp;@param&nbsp;$iterator&nbsp;&nbsp;Iterator&nbsp;being&nbsp;filtered<br>&nbsp;*&nbsp;@return&nbsp;boolean&nbsp;&nbsp;&nbsp;TRUE&nbsp;to&nbsp;accept&nbsp;the&nbsp;current&nbsp;item,&nbsp;FALSE&nbsp;otherwise<br>&nbsp;*/<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">my_callback</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$current</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$key</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$iterator</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;Your&nbsp;filtering&nbsp;code&nbsp;here<br></span><span style="color: rgb(0, 119, 0);">}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <p class="para">
+    Any <span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> may be used; such as a string containing a
+    function name, an array for a method, or an anonymous function.
+   </p>
+   <div class="example" id="callbackfilteriterator.examples.basic">
+    <p><strong>示例 #2 Callback basic examples</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$dir&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">FilesystemIterator</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">__DIR__</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Filter&nbsp;large&nbsp;files&nbsp;(&nbsp;&gt;&nbsp;100MB)<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">is_large_file</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$current</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">$current</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isFile</span><span style="color: rgb(0, 119, 0);">()&nbsp;&amp;&amp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$current</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getSize</span><span style="color: rgb(0, 119, 0);">()&nbsp;&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">104857600</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">$large_files&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">CallbackFilterIterator</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$dir</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'is_large_file'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Filter&nbsp;directories<br></span><span style="color: rgb(0, 0, 187);">$files&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">CallbackFilterIterator</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$dir</span><span style="color: rgb(0, 119, 0);">,&nbsp;function&nbsp;(</span><span style="color: rgb(0, 0, 187);">$current</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$key</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$iterator</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">$current</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isDir</span><span style="color: rgb(0, 119, 0);">()&nbsp;&amp;&amp;&nbsp;!&nbsp;</span><span style="color: rgb(0, 0, 187);">$iterator</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isDot</span><span style="color: rgb(0, 119, 0);">();<br>});<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </div>
+  
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="callbackfilteriterator.accept.html">CallbackFilterIterator::accept</a> — Calls the callback with the current value, the current key and the inner iterator as arguments</li><li><a href="callbackfilteriterator.construct.html">CallbackFilterIterator::__construct</a> — Create a filtered iterator from another iterator</li></ul>
+</div>
+</div></div></body></html>

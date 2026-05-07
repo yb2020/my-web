@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>poplib --- POP3 协议客户端-BeJSON.com</title><meta name="keywords" content="poplib --- POP3 协议客户端"><meta name="description" content="ftplib --- FTP 协议客户端"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="imaplib --- IMAP4 协议客户端" href="imaplib.html" rel="next">
+    <link title="ftplib --- FTP 协议客户端" href="ftplib.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/poplib.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">poplib</span></code> --- POP3 协议客户端</a><ul>
+<li><a class="reference internal" href="#pop3-objects">POP3 对象</a></li>
+<li><a class="reference internal" href="#pop3-example">POP3 示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="ftplib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ftplib</span></code> --- FTP 协议客户端</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="imaplib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imaplib</span></code> --- IMAP4 协议客户端</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="imaplib --- IMAP4 协议客户端" accesskey="N" href="imaplib.html">下一页</a> |</li>
+        <li class="right">
+          <a title="ftplib --- FTP 协议客户端" accesskey="P" href="ftplib.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="internet.html">互联网协议和支持</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">poplib</span></code> --- POP3 协议客户端</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-poplib">
+<span id="poplib-pop3-protocol-client"></span><h1><a title="poplib: POP3 protocol client (requires sockets)." class="reference internal" href="#module-poplib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">poplib</span></code></a> --- POP3 协议客户端<a title="永久链接至标题" class="headerlink" href="#module-poplib">¶</a></h1>
+<p><strong>源代码：</strong> <a class="reference external" href="">Lib/poplib.py</a></p>
+<hr class="docutils" id="index-0">
+<p>本模块定义了一个 <a title="poplib.POP3" class="reference internal" href="#poplib.POP3"><code class="xref py py-class docutils literal notranslate"><span class="pre">POP3</span></code></a> 类，该类封装了到 POP3 服务器的连接过程，并实现了 <span class="target" id="index-13"></span><a class="rfc reference external" href=""><strong>RFC 1939</strong></a> 中定义的协议。<a title="poplib.POP3" class="reference internal" href="#poplib.POP3"><code class="xref py py-class docutils literal notranslate"><span class="pre">POP3</span></code></a> 类同时支持 <span class="target" id="index-14"></span><a class="rfc reference external" href=""><strong>RFC 1939</strong></a> 中最小的和可选的命令集。<a title="poplib.POP3" class="reference internal" href="#poplib.POP3"><code class="xref py py-class docutils literal notranslate"><span class="pre">POP3</span></code></a> 类还支持在 <span class="target" id="index-15"></span><a class="rfc reference external" href=""><strong>RFC 2595</strong></a> 中引入的 <code class="docutils literal notranslate"><span class="pre">STLS</span></code> 命令，用于在已建立的连接上启用加密通信。</p>
+<p>本模块额外提供一个 <a title="poplib.POP3_SSL" class="reference internal" href="#poplib.POP3_SSL"><code class="xref py py-class docutils literal notranslate"><span class="pre">POP3_SSL</span></code></a> 类，在连接到 POP3 服务器时，该类为使用 SSL 作为底层协议层提供了支持。</p>
+<p>注意，尽管 POP3 具有广泛的支持，但它已经过时。POP3 服务器的实现质量差异很大，而且大多很糟糕。如果邮件服务器支持 IMAP，则最好使用 <a title="imaplib.IMAP4" class="reference internal" href="imaplib.html#imaplib.IMAP4"><code class="xref py py-class docutils literal notranslate"><span class="pre">imaplib.IMAP4</span></code></a> 类，因为 IMAP 服务器一般实现得更好。</p>
+<p><a title="poplib: POP3 protocol client (requires sockets)." class="reference internal" href="#module-poplib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">poplib</span></code></a> 模块提供了两个类：</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="poplib.POP3">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">poplib.</span></span><span class="sig-name descname"><span class="pre">POP3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port=POP3_PORT</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3">¶</a></dt>
+<dd><p>本类实现实际的 POP3 协议。实例初始化时，连接就会建立。如果省略 <em>port</em>，则使用标准 POP3 端口（110）。可选参数 <em>timeout</em> 指定连接尝试的超时时间（以秒为单位，如果未指定超时，将使用全局默认超时设置）。</p>
+<p class="audit-hook">引发一个 <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">审计事件</span></a> <code class="docutils literal notranslate"><span class="pre">poplib.connect</span></code>，附带参数 <code class="docutils literal notranslate"><span class="pre">self</span></code>, <code class="docutils literal notranslate"><span class="pre">host</span></code>, <code class="docutils literal notranslate"><span class="pre">port</span></code>。</p>
+<p class="audit-hook">引发一个 <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">审计事件</span></a> <code class="docutils literal notranslate"><span class="pre">poplib.putline</span></code>，附带参数 <code class="docutils literal notranslate"><span class="pre">self</span></code>, <code class="docutils literal notranslate"><span class="pre">line</span></code>。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.9 版更改: </span>如果 <em>timeout</em> 参数设置为 0，创建非阻塞套接字时，它将引发 <a title="ValueError" class="reference internal" href="exceptions.html#ValueError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a> 来阻止该操作。</p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="poplib.POP3_SSL">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">poplib.</span></span><span class="sig-name descname"><span class="pre">POP3_SSL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">POP3_SSL_PORT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3_SSL">¶</a></dt>
+<dd><p>一个 <a title="poplib.POP3" class="reference internal" href="#poplib.POP3"><code class="xref py py-class docutils literal notranslate"><span class="pre">POP3</span></code></a> 的子类，它使用经 SSL 加密的套接字连接到服务器。如果端口 <em>port</em> 未指定，则使用 995，它是标准的 POP3-over-SSL 端口。<em>timeout</em> 的作用与 <a title="poplib.POP3" class="reference internal" href="#poplib.POP3"><code class="xref py py-class docutils literal notranslate"><span class="pre">POP3</span></code></a> 构造函数中的相同。<em>context</em> 是一个可选的 <a title="ssl.SSLContext" class="reference internal" href="ssl.html#ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">ssl.SSLContext</span></code></a> 对象，该对象可以将 SSL 配置选项、证书和私钥打包放入一个单独的（可以长久存在的）结构中。请阅读 <a class="reference internal" href="ssl.html#ssl-security"><span class="std std-ref">安全考量</span></a> 以获取最佳实践。</p>
+<p><em>keyfile</em> 和 <em>certfile</em> 是可以代替 <em>context</em> 的传统方案，它们可以分别指向 PEM 格式的私钥和证书链文件，用于进行 SSL 连接。</p>
+<p class="audit-hook">引发一个 <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">审计事件</span></a> <code class="docutils literal notranslate"><span class="pre">poplib.connect</span></code>，附带参数 <code class="docutils literal notranslate"><span class="pre">self</span></code>, <code class="docutils literal notranslate"><span class="pre">host</span></code>, <code class="docutils literal notranslate"><span class="pre">port</span></code>。</p>
+<p class="audit-hook">引发一个 <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">审计事件</span></a> <code class="docutils literal notranslate"><span class="pre">poplib.putline</span></code>，附带参数 <code class="docutils literal notranslate"><span class="pre">self</span></code>, <code class="docutils literal notranslate"><span class="pre">line</span></code>。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.2 版更改: </span>添加了 <em>context</em> 参数。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.4 版更改: </span>本类现在支持使用 <a title="ssl.SSLContext.check_hostname" class="reference internal" href="ssl.html#ssl.SSLContext.check_hostname"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ssl.SSLContext.check_hostname</span></code></a> 和 <em>服务器名称指示</em> （参阅 <a title="ssl.HAS_SNI" class="reference internal" href="ssl.html#ssl.HAS_SNI"><code class="xref py py-data docutils literal notranslate"><span class="pre">ssl.HAS_SNI</span></code></a>）进行主机名检查。</p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">3.6 版后已移除: </span><em>keyfile</em> 和 <em>certfile</em> 已弃用并转而推荐 <em>context</em>。 请改用 <a title="ssl.SSLContext.load_cert_chain" class="reference internal" href="ssl.html#ssl.SSLContext.load_cert_chain"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ssl.SSLContext.load_cert_chain()</span></code></a> 或让 <a title="ssl.create_default_context" class="reference internal" href="ssl.html#ssl.create_default_context"><code class="xref py py-func docutils literal notranslate"><span class="pre">ssl.create_default_context()</span></code></a> 为你选择系统所信任的 CA 证书。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.9 版更改: </span>如果 <em>timeout</em> 参数设置为 0，创建非阻塞套接字时，它将引发 <a title="ValueError" class="reference internal" href="exceptions.html#ValueError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a> 来阻止该操作。</p>
+</div>
+</dd></dl>
+
+<p>定义了一个异常，它是作为 <a title="poplib: POP3 protocol client (requires sockets)." class="reference internal" href="#module-poplib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">poplib</span></code></a> 模块的属性定义的：</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="poplib.error_proto">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">poplib.</span></span><span class="sig-name descname"><span class="pre">error_proto</span></span><a title="永久链接至目标" class="headerlink" href="#poplib.error_proto">¶</a></dt>
+<dd><p>此模块的所有错误都将引发本异常（来自 <a title="socket: Low-level networking interface." class="reference internal" href="socket.html#module-socket"><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a> 模块的错误不会被捕获）。异常的原因将以字符串的形式传递给构造函数。</p>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<dl class="simple">
+<dt><a title="imaplib: IMAP4 protocol client (requires sockets)." class="reference internal" href="imaplib.html#module-imaplib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imaplib</span></code></a> 模块</dt><dd><p>标准的 Python IMAP 模块。</p>
+</dd>
+<dt><a class="reference external" href="">有关 Fetchmail 的常见问题</a></dt><dd><p><strong class="program">fetchmail</strong> POP/IMAP 客户端的“常见问题”收集了 POP3 服务器之间的差异和 RFC 不兼容的信息，如果要编写基于 POP 协议的应用程序，这可能会很有用。</p>
+</dd>
+</dl>
+</div>
+<section id="pop3-objects">
+<span id="id1"></span><h2>POP3 对象<a title="永久链接至标题" class="headerlink" href="#pop3-objects">¶</a></h2>
+<p>All POP3 commands are represented by methods of the same name, in lowercase;
+most return the response text sent by the server.</p>
+<p>A <a title="poplib.POP3" class="reference internal" href="#poplib.POP3"><code class="xref py py-class docutils literal notranslate"><span class="pre">POP3</span></code></a> instance has the following methods:</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.set_debuglevel">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">set_debuglevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.set_debuglevel">¶</a></dt>
+<dd><p>设置实例的调试级别，它控制着调试信息的数量。默认值 <code class="docutils literal notranslate"><span class="pre">0</span></code> 不产生调试信息。值 <code class="docutils literal notranslate"><span class="pre">1</span></code> 产生中等数量的调试信息，通常每个请求产生一行。大于或等于 <code class="docutils literal notranslate"><span class="pre">2</span></code> 的值产生的调试信息最多，FTP 控制连接上发送和接收的每一行都将被记录下来。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.getwelcome">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">getwelcome</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.getwelcome">¶</a></dt>
+<dd><p>返回 POP3 服务器发送的问候语字符串。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.capa">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">capa</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.capa">¶</a></dt>
+<dd><p>查询服务器支持的功能，这些功能在 <span class="target" id="index-16"></span><a class="rfc reference external" href=""><strong>RFC 2449</strong></a> 中有说明。返回一个 <code class="docutils literal notranslate"><span class="pre">{'name':</span> <span class="pre">['param'...]}</span></code> 形式的字典。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.4 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.user">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.user">¶</a></dt>
+<dd><p>发送 user 命令，返回的响应应该指示需要一个密码。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.pass_">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">pass_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.pass_">¶</a></dt>
+<dd><p>发送密码，响应包括邮件数和邮箱大小。注意：在调用 <code class="xref py py-meth docutils literal notranslate"><span class="pre">quit()</span></code>&nbsp;前，服务器上的邮箱都是锁定的。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.apop">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">apop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.apop">¶</a></dt>
+<dd><p>使用更安全的 APOP 身份验证登录到 POP3 服务器。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.rpop">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">rpop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.rpop">¶</a></dt>
+<dd><p>使用 RPOP 身份验证（类似于 Unix r-命令）登录到 POP3 服务器。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.stat">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">stat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.stat">¶</a></dt>
+<dd><p>获取邮箱状态。结果为 2 个整数组成的元组：<code class="docutils literal notranslate"><span class="pre">(message</span> <span class="pre">count,</span> <span class="pre">mailbox</span> <span class="pre">size)</span></code>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.list">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">which</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.list">¶</a></dt>
+<dd><p>请求消息列表，结果的形式为 <code class="docutils literal notranslate"><span class="pre">(response,</span> <span class="pre">['mesg_num</span> <span class="pre">octets',</span> <span class="pre">...],</span> <span class="pre">octets)</span></code>。如果设置了 <em>which</em>，它表示需要列出的消息。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.retr">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">retr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.retr">¶</a></dt>
+<dd><p>检索编号为 <em>which</em> 的整条消息，并设置其已读标志位。结果的形式为 <code class="docutils literal notranslate"><span class="pre">(response,</span> <span class="pre">['line',</span> <span class="pre">...],</span> <span class="pre">octets)</span></code>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.dele">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">dele</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.dele">¶</a></dt>
+<dd><p>将编号为 <em>which</em> 的消息标记为待删除。在多数服务器上，删除操作直到 QUIT 才会实际执行（主要例外是 Eudora QPOP，它在断开连接时执行删除，故意违反了 RFC）。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.rset">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">rset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.rset">¶</a></dt>
+<dd><p>移除邮箱中的所有待删除标记。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.noop">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">noop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.noop">¶</a></dt>
+<dd><p>什么都不做。可以用于保持活动状态。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.quit">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">quit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.quit">¶</a></dt>
+<dd><p>登出：提交更改，解除邮箱锁定，断开连接。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.top">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">top</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">howmuch</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.top">¶</a></dt>
+<dd><p>检索编号为 <em>which</em> 的消息，范围是消息头加上消息头往后数 <em>howmuch</em> 行。结果的形式为 <code class="docutils literal notranslate"><span class="pre">(response,</span> <span class="pre">['line',</span> <span class="pre">...],</span> <span class="pre">octets)</span></code>。</p>
+<p>本方法使用 POP3 TOP 命令，不同于 RETR 命令，它不设置邮件的已读标志位。不幸的是，TOP 在 RFC 中说明不清晰，且在小众的服务器软件中往往不可用。信任并使用它之前，请先手动对目标 POP3 服务器测试本方法。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.uidl">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">uidl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.uidl">¶</a></dt>
+<dd><p>返回消息摘要（唯一 ID）列表。如果指定了 <em>which</em>，那么结果将包含那条消息的唯一 ID，形式为 <code class="docutils literal notranslate"><span class="pre">'response</span> <span class="pre">mesgnum</span> <span class="pre">uid</span></code>，如果未指定，那么结果为列表 <code class="docutils literal notranslate"><span class="pre">(response,</span> <span class="pre">['mesgnum</span> <span class="pre">uid',</span> <span class="pre">...],</span> <span class="pre">octets)</span></code>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.utf8">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">utf8</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.utf8">¶</a></dt>
+<dd><p>尝试切换至 UTF-8 模式。成功则返回服务器的响应，失败则引发 <a title="poplib.error_proto" class="reference internal" href="#poplib.error_proto"><code class="xref py py-class docutils literal notranslate"><span class="pre">error_proto</span></code></a> 异常。在 <span class="target" id="index-17"></span><a class="rfc reference external" href=""><strong>RFC 6856</strong></a> 中有说明。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.5 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poplib.POP3.stls">
+<span class="sig-prename descclassname"><span class="pre">POP3.</span></span><span class="sig-name descname"><span class="pre">stls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#poplib.POP3.stls">¶</a></dt>
+<dd><p>在活动连接上开启 TLS 会话，在 <span class="target" id="index-18"></span><a class="rfc reference external" href=""><strong>RFC 2595</strong></a> 中有说明。仅在用户身份验证前允许这样做。</p>
+<p><em>context</em> 参数是一个 <a title="ssl.SSLContext" class="reference internal" href="ssl.html#ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">ssl.SSLContext</span></code></a> 对象，该对象可以将 SSL 配置选项、证书和私钥打包放入一个单独的（可以长久存在的）结构中。请阅读 <a class="reference internal" href="ssl.html#ssl-security"><span class="std std-ref">安全考量</span></a> 以获取最佳实践。</p>
+<p>此方法支持通过 <a title="ssl.SSLContext.check_hostname" class="reference internal" href="ssl.html#ssl.SSLContext.check_hostname"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ssl.SSLContext.check_hostname</span></code></a> 和 <em>服务器名称指示</em> (参见 <a title="ssl.HAS_SNI" class="reference internal" href="ssl.html#ssl.HAS_SNI"><code class="xref py py-data docutils literal notranslate"><span class="pre">ssl.HAS_SNI</span></code></a>) 进行主机名检查。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.4 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<p><a title="poplib.POP3_SSL" class="reference internal" href="#poplib.POP3_SSL"><code class="xref py py-class docutils literal notranslate"><span class="pre">POP3_SSL</span></code></a> 实例没有额外方法。该子类的接口与其父类的相同。</p>
+</section>
+<section id="pop3-example">
+<span id="id2"></span><h2>POP3 示例<a title="永久链接至标题" class="headerlink" href="#pop3-example">¶</a></h2>
+<p>以下是一个最短示例（不带错误检查），该示例将打开邮箱，检索并打印所有消息:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span><span class="o">,</span> <span class="nn">poplib</span>
+
+<span class="n">M</span> <span class="o">=</span> <span class="n">poplib</span><span class="o">.</span><span class="n">POP3</span><span class="p">(</span><span class="s1">'localhost'</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">())</span>
+<span class="n">M</span><span class="o">.</span><span class="n">pass_</span><span class="p">(</span><span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">())</span>
+<span class="n">numMessages</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">list</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numMessages</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">M</span><span class="o">.</span><span class="n">retr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>模块的最后有一段测试，其中包含的用法示例更加广泛。</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">poplib</span></code> --- POP3 协议客户端</a><ul>
+<li><a class="reference internal" href="#pop3-objects">POP3 对象</a></li>
+<li><a class="reference internal" href="#pop3-example">POP3 示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="ftplib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ftplib</span></code> --- FTP 协议客户端</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="imaplib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imaplib</span></code> --- IMAP4 协议客户端</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="imaplib --- IMAP4 协议客户端" href="imaplib.html">下一页</a> |</li>
+        <li class="right">
+          <a title="ftplib --- FTP 协议客户端" href="ftplib.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="internet.html">互联网协议和支持</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">poplib</span></code> --- POP3 协议客户端</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

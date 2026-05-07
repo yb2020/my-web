@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The RecursiveCallbackFilterIterator class-BeJSON.com</title><meta name="keywords" content="The RecursiveCallbackFilterIterator class"><meta name="description" content="The RecursiveCallbackFilterIterator class(PHP 5 >= 5.4.0, PHP 7, PHP 8)简介类摘要class RecursiveCallbackFilterIterator  extends CallbackFilterIterator  imp">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="recursivecachingiterator.haschildren.html">« RecursiveCachingIterator::hasChildren</a></li>
+      <li style="float: right;"><a href="recursivecallbackfilteriterator.construct.html">RecursiveCallbackFilterIterator::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="spl.iterators.html">迭代器</a></li>
+    <li>The RecursiveCallbackFilterIterator class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.recursivecallbackfilteriterator">
+
+ <h1 class="title">The RecursiveCallbackFilterIterator class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="recursivecallbackfilteriterator.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+
+   </p>
+  </div>
+
+
+  <div class="section" id="recursivecallbackfilteriterator.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">RecursiveCallbackFilterIterator</strong>
+     </span>
+
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.callbackfilteriterator.html">CallbackFilterIterator</a>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a class="interfacename" href="class.recursiveiterator.html">RecursiveIterator</a></span> {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivecallbackfilteriterator.construct.html">__construct</a></span>(<span class="methodparam"><span class="type"><a class="type RecursiveIterator" href="class.recursiveiterator.html">RecursiveIterator</a></span> <code class="parameter">$iterator</code></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivecallbackfilteriterator.getchildren.html">getChildren</a></span>(): <span class="type"><a class="type RecursiveCallbackFilterIterator" href="class.recursivecallbackfilteriterator.html">RecursiveCallbackFilterIterator</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivecallbackfilteriterator.haschildren.html">hasChildren</a></span>(): <span class="type">bool</span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="callbackfilteriterator.accept.html">CallbackFilterIterator::accept</a></span>(): <span class="type">bool</span></div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.accept.html">FilterIterator::accept</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.current.html">FilterIterator::current</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.getinneriterator.html">FilterIterator::getInnerIterator</a></span>(): <span class="type"><a class="type Iterator" href="class.iterator.html">Iterator</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.key.html">FilterIterator::key</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.next.html">FilterIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.rewind.html">FilterIterator::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.valid.html">FilterIterator::valid</a></span>(): <span class="type">bool</span></div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.current.html">IteratorIterator::current</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.getinneriterator.html">IteratorIterator::getInnerIterator</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type Iterator" href="class.iterator.html">Iterator</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.key.html">IteratorIterator::key</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.next.html">IteratorIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.rewind.html">IteratorIterator::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.valid.html">IteratorIterator::valid</a></span>(): <span class="type">bool</span></div>
+
+   }</div>
+
+
+  </div>
+
+  
+  <div class="section" id="recursivecallbackfilteriterator.examples">
+   <h2 class="title">范例</h2>
+   <p class="para">
+    The callback should accept up to three arguments:
+    the current item, the current key and the iterator, respectively.
+   </p>
+   <div class="example" id="recursivecallbackfilteriterator.examples.args">
+    <p><strong>示例 #1 Available callback arguments</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(255, 128, 0);">/**<br>&nbsp;*&nbsp;Callback&nbsp;for&nbsp;RecursiveCallbackFilterIterator<br>&nbsp;*<br>&nbsp;*&nbsp;@param&nbsp;$current&nbsp;&nbsp;&nbsp;Current&nbsp;item's&nbsp;value<br>&nbsp;*&nbsp;@param&nbsp;$key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current&nbsp;item's&nbsp;key<br>&nbsp;*&nbsp;@param&nbsp;$iterator&nbsp;&nbsp;Iterator&nbsp;being&nbsp;filtered<br>&nbsp;*&nbsp;@return&nbsp;boolean&nbsp;&nbsp;&nbsp;TRUE&nbsp;to&nbsp;accept&nbsp;the&nbsp;current&nbsp;item,&nbsp;FALSE&nbsp;otherwise<br>&nbsp;*/<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">my_callback</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$current</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$key</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$iterator</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;Your&nbsp;filtering&nbsp;code&nbsp;here<br></span><span style="color: rgb(0, 119, 0);">}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <p class="para">
+    Filtering a recursive iterator generally involves two conditions.
+    The first is that, to allow recursion, the callback function should return <strong><code>true</code></strong>
+    if the current iterator item has children.
+    The second is the normal filter condition, such as a file size or extension 
+    check as in the example below.
+   </p>
+   <div class="example" id="recursivecallbackfilteriterator.examples.basic">
+    <p><strong>示例 #2 Recursive callback basic example</strong></p>
+<div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$dir&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">RecursiveDirectoryIterator</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">__DIR__</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Filter&nbsp;large&nbsp;files&nbsp;(&nbsp;&gt;&nbsp;100MB)<br></span><span style="color: rgb(0, 0, 187);">$files&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">RecursiveCallbackFilterIterator</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$dir</span><span style="color: rgb(0, 119, 0);">,&nbsp;function&nbsp;(</span><span style="color: rgb(0, 0, 187);">$current</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$key</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$iterator</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;Allow&nbsp;recursion<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$iterator</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">hasChildren</span><span style="color: rgb(0, 119, 0);">())&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">TRUE</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;Check&nbsp;for&nbsp;large&nbsp;file<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$current</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isFile</span><span style="color: rgb(0, 119, 0);">()&nbsp;&amp;&amp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$current</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getSize</span><span style="color: rgb(0, 119, 0);">()&nbsp;&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">104857600</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">TRUE</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">FALSE</span><span style="color: rgb(0, 119, 0);">;<br>});<br>&nbsp;<br>foreach&nbsp;(new&nbsp;</span><span style="color: rgb(0, 0, 187);">RecursiveIteratorIterator</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$files</span><span style="color: rgb(0, 119, 0);">)&nbsp;as&nbsp;</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getPathname</span><span style="color: rgb(0, 119, 0);">()&nbsp;.&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </div>
+  
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="recursivecallbackfilteriterator.construct.html">RecursiveCallbackFilterIterator::__construct</a> — Create a RecursiveCallbackFilterIterator from a RecursiveIterator</li><li><a href="recursivecallbackfilteriterator.getchildren.html">RecursiveCallbackFilterIterator::getChildren</a> — Return the inner iterator's children contained in a RecursiveCallbackFilterIterator</li><li><a href="recursivecallbackfilteriterator.haschildren.html">RecursiveCallbackFilterIterator::hasChildren</a> — Check whether the inner iterator's current element has children</li></ul>
+</div>
+</div></div></body></html>

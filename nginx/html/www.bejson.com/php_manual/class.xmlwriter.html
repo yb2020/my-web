@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The XMLWriter class-BeJSON.com</title><meta name="keywords" content="The XMLWriter class"><meta name="description" content="The XMLWriter class(PHP 5 >= 5.1.2, PHP 7, PHP 8, PECL xmlwriter >= 0.1.0)简介类摘要class XMLWriter  {/* 方法 */public endAttribute(): boolpublic endCdata():">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="example.xmlwriter-oop.html">« Working with the OO API</a></li>
+      <li style="float: right;"><a href="xmlwriter.endattribute.html">XMLWriter::endAttribute »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.xmlwriter.html">XMLWriter</a></li>
+    <li>The XMLWriter class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.xmlwriter">
+
+ <h1 class="title">The XMLWriter class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7, PHP 8, PECL xmlwriter &gt;= 0.1.0)</p>
+
+
+  <div class="section" id="xmlwriter.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+
+   </p>
+  </div>
+
+
+  <div class="section" id="xmlwriter.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">XMLWriter</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.endattribute.html">endAttribute</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.endcdata.html">endCdata</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.endcomment.html">endComment</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.enddocument.html">endDocument</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.enddtd.html">endDtd</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.enddtdattlist.html">endDtdAttlist</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.enddtdelement.html">endDtdElement</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.enddtdentity.html">endDtdEntity</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.endelement.html">endElement</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.endpi.html">endPi</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.flush.html">flush</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$empty</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type">int</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.fullendelement.html">fullEndElement</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.openmemory.html">openMemory</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.openuri.html">openUri</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$uri</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.outputmemory.html">outputMemory</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$flush</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.setindent.html">setIndent</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$enable</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.setindentstring.html">setIndentString</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$indentation</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.startattribute.html">startAttribute</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.startattributens.html">startAttributeNs</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$prefix</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$namespace</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.startcdata.html">startCdata</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.startcomment.html">startComment</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.startdocument.html">startDocument</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$version</code><span class="initializer"> = "1.0"</span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$standalone</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.startdtd.html">startDtd</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$qualifiedName</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$publicId</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$systemId</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.startdtdattlist.html">startDtdAttlist</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.startdtdelement.html">startDtdElement</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$qualifiedName</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.startdtdentity.html">startDtdEntity</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$isParam</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.startelement.html">startElement</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.startelementns.html">startElementNs</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$prefix</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$namespace</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.startpi.html">startPi</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$target</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.text.html">text</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$content</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.writeattribute.html">writeAttribute</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.writeattributens.html">writeAttributeNs</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$prefix</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$namespace</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span><br>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.writecdata.html">writeCdata</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$content</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.writecomment.html">writeComment</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$content</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.writedtd.html">writeDtd</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$publicId</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$systemId</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$content</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.writedtdattlist.html">writeDtdAttlist</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$content</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.writedtdelement.html">writeDtdElement</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$content</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.writedtdentity.html">writeDtdEntity</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$content</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$isParam</code><span class="initializer"> = <strong><code>false</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$publicId</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$systemId</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$notationData</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.writeelement.html">writeElement</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$content</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.writeelementns.html">writeElementNs</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$prefix</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$namespace</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$content</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.writepi.html">writePi</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$target</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$content</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="xmlwriter.writeraw.html">writeRaw</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$content</code></span>): <span class="type">bool</span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="xmlwriter.endattribute.html">XMLWriter::endAttribute</a> — End attribute</li><li><a href="xmlwriter.endcdata.html">XMLWriter::endCdata</a> — End current CDATA</li><li><a href="xmlwriter.endcomment.html">XMLWriter::endComment</a> — Create end comment</li><li><a href="xmlwriter.enddocument.html">XMLWriter::endDocument</a> — End current document</li><li><a href="xmlwriter.enddtd.html">XMLWriter::endDtd</a> — End current DTD</li><li><a href="xmlwriter.enddtdattlist.html">XMLWriter::endDtdAttlist</a> — End current DTD AttList</li><li><a href="xmlwriter.enddtdelement.html">XMLWriter::endDtdElement</a> — End current DTD element</li><li><a href="xmlwriter.enddtdentity.html">XMLWriter::endDtdEntity</a> — End current DTD Entity</li><li><a href="xmlwriter.endelement.html">XMLWriter::endElement</a> — End current element</li><li><a href="xmlwriter.endpi.html">XMLWriter::endPi</a> — End current PI</li><li><a href="xmlwriter.flush.html">XMLWriter::flush</a> — Flush current buffer</li><li><a href="xmlwriter.fullendelement.html">XMLWriter::fullEndElement</a> — End current element</li><li><a href="xmlwriter.openmemory.html">XMLWriter::openMemory</a> — Create new xmlwriter using memory for string output</li><li><a href="xmlwriter.openuri.html">XMLWriter::openUri</a> — Create new xmlwriter using source uri for output</li><li><a href="xmlwriter.outputmemory.html">XMLWriter::outputMemory</a> — Returns current buffer</li><li><a href="xmlwriter.setindent.html">XMLWriter::setIndent</a> — Toggle indentation on/off</li><li><a href="xmlwriter.setindentstring.html">XMLWriter::setIndentString</a> — Set string used for indenting</li><li><a href="xmlwriter.startattribute.html">XMLWriter::startAttribute</a> — Create start attribute</li><li><a href="xmlwriter.startattributens.html">XMLWriter::startAttributeNs</a> — Create start namespaced attribute</li><li><a href="xmlwriter.startcdata.html">XMLWriter::startCdata</a> — Create start CDATA tag</li><li><a href="xmlwriter.startcomment.html">XMLWriter::startComment</a> — Create start comment</li><li><a href="xmlwriter.startdocument.html">XMLWriter::startDocument</a> — Create document tag</li><li><a href="xmlwriter.startdtd.html">XMLWriter::startDtd</a> — Create start DTD tag</li><li><a href="xmlwriter.startdtdattlist.html">XMLWriter::startDtdAttlist</a> — Create start DTD AttList</li><li><a href="xmlwriter.startdtdelement.html">XMLWriter::startDtdElement</a> — Create start DTD element</li><li><a href="xmlwriter.startdtdentity.html">XMLWriter::startDtdEntity</a> — Create start DTD Entity</li><li><a href="xmlwriter.startelement.html">XMLWriter::startElement</a> — Create start element tag</li><li><a href="xmlwriter.startelementns.html">XMLWriter::startElementNs</a> — Create start namespaced element tag</li><li><a href="xmlwriter.startpi.html">XMLWriter::startPi</a> — Create start PI tag</li><li><a href="xmlwriter.text.html">XMLWriter::text</a> — Write text</li><li><a href="xmlwriter.writeattribute.html">XMLWriter::writeAttribute</a> — Write full attribute</li><li><a href="xmlwriter.writeattributens.html">XMLWriter::writeAttributeNs</a> — Write full namespaced attribute</li><li><a href="xmlwriter.writecdata.html">XMLWriter::writeCdata</a> — Write full CDATA tag</li><li><a href="xmlwriter.writecomment.html">XMLWriter::writeComment</a> — Write full comment tag</li><li><a href="xmlwriter.writedtd.html">XMLWriter::writeDtd</a> — Write full DTD tag</li><li><a href="xmlwriter.writedtdattlist.html">XMLWriter::writeDtdAttlist</a> — Write full DTD AttList tag</li><li><a href="xmlwriter.writedtdelement.html">XMLWriter::writeDtdElement</a> — Write full DTD element tag</li><li><a href="xmlwriter.writedtdentity.html">XMLWriter::writeDtdEntity</a> — Write full DTD Entity tag</li><li><a href="xmlwriter.writeelement.html">XMLWriter::writeElement</a> — Write full element tag</li><li><a href="xmlwriter.writeelementns.html">XMLWriter::writeElementNs</a> — Write full namespaced element tag</li><li><a href="xmlwriter.writepi.html">XMLWriter::writePi</a> — Writes a PI</li><li><a href="xmlwriter.writeraw.html">XMLWriter::writeRaw</a> — Write a raw XML text</li></ul>
+</div>
+</div></div></body></html>

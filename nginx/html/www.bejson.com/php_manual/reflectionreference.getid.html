@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>获取引用的唯一 ID-BeJSON.com</title><meta name="keywords" content="获取引用的唯一 ID"><meta name="description" content="此函数没有参数。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="reflectionreference.fromarrayelement.html">« ReflectionReference::fromArrayElement</a></li>
+      <li style="float: right;"><a href="class.reflectionattribute.html">ReflectionAttribute »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.reflectionreference.html">ReflectionReference</a></li>
+    <li>获取引用的唯一 ID</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="reflectionreference.getid">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionReference::getId</h1>
+  <p class="verinfo">(PHP 7 &gt;= 7.4.0, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionReference::getId</span> — <span class="dc-title">获取引用的唯一 ID</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionreference.getid-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionReference::getId</strong></span>(): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   返回一个 ID，该 ID 在该引用的生命周期内对于该引用是唯一的。
+   此 ID 可用于比较引用的相等性，或维护已知引用的映射。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionreference.getid-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-reflectionreference.getid-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   返回一个未指定格式的 <span class="type">string</span>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-reflectionreference.getid-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="reflectionreference.getid.example.basic">
+   <p><strong>示例 #1 基本的 <span class="methodname"><strong>ReflectionReference::getId()</strong></span> 用法</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$val1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'foo'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$val2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'bar'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$arr&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[&amp;</span><span style="color: rgb(0, 0, 187);">$val1</span><span style="color: rgb(0, 119, 0);">,&nbsp;&amp;</span><span style="color: rgb(0, 0, 187);">$val2</span><span style="color: rgb(0, 119, 0);">,&nbsp;&amp;</span><span style="color: rgb(0, 0, 187);">$val1</span><span style="color: rgb(0, 119, 0);">];<br><br></span><span style="color: rgb(0, 0, 187);">$rr1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">ReflectionReference</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">fromArrayElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$arr</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$rr2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">ReflectionReference</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">fromArrayElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$arr</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$rr3&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">ReflectionReference</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">fromArrayElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$arr</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$rr1</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getId</span><span style="color: rgb(0, 119, 0);">()&nbsp;===&nbsp;</span><span style="color: rgb(0, 0, 187);">$rr2</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getId</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$rr1</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getId</span><span style="color: rgb(0, 119, 0);">()&nbsp;===&nbsp;</span><span style="color: rgb(0, 0, 187);">$rr3</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getId</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>bool(false)
+bool(true)
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+</div></div></div></body></html>

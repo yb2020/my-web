@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>返回输入数组中指定列的值-BeJSON.com</title><meta name="keywords" content="返回输入数组中指定列的值"><meta name="description" content="array_column(PHP 5 >= 5.5.0, PHP 7, PHP 8)array_column — 返回输入数组中指定列的值说明array_column(array $array, int|string|null $column_key, int|string|null $index_">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.array-chunk.html">« array_chunk</a></li>
+      <li style="float: right;"><a href="function.array-combine.html">array_combine »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.array.html">数组 函数</a></li>
+    <li>返回输入数组中指定列的值</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.array-column">
+ <div class="refnamediv">
+  <h1 class="refname">array_column</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">array_column</span> — <span class="dc-title">返回输入数组中指定列的值</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.array-column-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>array_column</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>, <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$column_key</code></span>, <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$index_key</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>array_column()</strong></span> 返回
+   <code class="parameter">array</code> 中键名为
+   <code class="parameter">column_key</code> 的一列值。 如果指定了可选参数
+   <code class="parameter">index_key</code>，则使用输入数组中
+   <code class="parameter">index_key</code> 列的值将作为返回数组中对应值的键。
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.array-column-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">array</code></dt>
+
+     <dd>
+
+      <p class="para">
+       多维数组或对象数组，从中提取一列值。
+       如果提供的是对象数组，只有 public 的属性会被直接取出。
+       如果想取出 private 和 protected 的属性，类必须实现
+       <span class="function"><strong>__get()</strong></span> 和 <span class="function"><strong>__isset()</strong></span> 魔术方法。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">column_key</code></dt>
+
+     <dd>
+
+      <p class="para">
+       需要返回值的列。它可以是索引数组的列索引，或者是关联数组的列的键，也可以是属性名。
+       也可以是 <strong><code>null</code></strong> ，此时将返回整个数组（配合
+       <code class="parameter">index_key</code> 参数来重新索引数组时非常好用）。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">index_key</code></dt>
+
+     <dd>
+
+      <p class="para">
+       作为返回数组的索引/键的列。它可以是该列的整数索引，或者字符串键值。
+       该值会像数组键一样被 <a class="link" href="language.types.array.html#language.types.array.key-casts">强制转换</a>
+       （但是，在 PHP 8.0.0 之前，也被允许支持转换为字符串对象）。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.array-column-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   返回输入数组中单列值的数组。
+  </p>
+ </div>
+
+ <div class="refsect1 changelog" id="refsect1-function.array-column-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">index_key</code> 参数指定的列中的对象不再强制转换为字符串，而是会抛出
+        <span class="classname"><a class="classname" href="class.typeerror.html">TypeError</a></span>。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.array-column-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4771">
+    <p><strong>示例 #1 从结果集中取出 first_name 列</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;表示从数据库返回的记录集的数组<br></span><span style="color: rgb(0, 0, 187);">$records&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'id'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">2135</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'first_name'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'John'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'last_name'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Doe'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;),<br>&nbsp;&nbsp;&nbsp;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'id'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">3245</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'first_name'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Sally'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'last_name'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Smith'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;),<br>&nbsp;&nbsp;&nbsp;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'id'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">5342</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'first_name'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Jane'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'last_name'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Jones'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;),<br>&nbsp;&nbsp;&nbsp;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'id'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">5623</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'first_name'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Peter'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'last_name'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Doe'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br>);<br>&nbsp;<br></span><span style="color: rgb(0, 0, 187);">$first_names&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">array_column</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$records</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'first_name'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$first_names</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [0] =&gt; John
+    [1] =&gt; Sally
+    [2] =&gt; Jane
+    [3] =&gt; Peter
+)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-4772">
+    <p><strong>示例 #2 
+     从结果集中总取出 last_name 列，用相应的“id”作为键值
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;使用示例&nbsp;#1&nbsp;中的&nbsp;$records&nbsp;数组<br></span><span style="color: rgb(0, 0, 187);">$last_names&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">array_column</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$records</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'last_name'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'id'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$last_names</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [2135] =&gt; Doe
+    [3245] =&gt; Smith
+    [5342] =&gt; Jones
+    [5623] =&gt; Doe
+)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-4773">
+    <p><strong>示例 #3 
+     username 列是从对象获取 public 的 "username" 属性
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">User<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: rgb(0, 0, 187);">$username</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">__construct</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">string&nbsp;$username</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">username&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$username</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$users&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">User</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'user&nbsp;1'</span><span style="color: rgb(0, 119, 0);">),<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">User</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'user&nbsp;2'</span><span style="color: rgb(0, 119, 0);">),<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">User</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'user&nbsp;3'</span><span style="color: rgb(0, 119, 0);">),<br>];<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">array_column</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$users</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'username'</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [0] =&gt; user 1
+    [1] =&gt; user 2
+    [2] =&gt; user 3
+)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-4774">
+    <p><strong>示例 #4 
+     通过 <span class="function"><strong>__get()</strong></span> 魔术方法从对象中获取 private 属性的 "name" 列。
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">Person<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">__construct</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">string&nbsp;$name</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">name&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">__get</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$prop</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">$prop</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">__isset</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$prop</span><span style="color: rgb(0, 119, 0);">)&nbsp;:&nbsp;</span><span style="color: rgb(0, 0, 187);">bool<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">$prop</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$people&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Person</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'Fred'</span><span style="color: rgb(0, 119, 0);">),<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Person</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'Jane'</span><span style="color: rgb(0, 119, 0);">),<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Person</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'John'</span><span style="color: rgb(0, 119, 0);">),<br>];<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">array_column</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$people</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'name'</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [0] =&gt; Fred
+    [1] =&gt; Jane
+    [2] =&gt; John
+)
+</pre></div>
+    </div>
+   </div>
+   如果不提供 <span class="function"><strong>__isset()</strong></span>，会返回空数组。
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

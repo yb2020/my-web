@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Cookie-BeJSON.com</title><meta name="keywords" content="Cookie"><meta name="description" content="PHP 透明地支持 HTTP cookie。cookie 是一种在远程浏览器端储存数据并以此来跟踪和识别用户的机制。可以用 setcookie() 或 setrawcookie() 函数来设置 cookie。cookie 是 HTTP 标头的一部分，因此 setcookie() 函数必须在其它信息被">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="features.http-auth.html">« 用 PHP 进行 HTTP 认证</a></li>
+      <li style="float: right;"><a href="features.sessions.html">会话 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="features.html">特点</a></li>
+    <li>Cookie</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="chapter" id="features.cookies">
+ <h1>Cookie</h1>
+
+
+ <p class="para">
+  PHP 透明地支持 <abbr title="Hypertext Transfer Protocol">HTTP</abbr> cookie。cookie
+  是一种在远程浏览器端储存数据并以此来跟踪和识别用户的机制。可以用
+  <span class="function"><a class="function" href="function.setcookie.html">setcookie()</a></span> 或
+  <span class="function"><a class="function" href="function.setrawcookie.html">setrawcookie()</a></span> 函数来设置 cookie。cookie 是
+  <abbr title="Hypertext Transfer Protocol">HTTP</abbr> 标头的一部分，因此
+  <span class="function"><a class="function" href="function.setcookie.html">setcookie()</a></span> 函数必须在其它信息被输出到浏览器前调用，这和对
+  <span class="function"><a class="function" href="function.header.html">header()</a></span> 函数的限制类似。可以使用<a class="link" href="ref.outcontrol.html">输出缓冲函数</a>来延迟脚本的输出，直到按需要设置好了所有的
+  cookie 或者其它HTTP头。
+ </p>
+
+ <p class="para">
+  如果 <a class="link" href="ini.core.html#ini.variables-order">variables_order</a>
+  中包括“C”，则任何从客户端发送的 cookie 都会被自动包括进
+  <var class="varname"><a class="classname" href="reserved.variables.cookies.html">$_COOKIE</a></var>
+  自动全局数组。如果希望对一个
+  cookie 变量设置多个值，则需在 cookie 的名称后加 <code class="literal">[]</code> 符号。
+ </p>
+
+ <p class="para">
+  关于更多细节以及有关浏览器问题的注意事项，参见 <span class="function"><a class="function" href="function.setcookie.html">setcookie()</a></span>
+  和 <span class="function"><a class="function" href="function.setrawcookie.html">setrawcookie()</a></span> 函数。
+ </p>
+
+</div>
+</div></div></body></html>

@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Convert a string from one character encoding to another-BeJSON.com</title><meta name="keywords" content="Convert a string from one character encoding to another"><meta name="description" content="The string to be converted. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="uconverter.toucallback.html">« UConverter::toUCallback</a></li>
+      <li style="float: right;"><a href="ref.intl.grapheme.html">Grapheme 函数 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.uconverter.html">UConverter</a></li>
+    <li>Convert a string from one character encoding to another</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="uconverter.transcode">
+ <div class="refnamediv">
+  <h1 class="refname">UConverter::transcode</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8, PECL &gt;= 3.0.0a1)</p><p class="refpurpose"><span class="refname">UConverter::transcode</span> — <span class="dc-title">Convert a string from one character encoding to another</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-uconverter.transcode-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>UConverter::transcode</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$toEncoding</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$fromEncoding</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+   Converts <code class="parameter">str</code> from <code class="parameter">fromEncoding</code> to <code class="parameter">toEncoding</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-uconverter.transcode-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">str</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The <span class="type">string</span> to be converted.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">toEncoding</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The desired encoding of the result.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">fromEncoding</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The current encoding used to interpret <code class="parameter">str</code>.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">options</code></dt>
+
+    <dd>
+
+     <p class="para">
+      An optional <span class="type">array</span>, which may contain the following keys:
+      <ul class="simplelist">
+       <li class="member">
+        <code class="literal">'to_subst'</code> - the substitution character to use
+        in place of any character of <code class="parameter">str</code> which cannot
+        be encoded in <code class="parameter">toEncoding</code>. If specified, it must
+        represent a single character in the target encoding.
+       </li>
+      </ul>
+     <p></p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-uconverter.transcode-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns the converted string 或者在失败时返回 <strong><code>false</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-uconverter.transcode-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-2421">
+   <p><strong>示例 #1 Converting from UTF-8 to UTF-16 and back</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$utf8_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"\x5A\x6F\xC3\xAB"</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;'Zoë'&nbsp;in&nbsp;UTF-8<br></span><span style="color: rgb(0, 0, 187);">$utf16_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">UConverter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">transcode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$utf8_string</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'UTF-16BE'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'UTF-8'</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">bin2hex</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$utf16_string</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$new_utf8_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">UConverter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">transcode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$utf16_string</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'UTF-8'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'UTF-16BE'</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">bin2hex</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$new_utf8_string</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>005a006f00eb
+5a6fc3ab
+</pre></div>
+   </div>
+  </div>
+  <div class="example" id="example-2422">
+   <p><strong>示例 #2 Invalid characters in input</strong></p>
+   <div class="example-contents"><p>
+    If the input string contains a sequence of bytes which is not valid in
+    the encoding specified by <code class="parameter">fromEncoding</code>, they are
+    replaced by Unicode code point U+FFFD (Replacement Character) before
+    converting to <code class="parameter">toEncoding</code>.
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$invalid_utf8_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"\xC3"</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;incomplete&nbsp;multi-byte&nbsp;UTF-8&nbsp;sequence<br></span><span style="color: rgb(0, 0, 187);">$utf16_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">UConverter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">transcode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$invalid_utf8_string</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'UTF-16BE'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'UTF-8'</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">bin2hex</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$utf16_string</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>fffd
+</pre></div>
+   </div>
+  </div>
+  <div class="example" id="example-2423">
+   <p><strong>示例 #3 Characters which cannot be encoded</strong></p>
+   <div class="example-contents"><p>
+    If the input string contains characters which cannot be represented
+    in <code class="parameter">toEncoding</code>, they are replaced with a single
+    character. The default character to use depends on the encoding, and
+    can be controlled using the <code class="literal">'to_subst'</code> option.
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$utf8_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"\xE2\x82\xAC"</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;€&nbsp;(Euro&nbsp;Sign)&nbsp;does&nbsp;not&nbsp;exist&nbsp;in&nbsp;ISO&nbsp;8859-1<br><br>//&nbsp;Default&nbsp;replacement&nbsp;in&nbsp;ISO&nbsp;8859-1&nbsp;is&nbsp;"\x1A"&nbsp;(Substitute)<br></span><span style="color: rgb(0, 0, 187);">$iso8859_1_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">UConverter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">transcode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$utf8_string</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'ISO-8859-1'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'UTF-8'</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">bin2hex</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$iso8859_1_string</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Specify&nbsp;a&nbsp;replacement&nbsp;of&nbsp;'?'&nbsp;("\x3F")&nbsp;instead<br></span><span style="color: rgb(0, 0, 187);">$iso8859_1_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">UConverter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">transcode</span><span style="color: rgb(0, 119, 0);">(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$utf8_string</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'ISO-8859-1'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'UTF-8'</span><span style="color: rgb(0, 119, 0);">,&nbsp;[</span><span style="color: rgb(221, 0, 0);">'to_subst'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'?'</span><span style="color: rgb(0, 119, 0);">]<br>);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">bin2hex</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$iso8859_1_string</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Since&nbsp;ISO&nbsp;8859-1&nbsp;cannot&nbsp;map&nbsp;U+FFFD,&nbsp;invalid&nbsp;input&nbsp;is&nbsp;also&nbsp;replaced&nbsp;by&nbsp;to_subst<br></span><span style="color: rgb(0, 0, 187);">$invalid_utf8_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"\xC3"</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;incomplete&nbsp;multi-byte&nbsp;UTF-8&nbsp;sequence<br></span><span style="color: rgb(0, 0, 187);">$iso8859_1_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">UConverter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">transcode</span><span style="color: rgb(0, 119, 0);">(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$invalid_utf8_string</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'ISO-8859-1'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'UTF-8'</span><span style="color: rgb(0, 119, 0);">,&nbsp;[</span><span style="color: rgb(221, 0, 0);">'to_subst'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'?'</span><span style="color: rgb(0, 119, 0);">]<br>);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">bin2hex</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$iso8859_1_string</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>1a
+3f
+3f
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-uconverter.transcode-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.mb-convert-encoding.html" rel="rdfs-seeAlso">mb_convert_encoding()</a> - 转换字符的编码</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.iconv.html" rel="rdfs-seeAlso">iconv()</a> - 字符串按要求的字符编码来转换</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

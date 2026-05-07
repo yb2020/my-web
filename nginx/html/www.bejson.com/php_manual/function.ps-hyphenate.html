@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Hyphenates a word-BeJSON.com</title><meta name="keywords" content="Hyphenates a word"><meta name="description" content="This function requires the locale category LC_CTYPE to be set properly. This is done when the extension is initialized by using the environment variab">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.ps-get-value.html">« ps_get_value</a></li>
+      <li style="float: right;"><a href="function.ps-include-file.html">ps_include_file »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.ps.html">PS 函数</a></li>
+    <li>Hyphenates a word</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.ps-hyphenate">
+ <div class="refnamediv">
+  <h1 class="refname">ps_hyphenate</h1>
+  <p class="verinfo">(PECL ps &gt;= 1.1.1)</p><p class="refpurpose"><span class="refname">ps_hyphenate</span> — <span class="dc-title">Hyphenates a word</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.ps-hyphenate-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>ps_hyphenate</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$psdoc</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$text</code></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+   Hyphenates the passed word. <span class="function"><strong>ps_hyphenate()</strong></span> evaluates the
+   value hyphenminchars (set by <span class="function"><a class="function" href="function.ps-set-value.html">ps_set_value()</a></span>) and
+   the parameter hyphendict (set by <span class="function"><a class="function" href="function.ps-set-parameter.html">ps_set_parameter()</a></span>).
+   hyphendict must be set before calling this function.
+  </p>
+  <p class="para">
+   This function requires the locale category LC_CTYPE to be set properly.
+   This is done when the extension is initialized by using the environment
+   variables. On Unix systems read the man page of locale for more information.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.ps-hyphenate-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">psdoc</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Resource identifier of the postscript file
+       as returned by <span class="function"><a class="function" href="function.ps-new.html">ps_new()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">text</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">text</code> should not contain any non alpha
+       characters. Possible positions for breaks are returned in an array of
+       interger numbers. Each number is the position of the char in 
+       <code class="parameter">text</code> after which a hyphenation can take place.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.ps-hyphenate-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   An array of integers indicating the position of possible breaks in
+   the text  或者在失败时返回 <strong><code>false</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.ps-hyphenate-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3126">
+    <p><strong>示例 #1 Hyphennate a text</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$word&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Koordinatensystem"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$psdoc&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">ps_new</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">ps_set_parameter</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$psdoc</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"hyphendict"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"hyph_de.dic"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$hyphens&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">ps_hyphenate</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$psdoc</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$word</span><span style="color: rgb(0, 119, 0);">);<br>for(</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">=</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">&lt;</span><span style="color: rgb(0, 0, 187);">strlen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$word</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">++)&nbsp;{<br>&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$word</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">];<br>&nbsp;&nbsp;if(</span><span style="color: rgb(0, 0, 187);">in_array</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$hyphens</span><span style="color: rgb(0, 119, 0);">))<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"-"</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">ps_delete</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$psdoc</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Ko-ordi-na-ten-sys-tem
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.ps-hyphenate-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    
+    <li class="member"><span class="function"><a class="function" href="function.ps-show-boxed.html" rel="rdfs-seeAlso">ps_show_boxed()</a> - Output text in a box</span></li>
+    <li class="member">locale(1)</li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>SQLite3 类-BeJSON.com</title><meta name="keywords" content="SQLite3 类"><meta name="description" content="实现与 SQLite 3 数据库对接的类。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="sqlite3.constants.html">« 预定义常量</a></li>
+      <li style="float: right;"><a href="sqlite3.backup.html">SQLite3::backup »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.sqlite3.html">SQLite3</a></li>
+    <li>SQLite3 类</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.sqlite3">
+ <h1 class="title">SQLite3 类</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="sqlite3.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    实现与 SQLite 3 数据库对接的类。
+   </p>
+  </div>
+
+
+  <div class="section" id="sqlite3.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">SQLite3</strong>
+     </span>
+     {</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.backup.html">backup</a></span>(<span class="methodparam"><span class="type"><a class="type SQLite3" href="class.sqlite3.html">SQLite3</a></span> <code class="parameter">$destination</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$sourceDatabase</code><span class="initializer"> = "main"</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$destinationDatabase</code><span class="initializer"> = "main"</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.busytimeout.html">busyTimeout</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$milliseconds</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.changes.html">changes</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.close.html">close</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.createaggregate.html">createAggregate</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$stepCallback</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$finalCallback</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$argCount</code><span class="initializer"> = -1</span></span><br>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.createcollation.html">createCollation</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.createfunction.html">createFunction</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$argCount</code><span class="initializer"> = -1</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span><br>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.enableexceptions.html">enableExceptions</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$enable</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="sqlite3.escapestring.html">escapeString</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.exec.html">exec</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.lasterrorcode.html">lastErrorCode</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.lasterrormsg.html">lastErrorMsg</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.lastinsertrowid.html">lastInsertRowID</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.loadextension.html">loadExtension</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.open.html">open</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encryptionKey</code><span class="initializer"> = ""</span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.openblob.html">openBlob</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$table</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$column</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$rowid</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code><span class="initializer"> = "main"</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SQLITE3_OPEN_READONLY</code></strong></span></span><br>): <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.prepare.html">prepare</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>): <span class="type"><span class="type"><a class="type SQLite3Stmt" href="class.sqlite3stmt.html">SQLite3Stmt</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.query.html">query</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>): <span class="type"><span class="type"><a class="type SQLite3Result" href="class.sqlite3result.html">SQLite3Result</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.querysingle.html">querySingle</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$entireRow</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="sqlite3.setauthorizer.html">setAuthorizer</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span><span class="type"></span></span> <code class="parameter">$callback</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="sqlite3.version.html">version</a></span>(): <span class="type">array</span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="sqlite3.backup.html">SQLite3::backup</a> — Backup one database to another database</li><li><a href="sqlite3.busytimeout.html">SQLite3::busyTimeout</a> — Sets the busy connection handler</li><li><a href="sqlite3.changes.html">SQLite3::changes</a> — Returns the number of database rows that were changed (or inserted or
+   deleted) by the most recent SQL statement</li><li><a href="sqlite3.close.html">SQLite3::close</a> — Closes the database connection</li><li><a href="sqlite3.construct.html">SQLite3::__construct</a> — Instantiates an SQLite3 object and opens an SQLite 3 database</li><li><a href="sqlite3.createaggregate.html">SQLite3::createAggregate</a> — Registers a PHP function for use as an SQL aggregate function</li><li><a href="sqlite3.createcollation.html">SQLite3::createCollation</a> — Registers a PHP function for use as an SQL collating function</li><li><a href="sqlite3.createfunction.html">SQLite3::createFunction</a> — Registers a PHP function for use as an SQL scalar function</li><li><a href="sqlite3.enableexceptions.html">SQLite3::enableExceptions</a> — Enable throwing exceptions</li><li><a href="sqlite3.escapestring.html">SQLite3::escapeString</a> — Returns a string that has been properly escaped</li><li><a href="sqlite3.exec.html">SQLite3::exec</a> — Executes a result-less query against a given database</li><li><a href="sqlite3.lasterrorcode.html">SQLite3::lastErrorCode</a> — Returns the numeric result code of the most recent failed SQLite request</li><li><a href="sqlite3.lasterrormsg.html">SQLite3::lastErrorMsg</a> — Returns English text describing the most recent failed SQLite request</li><li><a href="sqlite3.lastinsertrowid.html">SQLite3::lastInsertRowID</a> — Returns the row ID of the most recent INSERT into the database</li><li><a href="sqlite3.loadextension.html">SQLite3::loadExtension</a> — Attempts to load an SQLite extension library</li><li><a href="sqlite3.open.html">SQLite3::open</a> — Opens an SQLite database</li><li><a href="sqlite3.openblob.html">SQLite3::openBlob</a> — Opens a stream resource to read a BLOB</li><li><a href="sqlite3.prepare.html">SQLite3::prepare</a> — Prepares an SQL statement for execution</li><li><a href="sqlite3.query.html">SQLite3::query</a> — Executes an SQL query</li><li><a href="sqlite3.querysingle.html">SQLite3::querySingle</a> — Executes a query and returns a single result</li><li><a href="sqlite3.setauthorizer.html">SQLite3::setAuthorizer</a> — Configures a callback to be used as an authorizer to limit what a statement can do</li><li><a href="sqlite3.version.html">SQLite3::version</a> — Returns the SQLite3 library version as a string constant and as a number</li></ul>
+</div>
+</div></div></body></html>

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The NoRewindIterator class-BeJSON.com</title><meta name="keywords" content="The NoRewindIterator class"><meta name="description" content="This iterator ignores rewind operations. This allows processing an iterator in multiple partial foreach loops. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="multipleiterator.valid.html">« MultipleIterator::valid</a></li>
+      <li style="float: right;"><a href="norewinditerator.construct.html">NoRewindIterator::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="spl.iterators.html">迭代器</a></li>
+    <li>The NoRewindIterator class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.norewinditerator">
+ <h1 class="title">The NoRewindIterator class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="norewinditerator.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    This iterator ignores rewind operations. This allows processing an iterator in multiple partial foreach loops.
+   </p>
+  </div>
+
+
+  <div class="section" id="norewinditerator.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">NoRewindIterator</strong>
+     </span>
+
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.iteratoriterator.html">IteratorIterator</a>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="norewinditerator.construct.html">__construct</a></span>(<span class="methodparam"><span class="type"><a class="type Iterator" href="class.iterator.html">Iterator</a></span> <code class="parameter">$iterator</code></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="norewinditerator.current.html">current</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="norewinditerator.getinneriterator.html">getInnerIterator</a></span>(): <span class="type"><a class="type iterator" href="class.iterator.html">iterator</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="norewinditerator.key.html">key</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="norewinditerator.next.html">next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="norewinditerator.rewind.html">rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="norewinditerator.valid.html">valid</a></span>(): <span class="type">bool</span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.current.html">IteratorIterator::current</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.getinneriterator.html">IteratorIterator::getInnerIterator</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type Iterator" href="class.iterator.html">Iterator</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.key.html">IteratorIterator::key</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.next.html">IteratorIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.rewind.html">IteratorIterator::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.valid.html">IteratorIterator::valid</a></span>(): <span class="type">bool</span></div>
+
+   }</div>
+
+  </div>
+
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="norewinditerator.construct.html">NoRewindIterator::__construct</a> — Construct a NoRewindIterator</li><li><a href="norewinditerator.current.html">NoRewindIterator::current</a> — Get the current value</li><li><a href="norewinditerator.getinneriterator.html">NoRewindIterator::getInnerIterator</a> — Get the inner iterator</li><li><a href="norewinditerator.key.html">NoRewindIterator::key</a> — Get the current key</li><li><a href="norewinditerator.next.html">NoRewindIterator::next</a> — Forward to the next element</li><li><a href="norewinditerator.rewind.html">NoRewindIterator::rewind</a> — Prevents the rewind operation on the inner iterator</li><li><a href="norewinditerator.valid.html">NoRewindIterator::valid</a> — Validates the iterator</li></ul>
+</div>
+</div></div></body></html>

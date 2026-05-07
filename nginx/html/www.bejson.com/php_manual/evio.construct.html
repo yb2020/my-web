@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Constructs EvIo watcher object-BeJSON.com</title><meta name="keywords" content="Constructs EvIo watcher object"><meta name="description" content="Can be a stream opened with fopen() or similar functions, numeric file descriptor, or socket. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.evio.html">« EvIo</a></li>
+      <li style="float: right;"><a href="evio.createstopped.html">EvIo::createStopped »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.evio.html">EvIo</a></li>
+    <li>Constructs EvIo watcher object</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="evio.construct">
+ <div class="refnamediv">
+  <h1 class="refname">EvIo::__construct</h1>
+  <p class="verinfo">(PECL ev &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">EvIo::__construct</span> — <span class="dc-title">Constructs EvIo watcher object</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-evio.construct-description">
+  <h3 class="title">说明</h3>
+  <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="methodname"><strong>EvIo::__construct</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
+    <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span>
+     <code class="parameter">$fd</code>
+   </span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
+    <span class="type">int</span>
+     <code class="parameter">$events</code>
+   </span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
+    <span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span>
+     <code class="parameter">$callback</code>
+   </span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
+    <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span>
+     <code class="parameter">$data</code>
+   <span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
+    <span class="type">int</span>
+     <code class="parameter">$priority</code>
+   <span class="initializer"> = ?</span></span><br>)</div>
+
+  <p class="para rdfs-comment">
+   Constructs EvIo watcher object and starts the watcher automatically.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-evio.construct-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+
+     <code class="parameter">fd</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Can be a stream opened with
+      <span class="function"><a class="function" href="function.fopen.html">fopen()</a></span>
+      or similar functions, numeric file descriptor, or socket.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">events</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      <strong><code>Ev::READ</code></strong>
+      and/or
+      <strong><code>Ev::WRITE</code></strong>
+      . See
+      <a class="link" href="class.ev.html#ev.constants.watcher-revents">the bit masks</a>
+      .
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">callback</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      See
+      <a class="link" href="ev.watcher-callbacks.html">Watcher callbacks</a>
+      .
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">data</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Custom data associated with the watcher.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">priority</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      <a class="link" href="class.ev.html#ev.constants.watcher-pri">Watcher priority</a>
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-evio.construct-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member">
+    <span class="methodname"><a class="methodname" href="evio.createstopped.html" rel="rdfs-seeAlso">EvIo::createStopped()</a> - Create stopped EvIo watcher object</span>
+   </li>
+   <li class="member">
+    <span class="methodname"><a class="methodname" href="evloop.io.html" rel="rdfs-seeAlso">EvLoop::io()</a> - Create EvIo watcher object associated with the current event
+  loop instance</span>
+   </li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>

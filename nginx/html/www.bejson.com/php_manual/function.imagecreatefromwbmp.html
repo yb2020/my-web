@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>由文件或 URL 创建一个新图象。-BeJSON.com</title><meta name="keywords" content="由文件或 URL 创建一个新图象。"><meta name="description" content="如已启用fopen 包装器，在此函数中， URL 可作为文件名。关于如何指定文件名详见 fopen()。各种 wapper 的不同功能请参见 支持的协议和封装协议，注意其用法及其可提供的预定义变量。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.imagecreatefromtga.html">« imagecreatefromtga</a></li>
+      <li style="float: right;"><a href="function.imagecreatefromwebp.html">imagecreatefromwebp »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.image.html">GD 和图像处理 函数</a></li>
+    <li>由文件或 URL 创建一个新图象。</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.imagecreatefromwbmp">
+ <div class="refnamediv">
+  <h1 class="refname">imagecreatefromwbmp</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagecreatefromwbmp</span> — <span class="dc-title">由文件或 URL 创建一个新图象。</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagecreatefromwbmp-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>imagecreatefromwbmp</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>): <span class="type">resource</span></div>
+
+  <p class="para rdfs-comment">
+ <span class="function"><strong>imagecreatefromwbmp()</strong></span>
+   返回一图像标识符，代表了从给定的文件名取得的图像。
+  </p>
+  <div class="tip"><strong class="tip">小技巧</strong><p class="simpara">如已启用<a class="link" href="filesystem.configuration.html#ini.allow-url-fopen">fopen 包装器</a>，在此函数中， URL 可作为文件名。关于如何指定文件名详见 <span class="function"><a class="function" href="function.fopen.html">fopen()</a></span>。各种
+wapper 的不同功能请参见 <a class="xref" href="wrappers.html">支持的协议和封装协议</a>，注意其用法及其可提供的预定义变量。</p></div>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagecreatefromwbmp-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">filename</code></dt>
+
+     <dd>
+
+      <p class="para">
+       WBMP 图像的路径。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagecreatefromwbmp-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">成功后返回图象对象,失败后返回 <strong><code>false</code></strong>。</p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagecreatefromwbmp-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-2602">
+   <p><strong>示例 #1 处理创建 WBMP 过程中的错误</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">LoadWBMP</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$imgname</span><span style="color: rgb(0, 119, 0);">)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;Attempt&nbsp;to&nbsp;open&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$im&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;@</span><span style="color: rgb(0, 0, 187);">imagecreatefromwbmp</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$imgname</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;See&nbsp;if&nbsp;it&nbsp;failed&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">if(!</span><span style="color: rgb(0, 0, 187);">$im</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;Create&nbsp;a&nbsp;blank&nbsp;image&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$im&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">imagecreatetruecolor</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">150</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">30</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$bgc&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">imagecolorallocate</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$im</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">255</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">255</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">255</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$tc&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">imagecolorallocate</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$im</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">imagefilledrectangle</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$im</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">150</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">30</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$bgc</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;Output&nbsp;an&nbsp;error&nbsp;message&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">imagestring</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$im</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Error&nbsp;loading&nbsp;'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$imgname</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$tc</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">$im</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">header</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'Content-Type:&nbsp;image/vnd.wap.wbmp'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$img&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">LoadWBMP</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'bogus.image'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">imagewbmp</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$img</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">imagedestroy</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$img</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.imagecreatefromwbmp-notes">
+  <h3 class="title">注释</h3>
+  
+  
+ </div>
+
+</div></div></div></body></html>

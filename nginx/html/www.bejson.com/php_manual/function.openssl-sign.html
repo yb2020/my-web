@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Generate signature-BeJSON.com</title><meta name="keywords" content="Generate signature"><meta name="description" content="openssl_sign(PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8)openssl_sign — Generate signature说明openssl_sign(    string $data,    string &amp;$signature,    OpenSSLAs">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.openssl-seal.html">« openssl_seal</a></li>
+      <li style="float: right;"><a href="function.openssl-spki-export-challenge.html">openssl_spki_export_challenge »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.openssl.html">OpenSSL 函数</a></li>
+    <li>Generate signature</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.openssl-sign">
+ <div class="refnamediv">
+  <h1 class="refname">openssl_sign</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_sign</span> — <span class="dc-title">Generate signature</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.openssl-sign-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>openssl_sign</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter reference">&amp;$signature</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a class="type OpenSSLAsymmetricKey" href="class.opensslasymmetrickey.html">OpenSSLAsymmetricKey</a></span>|<span class="type"><a class="type OpenSSLCertificate" href="class.opensslcertificate.html">OpenSSLCertificate</a></span>|<span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$private_key</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$algorithm</code><span class="initializer"> = <strong><code>OPENSSL_ALGO_SHA1</code></strong></span></span><br>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>openssl_sign()</strong></span> computes a signature for the
+   specified <code class="parameter">data</code> by generating a cryptographic
+   digital signature using the private key associated with
+   <code class="parameter">private_key</code>. Note that the data itself is
+   not encrypted.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.openssl-sign-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">data</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The string of data you wish to sign
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">signature</code></dt>
+
+     <dd>
+
+      <p class="para">
+       If the call was successful the signature is returned in
+       <code class="parameter">signature</code>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">private_key</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <span class="classname"><a class="classname" href="class.opensslasymmetrickey.html">OpenSSLAsymmetricKey</a></span> - a key, returned by <span class="function"><a class="function" href="function.openssl-get-privatekey.html">openssl_get_privatekey()</a></span>
+      </p>
+      <p class="para">
+       <span class="type">string</span> - a PEM formatted key
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">algorithm</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <span class="type">int</span> - one of these <a class="link" href="openssl.signature-algos.html">Signature Algorithms</a>.
+      </p>
+      <p class="para">
+       <span class="type">string</span> - a valid string returned by <span class="function"><a class="function" href="function.openssl-get-md-methods.html">openssl_get_md_methods()</a></span> example, "sha256WithRSAEncryption" or "sha384".
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.openssl-sign-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.openssl-sign-changelog">
+  <h3 class="title">更新日志</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>版本</th>
+      <th>说明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">private_key</code> accepts an <span class="classname"><a class="classname" href="class.opensslasymmetrickey.html">OpenSSLAsymmetricKey</a></span>
+       or <span class="classname"><a class="classname" href="class.opensslcertificate.html">OpenSSLCertificate</a></span> instance now;
+       previously, a <a class="link" href="language.types.resource.html">资源(resource)</a> of type <code class="literal">OpenSSL key</code> or <code class="literal">OpenSSL X.509</code>
+       was accepted.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.openssl-sign-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-937">
+    <p><strong>示例 #1 <span class="function"><strong>openssl_sign()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;$data&nbsp;is&nbsp;assumed&nbsp;to&nbsp;contain&nbsp;the&nbsp;data&nbsp;to&nbsp;be&nbsp;signed<br><br>//&nbsp;fetch&nbsp;private&nbsp;key&nbsp;from&nbsp;file&nbsp;and&nbsp;ready&nbsp;it<br></span><span style="color: rgb(0, 0, 187);">$pkeyid&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">openssl_pkey_get_private</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"file://src/openssl-0.9.6/demos/sign/key.pem"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;compute&nbsp;signature<br></span><span style="color: rgb(0, 0, 187);">openssl_sign</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$signature</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$pkeyid</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;free&nbsp;the&nbsp;key&nbsp;from&nbsp;memory<br></span><span style="color: rgb(0, 0, 187);">openssl_free_key</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$pkeyid</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-938">
+    <p><strong>示例 #2 <span class="function"><strong>openssl_sign()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//data&nbsp;you&nbsp;want&nbsp;to&nbsp;sign<br></span><span style="color: rgb(0, 0, 187);">$data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'my&nbsp;data'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//create&nbsp;new&nbsp;private&nbsp;and&nbsp;public&nbsp;key<br></span><span style="color: rgb(0, 0, 187);">$new_key_pair&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">openssl_pkey_new</span><span style="color: rgb(0, 119, 0);">(array(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"private_key_bits"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">2048</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"private_key_type"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">OPENSSL_KEYTYPE_RSA</span><span style="color: rgb(0, 119, 0);">,<br>));<br></span><span style="color: rgb(0, 0, 187);">openssl_pkey_export</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$new_key_pair</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$private_key_pem</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$details&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">openssl_pkey_get_details</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$new_key_pair</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$public_key_pem&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$details</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'key'</span><span style="color: rgb(0, 119, 0);">];<br><br></span><span style="color: rgb(255, 128, 0);">//create&nbsp;signature<br></span><span style="color: rgb(0, 0, 187);">openssl_sign</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$signature</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$private_key_pem</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">OPENSSL_ALGO_SHA256</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//save&nbsp;for&nbsp;later<br></span><span style="color: rgb(0, 0, 187);">file_put_contents</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'private_key.pem'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$private_key_pem</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">file_put_contents</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'public_key.pem'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$public_key_pem</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">file_put_contents</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'signature.dat'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$signature</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//verify&nbsp;signature<br></span><span style="color: rgb(0, 0, 187);">$r&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">openssl_verify</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$signature</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$public_key_pem</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"sha256WithRSAEncryption"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$r</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+ 
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.openssl-sign-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.openssl-verify.html" rel="rdfs-seeAlso">openssl_verify()</a> - 验证签名</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

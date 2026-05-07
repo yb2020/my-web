@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Basic usage-BeJSON.com</title><meta name="keywords" content="Basic usage"><meta name="description" content="This simple example shows how to connect, execute a query, print resulting rows and disconnect from a PostgreSQL database. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="pgsql.examples.html">« 范例</a></li>
+      <li style="float: right;"><a href="pgsql.examples-queries.html">Basic usage »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="pgsql.examples.html">范例</a></li>
+    <li>Basic usage</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="pgsql.examples-basic">
+  <h1 class="title">Basic usage</h1>
+  <p class="para">
+   This simple example shows how to connect, execute a query, print
+   resulting rows and disconnect from a PostgreSQL database.
+   <div class="example" id="example-1864">
+    <p><strong>示例 #1 PostgreSQL extension overview example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Connecting,&nbsp;selecting&nbsp;database<br></span><span style="color: rgb(0, 0, 187);">$dbconn&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">pg_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"host=localhost&nbsp;dbname=publishing&nbsp;user=www&nbsp;password=foo"</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: rgb(221, 0, 0);">'Could&nbsp;not&nbsp;connect:&nbsp;'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">pg_last_error</span><span style="color: rgb(0, 119, 0);">());<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Performing&nbsp;SQL&nbsp;query<br></span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'SELECT&nbsp;*&nbsp;FROM&nbsp;authors'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">pg_query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">)&nbsp;or&nbsp;die(</span><span style="color: rgb(221, 0, 0);">'Query&nbsp;failed:&nbsp;'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">pg_last_error</span><span style="color: rgb(0, 119, 0);">());<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Printing&nbsp;results&nbsp;in&nbsp;HTML<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;table&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>while&nbsp;(</span><span style="color: rgb(0, 0, 187);">$line&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">pg_fetch_array</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">PGSQL_ASSOC</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"\t&lt;tr&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$line&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$col_value</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"\t\t&lt;td&gt;</span><span style="color: rgb(0, 0, 187);">$col_value</span><span style="color: rgb(221, 0, 0);">&lt;/td&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"\t&lt;/tr&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;/table&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Free&nbsp;resultset<br></span><span style="color: rgb(0, 0, 187);">pg_free_result</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Closing&nbsp;connection<br></span><span style="color: rgb(0, 0, 187);">pg_close</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$dbconn</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div></div></div></body></html>

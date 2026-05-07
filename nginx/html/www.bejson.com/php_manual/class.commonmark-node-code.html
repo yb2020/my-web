@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Code concrete CommonMark\Node-BeJSON.com</title><meta name="keywords" content="Code concrete CommonMark\Node"><meta name="description" content="Code concrete CommonMark\Node(cmark >= 1.0.0)类摘要final class CommonMark\Node\Code  extends CommonMark\Node\Text  implements CommonMark\Interfaces\IVisi">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.commonmark-node-linebreak.html">« CommonMark\Node\LineBreak</a></li>
+      <li style="float: right;"><a href="class.commonmark-node-codeblock.html">CommonMark\Node\CodeBlock »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.cmark.html">CommonMark</a></li>
+    <li>Code concrete CommonMark\Node</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.commonmark-node-code">
+
+ <h1 class="title">Code concrete CommonMark\Node</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(cmark &gt;= 1.0.0)</p>
+
+  <div class="section" id="commonmark-node-code.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">final</span>
+      <span class="modifier">class</span> <strong class="classname">CommonMark\Node\Code</strong>
+     </span>
+     
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.commonmark-node-text.html">CommonMark\Node\Text</a>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a class="interfacename" href="class.commonmark-interfaces-ivisitable.html">CommonMark\Interfaces\IVisitable</a></span><span class="oointerface">,  <a class="interfacename" href="class.traversable.html">Traversable</a></span> {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的属性 */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type"><span class="type Node">Node</span></span><span class="type"></span></span>
+      <var class="varname">$<var class="varname">parent</var></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type"><span class="type Node">Node</span></span><span class="type"></span></span>
+      <var class="varname">$<var class="varname">previous</var></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type"><span class="type Node">Node</span></span><span class="type"></span></span>
+      <var class="varname">$<var class="varname">next</var></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type"><span class="type Node">Node</span></span><span class="type"></span></span>
+      <var class="varname">$<var class="varname">lastChild</var></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type"><span class="type Node">Node</span></span><span class="type"></span></span>
+      <var class="varname">$<var class="varname">firstChild</var></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">int</span>
+      <var class="varname">$<var class="varname">startLine</var></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">int</span>
+      <var class="varname">$<var class="varname">endLine</var></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">int</span>
+      <var class="varname">$<var class="varname">startColumn</var></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">int</span>
+      <var class="varname">$<var class="varname">endColumn</var></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span>
+      <var class="varname">$<var class="varname">literal</var></var>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constructor */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="commonmark-node-text.construct.html">CommonMark\Node\Text::__construct</a></span>()</div>
+<div class="constructorsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="commonmark-node-text.construct.html">CommonMark\Node\Text::__construct</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$literal</code></span>)</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="commonmark-node.appendchild.html">CommonMark\Node::appendChild</a></span>(<span class="methodparam"><span class="type"><a class="type CommonMark\Node" href="class.commonmark-node.html">CommonMark\Node</a></span> <code class="parameter">$child</code></span>): <span class="type"><a class="type CommonMark\Node" href="class.commonmark-node.html">CommonMark\Node</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="commonmark-node.prependchild.html">CommonMark\Node::prependChild</a></span>(<span class="methodparam"><span class="type"><a class="type CommonMark\Node" href="class.commonmark-node.html">CommonMark\Node</a></span> <code class="parameter">$child</code></span>): <span class="type"><a class="type CommonMark\Node" href="class.commonmark-node.html">CommonMark\Node</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="commonmark-node.insertafter.html">CommonMark\Node::insertAfter</a></span>(<span class="methodparam"><span class="type"><a class="type CommonMark\Node" href="class.commonmark-node.html">CommonMark\Node</a></span> <code class="parameter">$sibling</code></span>): <span class="type"><a class="type CommonMark\Node" href="class.commonmark-node.html">CommonMark\Node</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="commonmark-node.insertbefore.html">CommonMark\Node::insertBefore</a></span>(<span class="methodparam"><span class="type"><a class="type CommonMark\Node" href="class.commonmark-node.html">CommonMark\Node</a></span> <code class="parameter">$sibling</code></span>): <span class="type"><a class="type CommonMark\Node" href="class.commonmark-node.html">CommonMark\Node</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="commonmark-node.replace.html">CommonMark\Node::replace</a></span>(<span class="methodparam"><span class="type"><a class="type CommonMark\Node" href="class.commonmark-node.html">CommonMark\Node</a></span> <code class="parameter">$target</code></span>): <span class="type"><a class="type CommonMark\Node" href="class.commonmark-node.html">CommonMark\Node</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="commonmark-node.unlink.html">CommonMark\Node::unlink</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="commonmark-node.accept.html">CommonMark\Node::accept</a></span>(<span class="methodparam"><span class="type"><a class="type CommonMark\Interfaces\IVisitor" href="class.commonmark-interfaces-ivisitor.html">CommonMark\Interfaces\IVisitor</a></span> <code class="parameter">$visitor</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+</div>
+</div></div></body></html>

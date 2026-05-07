@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>tabnanny --- 模糊缩进检测-BeJSON.com</title><meta name="keywords" content="tabnanny --- 模糊缩进检测"><meta name="description" content="tokenize --- 对 Python 代码使用的标记解析器"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="pyclbr --- Python 模块浏览器支持" href="pyclbr.html" rel="next">
+    <link title="tokenize --- 对 Python 代码使用的标记解析器" href="tokenize.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/tabnanny.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="tokenize.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code> --- 对 Python 代码使用的标记解析器</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="pyclbr.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyclbr</span></code> --- Python 模块浏览器支持</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="pyclbr --- Python 模块浏览器支持" accesskey="N" href="pyclbr.html">下一页</a> |</li>
+        <li class="right">
+          <a title="tokenize --- 对 Python 代码使用的标记解析器" accesskey="P" href="tokenize.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="language.html">Python 语言服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">tabnanny</span></code> --- 模糊缩进检测</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-tabnanny">
+<span id="tabnanny-detection-of-ambiguous-indentation"></span><h1><a title="tabnanny: Tool for detecting white space related problems in Python source files in a directory tree." class="reference internal" href="#module-tabnanny"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tabnanny</span></code></a> --- 模糊缩进检测<a title="永久链接至标题" class="headerlink" href="#module-tabnanny">¶</a></h1>
+<p><strong>源代码:</strong> <a class="reference external" href="">Lib/tabnanny.py</a></p>
+<hr class="docutils">
+<p>目前，该模块旨在作为脚本调用。但是可以使用下面描述的 <a title="tabnanny.check" class="reference internal" href="#tabnanny.check"><code class="xref py py-func docutils literal notranslate"><span class="pre">check()</span></code></a> 函数将其导入IDE。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>此模块提供的API可能会在将来的版本中更改；此类更改可能无法向后兼容。</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="tabnanny.check">
+<span class="sig-prename descclassname"><span class="pre">tabnanny.</span></span><span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_or_dir</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#tabnanny.check">¶</a></dt>
+<dd><p>如果 <em>file_or_dir</em> 是目录而非符号链接，则递归地在名为 <em>file_or_dir</em> 的目录树中下行，沿途检查所有 <code class="file docutils literal notranslate"><span class="pre">.py</span></code> 文件。 如果 <em>file_or_dir</em> 是一个普通 Python 源文件，将检查其中的空格相关问题。 诊断消息将使用 <a title="print" class="reference internal" href="functions.html#print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> 函数写入到标准输出。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="tabnanny.verbose">
+<span class="sig-prename descclassname"><span class="pre">tabnanny.</span></span><span class="sig-name descname"><span class="pre">verbose</span></span><a title="永久链接至目标" class="headerlink" href="#tabnanny.verbose">¶</a></dt>
+<dd><p>此旗标指明是否打印详细消息。 如果作为脚本调用则是通过 <code class="docutils literal notranslate"><span class="pre">-v</span></code> 选项来增加。</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="tabnanny.filename_only">
+<span class="sig-prename descclassname"><span class="pre">tabnanny.</span></span><span class="sig-name descname"><span class="pre">filename_only</span></span><a title="永久链接至目标" class="headerlink" href="#tabnanny.filename_only">¶</a></dt>
+<dd><p>此旗标指明是否只打印包含空格相关问题文件的文件名。 如果作为脚本调用则是通过 <code class="docutils literal notranslate"><span class="pre">-q</span></code> 选项来设为真值。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="tabnanny.NannyNag">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tabnanny.</span></span><span class="sig-name descname"><span class="pre">NannyNag</span></span><a title="永久链接至目标" class="headerlink" href="#tabnanny.NannyNag">¶</a></dt>
+<dd><p>如果检测到模糊缩进则由 <a title="tabnanny.process_tokens" class="reference internal" href="#tabnanny.process_tokens"><code class="xref py py-func docutils literal notranslate"><span class="pre">process_tokens()</span></code></a> 引发。 在 <a title="tabnanny.check" class="reference internal" href="#tabnanny.check"><code class="xref py py-func docutils literal notranslate"><span class="pre">check()</span></code></a> 中捕获并处理。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tabnanny.process_tokens">
+<span class="sig-prename descclassname"><span class="pre">tabnanny.</span></span><span class="sig-name descname"><span class="pre">process_tokens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#tabnanny.process_tokens">¶</a></dt>
+<dd><p>此函数由 <a title="tabnanny.check" class="reference internal" href="#tabnanny.check"><code class="xref py py-func docutils literal notranslate"><span class="pre">check()</span></code></a> 用来处理由 <a title="tokenize: Lexical scanner for Python source code." class="reference internal" href="tokenize.html#module-tokenize"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code></a> 模块所生成的标记。</p>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<dl class="simple">
+<dt>模块 <a title="tokenize: Lexical scanner for Python source code." class="reference internal" href="tokenize.html#module-tokenize"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code></a></dt><dd><p>用于Python源代码的词法扫描程序。</p>
+</dd>
+</dl>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="tokenize.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code> --- 对 Python 代码使用的标记解析器</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="pyclbr.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyclbr</span></code> --- Python 模块浏览器支持</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="pyclbr --- Python 模块浏览器支持" href="pyclbr.html">下一页</a> |</li>
+        <li class="right">
+          <a title="tokenize --- 对 Python 代码使用的标记解析器" href="tokenize.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="language.html">Python 语言服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">tabnanny</span></code> --- 模糊缩进检测</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Perform a query without fetching the results into memory-BeJSON.com</title><meta name="keywords" content="Perform a query without fetching the results into memory"><meta name="description" content="cubrid_unbuffered_query(PECL CUBRID >= 8.3.0)cubrid_unbuffered_query — Perform a query without fetching the results into memory说明cubrid_unbuffered_que">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.cubrid-result.html">« cubrid_result</a></li>
+      <li style="float: right;"><a href="oldaliases.cubrid.html">CUBRID 过时的别名和函数 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="cubridmysql.cubrid.html">CUBRID MySQL 兼容性函数</a></li>
+    <li>Perform a query without fetching the results into memory</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.cubrid-unbuffered-query">
+ <div class="refnamediv">
+  <h1 class="refname">cubrid_unbuffered_query</h1>
+  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_unbuffered_query</span> — <span class="dc-title">Perform a query without fetching the results into memory</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.cubrid-unbuffered-query-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>cubrid_unbuffered_query</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$conn_identifier</code><span class="initializer"> = ?</span></span>): <span class="type">resource</span></div>
+
+  <p class="para rdfs-comment">
+    This function performs a query without waiting for that all query results have been complete. It will return 
+    when the results are being generated. 
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.cubrid-unbuffered-query-parameters">
+ <h3 class="title">参数</h3>
+ <p class="para">
+  <dl>
+    
+     <dt>
+<code class="parameter">query</code></dt>
+
+     <dd>
+<p class="para">A SQL query.</p></dd>
+
+   
+     
+      <dt>
+<code class="parameter">conn_identifier</code></dt>
+
+      <dd>
+<p class="para">The CUBRID connection. If the connection identifier is not specified, the last connection opened by <span class="function"><a class="function" href="function.cubrid-connect.html">cubrid_connect()</a></span> is assumed.</p></dd>
+
+   
+  </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.cubrid-unbuffered-query-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   For SELECT, SHOW, DESCRIBE or EXPLAIN statements returns a request identifier resource on success.
+  </p>
+  <p class="para">
+    For other type of SQL statements, UPDATE, DELETE, DROP, etc, returns <strong><code>true</code></strong> on success.
+  </p>
+   <p class="para">
+    <strong><code>false</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.cubrid-unbuffered-query-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-1187">
+   <p><strong>示例 #1 <span class="function"><strong>cubrid_unbuffered_query()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>&nbsp;&nbsp;&nbsp;&nbsp;$link&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">cubrid_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"localhost"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">30000</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"demodb"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"dba"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">""</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: rgb(221, 0, 0);">'Could&nbsp;not&nbsp;connect.'</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"select&nbsp;*&nbsp;from&nbsp;code"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">cubrid_unbuffered_query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(</span><span style="color: rgb(0, 0, 187);">$row&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">cubrid_fetch</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">))<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$row</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">cubrid_close_request</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">cubrid_disconnect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.cubrid-unbuffered-query-notes">
+  <h3 class="title">注释</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    The benefits of <span class="function"><strong>cubrid_unbuffered_query()</strong></span> come
+    at a cost: you cannot use <span class="function"><a class="function" href="function.cubrid-num-rows.html">cubrid_num_rows()</a></span> and
+    <span class="function"><a class="function" href="function.cubrid-data-seek.html">cubrid_data_seek()</a></span> on a result set returned from
+    <span class="function"><strong>cubrid_unbuffered_query()</strong></span>.
+   </p>
+  <p></p></blockquote>
+ </div>
+
+
+</div></div></div></body></html>

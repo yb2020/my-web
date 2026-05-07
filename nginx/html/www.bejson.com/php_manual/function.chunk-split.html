@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>将字符串分割成小块-BeJSON.com</title><meta name="keywords" content="将字符串分割成小块"><meta name="description" content="chunk_split(PHP 4, PHP 5, PHP 7, PHP 8)chunk_split — 将字符串分割成小块说明chunk_split(string $string, int $length = 76, string $separator = " string使用此函数"="">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.chr.html">« chr</a></li>
+      <li style="float: right;"><a href="function.convert-cyr-string.html">convert_cyr_string »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.strings.html">字符串 函数</a></li>
+    <li>将字符串分割成小块</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.chunk-split">
+ <div class="refnamediv">
+  <h1 class="refname">chunk_split</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">chunk_split</span> — <span class="dc-title">将字符串分割成小块</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.chunk-split-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>chunk_split</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 76</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = "\r\n"</span></span>): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   使用此函数将字符串分割成小块非常有用。例如将
+   <span class="function"><a class="function" href="function.base64-encode.html">base64_encode()</a></span> 的输出转换成符合 RFC 2045 语义的字符串。它会在每
+   <code class="parameter">length</code> 个字符后边插入
+   <code class="parameter">separator</code>。
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-function.chunk-split-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">string</code></dt>
+
+     <dd>
+
+      <p class="para">
+       要分割的字符。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">length</code></dt>
+
+     <dd>
+
+      <p class="para">
+       分割的尺寸。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">separator</code></dt>
+
+     <dd>
+
+      <p class="para">
+       行尾序列符号。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.chunk-split-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   返回分割后的字符。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.chunk-split-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4645">
+    <p><strong>示例 #1 <span class="function"><strong>chunk_split()</strong></span>  例子</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;使用&nbsp;RFC&nbsp;2045&nbsp;语义格式化&nbsp;$data<br></span><span style="color: rgb(0, 0, 187);">$new_string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">chunk_split</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">base64_encode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.chunk-split-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.str-split.html" rel="rdfs-seeAlso">str_split()</a> - 将字符串转换为数组</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.explode.html" rel="rdfs-seeAlso">explode()</a> - 使用一个字符串分割另一个字符串</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.wordwrap.html" rel="rdfs-seeAlso">wordwrap()</a> - 打断字符串为指定数量的字串</span></li>
+    <li class="member"><a class="link external" href="http://www.faqs.org/rfcs/rfc2045">»&nbsp;RFC 2045</a></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

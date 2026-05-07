@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>范例-BeJSON.com</title><meta name="keywords" content="范例"><meta name="description" content="范例示例 #1 Computes the MD5 digest and hmac and print it out as hex<?php$input = " "th"="" $input);echo="" nothing?";$hash="mhash(MHASH_MD5," for="" want="" ya="" do="" what="">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mhash.constants.html">« 预定义常量</a></li>
+      <li style="float: right;"><a href="ref.mhash.html">Mhash 函数 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mhash.html">Mhash</a></li>
+    <li>范例</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="appendix" id="mhash.examples">
+ <h1>范例</h1>
+
+ <p class="para">
+  <div class="example" id="example-906">
+   <p><strong>示例 #1 Computes the MD5 digest and hmac and print it out as hex</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$input&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"what&nbsp;do&nbsp;ya&nbsp;want&nbsp;for&nbsp;nothing?"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$hash&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">mhash</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">MHASH_MD5</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$input</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;hash&nbsp;is&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">bin2hex</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$hash</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$hash&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">mhash</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">MHASH_MD5</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$input</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"Jefe"</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;hmac&nbsp;is&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">bin2hex</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$hash</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>The hash is d03cb659cbf9192dcd066272249f8412 
+The hmac is 750c783e6ab0b503eaa86e310a5db738 
+</pre></div>
+   </div>
+  </div>
+ <p></p>
+</div>
+</div></div></body></html>

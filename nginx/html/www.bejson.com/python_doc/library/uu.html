@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>uu --- 对 uuencode 文件进行编码与解码-BeJSON.com</title><meta name="keywords" content="uu --- 对 uuencode 文件进行编码与解码"><meta name="description" content="此代码由 Lance Ellinghouse 贡献，并由 Jack Jansen 修改。"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="xdrlib --- 编码与解码 XDR 数据" href="xdrlib.html" rel="next">
+    <link title="telnetlib -- Telnet 客户端" href="telnetlib.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/uu.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="telnetlib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">telnetlib</span></code> -- Telnet 客户端</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="xdrlib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xdrlib</span></code> --- 编码与解码 XDR 数据</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="xdrlib --- 编码与解码 XDR 数据" accesskey="N" href="xdrlib.html">下一页</a> |</li>
+        <li class="right">
+          <a title="telnetlib -- Telnet 客户端" accesskey="P" href="telnetlib.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="superseded.html">被取代的模块</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">uu</span></code> --- 对 uuencode 文件进行编码与解码</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-uu">
+<span id="uu-encode-and-decode-uuencode-files"></span><h1><a title="uu: Encode and decode files in uuencode format. (已移除)" class="reference internal" href="#module-uu"><code class="xref py py-mod docutils literal notranslate"><span class="pre">uu</span></code></a> --- 对 uuencode 文件进行编码与解码<a title="永久链接至标题" class="headerlink" href="#module-uu">¶</a></h1>
+<p><strong>源代码:</strong> <a class="reference external" href="">Lib/uu.py</a></p>
+<div class="deprecated-removed">
+<p><span class="versionmodified">Deprecated since version 3.11, will be removed in version 3.13: </span>The <a title="uu: Encode and decode files in uuencode format. (已移除)" class="reference internal" href="#module-uu"><code class="xref py py-mod docutils literal notranslate"><span class="pre">uu</span></code></a> module is deprecated
+(see <span class="target" id="index-0"></span><a class="pep reference external" href=""><strong>PEP 594</strong></a> for details).
+<a title="base64: RFC 4648: Base16, Base32, Base64 Data Encodings; Base85 and Ascii85" class="reference internal" href="base64.html#module-base64"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base64</span></code></a> is a modern alternative.</p>
+</div>
+<hr class="docutils">
+<p>此模块使用 uuencode 格式来编码和解码文件，以便任意二进制数据可通过仅限 ASCII 码的连接进行传输。 在任何要求文件参数的地方，这些方法都接受文件类对象。 为了保持向下兼容，也接受包含路径名称的字符串，并且将打开相应的文件进行读写；路径名称 <code class="docutils literal notranslate"><span class="pre">'-'</span></code> 被解读为标准输入或输出。 但是，此接口已被弃用；在 Windows 中调用者最好是自行打开文件，并在需要时确保模式为 <code class="docutils literal notranslate"><span class="pre">'rb'</span></code> or <code class="docutils literal notranslate"><span class="pre">'wb'</span></code>。</p>
+<p id="index-1">此代码由 Lance Ellinghouse 贡献，并由 Jack Jansen 修改。</p>
+<p><a title="uu: Encode and decode files in uuencode format. (已移除)" class="reference internal" href="#module-uu"><code class="xref py py-mod docutils literal notranslate"><span class="pre">uu</span></code></a> 模块定义了以下函数：</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="uu.encode">
+<span class="sig-prename descclassname"><span class="pre">uu.</span></span><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backtick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#uu.encode">¶</a></dt>
+<dd><p>使用 uuencode 将 <em>in_file</em> 文件编码为 <em>out_file</em> 文件。 经过 uuencoded 编码的文件将具有指定 <em>name</em> 和 <em>mode</em> 作为解码该文件默认结果的标头。 默认值会相应地从 <em>in_file</em> 或 <code class="docutils literal notranslate"><span class="pre">'-'</span></code> 以及 <code class="docutils literal notranslate"><span class="pre">0o666</span></code> 中提取。 如果 <em>backtick</em> 为真值，零会用 <code class="docutils literal notranslate"><span class="pre">'`'</span></code> 而不是空格来表示。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.7 版更改: </span>增加 <em>backtick</em> 形参。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uu.decode">
+<span class="sig-prename descclassname"><span class="pre">uu.</span></span><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#uu.decode">¶</a></dt>
+<dd><p>调用此函数会解码 uuencod 编码的 <em>in_file</em> 文件并将结果放入 <em>out_file</em> 文件。 如果 <em>out_file</em> 是一个路径名称，<em>mode</em> 会在必须创建文件时用于设置权限位。 <em>out_file</em> 和 <em>mode</em> 的默认值会从 uuencode 标头中提取。 但是，如果标头中指定的文件已存在，则会引发 <a title="uu.Error" class="reference internal" href="#uu.Error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">uu.Error</span></code></a>。</p>
+<p>如果输入由不正确的 uuencode 编码器生成，<a title="uu.decode" class="reference internal" href="#uu.decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">decode()</span></code></a> 可能会打印一条警告到标准错误 ，这样 Python 可以从该错误中恢复。 将 <em>quiet</em> 设为真值可以屏蔽此警告。</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="uu.Error">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uu.</span></span><span class="sig-name descname"><span class="pre">Error</span></span><a title="永久链接至目标" class="headerlink" href="#uu.Error">¶</a></dt>
+<dd><p><a title="Exception" class="reference internal" href="exceptions.html#Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a> 的子类，此异常可由 <a title="uu.decode" class="reference internal" href="#uu.decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">uu.decode()</span></code></a> 在多种情况下引发，如上文所述，此外还包括格式错误的标头或被截断的输入文件等。</p>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<dl class="simple">
+<dt>模块 <a title="binascii: Tools for converting between binary and various ASCII-encoded binary representations." class="reference internal" href="binascii.html#module-binascii"><code class="xref py py-mod docutils literal notranslate"><span class="pre">binascii</span></code></a></dt><dd><p>支持模块，包含ASCII到二进制和二进制到ASCII转换。</p>
+</dd>
+</dl>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="telnetlib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">telnetlib</span></code> -- Telnet 客户端</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="xdrlib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xdrlib</span></code> --- 编码与解码 XDR 数据</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="xdrlib --- 编码与解码 XDR 数据" href="xdrlib.html">下一页</a> |</li>
+        <li class="right">
+          <a title="telnetlib -- Telnet 客户端" href="telnetlib.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="superseded.html">被取代的模块</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">uu</span></code> --- 对 uuencode 文件进行编码与解码</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

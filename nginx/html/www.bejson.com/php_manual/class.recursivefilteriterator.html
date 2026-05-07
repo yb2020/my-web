@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The RecursiveFilterIterator class-BeJSON.com</title><meta name="keywords" content="The RecursiveFilterIterator class"><meta name="description" content="This abstract iterator filters out unwanted values for a RecursiveIterator. This class should be extended to implement custom filters. The RecursiveFi">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="recursivedirectoryiterator.rewind.html">« RecursiveDirectoryIterator::rewind</a></li>
+      <li style="float: right;"><a href="recursivefilteriterator.construct.html">RecursiveFilterIterator::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="spl.iterators.html">迭代器</a></li>
+    <li>The RecursiveFilterIterator class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.recursivefilteriterator">
+
+ <h1 class="title">The RecursiveFilterIterator class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="recursivefilteriterator.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    This abstract iterator filters out unwanted values for a <span class="classname"><a class="classname" href="class.recursiveiterator.html">RecursiveIterator</a></span>.
+    This class should be extended to implement custom filters. 
+    The <span class="methodname"><strong>RecursiveFilterIterator::accept()</strong></span> must be implemented in the subclass.
+   </p>
+  </div>
+
+
+  <div class="section" id="recursivefilteriterator.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">abstract</span>
+      <span class="modifier">class</span> <strong class="classname">RecursiveFilterIterator</strong>
+     </span>
+
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.filteriterator.html">FilterIterator</a>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a class="interfacename" href="class.recursiveiterator.html">RecursiveIterator</a></span> {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivefilteriterator.construct.html">__construct</a></span>(<span class="methodparam"><span class="type"><a class="type RecursiveIterator" href="class.recursiveiterator.html">RecursiveIterator</a></span> <code class="parameter">$iterator</code></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivefilteriterator.getchildren.html">getChildren</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type RecursiveFilterIterator" href="class.recursivefilteriterator.html">RecursiveFilterIterator</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivefilteriterator.haschildren.html">hasChildren</a></span>(): <span class="type">bool</span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.accept.html">FilterIterator::accept</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.current.html">FilterIterator::current</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.getinneriterator.html">FilterIterator::getInnerIterator</a></span>(): <span class="type"><a class="type Iterator" href="class.iterator.html">Iterator</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.key.html">FilterIterator::key</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.next.html">FilterIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.rewind.html">FilterIterator::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filteriterator.valid.html">FilterIterator::valid</a></span>(): <span class="type">bool</span></div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.current.html">IteratorIterator::current</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.getinneriterator.html">IteratorIterator::getInnerIterator</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type Iterator" href="class.iterator.html">Iterator</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.key.html">IteratorIterator::key</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.next.html">IteratorIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.rewind.html">IteratorIterator::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="iteratoriterator.valid.html">IteratorIterator::valid</a></span>(): <span class="type">bool</span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="recursivefilteriterator.construct.html">RecursiveFilterIterator::__construct</a> — Create a RecursiveFilterIterator from a RecursiveIterator</li><li><a href="recursivefilteriterator.getchildren.html">RecursiveFilterIterator::getChildren</a> — Return the inner iterator's children contained in a RecursiveFilterIterator</li><li><a href="recursivefilteriterator.haschildren.html">RecursiveFilterIterator::hasChildren</a> — Check whether the inner iterator's current element has children</li></ul>
+</div>
+</div></div></body></html>

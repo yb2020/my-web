@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>需求-BeJSON.com</title><meta name="keywords" content="需求"><meta name="description" content="The » OpenSSL and » libssh2 libraries are required. Ensure that the development libraries are installed, where a typical package name might be openssl">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="ssh2.setup.html">« 安装／配置</a></li>
+      <li style="float: right;"><a href="ssh2.installation.html">安装 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ssh2.setup.html">安装／配置</a></li>
+    <li>需求</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="ssh2.requirements">
+  <h1 class="title">需求</h1>
+  <p class="para">
+   The 
+   <a class="link external" href="http://www.openssl.org/">»&nbsp;OpenSSL</a> and 
+   <a class="link external" href="http://libssh2.org/">»&nbsp;libssh2</a> libraries
+   are required. Ensure that the development libraries are installed,
+   where a typical package name might be <code class="literal">openssl-dev</code>.
+  </p>
+  <p class="para">
+   Version 1.2 or newer of the libssh2 library is required, although
+   it's possible newer releases of pecl/ssh2 may require newer
+   versions (see the release notes).
+  </p>
+  <p class="para">
+   The <span class="function"><a class="function" href="function.ssh2-auth-agent.html">ssh2_auth_agent()</a></span> function will only be available 
+   with libssh &gt;= 1.2.3.
+  </p>
+  <p class="para">
+   support for <span class="function"><a class="function" href="function.stream-set-timeout.html">stream_set_timeout()</a></span> to channel streams 
+   will only be available with libssh &gt;= 1.2.9.
+  </p>
+  <p class="para">
+   Libssh2 comes in two flavours: gcrypt or openssl. Some Linux
+   distributions build libssh2 with the gcrypt library, some use openssl.
+   Libssh2 has some issues when compiled with gcrypt, please use openssl.
+  </p>
+ </div></div></div></body></html>

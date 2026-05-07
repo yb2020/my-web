@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Exchange the array for another one-BeJSON.com</title><meta name="keywords" content="Exchange the array for another one"><meta name="description" content="ArrayObject::exchangeArray(PHP 5 >= 5.1.0, PHP 7, PHP 8)ArrayObject::exchangeArray — Exchange the array for another one说明public ArrayObject::exchangeA">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="arrayobject.count.html">« ArrayObject::count</a></li>
+      <li style="float: right;"><a href="arrayobject.getarraycopy.html">ArrayObject::getArrayCopy »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.arrayobject.html">ArrayObject</a></li>
+    <li>Exchange the array for another one</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="arrayobject.exchangearray">
+ <div class="refnamediv">
+  <h1 class="refname">ArrayObject::exchangeArray</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ArrayObject::exchangeArray</span> — <span class="dc-title">Exchange the array for another one</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-arrayobject.exchangearray-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>ArrayObject::exchangeArray</strong></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$array</code></span>): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   Exchange the current <span class="type">array</span> with another <span class="type">array</span> or <span class="type">object</span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-arrayobject.exchangearray-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">array</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The new <span class="type">array</span> or <span class="type">object</span> to exchange with the current array.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-arrayobject.exchangearray-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns the old <span class="type">array</span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-arrayobject.exchangearray-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3633">
+    <p><strong>示例 #1 <span class="function"><strong>ArrayObject::exchangeArray()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Array&nbsp;of&nbsp;available&nbsp;fruits<br></span><span style="color: rgb(0, 0, 187);">$fruits&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(</span><span style="color: rgb(221, 0, 0);">"lemons"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"oranges"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">4</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"bananas"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"apples"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">10</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Array&nbsp;of&nbsp;locations&nbsp;in&nbsp;Europe<br></span><span style="color: rgb(0, 0, 187);">$locations&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(</span><span style="color: rgb(221, 0, 0);">'Amsterdam'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Paris'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'London'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$fruitsArrayObject&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">ArrayObject</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fruits</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Now&nbsp;exchange&nbsp;fruits&nbsp;for&nbsp;locations<br></span><span style="color: rgb(0, 0, 187);">$old&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$fruitsArrayObject</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">exchangeArray</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$locations</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$old</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fruitsArrayObject</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [lemons] =&gt; 1
+    [oranges] =&gt; 4
+    [bananas] =&gt; 5
+    [apples] =&gt; 10
+)
+ArrayObject Object
+(
+    [0] =&gt; Amsterdam
+    [1] =&gt; Paris
+    [2] =&gt; London
+)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

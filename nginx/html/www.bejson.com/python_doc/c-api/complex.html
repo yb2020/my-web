@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>复数对象-BeJSON.com</title><meta name="keywords" content="复数对象"><meta name="description" content="浮点数对象"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="bytes 对象" href="bytes.html" rel="next">
+    <link title="浮点数对象" href="float.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/c-api/complex.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">复数对象</a><ul>
+<li><a class="reference internal" href="#complex-numbers-as-c-structures">表示复数的C结构体</a></li>
+<li><a class="reference internal" href="#complex-numbers-as-python-objects">表示复数的Python对象</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="float.html">浮点数对象</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="bytes.html">bytes 对象</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="bytes 对象" accesskey="N" href="bytes.html">下一页</a> |</li>
+        <li class="right">
+          <a title="浮点数对象" accesskey="P" href="float.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python/C API 参考手册</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="concrete.html">具体的对象层</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">复数对象</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="complex-number-objects">
+<span id="complexobjects"></span><h1>复数对象<a title="永久链接至标题" class="headerlink" href="#complex-number-objects">¶</a></h1>
+<p id="index-0">从C API看，Python的复数对象由两个不同的部分实现：一个是在Python程序使用的Python对象，另外的是一个代表真正复数值的C结构体。API提供了函数共同操作两者。</p>
+<section id="complex-numbers-as-c-structures">
+<h2>表示复数的C结构体<a title="永久链接至标题" class="headerlink" href="#complex-numbers-as-c-structures">¶</a></h2>
+<p>需要注意的是接受这些结构体的作为参数并当做结果返回的函数，都是传递“值”而不是引用指针。此规则适用于整个API。</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.Py_complex">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Py_complex</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.Py_complex">¶</a><br></dt>
+<dd><p>这是一个对应Python复数对象的值部分的C结构体。绝大部分处理复数对象的函数都用这类型的结构体作为输入或者输出值，它可近似地定义为：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="kt">double</span><span class="w"> </span><span class="n">real</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">double</span><span class="w"> </span><span class="n">imag</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">Py_complex</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c._Py_c_sum">
+<a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_Py_c_sum</span></span></span><span class="sig-paren">(</span><a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="n"><span class="pre">left</span></span>, <a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="n"><span class="pre">right</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c._Py_c_sum">¶</a><br></dt>
+<dd><p>返回两个复数的和，用 C 类型 <a title="Py_complex" class="reference internal" href="#c.Py_complex"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_complex</span></code></a> 表示。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c._Py_c_diff">
+<a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_Py_c_diff</span></span></span><span class="sig-paren">(</span><a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="n"><span class="pre">left</span></span>, <a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="n"><span class="pre">right</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c._Py_c_diff">¶</a><br></dt>
+<dd><p>返回两个复数的差，用 C 类型 <a title="Py_complex" class="reference internal" href="#c.Py_complex"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_complex</span></code></a> 表示。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c._Py_c_neg">
+<a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_Py_c_neg</span></span></span><span class="sig-paren">(</span><a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="n"><span class="pre">num</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c._Py_c_neg">¶</a><br></dt>
+<dd><p>返回复数 <em>num</em> 的负值，用 C <a title="Py_complex" class="reference internal" href="#c.Py_complex"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_complex</span></code></a> 表示。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c._Py_c_prod">
+<a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_Py_c_prod</span></span></span><span class="sig-paren">(</span><a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="n"><span class="pre">left</span></span>, <a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="n"><span class="pre">right</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c._Py_c_prod">¶</a><br></dt>
+<dd><p>返回两个复数的乘积，用 C 类型 <a title="Py_complex" class="reference internal" href="#c.Py_complex"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_complex</span></code></a> 表示。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c._Py_c_quot">
+<a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_Py_c_quot</span></span></span><span class="sig-paren">(</span><a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="n"><span class="pre">dividend</span></span>, <a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="n"><span class="pre">divisor</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c._Py_c_quot">¶</a><br></dt>
+<dd><p>返回两个复数的商，用 C 类型 <a title="Py_complex" class="reference internal" href="#c.Py_complex"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_complex</span></code></a> 表示。</p>
+<p>如果 <em>divisor</em> 为空，这个方法返回零并设置 <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> 为 <code class="xref c c-data docutils literal notranslate"><span class="pre">EDOM</span></code>。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c._Py_c_pow">
+<a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_Py_c_pow</span></span></span><span class="sig-paren">(</span><a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="n"><span class="pre">num</span></span>, <a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="n"><span class="pre">exp</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c._Py_c_pow">¶</a><br></dt>
+<dd><p>返回 <em>num</em> 的 <em>exp</em> 次幂，用 C 类型 <a title="Py_complex" class="reference internal" href="#c.Py_complex"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_complex</span></code></a> 表示。</p>
+<p>如果 <em>num</em> 为空且 <em>exp</em> 不是正实数，这个方法返回零并设置 <code class="xref c c-data docutils literal notranslate"><span class="pre">errno</span></code> 为 <code class="xref c c-data docutils literal notranslate"><span class="pre">EDOM</span></code>。</p>
+</dd></dl>
+
+</section>
+<section id="complex-numbers-as-python-objects">
+<h2>表示复数的Python对象<a title="永久链接至标题" class="headerlink" href="#complex-numbers-as-python-objects">¶</a></h2>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PyComplexObject">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyComplexObject</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.PyComplexObject">¶</a><br></dt>
+<dd><p>这个C类型 <a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> 的子类型代表一个 Python 复数对象。</p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyComplex_Type">
+<a title="PyTypeObject" class="reference internal" href="type.html#c.PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyComplex_Type</span></span></span><a title="永久链接至目标" class="headerlink" href="#c.PyComplex_Type">¶</a><br></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>这是个属于 <a title="PyTypeObject" class="reference internal" href="type.html#c.PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> 的代表Python复数类型的实例。在Python层面的类型 <a title="complex" class="reference internal" href="../library/functions.html#complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a> 是同一个对象。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyComplex_Check">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyComplex_Check</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyComplex_Check">¶</a><br></dt>
+<dd><p>如果它的参数是一个 <a title="PyComplexObject" class="reference internal" href="#c.PyComplexObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyComplexObject</span></code></a> 或者 <a title="PyComplexObject" class="reference internal" href="#c.PyComplexObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyComplexObject</span></code></a> 的子类型则返回真值。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyComplex_CheckExact">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyComplex_CheckExact</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyComplex_CheckExact">¶</a><br></dt>
+<dd><p>如果它的参数是一个 <a title="PyComplexObject" class="reference internal" href="#c.PyComplexObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyComplexObject</span></code></a> 但不是 <a title="PyComplexObject" class="reference internal" href="#c.PyComplexObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyComplexObject</span></code></a> 的子类型则返回真值。 此函数总是会成功执行。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyComplex_FromCComplex">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyComplex_FromCComplex</span></span></span><span class="sig-paren">(</span><a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="n"><span class="pre">v</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyComplex_FromCComplex">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>根据C类型 <a title="Py_complex" class="reference internal" href="#c.Py_complex"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_complex</span></code></a> 的值生成一个新的Python复数对象。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyComplex_FromDoubles">
+<a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyComplex_FromDoubles</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n"><span class="pre">real</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n"><span class="pre">imag</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyComplex_FromDoubles">¶</a><br></dt>
+<dd><em class="refcount">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>根据 <em>real</em> 和 <em>imag</em> 返回一个新的C类型 <a title="PyComplexObject" class="reference internal" href="#c.PyComplexObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyComplexObject</span></code></a> 对象。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyComplex_RealAsDouble">
+<span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyComplex_RealAsDouble</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">op</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyComplex_RealAsDouble">¶</a><br></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>以C类型 <span class="xref c c-texpr"><span class="kt">double</span></span> 返回 <em>op</em> 的实部。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyComplex_ImagAsDouble">
+<span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyComplex_ImagAsDouble</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">op</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyComplex_ImagAsDouble">¶</a><br></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>以C类型 <span class="xref c c-texpr"><span class="kt">double</span></span> 返回 <em>op</em> 的虚部。</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyComplex_AsCComplex">
+<a title="Py_complex" class="reference internal" href="#c.Py_complex"><span class="n"><span class="pre">Py_complex</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyComplex_AsCComplex</span></span></span><span class="sig-paren">(</span><a title="PyObject" class="reference internal" href="structures.html#c.PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">op</span></span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#c.PyComplex_AsCComplex">¶</a><br></dt>
+<dd><p>返回复数 <em>op</em> 的C类型 <a title="Py_complex" class="reference internal" href="#c.Py_complex"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_complex</span></code></a> 值。</p>
+<p>如果 <em>op</em> 不是一个 Python 复数对象，但是具有 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__complex__()</span></code> 方法，此方法将首先被调用，将 <em>op</em> 转换为一个 Python 复数对象。 如果 <code class="docutils literal notranslate"><span class="pre">__complex__()</span></code> 未定义则将回退至 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__float__()</span></code>，如果 <code class="docutils literal notranslate"><span class="pre">__float__()</span></code> 未定义则将回退至 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code>。 如果失败，此方法将返回 <code class="docutils literal notranslate"><span class="pre">-1.0</span></code> 作为实数值。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.8 版更改: </span>如果可用将使用 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code>。</p>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">复数对象</a><ul>
+<li><a class="reference internal" href="#complex-numbers-as-c-structures">表示复数的C结构体</a></li>
+<li><a class="reference internal" href="#complex-numbers-as-python-objects">表示复数的Python对象</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="float.html">浮点数对象</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="bytes.html">bytes 对象</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="bytes 对象" href="bytes.html">下一页</a> |</li>
+        <li class="right">
+          <a title="浮点数对象" href="float.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python/C API 参考手册</a> »</li>
+          <li class="nav-item nav-item-2"><a href="concrete.html">具体的对象层</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">复数对象</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

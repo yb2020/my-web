@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Re-configures event-BeJSON.com</title><meta name="keywords" content="Re-configures event"><meta name="description" content="The event base to associate the event with. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="event.pending.html">« Event::pending</a></li>
+      <li style="float: right;"><a href="event.setpriority.html">Event::setPriority »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.event.html">Event</a></li>
+    <li>Re-configures event</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="event.set">
+ <div class="refnamediv">
+  <h1 class="refname">Event::set</h1>
+  <p class="verinfo">(PECL event &gt;= 1.2.6-beta)</p><p class="refpurpose"><span class="refname">Event::set</span> — <span class="dc-title">Re-configures event</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-event.set-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="methodname"><strong>Event::set</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
+    <span class="type"><a class="type EventBase" href="class.eventbase.html">EventBase</a></span>
+     <code class="parameter">$base</code>
+   </span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
+    <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span>
+     <code class="parameter">$fd</code>
+   </span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
+    <span class="type">int</span>
+     <code class="parameter">$what</code>
+   <span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
+    <span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span>
+     <code class="parameter">$cb</code>
+   <span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam">
+    <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span>
+     <code class="parameter">$arg</code>
+   <span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Re-configures event. Note, this function doesn't invoke obsolete libevent's
+   event_set. It calls event_assign instead.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-event.set-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+
+     <code class="parameter">base</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      The event base to associate the event with.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">fd</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Stream resource, socket resource, or numeric file descriptor. For timer
+      events pass
+      <strong><code>-1</code></strong>
+      . For signal events pass the signal number, e.g.
+      <strong><code>SIGHUP</code></strong>
+      .
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">what</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      See
+      <a class="link" href="event.flags.html">Event flags</a>
+      .
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">cb</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      The event callback. See
+      <a class="link" href="event.callbacks.html">Event callbacks</a>
+      .
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">arg</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Custom data associated with the event. It will be passed to the callback
+      when the event becomes active.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-event.set-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+</div></div></div></body></html>

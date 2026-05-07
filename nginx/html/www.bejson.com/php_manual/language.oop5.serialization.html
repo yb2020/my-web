@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>对象序列化-BeJSON.com</title><meta name="keywords" content="对象序列化"><meta name="description" content="所有php里面的值都可以使用函数serialize()来返回一个包含字节流的字符串来表示。unserialize()函数能够重新把字符串变回php原来的值。 序列化一个对象将会保存对象的所有变量，但是不会保存对象的方法，只会保存类的名字。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="language.oop5.references.html">« 对象和引用</a></li>
+      <li style="float: right;"><a href="language.oop5.variance.html">协变与逆变 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.oop5.html">类与对象</a></li>
+    <li>对象序列化</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="language.oop5.serialization">
+  <h1 class="title">对象序列化</h1>
+  <h2 class="title">序列化对象 - 在会话中存放对象</h2>
+
+  <p class="para">
+   所有php里面的值都可以使用函数<span class="function"><a class="function" href="function.serialize.html">serialize()</a></span>来返回一个包含字节流的字符串来表示。<span class="function"><a class="function" href="function.unserialize.html">unserialize()</a></span>函数能够重新把字符串变回php原来的值。
+   序列化一个对象将会保存对象的所有变量，但是不会保存对象的方法，只会保存类的名字。
+  </p>
+  
+  <p class="para">
+   为了能够<span class="function"><a class="function" href="function.unserialize.html">unserialize()</a></span>一个对象，这个对象的类必须已经定义过。如果序列化类A的一个对象，将会返回一个跟类A相关，而且包含了对象所有变量值的字符串。
+   如果要想在另外一个文件中反序列化一个对象，这个对象的类必须在反序列化之前定义，可以通过包含一个定义该类的文件或使用函数<span class="function"><a class="function" href="function.spl-autoload-register.html">spl_autoload_register()</a></span>来实现。
+  </p>
+  
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;classa.inc:<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">A&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: rgb(0, 0, 187);">$one&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">show_one</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">one</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;page1.php:<br><br>&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">include(</span><span style="color: rgb(221, 0, 0);">"classa.inc"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">A</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$s&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">serialize</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;把变量$s保存起来以便文件page2.php能够读到<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">file_put_contents</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'store'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$s</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;page2.php:<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;//&nbsp;要正确反序列化，必须包含下面一个文件<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">include(</span><span style="color: rgb(221, 0, 0);">"classa.inc"</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$s&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">file_get_contents</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'store'</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">unserialize</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$s</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;现在可以使用对象$a里面的函数&nbsp;show_one()<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">show_one</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  
+  <p class="para">
+   在应用程序中序列化对象以便在之后使用，强烈推荐在整个应用程序都包含对象的类的定义。
+   不然有可能出现在反序列化对象的时候，没有找到该对象的类的定义，从而把没有方法的类<span class="classname"><strong class="classname">__PHP_Incomplete_Class_Name</strong></span>作为该对象的类，导致返回一个没有用的对象。
+  </p>
+  
+  <p class="para">
+   所以在上面的例子中，当运行<code class="literal">session_register("a")</code>，把变量<var class="varname">$a</var>放在会话里之后，需要在每个页面都包含文件<code class="literal">classa.inc</code>，而不是只有文件<var class="filename">page1.php</var>和<var class="filename">page2.php</var>。
+  </p>
+  
+  <p class="para">
+   除了以上建议，可以在对象上使用 
+   <a class="link" href="language.oop5.magic.html#object.sleep">__sleep()</a> 和
+   <a class="link" href="language.oop5.magic.html#object.wakeup">__wakeup()</a> 方法对序列化/反序列化事件挂载钩子。
+   使用
+   <a class="link" href="language.oop5.magic.html#object.sleep">__sleep()</a> 也能够让你仅序列化对象的某些属性。
+  </p>
+ </div></div></div></body></html>

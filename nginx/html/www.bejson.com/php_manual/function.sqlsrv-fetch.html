@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Makes the next row in a result set available for reading-BeJSON.com</title><meta name="keywords" content="Makes the next row in a result set available for reading"><meta name="description" content="sqlsrv_fetch(No version information available, might only be in Git)sqlsrv_fetch — Makes the next row in a result set available for reading说明sqlsrv_fe">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.sqlsrv-fetch-object.html">« sqlsrv_fetch_object</a></li>
+      <li style="float: right;"><a href="function.sqlsrv-field-metadata.html">sqlsrv_field_metadata »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.sqlsrv.html">SQLSRV 函数</a></li>
+    <li>Makes the next row in a result set available for reading</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.sqlsrv-fetch">
+ <div class="refnamediv">
+  <h1 class="refname">sqlsrv_fetch</h1>
+  <p class="verinfo">(No version information available, might only be in Git)</p><p class="refpurpose"><span class="refname">sqlsrv_fetch</span> — <span class="dc-title">Makes the next row in a result set available for reading</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.sqlsrv-fetch-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   
+   <span class="methodname"><strong>sqlsrv_fetch</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stmt</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$row</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = ?</span></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+
+  <p class="para rdfs-comment">
+   Makes the next row in a result set available for reading. Use 
+   <span class="function"><a class="function" href="function.sqlsrv-get-field.html">sqlsrv_get_field()</a></span> to read the fields of the row.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-function.sqlsrv-fetch-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">stmt</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A statement resource created by executing <span class="function"><a class="function" href="function.sqlsrv-query.html">sqlsrv_query()</a></span> 
+       or <span class="function"><a class="function" href="function.sqlsrv-execute.html">sqlsrv_execute()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">row</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The row to be accessed. This parameter can only be used if the specified 
+       statement was prepared with a scrollable cursor. In that case, this parameter 
+       can take on one of the following values:
+       <ul class="simplelist">
+        <li class="member">SQLSRV_SCROLL_NEXT</li>
+        <li class="member">SQLSRV_SCROLL_PRIOR</li>
+        <li class="member">SQLSRV_SCROLL_FIRST</li>
+        <li class="member">SQLSRV_SCROLL_LAST</li>
+        <li class="member">SQLSRV_SCROLL_ABSOLUTE</li>
+        <li class="member">SQLSRV_SCROLL_RELATIVE</li>
+       </ul>
+      <p></p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">offset</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Specifies the row to be accessed if the row parameter is set to
+       <strong><code>SQLSRV_SCROLL_ABSOLUTE</code></strong> or
+       <strong><code>SQLSRV_SCROLL_RELATIVE</code></strong>. Note that the first row in
+       a result set has index 0.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.sqlsrv-fetch-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> if the next row of a result set was successfully retrieved, 
+   <strong><code>false</code></strong> if an error occurs, and <strong><code>null</code></strong> if there are no more rows in the result set.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-function.sqlsrv-fetch-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-1951">
+    <p><strong>示例 #1 <span class="function"><strong>sqlsrv_fetch()</strong></span> example</strong></p>
+    <div class="example-contents"><p>
+    The following example demonstrates how to retrieve a row with 
+    <span class="function"><strong>sqlsrv_fetch()</strong></span> and get the row fields with 
+    <span class="function"><a class="function" href="function.sqlsrv-get-field.html">sqlsrv_get_field()</a></span>.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$serverName&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"serverName\sqlexpress"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$connectionInfo&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(&nbsp;</span><span style="color: rgb(221, 0, 0);">"Database"</span><span style="color: rgb(0, 119, 0);">=&gt;</span><span style="color: rgb(221, 0, 0);">"dbName"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"UID"</span><span style="color: rgb(0, 119, 0);">=&gt;</span><span style="color: rgb(221, 0, 0);">"username"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"PWD"</span><span style="color: rgb(0, 119, 0);">=&gt;</span><span style="color: rgb(221, 0, 0);">"password"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$conn&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">sqlsrv_connect</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$serverName</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$connectionInfo</span><span style="color: rgb(0, 119, 0);">);<br>if(&nbsp;</span><span style="color: rgb(0, 0, 187);">$conn&nbsp;</span><span style="color: rgb(0, 119, 0);">===&nbsp;</span><span style="color: rgb(0, 0, 187);">false&nbsp;</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(&nbsp;</span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">sqlsrv_errors</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">));<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$sql&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"SELECT&nbsp;Name,&nbsp;Comment&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;Table_1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;ReviewID=1"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$stmt&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">sqlsrv_query</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$sql</span><span style="color: rgb(0, 119, 0);">);<br>if(&nbsp;</span><span style="color: rgb(0, 0, 187);">$stmt&nbsp;</span><span style="color: rgb(0, 119, 0);">===&nbsp;</span><span style="color: rgb(0, 0, 187);">false&nbsp;</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(&nbsp;</span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">sqlsrv_errors</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">));<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Make&nbsp;the&nbsp;first&nbsp;(and&nbsp;in&nbsp;this&nbsp;case,&nbsp;only)&nbsp;row&nbsp;of&nbsp;the&nbsp;result&nbsp;set&nbsp;available&nbsp;for&nbsp;reading.<br></span><span style="color: rgb(0, 119, 0);">if(&nbsp;</span><span style="color: rgb(0, 0, 187);">sqlsrv_fetch</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$stmt&nbsp;</span><span style="color: rgb(0, 119, 0);">)&nbsp;===&nbsp;</span><span style="color: rgb(0, 0, 187);">false</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(&nbsp;</span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">sqlsrv_errors</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">));<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Get&nbsp;the&nbsp;row&nbsp;fields.&nbsp;Field&nbsp;indices&nbsp;start&nbsp;at&nbsp;0&nbsp;and&nbsp;must&nbsp;be&nbsp;retrieved&nbsp;in&nbsp;order.<br>//&nbsp;Retrieving&nbsp;row&nbsp;fields&nbsp;by&nbsp;name&nbsp;is&nbsp;not&nbsp;supported&nbsp;by&nbsp;sqlsrv_get_field.<br></span><span style="color: rgb(0, 0, 187);">$name&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">sqlsrv_get_field</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(221, 0, 0);">:&nbsp;"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$comment&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">sqlsrv_get_field</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$comment</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.sqlsrv-fetch-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.sqlsrv-get-field.html" rel="rdfs-seeAlso">sqlsrv_get_field()</a> - Gets field data from the currently selected row</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.sqlsrv-fetch-array.html" rel="rdfs-seeAlso">sqlsrv_fetch_array()</a> - Returns a row as an array</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.sqlsrv-fetch-object.html" rel="rdfs-seeAlso">sqlsrv_fetch_object()</a> - Retrieves the next row of data in a result set as an object</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

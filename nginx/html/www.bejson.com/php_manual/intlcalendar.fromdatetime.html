@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Create an IntlCalendar from a DateTime object or string-BeJSON.com</title><meta name="keywords" content="Create an IntlCalendar from a DateTime object or string"><meta name="description" content="面向对象风格 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="intlcalendar.fielddifference.html">« IntlCalendar::fieldDifference</a></li>
+      <li style="float: right;"><a href="intlcalendar.get.html">IntlCalendar::get »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.intlcalendar.html">IntlCalendar</a></li>
+    <li>Create an IntlCalendar from a DateTime object or string</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="intlcalendar.fromdatetime">
+ <div class="refnamediv">
+  <h1 class="refname">IntlCalendar::fromDateTime</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8, PECL &gt;= 3.0.0a2)</p><p class="refpurpose"><span class="refname">IntlCalendar::fromDateTime</span> — <span class="dc-title">Create an IntlCalendar from a DateTime object or string</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-intlcalendar.fromdatetime-description">
+  <h3 class="title">说明</h3>
+  <p class="para">
+   面向对象风格
+  </p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlCalendar::fromDateTime</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type DateTime" href="class.datetime.html">DateTime</a></span>|<span class="type">string</span></span> <code class="parameter">$datetime</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$locale</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type IntlCalendar" href="class.intlcalendar.html">IntlCalendar</a></span></span></div>
+
+  <p class="para rdfs-comment">
+   过程化风格
+  </p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>intlcal_from_date_time</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type DateTime" href="class.datetime.html">DateTime</a></span>|<span class="type">string</span></span> <code class="parameter">$datetime</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$locale</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type IntlCalendar" href="class.intlcalendar.html">IntlCalendar</a></span></span></div>
+
+  <p class="para rdfs-comment">
+   Creates an <span class="classname"><a class="classname" href="class.intlcalendar.html">IntlCalendar</a></span> object either from a
+   <span class="classname"><a class="classname" href="class.datetime.html">DateTime</a></span> object or from a string from which a
+   <span class="classname"><a class="classname" href="class.datetime.html">DateTime</a></span> object can be built.
+  </p>
+  <p class="para">
+   The new calendar will represent not only the same instant as the
+   given <span class="classname"><a class="classname" href="class.datetime.html">DateTime</a></span> (subject to precision loss for dates
+   very far into the past or future), but also the same timezone (subject to
+   the caveat that different timezone databases will be used, and therefore
+   the results may differ).
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-intlcalendar.fromdatetime-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">datetime</code></dt>
+
+    <dd>
+
+     <p class="para">
+      A <span class="classname"><a class="classname" href="class.datetime.html">DateTime</a></span> object or a <span class="type">string</span> that
+      can be passed to <span class="function"><a class="function" href="datetime.construct.html">DateTime::__construct()</a></span>.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-intlcalendar.fromdatetime-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   The created <span class="classname"><a class="classname" href="class.intlcalendar.html">IntlCalendar</a></span> object or <strong><code>null</code></strong> in case of
+   failure. If a <span class="type">string</span> is passed, any exception that occurs
+   inside the <span class="classname"><a class="classname" href="class.datetime.html">DateTime</a></span> constructor is propagated.
+  </p>
+ </div>
+
+
+
+ <div class="refsect1 examples" id="refsect1-intlcalendar.fromdatetime-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2338">
+   <p><strong>示例 #1 <span class="function"><strong>IntlCalendar::fromDateTime()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>ini_set</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'date.timezone'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Europe/Lisbon'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//same&nbsp;as&nbsp;IntlCalendar::fromDateTime(new&nbsp;DateTime(...))<br></span><span style="color: rgb(0, 0, 187);">$cal1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlCalendar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">fromDateTime</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'2013-02-28&nbsp;00:01:02&nbsp;Europe/Berlin'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//Note&nbsp;the&nbsp;timezone&nbsp;is&nbsp;Europe/Berlin,&nbsp;not&nbsp;the&nbsp;default&nbsp;Europe/Lisbon<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlDateFormatter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">formatObject</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$cal1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'yyyy&nbsp;MMMM&nbsp;d&nbsp;HH:mm:ss&nbsp;VVVV'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'de_DE'</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>2013 Februar 28 00:01:02 Deutschland Zeit
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

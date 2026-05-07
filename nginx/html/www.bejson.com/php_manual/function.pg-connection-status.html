@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>获得连接状态-BeJSON.com</title><meta name="keywords" content="获得连接状态"><meta name="description" content="pg_connection_status(PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8)pg_connection_status — 获得连接状态 说明pg_connection_status(resource $connection): intpg_connection_">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.pg-connection-reset.html">« pg_connection_reset</a></li>
+      <li style="float: right;"><a href="function.pg-consume-input.html">pg_consume_input »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.pgsql.html">PostgreSQL 函数</a></li>
+    <li>获得连接状态</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.pg-connection-status">
+   <div class="refnamediv">
+    <h1 class="refname">pg_connection_status</h1>
+    <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_connection_status</span> — <span class="dc-title">
+     获得连接状态
+    </span></p>
+
+   </div>
+   <div class="refsect1 unknown-seealsp" id="refsect1-function.pg-connection-status-unknown-seealsp">
+    <h3 class="title">说明</h3>
+    <div class="methodsynopsis dc-description">
+     <span class="methodname"><strong>pg_connection_status</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>): <span class="type">int</span></div>
+
+    <p class="para rdfs-comment">
+     <span class="function"><strong>pg_connection_status()</strong></span> 返回一个连接的状态。可能的状态为
+     <code class="literal">PGSQL_CONNECTION_OK</code> 和 <code class="literal">PGSQL_CONNECTION_BAD</code>。
+    </p>
+    <p class="para">
+     <div class="example" id="example-1871">
+      <p><strong>示例 #1 <span class="function"><strong>pg_connection_status()</strong></span> 例子</strong></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>&nbsp;&nbsp;&nbsp;&nbsp;$dbconn&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">pg_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"dbname=publisher"</span><span style="color: rgb(0, 119, 0);">)&nbsp;or&nbsp;die(</span><span style="color: rgb(221, 0, 0);">"Could&nbsp;not&nbsp;connect"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$stat&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">pg_connection_status</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$dbconn</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'connection_status:&nbsp;'</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(0, 0, 187);">$stat</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    <p></p>
+    <p class="para">
+     <div class="example" id="example-1872">
+      <p><strong>示例 #2 <span class="function"><strong>pg_connection_status()</strong></span> 例子</strong></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>&nbsp;&nbsp;&nbsp;&nbsp;$dbconn&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">pg_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"dbname=publisher"</span><span style="color: rgb(0, 119, 0);">)&nbsp;or&nbsp;die(</span><span style="color: rgb(221, 0, 0);">"Could&nbsp;not&nbsp;connect"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$stat&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">pg_connection_status</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$dbconn</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'connection_status:&nbsp;'</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(0, 0, 187);">$stat</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    <p></p>
+    <p class="para">
+     参见 <span class="function"><a class="function" href="function.pg-connection-busy.html">pg_connection_busy()</a></span>。
+    </p>
+   </div>
+
+  </div></div></div></body></html>

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Construct-BeJSON.com</title><meta name="keywords" content="Construct"><meta name="description" content="ReflectionParameter::__construct(PHP 5, PHP 7, PHP 8)ReflectionParameter::__construct — Construct说明public ReflectionParameter::__construct(string|arra">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="reflectionparameter.clone.html">« ReflectionParameter::__clone</a></li>
+      <li style="float: right;"><a href="reflectionparameter.export.html">ReflectionParameter::export »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.reflectionparameter.html">ReflectionParameter</a></li>
+    <li>Construct</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="reflectionparameter.construct">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionParameter::__construct</h1>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionParameter::__construct</span> — <span class="dc-title">Construct</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionparameter.construct-description">
+  <h3 class="title">说明</h3>
+  <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionParameter::__construct</strong></span>(<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$function</code></span>, <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$param</code></span>)</div>
+
+  <p class="para rdfs-comment">
+   Constructs a <span class="classname"><a class="classname" href="class.reflectionparameter.html">ReflectionParameter</a></span> instance.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionparameter.construct-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">function</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The function to reflect parameters from.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">param</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Either an <span class="type">int</span> specifying the position of the parameter (starting with
+       zero), or the parameter name as <span class="type">string</span>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-reflectionparameter.construct-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-5049">
+    <p><strong>示例 #1 Using the <span class="classname"><a class="classname" href="class.reflectionparameter.html">ReflectionParameter</a></span> class</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$c</span><span style="color: rgb(0, 119, 0);">)&nbsp;{&nbsp;}<br>function&nbsp;</span><span style="color: rgb(0, 0, 187);">bar</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Exception&nbsp;$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;&amp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$c</span><span style="color: rgb(0, 119, 0);">)&nbsp;{&nbsp;}<br>function&nbsp;</span><span style="color: rgb(0, 0, 187);">baz</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">ReflectionFunction&nbsp;$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$b&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$c&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">)&nbsp;{&nbsp;}<br>function&nbsp;</span><span style="color: rgb(0, 0, 187);">abc</span><span style="color: rgb(0, 119, 0);">()&nbsp;{&nbsp;}<br><br></span><span style="color: rgb(0, 0, 187);">$reflect&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">ReflectionFunction</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'foo'</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$reflect</span><span style="color: rgb(0, 119, 0);">;<br><br>foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$reflect</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getParameters</span><span style="color: rgb(0, 119, 0);">()&nbsp;as&nbsp;</span><span style="color: rgb(0, 0, 187);">$i&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$param</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">printf</span><span style="color: rgb(0, 119, 0);">(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"--&nbsp;Parameter&nbsp;#%d:&nbsp;%s&nbsp;{\n"</span><span style="color: rgb(0, 119, 0);">.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"&nbsp;&nbsp;&nbsp;Class:&nbsp;%s\n"</span><span style="color: rgb(0, 119, 0);">.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"&nbsp;&nbsp;&nbsp;Allows&nbsp;NULL:&nbsp;%s\n"</span><span style="color: rgb(0, 119, 0);">.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"&nbsp;&nbsp;&nbsp;Passed&nbsp;to&nbsp;by&nbsp;reference:&nbsp;%s\n"</span><span style="color: rgb(0, 119, 0);">.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"&nbsp;&nbsp;&nbsp;Is&nbsp;optional?:&nbsp;%s\n"</span><span style="color: rgb(0, 119, 0);">.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"}\n"</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;$param-&gt;getPosition()&nbsp;can&nbsp;be&nbsp;used<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$param</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getName</span><span style="color: rgb(0, 119, 0);">(),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_export</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$param</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getClass</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_export</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$param</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">allowsNull</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_export</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$param</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isPassedByReference</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$param</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isOptional</span><span style="color: rgb(0, 119, 0);">()&nbsp;?&nbsp;</span><span style="color: rgb(221, 0, 0);">'yes'&nbsp;</span><span style="color: rgb(0, 119, 0);">:&nbsp;</span><span style="color: rgb(221, 0, 0);">'no'<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Function [ &lt;user&gt; function foo ] {
+  @@ /Users/philip/cvs/phpdoc/a 2 - 2
+
+  - Parameters [3] {
+    Parameter #0 [ &lt;required&gt; $a ]
+    Parameter #1 [ &lt;required&gt; $b ]
+    Parameter #2 [ &lt;required&gt; $c ]
+  }
+}
+-- Parameter #0: a {
+   Class: NULL
+   Allows NULL: true
+   Passed to by reference: false
+   Is optional?: no
+}
+-- Parameter #1: b {
+   Class: NULL
+   Allows NULL: true
+   Passed to by reference: false
+   Is optional?: no
+}
+-- Parameter #2: c {
+   Class: NULL
+   Allows NULL: true
+   Passed to by reference: false
+   Is optional?: no
+}
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-reflectionparameter.construct-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getparameters.html" rel="rdfs-seeAlso">ReflectionFunctionAbstract::getParameters()</a> - 获取参数</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="reflectionfunction.construct.html" rel="rdfs-seeAlso">ReflectionFunction::__construct()</a> - Constructs a ReflectionFunction object</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="reflectionmethod.construct.html" rel="rdfs-seeAlso">ReflectionMethod::__construct()</a> - ReflectionMethod 的构造函数</span></li>
+    <li class="member"><a class="link" href="language.oop5.decon.html#language.oop5.decon.constructor">Constructors</a></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

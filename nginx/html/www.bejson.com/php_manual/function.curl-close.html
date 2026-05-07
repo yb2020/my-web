@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>关闭 cURL 会话-BeJSON.com</title><meta name="keywords" content="关闭 cURL 会话"><meta name="description" content="curl_close(PHP 4 >= 4.0.2, PHP 5, PHP 7, PHP 8)curl_close — 关闭 cURL 会话说明curl_close(resource $ch): void关闭 cURL 会话并且释放所有资源。cURL 句柄 ch 也会被删除。 参数handle 由 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="ref.curl.html">« cURL 函数</a></li>
+      <li style="float: right;"><a href="function.curl-copy-handle.html">curl_copy_handle »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.curl.html">cURL 函数</a></li>
+    <li>关闭 cURL 会话</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.curl-close">
+ <div class="refnamediv">
+  <h1 class="refname">curl_close</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">curl_close</span> — <span class="dc-title">关闭 cURL 会话</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.curl-close-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>curl_close</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$ch</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+  <p class="para rdfs-comment">
+   关闭 cURL 会话并且释放所有资源。cURL 句柄 <code class="parameter">ch</code> 也会被删除。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.curl-close-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    <dt>
+<code class="parameter">handle</code>
+</dt>
+<dd>
+<p class="para">由 <span class="function"><a class="function" href="function.curl-init.html">curl_init()</a></span> 返回的 cURL 句柄。</p></dd>
+
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.curl-close-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   没有返回值。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.curl-close-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4088">
+    <p><strong>示例 #1 初始化新的 cURL 会话，并获取一张网页</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;创建一个新cURL资源<br></span><span style="color: rgb(0, 0, 187);">$ch&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">curl_init</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;设置URL和相应的选项<br></span><span style="color: rgb(0, 0, 187);">curl_setopt</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ch</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">CURLOPT_URL</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"http://www.example.com/"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">curl_setopt</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ch</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">CURLOPT_HEADER</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;抓取URL并把它传递给浏览器<br></span><span style="color: rgb(0, 0, 187);">curl_exec</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ch</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;关闭cURL资源，并且释放系统资源<br></span><span style="color: rgb(0, 0, 187);">curl_close</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$ch</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.curl-close-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.curl-init.html" rel="rdfs-seeAlso">curl_init()</a> - 初始化 cURL 会话</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.curl-multi-close.html" rel="rdfs-seeAlso">curl_multi_close()</a> - 关闭一组cURL句柄</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

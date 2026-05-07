@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>返回与时区相关的定位信息。-BeJSON.com</title><meta name="keywords" content="返回与时区相关的定位信息。"><meta name="description" content="面向对象风格">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="datetimezone.construct.html">« DateTimeZone::__construct</a></li>
+      <li style="float: right;"><a href="datetimezone.getname.html">DateTimeZone::getName »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.datetimezone.html">DateTimeZone</a></li>
+    <li>返回与时区相关的定位信息。</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="datetimezone.getlocation">
+ <div class="refnamediv">
+  <h1 class="refname">DateTimeZone::getLocation</h1>
+  <h1 class="refname">timezone_location_get</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTimeZone::getLocation</span> -- <span class="refname">timezone_location_get</span> — <span class="dc-title">返回与时区相关的定位信息。</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-datetimezone.getlocation-description">
+  <h3 class="title">说明</h3>
+  <p class="para">面向对象风格</p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>DateTimeZone::getLocation</strong></span>(): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">过程化风格</p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><a class="methodname" href="function.timezone-location-get.html">timezone_location_get</a></span>(<span class="methodparam"><span class="type"><a class="type DateTimeZone" href="class.datetimezone.html">DateTimeZone</a></span> <code class="parameter">$object</code></span>): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   返回与时区相关的定位信息，包括国家代码，纬度/经度和解释。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-datetimezone.getlocation-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    <dt>
+
+<code class="parameter">object</code></dt>
+<dd>
+<p class="para">仅过程化风格：由 <span class="function"><a class="function" href="function.timezone-open.html">timezone_open()</a></span> 返回的
+<span class="classname"><a class="classname" href="class.datetimezone.html">DateTimeZone</a></span> 对象。</p></dd>
+
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-datetimezone.getlocation-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   数组，包含与时区相关的定位信息。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-datetimezone.getlocation-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2010">
+    <p><strong>示例 #1 <span class="function"><strong>DateTimeZone::getLocation()</strong></span> 函数的范例：</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$tz&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DateTimeZone</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Europe/Prague"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$tz</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getLocation</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">timezone_location_get</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$tz</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [country_code] =&gt; CZ
+    [latitude] =&gt; 50.08333
+    [longitude] =&gt; 14.43333
+    [comments] =&gt; 
+)
+Array
+(
+    [country_code] =&gt; CZ
+    [latitude] =&gt; 50.08333
+    [longitude] =&gt; 14.43333
+    [comments] =&gt; 
+)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

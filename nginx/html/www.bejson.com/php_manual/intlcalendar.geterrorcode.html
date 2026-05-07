@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get last error code on the object-BeJSON.com</title><meta name="keywords" content="Get last error code on the object"><meta name="description" content="面向对象风格 (method):">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="intlcalendar.getdayofweektype.html">« IntlCalendar::getDayOfWeekType</a></li>
+      <li style="float: right;"><a href="intlcalendar.geterrormessage.html">IntlCalendar::getErrorMessage »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.intlcalendar.html">IntlCalendar</a></li>
+    <li>Get last error code on the object</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="intlcalendar.geterrorcode">
+ <div class="refnamediv">
+  <h1 class="refname">IntlCalendar::getErrorCode</h1>
+  <h1 class="refname">intlcal_get_error_code</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8, PECL &gt;= 3.0.0a1)</p><p class="refpurpose"><span class="refname">IntlCalendar::getErrorCode</span> -- <span class="refname">intlcal_get_error_code</span> — <span class="dc-title">Get last error code on the object</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-intlcalendar.geterrorcode-description">
+  <h3 class="title">说明</h3>
+  <p class="para">面向对象风格 (method):</p>
+   <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>IntlCalendar::getErrorCode</strong></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">过程化风格:</p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>intlcal_get_error_code</strong></span>(<span class="methodparam"><span class="type"><a class="type IntlCalendar" href="class.intlcalendar.html">IntlCalendar</a></span> <code class="parameter">$calendar</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+   Returns the numeric ICU error code for the last call on this object
+   (including cloning) or the <span class="classname"><a class="classname" href="class.intlcalendar.html">IntlCalendar</a></span> given for
+   the <code class="parameter">calendar</code> parameter (in the procedural‒style
+   version). This may indicate only a warning (negative error code) or no
+   error at all (<strong><code>U_ZERO_ERROR</code></strong>). The actual presence of an
+   error can be tested with <span class="function"><a class="function" href="function.intl-is-failure.html">intl_is_failure()</a></span>.
+  </p>
+  <p class="para">
+   Invalid arguments detected on the PHP side (before invoking functions of the
+   ICU library) are not recorded for the purposes of this function.
+  </p>
+  <p class="para">
+   The last error that occurred in any call to a function of the intl
+   extension, including early argument errors, can be obtained with
+   <span class="function"><a class="function" href="function.intl-get-error-code.html">intl_get_error_code()</a></span>. This function resets the global
+   error code, but not the objectʼs error code.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-intlcalendar.geterrorcode-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">calendar</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The calendar object, on the procedural style interface.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-intlcalendar.geterrorcode-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   An ICU error code indicating either success, failure or a warning.
+   Returns <strong><code>false</code></strong> on failure.
+  </p>
+ </div>
+
+
+
+ <div class="refsect1 examples" id="refsect1-intlcalendar.geterrorcode-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2343">
+   <p><strong>示例 #1 <span class="function"><strong>IntlCalendar::getErrorCode()</strong></span> and
+   <span class="function"><a class="function" href="intlcalendar.geterrormessage.html">IntlCalendar::getErrorMessage()</a></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>ini_set</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"intl.error_level"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">E_WARNING</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">ini_set</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"intl.default_locale"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"nl"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$intlcal&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlGregorianCalendar</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">2012</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">29</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$intlcal</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getErrorCode</span><span style="color: rgb(0, 119, 0);">(),<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$intlcal</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getErrorMessage</span><span style="color: rgb(0, 119, 0);">()<br>);<br></span><span style="color: rgb(0, 0, 187);">$intlcal</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">fieldDifference</span><span style="color: rgb(0, 119, 0);">(-</span><span style="color: rgb(0, 0, 187);">1e100</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlCalendar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">FIELD_SECOND</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$intlcal</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getErrorCode</span><span style="color: rgb(0, 119, 0);">(),<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$intlcal</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getErrorMessage</span><span style="color: rgb(0, 119, 0);">()<br>);</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>int(0)
+string(12) "U_ZERO_ERROR"
+
+Warning: IntlCalendar::fieldDifference(): intlcal_field_difference: Call to ICU method has failed in /home/glopes/php/ws/example.php on line 10
+int(1)
+string(81) "intlcal_field_difference: Call to ICU method has failed: U_ILLEGAL_ARGUMENT_ERROR"
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-intlcalendar.geterrorcode-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="intlcalendar.geterrormessage.html" rel="rdfs-seeAlso">IntlCalendar::getErrorMessage()</a> - Get last error message on the object</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="function.intl-is-failure.html" rel="rdfs-seeAlso">intl_is_failure()</a> - Check whether the given error code indicates failure</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="function.intl-error-name.html" rel="rdfs-seeAlso">intl_error_name()</a> - Get symbolic name for a given error code</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="function.intl-get-error-code.html" rel="rdfs-seeAlso">intl_get_error_code()</a> - Get the last error code</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="function.intl-get-error-message.html" rel="rdfs-seeAlso">intl_get_error_message()</a> - Get description of the last error</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

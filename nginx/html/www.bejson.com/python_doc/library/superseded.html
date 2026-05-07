@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>被取代的模块-BeJSON.com</title><meta name="keywords" content="被取代的模块"><meta name="description" content="Unix syslog 库例程"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="aifc --- 读写 AIFF 和 AIFC 文件" href="aifc.html" rel="next">
+    <link title="Unix syslog 库例程" href="syslog.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/superseded.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="syslog.html">Unix syslog 库例程</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="aifc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aifc</span></code> --- 读写 AIFF 和 AIFC 文件</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="aifc --- 读写 AIFF 和 AIFC 文件" accesskey="N" href="aifc.html">下一页</a> |</li>
+        <li class="right">
+          <a title="Unix syslog 库例程" accesskey="P" href="syslog.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a accesskey="U" href="index.html">Python 标准库</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">被取代的模块</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="superseded-modules">
+<span id="superseded"></span><h1>被取代的模块<a title="永久链接至标题" class="headerlink" href="#superseded-modules">¶</a></h1>
+<p>本章中描述的模块均已弃用，仅保留用于向后兼容。 它们已经被其他模块所取代。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aifc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aifc</span></code> --- 读写 AIFF 和 AIFC 文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="asynchat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asynchat</span></code> --- 异步套接字指令/响应处理程序</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="asynchat.html#asynchat-example">asynchat 示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="asyncore.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncore</span></code> --- 异步套接字处理器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="asyncore.html#asyncore-example-basic-http-client">asyncore 示例基本 HTTP 客户端</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asyncore.html#asyncore-example-basic-echo-server">asyncore 示例基本回显服务器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="audioop.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">audioop</span></code> --- 处理原始音频数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgi.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cgi</span></code> --- 通用网关接口支持</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cgi.html#introduction">概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgi.html#using-the-cgi-module">使用 cgi 模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgi.html#higher-level-interface">更高层级的接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgi.html#functions">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgi.html#caring-about-security">对于安全性的关注</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgi.html#installing-your-cgi-script-on-a-unix-system">在 Unix 系统上安装你的 CGI 脚本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgi.html#testing-your-cgi-script">测试你的 CGI 脚本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgi.html#debugging-cgi-scripts">调试 CGI 脚本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgi.html#common-problems-and-solutions">常见问题和解决方案</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cgitb.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cgitb</span></code> --- 用于 CGI 脚本的回溯管理器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chunk.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">chunk</span></code> --- 读取 IFF 分块数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crypt.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">crypt</span></code> —— 验证 Unix 口令的函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="crypt.html#hashing-methods">哈希方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crypt.html#module-attributes">模块属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crypt.html#module-functions">模块函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crypt.html#examples">例子</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="imghdr.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imghdr</span></code> --- 推测图像类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imp.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">imp</span></code> —— 由代码内部访问 <span class="xref std std-ref">import</span> 。</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="imp.html#examples">例子</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mailcap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mailcap</span></code> --- Mailcap 文件处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msilib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">msilib</span></code> --- Read and write Microsoft Installer files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="msilib.html#database-objects">Database Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msilib.html#view-objects">View Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msilib.html#summary-information-objects">Summary Information Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msilib.html#record-objects">Record Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msilib.html#errors">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msilib.html#cab-objects">CAB Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msilib.html#directory-objects">Directory Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msilib.html#features">相关特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msilib.html#gui-classes">GUI classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msilib.html#precomputed-tables">Precomputed tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nis.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nis</span></code> --- Sun 的 NIS (黄页) 接口</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nntplib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nntplib</span></code> --- NNTP 协议客户端</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nntplib.html#nntp-objects">NNTP 对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nntplib.html#attributes">属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nntplib.html#methods">方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nntplib.html#utility-functions">工具函数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optparse.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code> --- 解析器的命令行选项</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optparse.html#background">背景</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#terminology">术语</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#what-are-options-for">What are options for?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#what-are-positional-arguments-for">位置位置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optparse.html#tutorial">教程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#understanding-option-actions">Understanding option actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#the-store-action">The store action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#handling-boolean-flag-options">Handling boolean (flag) options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#other-actions">Other actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#default-values">默认值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#generating-help">Generating help</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="optparse.html#grouping-options">Grouping Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#printing-a-version-string">Printing a version string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#how-optparse-handles-errors">How <code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code> handles errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#putting-it-all-together">Putting it all together</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optparse.html#reference-guide">参考指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#creating-the-parser">创建解析器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#populating-the-parser">填充解析器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#defining-options">定义选项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#option-attributes">Option attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#standard-option-actions">Standard option actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#standard-option-types">Standard option types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#parsing-arguments">解析参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#querying-and-manipulating-your-option-parser">Querying and manipulating your option parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#conflicts-between-options">Conflicts between options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#cleanup">清理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#other-methods">Other methods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optparse.html#option-callbacks">Option Callbacks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#defining-a-callback-option">Defining a callback option</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#how-callbacks-are-called">How callbacks are called</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#raising-errors-in-a-callback">Raising errors in a callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#callback-example-1-trivial-callback">Callback example 1: trivial callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#callback-example-2-check-option-order">Callback example 2: check option order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#callback-example-3-check-option-order-generalized">Callback example 3: check option order (generalized)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#callback-example-4-check-arbitrary-condition">Callback example 4: check arbitrary condition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#callback-example-5-fixed-arguments">Callback example 5: fixed arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#callback-example-6-variable-arguments">Callback example 6: variable arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optparse.html#extending-optparse">Extending <code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#adding-new-types">Adding new types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#adding-new-actions">Adding new actions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ossaudiodev.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ossaudiodev</span></code>  --- 访问兼容OSS的音频设备</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ossaudiodev.html#audio-device-objects">音频设备对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ossaudiodev.html#mixer-device-objects">混音器设备对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipes.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pipes</span></code> --- 终端管道接口</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipes.html#template-objects">模板对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="smtpd.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smtpd</span></code> --- SMTP 服务器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="smtpd.html#smtpserver-objects">SMTPServer 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtpd.html#debuggingserver-objects">DebuggingServer 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtpd.html#pureproxy-objects">PureProxy 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtpd.html#smtpchannel-objects">SMTPChannel 对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sndhdr.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sndhdr</span></code> --- 推测声音文件的类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spwd.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spwd</span></code> —— shadow 密码库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sunau.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sunau</span></code> --- 读写 Sun AU 文件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sunau.html#au-read-objects">AU_read 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sunau.html#au-write-objects">AU_write 对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="telnetlib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">telnetlib</span></code> -- Telnet 客户端</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="telnetlib.html#telnet-objects">Telnet 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="telnetlib.html#telnet-example">Telnet 示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="uu.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">uu</span></code> --- 对 uuencode 文件进行编码与解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xdrlib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xdrlib</span></code> --- 编码与解码 XDR 数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="xdrlib.html#packer-objects">Packer 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xdrlib.html#unpacker-objects">Unpacker 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xdrlib.html#exceptions">异常</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="syslog.html">Unix syslog 库例程</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="aifc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aifc</span></code> --- 读写 AIFF 和 AIFC 文件</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="aifc --- 读写 AIFF 和 AIFC 文件" href="aifc.html">下一页</a> |</li>
+        <li class="right">
+          <a title="Unix syslog 库例程" href="syslog.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">被取代的模块</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

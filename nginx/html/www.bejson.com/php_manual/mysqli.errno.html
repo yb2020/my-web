@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>返回最近函数调用的错误代码-BeJSON.com</title><meta name="keywords" content="返回最近函数调用的错误代码"><meta name="description" content="面向对象风格">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mysqli.dump-debug-info.html">« mysqli::dump_debug_info</a></li>
+      <li style="float: right;"><a href="mysqli.error-list.html">mysqli::$error_list »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mysqli.html">MySQLi</a></li>
+    <li>返回最近函数调用的错误代码</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="mysqli.errno">
+ <div class="refnamediv">
+  <h1 class="refname">mysqli::errno</h1>
+  <h1 class="refname">mysqli_errno</h1>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mysqli::errno</span> -- <span class="refname">mysqli_errno</span> — <span class="dc-title">返回最近函数调用的错误代码</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mysqli.errno-description">
+  <h3 class="title">说明</h3>
+  <p class="para">面向对象风格</p>
+  <div class="classsynopsis">
+   <div class="ooclass"></div>
+   <div class="fieldsynopsis"><span class="type">int</span> <var class="varname">$<var class="varname">errno</var></var>;</div>
+
+  </div>
+  <p class="para">过程化风格</p>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>mysqli_errno</strong></span>(<span class="methodparam"><span class="type"><a class="type mysqli" href="class.mysqli.html">mysqli</a></span> <code class="parameter">$link</code></span>): <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+  返回最近的mysqli函数调用产生的错误代码.
+  </p>
+  <p class="para">
+  客户端错误在Mysql<var class="filename">errmsg.h</var>头文件中列出,
+  服务端错误好在<var class="filename">mysqld_error.h</var>中列出.
+  在mysql源码分发包中的<var class="filename">Docs/mysqld_error.txt</var>你可以发现一个完整的错误消息和错误号.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-mysqli.errno-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    <dt>
+
+<code class="parameter">mysql</code></dt>
+<dd>
+<p class="para">仅以过程化样式：由<span class="function"><a class="function" href="function.mysqli-connect.html">mysqli_connect()</a></span> 或 <span class="function"><a class="function" href="mysqli.init.html">mysqli_init()</a></span>
+返回的 <span class="classname"><a class="classname" href="class.mysqli.html">mysqli</a></span> 对象。</p></dd>
+
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mysqli.errno-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+  最后一次调用产生的错误代码, 返回0代表没有错误发生.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-mysqli.errno-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-1431">
+   <p><strong>示例 #1 <var class="varname">mysqli-&gt;errno</var> example</strong></p>
+   <div class="example-contents"><p>面向对象风格</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$mysqli&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"localhost"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"my_user"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"my_password"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"world"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;检查连接&nbsp;*/<br></span><span style="color: rgb(0, 119, 0);">if&nbsp;(</span><span style="color: rgb(0, 0, 187);">mysqli_connect_errno</span><span style="color: rgb(0, 119, 0);">())&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">printf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Connect&nbsp;failed:&nbsp;%s\n"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli_connect_error</span><span style="color: rgb(0, 119, 0);">());<br>&nbsp;&nbsp;&nbsp;&nbsp;exit();<br>}<br><br>if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"SET&nbsp;a=1"</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">printf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Errorcode:&nbsp;%d\n"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">errno</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;关闭连接&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">$mysqli</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">close</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>过程化风格</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$link&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"localhost"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"my_user"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"my_password"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"world"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;检查连接&nbsp;*/<br></span><span style="color: rgb(0, 119, 0);">if&nbsp;(</span><span style="color: rgb(0, 0, 187);">mysqli_connect_errno</span><span style="color: rgb(0, 119, 0);">())&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">printf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Connect&nbsp;failed:&nbsp;%s\n"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli_connect_error</span><span style="color: rgb(0, 119, 0);">());<br>&nbsp;&nbsp;&nbsp;&nbsp;exit();<br>}<br><br>if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">mysqli_query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"SET&nbsp;a=1"</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">printf</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Errorcode:&nbsp;%d\n"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">mysqli_errno</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">));<br>}<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;关闭连接&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">mysqli_close</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$link</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>Errorcode: 1193
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mysqli.errno-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="mysqli.connect-errno.html" rel="rdfs-seeAlso">mysqli_connect_errno()</a> - Returns the error code from last connect call</span></li>
+    <li class="member"><span class="function"><a class="function" href="mysqli.connect-error.html" rel="rdfs-seeAlso">mysqli_connect_error()</a> - Returns a description of the last connection error</span></li>
+    <li class="member"><span class="function"><a class="function" href="mysqli.error.html" rel="rdfs-seeAlso">mysqli_error()</a> - Returns a string description of the last error</span></li>
+    <li class="member"><span class="function"><a class="function" href="mysqli.sqlstate.html" rel="rdfs-seeAlso">mysqli_sqlstate()</a> - 返回上一次 SQL 操作的 SQLSTATE 错误信息</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+ 
+</div></div></div></body></html>

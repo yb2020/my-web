@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>返回 log(1 + number)，甚至当 number 的值接近零也能计算出准确结果-BeJSON.com</title><meta name="keywords" content="返回 log(1 + number)，甚至当 number 的值接近零也能计算出准确结果"><meta name="description" content="log1p(PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8)log1p — 返回 log(1 + number)，甚至当 number 的值接近零也能计算出准确结果 说明log1p(float $number): floatlog1p() 返回 log(1 + number)">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.log10.html">« log10</a></li>
+      <li style="float: right;"><a href="function.log.html">log »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.math.html">Math 函数</a></li>
+    <li>返回 log(1 + number)，甚至当 number 的值接近零也能计算出准确结果</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.log1p">
+   <div class="refnamediv">
+    <h1 class="refname">log1p</h1>
+    <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">log1p</span> — <span class="dc-title">
+     返回 log(1 + number)，甚至当 number 的值接近零也能计算出准确结果
+    </span></p>
+
+   </div>
+ <div class="refsect1 description" id="refsect1-function.log1p-description">
+  <h3 class="title">说明</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="methodname"><strong>log1p</strong></span>(<span class="methodparam"><span class="type">float</span> <code class="parameter">$number</code></span>): <span class="type">float</span></div>
+
+    <p class="para rdfs-comment">
+     <span class="function"><strong>log1p()</strong></span> 返回 log(1 + <code class="parameter">number</code>)，甚至当
+     <code class="parameter">number</code> 的值接近零也能计算出准确结果。
+     <span class="function"><a class="function" href="function.log.html">log()</a></span> might only return log(1) in this case
+   due to lack of precision.
+    </p>
+   </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.log1p-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">number</code></dt>
+
+     <dd>
+
+      <p class="para">
+       要处理的参数
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.log1p-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   log(1 + <code class="parameter">number</code>)
+  </p>
+ </div>
+
+ <div class="refsect1 changelog" id="refsect1-function.log1p-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.3.0</td>
+       <td>
+         此函数在所有平台上均可用
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.log1p-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.expm1.html" rel="rdfs-seeAlso">expm1()</a> - 返回 exp(number) - 1，甚至当 number 的值接近零也能计算出准确结果</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.log.html" rel="rdfs-seeAlso">log()</a> - 自然对数</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.log10.html" rel="rdfs-seeAlso">log10()</a> - 以 10 为底的对数</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+  </div></div></div></body></html>

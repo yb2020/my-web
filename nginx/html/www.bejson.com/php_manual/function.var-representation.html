@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns a short, readable, parsable string representation of a variable-BeJSON.com</title><meta name="keywords" content="Returns a short, readable, parsable string representation of a variable"><meta name="description" content="The variable to generate a representation of. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="ref.var-representation.html">« var_representation 函数</a></li>
+      <li style="float: right;"><a href="refs.remote.other.html">其它服务 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.var-representation.html">var_representation 函数</a></li>
+    <li>Returns a short, readable, parsable string representation of a variable</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.var-representation">
+ <div class="refnamediv">
+  <h1 class="refname">var_representation</h1>
+  <p class="verinfo">(PECL var_representation &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">var_representation</span> — <span class="dc-title">Returns a short, readable, parsable string representation of a variable</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.var-representation-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>var_representation</strong></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>): <span class="type">string</span></div>
+
+  <p class="simpara">
+   <span class="function"><strong>var_representation()</strong></span> (from the var_representation PECL) returns a string with structured information about the 
+   given variable. It is similar to <span class="function"><a class="function" href="function.var-export.html">var_export()</a></span> with differences in indentation, string escaping, and array representations.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.var-representation-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">value</code></dt>
+
+    <dd>
+
+     <p class="para">
+       The variable to generate a representation of.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">flags</code></dt>
+
+    <dd>
+
+     <p class="para">
+       Bitmask consisting of
+       <strong><code>VAR_REPRESENTATION_SINGLE_LINE</code></strong>, 
+       <strong><code>VAR_REPRESENTATION_UNESCAPED</code></strong>.
+       The behaviour of these constants is described on the
+       <a class="link" href="var-representation.constants.html">var_representation constants</a> page.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.var-representation-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns the variable representation.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.var-representation-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4082">
+    <p><strong>示例 #1 <span class="function"><strong>var_representation()</strong></span> Examples</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">,&nbsp;[</span><span style="color: rgb(221, 0, 0);">'key'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'value'</span><span style="color: rgb(0, 119, 0);">]];<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">var_representation</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">var_representation</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">VAR_REPRESENTATION_SINGLE_LINE</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>[
+  1,
+  2,
+  [
+    'key' =&gt; 'value',
+  ],
+]
+[1, 2, ['key' =&gt; 'value']]
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-4083">
+    <p><strong>示例 #2 Escaping control characters</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">var_representation</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"Content-Length:&nbsp;123\r\n"</span><span style="color: rgb(0, 119, 0);">);</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>"Content-Length: 123\r\n"
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-4084">
+    <p><strong>示例 #3 Exporting <span class="classname"><strong class="classname">stdClass</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$person&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">stdClass</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$person</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">name&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'ElePHPant&nbsp;ElePHPantsdotter'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$person</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">website&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'https://php.net/elephpant.php'</span><span style="color: rgb(0, 119, 0);">;<br><br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">var_representation</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$person</span><span style="color: rgb(0, 119, 0);">);</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>(object) [
+  'name' =&gt; 'ElePHPant ElePHPantsdotter',
+  'website' =&gt; 'https://php.net/elephpant.php',
+]
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-4085">
+    <p><strong>示例 #4 Exporting classes</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">A&nbsp;</span><span style="color: rgb(0, 119, 0);">{&nbsp;public&nbsp;</span><span style="color: rgb(0, 0, 187);">$var</span><span style="color: rgb(0, 119, 0);">;&nbsp;}<br></span><span style="color: rgb(0, 0, 187);">$a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">A</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">var&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">var_representation</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>\A::__set_state([
+  'var' =&gt; 5,
+])
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-4086">
+    <p><strong>示例 #5 Using <a class="link" href="language.oop5.magic.html#object.set-state">__set_state()</a></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">A<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: rgb(0, 0, 187);">$var1</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: rgb(0, 0, 187);">$var2</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">__set_state</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$an_array</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$obj&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">A</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">var1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$an_array</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'var1'</span><span style="color: rgb(0, 119, 0);">];<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">var2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$an_array</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'var2'</span><span style="color: rgb(0, 119, 0);">];<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">$obj</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">A</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">var1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">var2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'foo'</span><span style="color: rgb(0, 119, 0);">;<br><br>eval(</span><span style="color: rgb(221, 0, 0);">'$b&nbsp;=&nbsp;'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">var_representation</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">';'</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;$b&nbsp;=&nbsp;\A::__set_state([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;'var1'&nbsp;=&gt;&nbsp;5,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;'var2'&nbsp;=&gt;&nbsp;'foo',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;]);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>object(A)#2 (2) {
+  ["var1"]=&gt;
+  int(5)
+  ["var2"]=&gt;
+  string(3) "foo"
+}
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.var-representation-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.var-export.html" rel="rdfs-seeAlso">var_export()</a> - 输出或返回变量的可解析字符串表示</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

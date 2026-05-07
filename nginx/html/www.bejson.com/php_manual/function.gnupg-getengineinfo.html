@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns the engine info-BeJSON.com</title><meta name="keywords" content="Returns the engine info"><meta name="description" content="gnupg_getengineinfo(PECL gnupg >= 1.5)gnupg_getengineinfo — Returns the engine info说明gnupg_getengineinfo(resource $identifier): array参数identifiergnupg">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.gnupg-export.html">« gnupg_export</a></li>
+      <li style="float: right;"><a href="function.gnupg-geterror.html">gnupg_geterror »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.gnupg.html">GnuPG 函数</a></li>
+    <li>Returns the engine info</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.gnupg-getengineinfo">
+ <div class="refnamediv">
+  <h1 class="refname">gnupg_getengineinfo</h1>
+  <p class="verinfo">(PECL gnupg &gt;= 1.5)</p><p class="refpurpose"><span class="refname">gnupg_getengineinfo</span> — <span class="dc-title">Returns the engine info</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.gnupg-getengineinfo-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>gnupg_getengineinfo</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$identifier</code></span>): <span class="type">array</span></div>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.gnupg-getengineinfo-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">identifier</code></dt>
+
+     <dd>
+
+      <p class="para">gnupg 标识符，由对
+<span class="function"><a class="function" href="function.gnupg-init.html">gnupg_init()</a></span> 或 <span class="classname"><strong class="classname">gnupg</strong></span> 的调用生成。</p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.gnupg-getengineinfo-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns an array with engine info consting of <code class="literal">protocol</code>,
+   <code class="literal">file_name</code> and <code class="literal">home_dir</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.gnupg-getengineinfo-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3094">
+    <p><strong>示例 #1 Procedural <span class="function"><strong>gnupg_getengineinfo()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$res&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">gnupg_init</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">gnupg_getengineinfo</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$res</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>array(3) {
+  ["protocol"]=&gt;
+  int(0)
+  ["file_name"]=&gt;
+  string(12) "/usr/bin/gpg"
+  ["home_dir"]=&gt;
+  string(0) ""
+}
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-3095">
+    <p><strong>示例 #2 OO <span class="function"><strong>gnupg_getengineinfo()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$gpg&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">gnupg</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">"file_name"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">"/usr/bin/gpg2"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"home_dir"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">"/var/www/.gnupg"</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$gpg</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getengineinfo</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>array(3) {
+  ["protocol"]=&gt;
+  int(0)
+  ["file_name"]=&gt;
+  string(13) "/usr/bin/gpg2"
+  ["home_dir"]=&gt;
+  string(15) "/var/www/.gnupg"
+}
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

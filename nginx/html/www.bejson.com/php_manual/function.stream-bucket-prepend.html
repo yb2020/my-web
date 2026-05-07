@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Prepend bucket to brigade-BeJSON.com</title><meta name="keywords" content="Prepend bucket to brigade"><meta name="description" content="brigade is a resource pointing to a bucket brigade which contains one or more bucket objects. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.stream-bucket-new.html">« stream_bucket_new</a></li>
+      <li style="float: right;"><a href="function.stream-context-create.html">stream_context_create »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.stream.html">Stream 函数</a></li>
+    <li>Prepend bucket to brigade</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.stream-bucket-prepend">
+ <div class="refnamediv">
+  <h1 class="refname">stream_bucket_prepend</h1>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">stream_bucket_prepend</span> — <span class="dc-title">
+   Prepend bucket to brigade
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.stream-bucket-prepend-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>stream_bucket_prepend</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$brigade</code></span>, <span class="methodparam"><span class="type">object</span> <code class="parameter">$bucket</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+  <p class="para rdfs-comment">
+    This function can be called to prepend a bucket to a bucket brigade. It
+    is typically called from <span class="methodname"><a class="methodname" href="php-user-filter.filter.html">php_user_filter::filter()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.stream-bucket-prepend-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">brigade</code></dt>
+
+    <dd>
+
+     <p class="para">
+      <code class="parameter">brigade</code> is a resource pointing to a <code class="literal">bucket brigade</code>
+      which contains one or more <code class="literal">bucket</code> objects.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">bucket</code></dt>
+
+    <dd>
+
+     <p class="para">
+      A bucket object.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.stream-bucket-prepend-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   没有返回值。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.stream-bucket-prepend-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3655">
+    <p><strong>示例 #1 <span class="function"><strong>stream_bucket_prepend()</strong></span> examples</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">foo&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">php_user_filter&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;protected&nbsp;</span><span style="color: rgb(0, 0, 187);">$calls&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">filter</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$in</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">,&nbsp;&amp;</span><span style="color: rgb(0, 0, 187);">$consumed</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$closing</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(</span><span style="color: rgb(0, 0, 187);">$bucket&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">stream_bucket_make_writeable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$in</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$consumed&nbsp;</span><span style="color: rgb(0, 119, 0);">+=&nbsp;</span><span style="color: rgb(0, 0, 187);">$bucket</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">datalen</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">calls</span><span style="color: rgb(0, 119, 0);">++&nbsp;==&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;This&nbsp;bucket&nbsp;will&nbsp;appear&nbsp;again&nbsp;before&nbsp;any&nbsp;other&nbsp;bucket.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">stream_bucket_prepend</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$in</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$bucket</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">PSFS_FEED_ME</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;}<br>}<br></span><span style="color: rgb(0, 0, 187);">stream_filter_register</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'test'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'foo'</span><span style="color: rgb(0, 119, 0);">);<br>print&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">file_get_contents</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'php://filter/read=test/resource=foo'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

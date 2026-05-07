@@ -1,0 +1,2441 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>php.ini 配置选项列表-BeJSON.com</title><meta name="keywords" content="php.ini 配置选项列表"><meta name="description" content="可以在 php.ini 中使用下列配置选项对 PHP 进行配置。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="ini.html">« php.ini 配置</a></li>
+      <li style="float: right;"><a href="ini.sections.html">php.ini 配置段列表 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ini.html">php.ini 配置</a></li>
+    <li>php.ini 配置选项列表</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="ini.list">
+  <h1 class="title"><var class="filename">php.ini</var> 配置选项列表</h1>
+  <p class="para">
+   可以在 <var class="filename">php.ini</var> 中使用下列配置选项对 PHP 进行配置。
+  </p>
+  <p class="para">
+   “可修改范围”列决定了该配置选项在什么情况下可以被设置。查看
+   <a class="link" href="configuration.changes.modes.html">配置可被设定范围</a> 列表查看具体定义。
+  </p>
+  <p class="para">
+   <table class="doctable table">
+    <caption><strong>配置选项</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>名字</th>
+       <th>默认</th>
+       <th>可修改范围</th>
+       <th>更新日志</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td><a class="link" href="filesystem.configuration.html#ini.allow-url-fopen">allow_url_fopen</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="filesystem.configuration.html#ini.allow-url-include">allow_url_include</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>从 PHP 7.4.0 开始被废弃。</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.arg-separator.input">arg_separator.input</a></td>
+       <td>"&amp;"</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.arg-separator.output">arg_separator.output</a></td>
+       <td>"&amp;"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="info.configuration.html#ini.assert.active">assert.active</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="info.configuration.html#ini.assert.bail">assert.bail</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="info.configuration.html#ini.assert.callback">assert.callback</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="info.configuration.html#ini.assert.exception">assert.exception</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="info.configuration.html#ini.assert.quiet-eval">assert.quiet_eval</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="info.configuration.html#ini.assert.warning">assert.warning</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.auto-append-file">auto_append_file</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="filesystem.configuration.html#ini.auto-detect-line-endings">auto_detect_line_endings</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.auto-globals-jit">auto_globals_jit</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.auto-prepend-file">auto_prepend_file</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+     <td> <a class="link" href="bc.configuration.html#ini.bcmath.scale">bcmath.scale</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+      <tr>
+       <td><a class="link" href="misc.configuration.html#ini.browscap">browscap</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.cgi.check-shebang-line">cgi.check_shebang_line</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.cgi.discard-path">cgi.discard_path</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.cgi.fix-pathinfo">cgi.fix_pathinfo</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.cgi.force-redirect">cgi.force_redirect</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.cgi.nph">cgi.nph</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.cgi.redirect-status-env">cgi.redirect_status_env</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.cgi.rfc2616-headers">cgi.rfc2616_headers</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="apache.configuration.html#ini.child-terminate">child_terminate</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+      <td><a class="link" href="readline.configuration.html#ini.cli.pager">cli.pager</a></td>
+      <td>""</td>
+      <td>PHP_INI_ALL</td>
+      <td>自 PHP 5.4.0 可用.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="readline.configuration.html#ini.cli.prompt">cli.prompt</a></td>
+      <td>"\\b \\&gt; "</td>
+      <td>PHP_INI_ALL</td>
+      <td>自 PHP 5.4.0 可用.</td>
+     </tr>
+
+      <tr>
+        <td><a class="link" href="features.commandline.ini.html#ini.cli-server.color">cli_server.color</a></td>
+        <td>"0"</td>
+        <td>PHP_INI_ALL</td>
+       </tr>
+
+      <tr>
+     <td> <a class="link" href="com.configuration.html#ini.com.allow-dcom">com.allow_dcom</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="com.configuration.html#ini.com.autoregister-typelib">com.autoregister_typelib</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="com.configuration.html#ini.com.autoregister-verbose">com.autoregister_verbose</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="com.configuration.html#ini.com.autoregister-casesensitive">com.autoregister_casesensitive</a></td>
+     <td>"1"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="com.configuration.html#ini.com.code-page">com.code_page</a></td>
+     <td>""</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="com.configuration.html#ini.com.dotnet-version">com.dotnet_version</a></td>
+     <td>""</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td>As of PHP 8.0.0</td>
+    </tr>
+<tr>
+     <td><a class="link" href="com.configuration.html#ini.com.typelib-file">com.typelib_file</a></td>
+     <td>""</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+      <tr>
+      <td><a class="link" href="curl.configuration.html#ini.curl.cainfo">curl.cainfo</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>自 PHP 5.3.7. 起有效</td>
+     </tr>
+
+      <tr>
+      <td><a class="link" href="datetime.configuration.html#ini.date.default-latitude">date.default_latitude</a></td>
+      <td>"31.7667"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="datetime.configuration.html#ini.date.default-longitude">date.default_longitude</a></td>
+      <td>"35.2333"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="datetime.configuration.html#ini.date.sunrise-zenith">date.sunrise_zenith</a></td>
+      <td>"90.83"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="datetime.configuration.html#ini.date.sunset-zenith">date.sunset_zenith</a></td>
+      <td>"90.83"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="datetime.configuration.html#ini.date.timezone">date.timezone</a></td>
+      <td>""</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+      <tr>
+       <td>
+        <a class="link" href="dba.configuration.html#ini.dba.default_handler">dba.default_handler</a>
+       </td>
+       <td>DBA_DEFAULT</td>
+       <td>PHP_INI_ALL</td>
+       <td></td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.default-charset">default_charset</a></td>
+       <td>"UTF-8"</td>
+       <td>PHP_INI_ALL</td>
+       <td>默认值为 "UTF-8"</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.input-encoding">input_encoding</a></td>
+       <td>""</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.output-encoding">output_encoding</a></td>
+       <td>""</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.internal-encoding">internal_encoding</a></td>
+       <td>""</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.default-mimetype">default_mimetype</a></td>
+       <td>"text/html"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="filesystem.configuration.html#ini.default-socket-timeout">default_socket_timeout</a></td>
+       <td>"60"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.disable-classes">disable_classes</a></td>
+       <td>""</td>
+       <td><var class="filename">php.ini</var> only</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.disable-functions">disable_functions</a></td>
+       <td>""</td>
+       <td><var class="filename">php.ini</var> only</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.display-errors">display_errors</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.display-startup-errors">display_startup_errors</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_ALL</td>
+       <td>
+        在 PHP 8.0.0 之前，默认值是 <code class="literal">"0"</code>。
+       </td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.docref-ext">docref_ext</a></td>
+       <td>""</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.docref-root">docref_root</a></td>
+       <td>""</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.doc-root">doc_root</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="info.configuration.html#ini.enable-dl">enable_dl</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>本过时特性<em class="emphasis">将</em>肯定会在未来被<em class="emphasis">移除</em>。</td>
+      </tr>
+
+       <tr>
+       <td><a class="link" href="ini.core.html#ini.enable-post-data-reading">enable_post_data_reading</a></td>
+       <td>On</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="apache.configuration.html#ini.engine">engine</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.error-append-string">error_append_string</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.error-log">error_log</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.error-prepend-string">error_prepend_string</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.error-reporting">error_reporting</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+     <td><a class="link" href="exif.configuration.html#ini.exif.encode-unicode">exif.encode_unicode</a></td>
+     <td>"ISO-8859-15"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="exif.configuration.html#ini.exif.decode-unicode-motorola">exif.decode_unicode_motorola</a></td>
+     <td>"UCS-2BE"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="exif.configuration.html#ini.exif.decode-unicode-intel">exif.decode_unicode_intel</a></td>
+     <td>"UCS-2LE"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="exif.configuration.html#ini.exif.encode-jis">exif.encode_jis</a></td>
+     <td>""</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="exif.configuration.html#ini.exif.decode-jis-motorola">exif.decode_jis_motorola</a></td>
+     <td>"JIS"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="exif.configuration.html#ini.exif.decode-jis-intel">exif.decode_jis_intel</a></td>
+     <td>"JIS"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.exit-on-timeout">exit_on_timeout</a></td>
+       <td>""</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+      <td><a class="link" href="expect.configuration.html#ini.expect.timeout">expect.timeout</a></td>
+      <td>"10"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="expect.configuration.html#ini.expect.loguser">expect.loguser</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="expect.configuration.html#ini.expect.logfile">expect.logfile</a></td>
+      <td>""</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="expect.configuration.html#ini.expect.match-max">expect.match_max</a></td>
+      <td>""</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.expose-php">expose_php</a></td>
+       <td>"1"</td>
+       <td><var class="filename">php.ini</var> only</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.extension">extension</a></td>
+       <td>NULL</td>
+       <td><var class="filename">php.ini</var> only</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.extension-dir">extension_dir</a></td>
+       <td>"/path/to/php"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.fastcgi.impersonate">fastcgi.impersonate</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.fastcgi.logging">fastcgi.logging</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.file-uploads">file_uploads</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+      <td><a class="link" href="filter.configuration.html#ini.filter.default">filter.default</a></td>
+      <td>"unsafe_raw"</td>
+      <td>PHP_INI_PERDIR</td>
+      <td>Deprecated as of PHP 8.1.0.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="filter.configuration.html#ini.filter.default-flags">filter.default_flags</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_PERDIR</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+      <tr>
+       <td><a class="link" href="filesystem.configuration.html#ini.from">from</a></td>
+       <td>""</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+      <td><a class="link" href="image.configuration.html#ini.gd.jpeg-ignore-warning">gd.jpeg_ignore_warning</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+      <tr>
+            <td><a class="link" href="geoip.configuration.html#ini.geoip.custom-directory">geoip.custom_directory</a></td>
+            <td>""</td>
+            <td>PHP_INI_ALL</td>
+            <td></td>
+          </tr>
+
+
+      <tr>
+       <td>hard_timeout</td>
+       <td>"2"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>PHP 7.1.0 起可用</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="misc.configuration.html#ini.syntax-highlighting">highlight.comment</a></td>
+       <td>"#FF8000"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="misc.configuration.html#ini.syntax-highlighting">highlight.default</a></td>
+       <td>"#0000BB"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="misc.configuration.html#ini.syntax-highlighting">highlight.html</a></td>
+       <td>"#000000"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="misc.configuration.html#ini.syntax-highlighting">highlight.keyword</a></td>
+       <td>"#007700"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="misc.configuration.html#ini.syntax-highlighting">highlight.string</a></td>
+       <td>"#DD0000"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.html-errors">html_errors</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+     <td><a class="link" href="ibase.configuration.html#ini.ibase.allow-persistent">ibase.allow_persistent</a></td>
+     <td>"1"</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="ibase.configuration.html#ini.ibase.max-persistent">ibase.max_persistent</a></td>
+     <td>"-1"</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="ibase.configuration.html#ini.ibase.max-links">ibase.max_links</a></td>
+     <td>"-1"</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="ibase.configuration.html#ini.ibase.default-db">ibase.default_db</a></td>
+     <td>NULL</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="ibase.configuration.html#ini.ibase.default-user">ibase.default_user</a></td>
+     <td>NULL</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="ibase.configuration.html#ini.ibase.default-password">ibase.default_password</a></td>
+     <td>NULL</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="ibase.configuration.html#ini.ibase.default-charset">ibase.default_charset</a></td>
+     <td>NULL</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="ibase.configuration.html#ini.ibase.timestampformat">ibase.timestampformat</a></td>
+     <td>"%Y-%m-%d %H:%M:%S"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="ibase.configuration.html#ini.ibase.dateformat">ibase.dateformat</a></td>
+     <td>"%Y-%m-%d"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="ibase.configuration.html#ini.ibase.timeformat">ibase.timeformat</a></td>
+     <td>"%H:%M:%S"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+      <tr>
+      <td><a class="link" href="ibm-db2.configuration.html#ini.ibm-db2.binmode">ibm_db2.binmode</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="ibm-db2.configuration.html#ini.ibm-db2.i5-all-pconnect">ibm_db2.i5_all_pconnect</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Available since ibm_db2 1.6.5.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="ibm-db2.configuration.html#ini.ibm-db2.i5-allow-commit">ibm_db2.i5_allow_commit</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Available since ibm_db2 1.4.9.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="ibm-db2.configuration.html#ini.ibm-db2.i5-dbcs-alloc">ibm_db2.i5_dbcs_alloc</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Available since ibm_db2 1.5.0.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="ibm-db2.configuration.html#ini.ibm-db2.instance-name">ibm_db2.instance_name</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Available since ibm_db2 1.0.2.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="ibm-db2.configuration.html#ini.ibm-db2.i5-ignore-userid">ibm_db2.i5_ignore_userid</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Available since ibm_db2 1.8.0.</td>
+     </tr>
+
+      <tr>
+      <td><a class="link" href="iconv.configuration.html#ini.iconv.input-encoding">iconv.input_encoding</a></td>
+      <td>""</td>
+      <td>PHP_INI_ALL</td>
+      <td>在 PHP 5.6.0 中废弃。</td>
+     </tr>
+<tr>
+      <td><a class="link" href="iconv.configuration.html#ini.iconv.output-encoding">iconv.output_encoding</a></td>
+      <td>""</td>
+      <td>PHP_INI_ALL</td>
+      <td>在 PHP 5.6.0 中废弃。</td>
+     </tr>
+<tr>
+      <td><a class="link" href="iconv.configuration.html#ini.iconv.internal-encoding">iconv.internal_encoding</a></td>
+      <td>""</td>
+      <td>PHP_INI_ALL</td>
+      <td>在 PHP 5.6.0 中废弃。</td>
+     </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.ignore-repeated-errors">ignore_repeated_errors</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.ignore-repeated-source">ignore_repeated_source</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="misc.configuration.html#ini.ignore-user-abort">ignore_user_abort</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="outcontrol.configuration.html#ini.implicit-flush">implicit_flush</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.include-path">include_path</a></td>
+       <td>".:/path/to/php/pear"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+      <td><a class="link" href="intl.configuration.html#ini.intl.default-locale">intl.default_locale</a></td>
+      <td class="empty">&nbsp;</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="intl.configuration.html#ini.intl.error-level">intl.error_level</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="intl.configuration.html#ini.intl.use-exceptions">intl.use_exceptions</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since PECL 3.0.0a1</td>
+     </tr>
+
+      <tr>
+       <td><a class="link" href="apache.configuration.html#ini.last-modified">last_modified</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+     <td><a class="link" href="ldap.configuration.html#ini.ldap.max_links">ldap.max_links</a></td>
+     <td>"-1"</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.log-errors">log_errors</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.log-errors-max-len">log_errors_max_len</a></td>
+       <td>"1024"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="mail.configuration.html#ini.mail.add-x-header">mail.add_x_header</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td>mail.force_extra_parameters</td>
+       <td>NULL</td>
+       <td><var class="filename">php.ini</var> only</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="mail.configuration.html#ini.mail.log">mail.log</a></td>
+       <td>""</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="info.configuration.html#ini.max-execution-time">max_execution_time</a></td>
+       <td>"30"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="info.configuration.html#ini.max-input-nesting-level">max_input_nesting_level</a></td>
+       <td>"64"</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="info.configuration.html#ini.max-input-vars">max_input_vars</a></td>
+       <td>1000</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="info.configuration.html#ini.max-input-time">max_input_time</a></td>
+       <td>"-1"</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+      <td><a class="link" href="mbstring.configuration.html#ini.mbstring.language">mbstring.language</a></td>
+      <td>"neutral"</td>
+      <td>PHP_INI_ALL</td>
+      <td>
+       PHP_INI_PERDIR 位于 PHP &lt;= 5.2.6
+      </td>
+     </tr>
+<tr>
+      <td><a class="link" href="mbstring.configuration.html#ini.mbstring.detect-order">mbstring.detect_order</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mbstring.configuration.html#ini.mbstring.http-input">mbstring.http_input</a></td>
+      <td>"pass"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mbstring.configuration.html#ini.mbstring.http-output">mbstring.http_output</a></td>
+      <td>"pass"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mbstring.configuration.html#ini.mbstring.internal-encoding">mbstring.internal_encoding</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td>mbstring.script_encoding</td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td>在 PHP 5.4.0. 中移除， 使用 <a class="link" href="ini.core.html#ini.zend.script-encoding">zend.script_encoding</a> 代替。</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mbstring.configuration.html#ini.mbstring.substitute-character">mbstring.substitute_character</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mbstring.configuration.html#ini.mbstring.func-overload">mbstring.func_overload</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>
+       PHP &lt;= 5.2.6 是 PHP_INI_PERDIR。
+       Deprecated as of PHP 7.2.0; removed as of PHP 8.0.0.
+      </td>
+     </tr>
+<tr>
+      <td><a class="link" href="mbstring.configuration.html#ini.mbstring.encoding-translation">mbstring.encoding_translation</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_PERDIR</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mbstring.configuration.html#ini.mbstring.http-output-conv-mimetypes">mbstring.http_output_conv_mimetypes</a></td>
+      <td>"^(text/|application/xhtml\+xml)"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available as of PHP 5.3.0.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mbstring.configuration.html#ini.mbstring.strict-detection">mbstring.strict_detection</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_ALL</td>
+      <td>自 PHP 5.1.2 起有效。</td>
+     </tr>
+
+      <tr>
+     <td><a class="link" href="mcrypt.configuration.html#ini.mcrypt.algorithms-dir">mcrypt.algorithms_dir</a></td>
+     <td><strong><code>null</code></strong></td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="mcrypt.configuration.html#ini.mcrypt.modes-dir">mcrypt.modes_dir</a></td>
+     <td><strong><code>null</code></strong></td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+      <tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.allow-failover">memcache.allow_failover</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since memcache 2.0.2.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.max-failover-attempts">memcache.max_failover_attempts</a></td>
+      <td>"20"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since memcache 2.1.0.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.chunk-size">memcache.chunk_size</a></td>
+      <td>"8192"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since memcache 2.0.2.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.default-port">memcache.default_port</a></td>
+      <td>"11211"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since memcache 2.0.2.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.hash-strategy">memcache.hash_strategy</a></td>
+      <td>"standard"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since memcache 2.2.0.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.hash-function">memcache.hash_function</a></td>
+      <td>"crc32"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Available since memcache 2.2.0.</td>
+     </tr>
+<tr>
+      <td><a class="link" href="session.configuration.html#ini.session.save-handler">session.save_handler</a></td>
+      <td>"files"</td>
+      <td>PHP_INI_ALL</td>
+      <td>Supported since memcache 2.1.2</td>
+     </tr>
+<tr>
+      <td><a class="link" href="session.configuration.html#ini.session.save-path">session.save_path</a></td>
+      <td>""</td>
+      <td>PHP_INI_ALL</td>
+      <td>Supported since memcache 2.1.2</td>
+     </tr>
+<tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.protocol">memcache.protocol</a></td>
+      <td>ascii</td>
+      <td>&gt;PHP_INI_ALL</td>
+      <td>Supported since memcache 3.0.0</td>
+     </tr>
+<tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.redundancy">memcache.redundancy</a></td>
+      <td>1</td>
+      <td>&gt;PHP_INI_ALL</td>
+      <td>Supported since memcache 3.0.0</td>
+     </tr>
+<tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.session-redundancy">memcache.session_redundancy</a></td>
+      <td>2</td>
+      <td>&gt;PHP_INI_ALL</td>
+      <td>Supported since memcache 3.0.0</td>
+     </tr>
+<tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.compress-threshold">memcache.compress_threshold</a></td>
+      <td>20000</td>
+      <td>&gt;PHP_INI_ALL</td>
+      <td>Supported since memcache 3.0.3</td>
+     </tr>
+<tr>
+      <td><a class="link" href="memcache.ini.html#ini.memcache.lock-timeout">memcache.lock_timeout</a></td>
+      <td>15</td>
+      <td>&gt;PHP_INI_ALL</td>
+      <td>Supported since memcache 3.0.4</td>
+     </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.memory-limit">memory_limit</a></td>
+       <td>"128M"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+      <td><a class="link" href="mysql.configuration.html#ini.mysql.allow-local-infile">mysql.allow_local_infile</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysql.configuration.html#ini.mysql.allow-persistent">mysql.allow_persistent</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysql.configuration.html#ini.mysql.max-persistent">mysql.max_persistent</a></td>
+      <td>"-1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysql.configuration.html#ini.mysql.max-links">mysql.max_links</a></td>
+      <td>"-1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysql.configuration.html#ini.mysql.trace-mode">mysql.trace_mode</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_ALL</td>
+      <td>自 PHP 4.3.0 起可用</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysql.configuration.html#ini.mysql.default-port">mysql.default_port</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysql.configuration.html#ini.mysql.default-socket">mysql.default_socket</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td>自 PHP 4.0.1 起可用</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysql.configuration.html#ini.mysql.default-host">mysql.default_host</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysql.configuration.html#ini.mysql.default-user">mysql.default_user</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysql.configuration.html#ini.mysql.default-password">mysql.default_password</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysql.configuration.html#ini.mysql.connect-timeout">mysql.connect_timeout</a></td>
+      <td>"60"</td>
+      <td>PHP_INI_ALL</td>
+      <td>自 PHP 4.3.0 起可用。在 PHP &lt;= 4.3.2 时为 PHP_INI_SYSTEM</td>
+     </tr>
+
+      <tr>
+      <td><a class="link" href="mysqli.configuration.html#ini.mysqli.allow-local-infile">mysqli.allow_local_infile</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>自PHP 5.2.4起可用。在 PHP 7.2.16 和 7.3.3 之前，默认值为 "1"</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqli.configuration.html#ini.mysqli.local-infile-directory">mysqli.local_infile_directory</a></td>
+      <td class="empty">&nbsp;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqli.configuration.html#ini.mysqli.allow-persistent">mysqli.allow_persistent</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>自PHP 5.3.0起可用。</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqli.configuration.html#ini.mysqli.max-persistent">mysqli.max_persistent</a></td>
+      <td>"-1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>自PHP 5.3.0起可用。</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqli.configuration.html#ini.mysqli.max-links">mysqli.max_links</a></td>
+      <td>"-1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqli.configuration.html#ini.mysqli.default-port">mysqli.default_port</a></td>
+      <td>"3306"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqli.configuration.html#ini.mysqli.default-socket">mysqli.default_socket</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqli.configuration.html#ini.mysqli.default-host">mysqli.default_host</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqli.configuration.html#ini.mysqli.default-user">mysqli.default_user</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td>自PHP 5.0.0起可用。</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqli.configuration.html#ini.mysqli.default-pw">mysqli.default_pw</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqli.configuration.html#ini.mysqli.reconnect">mysqli.reconnect</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqli.configuration.html#ini.mysqli.rollback-on-cached-plink">mysqli.rollback_on_cached_plink</a></td>
+      <td>TRUE</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>自 PHP 5.6.0 起可用。</td>
+     </tr>
+
+      <tr>
+      <td><a class="link" href="mysqlnd.config.html#ini.mysqlnd.collect-statistics">mysqlnd.collect_statistics</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqlnd.config.html#ini.mysqlnd.collect-memory-statistics">mysqlnd.collect_memory_statistics</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqlnd.config.html#ini.mysqlnd.debug">mysqlnd.debug</a></td>
+      <td>""</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqlnd.config.html#ini.mysqlnd.log-mask">mysqlnd.log_mask</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqlnd.config.html#ini.mysqlnd.mempool-default-size">mysqlnd.mempool_default_size</a></td>
+      <td>16000</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqlnd.config.html#ini.mysqlnd.net-read-timeout">mysqlnd.net_read_timeout</a></td>
+      <td>"86400"</td>
+      <td>PHP_INI_ALL</td>
+      <td>
+       Before PHP 7.2.0 the default value was "31536000"
+       and the changeability was <strong><code>PHP_INI_SYSTEM</code></strong>
+      </td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqlnd.config.html#ini.mysqlnd.net-cmd-buffer-size">mysqlnd.net_cmd_buffer_size</a></td>
+      <td>"4096"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqlnd.config.html#ini.mysqlnd.net-read-buffer-size">mysqlnd.net_read_buffer_size</a></td>
+      <td>"32768"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="mysqlnd.config.html#ini.mysqlnd.sha256-server-public-key">mysqlnd.sha256_server_public_key</a></td>
+      <td>""</td>
+      <td>PHP_INI_PERDIR</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+       <td><a class="link" href="mysqlnd.config.html#ini.mysqlnd.trace-alloc">mysqlnd.trace_alloc</a></td>
+       <td>""</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+<tr>
+      <td><a class="link" href="mysqlnd.config.html#ini.mysqlnd.fetch_data_copy">mysqlnd.fetch_data_copy</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+      <tr>
+         <td><a class="link" href="oci8.configuration.html#ini.oci8.connection-class">oci8.connection_class</a></td>
+         <td>""</td>
+         <td>PHP_INI_ALL</td>
+         <td>Available since PECL OCI8 1.3.</td>
+        </tr>
+<tr>
+         <td><a class="link" href="oci8.configuration.html#ini.oci8.default-prefetch">oci8.default_prefetch</a></td>
+         <td>"100"</td>
+         <td>PHP_INI_SYSTEM</td>
+         <td>Available since PECL OCI8 1.1.</td>
+        </tr>
+<tr>
+         <td><a class="link" href="oci8.configuration.html#ini.oci8.events">oci8.events</a></td>
+         <td>Off</td>
+         <td>PHP_INI_SYSTEM</td>
+         <td>Available since PECL OCI8 1.3.</td>
+        </tr>
+<tr>
+         <td><a class="link" href="oci8.configuration.html#ini.oci8.max-persistent">oci8.max_persistent</a></td>
+         <td>"-1"</td>
+         <td>PHP_INI_SYSTEM</td>
+         <td>Available since PECL OCI8 1.1.</td>
+        </tr>
+<tr>
+         <td><a class="link" href="oci8.configuration.html#ini.oci8.old-oci-close-semantics">oci8.old_oci_close_semantics</a></td>
+         <td>Off</td>
+         <td>PHP_INI_SYSTEM</td>
+         <td>Available since PECL OCI8 1.1. Deprecated as of PHP 8.1.0.</td>
+        </tr>
+<tr>
+         <td><a class="link" href="oci8.configuration.html#ini.oci8.persistent-timeout">oci8.persistent_timeout</a></td>
+         <td>"-1"</td>
+         <td>PHP_INI_SYSTEM</td>
+         <td>Available since PECL OCI8 1.1.</td>
+        </tr>
+<tr>
+         <td><a class="link" href="oci8.configuration.html#ini.oci8.ping-interval">oci8.ping_interval</a></td>
+         <td>"60"</td>
+         <td>PHP_INI_SYSTEM</td>
+         <td>Available since PECL OCI8 1.1.</td>
+        </tr>
+<tr>
+         <td><a class="link" href="oci8.configuration.html#ini.oci8.prefetch-lob-size">oci8.prefetch_lob_size</a></td>
+         <td>"0"</td>
+         <td>PHP_INI_SYSTEM</td>
+         <td>Available since PECL OCI8 3.2.</td>
+        </tr>
+<tr>
+         <td><a class="link" href="oci8.configuration.html#ini.oci8.privileged-connect">oci8.privileged_connect</a></td>
+         <td>Off</td>
+         <td>PHP_INI_SYSTEM</td>
+         <td>Available since PECL OCI8 1.1.</td>
+        </tr>
+<tr>
+         <td><a class="link" href="oci8.configuration.html#ini.oci8.statement-cache-size">oci8.statement_cache_size</a></td>
+         <td>"20"</td>
+         <td>PHP_INI_SYSTEM</td>
+         <td>Available since PECL OCI8 1.1.</td>
+        </tr>
+
+      <tr>
+      <td><a class="link" href="odbc.configuration.html#ini.uodbc.default-db">odbc.default_db</a> *</td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="odbc.configuration.html#ini.uodbc.default-user">odbc.default_user</a> *</td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="odbc.configuration.html#ini.uodbc.default-pw">odbc.default_pw</a> *</td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="odbc.configuration.html#ini.uodbc.allow-persistent">odbc.allow_persistent</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="odbc.configuration.html#ini.uodbc.check-persistent">odbc.check_persistent</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="odbc.configuration.html#ini.uodbc.max-persistent">odbc.max_persistent</a></td>
+      <td>"-1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="odbc.configuration.html#ini.uodbc.max-links">odbc.max_links</a></td>
+      <td>"-1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="odbc.configuration.html#ini.uodbc.defaultlrl">odbc.defaultlrl</a></td>
+      <td>"4096"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="odbc.configuration.html#ini.uodbc.defaultbinmode">odbc.defaultbinmode</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="odbc.configuration.html#ini.uodbc.defaultcursortype">odbc.default_cursortype</a></td>
+      <td>"3"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+      <tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.enable">opcache.enable</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.enable-cli">opcache.enable_cli</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>在 PHP 7.1.2 至 7.1.6 （含）的版本，默认值是"1"</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.memory-consumption">opcache.memory_consumption</a></td>
+      <td>"128"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>在 PHP 7.0.0 之前，默认值是 "64"</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.interned-strings-buffer">opcache.interned_strings_buffer</a></td>
+      <td>"8"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>在 PHP 7.0.0 之前，默认值是 "4"</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.max-accelerated-files">opcache.max_accelerated_files</a></td>
+      <td>"10000"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>在 PHP 7.0.0 之前，默认值是 "2000"</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.max-wasted-percentage">opcache.max_wasted_percentage</a></td>
+      <td>"5"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.use-cwd">opcache.use_cwd</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.validate-timestamps">opcache.validate_timestamps</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.revalidate-freq">opcache.revalidate_freq</a></td>
+      <td>"2"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.revalidate-path">opcache.revalidate_path</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.save-comments">opcache.save_comments</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.load-comments">opcache.load_comments</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_ALL</td>
+      <td>从 PHP 7.0.0 开始被移除</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.fast-shutdown">opcache.fast_shutdown</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>从 PHP 7.2.0 开始被移除</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.enable-file-override">opcache.enable_file_override</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.optimization-level">opcache.optimization_level</a></td>
+      <td>"0x7FFFBFFF"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>从 PHP 5.6.18 开始，默认值从 0xFFFFFFFF 修改为 0x7FFFBFFF</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.inherited-hack">opcache.inherited_hack</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>自 PHP 7.3.0 被移除</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.dups-fix">opcache.dups_fix</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.blacklist-filename">opcache.blacklist_filename</a></td>
+      <td>""</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.max-file-size">opcache.max_file_size</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.consistency-checks">opcache.consistency_checks</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.force-restart-timeout">opcache.force_restart_timeout</a></td>
+      <td>"180"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.error-log">opcache.error_log</a></td>
+      <td>""</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.log-verbosity-level">opcache.log_verbosity_level</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.preferred-memory-model">opcache.preferred_memory_model</a></td>
+      <td>""</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.protect-memory">opcache.protect_memory</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.mmap-base">opcache.mmap_base</a></td>
+      <td><strong><code>null</code></strong></td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.restrict-api">opcache.restrict_api</a></td>
+      <td>""</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.file_update_protection">opcache.file_update_protection</a></td>
+      <td>"2"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.huge_code_pages">opcache.huge_code_pages</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.lockfile_path">opcache.lockfile_path</a></td>
+      <td>"/tmp"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.opt_debug_level">opcache.opt_debug_level</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.file-cache">opcache.file_cache</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>从 PHP 7.0.0 开始支持</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.file-cache-only">opcache.file_cache_only</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>从 PHP 7.0.0 开始支持</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.file-cache-consistency-checks">opcache.file_cache_consistency_checks</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>从 PHP 7.0.0 开始支持</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.file-cache-fallback">opcache.file_cache_fallback</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>从 PHP 7.0.0 开始支持，仅适用于 Windows 平台</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.validate-permission">opcache.validate_permission</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>从 PHP 7.0.14 开始支持</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.validate-root">opcache.validate_root</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>从 PHP 7.0.14 开始支持</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.preload">opcache.preload</a></td>
+      <td>""</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>从 PHP 7.4.0 开始支持</td>
+     </tr>
+<tr>
+      <td><a class="link" href="opcache.configuration.html#ini.opcache.preload-user">opcache.preload_user</a></td>
+      <td>""</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>从 PHP 7.4.0 开始支持</td>
+     </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.open-basedir">open_basedir</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_ALL</td>
+       <td>在 PHP &lt; 5.2.3 时是 PHP_INI_SYSTEM。</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="outcontrol.configuration.html#ini.output-buffering">output_buffering</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="outcontrol.configuration.html#ini.output-handler">output_handler</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+      <td><a class="link" href="pcre.configuration.html#ini.pcre.backtrack-limit">pcre.backtrack_limit</a></td>
+      <td>"100000"</td>
+      <td>PHP_INI_ALL</td>
+      <td>php 5.2.0 起可用。</td>
+     </tr>
+<tr>
+      <td><a class="link" href="pcre.configuration.html#ini.pcre.recursion-limit">pcre.recursion_limit</a></td>
+      <td>"100000"</td>
+      <td>PHP_INI_ALL</td>
+      <td>php 5.2.0 起可用。</td>
+     </tr>
+<tr>
+      <td><a class="link" href="pcre.configuration.html#ini.pcre.jit">pcre.jit</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_ALL</td>
+      <td>PHP 7.0.0 起可用</td>
+     </tr>
+
+      <tr>
+      <td><a class="link" href="pdo.configuration.html#ini.pdo.dsn">pdo.dsn.*</a></td>
+      <td class="empty">&nbsp;</td>
+      <td>仅 <var class="filename">php.ini</var> </td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+      <tr>
+      <td><a class="link" href="ref.pdo-odbc.html#ini.pdo-odbc.connection-pooling">pdo_odbc.connection_pooling</a></td>
+      <td>"strict"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="ref.pdo-odbc.html#ini.pdo-odbc.db2-instance-name">pdo_odbc.db2_instance_name</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>本过时特性<em class="emphasis">将</em>肯定会在未来被<em class="emphasis">移除</em>。</td>
+     </tr>
+
+      <tr>
+     <td><a class="link" href="pgsql.configuration.html#ini.pgsql.allow-persistent">pgsql.allow_persistent</a></td>
+     <td>"1"</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="pgsql.configuration.html#ini.pgsql.max-persistent">pgsql.max_persistent</a></td>
+     <td>"-1"</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="pgsql.configuration.html#ini.pgsql.max-links">pgsql.max_links</a></td>
+     <td>"-1"</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="pgsql.configuration.html#ini.pgsql.auto-reset-persistent">pgsql.auto_reset_persistent</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td>从 PHP 4.2.0 起开始存在</td>
+    </tr>
+<tr>
+     <td><a class="link" href="pgsql.configuration.html#ini.pgsql.ignore-notice">pgsql.ignore_notice</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_ALL</td>
+     <td>从 PHP 4.3.0 起开始存在</td>
+    </tr>
+<tr>
+     <td><a class="link" href="pgsql.configuration.html#ini.pgsql.log-notice">pgsql.log_notice</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_ALL</td>
+     <td>从 PHP 4.3.0 起开始存在</td>
+    </tr>
+
+      <tr>
+      <td><a class="link" href="phar.configuration.html#ini.phar.readonly">phar.readonly</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="phar.configuration.html#ini.phar.require-hash">phar.require_hash</a></td>
+      <td>"1"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="phar.configuration.html#ini.phar.cache-list">phar.cache_list</a></td>
+      <td>""</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.post-max-size">post_max_size</a></td>
+       <td>"8M"</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.precision">precision</a></td>
+       <td>"14"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.realpath-cache-size">realpath_cache_size</a></td>
+       <td>"16K"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.realpath-cache-ttl">realpath_cache_ttl</a></td>
+       <td>"120"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.register-argc-argv">register_argc_argv</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.report-memleaks">report_memleaks</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td>report_zend_debug</td>
+       <td>"1"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.request-order">request_order</a></td>
+       <td>""</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+      <td><a class="link" href="runkit7.configuration.html#ini.runkit7.superglobal">runkit.superglobal</a></td>
+      <td>""</td>
+      <td>PHP_INI_PERDIR</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="runkit7.configuration.html#ini.runkit7.internal-override">runkit.internal_override</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+      <tr>
+       <td><a class="link" href="mail.configuration.html#ini.sendmail-from">sendmail_from</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="mail.configuration.html#ini.sendmail-path">sendmail_path</a></td>
+       <td>"/usr/sbin/sendmail -t -i"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.serialize-precision">serialize_precision</a></td>
+       <td>"-1"</td>
+       <td>PHP_INI_ALL</td>
+       <td>
+        PHP 7.1.0 之前，默认值为 17。
+       </td>
+      </tr>
+
+      <tr>
+     <td><a class="link" href="session.configuration.html#ini.session.save-path">session.save_path</a></td>
+     <td>""</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.name">session.name</a></td>
+     <td>"PHPSESSID"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.save-handler">session.save_handler</a></td>
+     <td>"files"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.auto-start">session.auto_start</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_PERDIR</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.gc-probability">session.gc_probability</a></td>
+     <td>"1"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.gc-divisor">session.gc_divisor</a></td>
+     <td>"100"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.gc-maxlifetime">session.gc_maxlifetime</a></td>
+     <td>"1440"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.serialize-handler">session.serialize_handler</a></td>
+     <td>"php"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.cookie-lifetime">session.cookie_lifetime</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.cookie-path">session.cookie_path</a></td>
+     <td>"/"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.cookie-domain">session.cookie_domain</a></td>
+     <td>""</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.cookie-secure">session.cookie_secure</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_ALL</td>
+     <td>在 PHP 7.2.0 之前，默认值是 <code class="literal">""</code>。</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.cookie-httponly">session.cookie_httponly</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_ALL</td>
+     <td>在 PHP 7.2.0 之前，默认值是 <code class="literal">""</code>。</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.cookie-samesite">session.cookie_samesite</a></td>
+     <td>""</td>
+     <td>PHP_INI_ALL</td>
+     <td>自 PHP 7.3.0 起有效</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.use-strict-mode">session.use_strict_mode</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_ALL</td>
+     <td>自 PHP 5.5.2 起有效</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.use-cookies">session.use_cookies</a></td>
+     <td>"1"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.use-only-cookies">session.use_only_cookies</a></td>
+     <td>"1"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.referer-check">session.referer_check</a></td>
+     <td>""</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.cache-limiter">session.cache_limiter</a></td>
+     <td>"nocache"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.cache-expire">session.cache_expire</a></td>
+     <td>"180"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.use-trans-sid">session.use_trans_sid</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.trans-sid-tags">session.trans_sid_tags</a></td>
+     <td>"a=href,area=href,frame=src,form="</td>
+     <td>PHP_INI_ALL</td>
+     <td>自 PHP 7.1.0 起有效。</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.trans-sid-hosts">session.trans_sid_hosts</a></td>
+     <td><code class="literal">$_SERVER['HTTP_HOST']</code></td>
+     <td>PHP_INI_ALL</td>
+     <td>自 PHP 7.1.0 起有效。</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.sid-length">session.sid_length</a></td>
+     <td>"32"</td>
+     <td>PHP_INI_ALL</td>
+     <td>自 PHP 7.1.0 起有效。</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.sid-bits-per-character">session.sid_bits_per_character</a></td>
+     <td>"4"</td>
+     <td>PHP_INI_ALL</td>
+     <td>自 PHP 7.1.0 起有效。</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.upload-progress.enabled">session.upload_progress.enabled</a></td>
+     <td>"1"</td>
+     <td>PHP_INI_PERDIR</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.upload-progress.cleanup">session.upload_progress.cleanup</a></td>
+     <td>"1"</td>
+     <td>PHP_INI_PERDIR</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.upload-progress.prefix">session.upload_progress.prefix</a></td>
+     <td>"upload_progress_"</td>
+     <td>PHP_INI_PERDIR</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.upload-progress.name">session.upload_progress.name</a></td>
+     <td>"PHP_SESSION_UPLOAD_PROGRESS"</td>
+     <td>PHP_INI_PERDIR</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.upload-progress.freq">session.upload_progress.freq</a></td>
+     <td>"1%"</td>
+     <td>PHP_INI_PERDIR</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.upload-progress.min-freq">session.upload_progress.min_freq</a></td>
+     <td>"1"</td>
+     <td>PHP_INI_PERDIR</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.lazy-write">session.lazy_write</a></td>
+     <td>"1"</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.hash-function">session.hash_function</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_ALL</td>
+     <td>自 PHP 7.1.0 起移除。</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.hash-bits-per-character">session.hash_bits_per_character</a></td>
+     <td>"4"</td>
+     <td>PHP_INI_ALL</td>
+     <td>自 PHP 7.1.0 起移除。</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.entropy-file">session.entropy_file</a></td>
+     <td>""</td>
+     <td>PHP_INI_ALL</td>
+     <td>自 PHP 7.1.0 起移除。</td>
+    </tr>
+<tr>
+     <td><a class="link" href="session.configuration.html#ini.session.entropy-length">session.entropy_length</a></td>
+     <td>"0"</td>
+     <td>PHP_INI_ALL</td>
+     <td>自 PHP 7.1.0 起移除。</td>
+    </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.short-open-tag">short_open_tag</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="mail.configuration.html#ini.smtp">SMTP</a></td>
+       <td>"localhost"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="mail.configuration.html#ini.smtp-port">smtp_port</a></td>
+       <td>"25"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+      <td><a class="link" href="soap.configuration.html#ini.soap.wsdl-cache-enabled">soap.wsdl_cache_enabled</a></td>
+      <td>1</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+<tr>
+      <td><a class="link" href="soap.configuration.html#ini.soap.wsdl-cache-dir">soap.wsdl_cache_dir</a></td>
+      <td>/tmp</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+<tr>
+      <td><a class="link" href="soap.configuration.html#ini.soap.wsdl-cache-ttl">soap.wsdl_cache_ttl</a></td>
+      <td>86400</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+<tr>
+      <td><a class="link" href="soap.configuration.html#ini.soap.wsdl-cache">soap.wsdl_cache</a></td>
+      <td>1</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+<tr>
+      <td><a class="link" href="soap.configuration.html#ini.soap.wsdl-cache-limit">soap.wsdl_cache_limit</a></td>
+      <td>5</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.sql.safe-mode">sql.safe_mode</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+      <td><a class="link" href="sqlite3.configuration.html#ini.sqlite3.extension-dir">sqlite3.extension_dir</a></td>
+      <td>""</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>PHP 5.3.11 起可用</td>
+     </tr>
+<tr>
+      <td><a class="link" href="sqlite3.configuration.html#ini.sqlite3.defensive">sqlite3.defensive</a></td>
+      <td>1</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>PHP 7.2.17 和 7.3.4 起可用，libsqlite ≥ 3.26.0。</td>
+     </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.syslog.facility">syslog.facility</a></td>
+       <td>"LOG_USER"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>从 PHP 7.3.0 起可用。</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.syslog.filter">syslog.filter</a></td>
+       <td>"no-ctrl"</td>
+       <td>PHP_INI_ALL</td>
+       <td>从 PHP 7.3.0 起可用。</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.syslog.ident">syslog.ident</a></td>
+       <td>"php"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>从 PHP 7.3.0 起可用。</td>
+      </tr>
+
+      <tr>
+       <td>sys_temp_dir</td>
+       <td>""</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+     <td><a class="link" href="sem.configuration.html#ini.sysvshm.init-mem">sysvshm.init_mem</a></td>
+     <td>10000</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+      <tr>
+      <td><a class="link" href="tidy.configuration.html#ini.tidy.default-config">tidy.default_config</a></td>
+      <td>""</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="tidy.configuration.html#ini.tidy.clean-output">tidy.clean_output</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_USER</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.track-errors">track_errors</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td>自 PHP 7.2.0 起废弃, 在 PHP 8.0.0 中移除。</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="var.configuration.html#ini.unserialize-callback-func">unserialize_callback_func</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td>uploadprogress.file.filename_template</td>
+       <td>"/tmp/upt_%s.txt"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.upload-max-filesize">upload_max_filesize</a></td>
+       <td>"2M"</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.max-file-uploads">max_file_uploads</a></td>
+       <td>20</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.upload-tmp-dir">upload_tmp_dir</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="outcontrol.configuration.html#ini.url-rewriter.tags">url_rewriter.tags</a></td>
+       <td>"a=href,area=href,frame=src,form=,fieldset="</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="filesystem.configuration.html#ini.user-agent">user_agent</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.user-dir">user_dir</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.user-ini.cache-ttl">user_ini.cache_ttl</a></td>
+       <td>"300"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.user-ini.filename">user_ini.filename</a></td>
+       <td>".user.ini"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="uopz.configuration.html#ini.uopz.disable">uopz.disable</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>Available as of uopz 5.0.2</td>
+      </tr>
+<tr>
+       <td><a class="link" href="uopz.configuration.html#ini.uopz.exit">uopz.exit</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>Available as of uopz 6.0.1</td>
+      </tr>
+<tr>
+       <td><a class="link" href="uopz.configuration.html#ini.uopz.overloads">uopz.overloads</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>Available as of uopz 2.0.2. Removed as of uopz 5.0.0.</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.variables-order">variables_order</a></td>
+       <td>"EGPCS"</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td>vld.active</td>
+       <td>"0"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td>vld.execute</td>
+       <td>"1"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>从 vld 0.8.0 起可用。</td>
+      </tr>
+
+      <tr>
+       <td>vld.skip_append</td>
+       <td>"0"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>从 vld 0.8.0 起可用。</td>
+      </tr>
+
+      <tr>
+       <td>vld.skip_prepend</td>
+       <td>"0"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>从 vld 0.8.0 起可用。</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.windows-show-crt-warning">windows.show_crt_warning</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="apache.configuration.html#ini.xbithack">xbithack</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.xmlrpc-errors">xmlrpc_errors</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="errorfunc.configuration.html#ini.xmlrpc-error-number">xmlrpc_error_number</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td>yaz.keepalive</td>
+       <td>"120"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td>yaz.log_mask</td>
+       <td>NULL</td>
+       <td>PHP_INI_ALL</td>
+       <td>从 yaz 1.0.3 起可用。</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.zend.assertions">zend.assertions</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.zend.detect-unicode">zend.detect_unicode</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="info.configuration.html#ini.zend.enable-gc">zend.enable_gc</a></td>
+       <td>"1"</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.zend.multibyte">zend.multibyte</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_PERDIR</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.zend.script-encoding">zend.script_encoding</a></td>
+       <td>NULL</td>
+       <td>PHP_INI_ALL</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.zend.signal-check">zend.signal_check</a></td>
+       <td>"0"</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a class="link" href="ini.core.html#ini.zend-extension">zend_extension</a></td>
+       <td>NULL</td>
+       <td><var class="filename">php.ini</var> only</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+      <td><a class="link" href="zlib.configuration.html#ini.zlib.output-compression">zlib.output_compression</a></td>
+      <td>"0"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="zlib.configuration.html#ini.zlib.output-compression-level">zlib.output_compression_level</a></td>
+      <td>"-1"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+<tr>
+      <td><a class="link" href="zlib.configuration.html#ini.zlib.output-handler">zlib.output_handler</a></td>
+      <td>""</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div></div></div></body></html>

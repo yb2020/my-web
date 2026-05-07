@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Indicates if the parsed document is valid-BeJSON.com</title><meta name="keywords" content="Indicates if the parsed document is valid"><meta name="description" content="此函数没有参数。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="xmlreader.getparserproperty.html">« XMLReader::getParserProperty</a></li>
+      <li style="float: right;"><a href="xmlreader.lookupnamespace.html">XMLReader::lookupNamespace »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.xmlreader.html">XMLReader</a></li>
+    <li>Indicates if the parsed document is valid</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="xmlreader.isvalid">
+ <div class="refnamediv">
+  <h1 class="refname">XMLReader::isValid</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">XMLReader::isValid</span> — <span class="dc-title">Indicates if the parsed document is valid</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-xmlreader.isvalid-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>XMLReader::isValid</strong></span>(): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Returns a boolean indicating if the document being parsed is currently valid.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-xmlreader.isvalid-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-xmlreader.isvalid-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-xmlreader.isvalid-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-5293">
+    <p><strong>示例 #1 Validating XML</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$xml&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">XMLReader</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">open</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'test.xml'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;The&nbsp;validate&nbsp;parser&nbsp;option&nbsp;must&nbsp;be&nbsp;enabled&nbsp;for&nbsp;<br>//&nbsp;this&nbsp;method&nbsp;to&nbsp;work&nbsp;properly<br></span><span style="color: rgb(0, 0, 187);">$xml</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setParserProperty</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">XMLReader</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">VALIDATE</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$xml</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">isValid</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-xmlreader.isvalid-notes">
+  <h3 class="title">注释</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    This checks the current node, not the entire document.
+   </span>
+  </p></blockquote>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-xmlreader.isvalid-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="xmlreader.setparserproperty.html" rel="rdfs-seeAlso">XMLReader::setParserProperty()</a> - Set parser options</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="xmlreader.setrelaxngschema.html" rel="rdfs-seeAlso">XMLReader::setRelaxNGSchema()</a> - Set the filename or URI for a RelaxNG Schema</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="xmlreader.setrelaxngschemasource.html" rel="rdfs-seeAlso">XMLReader::setRelaxNGSchemaSource()</a> - Set the data containing a RelaxNG Schema</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="xmlreader.setschema.html" rel="rdfs-seeAlso">XMLReader::setSchema()</a> - Validate document against XSD</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

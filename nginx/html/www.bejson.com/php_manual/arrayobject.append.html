@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>追加新的值作为最后一个元素。-BeJSON.com</title><meta name="keywords" content="追加新的值作为最后一个元素。"><meta name="description" content="当 ArrayObject 从 object 初始化时不能调用此方法。使用 ArrayObject::offsetSet() 代替。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.arrayobject.html">« ArrayObject</a></li>
+      <li style="float: right;"><a href="arrayobject.asort.html">ArrayObject::asort »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.arrayobject.html">ArrayObject</a></li>
+    <li>追加新的值作为最后一个元素。</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="arrayobject.append">
+ <div class="refnamediv">
+  <h1 class="refname">ArrayObject::append</h1>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ArrayObject::append</span> — <span class="dc-title">追加新的值作为最后一个元素。</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-arrayobject.append-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>ArrayObject::append</strong></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+  <p class="para rdfs-comment">
+   追加新的值作为最后一个元素。
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    当 <span class="classname"><a class="classname" href="class.arrayobject.html">ArrayObject</a></span> 从 object 初始化时不能调用此方法。使用 <span class="methodname"><a class="methodname" href="arrayobject.offsetset.html">ArrayObject::offsetSet()</a></span> 代替。
+   </p>
+  <p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-arrayobject.append-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">value</code></dt>
+
+     <dd>
+
+      <p class="para">
+       将要被追加的值
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-arrayobject.append-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   没有返回值。
+  </p>
+ </div>
+
+
+<div class="refsect1 examples" id="refsect1-arrayobject.append-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3629">
+    <p><strong>示例 #1 <span class="methodname"><strong>ArrayObject::append()</strong></span> 例子</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$arrayobj&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">ArrayObject</span><span style="color: rgb(0, 119, 0);">(array(</span><span style="color: rgb(221, 0, 0);">'first'</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">'second'</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(221, 0, 0);">'third'</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">$arrayobj</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">append</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'fourth'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$arrayobj</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">append</span><span style="color: rgb(0, 119, 0);">(array(</span><span style="color: rgb(221, 0, 0);">'five'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'six'</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$arrayobj</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>object(ArrayObject)#1 (5) {
+  [0]=&gt;
+  string(5) "first"
+  [1]=&gt;
+  string(6) "second"
+  [2]=&gt;
+  string(5) "third"
+  [3]=&gt;
+  string(6) "fourth"
+  [4]=&gt;
+  array(2) {
+    [0]=&gt;
+    string(4) "five"
+    [1]=&gt;
+    string(3) "six"
+  }
+}
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-arrayobject.append-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="arrayobject.offsetset.html" rel="rdfs-seeAlso">ArrayObject::offsetSet()</a> - 为指定索引设定新的值</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

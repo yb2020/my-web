@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The GearmanWorker class-BeJSON.com</title><meta name="keywords" content="The GearmanWorker class"><meta name="description" content="The GearmanWorker class(PECL gearman >= 0.5.0)简介类摘要class GearmanWorker  {/* 方法 */public addFunction(    string $function_name,    callable $function, ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="gearmantask.uuid.html">« GearmanTask::uuid</a></li>
+      <li style="float: right;"><a href="gearmanworker.addfunction.html">GearmanWorker::addFunction »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.gearman.html">Gearman</a></li>
+    <li>The GearmanWorker class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.gearmanworker">
+
+ <h1 class="title">The GearmanWorker class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PECL gearman &gt;= 0.5.0)</p>
+
+
+  <div class="section" id="gearmanworker.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    
+   </p>
+  </div>
+
+
+  <div class="section" id="gearmanworker.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">GearmanWorker</strong>
+     </span>
+     {</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.addfunction.html">addFunction</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$function</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter reference">&amp;$context</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.addoptions.html">addOptions</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.addserver.html">addServer</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code><span class="initializer"> = 127.0.0.1</span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 4730</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.addservers.html">addServers</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$servers</code><span class="initializer"> = 127.0.0.1:4730</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.clone.html">clone</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.construct.html">__construct</a></span>()</div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.echo.html">echo</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$workload</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.error.html">error</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.geterrno.html">getErrno</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.options.html">options</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.register.html">register</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.removeoptions.html">removeOptions</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.returncode.html">returnCode</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.setid.html">setId</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$id</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.setoptions.html">setOptions</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.settimeout.html">setTimeout</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.timeout.html">timeout</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.unregister.html">unregister</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.unregisterall.html">unregisterAll</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.wait.html">wait</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="gearmanworker.work.html">work</a></span>(): <span class="type">bool</span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="gearmanworker.addfunction.html">GearmanWorker::addFunction</a> — Register and add callback function</li><li><a href="gearmanworker.addoptions.html">GearmanWorker::addOptions</a> — Add worker options</li><li><a href="gearmanworker.addserver.html">GearmanWorker::addServer</a> — Add a job server</li><li><a href="gearmanworker.addservers.html">GearmanWorker::addServers</a> — Add job servers</li><li><a href="gearmanworker.clone.html">GearmanWorker::clone</a> — Create a copy of the worker</li><li><a href="gearmanworker.construct.html">GearmanWorker::__construct</a> — Create a GearmanWorker instance</li><li><a href="gearmanworker.echo.html">GearmanWorker::echo</a> — Test job server response</li><li><a href="gearmanworker.error.html">GearmanWorker::error</a> — Get the last error encountered</li><li><a href="gearmanworker.geterrno.html">GearmanWorker::getErrno</a> — Get errno</li><li><a href="gearmanworker.options.html">GearmanWorker::options</a> — Get worker options</li><li><a href="gearmanworker.register.html">GearmanWorker::register</a> — Register a function with the job server</li><li><a href="gearmanworker.removeoptions.html">GearmanWorker::removeOptions</a> — Remove worker options</li><li><a href="gearmanworker.returncode.html">GearmanWorker::returnCode</a> — Get last Gearman return code</li><li><a href="gearmanworker.setid.html">GearmanWorker::setId</a> — Give the worker an identifier so it can be tracked when asking gearmand for the list of available workers</li><li><a href="gearmanworker.setoptions.html">GearmanWorker::setOptions</a> — Set worker options</li><li><a href="gearmanworker.settimeout.html">GearmanWorker::setTimeout</a> — Set socket I/O activity timeout</li><li><a href="gearmanworker.timeout.html">GearmanWorker::timeout</a> — Get socket I/O activity timeout</li><li><a href="gearmanworker.unregister.html">GearmanWorker::unregister</a> — Unregister a function name with the job servers</li><li><a href="gearmanworker.unregisterall.html">GearmanWorker::unregisterAll</a> — Unregister all function names with the job servers</li><li><a href="gearmanworker.wait.html">GearmanWorker::wait</a> — Wait for activity from one of the job servers</li><li><a href="gearmanworker.work.html">GearmanWorker::work</a> — Wait for and perform jobs</li></ul>
+</div>
+</div></div></body></html>

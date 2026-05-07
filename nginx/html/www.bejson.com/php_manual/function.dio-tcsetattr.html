@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Sets terminal attributes and baud rate for a serial port-BeJSON.com</title><meta name="keywords" content="Sets terminal attributes and baud rate for a serial port"><meta name="description" content="dio_tcsetattr(PHP 4 >= 4.3.0, PHP 5 < 5.1.0)dio_tcsetattr — Sets terminal attributes and baud rate for a serial port 说明dio_tcsetattr(resource $fd, arr">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.dio-stat.html">« dio_stat</a></li>
+      <li style="float: right;"><a href="function.dio-truncate.html">dio_truncate »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.dio.html">Direct IO 函数</a></li>
+    <li>Sets terminal attributes and baud rate for a serial port</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.dio-tcsetattr">
+ <div class="refnamediv">
+  <h1 class="refname">dio_tcsetattr</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5 &lt; 5.1.0)</p><p class="refpurpose"><span class="refname">dio_tcsetattr</span> — <span class="dc-title">
+   Sets terminal attributes and baud rate for a serial port
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.dio-tcsetattr-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>dio_tcsetattr</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$fd</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>dio_tcsetattr()</strong></span> sets the terminal attributes and baud
+   rate of the open <code class="parameter">fd</code>.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.dio-tcsetattr-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">fd</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The file descriptor returned by <span class="function"><a class="function" href="function.dio-open.html">dio_open()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">options</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The currently available options are: 
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <p class="para">
+          'baud' - baud rate of the port - can be 38400,19200,9600,4800,2400,1800,
+          1200,600,300,200,150,134,110,75 or 50, default value is 9600.
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          'bits' - data bits - can be 8,7,6 or 5. Default value is 8.
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          'stop' - stop bits - can be 1 or 2. Default value is 1.
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          'parity' - can be 0,1 or 2. Default value is 0.
+         </p>
+        </li>
+       </ul>
+      <p></p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.dio-tcsetattr-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   没有返回值。
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.dio-tcsetattr-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2071">
+    <p><strong>示例 #1 Setting the baud rate on a serial port</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$fd&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">dio_open</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'/dev/ttyS0'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">O_RDWR&nbsp;</span><span style="color: rgb(0, 119, 0);">|&nbsp;</span><span style="color: rgb(0, 0, 187);">O_NOCTTY&nbsp;</span><span style="color: rgb(0, 119, 0);">|&nbsp;</span><span style="color: rgb(0, 0, 187);">O_NONBLOCK</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">dio_fcntl</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fd</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">F_SETFL</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">O_SYNC</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">dio_tcsetattr</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fd</span><span style="color: rgb(0, 119, 0);">,&nbsp;array(<br>&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'baud'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">9600</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'bits'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">8</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'stop'&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'parity'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">0<br></span><span style="color: rgb(0, 119, 0);">));&nbsp;<br><br>while&nbsp;(</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br><br>&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">dio_read</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fd</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">256</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;}<br>}&nbsp;<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.dio-tcsetattr-notes">
+  <h3 class="title">注释</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">此函数未在 Windows 平台下实现。</span></p></blockquote>
+ </div>
+
+</div></div></div></body></html>

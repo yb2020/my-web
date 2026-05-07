@@ -1,0 +1,880 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>范例-BeJSON.com</title><meta name="keywords" content="范例"><meta name="description" content="Examples of how to use the Apache Solr extension in PHP ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.solr-get-version.html">« solr_get_version</a></li>
+      <li style="float: right;"><a href="class.solrutils.html">SolrUtils »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.solr.html">Solr</a></li>
+    <li>范例</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="chapter" id="solr.examples">
+ <h1>范例</h1>
+
+ 
+    <p class="para">
+        Examples of how to use the Apache Solr extension in PHP
+    </p>
+    <div class="example" id="example-4512">
+        <p><strong>示例 #1 Contents of the BootStrap file</strong></p>
+        <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;Domain&nbsp;name&nbsp;of&nbsp;the&nbsp;Solr&nbsp;server&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">define</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SOLR_SERVER_HOSTNAME'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'solr.example.com'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;Whether&nbsp;or&nbsp;not&nbsp;to&nbsp;run&nbsp;in&nbsp;secure&nbsp;mode&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">define</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SOLR_SECURE'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;HTTP&nbsp;Port&nbsp;to&nbsp;connection&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">define</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SOLR_SERVER_PORT'</span><span style="color: rgb(0, 119, 0);">,&nbsp;((</span><span style="color: rgb(0, 0, 187);">SOLR_SECURE</span><span style="color: rgb(0, 119, 0);">)&nbsp;?&nbsp;</span><span style="color: rgb(0, 0, 187);">8443&nbsp;</span><span style="color: rgb(0, 119, 0);">:&nbsp;</span><span style="color: rgb(0, 0, 187);">8983</span><span style="color: rgb(0, 119, 0);">));<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;HTTP&nbsp;Basic&nbsp;Authentication&nbsp;Username&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">define</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SOLR_SERVER_USERNAME'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'admin'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;HTTP&nbsp;Basic&nbsp;Authentication&nbsp;password&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">define</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SOLR_SERVER_PASSWORD'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'changeit'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;HTTP&nbsp;connection&nbsp;timeout&nbsp;*/<br>/*&nbsp;This&nbsp;is&nbsp;maximum&nbsp;time&nbsp;in&nbsp;seconds&nbsp;allowed&nbsp;for&nbsp;the&nbsp;http&nbsp;data&nbsp;transfer&nbsp;operation.&nbsp;Default&nbsp;value&nbsp;is&nbsp;30&nbsp;seconds&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">define</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SOLR_SERVER_TIMEOUT'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">10</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;File&nbsp;name&nbsp;to&nbsp;a&nbsp;PEM-formatted&nbsp;private&nbsp;key&nbsp;+&nbsp;private&nbsp;certificate&nbsp;(concatenated&nbsp;in&nbsp;that&nbsp;order)&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">define</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SOLR_SSL_CERT'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'certs/combo.pem'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;File&nbsp;name&nbsp;to&nbsp;a&nbsp;PEM-formatted&nbsp;private&nbsp;certificate&nbsp;only&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">define</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SOLR_SSL_CERT_ONLY'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'certs/solr.crt'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;File&nbsp;name&nbsp;to&nbsp;a&nbsp;PEM-formatted&nbsp;private&nbsp;key&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">define</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SOLR_SSL_KEY'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'certs/solr.key'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;Password&nbsp;for&nbsp;PEM-formatted&nbsp;private&nbsp;key&nbsp;file&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">define</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SOLR_SSL_KEYPASSWORD'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'StrongAndSecurePassword'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;Name&nbsp;of&nbsp;file&nbsp;holding&nbsp;one&nbsp;or&nbsp;more&nbsp;CA&nbsp;certificates&nbsp;to&nbsp;verify&nbsp;peer&nbsp;with*/<br></span><span style="color: rgb(0, 0, 187);">define</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SOLR_SSL_CAINFO'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'certs/cacert.crt'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;Name&nbsp;of&nbsp;directory&nbsp;holding&nbsp;multiple&nbsp;CA&nbsp;certificates&nbsp;to&nbsp;verify&nbsp;peer&nbsp;with&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">define</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'SOLR_SSL_CAPATH'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'certs/'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+
+    </div>
+
+ <div class="example" id="example-4513">
+  <p><strong>示例 #2 Adding a document to the index</strong></p>
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array<br>(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'hostname'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_HOSTNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_USERNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PORT</span><span style="color: rgb(0, 119, 0);">,<br>);<br><br></span><span style="color: rgb(0, 0, 187);">$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrClient</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$doc&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrInputDocument</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$doc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'id'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">334455</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$doc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Software'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$doc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Lucene'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$updateResponse&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addDocument</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$doc</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$updateResponse</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getResponse</span><span style="color: rgb(0, 119, 0);">());<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+  <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+  <div class="example-contents screen">
+<div class="cdata"><pre>SolrObject Object
+(
+    [responseHeader] =&gt; SolrObject Object
+        (
+            [status] =&gt; 0
+            [QTime] =&gt; 446
+        )
+
+)
+</pre></div>
+  </div>
+ </div>
+ 
+ <div class="example" id="example-4514">
+  <p><strong>示例 #3 Merging one document into another document</strong></p>
+  <div class="example-contents">
+   <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$doc&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrDocument</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$second_doc&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrDocument</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$doc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'id'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1123</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$doc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">features&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"PHP&nbsp;Client&nbsp;Side"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$doc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">features&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Fast&nbsp;development&nbsp;cycles"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$doc</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Software'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$doc</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Custom&nbsp;Search'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$doc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">cat&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Information&nbsp;Technology'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$second_doc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Lucene&nbsp;Search'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$second_doc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">merge</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$doc</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$second_doc</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">toArray</span><span style="color: rgb(0, 119, 0);">());<br><br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+  <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+  <div class="example-contents screen">
+   <div class="cdata"><pre>Array
+(
+    [document_boost] =&gt; 0
+    [field_count] =&gt; 3
+    [fields] =&gt; Array
+        (
+            [0] =&gt; SolrDocumentField Object
+                (
+                    [name] =&gt; cat
+                    [boost] =&gt; 0
+                    [values] =&gt; Array
+                        (
+                            [0] =&gt; Software
+                            [1] =&gt; Custom Search
+                            [2] =&gt; Information Technology
+                        )
+
+                )
+
+            [1] =&gt; SolrDocumentField Object
+                (
+                    [name] =&gt; id
+                    [boost] =&gt; 0
+                    [values] =&gt; Array
+                        (
+                            [0] =&gt; 1123
+                        )
+
+                )
+
+            [2] =&gt; SolrDocumentField Object
+                (
+                    [name] =&gt; features
+                    [boost] =&gt; 0
+                    [values] =&gt; Array
+                        (
+                            [0] =&gt; PHP Client Side
+                            [1] =&gt; Fast development cycles
+                        )
+
+                )
+
+        )
+
+)
+</pre></div>
+  </div>
+ </div>
+ 
+ 
+ <div class="example" id="example-4515">
+  <p><strong>示例 #4 Searching for documents - SolrObject responses</strong></p>
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array<br>(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'hostname'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_HOSTNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_USERNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PORT</span><span style="color: rgb(0, 119, 0);">,<br>);<br><br></span><span style="color: rgb(0, 0, 187);">$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrClient</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrQuery</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setQuery</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'lucene'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setStart</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setRows</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">50</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'features'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'id'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'timestamp'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query_response&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$response&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$query_response</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getResponse</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$response</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+  <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+  <div class="example-contents screen">
+<div class="cdata"><pre>SolrObject Object
+(
+    [responseHeader] =&gt; SolrObject Object
+        (
+            [status] =&gt; 0
+            [QTime] =&gt; 1
+            [params] =&gt; SolrObject Object
+                (
+                    [wt] =&gt; xml
+                    [rows] =&gt; 50
+                    [start] =&gt; 0
+                    [indent] =&gt; on
+                    [q] =&gt; lucene
+                    [fl] =&gt; cat,features,id,timestamp
+                    [version] =&gt; 2.2
+                )
+
+        )
+
+    [response] =&gt; SolrObject Object
+        (
+            [numFound] =&gt; 3
+            [start] =&gt; 0
+            [docs] =&gt; Array
+                (
+                    [0] =&gt; SolrObject Object
+                        (
+                            [cat] =&gt; Array
+                                (
+                                    [0] =&gt; Software
+                                    [1] =&gt; Lucene
+                                )
+
+                            [id] =&gt; 334456
+                        )
+
+                    [1] =&gt; SolrObject Object
+                        (
+                            [cat] =&gt; Array
+                                (
+                                    [0] =&gt; Software
+                                    [1] =&gt; Lucene
+                                )
+
+                            [id] =&gt; 334455
+                        )
+
+                    [2] =&gt; SolrObject Object
+                        (
+                            [cat] =&gt; Array
+                                (
+                                    [0] =&gt; software
+                                    [1] =&gt; search
+                                )
+
+                            [features] =&gt; Array
+                                (
+                                    [0] =&gt; Advanced Full-Text Search Capabilities using Lucene
+                                    [1] =&gt; Optimized for High Volume Web Traffic
+                                    [2] =&gt; Standards Based Open Interfaces - XML and HTTP
+                                    [3] =&gt; Comprehensive HTML Administration Interfaces
+                                    [4] =&gt; Scalability - Efficient Replication to other Solr Search Servers
+                                    [5] =&gt; Flexible and Adaptable with XML configuration and Schema
+                                    [6] =&gt; Good unicode support: héllo (hello with an accent over the e)
+                                )
+
+                            [id] =&gt; SOLR1000
+                            [timestamp] =&gt; 2009-09-04T20:38:55.906
+                        )
+
+                )
+
+        )
+
+)
+</pre></div>
+  </div>
+ </div>
+ 
+ <div class="example" id="example-4516">
+  <p><strong>示例 #5 Searching for documents - SolrDocument responses</strong></p>
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array<br>(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'hostname'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_HOSTNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_USERNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PORT</span><span style="color: rgb(0, 119, 0);">,<br>);<br><br></span><span style="color: rgb(0, 0, 187);">$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrClient</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrQuery</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setQuery</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'lucene'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setStart</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setRows</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">50</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'features'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'id'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">addField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'timestamp'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query_response&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query_response</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setParseMode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">SolrQueryResponse</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">PARSE_SOLR_DOC</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$response&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$query_response</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getResponse</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$response</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+  <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+  <div class="example-contents screen">
+   <div class="cdata"><pre>SolrObject Object
+(
+    [responseHeader] =&gt; SolrObject Object
+        (
+            [status] =&gt; 0
+            [QTime] =&gt; 1
+            [params] =&gt; SolrObject Object
+                (
+                    [wt] =&gt; xml
+                    [rows] =&gt; 50
+                    [start] =&gt; 0
+                    [indent] =&gt; on
+                    [q] =&gt; lucene
+                    [fl] =&gt; cat,features,id,timestamp
+                    [version] =&gt; 2.2
+                )
+
+        )
+
+    [response] =&gt; SolrObject Object
+        (
+            [numFound] =&gt; 3
+            [start] =&gt; 0
+            [docs] =&gt; Array
+                (
+                    [0] =&gt; SolrDocument Object
+                        (
+                            [_hashtable_index:SolrDocument:private] =&gt; 19740
+                        )
+
+                    [1] =&gt; SolrDocument Object
+                        (
+                            [_hashtable_index:SolrDocument:private] =&gt; 25485
+                        )
+
+                    [2] =&gt; SolrDocument Object
+                        (
+                            [_hashtable_index:SolrDocument:private] =&gt; 25052
+                        )
+
+                )
+
+        )
+
+)
+</pre></div>
+  </div>
+ </div>
+    
+ <div class="example" id="example-4517">
+        <p><strong>示例 #6 Simple TermsComponent example - basic</strong></p>
+        <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array<br>(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'hostname'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_HOSTNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_USERNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PORT</span><span style="color: rgb(0, 119, 0);">,<br>);<br><br></span><span style="color: rgb(0, 0, 187);">$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrClient</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrQuery</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setTerms</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setTermsField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$updateResponse&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$updateResponse</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getResponse</span><span style="color: rgb(0, 119, 0);">());<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+        <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+        <div class="example-contents screen">
+<div class="cdata"><pre>SolrObject Object
+(
+    [responseHeader] =&gt; SolrObject Object
+        (
+            [status] =&gt; 0
+            [QTime] =&gt; 2
+        )
+
+    [terms] =&gt; SolrObject Object
+        (
+            [cat] =&gt; SolrObject Object
+                (
+                    [electronics] =&gt; 14
+                    [Lucene] =&gt; 4
+                    [Software] =&gt; 4
+                    [memory] =&gt; 3
+                    [card] =&gt; 2
+                    [connector] =&gt; 2
+                    [drive] =&gt; 2
+                    [graphics] =&gt; 2
+                    [hard] =&gt; 2
+                    [monitor] =&gt; 2
+                )
+
+        )
+
+)
+
+</pre></div>
+        </div>
+ </div>
+    
+<div class="example" id="example-4518">
+    <p><strong>示例 #7 Simple TermsComponent example - using a prefix</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array<br>(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'hostname'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_HOSTNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_USERNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PORT</span><span style="color: rgb(0, 119, 0);">,<br>);<br><br></span><span style="color: rgb(0, 0, 187);">$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrClient</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrQuery</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setTerms</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;Return&nbsp;only&nbsp;terms&nbsp;starting&nbsp;with&nbsp;$prefix&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">$prefix&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'c'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setTermsField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">setTermsPrefix</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$prefix</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$updateResponse&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$updateResponse</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getResponse</span><span style="color: rgb(0, 119, 0);">());<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>SolrObject Object
+(
+    [responseHeader] =&gt; SolrObject Object
+        (
+            [status] =&gt; 0
+            [QTime] =&gt; 1
+        )
+
+    [terms] =&gt; SolrObject Object
+        (
+            [cat] =&gt; SolrObject Object
+                (
+                    [card] =&gt; 2
+                    [connector] =&gt; 2
+                    [camera] =&gt; 1
+                    [copier] =&gt; 1
+                )
+
+        )
+
+)
+</pre></div>
+    </div>
+</div>
+    
+<div class="example" id="example-4519">
+    <p><strong>示例 #8 Simple TermsComponent example - specifying a minimum frequency</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array<br>(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'hostname'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_HOSTNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_USERNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PORT</span><span style="color: rgb(0, 119, 0);">,<br>);<br><br></span><span style="color: rgb(0, 0, 187);">$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrClient</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrQuery</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setTerms</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;Return&nbsp;only&nbsp;terms&nbsp;starting&nbsp;with&nbsp;$prefix&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">$prefix&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'c'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;Return&nbsp;only&nbsp;terms&nbsp;with&nbsp;a&nbsp;frequency&nbsp;of&nbsp;2&nbsp;or&nbsp;greater&nbsp;*/<br></span><span style="color: rgb(0, 0, 187);">$min_frequency&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setTermsField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">setTermsPrefix</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$prefix</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">setTermsMinCount</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$min_frequency</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$updateResponse&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$updateResponse</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getResponse</span><span style="color: rgb(0, 119, 0);">());<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>SolrObject Object
+(
+    [responseHeader] =&gt; SolrObject Object
+        (
+            [status] =&gt; 0
+            [QTime] =&gt; 0
+        )
+
+    [terms] =&gt; SolrObject Object
+        (
+            [cat] =&gt; SolrObject Object
+                (
+                    [card] =&gt; 2
+                    [connector] =&gt; 2
+                )
+
+        )
+
+)
+</pre></div>
+    </div>
+</div>
+    
+<div class="example" id="example-4520">
+<p><strong>示例 #9 Simple Facet Example</strong></p>
+<div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array<br>(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'hostname'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_HOSTNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_USERNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PORT</span><span style="color: rgb(0, 119, 0);">,<br>);<br><br></span><span style="color: rgb(0, 0, 187);">$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrClient</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrQuery</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'*:*'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setFacet</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addFacetField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">addFacetField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'name'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">setFacetMinCount</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$updateResponse&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$response_array&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$updateResponse</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getResponse</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$facet_data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$response_array</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">facet_counts</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">facet_fields</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$facet_data</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+</div>
+
+<div class="example-contents"><p>以上例程的输出类似于：</p></div>
+<div class="example-contents screen">
+<div class="cdata"><pre>SolrObject Object
+(
+    [cat] =&gt; SolrObject Object
+        (
+            [electronics] =&gt; 14
+            [memory] =&gt; 3
+            [Lucene] =&gt; 2
+            [Software] =&gt; 2
+            [card] =&gt; 2
+            [connector] =&gt; 2
+            [drive] =&gt; 2
+            [graphics] =&gt; 2
+            [hard] =&gt; 2
+            [monitor] =&gt; 2
+            [search] =&gt; 2
+            [software] =&gt; 2
+        )
+
+    [name] =&gt; SolrObject Object
+        (
+            [gb] =&gt; 6
+            [1] =&gt; 3
+            [184] =&gt; 3
+            [2] =&gt; 3
+            [3200] =&gt; 3
+            [400] =&gt; 3
+            [500] =&gt; 3
+            [ddr] =&gt; 3
+            [i] =&gt; 3
+            [ipod] =&gt; 3
+            [memori] =&gt; 3
+            [pc] =&gt; 3
+            [pin] =&gt; 3
+            [pod] =&gt; 3
+            [sdram] =&gt; 3
+            [system] =&gt; 3
+            [unbuff] =&gt; 3
+            [canon] =&gt; 2
+            [corsair] =&gt; 2
+            [drive] =&gt; 2
+            [hard] =&gt; 2
+            [mb] =&gt; 2
+            [n] =&gt; 2
+            [power] =&gt; 2
+            [retail] =&gt; 2
+            [video] =&gt; 2
+            [x] =&gt; 2
+        )
+
+)
+</pre></div>
+</div>
+</div>
+    
+<div class="example" id="example-4521">
+    <p><strong>示例 #10 Simple Facet Example - with optional field override for mincount</strong></p>
+    <div class="example-contents">
+        <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array<br>(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'hostname'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_HOSTNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_USERNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PORT</span><span style="color: rgb(0, 119, 0);">,<br>);<br><br></span><span style="color: rgb(0, 0, 187);">$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrClient</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrQuery</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'*:*'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setFacet</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addFacetField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">addFacetField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'name'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">setFacetMinCount</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">setFacetMinCount</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">4</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'name'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$updateResponse&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$response_array&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$updateResponse</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getResponse</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$facet_data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$response_array</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">facet_counts</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">facet_fields</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$facet_data</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="example-contents screen">
+        <div class="cdata"><pre>SolrObject Object
+(
+    [cat] =&gt; SolrObject Object
+        (
+            [electronics] =&gt; 14
+            [memory] =&gt; 3
+            [Lucene] =&gt; 2
+            [Software] =&gt; 2
+            [card] =&gt; 2
+            [connector] =&gt; 2
+            [drive] =&gt; 2
+            [graphics] =&gt; 2
+            [hard] =&gt; 2
+            [monitor] =&gt; 2
+            [search] =&gt; 2
+            [software] =&gt; 2
+        )
+
+    [name] =&gt; SolrObject Object
+        (
+            [gb] =&gt; 6
+        )
+
+)
+</pre></div>
+    </div>
+</div>
+
+<div class="example" id="example-4522">
+<p><strong>示例 #11 Facet Date Example</strong></p>
+<div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array<br>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'hostname'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_HOSTNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_USERNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PORT</span><span style="color: rgb(0, 119, 0);">,<br>);<br><br></span><span style="color: rgb(0, 0, 187);">$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrClient</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrQuery</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'*:*'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setFacet</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addFacetDateField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'manufacturedate_dt'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setFacetDateStart</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'2006-02-13T00:00:00Z'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setFacetDateEnd</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'2012-02-13T00:00:00Z'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setFacetDateGap</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'+1YEAR'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setFacetDateHardEnd</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addFacetDateOther</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'before'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$updateResponse&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$response_array&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$updateResponse</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getResponse</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$facet_data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$response_array</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">facet_counts</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">facet_dates</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$facet_data</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+</div>
+
+<div class="example-contents"><p>以上例程的输出类似于：</p></div>
+<div class="example-contents screen">
+<div class="cdata"><pre>SolrObject Object
+(
+    [manufacturedate_dt] =&gt; SolrObject Object
+        (
+            [2006-02-13T00:00:00Z] =&gt; 9
+            [2007-02-13T00:00:00Z] =&gt; 0
+            [2008-02-13T00:00:00Z] =&gt; 0
+            [2009-02-13T00:00:00Z] =&gt; 0
+            [2010-02-13T00:00:00Z] =&gt; 0
+            [2011-02-13T00:00:00Z] =&gt; 0
+            [gap] =&gt; +1YEAR
+            [start] =&gt; 2006-02-13T00:00:00Z
+            [end] =&gt; 2012-02-13T00:00:00Z
+            [before] =&gt; 2
+        )
+
+)
+</pre></div>
+</div>
+</div>
+
+<div class="example" id="example-4523">
+        <p><strong>示例 #12 Connecting to SSL-Enabled Server</strong></p>
+        <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array<br>(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'hostname'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_HOSTNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_USERNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PORT</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'timeout'&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_TIMEOUT</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'secure'&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SECURE</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'ssl_cert'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SSL_CERT_ONLY</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'ssl_key'&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SSL_KEY</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'ssl_keypassword'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SSL_KEYPASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'ssl_cainfo'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SSL_CAINFO</span><span style="color: rgb(0, 119, 0);">,<br>);<br><br></span><span style="color: rgb(0, 0, 187);">$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrClient</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrQuery</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'*:*'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setFacet</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">addFacetField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'cat'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">addFacetField</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'name'</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">setFacetMinCount</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">setFacetMinCount</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">4</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'name'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$updateResponse&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$response_array&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$updateResponse</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getResponse</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">$facet_data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$response_array</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">facet_counts</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">facet_fields</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$facet_data</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+        <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+        <div class="example-contents screen">
+            <div class="cdata"><pre>SolrObject Object
+(
+    [cat] =&gt; SolrObject Object
+        (
+            [electronics] =&gt; 14
+            [memory] =&gt; 3
+            [Lucene] =&gt; 2
+            [Software] =&gt; 2
+            [card] =&gt; 2
+            [connector] =&gt; 2
+            [drive] =&gt; 2
+            [graphics] =&gt; 2
+            [hard] =&gt; 2
+            [monitor] =&gt; 2
+            [search] =&gt; 2
+            [software] =&gt; 2
+        )
+
+    [name] =&gt; SolrObject Object
+        (
+            [gb] =&gt; 6
+        )
+
+)
+</pre></div>
+        </div>
+    </div>
+    
+
+    <div class="example" id="example-4524">
+        <p><strong>示例 #13 Collapsing a <span class="type"><a class="type SolrQuery" href="class.solrquery.html">SolrQuery</a></span></strong></p>
+        <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array<br>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'hostname'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_HOSTNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_USERNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PORT</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'path'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PATH<br></span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrClient</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrQuery</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'*:*'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$collapseFunction&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrCollapseFunction</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'manu_id_s'</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$collapseFunction<br></span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setSize</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">)<br>-&gt;</span><span style="color: rgb(0, 0, 187);">setNullPolicy</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">SolrCollapseFunction</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">NULLPOLICY_IGNORE</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$query<br></span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">collapse</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$collapseFunction</span><span style="color: rgb(0, 119, 0);">)<br>-&gt;</span><span style="color: rgb(0, 0, 187);">setRows</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">4</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$queryResponse&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">query</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$query</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$response&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$queryResponse</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getResponse</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$response</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+        <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+        <div class="example-contents screen">
+            <div class="cdata"><pre>SolrObject Object
+(
+    [responseHeader] =&gt; SolrObject Object
+        (
+            [status] =&gt; 0
+            [QTime] =&gt; 1
+            [params] =&gt; SolrObject Object
+                (
+                    [q] =&gt; *:*
+                    [indent] =&gt; on
+                    [fq] =&gt; {!collapse field=manu_id_s size=2 nullPolicy=ignore}
+                    [rows] =&gt; 4
+                    [version] =&gt; 2.2
+                    [wt] =&gt; xml
+                )
+
+        )
+
+    [response] =&gt; SolrObject Object
+        (
+            [numFound] =&gt; 14
+            [start] =&gt; 0
+            [docs] =&gt; Array
+                (
+                    [0] =&gt; SolrObject Object
+                        (
+                            [id] =&gt; SP2514N
+                            [name] =&gt; Array
+                                (
+                                    [0] =&gt; Samsung SpinPoint P120 SP2514N - hard drive - 250 GB - ATA-133
+                                )
+
+                            [manu] =&gt; Array
+                                (
+                                    [0] =&gt; Samsung Electronics Co. Ltd.
+                                )
+
+                            [manu_id_s] =&gt; samsung
+                            [cat] =&gt; Array
+                                (
+                                    [0] =&gt; electronics
+                                    [1] =&gt; hard drive
+                                )
+
+                            [features] =&gt; Array
+                                (
+                                    [0] =&gt; 7200RPM, 8MB cache, IDE Ultra ATA-133
+                                    [1] =&gt; NoiseGuard, SilentSeek technology, Fluid Dynamic Bearing (FDB) motor
+                                )
+
+                            [price] =&gt; Array
+                                (
+                                    [0] =&gt; 92
+                                )
+
+                            [popularity] =&gt; Array
+                                (
+                                    [0] =&gt; 6
+                                )
+
+                            [inStock] =&gt; Array
+                                (
+                                    [0] =&gt; 1
+                                )
+
+                            [manufacturedate_dt] =&gt; 2006-02-13T15:26:37Z
+                            [store] =&gt; Array
+                                (
+                                    [0] =&gt; 35.0752,-97.032
+                                )
+
+                            [_version_] =&gt; 1510294336412057600
+                        )
+
+                    [1] =&gt; SolrObject Object
+                        (
+                            [id] =&gt; 6H500F0
+                            [name] =&gt; Array
+                                (
+                                    [0] =&gt; Maxtor DiamondMax 11 - hard drive - 500 GB - SATA-300
+                                )
+
+                            [manu] =&gt; Array
+                                (
+                                    [0] =&gt; Maxtor Corp.
+                                )
+
+                            [manu_id_s] =&gt; maxtor
+                            [cat] =&gt; Array
+                                (
+                                    [0] =&gt; electronics
+                                    [1] =&gt; hard drive
+                                )
+
+                            [features] =&gt; Array
+                                (
+                                    [0] =&gt; SATA 3.0Gb/s, NCQ
+                                    [1] =&gt; 8.5ms seek
+                                    [2] =&gt; 16MB cache
+                                )
+
+                            [price] =&gt; Array
+                                (
+                                    [0] =&gt; 350
+                                )
+
+                            [popularity] =&gt; Array
+                                (
+                                    [0] =&gt; 6
+                                )
+
+                            [inStock] =&gt; Array
+                                (
+                                    [0] =&gt; 1
+                                )
+
+                            [store] =&gt; Array
+                                (
+                                    [0] =&gt; 45.17614,-93.87341
+                                )
+
+                            [manufacturedate_dt] =&gt; 2006-02-13T15:26:37Z
+                            [_version_] =&gt; 1510294336449806336
+                        )
+
+                    [2] =&gt; SolrObject Object
+                        (
+                            [id] =&gt; F8V7067-APL-KIT
+                            [name] =&gt; Array
+                                (
+                                    [0] =&gt; Belkin Mobile Power Cord for iPod w/ Dock
+                                )
+
+                            [manu] =&gt; Array
+                                (
+                                    [0] =&gt; Belkin
+                                )
+
+                            [manu_id_s] =&gt; belkin
+                            [cat] =&gt; Array
+                                (
+                                    [0] =&gt; electronics
+                                    [1] =&gt; connector
+                                )
+
+                            [features] =&gt; Array
+                                (
+                                    [0] =&gt; car power adapter, white
+                                )
+
+                            [weight] =&gt; Array
+                                (
+                                    [0] =&gt; 4
+                                )
+
+                            [price] =&gt; Array
+                                (
+                                    [0] =&gt; 19.95
+                                )
+
+                            [popularity] =&gt; Array
+                                (
+                                    [0] =&gt; 1
+                                )
+
+                            [inStock] =&gt; Array
+                                (
+                                    [0] =&gt; 
+                                )
+
+                            [store] =&gt; Array
+                                (
+                                    [0] =&gt; 45.18014,-93.87741
+                                )
+
+                            [manufacturedate_dt] =&gt; 2005-08-01T16:30:25Z
+                            [_version_] =&gt; 1510294336458194944
+                        )
+
+                    [3] =&gt; SolrObject Object
+                        (
+                            [id] =&gt; MA147LL/A
+                            [name] =&gt; Array
+                                (
+                                    [0] =&gt; Apple 60 GB iPod with Video Playback Black
+                                )
+
+                            [manu] =&gt; Array
+                                (
+                                    [0] =&gt; Apple Computer Inc.
+                                )
+
+                            [manu_id_s] =&gt; apple
+                            [cat] =&gt; Array
+                                (
+                                    [0] =&gt; electronics
+                                    [1] =&gt; music
+                                )
+
+                            [features] =&gt; Array
+                                (
+                                    [0] =&gt; iTunes, Podcasts, Audiobooks
+                                    [1] =&gt; Stores up to 15,000 songs, 25,000 photos, or 150 hours of video
+                                    [2] =&gt; 2.5-inch, 320x240 color TFT LCD display with LED backlight
+                                    [3] =&gt; Up to 20 hours of battery life
+                                    [4] =&gt; Plays AAC, MP3, WAV, AIFF, Audible, Apple Lossless, H.264 video
+                                    [5] =&gt; Notes, Calendar, Phone book, Hold button, Date display, Photo wallet, Built-in games, JPEG photo playback, Upgradeable firmware, USB 2.0 compatibility, Playback speed control, Rechargeable capability, Battery level indication
+                                )
+
+                            [includes] =&gt; Array
+                                (
+                                    [0] =&gt; earbud headphones, USB cable
+                                )
+
+                            [weight] =&gt; Array
+                                (
+                                    [0] =&gt; 5.5
+                                )
+
+                            [price] =&gt; Array
+                                (
+                                    [0] =&gt; 399
+                                )
+
+                            [popularity] =&gt; Array
+                                (
+                                    [0] =&gt; 10
+                                )
+
+                            [inStock] =&gt; Array
+                                (
+                                    [0] =&gt; 1
+                                )
+
+                            [store] =&gt; Array
+                                (
+                                    [0] =&gt; 37.7752,-100.0232
+                                )
+
+                            [manufacturedate_dt] =&gt; 2005-10-12T08:00:00Z
+                            [_version_] =&gt; 1510294336562003968
+                        )
+
+                )
+
+        )
+
+)
+</pre></div>
+        </div>
+    </div>
+    
+      <div class="example" id="example-4525">
+   <p><strong>示例 #14 Solr Real Time Get (RTG) example <span class="function"><a class="function" href="solrclient.getbyid.html">SolrClient::getById()</a></span></strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">include&nbsp;</span><span style="color: rgb(221, 0, 0);">"bootstrap.php"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$options&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array<br>(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'hostname'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_HOSTNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_USERNAME</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'password'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PASSWORD</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PORT</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'path'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">SOLR_SERVER_PATH<br></span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$client&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">SolrClient</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$options</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$response&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$client</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getById</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'GB18030TEST'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$response</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getResponse</span><span style="color: rgb(0, 119, 0);">());<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>SolrObject Object
+(
+    [doc] =&gt; SolrObject Object
+        (
+            [id] =&gt; GB18030TEST
+            [name] =&gt; Array
+                (
+                    [0] =&gt; Test with some GB18030 encoded characters
+                )
+
+            [features] =&gt; Array
+                (
+                    [0] =&gt; No accents here
+                    [1] =&gt; 这是一个功能
+                    [2] =&gt; This is a feature (translated)
+                    [3] =&gt; 这份文件是很有光泽
+                    [4] =&gt; This document is very shiny (translated)
+                )
+
+            [price] =&gt; Array
+                (
+                    [0] =&gt; 0
+                )
+
+            [inStock] =&gt; Array
+                (
+                    [0] =&gt; 1
+                )
+
+            [_version_] =&gt; 1510294336239042560
+        )
+
+)
+</pre></div>
+   </div>
+  </div>
+    
+</div>
+</div></div></body></html>

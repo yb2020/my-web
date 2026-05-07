@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>后期静态绑定-BeJSON.com</title><meta name="keywords" content="后期静态绑定"><meta name="description" content="PHP 增加了一个叫做后期静态绑定的功能，用于在继承范围内引用静态调用的类。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="language.oop5.object-comparison.html">« 对象比较</a></li>
+      <li style="float: right;"><a href="language.oop5.references.html">对象和引用 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.oop5.html">类与对象</a></li>
+    <li>后期静态绑定</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="language.oop5.late-static-bindings">
+  <h1 class="title">后期静态绑定</h1>
+  <p class="para">
+   PHP 增加了一个叫做后期静态绑定的功能，用于在继承范围内引用静态调用的类。
+  </p>
+
+  <p class="para">
+   准确说，后期静态绑定工作原理是存储了在上一个“非转发调用”（non-forwarding
+   call）的类名。当进行静态方法调用时，该类名即为明确指定的那个（通常在
+   <a class="link" href="language.oop5.paamayim-nekudotayim.html"><code class="literal">::</code></a>
+   运算符左侧部分）；当进行非静态方法调用时，即为该对象所属的类。所谓的“转发调用”（forwarding
+   call）指的是通过以下几种方式进行的静态调用：<code class="literal">self::</code>，<code class="literal">parent::</code>，<code class="literal">static::</code>
+   以及 <span class="function"><a class="function" href="function.forward-static-call.html">forward_static_call()</a></span>。可用 <span class="function"><a class="function" href="function.get-called-class.html">get_called_class()</a></span>
+   函数来得到被调用的方法所在的类名，<code class="literal">static::</code> 则指出了其范围。
+  </p>
+
+  <p class="para">
+   该功能从语言内部角度考虑被命名为“后期静态绑定”。“后期绑定”的意思是说，<code class="literal">static::</code>
+   不再被解析为定义当前方法所在的类，而是在实际运行时计算的。也可以称之为“静态绑定”，因为它可以用于（但不限于）静态方法的调用。
+  </p>
+
+  <div class="sect2" id="language.oop5.late-static-bindings.self">
+   <h3 class="title"><code class="literal">self::</code> 的限制</h3>
+   <p class="para">
+    使用 <code class="literal">self::</code> 或者
+    <code class="literal">__CLASS__</code> 对当前类的静态引用，取决于定义当前方法所在的类：
+   </p>
+   <div class="example" id="example-277">
+    <p><strong>示例 #1 <code class="literal">self::</code> 用法</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">A&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">who</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">__CLASS__</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">self</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">who</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">B&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">A&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">who</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">__CLASS__</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">B</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>A
+</pre></div>
+    </div>
+   </div>
+
+  </div>
+
+  <div class="sect2" id="language.oop5.late-static-bindings.usage">
+   <h3 class="title">后期静态绑定的用法</h3>
+
+   <p class="para">
+    后期静态绑定本想通过引入一个新的关键字表示运行时最初调用的类来绕过限制。简单地说，这个关键字能在上述例子中调用
+    <code class="literal">test()</code> 时引用的类是 <code class="literal">B</code> 而不是
+    <code class="literal">A</code>。最终决定不引入新的关键字，而是使用已经预留的 <code class="literal">static</code> 关键字。
+   </p>
+
+   <div class="example" id="example-278">
+    <p><strong>示例 #2 <code class="literal">static::</code> 简单用法</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">A&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">who</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">__CLASS__</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static::</span><span style="color: rgb(0, 0, 187);">who</span><span style="color: rgb(0, 119, 0);">();&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;后期静态绑定从这里开始<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">}<br>}<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">B&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">A&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">who</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">__CLASS__</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">B</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>B
+</pre></div>
+    </div>
+   </div>
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <p class="para">
+     在非静态环境下，所调用的类即为该对象实例所属的类。由于 <code class="literal">$this-&gt;</code>
+     会在同一作用范围内尝试调用私有方法，而 <code class="literal">static::</code>
+     则可能给出不同结果。另一个区别是 <code class="literal">static::</code> 只能用于静态属性。
+    </p>
+   <p></p></blockquote>
+   <div class="example" id="example-279">
+    <p><strong>示例 #3 非静态环境下使用 <code class="literal">static::</code></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">A&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"success!\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static::</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">B&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">A&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;foo()&nbsp;将复制给&nbsp;B，因此它的作用域将是&nbsp;A&nbsp;并调用成功&nbsp;*/<br></span><span style="color: rgb(0, 119, 0);">}<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">C&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">A&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;替换原来的方法；新的作用域是&nbsp;C&nbsp;*/<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$b&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">B</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$c&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">C</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$c</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">();&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//fails<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>success!
+success!
+success!
+
+
+Fatal error:  Call to private method C::foo() from context 'A' in /tmp/test.php on line 9
+</pre></div>
+    </div>
+   </div>
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <p class="para">
+     后期静态绑定的解析会一直到取得一个完全解析了的静态调用为止。另一方面，如果静态调用使用
+     <code class="literal">parent::</code> 或者 <code class="literal">self::</code> 将转发调用信息。
+    </p>
+    <div class="example" id="example-280">
+     <p><strong>示例 #4 转发和非转发调用</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">A&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static::</span><span style="color: rgb(0, 0, 187);">who</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">who</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">__CLASS__</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">B&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">A&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">A</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">parent</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">self</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">who</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">__CLASS__</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">C&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">B&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">who</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">__CLASS__</span><span style="color: rgb(0, 119, 0);">.</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">C</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>以上例程会输出：</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>A
+C
+C
+</pre></div>
+     </div>
+    </div>
+   <p></p></blockquote>
+  </div>
+ </div></div></div></body></html>

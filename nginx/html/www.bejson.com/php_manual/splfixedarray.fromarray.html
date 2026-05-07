@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Import a PHP array in a SplFixedArray instance-BeJSON.com</title><meta name="keywords" content="Import a PHP array in a SplFixedArray instance"><meta name="description" content="SplFixedArray::fromArray(PHP 5 >= 5.3.0, PHP 7, PHP 8)SplFixedArray::fromArray — Import a PHP array in a SplFixedArray instance说明public static SplFixe">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="splfixedarray.current.html">« SplFixedArray::current</a></li>
+      <li style="float: right;"><a href="splfixedarray.getsize.html">SplFixedArray::getSize »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.splfixedarray.html">SplFixedArray</a></li>
+    <li>Import a PHP array in a SplFixedArray instance</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="splfixedarray.fromarray">
+ <div class="refnamediv">
+  <h1 class="refname">SplFixedArray::fromArray</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SplFixedArray::fromArray</span> — <span class="dc-title">Import a PHP array in a <span class="classname"><a class="classname" href="class.splfixedarray.html">SplFixedArray</a></span> instance</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-splfixedarray.fromarray-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>SplFixedArray::fromArray</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$preserveKeys</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type"><a class="type SplFixedArray" href="class.splfixedarray.html">SplFixedArray</a></span></div>
+
+  <p class="para rdfs-comment">
+   Import the PHP array <code class="parameter">array</code> 
+   in a new <span class="classname"><a class="classname" href="class.splfixedarray.html">SplFixedArray</a></span> instance
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-splfixedarray.fromarray-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">array</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The array to import.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">preserveKeys</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Try to save the numeric indexes used in the original array. 
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-splfixedarray.fromarray-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns an instance of <span class="classname"><a class="classname" href="class.splfixedarray.html">SplFixedArray</a></span> 
+   containing the array content.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-splfixedarray.fromarray-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3449">
+    <p><strong>示例 #1 <span class="function"><strong>SplFixedArray::fromArray()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$fa&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">SplFixedArray</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">fromArray</span><span style="color: rgb(0, 119, 0);">(array(</span><span style="color: rgb(0, 0, 187);">1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">3&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">));<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fa</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$fa&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">SplFixedArray</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">fromArray</span><span style="color: rgb(0, 119, 0);">(array(</span><span style="color: rgb(0, 0, 187);">1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">3&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(0, 0, 187);">false</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fa</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>object(SplFixedArray)#1 (4) {
+  [0]=&gt;
+  int(2)
+  [1]=&gt;
+  int(1)
+  [2]=&gt;
+  NULL
+  [3]=&gt;
+  int(3)
+}
+object(SplFixedArray)#2 (3) {
+  [0]=&gt;
+  int(1)
+  [1]=&gt;
+  int(2)
+  [2]=&gt;
+  int(3)
+}
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

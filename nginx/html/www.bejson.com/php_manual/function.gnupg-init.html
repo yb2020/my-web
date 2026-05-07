@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Initialize a connection-BeJSON.com</title><meta name="keywords" content="Initialize a connection"><meta name="description" content="gnupg_init(PECL gnupg >= 0.4)gnupg_init — Initialize a connection说明gnupg_init(?array $options = null): resource参数optionsMust be an associative array. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.gnupg-import.html">« gnupg_import</a></li>
+      <li style="float: right;"><a href="function.gnupg-keyinfo.html">gnupg_keyinfo »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.gnupg.html">GnuPG 函数</a></li>
+    <li>Initialize a connection</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.gnupg-init">
+ <div class="refnamediv">
+  <h1 class="refname">gnupg_init</h1>
+  <p class="verinfo">(PECL gnupg &gt;= 0.4)</p><p class="refpurpose"><span class="refname">gnupg_init</span> — <span class="dc-title">Initialize a connection</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.gnupg-init-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>gnupg_init</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">resource</span></div>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.gnupg-init-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">options</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Must be an associative array. It is used to change the default configuration
+       of the crypto engine.
+       <table class="doctable table">
+        <caption><strong>Configuration overrides</strong></caption>
+        
+         <thead>
+          <tr>
+           <th>key</th>
+           <th>type</th>
+           <th>description</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td>file_name</td>
+           <td><span class="type">string</span></td>
+           <td>
+            It is the file name of the executable program implementing this protocol
+            which is usually path of the <code class="literal">gpg</code> executable.
+           </td>
+          </tr>
+
+          <tr>
+           <td>home_dir</td>
+           <td><span class="type">string</span></td>
+           <td>
+            It is the directory name of the configuration directory. It also overrides
+            <code class="literal">GNUPGHOME</code> environment variable that is used for the same
+            purpose.
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      <p></p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.gnupg-init-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   A GnuPG <span class="type">resource</span> connection used by other GnuPG functions.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.gnupg-init-changelog">
+  <h3 class="title">更新日志</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>版本</th>
+      <th>说明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>1.5.0</td>
+      <td>The <code class="parameter">options</code> parameter was added.</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.gnupg-init-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3106">
+    <p><strong>示例 #1 Procedural <span class="function"><strong>gnupg_init()</strong></span> example with default setting</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$res&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">gnupg_init</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-3107">
+    <p><strong>示例 #2 Procedural <span class="function"><strong>gnupg_init()</strong></span> example with overriden file name and home dir</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$res&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">gnupg_init</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">"file_name"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">"/usr/bin/gpg2"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"home_dir"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">"/var/www/.gnupg"</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-3108">
+    <p><strong>示例 #3 OO gnupg initializer example with default setting</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$gpg&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">gnupg</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-3109">
+    <p><strong>示例 #4 OO gnupg initializer example with overriden file name and home dir</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$gpg&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">gnupg</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">"file_name"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">"/usr/bin/gpg2"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"home_dir"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">"/var/www/.gnupg"</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

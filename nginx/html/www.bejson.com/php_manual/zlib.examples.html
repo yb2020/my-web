@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>范例-BeJSON.com</title><meta name="keywords" content="范例"><meta name="description" content="This example opens a temporary file and writes a test string to it, then it prints out the content of this file twice. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="zlib.constants.html">« 预定义常量</a></li>
+      <li style="float: right;"><a href="ref.zlib.html">Zlib 函数 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.zlib.html">Zlib</a></li>
+    <li>范例</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="chapter" id="zlib.examples">
+ <h1>范例</h1>
+
+ <p class="para">
+  This example opens a temporary file and writes a test string 
+  to it, then it prints out the content of this file twice.
+ </p>
+ <div class="example" id="example-856">
+  <p><strong>示例 #1 Small Zlib Example</strong></p>
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$filename&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">tempnam</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'/tmp'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'zlibtest'</span><span style="color: rgb(0, 119, 0);">)&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">'.gz'</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;html&gt;\n&lt;head&gt;&lt;/head&gt;\n&lt;body&gt;\n&lt;pre&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$s&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Only&nbsp;a&nbsp;test,&nbsp;test,&nbsp;test,&nbsp;test,&nbsp;test,&nbsp;test,&nbsp;test,&nbsp;test!\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;open&nbsp;file&nbsp;for&nbsp;writing&nbsp;with&nbsp;maximum&nbsp;compression<br></span><span style="color: rgb(0, 0, 187);">$zp&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">gzopen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$filename</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"w9"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;write&nbsp;string&nbsp;to&nbsp;file<br></span><span style="color: rgb(0, 0, 187);">gzwrite</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$zp</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$s</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;close&nbsp;file<br></span><span style="color: rgb(0, 0, 187);">gzclose</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$zp</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;open&nbsp;file&nbsp;for&nbsp;reading<br></span><span style="color: rgb(0, 0, 187);">$zp&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">gzopen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$filename</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"r"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;read&nbsp;3&nbsp;char<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">gzread</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$zp</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;output&nbsp;until&nbsp;end&nbsp;of&nbsp;the&nbsp;file&nbsp;and&nbsp;close&nbsp;it.<br></span><span style="color: rgb(0, 0, 187);">gzpassthru</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$zp</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">gzclose</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$zp</span><span style="color: rgb(0, 119, 0);">);<br><br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;open&nbsp;file&nbsp;and&nbsp;print&nbsp;content&nbsp;(the&nbsp;2nd&nbsp;time).<br></span><span style="color: rgb(0, 119, 0);">if&nbsp;(</span><span style="color: rgb(0, 0, 187);">readgzfile</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$filename</span><span style="color: rgb(0, 119, 0);">)&nbsp;!=&nbsp;</span><span style="color: rgb(0, 0, 187);">strlen</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$s</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Error&nbsp;with&nbsp;zlib&nbsp;functions!"</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">unlink</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$filename</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;/pre&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+ </div>
+ <div class="example" id="example-857">
+  <p><strong>示例 #2 Working with the incremental compression and decompression API</strong></p>
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Perform&nbsp;GZIP&nbsp;compression:<br></span><span style="color: rgb(0, 0, 187);">$deflateContext&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">deflate_init</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">ZLIB_ENCODING_GZIP</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$compressed&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">deflate_add</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$deflateContext</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"Data&nbsp;to&nbsp;compress"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">ZLIB_NO_FLUSH</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$compressed&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(0, 0, 187);">deflate_add</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$deflateContext</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">",&nbsp;more&nbsp;data"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">ZLIB_NO_FLUSH</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$compressed&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(0, 0, 187);">deflate_add</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$deflateContext</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">",&nbsp;and&nbsp;even&nbsp;more&nbsp;data!"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">ZLIB_FINISH</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Perform&nbsp;GZIP&nbsp;decompression:<br></span><span style="color: rgb(0, 0, 187);">$inflateContext&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">inflate_init</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">ZLIB_ENCODING_GZIP</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$uncompressed&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">inflate_add</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$inflateContext</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$compressed</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">ZLIB_NO_FLUSH</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$uncompressed&nbsp;</span><span style="color: rgb(0, 119, 0);">.=&nbsp;</span><span style="color: rgb(0, 0, 187);">inflate_add</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$inflateContext</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">NULL</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">ZLIB_FINISH</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$uncompressed</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+  <div class="example-contents"><p>以上例程会输出：</p></div>
+  <div class="example-contents screen">
+<div class="cdata"><pre>Data to compress, more data, and even more data!
+</pre></div>
+  </div>
+ </div>
+</div>
+</div></div></body></html>

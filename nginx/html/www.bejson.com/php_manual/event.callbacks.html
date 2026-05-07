@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Event callbacks-BeJSON.com</title><meta name="keywords" content="Event callbacks"><meta name="description" content="If a callback is registered for an event, it will be called when the event becomes active. To associate a callback with event one can pass a callable ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="event.persistence.html">« About event persistence</a></li>
+      <li style="float: right;"><a href="event.constructing.signal.events.html">Constructing signal events »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.event.html">Event</a></li>
+    <li>Event callbacks</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="chapter" id="event.callbacks">
+ <h1>Event callbacks</h1>
+
+ <p class="para">
+  If a callback is registered for an event, it will be called when the event
+  becomes active. To associate a callback with event one can pass a
+  <span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span>
+  to either
+  <span class="methodname"><a class="methodname" href="event.construct.html">Event::__construct()</a></span>
+  , or
+  <span class="methodname"><a class="methodname" href="event.set.html">Event::set()</a></span>
+  , or one of the factory methods like
+  <span class="methodname"><a class="methodname" href="event.timer.html">Event::timer()</a></span>
+  .
+ </p>
+ <p class="para">
+  An event callback should match the following prototype:
+ </p>
+ <div class="methodsynopsis dc-description"><span class="methodname"><strong>callback</strong></span>(<span class="methodparam">
+   <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span>
+    <code class="parameter">$fd</code>
+   <span class="initializer"> = <strong><code>null</code></strong></span>
+  </span>, <span class="methodparam">
+   <span class="type">int</span>
+    <code class="parameter">$what</code>
+  <span class="initializer"> = ?</span></span>, <span class="methodparam">
+   <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span>
+    <code class="parameter">$arg</code>
+   <span class="initializer"> = <strong><code>null</code></strong></span>
+  </span>): <span class="type"><span class="type void">void</span></span></div>
+
+ <p class="para">
+  <dl>
+   
+    <dt>
+
+     <code class="parameter">fd</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      The file descriptor, stream resource or socket associated with the
+      event. For signal event
+      <code class="parameter">fd</code>
+      is equal to the signal number.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">what</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Bit mask of
+      <em class="emphasis">all</em>
+      events triggered.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">arg</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      User custom data.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ <p></p>
+ <p class="para">
+  <span class="methodname"><a class="methodname" href="event.timer.html">Event::timer()</a></span>
+  expects the callback to match the following prototype:
+ </p>
+ <div class="methodsynopsis dc-description"><span class="methodname"><strong>callback</strong></span>(<span class="methodparam">
+   <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span>
+    <code class="parameter">$arg</code>
+   <span class="initializer"> = <strong><code>null</code></strong></span>
+  </span>): <span class="type"><span class="type void">void</span></span></div>
+
+ <p class="para">
+  <dl>
+   
+    <dt>
+
+     <code class="parameter">arg</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      User custom data.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ <p></p>
+ <p class="para">
+  <span class="methodname"><a class="methodname" href="event.signal.html">Event::signal()</a></span>
+  expects the callback to match the following prototype:
+ </p>
+ <div class="methodsynopsis dc-description"><span class="methodname"><strong>callback</strong></span>(<span class="methodparam">
+   <span class="type">int</span>
+    <code class="parameter">$signum</code>
+  <span class="initializer"> = ?</span></span>, <span class="methodparam">
+   <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span>
+    <code class="parameter">$arg</code>
+   <span class="initializer"> = <strong><code>null</code></strong></span>
+  </span>): <span class="type"><span class="type void">void</span></span></div>
+
+ <p class="para">
+  <dl>
+   
+    <dt>
+
+     <code class="parameter">signum</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      The number of the triggered signal(e.g.
+      <strong><code>SIGTERM</code></strong>
+      ).
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">arg</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      User custom data.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ <p></p>
+</div>
+</div></div></body></html>

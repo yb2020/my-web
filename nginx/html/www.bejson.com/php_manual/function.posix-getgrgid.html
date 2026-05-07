@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Return info about a group by group id-BeJSON.com</title><meta name="keywords" content="Return info about a group by group id"><meta name="description" content="posix_getgrgid(PHP 4, PHP 5, PHP 7, PHP 8)posix_getgrgid — Return info about a group by group id说明posix_getgrgid(int $group_id): array|falseGets infor">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.posix-getgid.html">« posix_getgid</a></li>
+      <li style="float: right;"><a href="function.posix-getgrnam.html">posix_getgrnam »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.posix.html">POSIX 函数</a></li>
+    <li>Return info about a group by group id</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.posix-getgrgid">
+ <div class="refnamediv">
+  <h1 class="refname">posix_getgrgid</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">posix_getgrgid</span> — <span class="dc-title">Return info about a group by group id</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.posix-getgrgid-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>posix_getgrgid</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$group_id</code></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+  <p class="para rdfs-comment">
+   Gets information about a group provided its id.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.posix-getgrgid-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">group_id</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The group id.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.posix-getgrgid-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   The array elements returned are:
+   <table class="doctable table">
+    <caption><strong>The group information array</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Element</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>name</td>
+       <td>
+        The name element contains the name of the group. This is
+        a short, usually less than 16 character "handle" of the
+        group, not the real, full name.
+       </td>
+      </tr>
+
+      <tr>
+       <td>passwd</td>
+       <td>
+        The passwd element contains the group's password in an
+        encrypted format. Often, for example on a system employing
+        "shadow" passwords, an asterisk is returned instead.
+       </td>
+      </tr>
+
+      <tr>
+       <td>gid</td>
+       <td>
+        Group ID, should be the same as the
+        <code class="parameter">group_id</code> parameter used when calling the
+        function, and hence redundant.
+       </td>
+      </tr>
+
+      <tr>
+       <td>members</td>
+       <td>
+        This consists of an <span class="type">array</span> of
+        <span class="type">string</span>'s for all the members in the group.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+   The function returns <strong><code>false</code></strong> on failure.
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.posix-getgrgid-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3233">
+    <p><strong>示例 #1 Example use of <span class="function"><strong>posix_getgrgid()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$groupid&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">posix_getegid</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$groupinfo&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">posix_getgrgid</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$groupid</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$groupinfo</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [name]    =&gt; toons
+    [passwd]  =&gt; x
+    [members] =&gt; Array
+        (
+            [0] =&gt; tom
+            [1] =&gt; jerry
+        )
+    [gid]     =&gt; 42
+)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.posix-getgrgid-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.posix-getegid.html" rel="rdfs-seeAlso">posix_getegid()</a> - Return the effective group ID of the current process</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.posix-getgrnam.html" rel="rdfs-seeAlso">posix_getgrnam()</a> - Return info about a group by name</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.filegroup.html" rel="rdfs-seeAlso">filegroup()</a> - 取得文件的组</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.stat.html" rel="rdfs-seeAlso">stat()</a> - 给出文件的信息</span></li>
+    <li class="member">POSIX man page GETGRNAM(3)</li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

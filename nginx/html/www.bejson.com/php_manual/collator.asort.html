@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Sort array maintaining index association-BeJSON.com</title><meta name="keywords" content="Sort array maintaining index association"><meta name="description" content="面向对象风格">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.collator.html">« Collator</a></li>
+      <li style="float: right;"><a href="collator.compare.html">Collator::compare »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.collator.html">Collator</a></li>
+    <li>Sort array maintaining index association</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="collator.asort">
+ <div class="refnamediv">
+  <h1 class="refname">Collator::asort</h1>
+  <h1 class="refname">collator_asort</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">Collator::asort</span> -- <span class="refname">collator_asort</span> — <span class="dc-title">Sort array maintaining index association</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-collator.asort-description">
+  <h3 class="title">说明</h3>
+  <p class="para">面向对象风格</p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Collator::asort</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&amp;$array</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = Collator::SORT_REGULAR</span></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   过程化风格
+  </p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>collator_asort</strong></span>(<span class="methodparam"><span class="type"><a class="type Collator" href="class.collator.html">Collator</a></span> <code class="parameter">$object</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&amp;$array</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = Collator::SORT_REGULAR</span></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   This function sorts an array such that array indices maintain their
+   correlation with the array elements they are associated with. This is used
+   mainly when sorting associative arrays where the actual element order is
+   significant. Array elements will have sort order according to current
+   locale rules.
+  </p>
+  <p class="para">
+   Equivalent to standard PHP
+   <span class="function"><a class="function" href="function.asort.html">asort()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-collator.asort-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">object</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <span class="classname"><a class="classname" href="class.collator.html">Collator</a></span> object.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">array</code></dt>
+
+     <dd>
+
+      <p class="para">Array of strings to sort.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Optional sorting type, one of the following:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <p class="para">
+          <strong><code>Collator::SORT_REGULAR</code></strong>
+          - compare items normally (don't change types)
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <strong><code>Collator::SORT_NUMERIC</code></strong>
+          - compare items numerically
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <strong><code>Collator::SORT_STRING</code></strong>
+          - compare items as strings
+         </p>
+        </li>
+       </ul>
+      <p></p>
+      <p class="para">
+       Default <code class="parameter">flags</code> value is
+       <strong><code>Collator::SORT_REGULAR</code></strong>.
+       It is also used if an invalid <code class="parameter">flags</code> value has been specified.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+
+ <div class="refsect1 returnvalues" id="refsect1-collator.asort-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-collator.asort-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2228">
+    <p><strong>示例 #1 <span class="function"><strong>collator_asort()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$coll&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">collator_create</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(221, 0, 0);">'en_US'&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$arr&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'a'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'100'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'b'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'50'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'c'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'7'<br></span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">collator_asort</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$coll</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$arr</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">Collator</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">SORT_NUMERIC&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_export</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$arr&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">collator_asort</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$coll</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$arr</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">Collator</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">SORT_STRING&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_export</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$arr&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>array (
+  'c' =&gt; '7',
+  'b' =&gt; '50',
+  'a' =&gt; '100',
+)array (
+  'a' =&gt; '100',
+  'b' =&gt; '50',
+  'c' =&gt; '7',
+)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-collator.asort-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a class="link" href="class.collator.html#intl.collator-constants"><span class="classname"></span><a class="classname" href="class.collator.html">Collator</a> constants</li>
+    <li class="member"><span class="function"><a class="function" href="collator.sort.html" rel="rdfs-seeAlso">collator_sort()</a> - Sort array using specified collator</span></li>
+    <li class="member"><span class="function"><a class="function" href="collator.sortwithsortkeys.html" rel="rdfs-seeAlso">collator_sort_with_sort_keys()</a> - Sort array using specified collator and sort keys</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

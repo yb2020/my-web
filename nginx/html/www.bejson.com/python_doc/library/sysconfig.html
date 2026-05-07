@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>sysconfig —— 提供对 Python 配置信息的访问支持-BeJSON.com</title><meta name="keywords" content="sysconfig —— 提供对 Python 配置信息的访问支持"><meta name="description" content="sys --- 系统相关的参数和函数"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="builtins --- 内建对象" href="builtins.html" rel="next">
+    <link title="sys --- 系统相关的参数和函数" href="sys.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/sysconfig.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code> —— 提供对 Python 配置信息的访问支持</a><ul>
+<li><a class="reference internal" href="#configuration-variables">配置变量</a></li>
+<li><a class="reference internal" href="#installation-paths">安装路径</a></li>
+<li><a class="reference internal" href="#other-functions">其他功能</a></li>
+<li><a class="reference internal" href="#using-sysconfig-as-a-script">Using <code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code> as a script</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="sys.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code> --- 系统相关的参数和函数</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="builtins.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code> --- 内建对象</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="builtins --- 内建对象" accesskey="N" href="builtins.html">下一页</a> |</li>
+        <li class="right">
+          <a title="sys --- 系统相关的参数和函数" accesskey="P" href="sys.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="python.html">Python运行时服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code> —— 提供对 Python 配置信息的访问支持</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-sysconfig">
+<span id="sysconfig-provide-access-to-python-s-configuration-information"></span><h1><a title="sysconfig: Python's configuration information" class="reference internal" href="#module-sysconfig"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a> —— 提供对 Python 配置信息的访问支持<a title="永久链接至标题" class="headerlink" href="#module-sysconfig">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified added">3.2 新版功能.</span></p>
+</div>
+<p><strong>源代码：</strong> <a class="reference external" href="">Lib/sysconfig.py</a></p>
+<hr class="docutils" id="index-0">
+<p><a title="sysconfig: Python's configuration information" class="reference internal" href="#module-sysconfig"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a> 模块提供了对 Python 配置信息的访问支持，比如安装路径列表和有关当前平台的配置变量。</p>
+<section id="configuration-variables">
+<h2>配置变量<a title="永久链接至标题" class="headerlink" href="#configuration-variables">¶</a></h2>
+<p>Python 的发行版中包含一个 <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> 和一个 <code class="file docutils literal notranslate"><span class="pre">pyconfig.h</span></code> 头文件，这是构建 Python 二进制文件本身和用 <a title="distutils: Support for building and installing Python modules into an existing Python installation." class="reference internal" href="distutils.html#module-distutils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> 编译的第三方 C 语言扩展所必需的。</p>
+<p><a title="sysconfig: Python's configuration information" class="reference internal" href="#module-sysconfig"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a> 将这些文件中的所有变量放在一个字典对象中，可用 <a title="sysconfig.get_config_vars" class="reference internal" href="#sysconfig.get_config_vars"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_config_vars()</span></code></a> 或 <a title="sysconfig.get_config_var" class="reference internal" href="#sysconfig.get_config_var"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_config_var()</span></code></a> 访问。</p>
+<p>Notice that on Windows, it's a much smaller set.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.get_config_vars">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">get_config_vars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.get_config_vars">¶</a></dt>
+<dd><p>With no arguments, return a dictionary of all configuration variables
+relevant for the current platform.</p>
+<p>With arguments, return a list of values that result from looking up each
+argument in the configuration variable dictionary.</p>
+<p>For each argument, if the value is not found, return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.get_config_var">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">get_config_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.get_config_var">¶</a></dt>
+<dd><p>Return the value of a single variable <em>name</em>. Equivalent to
+<code class="docutils literal notranslate"><span class="pre">get_config_vars().get(name)</span></code>.</p>
+<p>If <em>name</em> is not found, return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<p>用法示例:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><span title="Hide the prompts and output" class="copybutton" style="border-radius: 0px 3px 0px 0px; border: 1px solid rgb(170, 204, 153); top: 0px; right: 0px; color: rgb(170, 204, 153); padding-right: 0.2em; padding-left: 0.2em; font-family: monospace; position: absolute; cursor: pointer;">&gt;&gt;&gt;</span><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sysconfig</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_config_var</span><span class="p">(</span><span class="s1">'Py_ENABLE_SHARED'</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_config_var</span><span class="p">(</span><span class="s1">'LIBDIR'</span><span class="p">)</span>
+<span class="go">'/usr/local/lib'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_config_vars</span><span class="p">(</span><span class="s1">'AR'</span><span class="p">,</span> <span class="s1">'CXX'</span><span class="p">)</span>
+<span class="go">['ar', 'g++']</span>
+</pre></div>
+</div>
+</section>
+<section id="installation-paths">
+<span id="id1"></span><h2>安装路径<a title="永久链接至标题" class="headerlink" href="#installation-paths">¶</a></h2>
+<p>Python uses an installation scheme that differs depending on the platform and on
+the installation options.  These schemes are stored in <a title="sysconfig: Python's configuration information" class="reference internal" href="#module-sysconfig"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a> under
+unique identifiers based on the value returned by <a title="os.name" class="reference internal" href="os.html#os.name"><code class="xref py py-const docutils literal notranslate"><span class="pre">os.name</span></code></a>.</p>
+<p>Every new component that is installed using <a title="distutils: Support for building and installing Python modules into an existing Python installation." class="reference internal" href="distutils.html#module-distutils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">distutils</span></code></a> or a
+Distutils-based system will follow the same scheme to copy its file in the right
+places.</p>
+<p>Python currently supports nine schemes:</p>
+<ul class="simple">
+<li><p><em>posix_prefix</em>: scheme for POSIX platforms like Linux or macOS.  This is
+the default scheme used when Python or a component is installed.</p></li>
+<li><p><em>posix_home</em>: scheme for POSIX platforms used when a <em>home</em> option is used
+upon installation.  This scheme is used when a component is installed through
+Distutils with a specific home prefix.</p></li>
+<li><p><em>posix_user</em>: scheme for POSIX platforms used when a component is installed
+through Distutils and the <em>user</em> option is used.  This scheme defines paths
+located under the user home directory.</p></li>
+<li><p><em>posix_venv</em>: scheme for <a title="venv: Creation of virtual environments." class="reference internal" href="venv.html#module-venv"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Python</span> <span class="pre">virtual</span> <span class="pre">environments</span></code></a> on POSIX
+platforms; by default it is the same as <em>posix_prefix</em> .</p></li>
+<li><p><em>nt</em>: scheme for NT platforms like Windows.</p></li>
+<li><p><em>nt_user</em>: scheme for NT platforms, when the <em>user</em> option is used.</p></li>
+<li><p><em>nt_venv</em>: scheme for <a title="venv: Creation of virtual environments." class="reference internal" href="venv.html#module-venv"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Python</span> <span class="pre">virtual</span> <span class="pre">environments</span></code></a> on NT
+platforms; by default it is the same as <em>nt</em> .</p></li>
+<li><p><em>venv</em>: a scheme with values from ether <em>posix_venv</em> or <em>nt_venv</em> depending
+on the platform Python runs on</p></li>
+<li><p><em>osx_framework_user</em>: scheme for macOS, when the <em>user</em> option is used.</p></li>
+</ul>
+<p>Each scheme is itself composed of a series of paths and each path has a unique
+identifier.  Python currently uses eight paths:</p>
+<ul class="simple">
+<li><p><em>stdlib</em>: directory containing the standard Python library files that are not
+platform-specific.</p></li>
+<li><p><em>platstdlib</em>: directory containing the standard Python library files that are
+platform-specific.</p></li>
+<li><p><em>platlib</em>: directory for site-specific, platform-specific files.</p></li>
+<li><p><em>purelib</em>: directory for site-specific, non-platform-specific files.</p></li>
+<li><p><em>include</em>: directory for non-platform-specific header files for
+the Python C-API.</p></li>
+<li><p><em>platinclude</em>: directory for platform-specific header files for
+the Python C-API.</p></li>
+<li><p><em>scripts</em>: directory for script files.</p></li>
+<li><p><em>data</em>: directory for data files.</p></li>
+</ul>
+<p><a title="sysconfig: Python's configuration information" class="reference internal" href="#module-sysconfig"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a> provides some functions to determine these paths.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.get_scheme_names">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">get_scheme_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.get_scheme_names">¶</a></dt>
+<dd><p>Return a tuple containing all schemes currently supported in
+<a title="sysconfig: Python's configuration information" class="reference internal" href="#module-sysconfig"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.get_default_scheme">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">get_default_scheme</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.get_default_scheme">¶</a></dt>
+<dd><p>Return the default scheme name for the current platform.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.10 版更改: </span>This function was previously named <code class="docutils literal notranslate"><span class="pre">_get_default_scheme()</span></code> and
+considered an implementation detail.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.11 版更改: </span>When Python runs from a virtual environment,
+the <em>venv</em> scheme is returned.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.get_preferred_scheme">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">get_preferred_scheme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.get_preferred_scheme">¶</a></dt>
+<dd><p>Return a preferred scheme name for an installation layout specified by <em>key</em>.</p>
+<p><em>key</em> must be either <code class="docutils literal notranslate"><span class="pre">"prefix"</span></code>, <code class="docutils literal notranslate"><span class="pre">"home"</span></code>, or <code class="docutils literal notranslate"><span class="pre">"user"</span></code>.</p>
+<p>The return value is a scheme name listed in <a title="sysconfig.get_scheme_names" class="reference internal" href="#sysconfig.get_scheme_names"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_scheme_names()</span></code></a>. It
+can be passed to <a title="sysconfig: Python's configuration information" class="reference internal" href="#module-sysconfig"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a> functions that take a <em>scheme</em> argument,
+such as <a title="sysconfig.get_paths" class="reference internal" href="#sysconfig.get_paths"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_paths()</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.10 新版功能.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.11 版更改: </span>When Python runs from a virtual environment and <code class="docutils literal notranslate"><span class="pre">key="prefix"</span></code>,
+the <em>venv</em> scheme is returned.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig._get_preferred_schemes">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">_get_preferred_schemes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig._get_preferred_schemes">¶</a></dt>
+<dd><p>Return a dict containing preferred scheme names on the current platform.
+Python implementers and redistributors may add their preferred schemes to
+the <code class="docutils literal notranslate"><span class="pre">_INSTALL_SCHEMES</span></code> module-level global value, and modify this function
+to return those scheme names, to e.g. provide different schemes for system
+and language package managers to use, so packages installed by either do not
+mix with those by the other.</p>
+<p>End users should not use this function, but <a title="sysconfig.get_default_scheme" class="reference internal" href="#sysconfig.get_default_scheme"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_default_scheme()</span></code></a> and
+<a title="sysconfig.get_preferred_scheme" class="reference internal" href="#sysconfig.get_preferred_scheme"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_preferred_scheme()</span></code></a> instead.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.10 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.get_path_names">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">get_path_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.get_path_names">¶</a></dt>
+<dd><p>Return a tuple containing all path names currently supported in
+<a title="sysconfig: Python's configuration information" class="reference internal" href="#module-sysconfig"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.get_path">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">get_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">vars</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">expand</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.get_path">¶</a></dt>
+<dd><p>Return an installation path corresponding to the path <em>name</em>, from the
+install scheme named <em>scheme</em>.</p>
+<p><em>name</em> has to be a value from the list returned by <a title="sysconfig.get_path_names" class="reference internal" href="#sysconfig.get_path_names"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_path_names()</span></code></a>.</p>
+<p><a title="sysconfig: Python's configuration information" class="reference internal" href="#module-sysconfig"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a> stores installation paths corresponding to each path name,
+for each platform, with variables to be expanded.  For instance the <em>stdlib</em>
+path for the <em>nt</em> scheme is: <code class="docutils literal notranslate"><span class="pre">{base}/Lib</span></code>.</p>
+<p><a title="sysconfig.get_path" class="reference internal" href="#sysconfig.get_path"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_path()</span></code></a> will use the variables returned by <a title="sysconfig.get_config_vars" class="reference internal" href="#sysconfig.get_config_vars"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_config_vars()</span></code></a>
+to expand the path.  All variables have default values for each platform so
+one may call this function and get the default value.</p>
+<p>If <em>scheme</em> is provided, it must be a value from the list returned by
+<a title="sysconfig.get_scheme_names" class="reference internal" href="#sysconfig.get_scheme_names"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_scheme_names()</span></code></a>.  Otherwise, the default scheme for the current
+platform is used.</p>
+<p>If <em>vars</em> is provided, it must be a dictionary of variables that will update
+the dictionary return by <a title="sysconfig.get_config_vars" class="reference internal" href="#sysconfig.get_config_vars"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_config_vars()</span></code></a>.</p>
+<p>If <em>expand</em> is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, the path will not be expanded using the
+variables.</p>
+<p>If <em>name</em> is not found, raise a <a title="KeyError" class="reference internal" href="exceptions.html#KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.get_paths">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">get_paths</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">scheme</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">vars</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">expand</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.get_paths">¶</a></dt>
+<dd><p>Return a dictionary containing all installation paths corresponding to an
+installation scheme. See <a title="sysconfig.get_path" class="reference internal" href="#sysconfig.get_path"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_path()</span></code></a> for more information.</p>
+<p>If <em>scheme</em> is not provided, will use the default scheme for the current
+platform.</p>
+<p>If <em>vars</em> is provided, it must be a dictionary of variables that will
+update the dictionary used to expand the paths.</p>
+<p>If <em>expand</em> is set to false, the paths will not be expanded.</p>
+<p>If <em>scheme</em> is not an existing scheme, <a title="sysconfig.get_paths" class="reference internal" href="#sysconfig.get_paths"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_paths()</span></code></a> will raise a
+<a title="KeyError" class="reference internal" href="exceptions.html#KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a>.</p>
+</dd></dl>
+
+</section>
+<section id="other-functions">
+<h2>其他功能<a title="永久链接至标题" class="headerlink" href="#other-functions">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.get_python_version">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">get_python_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.get_python_version">¶</a></dt>
+<dd><p>Return the <code class="docutils literal notranslate"><span class="pre">MAJOR.MINOR</span></code> Python version number as a string.  Similar to
+<code class="docutils literal notranslate"><span class="pre">'%d.%d'</span> <span class="pre">%</span> <span class="pre">sys.version_info[:2]</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.get_platform">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">get_platform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.get_platform">¶</a></dt>
+<dd><p>Return a string that identifies the current platform.</p>
+<p>This is used mainly to distinguish platform-specific build directories and
+platform-specific built distributions.  Typically includes the OS name and
+version and the architecture (as supplied by 'os.uname()'), although the
+exact information included depends on the OS; e.g., on Linux, the kernel
+version isn't particularly important.</p>
+<p>返回值的示例：</p>
+<ul class="simple">
+<li><p>linux-i586</p></li>
+<li><p>linux-alpha (?)</p></li>
+<li><p>solaris-2.6-sun4u</p></li>
+</ul>
+<p>Windows将返回以下之一：</p>
+<ul class="simple">
+<li><p>win-amd64 (在 AMD64, aka x86_64, Intel64, 和 EM64T上的64位 Windows )</p></li>
+<li><p>win32 (all others - specifically, sys.platform is returned)</p></li>
+</ul>
+<p>macOS can return:</p>
+<ul class="simple">
+<li><p>macosx-10.6-ppc</p></li>
+<li><p>macosx-10.4-ppc64</p></li>
+<li><p>macosx-10.3-i386</p></li>
+<li><p>macosx-10.4-fat</p></li>
+</ul>
+<p>对于其他非-POSIX 平台， 目前只是返回 <a title="sys.platform" class="reference internal" href="sys.html#sys.platform"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.platform</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.is_python_build">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">is_python_build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.is_python_build">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the running Python interpreter was built from source and
+is being run from its built location, and not from a location resulting from
+e.g. running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> or installing via a binary installer.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.parse_config_h">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">parse_config_h</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fp</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">vars</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.parse_config_h">¶</a></dt>
+<dd><p>Parse a <code class="file docutils literal notranslate"><span class="pre">config.h</span></code>-style file.</p>
+<p><em>fp</em> is a file-like object pointing to the <code class="file docutils literal notranslate"><span class="pre">config.h</span></code>-like file.</p>
+<p>A dictionary containing name/value pairs is returned.  If an optional
+dictionary is passed in as the second argument, it is used instead of a new
+dictionary, and updated with the values read in the file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.get_config_h_filename">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">get_config_h_filename</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.get_config_h_filename">¶</a></dt>
+<dd><p>返回  <code class="file docutils literal notranslate"><span class="pre">pyconfig.h</span></code> 的目录</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysconfig.get_makefile_filename">
+<span class="sig-prename descclassname"><span class="pre">sysconfig.</span></span><span class="sig-name descname"><span class="pre">get_makefile_filename</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#sysconfig.get_makefile_filename">¶</a></dt>
+<dd><p>返回 <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> 的目录</p>
+</dd></dl>
+
+</section>
+<section id="using-sysconfig-as-a-script">
+<h2>Using <a title="sysconfig: Python's configuration information" class="reference internal" href="#module-sysconfig"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a> as a script<a title="永久链接至标题" class="headerlink" href="#using-sysconfig-as-a-script">¶</a></h2>
+<p>You can use <a title="sysconfig: Python's configuration information" class="reference internal" href="#module-sysconfig"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a> as a script with Python's <em>-m</em> option:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python -m sysconfig
+<span class="go">Platform: "macosx-10.4-i386"</span>
+<span class="go">Python version: "3.2"</span>
+<span class="go">Current installation scheme: "posix_prefix"</span>
+
+<span class="go">Paths:</span>
+<span class="go">        data = "/usr/local"</span>
+<span class="go">        include = "/Users/tarek/Dev/svn.python.org/py3k/Include"</span>
+<span class="go">        platinclude = "."</span>
+<span class="go">        platlib = "/usr/local/lib/python3.2/site-packages"</span>
+<span class="go">        platstdlib = "/usr/local/lib/python3.2"</span>
+<span class="go">        purelib = "/usr/local/lib/python3.2/site-packages"</span>
+<span class="go">        scripts = "/usr/local/bin"</span>
+<span class="go">        stdlib = "/usr/local/lib/python3.2"</span>
+
+<span class="go">Variables:</span>
+<span class="go">        AC_APPLE_UNIVERSAL_BUILD = "0"</span>
+<span class="go">        AIX_GENUINE_CPLUSPLUS = "0"</span>
+<span class="go">        AR = "ar"</span>
+<span class="go">        ARFLAGS = "rc"</span>
+<span class="go">        ...</span>
+</pre></div>
+</div>
+<p>This call will print in the standard output the information returned by
+<a title="sysconfig.get_platform" class="reference internal" href="#sysconfig.get_platform"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_platform()</span></code></a>, <a title="sysconfig.get_python_version" class="reference internal" href="#sysconfig.get_python_version"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_python_version()</span></code></a>, <a title="sysconfig.get_path" class="reference internal" href="#sysconfig.get_path"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_path()</span></code></a> and
+<a title="sysconfig.get_config_vars" class="reference internal" href="#sysconfig.get_config_vars"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_config_vars()</span></code></a>.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code> —— 提供对 Python 配置信息的访问支持</a><ul>
+<li><a class="reference internal" href="#configuration-variables">配置变量</a></li>
+<li><a class="reference internal" href="#installation-paths">安装路径</a></li>
+<li><a class="reference internal" href="#other-functions">其他功能</a></li>
+<li><a class="reference internal" href="#using-sysconfig-as-a-script">Using <code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code> as a script</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="sys.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code> --- 系统相关的参数和函数</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="builtins.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code> --- 内建对象</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="builtins --- 内建对象" href="builtins.html">下一页</a> |</li>
+        <li class="right">
+          <a title="sys --- 系统相关的参数和函数" href="sys.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="python.html">Python运行时服务</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code> —— 提供对 Python 配置信息的访问支持</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

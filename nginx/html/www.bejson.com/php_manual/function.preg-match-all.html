@@ -1,0 +1,453 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>执行一个全局正则表达式匹配-BeJSON.com</title><meta name="keywords" content="执行一个全局正则表达式匹配"><meta name="description" content="在第一个匹配找到后, 子序列继续从最后一次匹配位置搜索. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.preg-last-error.html">« preg_last_error</a></li>
+      <li style="float: right;"><a href="function.preg-match.html">preg_match »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.pcre.html">PCRE 函数</a></li>
+    <li>执行一个全局正则表达式匹配</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.preg-match-all">
+ <div class="refnamediv">
+  <h1 class="refname">preg_match_all</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">preg_match_all</span> — <span class="dc-title">执行一个全局正则表达式匹配</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.preg-match-all-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>preg_match_all</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&amp;$matches</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span><br>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
+
+  <p class="para rdfs-comment">
+  搜索<code class="parameter">subject</code>中所有匹配<code class="parameter">pattern</code>给定正则表达式
+  的匹配结果并且将它们以<code class="parameter">flag</code>指定顺序输出到<code class="parameter">matches</code>中.
+  </p>
+  <p class="para">
+  在第一个匹配找到后, 子序列继续从最后一次匹配位置搜索.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.preg-match-all-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">pattern</code></dt>
+
+     <dd>
+
+      <p class="para">
+       要搜索的模式，字符串形式。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">subject</code></dt>
+
+     <dd>
+
+      <p class="para">
+       输入字符串。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">matches</code></dt>
+
+     <dd>
+
+      <p class="para">
+      多维数组，作为输出参数输出所有匹配结果, 数组排序通过<code class="parameter">flags</code>指定。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+      可以结合下面标记使用(注意不能同时使用<strong><code>PREG_PATTERN_ORDER</code></strong>和
+      <strong><code>PREG_SET_ORDER</code></strong>)：
+       <dl>
+        
+         <dt>
+<strong><code>PREG_PATTERN_ORDER</code></strong></dt>
+
+         <dd>
+
+          <p class="para">
+          结果排序为<var class="varname">$matches[0]</var>保存完整模式的所有匹配, <var class="varname">$matches[1]</var>
+          保存第一个子组的所有匹配，以此类推。
+          </p>
+          <p class="para">
+           <div class="informalexample">
+            <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>preg_match_all</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"|&lt;[^&gt;]+&gt;(.*)&lt;/[^&gt;]+&gt;|U"</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;b&gt;example:&nbsp;&lt;/b&gt;&lt;div&nbsp;align=left&gt;this&nbsp;is&nbsp;a&nbsp;test&lt;/div&gt;"</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">PREG_PATTERN_ORDER</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">][</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">",&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">][</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">][</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">",&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">][</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+            </div>
+
+            <p class="para">以上例程会输出：</p>
+            <div class="example-contents screen">
+<div class="cdata"><pre>&lt;b&gt;example: &lt;/b&gt;, &lt;div align=left&gt;this is a test&lt;/div&gt;
+example: , this is a test
+</pre></div>
+            </div>
+            <p class="para">
+             因此, <var class="varname">$out[0]</var>是包含匹配完整模式的字符串的数组， 
+     <var class="varname">$out[1]</var>是包含闭合标签内的字符串的数组。
+            </p>
+           </div>
+          <p></p>
+          <p class="para">
+           如果正则表达式包含了带名称的子组，<var class="varname">$matches</var> 额外包含了带名称子组的键。
+          </p>
+          <p class="para">
+           如果正则表达式里，子组名称重名了，则仅最右侧的子组储存在 <var class="varname">$matches[NAME]</var> 中。
+           <div class="informalexample">
+            <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>preg_match_all</span><span style="color: rgb(0, 119, 0);">(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'/(?J)(?&lt;match&gt;foo)|(?&lt;match&gt;bar)/'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'foo&nbsp;bar'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$matches</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">PREG_PATTERN_ORDER<br></span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$matches</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'match'</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+            </div>
+
+            <p class="para">以上例程会输出：</p>
+            <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [0] =&gt; 
+    [1] =&gt; bar
+)
+</pre></div>
+            </div>
+           </div>
+          <p></p>
+         </dd>
+
+        
+        
+         <dt>
+<strong><code>PREG_SET_ORDER</code></strong></dt>
+
+         <dd>
+
+          <p class="para">
+          结果排序为<var class="varname">$matches[0]</var>包含第一次匹配得到的所有匹配(包含子组)，
+          <var class="varname">$matches[1]</var>是包含第二次匹配到的所有匹配(包含子组)的数组，以此类推。
+           <div class="informalexample">
+            <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>preg_match_all</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"|&lt;[^&gt;]+&gt;(.*)&lt;/[^&gt;]+&gt;|U"</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;b&gt;example:&nbsp;&lt;/b&gt;&lt;div&nbsp;align=\"left\"&gt;this&nbsp;is&nbsp;a&nbsp;test&lt;/div&gt;"</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">PREG_SET_ORDER</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">][</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">",&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">][</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">][</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">",&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$out</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">][</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+            </div>
+
+            <p class="para">以上例程会输出：</p>
+            <div class="example-contents screen">
+<div class="cdata"><pre>&lt;b&gt;example: &lt;/b&gt;, example:
+&lt;div align="left"&gt;this is a test&lt;/div&gt;, this is a test
+</pre></div>
+            </div>
+           </div>
+          <p></p>
+         </dd>
+
+        
+        
+         <dt>
+<strong><code>PREG_OFFSET_CAPTURE</code></strong></dt>
+
+         <dd>
+
+          <p class="para">
+          如果这个标记被传递，每个发现的匹配返回时会增加它相对目标字符串的字节偏移量。
+          注意这会改变<code class="parameter">matches</code>中的每一个匹配结果字符串元素，使其
+          成为一个第<code class="literal">0</code>个元素为匹配结果字符串，第<code class="literal">1</code>个元素为
+          匹配结果字符串在<code class="parameter">subject</code>中的偏移量。
+           
+           <div class="informalexample">
+            <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>preg_match_all</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'/(foo)(bar)(baz)/'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'foobarbaz'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$matches</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">PREG_OFFSET_CAPTURE</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$matches</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+            </div>
+
+            <p class="para">以上例程会输出：</p>
+            <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [0] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [0] =&gt; foobarbaz
+                    [1] =&gt; 0
+                )
+
+        )
+
+    [1] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [0] =&gt; foo
+                    [1] =&gt; 0
+                )
+
+        )
+
+    [2] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [0] =&gt; bar
+                    [1] =&gt; 3
+                )
+
+        )
+
+    [3] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [0] =&gt; baz
+                    [1] =&gt; 6
+                )
+
+        )
+
+)
+</pre></div>
+            </div>
+           </div>
+          <p></p>
+         </dd>
+
+        
+        
+         <dt>
+<strong><code>PREG_UNMATCHED_AS_NULL</code></strong></dt>
+
+         <dd>
+
+          <p class="para">
+           传入此标记，未匹配的子组报告为 <strong><code>null</code></strong>；否则会是空 <span class="type">string</span>。
+          </p>
+         </dd>
+
+          
+       </dl>
+
+      <p></p>
+      <p class="para">
+      如果没有给定排序标记，假定设置为<strong><code>PREG_PATTERN_ORDER</code></strong>。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">offset</code></dt>
+
+     <dd>
+
+      <p class="para">
+      通常， 查找时从目标字符串的开始位置开始。可选参数<code class="parameter">offset</code>用于
+      从目标字符串中指定位置开始搜索(单位是字节)。
+      </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+       使用 <code class="parameter">offset</code> 参数不同于传递 <code class="code">substr($subject, $offset)</code> 的
+       结果到 <span class="function"><strong>preg_match_all()</strong></span> 作为目标字符串，因为 <code class="parameter">pattern</code>
+        可以包含断言比如<em class="emphasis">^</em>， <em class="emphasis">$</em> 或者 <em class="emphasis">(?&lt;=x) </em>。
+       示例查看 <span class="function"><a class="function" href="function.preg-match.html">preg_match()</a></span>。
+       </p>
+      <p></p></blockquote>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.preg-match-all-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+  返回完整匹配次数（可能是0），或者如果发生错误返回<strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.preg-match-all-changelog">
+  <h3 class="title">更新日志</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>
+        现在 <code class="parameter">$flags</code> 参数可以支持 <strong><code>PREG_UNMATCHED_AS_NULL</code></strong>。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.preg-match-all-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4621">
+    <p><strong>示例 #1 查找所有文本中的电话号码。</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>preg_match_all</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"/\(?&nbsp;&nbsp;(\d{3})?&nbsp;&nbsp;\)?&nbsp;&nbsp;(?(1)&nbsp;&nbsp;[\-\s]&nbsp;)&nbsp;\d{3}-\d{4}/x"</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">"Call&nbsp;555-1212&nbsp;or&nbsp;1-800-555-1212"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$phones</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-4622">
+    <p><strong>示例 #2 查找匹配的HTML标签（贪婪）</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//\\2是一个后向引用的示例.&nbsp;这会告诉pcre它必须匹配正则表达式中第二个圆括号(这里是([\w]+))<br>//匹配到的结果.&nbsp;这里使用两个反斜线是因为这里使用了双引号.<br></span><span style="color: rgb(0, 0, 187);">$html&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;b&gt;bold&nbsp;text&lt;/b&gt;&lt;a&nbsp;href=howdy.html&gt;click&nbsp;me&lt;/a&gt;"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">preg_match_all</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"/(&lt;([\w]+)[^&gt;]*&gt;)(.*?)(&lt;\/\\2&gt;)/"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$html</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$matches</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">PREG_SET_ORDER</span><span style="color: rgb(0, 119, 0);">);<br><br>foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$matches&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$val</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"matched:&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$val</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"part&nbsp;1:&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$val</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"part&nbsp;2:&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$val</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"part&nbsp;3:&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$val</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"part&nbsp;4:&nbsp;"&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$val</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">4</span><span style="color: rgb(0, 119, 0);">]&nbsp;.&nbsp;</span><span style="color: rgb(221, 0, 0);">"\n\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>matched: &lt;b&gt;bold text&lt;/b&gt;
+part 1: &lt;b&gt;
+part 2: b
+part 3: bold text
+part 4: &lt;/b&gt;
+
+matched: &lt;a href=howdy.html&gt;click me&lt;/a&gt;
+part 1: &lt;a href=howdy.html&gt;
+part 2: a
+part 3: click me
+part 4: &lt;/a&gt;
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-4623">
+    <p><strong>示例 #3 使用子命名组</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$str&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;&lt;&lt;&lt;FOO<br></span><span style="color: rgb(221, 0, 0);">a:&nbsp;1<br>b:&nbsp;2<br>c:&nbsp;3<br></span><span style="color: rgb(0, 119, 0);">FOO;<br><br></span><span style="color: rgb(0, 0, 187);">preg_match_all</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'/(?P&lt;name&gt;\w+):&nbsp;(?P&lt;digit&gt;\d+)/'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$str</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$matches</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(255, 128, 0);">/*&nbsp;选择方式&nbsp;*/<br>//&nbsp;preg_match_all('/(?&lt;name&gt;\w+):&nbsp;(?&lt;digit&gt;\d+)/',&nbsp;$str,&nbsp;$matches);<br><br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$matches</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [0] =&gt; Array
+        (
+            [0] =&gt; a: 1
+            [1] =&gt; b: 2
+            [2] =&gt; c: 3
+        )
+
+    [name] =&gt; Array
+        (
+            [0] =&gt; a
+            [1] =&gt; b
+            [2] =&gt; c
+        )
+
+    [1] =&gt; Array
+        (
+            [0] =&gt; a
+            [1] =&gt; b
+            [2] =&gt; c
+        )
+
+    [digit] =&gt; Array
+        (
+            [0] =&gt; 1
+            [1] =&gt; 2
+            [2] =&gt; 3
+        )
+
+    [2] =&gt; Array
+        (
+            [0] =&gt; 1
+            [1] =&gt; 2
+            [2] =&gt; 3
+        )
+
+)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.preg-match-all-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a class="link" href="pcre.pattern.html">PCRE 匹配</a></li>
+    <li class="member"><span class="function"><a class="function" href="function.preg-quote.html" rel="rdfs-seeAlso">preg_quote()</a> - 转义正则表达式字符</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.preg-match.html" rel="rdfs-seeAlso">preg_match()</a> - 执行匹配正则表达式</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.preg-replace.html" rel="rdfs-seeAlso">preg_replace()</a> - 执行一个正则表达式的搜索和替换</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.preg-split.html" rel="rdfs-seeAlso">preg_split()</a> - 通过一个正则表达式分隔字符串</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.preg-last-error.html" rel="rdfs-seeAlso">preg_last_error()</a> - 返回最后一个PCRE正则执行产生的错误代码</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

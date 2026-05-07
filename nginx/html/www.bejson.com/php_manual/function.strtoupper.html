@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>将字符串转化为大写-BeJSON.com</title><meta name="keywords" content="将字符串转化为大写"><meta name="description" content="注意 “字母” 与当前所在区域有关。例如，在默认的 “C” 区域，字符 umlaut-a（ä）就不会被转换。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.strtolower.html">« strtolower</a></li>
+      <li style="float: right;"><a href="function.strtr.html">strtr »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.strings.html">字符串 函数</a></li>
+    <li>将字符串转化为大写</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.strtoupper">
+ <div class="refnamediv">
+  <h1 class="refname">strtoupper</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">strtoupper</span> — <span class="dc-title">将字符串转化为大写</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.strtoupper-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>strtoupper</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   将 <code class="parameter">string</code> 中所有的字母字符转换为大写并返回。
+  </p>
+  <p class="para">
+   注意 “字母” 与当前所在区域有关。例如，在默认的 “C” 区域，字符 umlaut-a（ä）就不会被转换。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.strtoupper-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">string</code></dt>
+
+     <dd>
+
+      <p class="para">
+      输入字符串。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.strtoupper-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   返回转换后的大写字符串。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.strtoupper-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4742">
+    <p><strong>示例 #1 <span class="function"><strong>strtoupper()</strong></span> 范例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$str&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Mary&nbsp;Had&nbsp;A&nbsp;Little&nbsp;Lamb&nbsp;and&nbsp;She&nbsp;LOVED&nbsp;It&nbsp;So"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$str&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">strtoupper</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$str</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$str</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;打印&nbsp;MARY&nbsp;HAD&nbsp;A&nbsp;LITTLE&nbsp;LAMB&nbsp;AND&nbsp;SHE&nbsp;LOVED&nbsp;IT&nbsp;SO<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>   
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.strtoupper-notes">
+  <h3 class="title">注释</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">此函数可安全用于二进制对象。</span></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.strtoupper-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.strtolower.html" rel="rdfs-seeAlso">strtolower()</a> - 将字符串转化为小写</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.ucfirst.html" rel="rdfs-seeAlso">ucfirst()</a> - 将字符串的首字母转换为大写</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.ucwords.html" rel="rdfs-seeAlso">ucwords()</a> - 将字符串中每个单词的首字母转换为大写</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.mb-strtoupper.html" rel="rdfs-seeAlso">mb_strtoupper()</a> - 使字符串大写</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

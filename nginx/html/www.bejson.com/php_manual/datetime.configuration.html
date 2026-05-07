@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>运行时配置-BeJSON.com</title><meta name="keywords" content="运行时配置"><meta name="description" content="这些函数的行为受 php.ini 中的设置影响。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="datetime.installation.html">« 安装</a></li>
+      <li style="float: right;"><a href="datetime.resources.html">资源类型 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="datetime.setup.html">安装／配置</a></li>
+    <li>运行时配置</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="datetime.configuration">
+ <h1 class="title">运行时配置</h1>
+ <p class="simpara">
+这些函数的行为受 <var class="filename">php.ini</var> 中的设置影响。
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>日期／时间配置选项</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>名字</th>
+      <th>默认</th>
+      <th>可修改范围</th>
+      <th>更新日志</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><a class="link" href="datetime.configuration.html#ini.date.default-latitude">date.default_latitude</a></td>
+      <td>"31.7667"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="datetime.configuration.html#ini.date.default-longitude">date.default_longitude</a></td>
+      <td>"35.2333"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="datetime.configuration.html#ini.date.sunrise-zenith">date.sunrise_zenith</a></td>
+      <td>"90.83"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="datetime.configuration.html#ini.date.sunset-zenith">date.sunset_zenith</a></td>
+      <td>"90.83"</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><a class="link" href="datetime.configuration.html#ini.date.timezone">date.timezone</a></td>
+      <td>""</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  有关 PHP_INI_* 样式的更多详情与定义，见 <a class="xref" href="configuration.changes.modes.html">配置可被设定范围</a>。
+ <p></p>
+
+ <p class="para">这是配置指令的简短说明。</p>
+
+ <p class="para">
+  <dl>
+   
+    <dt id="ini.date.default-latitude">
+     <code class="parameter">date.default_latitude</code>
+     <span class="type">float</span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      默认纬度。
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.date.default-longitude">
+     <code class="parameter">date.default_longitude</code>
+     <span class="type">float</span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      默认经度。
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.date.sunrise-zenith">
+     <code class="parameter">date.sunrise_zenith</code>
+     <span class="type">float</span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      默认日出天顶。
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.date.sunset-zenith">
+     <code class="parameter">date.sunset_zenith</code>
+     <span class="type">float</span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      默认日落天顶。
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.date.timezone">
+     <code class="parameter">date.timezone</code>
+     <span class="type">string</span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      在未设定 <var class="varname">TZ</var>
+      环境变量时用于所有日期／时间函数的默认时区。优先顺序在
+      <span class="function"><a class="function" href="function.date-default-timezone-get.html">date_default_timezone_get()</a></span> 页面中有说明。
+      支持的时区可参见 <a class="xref" href="timezones.html">所支持的时区列表</a>。
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ <p></p>
+ <blockquote class="note"><p><strong class="note">注意</strong>: 
+  <span class="simpara">
+   前四个配置选项目前仅用于
+   <span class="function"><a class="function" href="function.date-sunrise.html">date_sunrise()</a></span> 和 <span class="function"><a class="function" href="function.date-sunset.html">date_sunset()</a></span>。
+  </span>
+ </p></blockquote>
+</div></div></div></body></html>

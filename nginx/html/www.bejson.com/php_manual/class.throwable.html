@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Throwable-BeJSON.com</title><meta name="keywords" content="Throwable"><meta name="description" content="Throwable 是能被 throw 语句抛出的最基本的接口（interface），包含了 Error 和 Exception 。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="iteratoraggregate.getiterator.html">« IteratorAggregate::getIterator</a></li>
+      <li style="float: right;"><a href="throwable.getmessage.html">Throwable::getMessage »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reserved.interfaces.html">预定义接口</a></li>
+    <li>Throwable</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.throwable">
+
+ <h1 class="title">Throwable</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="throwable.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    <span class="classname"><strong class="classname">Throwable</strong></span> 是能被 <a class="link" href="language.exceptions.html"><code class="literal">throw</code></a> 语句抛出的最基本的接口（interface），包含了 
+    <span class="classname"><a class="classname" href="class.error.html">Error</a></span> 和 <span class="classname"><a class="classname" href="class.exception.html">Exception</a></span> 。
+   </p>
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <p class="para">
+     PHP 类无法直接实现 （implement） <span class="classname"><strong class="classname">Throwable</strong></span> 接口，而应当去继承
+     <span class="classname"><a class="classname" href="class.exception.html">Exception</a></span>。
+    </p>
+   <p></p></blockquote>
+  </div>
+
+
+  <div class="section" id="throwable.synopsis">
+   <h2 class="title">接口摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="oointerface">
+      <span class="modifier">interface</span> <strong class="interfacename">Throwable</strong></span><span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.stringable.html">Stringable</a>
+     </span>
+     {</div>
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="throwable.getmessage.html">getMessage</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="throwable.getcode.html">getCode</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="throwable.getfile.html">getFile</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="throwable.getline.html">getLine</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="throwable.gettrace.html">getTrace</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="throwable.gettraceasstring.html">getTraceAsString</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="throwable.getprevious.html">getPrevious</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type Throwable" href="class.throwable.html">Throwable</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="throwable.tostring.html">__toString</a></span>(): <span class="type">string</span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="stringable.tostring.html">Stringable::__toString</a></span>(): <span class="type">string</span></div>
+
+   }</div>
+
+
+  </div>
+
+  <div class="section">
+   <h2 class="title">更新日志</h2>
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>版本</th>
+       <th>说明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        现在 <span class="classname"><strong class="classname">Throwable</strong></span> 实现了 <span class="interfacename"><a class="interfacename" href="class.stringable.html">Stringable</a></span>。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="throwable.getmessage.html">Throwable::getMessage</a> — 获取信息</li><li><a href="throwable.getcode.html">Throwable::getCode</a> — 获取异常代码</li><li><a href="throwable.getfile.html">Throwable::getFile</a> — 获取创建对象的文件</li><li><a href="throwable.getline.html">Throwable::getLine</a> — 获取初始化对象时候的行号</li><li><a href="throwable.gettrace.html">Throwable::getTrace</a> — 获取堆栈踪迹（Stack Trace）</li><li><a href="throwable.gettraceasstring.html">Throwable::getTraceAsString</a> — 以 string 形式获取堆栈踪迹</li><li><a href="throwable.getprevious.html">Throwable::getPrevious</a> — 返回先前的 Throwable</li><li><a href="throwable.tostring.html">Throwable::__toString</a> — 获取 Throwable 对象 string 形式的表达</li></ul>
+</div>
+</div></div></body></html>

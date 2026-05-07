@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>范例-BeJSON.com</title><meta name="keywords" content="范例"><meta name="description" content="The following examples shows just the evaluation of form data. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="fdf.constants.html">« 预定义常量</a></li>
+      <li style="float: right;"><a href="ref.fdf.html">FDF 函数 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.fdf.html">FDF</a></li>
+    <li>范例</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="chapter" id="fdf.examples">
+ <h1>范例</h1>
+
+ <p class="para">
+  The following examples shows just the evaluation of form data.
+  <div class="example" id="example-3058">
+   <p><strong>示例 #1 Evaluating a FDF document</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Open&nbsp;fdf&nbsp;from&nbsp;input&nbsp;string&nbsp;provided&nbsp;by&nbsp;the&nbsp;extension<br>//&nbsp;The&nbsp;pdf&nbsp;form&nbsp;contained&nbsp;several&nbsp;input&nbsp;text&nbsp;fields&nbsp;with&nbsp;the&nbsp;names<br>//&nbsp;volume,&nbsp;date,&nbsp;comment,&nbsp;publisher,&nbsp;preparer,&nbsp;and&nbsp;two&nbsp;checkboxes<br>//&nbsp;show_publisher&nbsp;and&nbsp;show_preparer.<br></span><span style="color: rgb(0, 0, 187);">$fdf&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fdf_open_string</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$HTTP_FDF_DATA</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$volume&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fdf_get_value</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fdf</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"volume"</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;volume&nbsp;field&nbsp;has&nbsp;the&nbsp;value&nbsp;'&lt;b&gt;</span><span style="color: rgb(0, 0, 187);">$volume</span><span style="color: rgb(221, 0, 0);">&lt;/b&gt;'&lt;br&nbsp;/&gt;"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$date&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fdf_get_value</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fdf</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"date"</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;date&nbsp;field&nbsp;has&nbsp;the&nbsp;value&nbsp;'&lt;b&gt;</span><span style="color: rgb(0, 0, 187);">$date</span><span style="color: rgb(221, 0, 0);">&lt;/b&gt;'&lt;br&nbsp;/&gt;"</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$comment&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fdf_get_value</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fdf</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"comment"</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;comment&nbsp;field&nbsp;has&nbsp;the&nbsp;value&nbsp;'&lt;b&gt;</span><span style="color: rgb(0, 0, 187);">$comment</span><span style="color: rgb(221, 0, 0);">&lt;/b&gt;'&lt;br&nbsp;/&gt;"</span><span style="color: rgb(0, 119, 0);">;<br><br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">fdf_get_value</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fdf</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"show_publisher"</span><span style="color: rgb(0, 119, 0);">)&nbsp;==&nbsp;</span><span style="color: rgb(221, 0, 0);">"On"</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$publisher&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fdf_get_value</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fdf</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"publisher"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;publisher&nbsp;field&nbsp;has&nbsp;the&nbsp;value&nbsp;'&lt;b&gt;</span><span style="color: rgb(0, 0, 187);">$publisher</span><span style="color: rgb(221, 0, 0);">&lt;/b&gt;'&lt;br&nbsp;/&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;else<br>&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Publisher&nbsp;shall&nbsp;not&nbsp;be&nbsp;shown.&lt;br&nbsp;/&gt;"</span><span style="color: rgb(0, 119, 0);">;<br><br>if&nbsp;(</span><span style="color: rgb(0, 0, 187);">fdf_get_value</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fdf</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"show_preparer"</span><span style="color: rgb(0, 119, 0);">)&nbsp;==&nbsp;</span><span style="color: rgb(221, 0, 0);">"On"</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$preparer&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fdf_get_value</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fdf</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"preparer"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;preparer&nbsp;field&nbsp;has&nbsp;the&nbsp;value&nbsp;'&lt;b&gt;</span><span style="color: rgb(0, 0, 187);">$preparer</span><span style="color: rgb(221, 0, 0);">&lt;/b&gt;'&lt;br&nbsp;/&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>}&nbsp;else<br>&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"Preparer&nbsp;shall&nbsp;not&nbsp;be&nbsp;shown.&lt;br&nbsp;/&gt;"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">fdf_close</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fdf</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+  </div>
+ <p></p>
+</div>
+</div></div></body></html>

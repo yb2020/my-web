@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>检索可用的证书位置-BeJSON.com</title><meta name="keywords" content="检索可用的证书位置"><meta name="description" content="此函数没有参数。">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.openssl-free-key.html">« openssl_free_key</a></li>
+      <li style="float: right;"><a href="function.openssl-get-cipher-methods.html">openssl_get_cipher_methods »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.openssl.html">OpenSSL 函数</a></li>
+    <li>检索可用的证书位置</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.openssl-get-cert-locations">
+ <div class="refnamediv">
+  <h1 class="refname">openssl_get_cert_locations</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.6.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_get_cert_locations</span> — <span class="dc-title">检索可用的证书位置</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.openssl-get-cert-locations-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>openssl_get_cert_locations</strong></span>(): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>openssl_get_cert_locations()</strong></span> 返回一个数组，其中包含要搜索SSL证书的可用证书位置的信息。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.openssl-get-cert-locations-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.openssl-get-cert-locations-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   返回一个带有可用证书位置信息的数组。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.openssl-get-cert-locations-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-922">
+    <p><strong>示例 #1 <span class="function"><strong>openssl_get_cert_locations()</strong></span> 范例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">openssl_get_cert_locations</span><span style="color: rgb(0, 119, 0);">());<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>array(8) {
+  ["default_cert_file"]=&gt;
+  string(21) "/usr/lib/ssl/cert.pem"
+  ["default_cert_file_env"]=&gt;
+  string(13) "SSL_CERT_FILE"
+  ["default_cert_dir"]=&gt;
+  string(18) "/usr/lib/ssl/certs"
+  ["default_cert_dir_env"]=&gt;
+  string(12) "SSL_CERT_DIR"
+  ["default_private_dir"]=&gt;
+  string(20) "/usr/lib/ssl/private"
+  ["default_default_cert_area"]=&gt;
+  string(12) "/usr/lib/ssl"
+  ["ini_cafile"]=&gt;
+  string(0) ""
+  ["ini_capath"]=&gt;
+  string(0) ""
+}
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

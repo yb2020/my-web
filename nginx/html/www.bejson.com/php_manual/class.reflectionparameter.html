@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>ReflectionParameter 类-BeJSON.com</title><meta name="keywords" content="ReflectionParameter 类"><meta name="description" content="ReflectionParameter 取回了函数或方法参数的相关信息。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="reflectionobject.export.html">« ReflectionObject::export</a></li>
+      <li style="float: right;"><a href="reflectionparameter.allowsnull.html">ReflectionParameter::allowsNull »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.reflection.html">反射</a></li>
+    <li>ReflectionParameter 类</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.reflectionparameter">
+
+ <h1 class="title">ReflectionParameter 类</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5, PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="reflectionparameter.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    <span class="classname"><strong class="classname">ReflectionParameter</strong></span> 取回了函数或方法参数的相关信息。
+   </p>
+   <p class="para">
+    要自行检查函数的参数，首先创建一个 <span class="classname"><a class="classname" href="class.reflectionfunction.html">ReflectionFunction</a></span> 或 <span class="classname"><a class="classname" href="class.reflectionmethod.html">ReflectionMethod</a></span> 的实例，然后使用它们的 <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getparameters.html">ReflectionFunctionAbstract::getParameters()</a></span> 方法来获取参数的数组。
+   </p>
+  </div>
+
+
+  <div class="section" id="reflectionparameter.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">ReflectionParameter</strong>
+     </span>
+     
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a class="interfacename" href="class.reflector.html">Reflector</a></span> {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 属性 */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+      <var class="varname"><a href="class.reflectionparameter.html#reflectionparameter.props.name">$<var class="varname">name</var></a></var>;</div>
+
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.allowsnull.html">allowsNull</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.canbepassedbyvalue.html">canBePassedByValue</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">private</span> <span class="methodname"><a class="methodname" href="reflectionparameter.clone.html">__clone</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="reflectionparameter.export.html">export</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$function</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$parameter</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = ?</span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.getattributes.html">getAttributes</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$name</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.getclass.html">getClass</a></span>(): <span class="type"><a class="type ReflectionClass" href="class.reflectionclass.html">ReflectionClass</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.getdeclaringclass.html">getDeclaringClass</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type ReflectionClass" href="class.reflectionclass.html">ReflectionClass</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.getdeclaringfunction.html">getDeclaringFunction</a></span>(): <span class="type"><a class="type ReflectionFunctionAbstract" href="class.reflectionfunctionabstract.html">ReflectionFunctionAbstract</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.getdefaultvalue.html">getDefaultValue</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.getdefaultvalueconstantname.html">getDefaultValueConstantName</a></span>(): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.getname.html">getName</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.getposition.html">getPosition</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.gettype.html">getType</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type ReflectionType" href="class.reflectiontype.html">ReflectionType</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.hastype.html">hasType</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.isarray.html">isArray</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.iscallable.html">isCallable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.isdefaultvalueavailable.html">isDefaultValueAvailable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.isdefaultvalueconstant.html">isDefaultValueConstant</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.isoptional.html">isOptional</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.ispassedbyreference.html">isPassedByReference</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.isvariadic.html">isVariadic</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionparameter.tostring.html">__toString</a></span>(): <span class="type">string</span></div>
+
+   }</div>
+
+
+  </div>
+
+  
+
+  <div class="section" id="reflectionparameter.props">
+   <h2 class="title">属性</h2>
+   <dl>
+    
+     <dt id="reflectionparameter.props.name"><var class="varname">name</var></dt>
+
+     <dd>
+
+      <p class="para">
+       参数的名称。只读，在尝试赋值的时候会抛出 <span class="classname"><a class="classname" href="class.reflectionexception.html">ReflectionException</a></span>。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </div>
+
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="reflectionparameter.allowsnull.html">ReflectionParameter::allowsNull</a> — Checks if null is allowed</li><li><a href="reflectionparameter.canbepassedbyvalue.html">ReflectionParameter::canBePassedByValue</a> — Returns whether this parameter can be passed by value</li><li><a href="reflectionparameter.clone.html">ReflectionParameter::__clone</a> — Clone</li><li><a href="reflectionparameter.construct.html">ReflectionParameter::__construct</a> — Construct</li><li><a href="reflectionparameter.export.html">ReflectionParameter::export</a> — Exports</li><li><a href="reflectionparameter.getattributes.html">ReflectionParameter::getAttributes</a> — Gets Attributes</li><li><a href="reflectionparameter.getclass.html">ReflectionParameter::getClass</a> — 获得类型提示类。</li><li><a href="reflectionparameter.getdeclaringclass.html">ReflectionParameter::getDeclaringClass</a> — Gets declaring class</li><li><a href="reflectionparameter.getdeclaringfunction.html">ReflectionParameter::getDeclaringFunction</a> — Gets declaring function</li><li><a href="reflectionparameter.getdefaultvalue.html">ReflectionParameter::getDefaultValue</a> — Gets default parameter value</li><li><a href="reflectionparameter.getdefaultvalueconstantname.html">ReflectionParameter::getDefaultValueConstantName</a> — Returns the default value's constant name if default value is constant or null</li><li><a href="reflectionparameter.getname.html">ReflectionParameter::getName</a> — Gets parameter name</li><li><a href="reflectionparameter.getposition.html">ReflectionParameter::getPosition</a> — Gets parameter position</li><li><a href="reflectionparameter.gettype.html">ReflectionParameter::getType</a> — Gets a parameter's type</li><li><a href="reflectionparameter.hastype.html">ReflectionParameter::hasType</a> — Checks if parameter has a type</li><li><a href="reflectionparameter.isarray.html">ReflectionParameter::isArray</a> — Checks if parameter expects an array</li><li><a href="reflectionparameter.iscallable.html">ReflectionParameter::isCallable</a> — Returns whether parameter MUST be callable</li><li><a href="reflectionparameter.isdefaultvalueavailable.html">ReflectionParameter::isDefaultValueAvailable</a> — 检查是否有默认值。</li><li><a href="reflectionparameter.isdefaultvalueconstant.html">ReflectionParameter::isDefaultValueConstant</a> — Returns whether the default value of this parameter is a constant</li><li><a href="reflectionparameter.isoptional.html">ReflectionParameter::isOptional</a> — Checks if optional</li><li><a href="reflectionparameter.ispassedbyreference.html">ReflectionParameter::isPassedByReference</a> — Checks if passed by reference</li><li><a href="reflectionparameter.isvariadic.html">ReflectionParameter::isVariadic</a> — Checks if the parameter is variadic</li><li><a href="reflectionparameter.tostring.html">ReflectionParameter::__toString</a> — To string</li></ul>
+</div>
+</div></div></body></html>

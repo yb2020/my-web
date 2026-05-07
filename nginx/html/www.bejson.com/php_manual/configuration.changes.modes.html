@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>配置可被设定范围-BeJSON.com</title><meta name="keywords" content="配置可被设定范围"><meta name="description" content="这些模式决定着一个 PHP 的指令在何时何地，是否能够被设定。手册中的每个指令都有其所属的模式。例如有些指令可以在 PHP 脚本中用 ini_set() 来设定，而有些则只能在 php.ini 或 httpd.conf 中。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="configuration.file.per-user.html">« .user.ini 文件</a></li>
+      <li style="float: right;"><a href="configuration.changes.html">怎样修改配置设定 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="configuration.html">运行时配置</a></li>
+    <li>配置可被设定范围</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="configuration.changes.modes">
+  <h1 class="title">配置可被设定范围</h1>
+  
+  <p class="para">
+   这些模式决定着一个 PHP
+   的指令在何时何地，是否能够被设定。手册中的每个指令都有其所属的模式。例如有些指令可以在
+   PHP 脚本中用 <span class="function"><a class="function" href="function.ini-set.html">ini_set()</a></span> 来设定，而有些则只能在
+   <var class="filename">php.ini</var> 或 <var class="filename">httpd.conf</var> 中。
+  </p>
+  
+  <p class="para">
+   例如 
+   <a class="link" href="outcontrol.configuration.html#ini.output-buffering">output_buffering</a>
+   指令是属于
+   <code class="literal">PHP_INI_PERDIR</code>，因而就不能用
+   <span class="function"><a class="function" href="function.ini-set.html">ini_set()</a></span> 来设定。但是
+   <a class="link" href="errorfunc.configuration.html#ini.display-errors">display_errors</a>
+   指令是属于
+   <code class="literal">PHP_INI_ALL</code> 因而就可以在任何地方被设定，包括
+   <span class="function"><a class="function" href="function.ini-set.html">ini_set()</a></span>。
+  </p>
+  
+  <p class="para">
+   <table class="doctable table">
+    <caption><strong>PHP_INI_* 模式的定义</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>模式</th>
+       <th>含义</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td><code class="literal">PHP_INI_USER</code></td>
+       <td>
+        可在用户脚本（例如 <span class="function"><a class="function" href="function.ini-set.html">ini_set()</a></span>）或
+        <a class="link" href="configuration.changes.html#configuration.changes.windows">Windows 注册表</a>以及 <var class="filename">.user.ini</var> 中设定
+       </td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">PHP_INI_PERDIR</code></td>
+       <td>可在 <var class="filename">php.ini</var>，<var class="filename">.htaccess</var> 或 <var class="filename">httpd.conf</var> 中设定</td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">PHP_INI_SYSTEM</code></td>
+       <td>可在 <var class="filename">php.ini</var> 或 <var class="filename">httpd.conf</var> 中设定</td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">PHP_INI_ALL</code></td>
+       <td>可在任何地方设定</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p></p>
+ </div></div></div></body></html>

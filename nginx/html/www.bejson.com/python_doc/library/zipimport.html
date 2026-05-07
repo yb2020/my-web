@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>zipimport --- 从 Zip 存档中导入模块-BeJSON.com</title><meta name="keywords" content="zipimport --- 从 Zip 存档中导入模块"><meta name="description" content="导入模块"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="pkgutil --- 包扩展工具" href="pkgutil.html" rel="next">
+    <link title="导入模块" href="modules.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/zipimport.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipimport</span></code> --- 从 Zip 存档中导入模块</a><ul>
+<li><a class="reference internal" href="#zipimporter-objects">zipimporter 对象</a></li>
+<li><a class="reference internal" href="#examples">例子</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="modules.html">导入模块</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="pkgutil.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pkgutil</span></code> --- 包扩展工具</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="pkgutil --- 包扩展工具" accesskey="N" href="pkgutil.html">下一页</a> |</li>
+        <li class="right">
+          <a title="导入模块" accesskey="P" href="modules.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="modules.html">导入模块</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipimport</span></code> --- 从 Zip 存档中导入模块</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-zipimport">
+<span id="zipimport-import-modules-from-zip-archives"></span><h1><a title="zipimport: Support for importing Python modules from ZIP archives." class="reference internal" href="#module-zipimport"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipimport</span></code></a> --- 从 Zip 存档中导入模块<a title="永久链接至标题" class="headerlink" href="#module-zipimport">¶</a></h1>
+<p><strong>源代码：</strong> <a class="reference external" href="">Lib/zipimport.py</a></p>
+<hr class="docutils">
+<p>此模块添加了从 ZIP 格式档案中导入 Python 模块（ <code class="file docutils literal notranslate"><span class="pre">*.py</span></code> ， <code class="file docutils literal notranslate"><span class="pre">*.pyc</span></code> ）和包的能力。通常不需要明确地使用 <a title="zipimport: Support for importing Python modules from ZIP archives." class="reference internal" href="#module-zipimport"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipimport</span></code></a> 模块，内置的 <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> 机制会自动将此模块用于 ZIP 档案路径的 <a title="sys.path" class="reference internal" href="sys.html#sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 项目上。</p>
+<p>通常， <a title="sys.path" class="reference internal" href="sys.html#sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 是字符串的目录名称列表。此模块同样允许 <a title="sys.path" class="reference internal" href="sys.html#sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 的一项成为命名 ZIP 文件档案的字符串。 ZIP 档案可以容纳子目录结构去支持包的导入，并且可以将归档文件中的路径指定为仅从子目录导入。比如说，路径 <code class="file docutils literal notranslate"><span class="pre">example.zip/lib/</span></code> 将只会从档案中的 <code class="file docutils literal notranslate"><span class="pre">lib/</span></code> 子目录导入。</p>
+<p>Any files may be present in the ZIP archive, but importers are only invoked for
+<code class="file docutils literal notranslate"><span class="pre">.py</span></code> and <code class="file docutils literal notranslate"><span class="pre">.pyc</span></code> files.  ZIP import of dynamic modules
+(<code class="file docutils literal notranslate"><span class="pre">.pyd</span></code>, <code class="file docutils literal notranslate"><span class="pre">.so</span></code>) is disallowed. Note that if an archive only contains
+<code class="file docutils literal notranslate"><span class="pre">.py</span></code> files, Python will not attempt to modify the archive by adding the
+corresponding <code class="file docutils literal notranslate"><span class="pre">.pyc</span></code> file, meaning that if a ZIP archive
+doesn't contain <code class="file docutils literal notranslate"><span class="pre">.pyc</span></code> files, importing may be rather slow.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.8 版更改: </span>以前，不支持带有档案注释的 ZIP 档案。</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<dl class="simple">
+<dt><a class="reference external" href="">PKZIP Application Note</a></dt><dd><p>Phil Katz 编写的 ZIP 文件格式文档，此格式和使用的算法的创建者。</p>
+</dd>
+<dt><span class="target" id="index-6"></span><a class="pep reference external" href=""><strong>PEP 273</strong></a> - &nbsp;从ZIP压缩包导入模块</dt><dd><p>由 James C. Ahlstrom 编写，他也提供了实现。 Python 2.3 遵循 <span class="target" id="index-7"></span><a class="pep reference external" href=""><strong>PEP 273</strong></a> 的规范，但是使用 Just van Rossum 编写的使用了 <span class="target" id="index-8"></span><a class="pep reference external" href=""><strong>PEP 302</strong></a> 中描述的导入钩的实现。</p>
+</dd>
+<dt><a title="importlib: The implementation of the import machinery." class="reference internal" href="importlib.html#module-importlib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib</span></code></a> - 导入机制的实现</dt><dd><p>为所有导入器的实现提供相关协议的包。</p>
+</dd>
+</dl>
+</div>
+<p>此模块定义了一个异常：</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="zipimport.ZipImportError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zipimport.</span></span><span class="sig-name descname"><span class="pre">ZipImportError</span></span><a title="永久链接至目标" class="headerlink" href="#zipimport.ZipImportError">¶</a></dt>
+<dd><p>异常由 zipimporter 对象引发。这是 <a title="ImportError" class="reference internal" href="exceptions.html#ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> 的子类，因此，也可以捕获为 <a title="ImportError" class="reference internal" href="exceptions.html#ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> 。</p>
+</dd></dl>
+
+<section id="zipimporter-objects">
+<span id="id1"></span><h2>zipimporter 对象<a title="永久链接至标题" class="headerlink" href="#zipimporter-objects">¶</a></h2>
+<p><a title="zipimport.zipimporter" class="reference internal" href="#zipimport.zipimporter"><code class="xref py py-class docutils literal notranslate"><span class="pre">zipimporter</span></code></a> 是用于导入 ZIP 文件的类。</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="zipimport.zipimporter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zipimport.</span></span><span class="sig-name descname"><span class="pre">zipimporter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">archivepath</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter">¶</a></dt>
+<dd><p>创建新的 zipimporter 实例。 <em>archivepath</em> 必须是指向 ZIP 文件的路径，或者 ZIP 文件中的特定路径。例如， <code class="file docutils literal notranslate"><span class="pre">foo/bar.zip/lib</span></code> 的 <em>archivepath</em> 将在 ZIP 文件 <code class="file docutils literal notranslate"><span class="pre">foo/bar.zip</span></code> 中的 <code class="file docutils literal notranslate"><span class="pre">lib</span></code> 目录中查找模块（只要它存在）。</p>
+<p>如果 <em>archivepath</em> 没有指向一个有效的 ZIP 档案，引发 <a title="zipimport.ZipImportError" class="reference internal" href="#zipimport.ZipImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ZipImportError</span></code></a> 。</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="zipimport.zipimporter.create_module">
+<span class="sig-name descname"><span class="pre">create_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.create_module">¶</a></dt>
+<dd><p>返回 <a title="None" class="reference internal" href="constants.html#None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> 来显式地请求默认语义的 <a title="importlib.abc.Loader.create_module" class="reference internal" href="importlib.html#importlib.abc.Loader.create_module"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.Loader.create_module()</span></code></a> 实现。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.10 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zipimport.zipimporter.exec_module">
+<span class="sig-name descname"><span class="pre">exec_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.exec_module">¶</a></dt>
+<dd><p><a title="importlib.abc.Loader.exec_module" class="reference internal" href="importlib.html#importlib.abc.Loader.exec_module"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.Loader.exec_module()</span></code></a> 的实现。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.10 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zipimport.zipimporter.find_loader">
+<span class="sig-name descname"><span class="pre">find_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.find_loader">¶</a></dt>
+<dd><p><a title="importlib.abc.PathEntryFinder.find_loader" class="reference internal" href="importlib.html#importlib.abc.PathEntryFinder.find_loader"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.PathEntryFinder.find_loader()</span></code></a> 的实现。</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">3.10 版后已移除: </span>使用 <a title="zipimport.zipimporter.find_spec" class="reference internal" href="#zipimport.zipimporter.find_spec"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find_spec()</span></code></a> 来代替。</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zipimport.zipimporter.find_module">
+<span class="sig-name descname"><span class="pre">find_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.find_module">¶</a></dt>
+<dd><p>搜索由 <em>fullname</em> 指定的模块。 <em>fullname</em> 必须是完全合格的（点分的）模块名。它返回 zipimporter 实例本身如果模块被找到，或者返回 <a title="None" class="reference internal" href="constants.html#None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> 如果没找到指定模块。可选的 <em>path</em> 被忽略，这是为了与导入器协议兼容。</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">3.10 版后已移除: </span>使用 <a title="zipimport.zipimporter.find_spec" class="reference internal" href="#zipimport.zipimporter.find_spec"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find_spec()</span></code></a> 来代替。</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zipimport.zipimporter.find_spec">
+<span class="sig-name descname"><span class="pre">find_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.find_spec">¶</a></dt>
+<dd><p><a title="importlib.abc.PathEntryFinder.find_spec" class="reference internal" href="importlib.html#importlib.abc.PathEntryFinder.find_spec"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.PathEntryFinder.find_spec()</span></code></a> 的实现。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.10 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zipimport.zipimporter.get_code">
+<span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.get_code">¶</a></dt>
+<dd><p>返回指定模块的代码对象。 如果模块无法被导入则引发 <a title="zipimport.ZipImportError" class="reference internal" href="#zipimport.ZipImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ZipImportError</span></code></a>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zipimport.zipimporter.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathname</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.get_data">¶</a></dt>
+<dd><p>返回与 <em>pathname</em> 相关联的数据。如果不能找到文件则引发 <a title="OSError" class="reference internal" href="exceptions.html#OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> 错误。</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 3.3 版更改: </span>曾经是 <a title="IOError" class="reference internal" href="exceptions.html#IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a> 被引发而不是 <a title="OSError" class="reference internal" href="exceptions.html#OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> 。</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zipimport.zipimporter.get_filename">
+<span class="sig-name descname"><span class="pre">get_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.get_filename">¶</a></dt>
+<dd><p>返回如果指定模块被导入则应当要设置的 <code class="docutils literal notranslate"><span class="pre">__file__</span></code> 值。 如果模块无法被导入则引发 <a title="zipimport.ZipImportError" class="reference internal" href="#zipimport.ZipImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ZipImportError</span></code></a>。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.1 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zipimport.zipimporter.get_source">
+<span class="sig-name descname"><span class="pre">get_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.get_source">¶</a></dt>
+<dd><p>返回指定模块的源代码。如果没有找到模块则引发 <a title="zipimport.ZipImportError" class="reference internal" href="#zipimport.ZipImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ZipImportError</span></code></a> ，如果档案包含模块但是没有源代码，返回 <a title="None" class="reference internal" href="constants.html#None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> 。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zipimport.zipimporter.is_package">
+<span class="sig-name descname"><span class="pre">is_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.is_package">¶</a></dt>
+<dd><p>如果由 <em>fullname</em> 指定的模块是一个包则返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> 。如果不能找到模块则引发 <a title="zipimport.ZipImportError" class="reference internal" href="#zipimport.ZipImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ZipImportError</span></code></a> 错误。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zipimport.zipimporter.load_module">
+<span class="sig-name descname"><span class="pre">load_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.load_module">¶</a></dt>
+<dd><p>导入由 <em>fullname</em> 所指定的模块。 <em>fullname</em> 必须为（带点号的）完整限定名称。 成功时返回导入的模块，失败时引发 <a title="zipimport.ZipImportError" class="reference internal" href="#zipimport.ZipImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ZipImportError</span></code></a>。</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">3.10 版后已移除: </span>使用 <a title="zipimport.zipimporter.exec_module" class="reference internal" href="#zipimport.zipimporter.exec_module"><code class="xref py py-meth docutils literal notranslate"><span class="pre">exec_module()</span></code></a> 来代替。</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zipimport.zipimporter.invalidate_caches">
+<span class="sig-name descname"><span class="pre">invalidate_caches</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.invalidate_caches">¶</a></dt>
+<dd><p>清除在 ZIP 归档文件中找到的相关文件信息的内部缓存。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.10 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zipimport.zipimporter.archive">
+<span class="sig-name descname"><span class="pre">archive</span></span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.archive">¶</a></dt>
+<dd><p>导入器关联的 ZIP 文件的文件名，没有可能的子路径。</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zipimport.zipimporter.prefix">
+<span class="sig-name descname"><span class="pre">prefix</span></span><a title="永久链接至目标" class="headerlink" href="#zipimport.zipimporter.prefix">¶</a></dt>
+<dd><p>ZIP 文件中搜索的模块的子路径。这是一个指向 ZIP 文件根目录的 zipimporter 对象的空字符串。</p>
+</dd></dl>
+
+<p>当与斜杠结合使用时， <a title="zipimport.zipimporter.archive" class="reference internal" href="#zipimport.zipimporter.archive"><code class="xref py py-attr docutils literal notranslate"><span class="pre">archive</span></code></a> 和 <a title="zipimport.zipimporter.prefix" class="reference internal" href="#zipimport.zipimporter.prefix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">prefix</span></code></a> 属性等价于赋予 <a title="zipimport.zipimporter" class="reference internal" href="#zipimport.zipimporter"><code class="xref py py-class docutils literal notranslate"><span class="pre">zipimporter</span></code></a> 构造器的原始 <em>archivepath</em> 参数。</p>
+</dd></dl>
+
+</section>
+<section id="examples">
+<span id="zipimport-examples"></span><h2>例子<a title="永久链接至标题" class="headerlink" href="#examples">¶</a></h2>
+<p>这是一个从 ZIP 档案中导入模块的例子 - 请注意 <a title="zipimport: Support for importing Python modules from ZIP archives." class="reference internal" href="#module-zipimport"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipimport</span></code></a> 模块不需要明确地使用。</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>unzip -l example.zip
+<span class="go">Archive:  example.zip</span>
+<span class="go">  Length     Date   Time    Name</span>
+<span class="go"> --------    ----   ----    ----</span>
+<span class="go">     8467  11-26-02 22:30   jwzthreading.py</span>
+<span class="go"> --------                   -------</span>
+<span class="go">     8467                   1 file</span>
+<span class="gp">$ </span>./python
+<span class="go">Python 2.3 (#1, Aug 1 2003, 19:54:32)</span>
+<span class="go">&gt;&gt;&gt; import sys</span>
+<span class="go">&gt;&gt;&gt; sys.path.insert(0, 'example.zip')  # Add .zip file to front of path</span>
+<span class="go">&gt;&gt;&gt; import jwzthreading</span>
+<span class="go">&gt;&gt;&gt; jwzthreading.__file__</span>
+<span class="go">'example.zip/jwzthreading.py'</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h3><a href="../contents.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipimport</span></code> --- 从 Zip 存档中导入模块</a><ul>
+<li><a class="reference internal" href="#zipimporter-objects">zipimporter 对象</a></li>
+<li><a class="reference internal" href="#examples">例子</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="modules.html">导入模块</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="pkgutil.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pkgutil</span></code> --- 包扩展工具</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="pkgutil --- 包扩展工具" href="pkgutil.html">下一页</a> |</li>
+        <li class="right">
+          <a title="导入模块" href="modules.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="modules.html">导入模块</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipimport</span></code> --- 从 Zip 存档中导入模块</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>PHP 8.0 废弃的功能-BeJSON.com</title><meta name="keywords" content="PHP 8.0 废弃的功能"><meta name="description" content=" 如果带有默认值的参数后面跟着一个必要的参数，那么默认值就会无效。这在 PHP 8.0.0 中已被废弃，通常可以通过删除默认值，不影响现有功能： ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="migration80.incompatible.html">« 不向后兼容的变更</a></li>
+      <li style="float: right;"><a href="migration80.other-changes.html">其他变更 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration80.html">从 PHP 7.4.x 移植到 PHP 8.0.x</a></li>
+    <li>PHP 8.0 废弃的功能</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="migration80.deprecated">
+ <h1 class="title">PHP 8.0 废弃的功能</h1>
+
+ <div class="sect2" id="migration80.deprecated.core">
+  <h3 class="title">PHP 核心中废弃的功能</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <p class="para">
+     如果带有默认值的参数后面跟着一个必要的参数，那么默认值就会无效。这在
+     PHP 8.0.0 中已被废弃，通常可以通过删除默认值，不影响现有功能：
+    </p>
+    <p class="para">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[],&nbsp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">)&nbsp;{}&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;之前<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">)&nbsp;{}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;之后<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    <p></p>
+    <p class="para">
+      这条规则的一个例外是 <code class="code">Type $param = null</code>
+      形式的参数，其中 null
+      的默认值使得类型隐式为空。这种用法仍然是允许的，但仍建议使用显式可空类型。
+    </p>
+    <p class="para">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">A&nbsp;$a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">)&nbsp;{}&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;旧写法，仍可用<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">(?</span><span style="color: rgb(0, 0, 187);">A&nbsp;$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">)&nbsp;{}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;推荐写法<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    <p></p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     参数 <code class="parameter">exclude_disabled</code> 不能设置为 <strong><code>false</code></strong>
+     来调用 <span class="function"><a class="function" href="function.get-defined-functions.html">get_defined_functions()</a></span>，该参数已被废弃，不再起作用。
+     <span class="function"><a class="function" href="function.get-defined-functions.html">get_defined_functions()</a></span> 绝不会再包含禁用的函数。
+    </p>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration80.deprecated.enchant">
+  <h3 class="title">Enchant</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <p class="para">
+     <span class="function"><a class="function" href="function.enchant-broker-set-dict-path.html">enchant_broker_set_dict_path()</a></span> and
+     <span class="function"><a class="function" href="function.enchant-broker-get-dict-path.html">enchant_broker_get_dict_path()</a></span>
+     are deprecated, because that functionality is neither available in libenchant &lt; 1.5 nor in
+     libenchant-2.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     <span class="function"><a class="function" href="function.enchant-dict-add-to-personal.html">enchant_dict_add_to_personal()</a></span> is deprecated; use
+     <span class="function"><a class="function" href="function.enchant-dict-add.html">enchant_dict_add()</a></span> instead.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     <span class="function"><a class="function" href="function.enchant-dict-is-in-session.html">enchant_dict_is_in_session()</a></span> is deprecated; use
+     <span class="function"><a class="function" href="function.enchant-dict-is-added.html">enchant_dict_is_added()</a></span> instead.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     <span class="function"><a class="function" href="function.enchant-broker-free.html">enchant_broker_free()</a></span> and <span class="function"><a class="function" href="function.enchant-broker-free-dict.html">enchant_broker_free_dict()</a></span> are
+     deprecated; unset the object instead.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     The <strong><code>ENCHANT_MYSPELL</code></strong> and <strong><code>ENCHANT_ISPELL</code></strong> constants are
+     deprecated.
+    </p>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration80.deprecated.libxml">
+  <h3 class="title">LibXML</h3>
+
+  <p class="para">
+   <span class="function"><a class="function" href="function.libxml-disable-entity-loader.html">libxml_disable_entity_loader()</a></span> has been deprecated. As libxml 2.9.0 is now
+   required, external entity loading is guaranteed to be disabled by default, and this function is
+   no longer needed to protect against XXE attacks, unless the (still vulnerable).
+   <strong><code>LIBXML_NOENT</code></strong> is used.
+   In that case, it is recommended to refactor the code using
+   <span class="function"><a class="function" href="function.libxml-set-external-entity-loader.html">libxml_set_external_entity_loader()</a></span> to suppress loading of external entities.
+
+  </p>
+ </div>
+
+ <div class="sect2" id="migration80.deprecated.pgsql">
+  <h3 class="title">PGSQL / PDO PGSQL</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <p class="para">
+     The constant <strong><code>PGSQL_LIBPQ_VERSION_STR</code></strong> now has the same value as
+     <strong><code>PGSQL_LIBPQ_VERSION</code></strong>, and thus is deprecated.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     Function aliases in the pgsql extension have been deprecated.
+     See the following list for which functions should be used instead:
+    </p>
+    <p class="para">
+     <ul class="simplelist">
+      <li class="member"><span class="function"><strong>pg_errormessage()</strong></span> → <span class="function"><a class="function" href="function.pg-last-error.html">pg_last_error()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_numrows()</strong></span> → <span class="function"><a class="function" href="function.pg-num-rows.html">pg_num_rows()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_numfields()</strong></span> → <span class="function"><a class="function" href="function.pg-num-fields.html">pg_num_fields()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_cmdtuples()</strong></span> → <span class="function"><a class="function" href="function.pg-affected-rows.html">pg_affected_rows()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_fieldname()</strong></span> → <span class="function"><a class="function" href="function.pg-field-name.html">pg_field_name()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_fieldsize()</strong></span> → <span class="function"><a class="function" href="function.pg-field-size.html">pg_field_size()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_fieldtype()</strong></span> → <span class="function"><a class="function" href="function.pg-field-type.html">pg_field_type()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_fieldnum()</strong></span> → <span class="function"><a class="function" href="function.pg-field-num.html">pg_field_num()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_result()</strong></span> → <span class="function"><a class="function" href="function.pg-fetch-result.html">pg_fetch_result()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_fieldprtlen()</strong></span> → <span class="function"><a class="function" href="function.pg-field-prtlen.html">pg_field_prtlen()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_fieldisnull()</strong></span> → <span class="function"><a class="function" href="function.pg-field-is-null.html">pg_field_is_null()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_freeresult()</strong></span> → <span class="function"><a class="function" href="function.pg-free-result.html">pg_free_result()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_getlastoid()</strong></span> → <span class="function"><a class="function" href="function.pg-last-oid.html">pg_last_oid()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_locreate()</strong></span> → <span class="function"><a class="function" href="function.pg-lo-create.html">pg_lo_create()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_lounlink()</strong></span> → <span class="function"><a class="function" href="function.pg-lo-unlink.html">pg_lo_unlink()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_loopen()</strong></span> → <span class="function"><a class="function" href="function.pg-lo-open.html">pg_lo_open()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_loclose()</strong></span> → <span class="function"><a class="function" href="function.pg-lo-close.html">pg_lo_close()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_loread()</strong></span> → <span class="function"><a class="function" href="function.pg-lo-read.html">pg_lo_read()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_lowrite()</strong></span> → <span class="function"><a class="function" href="function.pg-lo-write.html">pg_lo_write()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_loreadall()</strong></span> → <span class="function"><a class="function" href="function.pg-lo-read-all.html">pg_lo_read_all()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_loimport()</strong></span> → <span class="function"><a class="function" href="function.pg-lo-import.html">pg_lo_import()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_loexport()</strong></span> → <span class="function"><a class="function" href="function.pg-lo-export.html">pg_lo_export()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_setclientencoding()</strong></span> → <span class="function"><a class="function" href="function.pg-set-client-encoding.html">pg_set_client_encoding()</a></span></li>
+      <li class="member"><span class="function"><strong>pg_clientencoding()</strong></span> -&gt; <span class="function"><a class="function" href="function.pg-client-encoding.html">pg_client_encoding()</a></span></li>
+     </ul>
+    <p></p>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration80.deprecated.standard">
+  <h3 class="title">Standard Library</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <p class="para">
+     Sort comparison functions that return <strong><code>true</code></strong> or <strong><code>false</code></strong> will now throw a deprecation warning, and
+     should be replaced with an implementation that returns an integer less than, equal to, or greater
+     than zero.
+    </p>
+    <p class="para">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;Replace<br></span><span style="color: rgb(0, 0, 187);">usort</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$array</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">fn</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">)&nbsp;=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$a&nbsp;</span><span style="color: rgb(0, 119, 0);">&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;With<br></span><span style="color: rgb(0, 0, 187);">usort</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$array</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">fn</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">)&nbsp;=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$a&nbsp;</span><span style="color: rgb(0, 119, 0);">&lt;=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+ 
+    <p></p>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration80.deprecated.zip">
+  <h3 class="title">Zip</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <p class="para">
+     Using an empty file as ZipArchive is deprecated. Libzip 1.6.0 does not accept empty files as
+     valid zip archives any longer. The existing workaround will be removed in the next version.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     The procedural API of Zip is deprecated. Use <span class="classname"><a class="classname" href="class.ziparchive.html">ZipArchive</a></span> instead.
+     Iteration over all entries can be accomplished using <span class="methodname"><a class="methodname" href="ziparchive.statindex.html">ZipArchive::statIndex()</a></span>
+     and a <a class="link" href="control-structures.for.html">for</a> loop:
+    </p>
+    <p class="para">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;iterate&nbsp;using&nbsp;the&nbsp;procedural&nbsp;API<br></span><span style="color: rgb(0, 0, 187);">assert</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">is_resource</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$zip</span><span style="color: rgb(0, 119, 0);">));<br>while&nbsp;(</span><span style="color: rgb(0, 0, 187);">$entry&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">zip_read</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$zip</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">zip_entry_name</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$entry</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;iterate&nbsp;using&nbsp;the&nbsp;object-oriented&nbsp;API<br></span><span style="color: rgb(0, 0, 187);">assert</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$zip&nbsp;</span><span style="color: rgb(0, 119, 0);">instanceof&nbsp;</span><span style="color: rgb(0, 0, 187);">ZipArchive</span><span style="color: rgb(0, 119, 0);">);<br>for&nbsp;(</span><span style="color: rgb(0, 0, 187);">$i&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(0, 0, 187);">$entry&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$zip</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">statIndex</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">++)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$entry</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">'name'</span><span style="color: rgb(0, 119, 0);">];<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    <p></p>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration80.deprecated.reflection">
+  <h3 class="title">Reflection</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <p class="para">
+     <span class="methodname"><a class="methodname" href="reflectionfunction.isdisabled.html">ReflectionFunction::isDisabled()</a></span> is deprecated, as it is no longer
+     possible to create a <span class="classname"><a class="classname" href="class.reflectionfunction.html">ReflectionFunction</a></span> for a disabled function. This
+     method now always returns <strong><code>false</code></strong>.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     <span class="methodname"><a class="methodname" href="reflectionparameter.getclass.html">ReflectionParameter::getClass()</a></span>,
+     <span class="methodname"><a class="methodname" href="reflectionparameter.isarray.html">ReflectionParameter::isArray()</a></span>, and
+     <span class="methodname"><a class="methodname" href="reflectionparameter.iscallable.html">ReflectionParameter::isCallable()</a></span> are deprecated.
+     <span class="methodname"><a class="methodname" href="reflectionparameter.gettype.html">ReflectionParameter::getType()</a></span> and the
+     <span class="classname"><a class="classname" href="class.reflectiontype.html">ReflectionType</a></span> APIs should be used instead.
+    </p>
+   </li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>

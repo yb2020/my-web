@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Security Considerations-BeJSON.com</title><meta name="keywords" content="Security Considerations"><meta name="description" content="xdrlib --- 编码与解码 XDR 数据"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="扩展和嵌入 Python 解释器" href="../extending/index.html" rel="next">
+    <link title="xdrlib --- 编码与解码 XDR 数据" href="xdrlib.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/security_warnings.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="xdrlib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xdrlib</span></code> --- 编码与解码 XDR 数据</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="../extending/index.html">扩展和嵌入 Python 解释器</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="扩展和嵌入 Python 解释器" accesskey="N" href="../extending/index.html">下一页</a> |</li>
+        <li class="right">
+          <a title="xdrlib --- 编码与解码 XDR 数据" accesskey="P" href="xdrlib.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a accesskey="U" href="index.html">Python 标准库</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">Security Considerations</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <span class="target" id="security-warnings"></span><section id="security-considerations">
+<span id="index-0"></span><h1>Security Considerations<a title="永久链接至标题" class="headerlink" href="#security-considerations">¶</a></h1>
+<p>The following modules have specific security considerations:</p>
+<ul class="simple">
+<li><p><a title="base64: RFC 4648: Base16, Base32, Base64 Data Encodings; Base85 and Ascii85" class="reference internal" href="base64.html#module-base64"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base64</span></code></a>: <a class="reference internal" href="base64.html#base64-security"><span class="std std-ref">base64 security considerations</span></a> in
+<span class="target" id="index-1"></span><a class="rfc reference external" href=""><strong>RFC 4648</strong></a></p></li>
+<li><p><a title="cgi: Helpers for running Python scripts via the Common Gateway Interface. (已移除)" class="reference internal" href="cgi.html#module-cgi"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cgi</span></code></a>: <a class="reference internal" href="cgi.html#cgi-security"><span class="std std-ref">CGI security considerations</span></a></p></li>
+<li><p><a title="hashlib: Secure hash and message digest algorithms." class="reference internal" href="hashlib.html#module-hashlib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hashlib</span></code></a>: <a class="reference internal" href="hashlib.html#hashlib-usedforsecurity"><span class="std std-ref">all constructors take a "usedforsecurity" keyword-only
+argument disabling known insecure and blocked algorithms</span></a></p></li>
+<li><p><a title="http.server: HTTP server and request handlers." class="reference internal" href="http.server.html#module-http.server"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.server</span></code></a> is not suitable for production use, only implementing
+basic security checks</p></li>
+<li><p><a title="logging: Flexible event logging system for applications." class="reference internal" href="logging.html#module-logging"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a>: <a class="reference internal" href="logging.config.html#logging-eval-security"><span class="std std-ref">Logging configuration uses eval()</span></a></p></li>
+<li><p><a title="multiprocessing: Process-based parallelism." class="reference internal" href="multiprocessing.html#module-multiprocessing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">multiprocessing</span></code></a>: <a class="reference internal" href="multiprocessing.html#multiprocessing-recv-pickle-security"><span class="std std-ref">Connection.recv() uses pickle</span></a></p></li>
+<li><p><a title="pickle: Convert Python objects to streams of bytes and back." class="reference internal" href="pickle.html#module-pickle"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a>: <a class="reference internal" href="pickle.html#pickle-restrict"><span class="std std-ref">Restricting globals in pickle</span></a></p></li>
+<li><p><a title="random: Generate pseudo-random numbers with various common distributions." class="reference internal" href="random.html#module-random"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> shouldn't be used for security purposes, use <a title="secrets: Generate secure random numbers for managing secrets." class="reference internal" href="secrets.html#module-secrets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">secrets</span></code></a>
+instead</p></li>
+<li><p><a title="shelve: Python object persistence." class="reference internal" href="shelve.html#module-shelve"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shelve</span></code></a>: <a class="reference internal" href="shelve.html#shelve-security"><span class="std std-ref">shelve is based on pickle and thus unsuitable for
+dealing with untrusted sources</span></a></p></li>
+<li><p><a title="ssl: TLS/SSL wrapper for socket objects" class="reference internal" href="ssl.html#module-ssl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ssl</span></code></a>: <a class="reference internal" href="ssl.html#ssl-security"><span class="std std-ref">SSL/TLS security considerations</span></a></p></li>
+<li><p><a title="subprocess: Subprocess management." class="reference internal" href="subprocess.html#module-subprocess"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a>: <a class="reference internal" href="subprocess.html#subprocess-security"><span class="std std-ref">Subprocess security considerations</span></a></p></li>
+<li><p><a title="tempfile: Generate temporary files and directories." class="reference internal" href="tempfile.html#module-tempfile"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tempfile</span></code></a>: <a class="reference internal" href="tempfile.html#tempfile-mktemp-deprecated"><span class="std std-ref">mktemp is deprecated due to vulnerability to race
+conditions</span></a></p></li>
+<li><p><a title="xml: Package containing XML processing modules" class="reference internal" href="xml.html#module-xml"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml</span></code></a>: <a class="reference internal" href="xml.html#xml-vulnerabilities"><span class="std std-ref">XML vulnerabilities</span></a></p></li>
+<li><p><a title="zipfile: Read and write ZIP-format archive files." class="reference internal" href="zipfile.html#module-zipfile"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipfile</span></code></a>: <a class="reference internal" href="zipfile.html#zipfile-resources-limitations"><span class="std std-ref">maliciously prepared .zip files can cause disk volume
+exhaustion</span></a></p></li>
+</ul>
+<p>The <a class="reference internal" href="../using/cmdline.html#cmdoption-I"><code class="xref std std-option docutils literal notranslate"><span class="pre">-I</span></code></a> command line option can be used to run Python in isolated
+mode. When it cannot be used, the <a class="reference internal" href="../using/cmdline.html#cmdoption-P"><code class="xref std std-option docutils literal notranslate"><span class="pre">-P</span></code></a> option or the
+<span class="target" id="index-2"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONSAFEPATH"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONSAFEPATH</span></code></a> environment variable can be used to not prepend a
+potentially unsafe path to <a title="sys.path" class="reference internal" href="sys.html#sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> such as the current directory, the
+script's directory or an empty string.</p>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="xdrlib.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xdrlib</span></code> --- 编码与解码 XDR 数据</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="../extending/index.html">扩展和嵌入 Python 解释器</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="扩展和嵌入 Python 解释器" href="../extending/index.html">下一页</a> |</li>
+        <li class="right">
+          <a title="xdrlib --- 编码与解码 XDR 数据" href="xdrlib.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+        <li class="nav-item nav-item-this"><a href="">Security Considerations</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

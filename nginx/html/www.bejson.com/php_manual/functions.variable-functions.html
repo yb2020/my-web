@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>可变函数-BeJSON.com</title><meta name="keywords" content="可变函数"><meta name="description" content="PHP 支持可变函数的概念。这意味着如果一个变量名后有圆括号，PHP 将寻找与变量的值同名的函数，并且尝试执行它。可变函数可以用来实现包括回调函数，函数表在内的一些用途。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="functions.returning-values.html">« 返回值</a></li>
+      <li style="float: right;"><a href="functions.internal.html">内部（内置）函数 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.functions.html">函数</a></li>
+    <li>可变函数</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="functions.variable-functions">
+   <h1 class="title">可变函数</h1>
+
+   <p class="para">
+    PHP 支持可变函数的概念。这意味着如果一个变量名后有圆括号，PHP
+    将寻找与变量的值同名的函数，并且尝试执行它。可变函数可以用来实现包括回调函数，函数表在内的一些用途。
+   </p>
+   <p class="para">
+    可变函数不能用于例如
+    <span class="function"><a class="function" href="function.echo.html">echo</a></span>，<span class="function"><a class="function" href="function.print.html">print</a></span>，<span class="function"><a class="function" href="function.unset.html">unset()</a></span>，<span class="function"><a class="function" href="function.isset.html">isset()</a></span>，<span class="function"><a class="function" href="function.empty.html">empty()</a></span>，<span class="function"><a class="function" href="function.include.html">include</a></span>，<span class="function"><a class="function" href="function.require.html">require</a></span>
+    以及类似的语言结构。需要使用自己的包装函数来将这些结构用作可变函数。
+   </p>
+   <p class="para">
+    <div class="example" id="example-173">
+     <p><strong>示例 #1 可变函数示例</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"In&nbsp;foo()&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br>function&nbsp;</span><span style="color: rgb(0, 0, 187);">bar</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$arg&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">''</span><span style="color: rgb(0, 119, 0);">)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"In&nbsp;bar();&nbsp;argument&nbsp;was&nbsp;'</span><span style="color: rgb(0, 0, 187);">$arg</span><span style="color: rgb(221, 0, 0);">'.&lt;br&nbsp;/&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;使用&nbsp;echo&nbsp;的包装函数<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">echoit</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$string</span><span style="color: rgb(0, 119, 0);">)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$string</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$func&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'foo'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$func</span><span style="color: rgb(0, 119, 0);">();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;调用&nbsp;foo()<br><br></span><span style="color: rgb(0, 0, 187);">$func&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'bar'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$func</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'test'</span><span style="color: rgb(0, 119, 0);">);&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;调用&nbsp;bar()<br><br></span><span style="color: rgb(0, 0, 187);">$func&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'echoit'</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$func</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'test'</span><span style="color: rgb(0, 119, 0);">);&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;调用&nbsp;echoit()<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   <p></p>
+   <p class="para">
+    也可以用可变函数的语法来调用一个对象的方法。
+    <div class="example" id="example-174">
+     <p><strong>示例 #2 可变方法范例</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">Foo<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">Variable</span><span style="color: rgb(0, 119, 0);">()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$name&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Bar'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">();&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;调用&nbsp;Bar()&nbsp;方法<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">Bar</span><span style="color: rgb(0, 119, 0);">()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"This&nbsp;is&nbsp;Bar"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$foo&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">Foo</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$funcname&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Variable"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$foo</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">$funcname</span><span style="color: rgb(0, 119, 0);">();&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;调用&nbsp;$foo-&gt;Variable()<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   <p></p>
+   <p class="para">
+    当调用静态方法时，函数调用要比静态属性优先：
+    <div class="example" id="example-175">
+     <p><strong>示例 #3 Variable 方法和静态属性示例</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">Foo<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: rgb(0, 0, 187);">$variable&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'static&nbsp;property'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">Variable</span><span style="color: rgb(0, 119, 0);">()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Method&nbsp;Variable&nbsp;called'</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">Foo</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">$variable</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;打印&nbsp;'static&nbsp;property'。在该作用域中需要&nbsp;$variable。<br></span><span style="color: rgb(0, 0, 187);">$variable&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Variable"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">Foo</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">$variable</span><span style="color: rgb(0, 119, 0);">();&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;在该作用域中读取&nbsp;$variable&nbsp;调用&nbsp;$foo-&gt;Variable()。<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   <p></p>
+   <p class="para">
+    <div class="example" id="example-176">
+     <p><strong>示例 #4 复杂调用</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">Foo<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">bar</span><span style="color: rgb(0, 119, 0);">()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"bar\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">baz</span><span style="color: rgb(0, 119, 0);">()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"baz\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$func&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(</span><span style="color: rgb(221, 0, 0);">"Foo"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"bar"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$func</span><span style="color: rgb(0, 119, 0);">();&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;打印&nbsp;"bar"<br></span><span style="color: rgb(0, 0, 187);">$func&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;array(new&nbsp;</span><span style="color: rgb(0, 0, 187);">Foo</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"baz"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$func</span><span style="color: rgb(0, 119, 0);">();&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;打印&nbsp;"baz"<br></span><span style="color: rgb(0, 0, 187);">$func&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"Foo::bar"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$func</span><span style="color: rgb(0, 119, 0);">();&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;打印&nbsp;"bar"<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   <p></p>
+
+   <div class="sect2">
+    <h3 class="title">参见</h3>
+    <p class="para">
+     <ul class="simplelist">
+      <li class="member"><span class="function"><a class="function" href="function.is-callable.html">is_callable()</a></span></li>
+      <li class="member"><span class="function"><a class="function" href="function.call-user-func.html">call_user_func()</a></span></li>
+      <li class="member"><span class="function"><a class="function" href="function.function-exists.html">function_exists()</a></span></li>
+      <li class="member"><a class="link" href="language.variables.variable.html">可变变量</a></li>
+     </ul>
+    <p></p>
+   </div>
+  </div></div></div></body></html>

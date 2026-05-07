@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>对象接口-BeJSON.com</title><meta name="keywords" content="对象接口"><meta name="description" content="使用接口（interface），可以指定某个类必须实现哪些方法，但不需要定义这些方法的具体内容。 由于接口（interface）和类（class）、trait 共享了命名空间，所以它们不能重名。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="language.oop5.abstract.html">« 抽象类</a></li>
+      <li style="float: right;"><a href="language.oop5.traits.html">Trait »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.oop5.html">类与对象</a></li>
+    <li>对象接口</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="language.oop5.interfaces">
+ <h1 class="title">对象接口</h1>
+ <p class="para">
+  使用接口（interface），可以指定某个类必须实现哪些方法，但不需要定义这些方法的具体内容。
+  由于接口（interface）和类（class）、trait 共享了命名空间，所以它们不能重名。
+ </p>
+ <p class="para">
+  接口就像定义一个标准的类一样，通过 <code class="literal">interface</code> 关键字替换掉
+  <code class="literal">class</code> 关键字来定义，但其中所有的方法都是空的。
+ </p>
+ <p class="para">
+  接口中定义的所有方法都必须是 public ，这是接口的特性。
+ </p>
+ <p class="para">
+  在实践中，往往出于两个辅助目的使用接口：
+ </p>
+ <ul class="simplelist">
+  <li class="member">
+   因为实现了同一个接口，所以开发者创建的对象虽然源自不同的类，但可能可以交换使用。
+   常用于多个数据库的服务访问、多个支付网关、不同的缓存策略等。
+   可能不需要任何代码修改，就能切换不同的实现方式。
+  </li>
+  <li class="member">
+   能够让函数与方法接受一个符合接口的参数，而不需要关心对象如何做、如何实现。
+   这些接口常常命名成类似 <code class="literal">Iterable</code>、<code class="literal">Cacheable</code>、<code class="literal">Renderable</code>，
+   以便于体现出功能的含义。
+  </li>
+ </ul>
+ <p class="para">
+  接口可以定义<a class="link" href="language.oop5.magic.html">魔术方法</a>，以便要求类（class）实现这些方法。
+ </p>
+ <blockquote class="note"><p><strong class="note">注意</strong>: 
+  <p class="para">
+   虽然没有禁止，但是强烈建议不要在接口中使用 <a class="link" href="language.oop5.decon.html#language.oop5.decon.constructor">构造器</a>。
+   因为这样在对象实现接口时，会大幅降低灵活性。
+   此外，也不能强制确保构造器遵守继承规则，将导致不可预料的行为结果。
+  </p>
+ <p></p></blockquote>
+
+
+ <div class="sect2" id="language.oop5.interfaces.implements">
+  <h3 class="title">实现（<code class="literal">implements</code>）</h3>
+  <p class="para">   
+   要实现一个接口，使用 <code class="literal">implements</code>
+   操作符。类中必须实现接口中定义的所有方法，否则会报一个致命错误。
+   类可以实现多个接口，用逗号来分隔多个接口的名称。
+  </p>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    类实现（implement）两个接口时，如果它们定义了相同名称的方法，只有签名相同的时候才是允许的。
+   </p>
+  </div>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    实现接口的时候，class 中的参数名称不必和接口完全一致。
+    然而， PHP 8.0 起语法开始支持<a class="link" href="functions.arguments.html#functions.named-arguments">命名参数</a>，
+    也就是说调用方会依赖接口中参数的名称。
+    因此，强烈建议开发者的参数的命名，在类和接口中保持一致。
+   </p>
+  </div>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    接口也可以通过 <a class="link" href="language.oop5.inheritance.html">extends</a> 操作符扩展。
+   </p>
+  <p></p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    类实现接口时，必须以<a class="link" href="language.oop5.basic.html#language.oop.lsp">兼容的签名</a>定义接口中所有方法。
+   </p>
+  <p></p></blockquote>
+ </div>
+
+ <div class="sect2" id="language.oop5.interfaces.constants">
+  <h3 class="title"><code class="literal">常量</code></h3>
+  <p class="para"> 
+   接口中也可以定义常量。接口常量和<a class="link" href="language.oop5.constants.html">类常量</a>的使用完全相同， 在 PHP 8.1.0 之前
+   不能被子类或子接口所覆盖。
+  </p>
+ </div>
+
+ <div class="sect2" id="language.oop5.interfaces.examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="language.oop5.interfaces.examples.ex1">
+   <p><strong>示例 #1 接口示例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;声明一个'Template'接口<br></span><span style="color: rgb(0, 119, 0);">interface&nbsp;</span><span style="color: rgb(0, 0, 187);">Template<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">setVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$var</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">getHtml</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$template</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;实现接口<br>//&nbsp;下面的写法是正确的<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">WorkingTemplate&nbsp;</span><span style="color: rgb(0, 119, 0);">implements&nbsp;</span><span style="color: rgb(0, 0, 187);">Template<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: rgb(0, 0, 187);">$vars&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[];<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">setVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$var</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">vars</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">$var</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">getHtml</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$template</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">vars&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$name&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$template&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">str_replace</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'{'&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">$name&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(221, 0, 0);">'}'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$value</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$template</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">$template</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;下面的写法是错误的，会报错，因为没有实现&nbsp;getHtml()：<br>//&nbsp;Fatal&nbsp;error:&nbsp;Class&nbsp;BadTemplate&nbsp;contains&nbsp;1&nbsp;abstract&nbsp;methods<br>//&nbsp;and&nbsp;must&nbsp;therefore&nbsp;be&nbsp;declared&nbsp;abstract&nbsp;(Template::getHtml)<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">BadTemplate&nbsp;</span><span style="color: rgb(0, 119, 0);">implements&nbsp;</span><span style="color: rgb(0, 0, 187);">Template<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: rgb(0, 0, 187);">$vars&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[];<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">setVariable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$var</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">vars</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">$var</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <div class="example" id="language.oop5.interfaces.examples.ex2">
+   <p><strong>示例 #2 可扩充的接口</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">interface&nbsp;</span><span style="color: rgb(0, 0, 187);">A<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">();<br>}<br><br>interface&nbsp;</span><span style="color: rgb(0, 0, 187);">B&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">A<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">baz</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Baz&nbsp;$baz</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;正确写法<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">C&nbsp;</span><span style="color: rgb(0, 119, 0);">implements&nbsp;</span><span style="color: rgb(0, 0, 187);">B<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">baz</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Baz&nbsp;$baz</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;错误写法会导致一个致命错误<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">D&nbsp;</span><span style="color: rgb(0, 119, 0);">implements&nbsp;</span><span style="color: rgb(0, 0, 187);">B<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">baz</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">Foo&nbsp;$foo</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+  </div>
+  <div class="example" id="language.oop5.interfaces.examples.ex3">
+   <p><strong>示例 #3 扩展多个接口</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">interface&nbsp;</span><span style="color: rgb(0, 0, 187);">A<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">();<br>}<br><br>interface&nbsp;</span><span style="color: rgb(0, 0, 187);">B<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">bar</span><span style="color: rgb(0, 119, 0);">();<br>}<br><br>interface&nbsp;</span><span style="color: rgb(0, 0, 187);">C&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">A</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">B<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">baz</span><span style="color: rgb(0, 119, 0);">();<br>}<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">D&nbsp;</span><span style="color: rgb(0, 119, 0);">implements&nbsp;</span><span style="color: rgb(0, 0, 187);">C<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">bar</span><span style="color: rgb(0, 119, 0);">()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">baz</span><span style="color: rgb(0, 119, 0);">()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+  </div>
+  <div class="example" id="language.oop5.interfaces.examples.ex4">
+   <p><strong>示例 #4 使用接口常量</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">interface&nbsp;</span><span style="color: rgb(0, 0, 187);">A<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;</span><span style="color: rgb(0, 0, 187);">B&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Interface&nbsp;constant'</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;输出接口常量<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">A</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">B</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;错误写法，因为常量不能被覆盖。接口常量的概念和类常量是一样的。<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">B&nbsp;</span><span style="color: rgb(0, 119, 0);">implements&nbsp;</span><span style="color: rgb(0, 0, 187);">A<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;</span><span style="color: rgb(0, 0, 187);">B&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Class&nbsp;constant'</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;输出：&nbsp;Class&nbsp;constant<br>//&nbsp;在&nbsp;PHP&nbsp;8.1.0&nbsp;之前，不能正常运行<br>//&nbsp;因为之前还不允许覆盖类常量。<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">B</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">B</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <div class="example" id="language.oop5.interfaces.examples.ex5">
+   <p><strong>示例 #5 抽象（abstract）类的接口使用</strong></p>
+   <div class="example-contents">
+    <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">interface&nbsp;</span><span style="color: rgb(0, 0, 187);">A<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">string&nbsp;$s</span><span style="color: rgb(0, 119, 0);">):&nbsp;</span><span style="color: rgb(0, 0, 187);">string</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">bar</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">int&nbsp;$i</span><span style="color: rgb(0, 119, 0);">):&nbsp;</span><span style="color: rgb(0, 0, 187);">int</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;抽象类可能仅实现了接口的一部分。<br>//&nbsp;扩展该抽象类时必须实现剩余部分。<br></span><span style="color: rgb(0, 119, 0);">abstract&nbsp;class&nbsp;</span><span style="color: rgb(0, 0, 187);">B&nbsp;</span><span style="color: rgb(0, 119, 0);">implements&nbsp;</span><span style="color: rgb(0, 0, 187);">A<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">string&nbsp;$s</span><span style="color: rgb(0, 119, 0);">):&nbsp;</span><span style="color: rgb(0, 0, 187);">string<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">$s&nbsp;</span><span style="color: rgb(0, 119, 0);">.&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br>class&nbsp;</span><span style="color: rgb(0, 0, 187);">C&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">B<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">bar</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">int&nbsp;$i</span><span style="color: rgb(0, 119, 0);">):&nbsp;</span><span style="color: rgb(0, 0, 187);">int<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">$i&nbsp;</span><span style="color: rgb(0, 119, 0);">*&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <div class="example" id="language.oop5.interfaces.examples.ex6">
+   <p><strong>示例 #6 同时使用扩展和实现</strong></p>
+   <div class="example-contents">
+    <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">One<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;...&nbsp;*/<br></span><span style="color: rgb(0, 119, 0);">}<br><br>interface&nbsp;</span><span style="color: rgb(0, 0, 187);">Usable<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;...&nbsp;*/<br></span><span style="color: rgb(0, 119, 0);">}<br><br>interface&nbsp;</span><span style="color: rgb(0, 0, 187);">Updatable<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;...&nbsp;*/<br></span><span style="color: rgb(0, 119, 0);">}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;关键词顺序至关重要：&nbsp;'extends'&nbsp;必须在前面<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">Two&nbsp;</span><span style="color: rgb(0, 119, 0);">extends&nbsp;</span><span style="color: rgb(0, 0, 187);">One&nbsp;</span><span style="color: rgb(0, 119, 0);">implements&nbsp;</span><span style="color: rgb(0, 0, 187);">Usable</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">Updatable<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">/*&nbsp;...&nbsp;*/<br></span><span style="color: rgb(0, 119, 0);">}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <p class="para">
+   接口加上类型约束，提供了一种很好的方式来确保某个对象包含有某些方法。参见
+   <a class="link" href="language.operators.type.html">instanceof</a> 操作符和<a class="link" href="language.types.declarations.html">类型声明</a>。
+  </p>
+ </div>
+
+</div></div></div></body></html>

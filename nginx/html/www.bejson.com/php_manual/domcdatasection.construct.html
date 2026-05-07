@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Constructs a new DOMCdataSection object-BeJSON.com</title><meta name="keywords" content="Constructs a new DOMCdataSection object"><meta name="description" content="The value of the CDATA node. If not supplied, an empty CDATA node is created. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="class.domcdatasection.html">« DOMCdataSection</a></li>
+      <li style="float: right;"><a href="class.domcharacterdata.html">DOMCharacterData »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.domcdatasection.html">DOMCdataSection</a></li>
+    <li>Constructs a new DOMCdataSection object</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="domcdatasection.construct">
+ <div class="refnamediv">
+  <h1 class="refname">DOMCdataSection::__construct</h1>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DOMCdataSection::__construct</span> — <span class="dc-title">Constructs a new DOMCdataSection object</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-domcdatasection.construct-description">
+  <h3 class="title">说明</h3>
+  <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>DOMCdataSection::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>)</div>
+
+  <p class="para rdfs-comment">
+   Constructs a new CDATA node. This works like the <span class="classname"><a class="classname" href="class.domtext.html">DOMText</a></span>
+   class.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-domcdatasection.construct-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">data</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The value of the CDATA node. If not supplied, an empty CDATA node is created.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-domcdatasection.construct-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="domcdatasection.construct.examples.basic">
+    <p><strong>示例 #1 Creating a new DOMCdataSection object</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$dom&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DOMDocument</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'1.0'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'utf-8'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$element&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$dom</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">appendChild</span><span style="color: rgb(0, 119, 0);">(new&nbsp;</span><span style="color: rgb(0, 0, 187);">DOMElement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'root'</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">$text&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$element</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">appendChild</span><span style="color: rgb(0, 119, 0);">(new&nbsp;</span><span style="color: rgb(0, 0, 187);">DOMCdataSection</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'root&nbsp;value'</span><span style="color: rgb(0, 119, 0);">));<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$dom</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">saveXML</span><span style="color: rgb(0, 119, 0);">();<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    
+    <div class="example-contents screen">
+<div class="cdata"><pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;&lt;![CDATA[root value]]&gt;&lt;/root&gt;
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-domcdatasection.construct-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a class="methodname" href="domtext.construct.html" rel="rdfs-seeAlso">DOMText::__construct()</a> - Creates a new DOMText object</span></li>
+    <li class="member"><span class="methodname"><a class="methodname" href="domdocument.createtextnode.html" rel="rdfs-seeAlso">DOMDocument::createTextNode()</a> - Create new text node</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

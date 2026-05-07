@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Gets the interval-BeJSON.com</title><meta name="keywords" content="Gets the interval"><meta name="description" content="面向对象风格">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="dateperiod.construct.html">« DatePeriod::__construct</a></li>
+      <li style="float: right;"><a href="dateperiod.getenddate.html">DatePeriod::getEndDate »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.dateperiod.html">DatePeriod</a></li>
+    <li>Gets the interval</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="dateperiod.getdateinterval">
+ <div class="refnamediv">
+  <h1 class="refname">DatePeriod::getDateInterval</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.6.5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DatePeriod::getDateInterval</span> — <span class="dc-title">
+   Gets the interval
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-dateperiod.getdateinterval-description">
+  <h3 class="title">说明</h3>
+  <p class="para">面向对象风格</p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>DatePeriod::getDateInterval</strong></span>(): <span class="type"><a class="type DateInterval" href="class.dateinterval.html">DateInterval</a></span></div>
+
+  <p class="para rdfs-comment">
+   Gets a <span class="classname"><a class="classname" href="class.dateinterval.html">DateInterval</a></span> <span class="type">object</span>
+   representing the interval used for the period.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-dateperiod.getdateinterval-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-dateperiod.getdateinterval-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns a <span class="classname"><a class="classname" href="class.dateinterval.html">DateInterval</a></span> <span class="type">object</span>
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-dateperiod.getdateinterval-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-2022">
+   <p><strong>示例 #1 <span class="methodname"><strong>DatePeriod::getDateInterval()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$period&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DatePeriod</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'R7/2016-05-16T00:00:00Z/P1D'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$interval&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$period</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getDateInterval</span><span style="color: rgb(0, 119, 0);">();<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$interval</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">format</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'%d&nbsp;day'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>1 day
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-dateperiod.getdateinterval-seealso">
+  <h3 class="title">参见</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="methodname"><a class="methodname" href="dateperiod.getstartdate.html" rel="rdfs-seeAlso">DatePeriod::getStartDate()</a> - Gets the start date</span></li>
+   <li class="member"><span class="methodname"><a class="methodname" href="dateperiod.getenddate.html" rel="rdfs-seeAlso">DatePeriod::getEndDate()</a> - Gets the end date</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

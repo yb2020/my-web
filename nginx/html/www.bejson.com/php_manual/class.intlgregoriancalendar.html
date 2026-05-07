@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The IntlGregorianCalendar class-BeJSON.com</title><meta name="keywords" content="The IntlGregorianCalendar class"><meta name="description" content="The IntlGregorianCalendar class(PHP 5 >= 5.5.0, PHP 7, PHP 8)简介类摘要class IntlGregorianCalendar  extends IntlCalendar  {/* 继承的常量 */const int IntlCalenda">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="intlcalendar.todatetime.html">« IntlCalendar::toDateTime</a></li>
+      <li style="float: right;"><a href="intlgregoriancalendar.construct.html">IntlGregorianCalendar::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.intl.html">intl</a></li>
+    <li>The IntlGregorianCalendar class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.intlgregoriancalendar">
+
+ <h1 class="title">The IntlGregorianCalendar class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="intlgregoriancalendar.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+
+   </p>
+  </div>
+
+
+  <div class="section" id="intlgregoriancalendar.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">IntlGregorianCalendar</strong>
+     </span>
+
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.intlcalendar.html">IntlCalendar</a>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的常量 */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-era"><var class="varname">IntlCalendar::FIELD_ERA</var></a></var><span class="initializer"> = 0</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-year"><var class="varname">IntlCalendar::FIELD_YEAR</var></a></var><span class="initializer"> = 1</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-month"><var class="varname">IntlCalendar::FIELD_MONTH</var></a></var><span class="initializer"> = 2</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-week-of-year"><var class="varname">IntlCalendar::FIELD_WEEK_OF_YEAR</var></a></var><span class="initializer"> = 3</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-week-of-month"><var class="varname">IntlCalendar::FIELD_WEEK_OF_MONTH</var></a></var><span class="initializer"> = 4</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-date"><var class="varname">IntlCalendar::FIELD_DATE</var></a></var><span class="initializer"> = 5</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-day-of-year"><var class="varname">IntlCalendar::FIELD_DAY_OF_YEAR</var></a></var><span class="initializer"> = 6</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-day-of-week"><var class="varname">IntlCalendar::FIELD_DAY_OF_WEEK</var></a></var><span class="initializer"> = 7</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-day-of-week-in-month"><var class="varname">IntlCalendar::FIELD_DAY_OF_WEEK_IN_MONTH</var></a></var><span class="initializer"> = 8</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-am-pm"><var class="varname">IntlCalendar::FIELD_AM_PM</var></a></var><span class="initializer"> = 9</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-hour"><var class="varname">IntlCalendar::FIELD_HOUR</var></a></var><span class="initializer"> = 10</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-hour-of-day"><var class="varname">IntlCalendar::FIELD_HOUR_OF_DAY</var></a></var><span class="initializer"> = 11</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-minute"><var class="varname">IntlCalendar::FIELD_MINUTE</var></a></var><span class="initializer"> = 12</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-second"><var class="varname">IntlCalendar::FIELD_SECOND</var></a></var><span class="initializer"> = 13</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-millisecond"><var class="varname">IntlCalendar::FIELD_MILLISECOND</var></a></var><span class="initializer"> = 14</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-zone-offset"><var class="varname">IntlCalendar::FIELD_ZONE_OFFSET</var></a></var><span class="initializer"> = 15</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-dst-offset"><var class="varname">IntlCalendar::FIELD_DST_OFFSET</var></a></var><span class="initializer"> = 16</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-year-woy"><var class="varname">IntlCalendar::FIELD_YEAR_WOY</var></a></var><span class="initializer"> = 17</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-dow-local"><var class="varname">IntlCalendar::FIELD_DOW_LOCAL</var></a></var><span class="initializer"> = 18</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-extended-year"><var class="varname">IntlCalendar::FIELD_EXTENDED_YEAR</var></a></var><span class="initializer"> = 19</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-julian-day"><var class="varname">IntlCalendar::FIELD_JULIAN_DAY</var></a></var><span class="initializer"> = 20</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-milliseconds-in-day"><var class="varname">IntlCalendar::FIELD_MILLISECONDS_IN_DAY</var></a></var><span class="initializer"> = 21</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-is-leap-month"><var class="varname">IntlCalendar::FIELD_IS_LEAP_MONTH</var></a></var><span class="initializer"> = 22</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-field-count-"><var class="varname">IntlCalendar::FIELD_FIELD_COUNT </var></a></var><span class="initializer"> = 23</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.field-day-of-month"><var class="varname">IntlCalendar::FIELD_DAY_OF_MONTH</var></a></var><span class="initializer"> = 5</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.dow-sunday"><var class="varname">IntlCalendar::DOW_SUNDAY</var></a></var><span class="initializer"> = 1</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.dow-monday"><var class="varname">IntlCalendar::DOW_MONDAY</var></a></var><span class="initializer"> = 2</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.dow-tuesday"><var class="varname">IntlCalendar::DOW_TUESDAY</var></a></var><span class="initializer"> = 3</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.dow-wednesday"><var class="varname">IntlCalendar::DOW_WEDNESDAY</var></a></var><span class="initializer"> = 4</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.dow-thursday"><var class="varname">IntlCalendar::DOW_THURSDAY</var></a></var><span class="initializer"> = 5</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.dow-friday"><var class="varname">IntlCalendar::DOW_FRIDAY</var></a></var><span class="initializer"> = 6</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.dow-saturday"><var class="varname">IntlCalendar::DOW_SATURDAY</var></a></var><span class="initializer"> = 7</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.dow-type-weekday"><var class="varname">IntlCalendar::DOW_TYPE_WEEKDAY</var></a></var><span class="initializer"> = 0</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.dow-type-weekend"><var class="varname">IntlCalendar::DOW_TYPE_WEEKEND</var></a></var><span class="initializer"> = 1</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.dow-type-weekend-offset"><var class="varname">IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</var></a></var><span class="initializer"> = 2</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.dow-type-weekend-cease"><var class="varname">IntlCalendar::DOW_TYPE_WEEKEND_CEASE</var></a></var><span class="initializer"> = 3</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.walltime-first"><var class="varname">IntlCalendar::WALLTIME_FIRST</var></a></var><span class="initializer"> = 1</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.walltime-last"><var class="varname">IntlCalendar::WALLTIME_LAST</var></a></var><span class="initializer"> = 0</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.intlcalendar.html#intlcalendar.constants.walltime-next-valid"><var class="varname">IntlCalendar::WALLTIME_NEXT_VALID</var></a></var><span class="initializer"> = 2</span>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlgregoriancalendar.construct.html">__construct</a></span>(<span class="methodparam"><span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span> <code class="parameter">$tz</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code><span class="initializer"> = ?</span></span>)</div>
+<div class="constructorsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlgregoriancalendar.construct.html">__construct</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$timeZoneOrYear</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$localeOrMonth</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$dayOfMonth</code></span>)</div>
+<div class="constructorsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlgregoriancalendar.construct.html">__construct</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$timeZoneOrYear</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$localeOrMonth</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$dayOfMonth</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$hour</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$minute</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$second</code><span class="initializer"> = ?</span></span><br>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlgregoriancalendar.getgregorianchange.html">getGregorianChange</a></span>(): <span class="type">float</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlgregoriancalendar.isleapyear.html">isLeapYear</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$year</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlgregoriancalendar.setgregorianchange.html">setGregorianChange</a></span>(<span class="methodparam"><span class="type">float</span> <code class="parameter">$timestamp</code></span>): <span class="type">bool</span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.add.html">IntlCalendar::add</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.after.html">IntlCalendar::after</a></span>(<span class="methodparam"><span class="type"><a class="type IntlCalendar" href="class.intlcalendar.html">IntlCalendar</a></span> <code class="parameter">$other</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.before.html">IntlCalendar::before</a></span>(<span class="methodparam"><span class="type"><a class="type IntlCalendar" href="class.intlcalendar.html">IntlCalendar</a></span> <code class="parameter">$other</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.clear.html">IntlCalendar::clear</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$field</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intlcalendar.createinstance.html">IntlCalendar::createInstance</a></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span>|<span class="type"><a class="type DateTimeZone" href="class.datetimezone.html">DateTimeZone</a></span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$timezone</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$locale</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type IntlCalendar" href="class.intlcalendar.html">IntlCalendar</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.equals.html">IntlCalendar::equals</a></span>(<span class="methodparam"><span class="type"><a class="type IntlCalendar" href="class.intlcalendar.html">IntlCalendar</a></span> <code class="parameter">$other</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.fielddifference.html">IntlCalendar::fieldDifference</a></span>(<span class="methodparam"><span class="type">float</span> <code class="parameter">$timestamp</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intlcalendar.fromdatetime.html">IntlCalendar::fromDateTime</a></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type DateTime" href="class.datetime.html">DateTime</a></span>|<span class="type">string</span></span> <code class="parameter">$datetime</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$locale</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type IntlCalendar" href="class.intlcalendar.html">IntlCalendar</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.get.html">IntlCalendar::get</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getactualmaximum.html">IntlCalendar::getActualMaximum</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getactualminimum.html">IntlCalendar::getActualMinimum</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intlcalendar.getavailablelocales.html">IntlCalendar::getAvailableLocales</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getdayofweektype.html">IntlCalendar::getDayOfWeekType</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$dayOfWeek</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.geterrorcode.html">IntlCalendar::getErrorCode</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.geterrormessage.html">IntlCalendar::getErrorMessage</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getfirstdayofweek.html">IntlCalendar::getFirstDayOfWeek</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getgreatestminimum.html">IntlCalendar::getGreatestMinimum</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intlcalendar.getkeywordvaluesforlocale.html">IntlCalendar::getKeywordValuesForLocale</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$keyword</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$onlyCommon</code></span>): <span class="type"><span class="type"><a class="type IntlIterator" href="class.intliterator.html">IntlIterator</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getleastmaximum.html">IntlCalendar::getLeastMaximum</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getlocale.html">IntlCalendar::getLocale</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getmaximum.html">IntlCalendar::getMaximum</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getminimaldaysinfirstweek.html">IntlCalendar::getMinimalDaysInFirstWeek</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getminimum.html">IntlCalendar::getMinimum</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="intlcalendar.getnow.html">IntlCalendar::getNow</a></span>(): <span class="type">float</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getrepeatedwalltimeoption.html">IntlCalendar::getRepeatedWallTimeOption</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getskippedwalltimeoption.html">IntlCalendar::getSkippedWallTimeOption</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.gettime.html">IntlCalendar::getTime</a></span>(): <span class="type"><span class="type">float</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.gettimezone.html">IntlCalendar::getTimeZone</a></span>(): <span class="type"><span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.gettype.html">IntlCalendar::getType</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.getweekendtransition.html">IntlCalendar::getWeekendTransition</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$dayOfWeek</code></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.indaylighttime.html">IntlCalendar::inDaylightTime</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.isequivalentto.html">IntlCalendar::isEquivalentTo</a></span>(<span class="methodparam"><span class="type"><a class="type IntlCalendar" href="class.intlcalendar.html">IntlCalendar</a></span> <code class="parameter">$other</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.islenient.html">IntlCalendar::isLenient</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.isset.html">IntlCalendar::isSet</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.isweekend.html">IntlCalendar::isWeekend</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">float</span><span class="type"></span></span> <code class="parameter">$timestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.roll.html">IntlCalendar::roll</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>, <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">bool</span></span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.set.html">IntlCalendar::set</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.set.html">IntlCalendar::set</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$year</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$month</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$dayOfMonth</code><span class="initializer"> = NULL</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$hour</code><span class="initializer"> = NULL</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$minute</code><span class="initializer"> = NULL</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$second</code><span class="initializer"> = NULL</span></span><br>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.setfirstdayofweek.html">IntlCalendar::setFirstDayOfWeek</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$dayOfWeek</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.setlenient.html">IntlCalendar::setLenient</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$lenient</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.setminimaldaysinfirstweek.html">IntlCalendar::setMinimalDaysInFirstWeek</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$days</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.setrepeatedwalltimeoption.html">IntlCalendar::setRepeatedWallTimeOption</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.setskippedwalltimeoption.html">IntlCalendar::setSkippedWallTimeOption</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.settime.html">IntlCalendar::setTime</a></span>(<span class="methodparam"><span class="type">float</span> <code class="parameter">$timestamp</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.settimezone.html">IntlCalendar::setTimeZone</a></span>(<span class="methodparam"><span class="type"><span class="type"><a class="type IntlTimeZone" href="class.intltimezone.html">IntlTimeZone</a></span>|<span class="type"><a class="type DateTimeZone" href="class.datetimezone.html">DateTimeZone</a></span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$timezone</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="intlcalendar.todatetime.html">IntlCalendar::toDateTime</a></span>(): <span class="type"><span class="type"><a class="type DateTime" href="class.datetime.html">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+
+   }</div>
+
+
+  </div>
+  
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="intlgregoriancalendar.construct.html">IntlGregorianCalendar::__construct</a> — Create the Gregorian Calendar class</li><li><a href="intlgregoriancalendar.getgregorianchange.html">IntlGregorianCalendar::getGregorianChange</a> — Get the Gregorian Calendar change date</li><li><a href="intlgregoriancalendar.isleapyear.html">IntlGregorianCalendar::isLeapYear</a> — Determine if the given year is a leap year</li><li><a href="intlgregoriancalendar.setgregorianchange.html">IntlGregorianCalendar::setGregorianChange</a> — Set the Gregorian Calendar the change date</li></ul>
+</div>
+</div></div></body></html>

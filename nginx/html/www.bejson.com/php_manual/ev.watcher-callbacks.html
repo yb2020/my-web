@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Watcher callbacks-BeJSON.com</title><meta name="keywords" content="Watcher callbacks"><meta name="description" content="All watchers can be active(waiting for events) or inactive(paused). Only active watchers will have their callbacks invoked. All callbacks will be call">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="ev.watchers.html">« Watchers</a></li>
+      <li style="float: right;"><a href="ev.periodic-modes.html">Periodic watcher operation modes »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.ev.html">Ev</a></li>
+    <li>Watcher callbacks</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="chapter" id="ev.watcher-callbacks">
+ <h1>Watcher callbacks</h1>
+
+ <p class="para">
+  All watchers can be active(waiting for events) or inactive(paused). Only
+  active watchers will have their callbacks invoked. All callbacks will be
+  called with at least two arguments:
+  <code class="parameter">watcher</code>
+  - the watcher, and
+  <code class="parameter">revents</code>
+  a bitmask of received events.
+ </p>
+ <p class="para">
+  Watcher callbacks are passed to the watcher constructors (the classes derived
+  from
+  <span class="classname"><a class="classname" href="class.evwatcher.html">EvWatcher</a></span>
+  -
+  <span class="methodname"><a class="methodname" href="evcheck.construct.html">EvCheck::__construct()</a></span>
+  ,
+  <span class="methodname"><a class="methodname" href="evchild.construct.html">EvChild::__construct()</a></span>
+  etc.). A watcher callback should match the following prototype:
+ </p>
+ <div class="methodsynopsis dc-description"><span class="methodname"><strong>callback</strong></span>(<span class="methodparam">
+   <span class="type">object</span>
+    <code class="parameter">$watcher</code>
+   <span class="initializer"> = NULL</span>
+  </span>, <span class="methodparam">
+   <span class="type">int</span>
+    <code class="parameter">$revents</code>
+   <span class="initializer"> = NULL</span>
+  </span>): <span class="type"><span class="type void">void</span></span></div>
+
+ <p class="para">
+  <dl>
+   
+    <dt>
+
+     <code class="parameter">watcher</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      The watcher instance(of a class extending
+      <span class="classname"><a class="classname" href="class.evwatcher.html">EvWatcher</a></span>
+      ).
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">revents</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      <a class="link" href="class.ev.html#ev.constants.watcher-revents">Watcher received events</a>
+      .
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ <p></p>
+ <p class="para">
+  Each watcher type has its associated bit in
+  <code class="parameter">revents</code>
+  , so one can use the same callback for multiple watchers. The event mask is
+  named after the type, i.e.
+  <span class="classname"><a class="classname" href="class.evchild.html">EvChild</a></span>
+  (or
+  <span class="methodname"><a class="methodname" href="evloop.child.html">EvLoop::child()</a></span>
+  ) sets
+  <strong><code>EV::CHILD</code></strong>
+  ,
+  <span class="classname"><a class="classname" href="class.evprepare.html">EvPrepare</a></span>
+  (or
+  <span class="methodname"><a class="methodname" href="evloop.prepare.html">EvLoop::prepare()</a></span>
+  ) sets
+  <strong><code>Ev::PREPARE</code></strong>
+  ,
+  <span class="classname"><a class="classname" href="class.evperiodic.html">EvPeriodic</a></span>
+  (or
+  <span class="methodname"><a class="methodname" href="evloop.periodic.html">EvLoop::periodic()</a></span>
+  ) sets
+  <strong><code>Ev::PERIODIC</code></strong>
+  and so on, with the exception of I/O events (which can set both
+  <strong><code>Ev::READ</code></strong>
+  and
+  <strong><code>Ev::WRITE</code></strong>
+  bits).
+ </p>
+</div>
+</div></div></body></html>

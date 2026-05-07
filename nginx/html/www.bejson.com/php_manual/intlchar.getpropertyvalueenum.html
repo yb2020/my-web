@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get the property value for a given value name-BeJSON.com</title><meta name="keywords" content="Get the property value for a given value name"><meta name="description" content="Some of the names in PropertyValueAliases.txt will only be recognized with IntlChar::PROPERTY_GENERAL_CATEGORY_MASK, not IntlChar::PROPERTY_GENERAL_CA">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="intlchar.getpropertyname.html">« IntlChar::getPropertyName</a></li>
+      <li style="float: right;"><a href="intlchar.getpropertyvaluename.html">IntlChar::getPropertyValueName »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.intlchar.html">IntlChar</a></li>
+    <li>Get the property value for a given value name</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="intlchar.getpropertyvalueenum">
+ <div class="refnamediv">
+  <h1 class="refname">IntlChar::getPropertyValueEnum</h1>
+  <p class="verinfo">(PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">IntlChar::getPropertyValueEnum</span> — <span class="dc-title">Get the property value for a given value name</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-intlchar.getpropertyvalueenum-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::getPropertyValueEnum</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$property</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type">int</span></div>
+
+  <p class="para rdfs-comment">
+   Returns the property value integer for a given value name, as specified in the Unicode database file PropertyValueAliases.txt.
+   Short, long, and any other variants are recognized.
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    Some of the names in PropertyValueAliases.txt will only be recognized with
+    <strong><code>IntlChar::PROPERTY_GENERAL_CATEGORY_MASK</code></strong>, not
+    <strong><code>IntlChar::PROPERTY_GENERAL_CATEGORY</code></strong>.
+    These include:
+    <ul class="simplelist">
+     <li class="member">"C" / "Other"</li>
+     <li class="member">"L" / "Letter"</li>
+     <li class="member">"LC" / "Cased_Letter"</li>
+     <li class="member">"M" / "Mark"</li>
+     <li class="member">"N" / "Number"</li>
+     <li class="member">"P" / "Punctuation"</li>
+     <li class="member">"S" / "Symbol"</li>
+     <li class="member"> "Z" / "Separator"</li>
+    </ul>
+   <p></p>
+  <p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-intlchar.getpropertyvalueenum-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">property</code></dt>
+
+    <dd>
+
+     <p class="para">The Unicode property to lookup (see the <code class="literal">IntlChar::PROPERTY_*</code> constants).</p>
+     <p class="para">
+      If out of range, or this method doesn't work with the given value,
+      <strong><code>IntlChar::PROPERTY_INVALID_CODE</code></strong> is returned.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">name</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The value name to be matched.  The name is compared using "loose matching" as described in PropertyValueAliases.txt.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-intlchar.getpropertyvalueenum-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns the corresponding value integer, or <strong><code>IntlChar::PROPERTY_INVALID_CODE</code></strong> if the given name
+   does not match any value of the given property, or if the property is invalid.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-intlchar.getpropertyvalueenum-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-2457">
+   <p><strong>示例 #1 Testing different properties</strong></p>
+   <div class="example-contents">
+    <div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">getPropertyValueEnum</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">PROPERTY_BLOCK</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'greek'</span><span style="color: rgb(0, 119, 0);">)&nbsp;===&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">BLOCK_CODE_GREEK</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">getPropertyValueEnum</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">PROPERTY_BIDI_CLASS</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'RIGHT_TO_LEFT'</span><span style="color: rgb(0, 119, 0);">)&nbsp;===&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">CHAR_DIRECTION_RIGHT_TO_LEFT</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">getPropertyValueEnum</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">PROPERTY_BIDI_CLASS</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'some&nbsp;made-up&nbsp;string'</span><span style="color: rgb(0, 119, 0);">)&nbsp;===&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">PROPERTY_INVALID_CODE</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">getPropertyValueEnum</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">123456789</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'RIGHT_TO_LEFT'</span><span style="color: rgb(0, 119, 0);">)&nbsp;===&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlChar</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">PROPERTY_INVALID_CODE</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+    <div class="cdata"><pre>bool(true)
+bool(true)
+bool(true)
+bool(true)
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+</div></div></div></body></html>

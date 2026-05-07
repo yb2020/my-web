@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>使用一个字符串分割另一个字符串-BeJSON.com</title><meta name="keywords" content="使用一个字符串分割另一个字符串"><meta name="description" content="explode(PHP 4, PHP 5, PHP 7, PHP 8)explode — 使用一个字符串分割另一个字符串说明explode(string $separator, string $string, int $limit = PHP_INT_MAX): array此函数返回由字符串组成的数">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.echo.html">« echo</a></li>
+      <li style="float: right;"><a href="function.fprintf.html">fprintf »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.strings.html">字符串 函数</a></li>
+    <li>使用一个字符串分割另一个字符串</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.explode">
+ <div class="refnamediv">
+  <h1 class="refname">explode</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">explode</span> — <span class="dc-title">使用一个字符串分割另一个字符串</span></p>
+ 
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.explode-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>explode</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = <strong><code>PHP_INT_MAX</code></strong></span></span>): <span class="type">array</span></div>
+
+  <p class="para rdfs-comment">
+   此函数返回由字符串组成的数组，每个元素都是
+   <code class="parameter">string</code>
+   的一个子串，它们被字符串
+   <code class="parameter">separator</code>
+   作为边界点分割出来。
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.explode-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">separator</code></dt>
+
+     <dd>
+
+      <p class="para">
+       边界上的分隔字符。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">string</code></dt>
+
+     <dd>
+
+      <p class="para">
+       输入的字符串。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">limit</code></dt>
+
+     <dd>
+
+      <p class="para">
+       如果设置了
+   <code class="parameter">limit</code>
+   参数并且是正数，则返回的数组包含最多
+   <code class="parameter">limit</code>
+   个元素，而最后那个元素将包含
+   <code class="parameter">string</code>
+   的剩余部分。
+      </p>
+      <p class="para">
+       如果
+  <code class="parameter">limit</code>
+  参数是负数，则返回除了最后的
+  -<code class="parameter">limit</code>
+  个元素外的所有元素。
+      </p>
+      <p class="para">
+       如果 <code class="parameter">limit</code> 是 0，则会被当做 1。
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    在 PHP 8.0 之前，<span class="function"><a class="function" href="function.implode.html">implode()</a></span> 可以接收两种参数顺序。
+    但请注意，<span class="function"><strong>explode()</strong></span> 从未支持乱序传入参数：你必须保证
+    <code class="parameter">separator</code> 参数在
+    <code class="parameter">string</code> 参数之前。
+   </p>
+  <p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.explode-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   此函数返回由字符串组成的 <span class="type">array</span>，每个元素都是
+   <code class="parameter">string</code>
+   的一个子串，它们被字符串
+   <code class="parameter">separator</code>
+   作为边界点分割出来。
+  </p>
+  <p class="para">
+   如果 <code class="parameter">separator</code>
+   为空字符串（""），<span class="function"><strong>explode()</strong></span>
+   将抛出 <span class="classname"><a class="classname" href="class.valueerror.html">ValueError</a></span>。
+   如果
+   <code class="parameter">separator</code>
+   所包含的值在
+   <code class="parameter">string</code>
+   中找不到，并且使用了负数的 <code class="parameter">limit</code> ，
+   那么会返回空的 <span class="type">array</span>，
+   否则返回包含 <code class="parameter">string</code>
+   单个元素的数组。
+   如果 <code class="parameter">separator</code> 值出现在了
+   <code class="parameter">string</code> 参数的开头或末尾，
+   将在返回 <span class="type">array</span> 相应的头部或尾部添加 <span class="type">array</span> 空值。
+  </p>
+ </div>
+
+
+ <div class="refsect1  changelog" id="refsect1-function.explode- changelog">
+  <h3 class="title">更新日志</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>版本</th>
+      <th>说明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       现在开始，当 <code class="parameter">separator</code> 参数传入空字符串时（<code class="literal">""</code>），
+       <span class="function"><strong>explode()</strong></span> 会抛出 <span class="classname"><a class="classname" href="class.valueerror.html">ValueError</a></span>。
+       在早期版本中，<span class="function"><strong>explode()</strong></span> 会返回 <strong><code>false</code></strong>。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.explode-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-4654">
+    <p><strong>示例 #1 <span class="function"><strong>explode()</strong></span> 例子</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">//&nbsp;示例&nbsp;1<br></span><span style="color: rgb(0, 0, 187);">$pizza&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"piece1&nbsp;piece2&nbsp;piece3&nbsp;piece4&nbsp;piece5&nbsp;piece6"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$pieces&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">explode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"&nbsp;"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$pizza</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$pieces</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">];&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;piece1<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$pieces</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">];&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;piece2<br><br>//&nbsp;示例&nbsp;2<br></span><span style="color: rgb(0, 0, 187);">$data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"foo:*:1023:1000::/home/foo:/bin/sh"</span><span style="color: rgb(0, 119, 0);">;<br>list(</span><span style="color: rgb(0, 0, 187);">$user</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$pass</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$uid</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$gid</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$gecos</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$home</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$shell</span><span style="color: rgb(0, 119, 0);">)&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">explode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">":"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$user</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;foo<br></span><span style="color: rgb(0, 119, 0);">echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$pass</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;*<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+    <p class="para">
+   <div class="example" id="example-4655">
+    <p><strong>示例 #2 <span class="function"><strong>explode()</strong></span> return examples</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(255, 128, 0);">/*<br>&nbsp;&nbsp;字符串内不包含分隔字符时，<br>&nbsp;&nbsp;会简单返回只有一个原始字符串元素的&nbsp;array。<br>*/<br></span><span style="color: rgb(0, 0, 187);">$input1&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"hello"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$input2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">"hello,there"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$input3&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">','</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">explode</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(221, 0, 0);">','</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$input1&nbsp;</span><span style="color: rgb(0, 119, 0);">)&nbsp;);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">explode</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(221, 0, 0);">','</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$input2&nbsp;</span><span style="color: rgb(0, 119, 0);">)&nbsp;);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">explode</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(221, 0, 0);">','</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$input3&nbsp;</span><span style="color: rgb(0, 119, 0);">)&nbsp;);<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>array(1)
+(
+    [0] =&gt; string(5) "hello"
+)
+array(2)
+(
+    [0] =&gt; string(5) "hello"
+    [1] =&gt; string(5) "there"
+)
+array(2)
+(
+    [0] =&gt; string(0) ""
+    [1] =&gt; string(0) ""
+)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+  <p class="para">
+   <div class="example" id="example-4656">
+    <p><strong>示例 #3 <code class="parameter">limit</code> 参数的例子</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$str&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'one|two|three|four'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;正数的&nbsp;limit<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">explode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'|'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$str</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">));<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;负数的&nbsp;limit<br></span><span style="color: rgb(0, 0, 187);">print_r</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">explode</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'|'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$str</span><span style="color: rgb(0, 119, 0);">,&nbsp;-</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">));<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [0] =&gt; one
+    [1] =&gt; two|three|four
+)
+Array
+(
+    [0] =&gt; one
+    [1] =&gt; two
+    [2] =&gt; three
+)
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.explode-notes">
+  <h3 class="title">注释</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">此函数可安全用于二进制对象。</span></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.explode-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.preg-split.html" rel="rdfs-seeAlso">preg_split()</a> - 通过一个正则表达式分隔字符串</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.str-split.html" rel="rdfs-seeAlso">str_split()</a> - 将字符串转换为数组</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.mb-split.html" rel="rdfs-seeAlso">mb_split()</a> - 使用正则表达式分割多字节字符串</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.str-word-count.html" rel="rdfs-seeAlso">str_word_count()</a> - 返回字符串中单词的使用情况</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.strtok.html" rel="rdfs-seeAlso">strtok()</a> - 标记分割字符串</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.implode.html" rel="rdfs-seeAlso">implode()</a> - 用字符串连接数组元素</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

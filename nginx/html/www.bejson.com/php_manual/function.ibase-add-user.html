@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Add a user to a security database-BeJSON.com</title><meta name="keywords" content="Add a user to a security database"><meta name="description" content="ibase_add_user(PHP 5, PHP 7 < 7.4.0)ibase_add_user — Add a user to a security database说明ibase_add_user(    resource $service_handle,    string $user_n">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.fbird-wait-event.html">« fbird_wait_event</a></li>
+      <li style="float: right;"><a href="function.ibase-affected-rows.html">ibase_affected_rows »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.ibase.html">Firebird/InterBase 函数</a></li>
+    <li>Add a user to a security database</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.ibase-add-user">
+ <div class="refnamediv">
+  <h1 class="refname">ibase_add_user</h1>
+  <p class="verinfo">(PHP 5, PHP 7 &lt; 7.4.0)</p><p class="refpurpose"><span class="refname">ibase_add_user</span> — <span class="dc-title">Add a user to a security database</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.ibase-add-user-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>ibase_add_user</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$service_handle</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$user_name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$first_name</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$middle_name</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$last_name</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
+
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-function.ibase-add-user-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">service_handle</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The handle on the database server service.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">user_name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The login name of the new database user.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">password</code></dt>
+
+     <dd>
+
+      <p class="para">
+      The password of the new user.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">first_name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The first name of the new database user.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">middle_name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The middle name of the new database user.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">last_name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The last name of the new database user.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.ibase-add-user-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.ibase-add-user-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.ibase-modify-user.html" rel="rdfs-seeAlso">ibase_modify_user()</a> - Modify a user to a security database</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.ibase-delete-user.html" rel="rdfs-seeAlso">ibase_delete_user()</a> - Delete a user from a security database</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

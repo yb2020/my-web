@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>match-BeJSON.com</title><meta name="keywords" content="match"><meta name="description" content="match 表达式基于值的一致性进行分支计算。 match表达式和 switch 语句类似， 都有一个表达式主体，可以和多个可选项进行比较。 与 switch 不同点是，它会像三元表达式一样求值。 与 switch 另一个不同点，它的比较是严格比较（ ===）而不是松散比较（==）。 Match 表">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="control-structures.switch.html">« switch</a></li>
+      <li style="float: right;"><a href="control-structures.declare.html">declare »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.control-structures.html">流程控制</a></li>
+    <li>match</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="control-structures.match">
+ <h1 class="title">match</h1>
+ <p class="verinfo">(PHP 8)</p>
+ <p class="para">
+  <code class="literal">match</code> 表达式基于值的一致性进行分支计算。
+  <code class="literal">match</code>表达式和 <code class="literal">switch</code> 语句类似，
+  都有一个表达式主体，可以和多个可选项进行比较。
+  与 <code class="literal">switch</code> 不同点是，它会像三元表达式一样求值。
+  与 <code class="literal">switch</code> 另一个不同点，它的比较是严格比较（
+  <code class="code">===</code>）而不是松散比较（<code class="code">==</code>）。
+  Match 表达式从 PHP 8.0.0 起可用。
+ </p>
+
+ <div class="example" id="example-134">
+  <p><strong>示例 #1  <code class="literal">match</code> 表达式结构</strong></p>
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$return_value&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">match&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">subject_expression</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">single_conditional_expression&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">return_expression</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">conditional_expression1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">conditional_expression2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">return_expression</span><span style="color: rgb(0, 119, 0);">,<br>};<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+  
+   <div class="example" id="example-133">
+   <p><strong>示例 #2  <code class="literal">match</code> 的基础用法</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$food&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'cake'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$return_value&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">match&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$food</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'apple'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'This&nbsp;food&nbsp;is&nbsp;an&nbsp;apple'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'bar'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'This&nbsp;food&nbsp;is&nbsp;a&nbsp;bar'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'cake'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'This&nbsp;food&nbsp;is&nbsp;a&nbsp;cake'</span><span style="color: rgb(0, 119, 0);">,<br>};<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$return_value</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+  <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>string(19) "This food is a cake"
+</pre></div>
+   </div>
+  </div>
+
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    不一定要使用 <code class="literal">match</code> 表达式的结果。
+   </span>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    <code class="literal">match</code> 表达式<em class="emphasis">必须</em>使用分号 <code class="literal">;</code> 结尾。
+    </span>
+  </p></blockquote>
+ </div>
+
+ <p class="para">
+  <code class="literal">match</code> 表达式跟 <code class="literal">switch</code> 语句相似，但是有以下关键区别：
+  
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <code class="literal">match</code> 比较分支值，使用了严格比较 (<code class="code">===</code>)，
+     而 switch 语句使用了松散比较。
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <code class="literal">match</code> 表达式会返回一个值。
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <code class="literal">match</code> 的分支不会像 <code class="literal">switch</code> 语句一样，
+     落空时执行下个 case。
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <code class="literal">match</code> 表达式必须彻底列举所有情况。
+    </span>
+   </li>
+  </ul>
+ <p></p>
+
+ <p class="para">
+  <code class="literal">match</code> 表达式和 <code class="literal">switch</code> 语句类似，
+  逐个检测匹配分支。一开始不会执行代码。
+  只有在所有之前的条件不匹配主体表达式时，才会执行剩下的条件表达式。
+  只会执行返回的表达式所对应的匹配条件表达式。
+  举例：
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">match&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$x</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">()&nbsp;=&gt;&nbsp;...,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">bar</span><span style="color: rgb(0, 119, 0);">()&nbsp;=&gt;&nbsp;...,&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;如果&nbsp;foo()&nbsp;===&nbsp;$x，不会执行&nbsp;$this-&gt;bar()<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">baz&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">beep</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;只有&nbsp;$x&nbsp;===&nbsp;$this-&gt;baz&nbsp;时才会执行&nbsp;beep()&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;等等<br></span><span style="color: rgb(0, 119, 0);">};<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ <p></p>
+
+ <p class="para">
+  <code class="literal">match</code> 表达式分支可以通过逗号分隔，包含多个表达式。
+  这是一个逻辑 OR，当多个分支表达式右侧相同时，就可以用这种缩写。
+ </p>
+ <p class="para">
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">match&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$x</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;匹配分支：<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$c&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;等同于以下三个分支：<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$b&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$c&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">,<br>};<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ <p></p>
+ <p class="para">
+ <code class="literal">default</code> 模式是个特殊的条件。
+当之前的条件都不匹配时，会匹配到该模式。
+  For example:
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$expressionResult&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">match&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$condition</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">(),<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">4&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">bar</span><span style="color: rgb(0, 119, 0);">(),<br>&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">baz</span><span style="color: rgb(0, 119, 0);">(),<br>};<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    多个 default 模式将会触发 <strong><code>E_FATAL_ERROR</code></strong> 错误。
+   </span>
+  </p></blockquote>
+ <p></p>
+
+ <p class="para">
+  <code class="literal">match</code> 表达式必须详尽列出所有情况。
+  如果主体表达式不能被任意分支条件处理，
+  会抛出 <span class="classname"><a class="classname" href="class.unhandledmatcherror.html">UnhandledMatchError</a></span>。
+ </p>
+
+ <div class="example" id="example-135">
+  <p><strong>示例 #3 match 表达式存在未处理的示例</strong></p>
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$condition&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">5</span><span style="color: rgb(0, 119, 0);">;<br><br>try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">match&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$condition</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">foo</span><span style="color: rgb(0, 119, 0);">(),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">4&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">bar</span><span style="color: rgb(0, 119, 0);">(),<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>}&nbsp;catch&nbsp;(\</span><span style="color: rgb(0, 0, 187);">UnhandledMatchError&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$e</span><span style="color: rgb(0, 119, 0);">);<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+  <div class="example-contents"><p>以上例程会输出：</p></div>
+  <div class="example-contents screen">
+<div class="cdata"><pre>object(UnhandledMatchError)#1 (7) {
+  ["message":protected]=&gt;
+  string(33) "Unhandled match value of type int"
+  ["string":"Error":private]=&gt;
+  string(0) ""
+  ["code":protected]=&gt;
+  int(0)
+  ["file":protected]=&gt;
+  string(9) "/in/ICgGK"
+  ["line":protected]=&gt;
+  int(6)
+  ["trace":"Error":private]=&gt;
+  array(0) {
+  }
+  ["previous":"Error":private]=&gt;
+  NULL
+}
+</pre></div>
+  </div>
+ </div>
+
+ <div class="sect2">
+  <h3 class="title">使用 match 表达式处理非一致性检查</h3>
+  <p class="para">
+   可以使用 <code class="literal">match</code> 表达式将 <code class="code">true</code> 
+   作为主项表达式来处理非一致性条件的情况。
+  </p>
+
+  <div class="example" id="example-136">
+   <p><strong>示例 #4 针对整数范围，使用宽泛的表达式匹配分支</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$age&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">23</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">match&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$age&nbsp;</span><span style="color: rgb(0, 119, 0);">&gt;=&nbsp;</span><span style="color: rgb(0, 0, 187);">65&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'senior'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$age&nbsp;</span><span style="color: rgb(0, 119, 0);">&gt;=&nbsp;</span><span style="color: rgb(0, 0, 187);">25&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'adult'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$age&nbsp;</span><span style="color: rgb(0, 119, 0);">&gt;=&nbsp;</span><span style="color: rgb(0, 0, 187);">18&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'young&nbsp;adult'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'kid'</span><span style="color: rgb(0, 119, 0);">,<br>};<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>string(11) "young adult"
+</pre></div>
+   </div>
+  </div>
+
+  <div class="example" id="example-137">
+   <p><strong>示例 #5 针对字符串内容，使用宽泛的表达式匹配分支</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>$text&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'Bienvenue&nbsp;chez&nbsp;nous'</span><span style="color: rgb(0, 119, 0);">;<br><br></span><span style="color: rgb(0, 0, 187);">$result&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">match&nbsp;</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">str_contains</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$text</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Welcome'</span><span style="color: rgb(0, 119, 0);">)&nbsp;||&nbsp;</span><span style="color: rgb(0, 0, 187);">str_contains</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$text</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Hello'</span><span style="color: rgb(0, 119, 0);">)&nbsp;=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'en'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">str_contains</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$text</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Bienvenue'</span><span style="color: rgb(0, 119, 0);">)&nbsp;||&nbsp;</span><span style="color: rgb(0, 0, 187);">str_contains</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$text</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Bonjour'</span><span style="color: rgb(0, 119, 0);">)&nbsp;=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'fr'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;...<br></span><span style="color: rgb(0, 119, 0);">};<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$result</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>以上例程会输出：</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>string(2) "fr"
+</pre></div>
+   </div>
+  </div>
+ </div>
+</div></div></div></body></html>

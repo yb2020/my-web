@@ -1,0 +1,567 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Phar class-BeJSON.com</title><meta name="keywords" content="The Phar class"><meta name="description" content="The Phar class provides a high-level interface to accessing and creating phar archives. ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="phar.fileformat.signature.html">« Phar Signature format</a></li>
+      <li style="float: right;"><a href="phar.addemptydir.html">Phar::addEmptyDir »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.phar.html">Phar</a></li>
+    <li>The Phar class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.phar">
+ <h1 class="title">The Phar class</h1>
+ 
+ 
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL phar &gt;= 1.0.0)</p>
+ 
+
+  <div class="section" id="phar.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    The Phar class provides a high-level interface to accessing and creating
+    phar archives.
+   </p>
+  </div>
+
+ 
+  <div class="section" id="phar.synopsis">
+   <h2 class="title">类摘要</h2>
+ 
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">Phar</strong>
+     </span>
+
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.recursivedirectoryiterator.html">RecursiveDirectoryIterator</a>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a class="interfacename" href="class.countable.html">Countable</a></span><span class="oointerface">,  <a class="interfacename" href="class.arrayaccess.html">ArrayAccess</a></span> {</div>
+ 
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的常量 */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.current-as-pathname"><var class="varname">FilesystemIterator::CURRENT_AS_PATHNAME</var></a></var><span class="initializer"> = 32</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.current-as-fileinfo"><var class="varname">FilesystemIterator::CURRENT_AS_FILEINFO</var></a></var><span class="initializer"> = 0</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.current-as-self"><var class="varname">FilesystemIterator::CURRENT_AS_SELF</var></a></var><span class="initializer"> = 16</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.current-mode-mask"><var class="varname">FilesystemIterator::CURRENT_MODE_MASK</var></a></var><span class="initializer"> = 240</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.key-as-pathname"><var class="varname">FilesystemIterator::KEY_AS_PATHNAME</var></a></var><span class="initializer"> = 0</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.key-as-filename"><var class="varname">FilesystemIterator::KEY_AS_FILENAME</var></a></var><span class="initializer"> = 256</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.follow-symlinks"><var class="varname">FilesystemIterator::FOLLOW_SYMLINKS</var></a></var><span class="initializer"> = 512</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.key-mode-mask"><var class="varname">FilesystemIterator::KEY_MODE_MASK</var></a></var><span class="initializer"> = 3840</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.new-current-and-key"><var class="varname">FilesystemIterator::NEW_CURRENT_AND_KEY</var></a></var><span class="initializer"> = 256</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.skip-dots"><var class="varname">FilesystemIterator::SKIP_DOTS</var></a></var><span class="initializer"> = 4096</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.filesystemiterator.html#filesystemiterator.constants.unix-paths"><var class="varname">FilesystemIterator::UNIX_PATHS</var></a></var><span class="initializer"> = 8192</span>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.construct.html">__construct</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = FilesystemIterator::SKIP_DOTS | FilesystemIterator::UNIX_PATHS</span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$alias</code><span class="initializer"> = <strong><code>null</code></strong></span></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.addemptydir.html">addEmptyDir</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$dirname</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.addfile.html">addFile</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$localName</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.addfromstring.html">addFromString</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$localname</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$contents</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.apiversion.html">apiVersion</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.buildfromdirectory.html">buildFromDirectory</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$directory</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code><span class="initializer"> = ""</span></span>): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.buildfromiterator.html">buildFromIterator</a></span>(<span class="methodparam"><span class="type"><a class="type Traversable" href="class.traversable.html">Traversable</a></span> <code class="parameter">$iterator</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$baseDirectory</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.cancompress.html">canCompress</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$compression</code><span class="initializer"> = 0</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.canwrite.html">canWrite</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.compress.html">compress</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$compression</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$extension</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type Phar" href="class.phar.html">Phar</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.compressfiles.html">compressFiles</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$compression</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.converttodata.html">convertToData</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$format</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$compression</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$extension</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type PharData" href="class.phardata.html">PharData</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.converttoexecutable.html">convertToExecutable</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$format</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$compression</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$extension</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type Phar" href="class.phar.html">Phar</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.copy.html">copy</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$from</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$to</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.count.html">count</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>COUNT_NORMAL</code></strong></span></span>): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.createdefaultstub.html">createDefaultStub</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$index</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$webIndex</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.decompress.html">decompress</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$extension</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type Phar" href="class.phar.html">Phar</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.decompressfiles.html">decompressFiles</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.delmetadata.html">delMetadata</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.delete.html">delete</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$entry</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.extractto.html">extractTo</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$directory</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$files</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$overwrite</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.getalias.html">getAlias</a></span>(): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.getmetadata.html">getMetadata</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$unserializeOptions</code><span class="initializer"> = []</span></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.getmodified.html">getModified</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.getpath.html">getPath</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.getsignature.html">getSignature</a></span>(): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.getstub.html">getStub</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.getsupportedcompression.html">getSupportedCompression</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.getsupportedsignatures.html">getSupportedSignatures</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.getversion.html">getVersion</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.hasmetadata.html">hasMetadata</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.interceptfilefuncs.html">interceptFileFuncs</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.isbuffering.html">isBuffering</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.iscompressed.html">isCompressed</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.isfileformat.html">isFileFormat</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$format</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.isvalidpharfilename.html">isValidPharFilename</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$executable</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.iswritable.html">isWritable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.loadphar.html">loadPhar</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$alias</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.mapphar.html">mapPhar</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$alias</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.mount.html">mount</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$pharPath</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$externalPath</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.mungserver.html">mungServer</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$variables</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.offsetexists.html">offsetExists</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$localName</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.offsetget.html">offsetGet</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$localName</code></span>): <span class="type"><a class="type SplFileInfo" href="class.splfileinfo.html">SplFileInfo</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.offsetset.html">offsetSet</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$localName</code></span>, <span class="methodparam"><span class="type"><span class="type">resource</span>|<span class="type">string</span></span> <code class="parameter">$value</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.offsetunset.html">offsetUnset</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$localName</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.running.html">running</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$returnPhar</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.setalias.html">setAlias</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$alias</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.setdefaultstub.html">setDefaultStub</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$index</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$webIndex</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.setmetadata.html">setMetadata</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$metadata</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.setsignaturealgorithm.html">setSignatureAlgorithm</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$algo</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$privateKey</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.setstub.html">setStub</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$stub</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$len</code><span class="initializer"> = -1</span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.startbuffering.html">startBuffering</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.stopbuffering.html">stopBuffering</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.unlinkarchive.html">unlinkArchive</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="phar.webphar.html">webPhar</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$alias</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$index</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$fileNotFoundScript</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$mimeTypes</code><span class="initializer"> = []</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span><span class="type"></span></span> <code class="parameter">$rewrite</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type"><span class="type void">void</span></span></div>
+
+    <div class="destructorsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="phar.destruct.html">__destruct</a></span>()</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivedirectoryiterator.getchildren.html">RecursiveDirectoryIterator::getChildren</a></span>(): <span class="type"><a class="type RecursiveDirectoryIterator" href="class.recursivedirectoryiterator.html">RecursiveDirectoryIterator</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivedirectoryiterator.getsubpath.html">RecursiveDirectoryIterator::getSubPath</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivedirectoryiterator.getsubpathname.html">RecursiveDirectoryIterator::getSubPathname</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivedirectoryiterator.haschildren.html">RecursiveDirectoryIterator::hasChildren</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$allowLinks</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivedirectoryiterator.key.html">RecursiveDirectoryIterator::key</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivedirectoryiterator.next.html">RecursiveDirectoryIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivedirectoryiterator.rewind.html">RecursiveDirectoryIterator::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filesystemiterator.current.html">FilesystemIterator::current</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><a class="type SplFileInfo" href="class.splfileinfo.html">SplFileInfo</a></span>|<span class="type"><a class="type FilesystemIterator" href="class.filesystemiterator.html">FilesystemIterator</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filesystemiterator.getflags.html">FilesystemIterator::getFlags</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filesystemiterator.key.html">FilesystemIterator::key</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filesystemiterator.next.html">FilesystemIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filesystemiterator.rewind.html">FilesystemIterator::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="filesystemiterator.setflags.html">FilesystemIterator::setFlags</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.current.html">DirectoryIterator::current</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getatime.html">DirectoryIterator::getATime</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getbasename.html">DirectoryIterator::getBasename</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$suffix</code><span class="initializer"> = ""</span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getctime.html">DirectoryIterator::getCTime</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getextension.html">DirectoryIterator::getExtension</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getfilename.html">DirectoryIterator::getFilename</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getgroup.html">DirectoryIterator::getGroup</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getinode.html">DirectoryIterator::getInode</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getmtime.html">DirectoryIterator::getMTime</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getowner.html">DirectoryIterator::getOwner</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getpath.html">DirectoryIterator::getPath</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getpathname.html">DirectoryIterator::getPathname</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getperms.html">DirectoryIterator::getPerms</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.getsize.html">DirectoryIterator::getSize</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.gettype.html">DirectoryIterator::getType</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.isdir.html">DirectoryIterator::isDir</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.isdot.html">DirectoryIterator::isDot</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.isexecutable.html">DirectoryIterator::isExecutable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.isfile.html">DirectoryIterator::isFile</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.islink.html">DirectoryIterator::isLink</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.isreadable.html">DirectoryIterator::isReadable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.iswritable.html">DirectoryIterator::isWritable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.key.html">DirectoryIterator::key</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.next.html">DirectoryIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.rewind.html">DirectoryIterator::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.seek.html">DirectoryIterator::seek</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span>
+   <span class="methodname"><a class="methodname" href="directoryiterator.tostring.html">DirectoryIterator::__toString</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="directoryiterator.valid.html">DirectoryIterator::valid</a></span>(): <span class="type">bool</span></div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getatime.html">SplFileInfo::getATime</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getbasename.html">SplFileInfo::getBasename</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$suffix</code><span class="initializer"> = ""</span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getctime.html">SplFileInfo::getCTime</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getextension.html">SplFileInfo::getExtension</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getfileinfo.html">SplFileInfo::getFileInfo</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$class</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a class="type SplFileInfo" href="class.splfileinfo.html">SplFileInfo</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getfilename.html">SplFileInfo::getFilename</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getgroup.html">SplFileInfo::getGroup</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getinode.html">SplFileInfo::getInode</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getlinktarget.html">SplFileInfo::getLinkTarget</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getmtime.html">SplFileInfo::getMTime</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getowner.html">SplFileInfo::getOwner</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getpath.html">SplFileInfo::getPath</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getpathinfo.html">SplFileInfo::getPathInfo</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$class</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a class="type SplFileInfo" href="class.splfileinfo.html">SplFileInfo</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getpathname.html">SplFileInfo::getPathname</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getperms.html">SplFileInfo::getPerms</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getrealpath.html">SplFileInfo::getRealPath</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.getsize.html">SplFileInfo::getSize</a></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.gettype.html">SplFileInfo::getType</a></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.isdir.html">SplFileInfo::isDir</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.isexecutable.html">SplFileInfo::isExecutable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.isfile.html">SplFileInfo::isFile</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.islink.html">SplFileInfo::isLink</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.isreadable.html">SplFileInfo::isReadable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.iswritable.html">SplFileInfo::isWritable</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.openfile.html">SplFileInfo::openFile</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code><span class="initializer"> = "r"</span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$useIncludePath</code><span class="initializer"> = <strong><code>false</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">resource</span><span class="type"></span></span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a class="type SplFileObject" href="class.splfileobject.html">SplFileObject</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.setfileclass.html">SplFileInfo::setFileClass</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code><span class="initializer"> = SplFileObject::class</span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.setinfoclass.html">SplFileInfo::setInfoClass</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code><span class="initializer"> = SplFileInfo::class</span></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="splfileinfo.tostring.html">SplFileInfo::__toString</a></span>(): <span class="type">string</span></div>
+
+   }</div>
+
+ 
+  </div>
+ 
+ </div>
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="phar.addemptydir.html">Phar::addEmptyDir</a> — 添加一个空目录到 phar 档案</li><li><a href="phar.addfile.html">Phar::addFile</a> — 将一个文件从文件系统添加到 phar 档案中</li><li><a href="phar.addfromstring.html">Phar::addFromString</a> — 以字符串的形式添加一个文件到 phar 档案</li><li><a href="phar.apiversion.html">Phar::apiVersion</a> — Returns the api version</li><li><a href="phar.buildfromdirectory.html">Phar::buildFromDirectory</a> — Construct a phar archive from the files within a directory</li><li><a href="phar.buildfromiterator.html">Phar::buildFromIterator</a> — Construct a phar archive from an iterator</li><li><a href="phar.cancompress.html">Phar::canCompress</a> — Returns whether phar extension supports compression using either zlib or bzip2</li><li><a href="phar.canwrite.html">Phar::canWrite</a> — Returns whether phar extension supports writing and creating phars</li><li><a href="phar.compress.html">Phar::compress</a> — Compresses the entire Phar archive using Gzip or Bzip2 compression</li><li><a href="phar.compressfiles.html">Phar::compressFiles</a> — Compresses all files in the current Phar archive</li><li><a href="phar.construct.html">Phar::__construct</a> — Construct a Phar archive object</li><li><a href="phar.converttodata.html">Phar::convertToData</a> — Convert a phar archive to a non-executable tar or zip file</li><li><a href="phar.converttoexecutable.html">Phar::convertToExecutable</a> — Convert a phar archive to another executable phar archive file format</li><li><a href="phar.copy.html">Phar::copy</a> — Copy a file internal to the phar archive to another new file within the phar</li><li><a href="phar.count.html">Phar::count</a> — Returns the number of entries (files) in the Phar archive</li><li><a href="phar.createdefaultstub.html">Phar::createDefaultStub</a> — Create a phar-file format specific stub</li><li><a href="phar.decompress.html">Phar::decompress</a> — Decompresses the entire Phar archive</li><li><a href="phar.decompressfiles.html">Phar::decompressFiles</a> — Decompresses all files in the current Phar archive</li><li><a href="phar.delmetadata.html">Phar::delMetadata</a> — Deletes the global metadata of the phar</li><li><a href="phar.delete.html">Phar::delete</a> — 删除 phar 档案中的一个文件</li><li><a href="phar.destruct.html">Phar::__destruct</a> — Destructs a Phar archive object</li><li><a href="phar.extractto.html">Phar::extractTo</a> — Extract the contents of a phar archive to a directory</li><li><a href="phar.getalias.html">Phar::getAlias</a> — Get the alias for Phar</li><li><a href="phar.getmetadata.html">Phar::getMetadata</a> — Returns phar archive meta-data</li><li><a href="phar.getmodified.html">Phar::getModified</a> — Return whether phar was modified</li><li><a href="phar.getpath.html">Phar::getPath</a> — Get the real path to the Phar archive on disk</li><li><a href="phar.getsignature.html">Phar::getSignature</a> — Return MD5/SHA1/SHA256/SHA512/OpenSSL signature of a Phar archive</li><li><a href="phar.getstub.html">Phar::getStub</a> — Return the PHP loader or bootstrap stub of a Phar archive</li><li><a href="phar.getsupportedcompression.html">Phar::getSupportedCompression</a> — Return array of supported compression algorithms</li><li><a href="phar.getsupportedsignatures.html">Phar::getSupportedSignatures</a> — Return array of supported signature types</li><li><a href="phar.getversion.html">Phar::getVersion</a> — Return version info of Phar archive</li><li><a href="phar.hasmetadata.html">Phar::hasMetadata</a> — Returns whether phar has global meta-data</li><li><a href="phar.interceptfilefuncs.html">Phar::interceptFileFuncs</a> — Instructs phar to intercept fopen, file_get_contents, opendir, and all of the stat-related functions</li><li><a href="phar.isbuffering.html">Phar::isBuffering</a> — Used to determine whether Phar write operations are being buffered, or are flushing directly to disk</li><li><a href="phar.iscompressed.html">Phar::isCompressed</a> — Returns Phar::GZ or PHAR::BZ2 if the entire phar archive is compressed (.tar.gz/tar.bz and so on)</li><li><a href="phar.isfileformat.html">Phar::isFileFormat</a> — Returns true if the phar archive is based on the tar/phar/zip file format depending on the parameter</li><li><a href="phar.isvalidpharfilename.html">Phar::isValidPharFilename</a> — Returns whether the given filename is a valid phar filename</li><li><a href="phar.iswritable.html">Phar::isWritable</a> — Returns true if the phar archive can be modified</li><li><a href="phar.loadphar.html">Phar::loadPhar</a> — Loads any phar archive with an alias</li><li><a href="phar.mapphar.html">Phar::mapPhar</a> — Reads the currently executed file (a phar) and registers its manifest</li><li><a href="phar.mount.html">Phar::mount</a> — Mount an external path or file to a virtual location within the phar archive</li><li><a href="phar.mungserver.html">Phar::mungServer</a> — Defines a list of up to 4 $_SERVER variables that should be modified for execution</li><li><a href="phar.offsetexists.html">Phar::offsetExists</a> — Determines whether a file exists in the phar</li><li><a href="phar.offsetget.html">Phar::offsetGet</a> — Gets a PharFileInfo object for a specific file</li><li><a href="phar.offsetset.html">Phar::offsetSet</a> — Set the contents of an internal file to those of an external file</li><li><a href="phar.offsetunset.html">Phar::offsetUnset</a> — Remove a file from a phar</li><li><a href="phar.running.html">Phar::running</a> — Returns the full path on disk or full phar URL to the currently executing Phar archive</li><li><a href="phar.setalias.html">Phar::setAlias</a> — Set the alias for the Phar archive</li><li><a href="phar.setdefaultstub.html">Phar::setDefaultStub</a> — Used to set the PHP loader or bootstrap stub of a Phar archive to the default loader</li><li><a href="phar.setmetadata.html">Phar::setMetadata</a> — Sets phar archive meta-data</li><li><a href="phar.setsignaturealgorithm.html">Phar::setSignatureAlgorithm</a> — Set the signature algorithm for a phar and apply it</li><li><a href="phar.setstub.html">Phar::setStub</a> — Used to set the PHP loader or bootstrap stub of a Phar archive</li><li><a href="phar.startbuffering.html">Phar::startBuffering</a> — Start buffering Phar write operations, do not modify the Phar object on disk</li><li><a href="phar.stopbuffering.html">Phar::stopBuffering</a> — Stop buffering write requests to the Phar archive, and save changes to disk</li><li><a href="phar.unlinkarchive.html">Phar::unlinkArchive</a> — Completely remove a phar archive from disk and from memory</li><li><a href="phar.webphar.html">Phar::webPhar</a> — Routes a request from a web browser to an internal file within the phar archive</li></ul>
+</div>
+</div></div></body></html>

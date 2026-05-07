@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>HTTP 响应头-BeJSON.com</title><meta name="keywords" content="HTTP 响应头"><meta name="description" content="$http_response_header 数组与 get_headers() 函数类似。当使用HTTP 包装器时，$http_response_header 将会被 HTTP 响应头信息填充。$http_response_header 将被创建于局部作用域中。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="reserved.variables.phperrormsg.html">« $php_errormsg</a></li>
+      <li style="float: right;"><a href="reserved.variables.argc.html">$argc »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reserved.variables.html">预定义变量</a></li>
+    <li>HTTP 响应头</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="reserved.variables.httpresponseheader">
+ <div class="refnamediv">
+  <h1 class="refname">$http_response_header</h1>
+  <p class="refpurpose"><span class="refname">$http_response_header</span> — <span class="dc-title">HTTP 响应头</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-reserved.variables.httpresponseheader-description">
+  <h3 class="title">说明</h3>
+  <p class="para">
+   <var class="varname">$http_response_header</var> <span class="type"><span class="type 数组">数组</span></span>与 <span class="function"><a class="function" href="function.get-headers.html">get_headers()</a></span> 函数类似。当使用<a class="link" href="wrappers.http.html">HTTP 包装器</a>时，<var class="varname">$http_response_header</var> 将会被 HTTP 响应头信息填充。<var class="varname">$http_response_header</var> 将被创建于<a class="link" href="language.variables.scope.html">局部作用域</a>中。
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-reserved.variables.httpresponseheader-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="variable.httpresponseheader.basic">
+    <p><strong>示例 #1 <var class="varname">$http_response_header</var> 范例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">get_contents</span><span style="color: rgb(0, 119, 0);">()&nbsp;{<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">file_get_contents</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"http://example.com"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$http_response_header</span><span style="color: rgb(0, 119, 0);">);<br>}<br></span><span style="color: rgb(0, 0, 187);">get_contents</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$http_response_header</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>array(9) {
+  [0]=&gt;
+  string(15) "HTTP/1.1 200 OK"
+  [1]=&gt;
+  string(35) "Date: Sat, 12 Apr 2008 17:30:38 GMT"
+  [2]=&gt;
+  string(29) "Server: Apache/2.2.3 (CentOS)"
+  [3]=&gt;
+  string(44) "Last-Modified: Tue, 15 Nov 2005 13:24:10 GMT"
+  [4]=&gt;
+  string(27) "ETag: "280100-1b6-80bfd280""
+  [5]=&gt;
+  string(20) "Accept-Ranges: bytes"
+  [6]=&gt;
+  string(19) "Content-Length: 438"
+  [7]=&gt;
+  string(17) "Connection: close"
+  [8]=&gt;
+  string(38) "Content-Type: text/html; charset=UTF-8"
+}
+NULL
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+ 
+</div></div></div></body></html>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Obtaining the mysqlnd plugin API-BeJSON.com</title><meta name="keywords" content="Obtaining the mysqlnd plugin API"><meta name="description" content="The mysqlnd plugin API is simply part of the MySQL Native Driver PHP extension, ext/mysqlnd. Development started on the mysqlnd plugin API in December">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="mysqlnd.plugin.mysql-proxy.html">« A comparison of mysqlnd plugins with MySQL Proxy</a></li>
+      <li style="float: right;"><a href="mysqlnd.plugin.architecture.html">MySQL Native Driver Plugin Architecture »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="mysqlnd.plugin.html">MySQL Native Driver Plugin API</a></li>
+    <li>Obtaining the mysqlnd plugin API</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="section" id="mysqlnd.plugin.obtaining">
+  <h1 class="title">Obtaining the mysqlnd plugin API</h1>
+  <p class="para">
+   The <code class="literal">mysqlnd</code> plugin API is simply part of the MySQL
+   Native Driver PHP extension, <code class="literal">ext/mysqlnd</code>.
+   Development started on the <code class="literal">mysqlnd</code> plugin API in
+   December 2009. It is developed as part of the PHP source repository,
+   and as such is available to the public either via Git, or through
+   source snapshot downloads.
+  </p>
+  <p class="para">
+   Plugin developers can determine the <code class="literal">mysqlnd</code>
+   version through accessing <code class="literal">MYSQLND_VERSION</code>, which
+   is a string of the format <q class="quote">mysqlnd 5.0.7-dev - 091210 -
+   $Revision: 300535</q>, or through
+   <code class="literal">MYSQLND_VERSION_ID</code>, which is an integer such as
+   50007. Developers can calculate the version number as follows:
+  </p>
+  <table class="doctable table" id="mysqlnd.plugin.version-id">
+   <caption><strong>MYSQLND_VERSION_ID calculation table</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Version (part)</th>
+      <th>Example</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>Major*10000</td>
+      <td>5*10000 = 50000</td>
+     </tr>
+
+     <tr>
+      <td>Minor*100</td>
+      <td>0*100 = 0</td>
+     </tr>
+
+     <tr>
+      <td>Patch</td>
+      <td>7 = 7</td>
+     </tr>
+
+     <tr>
+      <td>MYSQLND_VERSION_ID</td>
+      <td>50007</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <p class="para">
+   During development, developers should refer to the
+   <code class="literal">mysqlnd</code> version number for compatibility and
+   version tests, as several iterations of <code class="literal">mysqlnd</code>
+   could occur during the lifetime of a PHP development branch with a
+   single PHP version number.
+  </p>
+ </div></div></div></body></html>

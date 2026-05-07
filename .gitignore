@@ -1,0 +1,13 @@
+# npm packages installed
+node_modules/
+
+# certbot 证书和验证文件（本地不存）
+nginx/certbot/
+
+# nginx 日志
+nginx/logs/
+
+# 临时文件
+*.tmp
+*.bak
+.DS_Store

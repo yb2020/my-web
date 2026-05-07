@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>About buffer event callbacks-BeJSON.com</title><meta name="keywords" content="About buffer event callbacks"><meta name="description" content="An object of EventBufferEvent class represents a buffer event . The asynchronous nature of I/O performed by Libevent implies that a socket(or other ki">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="eventbufferevent.writebuffer.html">« EventBufferEvent::writeBuffer</a></li>
+      <li style="float: right;"><a href="class.eventconfig.html">EventConfig »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.event.html">Event</a></li>
+    <li>About buffer event callbacks</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="chapter" id="eventbufferevent.about.callbacks">
+ <h1>About buffer event callbacks</h1>
+
+ <p class="para">
+  An object of
+  <span class="classname"><a class="classname" href="class.eventbufferevent.html">EventBufferEvent</a></span>
+  class represents a
+  <em class="emphasis">buffer event</em>
+  . The asynchronous nature of I/O performed by Libevent implies that a
+  socket(or other kind of file descriptor) is not always available. Event
+  invokes corresponding callbacks when the resource becomes available for
+  reading or writing, or when some event occurs(e.g. error, "end of line"
+  etc.).
+ </p>
+ <p class="para">
+  Read and write callbacks should match the following prototype:
+ </p>
+ <div class="methodsynopsis dc-description">
+  <span class="methodname"><strong>callback</strong></span>(<span class="methodparam">
+   <span class="type"><a class="type EventBufferEvent" href="class.eventbufferevent.html">EventBufferEvent</a></span>
+    <code class="parameter">$bev</code>
+   <span class="initializer"> = <strong><code>null</code></strong></span>
+  </span>, <span class="methodparam">
+   <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span>
+    <code class="parameter">$arg</code>
+   <span class="initializer"> = <strong><code>null</code></strong></span>
+  </span>): <span class="type"><span class="type void">void</span></span></div>
+
+ <p class="para">
+  <dl>
+   
+    <dt>
+
+     <code class="parameter">bev</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Associated
+      <span class="classname"><a class="classname" href="class.eventbufferevent.html">EventBufferEvent</a></span>
+      object.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">arg</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Custom variable attached to all callbacks via
+      <span class="methodname"><a class="methodname" href="eventbufferevent.construct.html">EventBufferEvent::__construct()</a></span>
+      , or
+      <span class="methodname"><a class="methodname" href="eventbufferevent.setcallbacks.html">EventBufferEvent::setCallbacks()</a></span>
+      .
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ <p></p>
+ <p class="para">
+  Event callback should match the following prototype:
+ </p>
+ <div class="methodsynopsis dc-description">
+  <span class="methodname"><strong>callback</strong></span>(<span class="methodparam">
+   <span class="type"><a class="type EventBufferEvent" href="class.eventbufferevent.html">EventBufferEvent</a></span>
+    <code class="parameter">$bev</code>
+   <span class="initializer"> = <strong><code>null</code></strong></span>
+  </span>, <span class="methodparam">
+   <span class="type">int</span>
+    <code class="parameter">$events</code>
+   <span class="initializer"> = 0</span>
+  </span>, <span class="methodparam">
+   <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span>
+    <code class="parameter">$arg</code>
+   <span class="initializer"> = <strong><code>null</code></strong></span>
+  </span>): <span class="type"><span class="type void">void</span></span></div>
+
+ <p class="para">
+  <dl>
+   
+    <dt>
+
+     <code class="parameter">bev</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Associated
+      <span class="classname"><a class="classname" href="class.eventbufferevent.html">EventBufferEvent</a></span>
+      object.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">events</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Bit mask of events:
+      <strong><code>EventBufferEvent::READING</code></strong>
+      ,
+      <strong><code>EventBufferEvent::WRITING</code></strong>
+      ,
+      <strong><code>EventBufferEvent::EOL</code></strong>
+      ,
+      <strong><code>EventBufferEvent::ERROR</code></strong>
+      and
+      <strong><code>EventBufferEvent::TIMEOUT</code></strong>
+      . See
+      <a class="link" href="class.eventbufferevent.html#eventbufferevent.constants">EventBufferEvent constants</a>
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">arg</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Custom variable attached to all callbacks via
+      <span class="methodname"><a class="methodname" href="eventbufferevent.construct.html">EventBufferEvent::__construct()</a></span>
+      , or
+      <span class="methodname"><a class="methodname" href="eventbufferevent.setcallbacks.html">EventBufferEvent::setCallbacks()</a></span>
+      .
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ <p></p>
+</div>
+</div></div></body></html>

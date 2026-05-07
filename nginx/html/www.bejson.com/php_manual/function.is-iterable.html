@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Verify that the contents of a variable is an iterable value-BeJSON.com</title><meta name="keywords" content="Verify that the contents of a variable is an iterable value"><meta name="description" content="is_iterable(PHP 7 >= 7.1.0, PHP 8)is_iterable — Verify that the contents of a variable is an iterable value 说明is_iterable(mixed $value): boolVerify th">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.is-integer.html">« is_integer</a></li>
+      <li style="float: right;"><a href="function.is-long.html">is_long »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.var.html">Variable handling 函数</a></li>
+    <li>Verify that the contents of a variable is an iterable value</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.is-iterable">
+ <div class="refnamediv">
+  <h1 class="refname">is_iterable</h1>
+  <p class="verinfo">(PHP 7 &gt;= 7.1.0, PHP 8)</p><p class="refpurpose"><span class="refname">is_iterable</span> — <span class="dc-title">
+   Verify that the contents of a variable is an iterable value
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.is-iterable-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>is_iterable</strong></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Verify that the contents of a variable is accepted by the
+   <span class="type"><a class="type iterable" href="language.types.iterable.html">iterable</a></span> pseudo-type, i.e. that it is either an <span class="type">array</span> or
+   an object implementing <span class="classname"><a class="classname" href="class.traversable.html">Traversable</a></span>
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.is-iterable-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">value</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The value to check
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.is-iterable-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> if <code class="parameter">value</code> is iterable, <strong><code>false</code></strong> 
+   otherwise.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.is-iterable-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-5099">
+    <p><strong>示例 #1 <span class="function"><strong>is_iterable()</strong></span> examples</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br>var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">is_iterable</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">]));&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;bool(true)<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">is_iterable</span><span style="color: rgb(0, 119, 0);">(new&nbsp;</span><span style="color: rgb(0, 0, 187);">ArrayIterator</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">])));&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;bool(true)<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">is_iterable</span><span style="color: rgb(0, 119, 0);">((function&nbsp;()&nbsp;{&nbsp;yield&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">;&nbsp;})()));&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;bool(true)<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">is_iterable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">));&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;bool(false)<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">is_iterable</span><span style="color: rgb(0, 119, 0);">(new&nbsp;</span><span style="color: rgb(0, 0, 187);">stdClass</span><span style="color: rgb(0, 119, 0);">()));&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;bool(false)<br><br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>   
+  <p></p>   
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.is-iterable-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.is-array.html" rel="rdfs-seeAlso">is_array()</a> - 检测变量是否是数组</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

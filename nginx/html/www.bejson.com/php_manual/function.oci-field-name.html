@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>返回字段名-BeJSON.com</title><meta name="keywords" content="返回字段名"><meta name="description" content="参见 oci_num_fields()，oci_field_type() 和 oci_field_size()。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.oci-field-is-null.html">« oci_field_is_null</a></li>
+      <li style="float: right;"><a href="function.oci-field-precision.html">oci_field_precision »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.oci8.html">OCI8 函数</a></li>
+    <li>返回字段名</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.oci-field-name">
+ <div class="refnamediv">
+  <h1 class="refname">oci_field_name</h1>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_field_name</span> — <span class="dc-title">返回字段名</span></p>
+
+ </div>
+ <div class="refsect1 unknown-unknown-seealsq" id="refsect1-function.oci-field-name-unknown-unknown-seealsq">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>oci_field_name</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$field</code></span>): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>oci_field_name()</strong></span> 返回与字段数字索引（从
+   1 开始）相对应的字段名。
+  </p>
+  <p class="para">
+   <div class="example" id="example-1834">
+    <p><strong>示例 #1 <span class="function"><strong>oci_field_name()</strong></span> 例子</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>&nbsp;&nbsp;&nbsp;&nbsp;$conn&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">oci_connect</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"scott"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"tiger"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$stmt&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">oci_parse</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"SELECT&nbsp;*&nbsp;FROM&nbsp;emp"</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">oci_execute</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;table&nbsp;border=\"1\"&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;tr&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;th&gt;Name&lt;/th&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;th&gt;Type&lt;/th&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;th&gt;Length&lt;/th&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;/tr&gt;"</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$ncols&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">oci_num_fields</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(</span><span style="color: rgb(0, 0, 187);">$i&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(0, 0, 187);">$i&nbsp;</span><span style="color: rgb(0, 119, 0);">&lt;=&nbsp;</span><span style="color: rgb(0, 0, 187);">$ncols</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">++)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$column_name&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">oci_field_name</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$column_type&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">oci_field_type</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$column_size&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">oci_field_size</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$i</span><span style="color: rgb(0, 119, 0);">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;tr&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;td&gt;</span><span style="color: rgb(0, 0, 187);">$column_name</span><span style="color: rgb(221, 0, 0);">&lt;/td&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;td&gt;</span><span style="color: rgb(0, 0, 187);">$column_type</span><span style="color: rgb(221, 0, 0);">&lt;/td&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;td&gt;</span><span style="color: rgb(0, 0, 187);">$column_size</span><span style="color: rgb(221, 0, 0);">&lt;/td&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;/tr&gt;"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"&lt;/table&gt;\n"</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">oci_free_statement</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$stmt</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">oci_close</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$conn</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    在 PHP 5.0.0 之前的版本必须使用 <span class="function"><a class="function" href="function.ocicolumnname.html">ocicolumnname()</a></span>
+    替代本函数。该函数名仍然可用，为向下兼容作为
+    <span class="function"><strong>oci_field_name()</strong></span> 的别名。不过其已被废弃，不推荐使用。
+   </p>
+  <p></p></blockquote>
+  <p class="simpara">
+   参见 <span class="function"><a class="function" href="function.oci-num-fields.html">oci_num_fields()</a></span>，<span class="function"><a class="function" href="function.oci-field-type.html">oci_field_type()</a></span>
+   和 <span class="function"><a class="function" href="function.oci-field-size.html">oci_field_size()</a></span>。
+  </p>
+ </div>
+
+</div></div></div></body></html>

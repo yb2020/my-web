@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The RecursiveArrayIterator class-BeJSON.com</title><meta name="keywords" content="The RecursiveArrayIterator class"><meta name="description" content="This iterator allows to unset and modify values and keys while iterating over Arrays and Objects in the same way as the ArrayIterator. Additionally it">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="parentiterator.rewind.html">« ParentIterator::rewind</a></li>
+      <li style="float: right;"><a href="recursivearrayiterator.getchildren.html">RecursiveArrayIterator::getChildren »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="spl.iterators.html">迭代器</a></li>
+    <li>The RecursiveArrayIterator class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.recursivearrayiterator">
+ <h1 class="title">The RecursiveArrayIterator class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="recursivearrayiterator.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    This iterator allows to unset and modify values and keys while iterating over Arrays and Objects
+    in the same way as the <span class="type"><a class="type ArrayIterator" href="class.arrayiterator.html">ArrayIterator</a></span>. Additionally it is possible to iterate
+    over the current iterator entry.
+   </p>
+  </div>
+
+
+  <div class="section" id="recursivearrayiterator.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">RecursiveArrayIterator</strong>
+     </span>
+
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.arrayiterator.html">ArrayIterator</a>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a class="interfacename" href="class.recursiveiterator.html">RecursiveIterator</a></span> {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的常量 */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.arrayiterator.html#arrayiterator.constants.std-prop-list"><var class="varname">STD_PROP_LIST</var></a></var><span class="initializer"> = 1</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.arrayiterator.html#arrayiterator.constants.array-as-props"><var class="varname">ARRAY_AS_PROPS</var></a></var><span class="initializer"> = 2</span>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 常量 */</div>
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.recursivearrayiterator.html#recursivearrayiterator.constants.child-arrays-only"><var class="varname">CHILD_ARRAYS_ONLY</var></a></var><span class="initializer"> = 4</span>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivearrayiterator.getchildren.html">getChildren</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type RecursiveArrayIterator" href="class.recursivearrayiterator.html">RecursiveArrayIterator</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="recursivearrayiterator.haschildren.html">hasChildren</a></span>(): <span class="type">bool</span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.append.html">ArrayIterator::append</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.asort.html">ArrayIterator::asort</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SORT_REGULAR</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.count.html">ArrayIterator::count</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.current.html">ArrayIterator::current</a></span>(): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.getarraycopy.html">ArrayIterator::getArrayCopy</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.getflags.html">ArrayIterator::getFlags</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.key.html">ArrayIterator::key</a></span>(): <span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">null</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.ksort.html">ArrayIterator::ksort</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SORT_REGULAR</code></strong></span></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.natcasesort.html">ArrayIterator::natcasesort</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.natsort.html">ArrayIterator::natsort</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.next.html">ArrayIterator::next</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.offsetexists.html">ArrayIterator::offsetExists</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$key</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.offsetget.html">ArrayIterator::offsetGet</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$key</code></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.offsetset.html">ArrayIterator::offsetSet</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.offsetunset.html">ArrayIterator::offsetUnset</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$key</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.rewind.html">ArrayIterator::rewind</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.seek.html">ArrayIterator::seek</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.serialize.html">ArrayIterator::serialize</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.setflags.html">ArrayIterator::setFlags</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.uasort.html">ArrayIterator::uasort</a></span>(<span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.uksort.html">ArrayIterator::uksort</a></span>(<span class="methodparam"><span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.unserialize.html">ArrayIterator::unserialize</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="arrayiterator.valid.html">ArrayIterator::valid</a></span>(): <span class="type">bool</span></div>
+
+   }</div>
+
+  </div>
+
+  <div class="section" id="recursivearrayiterator.constants">
+   <h2 class="title">预定义常量</h2>
+   <div class="section" id="recursivearrayiterator.constants.flags">
+    <h2 class="title">RecursiveArrayIterator Flags</h2>
+    <dl>
+     
+      <dt id="recursivearrayiterator.constants.child-arrays-only"><strong><code>RecursiveArrayIterator::CHILD_ARRAYS_ONLY</code></strong></dt>
+
+      <dd>
+
+       <p class="para">Treat only arrays (not objects) as having children for recursive iteration.</p>
+      </dd>
+
+     
+    </dl>
+
+   </div>
+  </div>
+
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="recursivearrayiterator.getchildren.html">RecursiveArrayIterator::getChildren</a> — Returns an iterator for the current entry if it is an array or an object</li><li><a href="recursivearrayiterator.haschildren.html">RecursiveArrayIterator::hasChildren</a> — Returns whether current entry is an array or an object</li></ul>
+</div>
+</div></div></body></html>

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Vtiful\Kernel\Excel insertFormula-BeJSON.com</title><meta name="keywords" content="Vtiful\Kernel\Excel insertFormula"><meta name="description" content="cell row ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="vtiful-kernel-excel.header.html">« Vtiful\Kernel\Excel::header</a></li>
+      <li style="float: right;"><a href="vtiful-kernel-excel.insertImage.html">Vtiful\Kernel\Excel::insertImage »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.vtiful-kernel-excel.html">Vtiful\Kernel\Excel</a></li>
+    <li>Vtiful\Kernel\Excel insertFormula</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="vtiful-kernel-excel.insertFormula">
+ <div class="refnamediv">
+  <h1 class="refname">Vtiful\Kernel\Excel::insertFormula</h1>
+  <p class="verinfo">(PECL xlswriter &gt;= 1.2.1)</p><p class="refpurpose"><span class="refname">Vtiful\Kernel\Excel::insertFormula</span> — <span class="dc-title">Vtiful\Kernel\Excel insertFormula</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-vtiful-kernel-excel.insertFormula-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Vtiful\Kernel\Excel::insertFormula</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$row</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$column</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$formula</code></span>)</div>
+
+  <p class="para rdfs-comment">
+    Insert calculation formula.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-vtiful-kernel-excel.insertFormula-parameters">
+  <h3 class="title">参数</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">row</code></dt>
+
+    <dd>
+
+     <p class="para">
+      cell row
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">column</code></dt>
+
+    <dd>
+
+     <p class="para">
+      cell column
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">formula</code></dt>
+
+    <dd>
+
+     <p class="para">
+      formula string
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-vtiful-kernel-excel.insertFormula-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   <span class="classname"><a class="classname" href="class.vtiful-kernel-excel.html">Vtiful\Kernel\Excel</a></span> instance
+  </p>
+ </div>
+
+
+<div class="refsect1 examples" id="refsect1-vtiful-kernel-excel.insertFormula-examples">
+  <h3 class="title">范例</h3>
+  <div class="example" id="example-3144">
+   <p><strong>示例 #1 example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$config&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'path'&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'./tests'<br></span><span style="color: rgb(0, 119, 0);">];<br><br></span><span style="color: rgb(0, 0, 187);">$excel&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;\</span><span style="color: rgb(0, 0, 187);">Vtiful</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Kernel</span><span style="color: rgb(0, 119, 0);">\</span><span style="color: rgb(0, 0, 187);">Excel</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$config</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$file&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$excel</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">fileName</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"free.xlsx"</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;</span><span style="color: rgb(0, 0, 187);">header</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(221, 0, 0);">'name'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'money'</span><span style="color: rgb(0, 119, 0);">]);<br><br>for(</span><span style="color: rgb(0, 0, 187);">$index&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(0, 0, 187);">$index&nbsp;</span><span style="color: rgb(0, 119, 0);">&lt;&nbsp;</span><span style="color: rgb(0, 0, 187);">10</span><span style="color: rgb(0, 119, 0);">;&nbsp;</span><span style="color: rgb(0, 0, 187);">$index</span><span style="color: rgb(0, 119, 0);">++)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">insertText</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$index</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'viest'</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">insertText</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$index</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">10</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">insertText</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">12</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"Total"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">insertFormula</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">12</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'=SUM(B2:B11)'</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;insert&nbsp;formula<br><br></span><span style="color: rgb(0, 0, 187);">$file</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">output</span><span style="color: rgb(0, 119, 0);">();</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+
+</div></div></div></body></html>

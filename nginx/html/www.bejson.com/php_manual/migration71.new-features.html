@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>新特性-BeJSON.com</title><meta name="keywords" content="新特性"><meta name="description" content="参数以及返回值的类型现在可以通过在类型前加上一个问号使之允许为空。 当启用这个特性时，传入的参数或者函数返回的结果要么是给定的类型，要么是 null 。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="migration71.html">« 从 PHP 7.0.x 移植到 PHP 7.1.x</a></li>
+      <li style="float: right;"><a href="migration71.new-functions.html">新的函数 »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration71.html">从 PHP 7.0.x 移植到 PHP 7.1.x</a></li>
+    <li>新特性</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="sect1" id="migration71.new-features">
+ <h1 class="title">新特性</h1>
+
+ <div class="sect2" id="migration71.new-features.nullable-types">
+  <h3 class="title">可为空（Nullable）类型</h3>
+
+  <p class="para">
+   参数以及返回值的类型现在可以通过在类型前加上一个问号使之允许为空。
+   当启用这个特性时，传入的参数或者函数返回的结果要么是给定的类型，要么是
+   <span class="type">null</span> 。
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br><br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">testReturn</span><span style="color: rgb(0, 119, 0);">():&nbsp;?</span><span style="color: rgb(0, 0, 187);">string<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(221, 0, 0);">'elePHPant'</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">testReturn</span><span style="color: rgb(0, 119, 0);">());<br><br>function&nbsp;</span><span style="color: rgb(0, 0, 187);">testReturn</span><span style="color: rgb(0, 119, 0);">():&nbsp;?</span><span style="color: rgb(0, 0, 187);">string<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">testReturn</span><span style="color: rgb(0, 119, 0);">());<br><br>function&nbsp;</span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">(?</span><span style="color: rgb(0, 0, 187);">string&nbsp;$name</span><span style="color: rgb(0, 119, 0);">)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">);<br>}<br><br></span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'elePHPant'</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">null</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">test</span><span style="color: rgb(0, 119, 0);">();</span>
+</span>
+</code></div>
+   </div>
+
+   <p class="para">以上例程会输出：</p>
+   <div class="example-contents screen">
+<div class="cdata"><pre>string(10) "elePHPant"
+NULL
+string(10) "elePHPant"
+NULL
+Uncaught Error: Too few arguments to function test(), 0 passed in...
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration71.new-features.void-functions">
+  <h3 class="title">Void 函数</h3>
+
+  <p class="para">
+   一个新的返回值类型<span class="type"><span class="type void">void</span></span>被引入。
+   返回值声明为 void 类型的方法要么干脆省去 return 语句，要么使用一个空的 return 语句。 
+   对于 void 函数来说，<strong><code>null</code></strong> 不是一个合法的返回值。
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">swap</span><span style="color: rgb(0, 119, 0);">(&amp;</span><span style="color: rgb(0, 0, 187);">$left</span><span style="color: rgb(0, 119, 0);">,&nbsp;&amp;</span><span style="color: rgb(0, 0, 187);">$right</span><span style="color: rgb(0, 119, 0);">)&nbsp;:&nbsp;</span><span style="color: rgb(0, 0, 187);">void<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: rgb(0, 0, 187);">$left&nbsp;</span><span style="color: rgb(0, 119, 0);">===&nbsp;</span><span style="color: rgb(0, 0, 187);">$right</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$tmp&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$left</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$left&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$right</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$right&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$tmp</span><span style="color: rgb(0, 119, 0);">;<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$a&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$b&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">swap</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(0, 0, 187);">$a</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$b</span><span style="color: rgb(0, 119, 0);">);</span>
+</span>
+</code></div>
+   </div>
+
+   <p class="para">以上例程会输出：</p>
+   <div class="example-contents screen">
+<div class="cdata"><pre>null
+int(2)
+int(1)
+</pre></div>
+   </div>
+  </div>
+
+  <p class="para">
+   试图去获取一个 void 方法的返回值会得到 <strong><code>null</code></strong> ，并且不会产生任何警告。这么做的原因是不想影响更高层次的方法。
+  </p>
+ </div>
+
+ <div class="sect2" id="migration71.new-features.symmetric-array-destructuring">
+  <h3 class="title">Symmetric array destructuring</h3>
+
+  <p class="para">
+   短数组语法（<code class="literal">[]</code>）现在作为<span class="function"><a class="function" href="function.list.html">list()</a></span>语法的一个备选项，可以用于将数组的值赋给一些变量（包括在<code class="literal">foreach</code>中）。
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;[</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Tom'</span><span style="color: rgb(0, 119, 0);">],<br>&nbsp;&nbsp;&nbsp;&nbsp;[</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'Fred'</span><span style="color: rgb(0, 119, 0);">],<br>];<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;list()&nbsp;style<br></span><span style="color: rgb(0, 119, 0);">list(</span><span style="color: rgb(0, 0, 187);">$id1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$name1</span><span style="color: rgb(0, 119, 0);">)&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">];<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;[]&nbsp;style<br></span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">$id1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$name1</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">];<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;list()&nbsp;style<br></span><span style="color: rgb(0, 119, 0);">foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$data&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;list(</span><span style="color: rgb(0, 0, 187);">$id</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;logic&nbsp;here&nbsp;with&nbsp;$id&nbsp;and&nbsp;$name<br></span><span style="color: rgb(0, 119, 0);">}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;[]&nbsp;style<br></span><span style="color: rgb(0, 119, 0);">foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$data&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;[</span><span style="color: rgb(0, 0, 187);">$id</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">])&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;logic&nbsp;here&nbsp;with&nbsp;$id&nbsp;and&nbsp;$name<br></span><span style="color: rgb(0, 119, 0);">}</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+ <div class="sect2" id="migration71.new-features.class-constant-visibility">
+  <h3 class="title">类常量可见性</h3>
+
+  <p class="para">
+   现在起支持设置类常量的可见性。
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">ConstDemo<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;</span><span style="color: rgb(0, 0, 187);">PUBLIC_CONST_A&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;const&nbsp;</span><span style="color: rgb(0, 0, 187);">PUBLIC_CONST_B&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;const&nbsp;</span><span style="color: rgb(0, 0, 187);">PROTECTED_CONST&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">;<br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;const&nbsp;</span><span style="color: rgb(0, 0, 187);">PRIVATE_CONST&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">4</span><span style="color: rgb(0, 119, 0);">;<br>}</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+ <div class="sect2" id="migration71.new-features.iterable-pseudo-type">
+  <h3 class="title"><span class="type"><a class="type iterable" href="language.types.iterable.html">iterable</a></span> 伪类</h3>
+
+  <p class="para">
+   现在引入了一个新的被称为<span class="type"><a class="type iterable" href="language.types.iterable.html">iterable</a></span>的伪类 (与<span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span>类似)。
+   这可以被用在参数或者返回值类型中，它代表接受数组或者实现了<span class="classname"><a class="classname" href="class.traversable.html">Traversable</a></span>接口的对象。
+   至于子类，当用作参数时，子类可以收紧父类的<span class="type"><a class="type iterable" href="language.types.iterable.html">iterable</a></span>类型到<span class="type">array</span>
+   或一个实现了<span class="classname"><a class="classname" href="class.traversable.html">Traversable</a></span>的对象。对于返回值，子类可以拓宽父类的
+   <span class="type">array</span>或对象返回值类型到<span class="type"><a class="type iterable" href="language.types.iterable.html">iterable</a></span>。
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">iterator</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">iterable&nbsp;$iter</span><span style="color: rgb(0, 119, 0);">)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$iter&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;</span><span style="color: rgb(0, 0, 187);">$val</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">}<br>}</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+ <div class="sect2" id="migration71.new-features.mulit-catch-exception-handling">
+  <h3 class="title">多异常捕获处理</h3>
+
+  <p class="para">
+   一个catch语句块现在可以通过管道字符(<code class="literal">|</code>)来实现多个异常的捕获。
+   这对于需要同时处理来自不同类的不同异常时很有用。
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;some&nbsp;code<br></span><span style="color: rgb(0, 119, 0);">}&nbsp;catch&nbsp;(</span><span style="color: rgb(0, 0, 187);">FirstException&nbsp;</span><span style="color: rgb(0, 119, 0);">|&nbsp;</span><span style="color: rgb(0, 0, 187);">SecondException&nbsp;$e</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;handle&nbsp;first&nbsp;and&nbsp;second&nbsp;exceptions<br></span><span style="color: rgb(0, 119, 0);">}</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+ <div class="sect2" id="migration71.new-features.support-for-keys-in-list">
+  <h3 class="title"><span class="function"><a class="function" href="function.list.html">list()</a></span>现在支持键名</h3>
+
+  <p class="para">
+   现在<span class="function"><a class="function" href="function.list.html">list()</a></span>和它的新的<code class="literal">[]</code>语法支持在它内部去指定键名。这意味着它可以将任意类型的数组
+   都赋值给一些变量（与短数组语法类似）
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$data&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;[</span><span style="color: rgb(221, 0, 0);">"id"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"name"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Tom'</span><span style="color: rgb(0, 119, 0);">],<br>&nbsp;&nbsp;&nbsp;&nbsp;[</span><span style="color: rgb(221, 0, 0);">"id"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"name"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(221, 0, 0);">'Fred'</span><span style="color: rgb(0, 119, 0);">],<br>];<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;list()&nbsp;style<br></span><span style="color: rgb(0, 119, 0);">list(</span><span style="color: rgb(221, 0, 0);">"id"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$id1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"name"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$name1</span><span style="color: rgb(0, 119, 0);">)&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">];<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;[]&nbsp;style<br></span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(221, 0, 0);">"id"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$id1</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"name"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$name1</span><span style="color: rgb(0, 119, 0);">]&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 187);">$data</span><span style="color: rgb(0, 119, 0);">[</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">];<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;list()&nbsp;style<br></span><span style="color: rgb(0, 119, 0);">foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$data&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;list(</span><span style="color: rgb(221, 0, 0);">"id"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$id</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"name"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;logic&nbsp;here&nbsp;with&nbsp;$id&nbsp;and&nbsp;$name<br></span><span style="color: rgb(0, 119, 0);">}<br><br></span><span style="color: rgb(255, 128, 0);">//&nbsp;[]&nbsp;style<br></span><span style="color: rgb(0, 119, 0);">foreach&nbsp;(</span><span style="color: rgb(0, 0, 187);">$data&nbsp;</span><span style="color: rgb(0, 119, 0);">as&nbsp;[</span><span style="color: rgb(221, 0, 0);">"id"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$id</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"name"&nbsp;</span><span style="color: rgb(0, 119, 0);">=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$name</span><span style="color: rgb(0, 119, 0);">])&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;logic&nbsp;here&nbsp;with&nbsp;$id&nbsp;and&nbsp;$name<br></span><span style="color: rgb(0, 119, 0);">}</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+ <div class="sect2" id="migration71.new-features.support-for-negative-string-offsets">
+  <h3 class="title">支持为负的字符串偏移量</h3>
+
+  <p class="para">
+   现在所有支持偏移量的<a class="link" href="book.strings.html">字符串操作函数</a>
+   都支持接受负数作为偏移量，包括通过<code class="literal">[]</code>或<code class="literal">{}</code>操作<a class="link" href="language.types.string.html#language.types.string.substr">字符串下标</a>。在这种情况下，一个负数的偏移量会被理解为一个从字符串结尾开始的偏移量。
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"abcdef"</span><span style="color: rgb(0, 119, 0);">[-</span><span style="color: rgb(0, 0, 187);">2</span><span style="color: rgb(0, 119, 0);">]);<br></span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">strpos</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"aabbcc"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"b"</span><span style="color: rgb(0, 119, 0);">,&nbsp;-</span><span style="color: rgb(0, 0, 187);">3</span><span style="color: rgb(0, 119, 0);">));</span>
+</span>
+</code></div>
+   </div>
+
+   <p class="para">以上例程会输出：</p>
+   <div class="example-contents screen">
+<div class="cdata"><pre>string (1) "e"
+int(3)
+</pre></div>
+   </div>
+  </div>
+
+  <p class="para">
+   Negative string and array offsets are now also supported in the simple
+   variable parsing syntax inside of strings.
+  </p>
+  
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$string&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(221, 0, 0);">'bar'</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"The&nbsp;last&nbsp;character&nbsp;of&nbsp;'</span><span style="color: rgb(0, 0, 187);">$string</span><span style="color: rgb(221, 0, 0);">'&nbsp;is&nbsp;'</span><span style="color: rgb(0, 0, 187);">$string</span><span style="color: rgb(0, 119, 0);">[-</span><span style="color: rgb(0, 0, 187);">1</span><span style="color: rgb(0, 119, 0);">]</span><span style="color: rgb(221, 0, 0);">'.\n"</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <p class="para">以上例程会输出：</p>
+   <div class="example-contents screen">
+<div class="cdata"><pre>The last character of 'bar' is 'r'.
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration71.new-features.support-for-aead-in-ext-openssl">
+  <h3 class="title">ext/openssl 支持 AEAD</h3>
+
+  <p class="para">
+   通过给<span class="function"><a class="function" href="function.openssl-encrypt.html">openssl_encrypt()</a></span>和<span class="function"><a class="function" href="function.openssl-decrypt.html">openssl_decrypt()</a></span>
+   添加额外参数，现在支持了AEAD (模式 GCM and CCM)。
+  </p>
+ </div>
+
+ <div class="sect2" id="migration71.new-features.convert-callables-to-closures">
+  <h3 class="title">通过 <span class="methodname"><a class="methodname" href="closure.fromcallable.html">Closure::fromCallable()</a></span> 将callables转为闭包</h3>
+
+  <p class="para">
+   <span class="classname"><a class="classname" href="class.closure.html">Closure</a></span>新增了一个静态方法，用于将<span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span>快速地
+   转为一个<span class="classname"><a class="classname" href="class.closure.html">Closure</a></span> 对象。
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">class&nbsp;</span><span style="color: rgb(0, 0, 187);">Test<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">exposeFunction</span><span style="color: rgb(0, 119, 0);">()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">Closure</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">fromCallable</span><span style="color: rgb(0, 119, 0);">([</span><span style="color: rgb(0, 0, 187);">$this</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'privateFunction'</span><span style="color: rgb(0, 119, 0);">]);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;</span><span style="color: rgb(0, 0, 187);">privateFunction</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$param</span><span style="color: rgb(0, 119, 0);">)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">var_dump</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$param</span><span style="color: rgb(0, 119, 0);">);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br></span><span style="color: rgb(0, 0, 187);">$privFunc&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;(new&nbsp;</span><span style="color: rgb(0, 0, 187);">Test</span><span style="color: rgb(0, 119, 0);">)-&gt;</span><span style="color: rgb(0, 0, 187);">exposeFunction</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">$privFunc</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'some&nbsp;value'</span><span style="color: rgb(0, 119, 0);">);</span>
+</span>
+</code></div>
+   </div>
+
+   <p class="para">以上例程会输出：</p>
+   <div class="example-contents screen">
+<div class="cdata"><pre>string(10) "some value"
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration71.new-features.asynchronous-signal-handling">
+  <h3 class="title">异步信号处理</h3>
+
+  <p class="para">
+   一个新的名为 <span class="function"><a class="function" href="function.pcntl-async-signals.html">pcntl_async_signals()</a></span> 的方法现在被引入，
+   用于启用无需 ticks （这会带来很多额外的开销）的异步信号处理。
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>pcntl_async_signals</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">true</span><span style="color: rgb(0, 119, 0);">);&nbsp;</span><span style="color: rgb(255, 128, 0);">//&nbsp;turn&nbsp;on&nbsp;async&nbsp;signals<br><br></span><span style="color: rgb(0, 0, 187);">pcntl_signal</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">SIGHUP</span><span style="color: rgb(0, 119, 0);">,&nbsp;&nbsp;function(</span><span style="color: rgb(0, 0, 187);">$sig</span><span style="color: rgb(0, 119, 0);">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: rgb(221, 0, 0);">"SIGHUP\n"</span><span style="color: rgb(0, 119, 0);">;<br>});<br><br></span><span style="color: rgb(0, 0, 187);">posix_kill</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">posix_getpid</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">SIGHUP</span><span style="color: rgb(0, 119, 0);">);</span>
+</span>
+</code></div>
+   </div>
+
+   <p class="para">以上例程会输出：</p>
+   <div class="example-contents screen">
+<div class="cdata"><pre>SIGHUP
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration71.new-features.http2-server-push-support-in-ext-curl">
+  <h3 class="title">HTTP/2 server push support in ext/curl</h3>
+
+  <p class="para">
+   对服务器推送的支持现在已经被加入到 CURL 扩展中（
+   需要版本 7.46 或更高）。这个可以通过
+   <span class="function"><a class="function" href="function.curl-multi-setopt.html">curl_multi_setopt()</a></span> 函数与新的常量
+   <strong><code>CURLMOPT_PUSHFUNCTION</code></strong> 来进行调节。常量
+   <strong><code>CURL_PUST_OK</code></strong> 和 <strong><code>CURL_PUSH_DENY</code></strong> 也已经被添加进来，以便服务器推送的回调函数来表明自己会同意或拒绝处理。
+  </p>
+ </div>
+
+ <div class="sect2" id="migration71.new-features.stream-context-options">
+  <h3 class="title">套接字上下文选项</h3>
+
+  <p class="para">
+   新增 <a class="link" href="context.socket.html#context.socket.tcp_nodelay">tcp_nodelay</a> 选项。
+  </p>
+ </div>
+
+</div></div></div></body></html>

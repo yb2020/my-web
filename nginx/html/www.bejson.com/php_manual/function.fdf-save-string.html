@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns the FDF document as a string-BeJSON.com</title><meta name="keywords" content="Returns the FDF document as a string"><meta name="description" content="fdf_save_string(PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN)fdf_save_string — Returns the FDF document as a string说明fdf_save_string(resource $fdf_docu">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.fdf-remove-item.html">« fdf_remove_item</a></li>
+      <li style="float: right;"><a href="function.fdf-save.html">fdf_save »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.fdf.html">FDF 函数</a></li>
+    <li>Returns the FDF document as a string</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.fdf-save-string">
+ <div class="refnamediv">
+  <h1 class="refname">fdf_save_string</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5 &lt; 5.3.0, PECL fdf SVN)</p><p class="refpurpose"><span class="refname">fdf_save_string</span> — <span class="dc-title">Returns the FDF document as a string</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.fdf-save-string-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>fdf_save_string</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$fdf_document</code></span>): <span class="type">string</span></div>
+
+  <p class="para rdfs-comment">
+   Returns the FDF document as a string.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.fdf-save-string-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">fdf_document</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The FDF document handle, returned by <span class="function"><a class="function" href="function.fdf-create.html">fdf_create()</a></span>,
+       <span class="function"><a class="function" href="function.fdf-open.html">fdf_open()</a></span> or <span class="function"><a class="function" href="function.fdf-open-string.html">fdf_open_string()</a></span>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.fdf-save-string-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns the document as a string, or <strong><code>false</code></strong> on error.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.fdf-save-string-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-3065">
+    <p><strong>示例 #1 Retrieving FDF as a string</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$fdf&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fdf_create</span><span style="color: rgb(0, 119, 0);">();<br></span><span style="color: rgb(0, 0, 187);">fdf_set_value</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fdf</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"foo"</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">"bar"</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">$str&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">fdf_save_string</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fdf</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">fdf_close</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fdf</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(0, 0, 187);">$str</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>以上例程会输出：</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>%FDF-1.2
+%âãÏÓ
+1 0 obj
+&lt;&lt;
+/FDF &lt;&lt; /Fields 2 0 R &gt;&gt;
+&gt;&gt;
+endobj
+2 0 obj
+[
+&lt;&lt; /T (foo)/V (bar)&gt;&gt;
+]
+endobj
+trailer
+&lt;&lt;
+/Root 1 0 R
+
+&gt;&gt;
+%%EOF
+</pre></div>
+    </div>
+   </div>
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.fdf-save-string-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="function.fdf-open-string.html" rel="rdfs-seeAlso">fdf_open_string()</a> - Read a FDF document from a string</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.fdf-close.html" rel="rdfs-seeAlso">fdf_close()</a> - Close an FDF document</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.fdf-create.html" rel="rdfs-seeAlso">fdf_create()</a> - Create a new FDF document</span></li>
+    <li class="member"><span class="function"><a class="function" href="function.fdf-save.html" rel="rdfs-seeAlso">fdf_save()</a> - Save a FDF document</span></li>
+   </ul>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>

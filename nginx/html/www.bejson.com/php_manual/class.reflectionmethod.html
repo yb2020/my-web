@@ -1,0 +1,428 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>ReflectionMethod 类-BeJSON.com</title><meta name="keywords" content="ReflectionMethod 类"><meta name="description" content="ReflectionMethod 类报告了一个方法的有关信息。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="reflectionfunctionabstract.tostring.html">« ReflectionFunctionAbstract::__toString</a></li>
+      <li style="float: right;"><a href="reflectionmethod.construct.html">ReflectionMethod::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.reflection.html">反射</a></li>
+    <li>ReflectionMethod 类</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="reference" id="class.reflectionmethod">
+
+ <h1 class="title">ReflectionMethod 类</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5, PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="reflectionmethod.intro">
+   <h2 class="title">简介</h2>
+   <p class="para">
+    <span class="classname"><strong class="classname">ReflectionMethod</strong></span> 类报告了一个方法的有关信息。
+   </p>
+  </div>
+
+
+  <div class="section" id="reflectionmethod.synopsis">
+   <h2 class="title">类摘要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">ReflectionMethod</strong>
+     </span>
+     
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+       <a class="classname" href="class.reflectionfunctionabstract.html">ReflectionFunctionAbstract</a>
+     </span>
+     
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a class="interfacename" href="class.reflector.html">Reflector</a></span> {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 常量 */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionmethod.html#reflectionmethod.constants.is-static"><var class="varname">IS_STATIC</var></a></var><span class="initializer"> = 1</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionmethod.html#reflectionmethod.constants.is-public"><var class="varname">IS_PUBLIC</var></a></var><span class="initializer"> = 256</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionmethod.html#reflectionmethod.constants.is-protected"><var class="varname">IS_PROTECTED</var></a></var><span class="initializer"> = 512</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionmethod.html#reflectionmethod.constants.is-private"><var class="varname">IS_PRIVATE</var></a></var><span class="initializer"> = 1024</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionmethod.html#reflectionmethod.constants.is-abstract"><var class="varname">IS_ABSTRACT</var></a></var><span class="initializer"> = 2</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionmethod.html#reflectionmethod.constants.is-final"><var class="varname">IS_FINAL</var></a></var><span class="initializer"> = 4</span>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 属性 */</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+      <var class="varname"><a href="class.reflectionmethod.html#reflectionmethod.props.name">$<var class="varname">name</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+      <var class="varname"><a href="class.reflectionmethod.html#reflectionmethod.props.class">$<var class="varname">class</var></a></var>;</div>
+
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.construct.html">__construct</a></span>(<span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$class</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>)</div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a class="methodname" href="reflectionmethod.export.html">export</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = false</span></span>): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.getclosure.html">getClosure</a></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>): <span class="type"><a class="type Closure" href="class.closure.html">Closure</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.getdeclaringclass.html">getDeclaringClass</a></span>(): <span class="type"><a class="type ReflectionClass" href="class.reflectionclass.html">ReflectionClass</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.getmodifiers.html">getModifiers</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.getprototype.html">getPrototype</a></span>(): <span class="type"><a class="type ReflectionMethod" href="class.reflectionmethod.html">ReflectionMethod</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.invoke.html">invoke</a></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>, <span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$parameter</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span> <code class="parameter">$...</code><span class="initializer"> = ?</span></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.invokeargs.html">invokeArgs</a></span>(<span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code></span>): <span class="type"><a class="type mixed" href="language.types.declarations.html#language.types.declarations.mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.isabstract.html">isAbstract</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.isconstructor.html">isConstructor</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.isdestructor.html">isDestructor</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.isfinal.html">isFinal</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.isprivate.html">isPrivate</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.isprotected.html">isProtected</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.ispublic.html">isPublic</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.isstatic.html">isStatic</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.setaccessible.html">setAccessible</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$accessible</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionmethod.tostring.html">__toString</a></span>(): <span class="type">string</span></div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 继承的方法 */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">private</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.clone.html">ReflectionFunctionAbstract::__clone</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getattributes.html">ReflectionFunctionAbstract::getAttributes</a></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$name</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getclosurescopeclass.html">ReflectionFunctionAbstract::getClosureScopeClass</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type ReflectionClass" href="class.reflectionclass.html">ReflectionClass</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getclosurethis.html">ReflectionFunctionAbstract::getClosureThis</a></span>(): <span class="type">object</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getclosureusedvariables.html">ReflectionFunctionAbstract::getClosureUsedVariables</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getdoccomment.html">ReflectionFunctionAbstract::getDocComment</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getendline.html">ReflectionFunctionAbstract::getEndLine</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getextension.html">ReflectionFunctionAbstract::getExtension</a></span>(): <span class="type"><a class="type ReflectionExtension" href="class.reflectionextension.html">ReflectionExtension</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getextensionname.html">ReflectionFunctionAbstract::getExtensionName</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getfilename.html">ReflectionFunctionAbstract::getFileName</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getname.html">ReflectionFunctionAbstract::getName</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getnamespacename.html">ReflectionFunctionAbstract::getNamespaceName</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getnumberofparameters.html">ReflectionFunctionAbstract::getNumberOfParameters</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getnumberofrequiredparameters.html">ReflectionFunctionAbstract::getNumberOfRequiredParameters</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getparameters.html">ReflectionFunctionAbstract::getParameters</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getreturntype.html">ReflectionFunctionAbstract::getReturnType</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a class="type ReflectionType" href="class.reflectiontype.html">ReflectionType</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getshortname.html">ReflectionFunctionAbstract::getShortName</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getstartline.html">ReflectionFunctionAbstract::getStartLine</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.getstaticvariables.html">ReflectionFunctionAbstract::getStaticVariables</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.hasreturntype.html">ReflectionFunctionAbstract::hasReturnType</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.innamespace.html">ReflectionFunctionAbstract::inNamespace</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.isclosure.html">ReflectionFunctionAbstract::isClosure</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.isdeprecated.html">ReflectionFunctionAbstract::isDeprecated</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.isgenerator.html">ReflectionFunctionAbstract::isGenerator</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.isinternal.html">ReflectionFunctionAbstract::isInternal</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.isuserdefined.html">ReflectionFunctionAbstract::isUserDefined</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.isvariadic.html">ReflectionFunctionAbstract::isVariadic</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.returnsreference.html">ReflectionFunctionAbstract::returnsReference</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a class="methodname" href="reflectionfunctionabstract.tostring.html">ReflectionFunctionAbstract::__toString</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+
+
+   }</div>
+
+
+  </div>
+
+  
+
+  <div class="section" id="reflectionmethod.props">
+   <h2 class="title">属性</h2>
+   <dl>
+    
+     <dt id="reflectionmethod.props.name"><var class="varname">name</var></dt>
+
+     <dd>
+
+      <p class="para">Method name</p>
+     </dd>
+
+    
+    
+     <dt id="reflectionmethod.props.class"><var class="varname">class</var></dt>
+
+     <dd>
+
+      <p class="para">Class name</p>
+     </dd>
+
+    
+   </dl>
+
+  </div>
+
+
+
+
+  <div class="section" id="reflectionmethod.constants">
+   <h2 class="title">预定义常量</h2>
+   <div class="section" id="reflectionmethod.constants.modifiers">
+    <h2 class="title">ReflectionMethod 修饰符</h2>
+    <dl>
+
+     
+      <dt id="reflectionmethod.constants.is-static"><strong><code>ReflectionMethod::IS_STATIC</code></strong></dt>
+
+      <dd>
+
+       <p class="para">指示一个方法是静态（static）的。</p>
+      </dd>
+
+     
+
+     
+      <dt id="reflectionmethod.constants.is-public"><strong><code>ReflectionMethod::IS_PUBLIC</code></strong></dt>
+
+      <dd>
+
+       <p class="para">指示一个方法是 public 的。</p>
+      </dd>
+
+     
+
+     
+      <dt id="reflectionmethod.constants.is-protected"><strong><code>ReflectionMethod::IS_PROTECTED</code></strong></dt>
+
+      <dd>
+
+       <p class="para">指示一个方法是 protected 的。</p>
+      </dd>
+
+     
+
+     
+      <dt id="reflectionmethod.constants.is-private"><strong><code>ReflectionMethod::IS_PRIVATE</code></strong></dt>
+
+      <dd>
+
+       <p class="para">指示一个方法是 private 的。</p>
+      </dd>
+
+     
+
+     
+      <dt id="reflectionmethod.constants.is-abstract"><strong><code>ReflectionMethod::IS_ABSTRACT</code></strong></dt>
+
+      <dd>
+
+       <p class="para">指示一个方法是 abstract 的。</p>
+      </dd>
+
+     
+
+     
+      <dt id="reflectionmethod.constants.is-final"><strong><code>ReflectionMethod::IS_FINAL</code></strong></dt>
+
+      <dd>
+
+       <p class="para">指示一个方法是 final 的。</p>
+      </dd>
+
+     
+
+    </dl>
+
+   </div>
+  </div>
+
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目录</h2><ul class="chunklist chunklist_reference"><li><a href="reflectionmethod.construct.html">ReflectionMethod::__construct</a> — ReflectionMethod 的构造函数</li><li><a href="reflectionmethod.export.html">ReflectionMethod::export</a> — 输出一个回调方法</li><li><a href="reflectionmethod.getclosure.html">ReflectionMethod::getClosure</a> — 返回一个动态建立的方法调用接口，译者注：可以使用这个返回值直接调用非公开方法。</li><li><a href="reflectionmethod.getdeclaringclass.html">ReflectionMethod::getDeclaringClass</a> — 获取被反射的方法所在类的反射实例</li><li><a href="reflectionmethod.getmodifiers.html">ReflectionMethod::getModifiers</a> — 获取方法的修饰符</li><li><a href="reflectionmethod.getprototype.html">ReflectionMethod::getPrototype</a> — 返回方法原型 (如果存在)</li><li><a href="reflectionmethod.invoke.html">ReflectionMethod::invoke</a> — Invoke</li><li><a href="reflectionmethod.invokeargs.html">ReflectionMethod::invokeArgs</a> — 带参数执行</li><li><a href="reflectionmethod.isabstract.html">ReflectionMethod::isAbstract</a> — 判断方法是否是抽象方法</li><li><a href="reflectionmethod.isconstructor.html">ReflectionMethod::isConstructor</a> — 判断方法是否是构造方法</li><li><a href="reflectionmethod.isdestructor.html">ReflectionMethod::isDestructor</a> — 判断方法是否是析构方法</li><li><a href="reflectionmethod.isfinal.html">ReflectionMethod::isFinal</a> — 判断方法是否定义 final</li><li><a href="reflectionmethod.isprivate.html">ReflectionMethod::isPrivate</a> — 判断方法是否是私有方法</li><li><a href="reflectionmethod.isprotected.html">ReflectionMethod::isProtected</a> — 判断方法是否是保护方法 (protected)</li><li><a href="reflectionmethod.ispublic.html">ReflectionMethod::isPublic</a> — 判断方法是否是公开方法</li><li><a href="reflectionmethod.isstatic.html">ReflectionMethod::isStatic</a> — 判断方法是否是静态方法</li><li><a href="reflectionmethod.setaccessible.html">ReflectionMethod::setAccessible</a> — 设置方法是否访问</li><li><a href="reflectionmethod.tostring.html">ReflectionMethod::__toString</a> — 返回反射方法对象的字符串表达</li></ul>
+</div>
+</div></div></body></html>

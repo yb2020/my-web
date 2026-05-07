@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>转义 bytea 类型的二进制数据-BeJSON.com</title><meta name="keywords" content="转义 bytea 类型的二进制数据"><meta name="description" content="当对 bytea 类型字段进行 SELECT 操作时，PostgreSQL 返回前导 \ 的八进制字节值（例如 \032）。用户需要自己将结果转换为二进制格式。 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="function.pg-end-copy.html">« pg_end_copy</a></li>
+      <li style="float: right;"><a href="function.pg-escape-identifier.html">pg_escape_identifier »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.pgsql.html">PostgreSQL 函数</a></li>
+    <li>转义 bytea 类型的二进制数据</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="function.pg-escape-bytea">
+   <div class="refnamediv">
+    <h1 class="refname">pg_escape_bytea</h1>
+    <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_escape_bytea</span> — <span class="dc-title">
+     转义 bytea 类型的二进制数据
+    </span></p>
+
+   </div>
+   <div class="refsect1 unknown-seealsp" id="refsect1-function.pg-escape-bytea-unknown-seealsp">
+    <h3 class="title">说明</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="methodname"><strong>pg_escape_bytea</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type">string</span></div>
+
+    <p class="para rdfs-comment">
+     <span class="function"><strong>pg_escape_bytea()</strong></span> 转义 bytea 数据类型的二进制字符串，返回转义后的字符串。
+    </p>
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+     <p class="para">
+      当对 bytea 类型字段进行 SELECT 操作时，PostgreSQL 返回前导 \ 的八进制字节值（例如 \032）。用户需要自己将结果转换为二进制格式。
+     </p>
+     <p class="para">
+      本函数需要 PostgreSQL 7.2 或以上版本。在 PostgreSQL 7.2.0 和 7.2.1 版中，如果使用了多字节支持，bytea 类型必须被强制转换。例如 <code class="literal">INSERT INTO test_table (image) VALUES ('$image_escaped'::bytea);</code>。PostgreSQL 7.2.2 或以上版本不需要强制转换。异常情况是当客户端和后端字符编码不匹配时，可能会有多字节流错误。用户必须强制转换 bytea 以避免此错误。
+     </p>
+    <p></p></blockquote>
+    <p class="para">
+     参见 <span class="function"><a class="function" href="function.pg-unescape-bytea.html">pg_unescape_bytea()</a></span> 和
+     <span class="function"><a class="function" href="function.pg-escape-string.html">pg_escape_string()</a></span>。
+    </p>
+   </div>
+
+  </div></div></div></body></html>

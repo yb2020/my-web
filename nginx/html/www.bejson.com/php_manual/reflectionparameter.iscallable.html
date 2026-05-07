@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns whether parameter MUST be callable-BeJSON.com</title><meta name="keywords" content="Returns whether parameter MUST be callable"><meta name="description" content="See the example below for an alternative way to derive this information.">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="reflectionparameter.isarray.html">« ReflectionParameter::isArray</a></li>
+      <li style="float: right;"><a href="reflectionparameter.isdefaultvalueavailable.html">ReflectionParameter::isDefaultValueAvailable »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.reflectionparameter.html">ReflectionParameter</a></li>
+    <li>Returns whether parameter MUST be callable</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="reflectionparameter.iscallable">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionParameter::isCallable</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionParameter::isCallable</span> — <span class="dc-title">Returns whether parameter MUST be callable</span></p>
+
+ </div>
+
+ <div id="reflectionparameter.iscallable-refsynopsisdiv">
+   <div class="warning"><strong class="warning">警告</strong><p class="simpara">本函数已自 PHP 8.0.0
+ 起被<em class="emphasis">废弃</em>。强烈建议不要依赖本函数。</p></div>
+  <p class="para">See the example below for an alternative way to derive this information.</p>
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionparameter.iscallable-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionParameter::isCallable</strong></span>(): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+
+  </p>
+
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara">本函数还未编写文档，仅有参数列表。</p></div>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionparameter.iscallable-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">此函数没有参数。</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-reflectionparameter.iscallable-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns <strong><code>true</code></strong> if the parameter is <span class="type"><a class="type callable" href="language.types.callable.html">callable</a></span>, <strong><code>false</code></strong> if it is
+   not or <strong><code>null</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-reflectionparameter.iscallable-examples">
+ <h3 class="title">范例</h3>
+ <p class="para">
+  <div class="example" id="example-5059">
+   <p><strong>示例 #1 PHP 8.0.0 equivalent</strong></p>
+   <div class="example-contents"><p>
+    As of PHP 8.0.0, the following code will report if a type supports callables,
+    including as part of a union.
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br></span><span style="color: rgb(0, 119, 0);">function&nbsp;</span><span style="color: rgb(0, 0, 187);">declaresCallable</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">ReflectionParameter&nbsp;$reflectionParameter</span><span style="color: rgb(0, 119, 0);">):&nbsp;</span><span style="color: rgb(0, 0, 187);">bool<br></span><span style="color: rgb(0, 119, 0);">{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$reflectionType&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$reflectionParameter</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getType</span><span style="color: rgb(0, 119, 0);">();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: rgb(0, 0, 187);">$reflectionType</span><span style="color: rgb(0, 119, 0);">)&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">false</span><span style="color: rgb(0, 119, 0);">;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">$types&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">$reflectionType&nbsp;</span><span style="color: rgb(0, 119, 0);">instanceof&nbsp;</span><span style="color: rgb(0, 0, 187);">ReflectionUnionType<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 119, 0);">?&nbsp;</span><span style="color: rgb(0, 0, 187);">$reflectionType</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getTypes</span><span style="color: rgb(0, 119, 0);">()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;[</span><span style="color: rgb(0, 0, 187);">$reflectionType</span><span style="color: rgb(0, 119, 0);">];<br><br>&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: rgb(0, 0, 187);">in_array</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'callable'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">array_map</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">fn</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">ReflectionNamedType&nbsp;$t</span><span style="color: rgb(0, 119, 0);">)&nbsp;=&gt;&nbsp;</span><span style="color: rgb(0, 0, 187);">$t</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getName</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">$types</span><span style="color: rgb(0, 119, 0);">));<br>}<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ <p></p>
+ </div>
+
+
+</div></div></div></body></html>

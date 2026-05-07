@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set the pattern used for the IntlDateFormatter-BeJSON.com</title><meta name="keywords" content="Set the pattern used for the IntlDateFormatter"><meta name="description" content="面向对象风格 ">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="intldateformatter.setlenient.html">« IntlDateFormatter::setLenient</a></li>
+      <li style="float: right;"><a href="intldateformatter.settimezone.html">IntlDateFormatter::setTimeZone »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.intldateformatter.html">IntlDateFormatter</a></li>
+    <li>Set the pattern used for the IntlDateFormatter</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="intldateformatter.setpattern">
+ <div class="refnamediv">
+  <h1 class="refname">IntlDateFormatter::setPattern</h1>
+  <h1 class="refname">datefmt_set_pattern</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">IntlDateFormatter::setPattern</span> -- <span class="refname">datefmt_set_pattern</span> — <span class="dc-title">Set the pattern used for the IntlDateFormatter</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-intldateformatter.setpattern-description">
+  <h3 class="title">说明</h3>
+  <p class="para">
+   面向对象风格
+  </p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>IntlDateFormatter::setPattern</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   过程化风格
+  </p>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>datefmt_set_pattern</strong></span>(<span class="methodparam"><span class="type"><a class="type IntlDateFormatter" href="class.intldateformatter.html">IntlDateFormatter</a></span> <code class="parameter">$formatter</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>): <span class="type">bool</span></div>
+
+  <p class="para rdfs-comment">
+   Set the pattern used for the IntlDateFormatter.
+  </p> 
+  </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-intldateformatter.setpattern-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">formatter</code></dt>
+
+     <dd>
+
+      <p class="para">
+     The formatter resource.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">pattern</code></dt>
+
+     <dd>
+
+      <p class="para">
+       New pattern string to use.
+       Possible patterns are documented at <a class="link external" href="https://unicode-org.github.io/icu/userguide/format_parse/datetime/">»&nbsp;https://unicode-org.github.io/icu/userguide/format_parse/datetime/</a>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+   
+ 
+ <div class="refsect1 returnvalues" id="refsect1-intldateformatter.setpattern-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   成功时返回 <strong><code>true</code></strong>， 或者在失败时返回 <strong><code>false</code></strong>。
+   Bad formatstrings are usually the cause of the failure.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-intldateformatter.setpattern-examples">
+  <h3 class="title">范例</h3>
+   <div class="example" id="example-2401">
+    <p><strong>示例 #1 <span class="function"><strong>datefmt_set_pattern()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$fmt&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">datefmt_create</span><span style="color: rgb(0, 119, 0);">(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'en_US'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlDateFormatter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">FULL</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(0, 0, 187);">IntlDateFormatter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">FULL</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'America/Los_Angeles'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlDateFormatter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">GREGORIAN</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'MM/dd/yyyy'<br></span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Pattern&nbsp;of&nbsp;the&nbsp;formatter&nbsp;is&nbsp;:&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">datefmt_get_pattern</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fmt</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'First&nbsp;Formatted&nbsp;output&nbsp;with&nbsp;pattern&nbsp;is&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">datefmt_format</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fmt</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">datefmt_set_pattern</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fmt</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(221, 0, 0);">'yyyyMMdd&nbsp;hh:mm:ss&nbsp;z'</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Now&nbsp;pattern&nbsp;of&nbsp;the&nbsp;formatter&nbsp;is&nbsp;:&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">datefmt_get_pattern</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fmt</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Second&nbsp;Formatted&nbsp;output&nbsp;with&nbsp;pattern&nbsp;is&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">datefmt_format</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">$fmt</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-2402">
+    <p><strong>示例 #2 OO example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$fmt&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlDateFormatter</span><span style="color: rgb(0, 119, 0);">(<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'en_US'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlDateFormatter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">FULL</span><span style="color: rgb(0, 119, 0);">,</span><span style="color: rgb(0, 0, 187);">IntlDateFormatter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">FULL</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'America/Los_Angeles'</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 0, 187);">IntlDateFormatter</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">GREGORIAN</span><span style="color: rgb(0, 119, 0);">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(221, 0, 0);">'MM/dd/yyyy'<br></span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Pattern&nbsp;of&nbsp;the&nbsp;formatter&nbsp;is&nbsp;:&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$fmt</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getPattern</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'First&nbsp;Formatted&nbsp;output&nbsp;is&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$fmt</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">format</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">$fmt</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">setPattern</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">'yyyyMMdd&nbsp;hh:mm:ss&nbsp;z'</span><span style="color: rgb(0, 119, 0);">);<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Now&nbsp;pattern&nbsp;of&nbsp;the&nbsp;formatter&nbsp;is&nbsp;:&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$fmt</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">getPattern</span><span style="color: rgb(0, 119, 0);">(),&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br>echo&nbsp;</span><span style="color: rgb(221, 0, 0);">'Second&nbsp;Formatted&nbsp;output&nbsp;is&nbsp;'</span><span style="color: rgb(0, 119, 0);">,&nbsp;</span><span style="color: rgb(0, 0, 187);">$fmt</span><span style="color: rgb(0, 119, 0);">-&gt;</span><span style="color: rgb(0, 0, 187);">format</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(0, 0, 187);">0</span><span style="color: rgb(0, 119, 0);">),&nbsp;</span><span style="color: rgb(0, 0, 187);">PHP_EOL</span><span style="color: rgb(0, 119, 0);">;<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <p class="para">以上例程会输出：</p>
+   <div class="example-contents screen">
+<div class="cdata"><pre>Pattern of the formatter is : MM/dd/yyyy
+First Formatted output is 12/31/1969
+Now pattern of the formatter is : yyyyMMdd hh:mm:ss z
+Second Formatted output is 19691231 04:00:00 PST
+</pre></div>
+   </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-intldateformatter.setpattern-seealso">
+  <h3 class="title">参见</h3>
+  <p class="para">
+    <ul class="simplelist">
+    <li class="member"><span class="function"><a class="function" href="intldateformatter.getpattern.html" rel="rdfs-seeAlso">datefmt_get_pattern()</a> - Get the pattern used for the IntlDateFormatter</span></li>
+    <li class="member"><span class="function"><a class="function" href="intldateformatter.create.html" rel="rdfs-seeAlso">datefmt_create()</a> - Create a date formatter</span></li>
+    </ul>
+  <p></p>
+ </div>
+
+</div></div></div></body></html>

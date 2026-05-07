@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh_CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>urllib.robotparser --- robots.txt 语法分析程序-BeJSON.com</title><meta name="keywords" content="urllib.robotparser --- robots.txt 语法分析程序"><meta name="description" content="urllib.error --- urllib.request 引发的异常类"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../static/pygments.css" rel="stylesheet" type="text/css"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+    <link href="../static/pydoctheme.css?2022.1" rel="stylesheet" type="text/css">
+    
+    <script id="documentation_options" src="../static/documentation_options.js" data-url_root="../"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/underscore.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/translations.js"></script>
+    
+    <script src="../static/sidebar.js"></script>
+    
+    <link title="在 Python 3.12.0a0 文档 中搜索" href="../static/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+    <link title="关于这些文档" href="../about.html" rel="author">
+    <link title="索引" href="../genindex.html" rel="index">
+    <link title="搜索" href="../search.html" rel="search">
+    <link title="版权所有" href="../copyright.html" rel="copyright">
+    <link title="http --- HTTP 模块" href="http.html" rel="next">
+    <link title="urllib.error --- urllib.request 引发的异常类" href="urllib.error.html" rel="prev">
+    <link href="https://www.bejson.com/python_doc/library/urllib.robotparser.html" rel="canonical">
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link href="../static/py.svg" rel="shortcut icon" type="image/png">
+            <script src="../static/copybutton.js" type="text/javascript"></script>
+            <script src="../static/menu.js" type="text/javascript"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input class="toggler__input" id="menuToggler" role="button" aria-expanded="false" aria-pressed="false" aria-controls="navigation" aria-label="Menu" type="checkbox">
+    <label class="toggler__label" for="menuToggler">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a class="nav-logo" href="">
+             <img alt="Logo" src="../static/py.svg">
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form class="search" role="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#444" fill-rule="nonzero" d="M 15.5 14 h -0.79 l -0.28 -0.27 a 6.5 6.5 0 0 0 1.48 -5.34 c -0.47 -2.78 -2.79 -5 -5.59 -5.34 a 6.505 6.505 0 0 0 -7.27 7.27 c 0.34 2.8 2.56 5.12 5.34 5.59 a 6.5 6.5 0 0 0 5.34 -1.48 l 0.27 0.28 v 0.79 l 4.25 4.25 c 0.41 0.41 1.08 0.41 1.49 0 c 0.41 -0.41 0.41 -1.08 0 -1.49 L 15.5 14 Z m -6 0 C 7.01 14 5 11.99 5 9.5 S 7.01 5 9.5 5 S 14 7.01 14 9.5 S 11.99 14 9.5 14 Z" />
+            </svg>
+            <input name="q" aria-label="快速搜索" type="text">
+            <input type="submit" value="转向">
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="urllib.error.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.error</span></code> --- urllib.request 引发的异常类</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="http.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http</span></code> --- HTTP 模块</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" accesskey="I" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="http --- HTTP 模块" accesskey="N" href="http.html">下一页</a> |</li>
+        <li class="right">
+          <a title="urllib.error --- urllib.request 引发的异常类" accesskey="P" href="urllib.error.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a accesskey="U" href="internet.html">互联网协议和支持</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.robotparser</span></code> --- robots.txt 语法分析程序</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div>
+            
+  <section id="module-urllib.robotparser">
+<span id="urllib-robotparser-parser-for-robots-txt"></span><h1><a title="urllib.robotparser: Load a robots.txt file and answer questions about fetchability of other URLs." class="reference internal" href="#module-urllib.robotparser"><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.robotparser</span></code></a> --- robots.txt 语法分析程序<a title="永久链接至标题" class="headerlink" href="#module-urllib.robotparser">¶</a></h1>
+<p><strong>源代码：</strong> <a class="reference external" href="">Lib/urllib/robotparser.py</a></p>
+<hr class="docutils" id="index-0">
+<p>此模块提供了一个单独的类 <a title="urllib.robotparser.RobotFileParser" class="reference internal" href="#urllib.robotparser.RobotFileParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">RobotFileParser</span></code></a>，它可以回答关于某个特定用户代理能否在发布了 <code class="file docutils literal notranslate"><span class="pre">robots.txt</span></code> 文件的网站抓取特定 URL 的问题。 有关 <code class="file docutils literal notranslate"><span class="pre">robots.txt</span></code> 文件结构的更多细节，请参阅 <a class="reference external" href="">http://www.robotstxt.org/orig.html</a>。</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="urllib.robotparser.RobotFileParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">urllib.robotparser.</span></span><span class="sig-name descname"><span class="pre">RobotFileParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#urllib.robotparser.RobotFileParser">¶</a></dt>
+<dd><p>这个类提供了一些可以读取、解析和回答关于 <em>url</em> 上的 <code class="file docutils literal notranslate"><span class="pre">robots.txt</span></code> 文件的问题的方法。</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="urllib.robotparser.RobotFileParser.set_url">
+<span class="sig-name descname"><span class="pre">set_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#urllib.robotparser.RobotFileParser.set_url">¶</a></dt>
+<dd><p>设置指向 <code class="file docutils literal notranslate"><span class="pre">robots.txt</span></code> 文件的 URL。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="urllib.robotparser.RobotFileParser.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#urllib.robotparser.RobotFileParser.read">¶</a></dt>
+<dd><p>读取 <code class="file docutils literal notranslate"><span class="pre">robots.txt</span></code> URL 并将其输入解析器。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="urllib.robotparser.RobotFileParser.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#urllib.robotparser.RobotFileParser.parse">¶</a></dt>
+<dd><p>解析行参数。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="urllib.robotparser.RobotFileParser.can_fetch">
+<span class="sig-name descname"><span class="pre">can_fetch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">useragent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#urllib.robotparser.RobotFileParser.can_fetch">¶</a></dt>
+<dd><p>如果允许 <em>useragent</em> 按照被解析 <code class="file docutils literal notranslate"><span class="pre">robots.txt</span></code> 文件中的规则来获取 <em>url</em> 则返回 <code class="docutils literal notranslate"><span class="pre">True</span></code>。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="urllib.robotparser.RobotFileParser.mtime">
+<span class="sig-name descname"><span class="pre">mtime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#urllib.robotparser.RobotFileParser.mtime">¶</a></dt>
+<dd><p>返回最近一次获取 <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> 文件的时间。 这适用于需要定期检查 <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> 文件更新情况的长时间运行的网页爬虫。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="urllib.robotparser.RobotFileParser.modified">
+<span class="sig-name descname"><span class="pre">modified</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#urllib.robotparser.RobotFileParser.modified">¶</a></dt>
+<dd><p>将最近一次获取 <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> 文件的时间设置为当前时间。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="urllib.robotparser.RobotFileParser.crawl_delay">
+<span class="sig-name descname"><span class="pre">crawl_delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">useragent</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#urllib.robotparser.RobotFileParser.crawl_delay">¶</a></dt>
+<dd><p>为指定的 <em>useragent</em> 从 <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> 返回 <code class="docutils literal notranslate"><span class="pre">Crawl-delay</span></code> 形参。 如果此形参不存在或不适用于指定的 <em>useragent</em> 或者此形参的 <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> 条目存在语法错误，则返回 <code class="docutils literal notranslate"><span class="pre">None</span></code>。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.6 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="urllib.robotparser.RobotFileParser.request_rate">
+<span class="sig-name descname"><span class="pre">request_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">useragent</span></span></em><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#urllib.robotparser.RobotFileParser.request_rate">¶</a></dt>
+<dd><p>以 <a class="reference internal" href="../glossary.html#term-named-tuple"><span class="xref std std-term">named tuple</span></a> <code class="docutils literal notranslate"><span class="pre">RequestRate(requests,</span> <span class="pre">seconds)</span></code> 的形式从 <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> 返回 <code class="docutils literal notranslate"><span class="pre">Request-rate</span></code> 形参的内容。 如果此形参不存在或不适用于指定的 <em>useragent</em> 或者此形参的 <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> 条目存在语法错误，则返回 <code class="docutils literal notranslate"><span class="pre">None</span></code>。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.6 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="urllib.robotparser.RobotFileParser.site_maps">
+<span class="sig-name descname"><span class="pre">site_maps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a title="永久链接至目标" class="headerlink" href="#urllib.robotparser.RobotFileParser.site_maps">¶</a></dt>
+<dd><p>以 <a title="list" class="reference internal" href="stdtypes.html#list"><code class="xref py py-func docutils literal notranslate"><span class="pre">list()</span></code></a> 的形式从 <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> 返回 <code class="docutils literal notranslate"><span class="pre">Sitemap</span></code> 形参的内容。 如果此形参不存在或者此形参的 <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> 条目存在语法错误，则返回 <code class="docutils literal notranslate"><span class="pre">None</span></code>。</p>
+<div class="versionadded">
+<p><span class="versionmodified added">3.8 新版功能.</span></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<p>下面的例子演示了 <a title="urllib.robotparser.RobotFileParser" class="reference internal" href="#urllib.robotparser.RobotFileParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">RobotFileParser</span></code></a> 类的基本用法:</p>
+<div class="highlight-python3 notranslate" style="position: relative;"><div class="highlight"><span title="Hide the prompts and output" class="copybutton" style="border-radius: 0px 3px 0px 0px; border: 1px solid rgb(170, 204, 153); top: 0px; right: 0px; color: rgb(170, 204, 153); padding-right: 0.2em; padding-left: 0.2em; font-family: monospace; position: absolute; cursor: pointer;">&gt;&gt;&gt;</span><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.robotparser</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rp</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">robotparser</span><span class="o">.</span><span class="n">RobotFileParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rp</span><span class="o">.</span><span class="n">set_url</span><span class="p">(</span><span class="s2">"http://www.musi-cal.com/robots.txt"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rrate</span> <span class="o">=</span> <span class="n">rp</span><span class="o">.</span><span class="n">request_rate</span><span class="p">(</span><span class="s2">"*"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rrate</span><span class="o">.</span><span class="n">requests</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rrate</span><span class="o">.</span><span class="n">seconds</span>
+<span class="go">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rp</span><span class="o">.</span><span class="n">crawl_delay</span><span class="p">(</span><span class="s2">"*"</span><span class="p">)</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rp</span><span class="o">.</span><span class="n">can_fetch</span><span class="p">(</span><span class="s2">"*"</span><span class="p">,</span> <span class="s2">"http://www.musi-cal.com/cgi-bin/search?city=San+Francisco"</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rp</span><span class="o">.</span><span class="n">can_fetch</span><span class="p">(</span><span class="s2">"*"</span><span class="p">,</span> <span class="s2">"http://www.musi-cal.com/"</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="width: 217px; margin-right: 0px; float: left;">
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a title="上一章" href="urllib.error.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.error</span></code> --- urllib.request 引发的异常类</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a title="下一章" href="http.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http</span></code> --- HTTP 模块</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="" rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div title="折叠边栏" id="sidebarbutton" style="border-radius: 0px 5px 5px 0px; height: 100%; color: rgb(68, 68, 68); padding-left: 1px; font-size: 1.2em; margin-left: 218px; cursor: pointer; background-color: rgb(204, 204, 204);"><span style="top: 50%; display: block; position: fixed;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px;">
+          <a title="总目录" href="../genindex.html">索引</a></li>
+        <li class="right">
+          <a title="Python 模块索引" href="../py-modindex.html">模块</a> |</li>
+        <li class="right">
+          <a title="http --- HTTP 模块" href="http.html">下一页</a> |</li>
+        <li class="right">
+          <a title="urllib.error --- urllib.request 引发的异常类" href="urllib.error.html">上一页</a> |</li>
+
+          <li><img style="margin-top: -1px; vertical-align: middle;" alt="python logo" src="../static/py.svg"></li>
+          <li><a href="https://www.bejson.com/python_doc/">Python</a> »</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">Python 3.12.0a0 文档</a> »
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html">Python 标准库</a> »</li>
+          <li class="nav-item nav-item-2"><a href="internet.html">互联网协议和支持</a> »</li>
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.robotparser</span></code> --- robots.txt 语法分析程序</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input name="q" aria-label="快速搜索" type="text" placeholder="快速搜索">
+          <input type="submit" value="转向">
+          <input name="check_keywords" type="hidden" value="yes">
+          <input name="area" type="hidden" value="default">
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="../copyright.html">版权所有</a> 2001-2022, Python Software Foundation.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    See <a href="https://www.bejson.com/python_doc/license.html">History and License</a> for more information.<br>
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="">Please donate.</a>
+<br>
+    <br>
+
+    最后更新于 5月 26, 2022.
+    <a href="https://www.bejson.com/python_doc/bugs.html">Found a bug</a>?
+    <br>
+
+    由 <a href="">Sphinx</a> 4.5.0创建。
+    </div>
+
+  
+</body></html>

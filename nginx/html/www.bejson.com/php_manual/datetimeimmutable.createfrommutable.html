@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC " -//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns new DateTimeImmutable object encapsulating the given DateTime object-BeJSON.com</title><meta name="keywords" content="Returns new DateTimeImmutable object encapsulating the given DateTime object"><meta name="description" content="DateTimeImmutable::createFromMutable(PHP 5 >= 5.6.0, PHP 7, PHP 8)DateTimeImmutable::createFromMutable — Returns new DateTimeImmutable object encapsul">
+<link href="styles/theme-base.css" rel="stylesheet" type="text/css" media="all"><script src="/static/ydxyt/1.js"></script><script src="/static/ydxyt/bdcount.js"></script>
+<link href="styles/theme-medium.css" rel="stylesheet" type="text/css" media="all">
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%;">
+      <li style="float: left;"><a href="datetimeimmutable.createfrominterface.html">« DateTimeImmutable::createFromInterface</a></li>
+      <li style="float: right;"><a href="datetimeimmutable.getlasterrors.html">DateTimeImmutable::getLastErrors »</a></li>
+    </ul>
+  </div>
+</div>
+<div class="clearfix" id="breadcrumbs">
+  <ul class="breadcrumbs-container"><li><a href="https://www.bejson.com" target="_blank">Bejson.com</a></li>
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.datetimeimmutable.html">DateTimeImmutable</a></li>
+    <li>Returns new DateTimeImmutable object encapsulating the given DateTime object</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div class="t-big-margin" style="margin-top: 10px;"><script>jiazai_dag_all('INDEX_PC_HENGFU')</script></div><div class="refentry" id="datetimeimmutable.createfrommutable">
+ <div class="refnamediv">
+  <h1 class="refname">DateTimeImmutable::createFromMutable</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.6.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTimeImmutable::createFromMutable</span> — <span class="dc-title">Returns new DateTimeImmutable object encapsulating the given DateTime object</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-datetimeimmutable.createfrommutable-description">
+  <h3 class="title">说明</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>DateTimeImmutable::createFromMutable</strong></span>(<span class="methodparam"><span class="type"><a class="type DateTime" href="class.datetime.html">DateTime</a></span> <code class="parameter">$object</code></span>): <span class="type"><a class="type DateTimeImmutable" href="class.datetimeimmutable.html">DateTimeImmutable</a></span></div>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-datetimeimmutable.createfrommutable-parameters">
+  <h3 class="title">参数</h3>
+  <p class="para">
+   <dl>
+    
+     <dt>
+<code class="parameter">object</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The mutable <span class="classname"><a class="classname" href="class.datetime.html">DateTime</a></span> object that you want to
+       convert to an immutable version. This object is not modified, but
+       instead a new <span class="classname"><a class="classname" href="class.datetimeimmutable.html">DateTimeImmutable</a></span> object is
+       created containing the same date time and timezone information.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  <p></p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-datetimeimmutable.createfrommutable-returnvalues">
+  <h3 class="title">返回值</h3>
+  <p class="para">
+   Returns a new <span class="classname"><a class="classname" href="class.datetimeimmutable.html">DateTimeImmutable</a></span> instance.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-datetimeimmutable.createfrommutable-examples">
+  <h3 class="title">范例</h3>
+  <p class="para">
+   <div class="example" id="example-2002">
+    <p><strong>示例 #1 Creating an immutable date time object</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: rgb(0, 0, 0);">
+<span style="color: rgb(0, 0, 187);">&lt;?php<br>$date&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;new&nbsp;</span><span style="color: rgb(0, 0, 187);">DateTime</span><span style="color: rgb(0, 119, 0);">(</span><span style="color: rgb(221, 0, 0);">"2014-06-20&nbsp;11:45&nbsp;Europe/London"</span><span style="color: rgb(0, 119, 0);">);<br><br></span><span style="color: rgb(0, 0, 187);">$immutable&nbsp;</span><span style="color: rgb(0, 119, 0);">=&nbsp;</span><span style="color: rgb(0, 0, 187);">DateTimeImmutable</span><span style="color: rgb(0, 119, 0);">::</span><span style="color: rgb(0, 0, 187);">createFromMutable</span><span style="color: rgb(0, 119, 0);">(&nbsp;</span><span style="color: rgb(0, 0, 187);">$date&nbsp;</span><span style="color: rgb(0, 119, 0);">);<br></span><span style="color: rgb(0, 0, 187);">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+ </div>
+
+
+</div></div></div></body></html>
