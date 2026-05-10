@@ -1,0 +1,307 @@
+/* ============================================
+   Modern Theme System - Dark/Light/Classic
+   Default: Dark Mode
+   ============================================ */
+
+/* --- Theme CSS Variables --- */
+:root,
+[data-theme="dark"] {
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #1a1a2e;
+  --bg-card: #16213e;
+  --bg-input: #1e2a3a;
+  --bg-hover: #1f3050;
+  --bg-nav: rgba(15, 15, 26, 0.95);
+
+  --text-primary: #e8e8f0;
+  --text-secondary: #a0a8c0;
+  --text-muted: #6b7394;
+  --text-heading: #ffffff;
+
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.12);
+
+  --accent: #6c63ff;
+  --accent-hover: #5a52d5;
+  --accent-glow: rgba(108, 99, 255, 0.3);
+  --success: #00d68f;
+  --warning: #ffaa00;
+  --danger: #ff3d71;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px var(--accent-glow);
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --code-bg: #1e1e2e;
+  --code-text: #a6accd;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f5f5f7;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-input: #f0f0f5;
+  --bg-hover: #e8e8f0;
+  --bg-nav: rgba(255, 255, 255, 0.96);
+
+  --text-primary: #1a1a2e;
+  --text-secondary: #555577;
+  --text-muted: #8888aa;
+  --text-heading: #0f0f1a;
+
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-light: rgba(0, 0, 0, 0.06);
+
+  --accent: #6c63ff;
+  --accent-hover: #5a52d5;
+  --accent-glow: rgba(108, 99, 255, 0.15);
+
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  --code-bg: #f0f0f5;
+  --code-text: #2d2d3f;
+}
+
+[data-theme="classic"] {
+  --bg-primary: #f0f2f5;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+  --bg-hover: #f0f2f5;
+  --bg-nav: rgba(248, 249, 250, 0.98);
+
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --text-heading: #222222;
+
+  --border-color: #e0e0e0;
+  --border-light: #eeeeee;
+
+  --accent: #337ab7;
+  --accent-hover: #286090;
+  --accent-glow: rgba(51, 122, 183, 0.15);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+  --code-bg: #f5f5f5;
+  --code-text: #333333;
+}
+
+/* --- Base Overrides --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  transition: background var(--transition), color var(--transition);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+a {
+  color: var(--accent);
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* --- Navbar Override --- */
+.navbar,
+.navbar-inverse,
+[class*="navbar"] {
+  background: var(--bg-nav) !important;
+  border-color: var(--border-color) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+
+.navbar .nav > li > a,
+.navbar-nav > li > a,
+.navbar a {
+  color: var(--text-primary) !important;
+  transition: color var(--transition);
+}
+.navbar .nav > li > a:hover,
+.navbar-nav > li > a:hover {
+  color: var(--accent) !important;
+}
+
+/* --- Cards & Panels --- */
+.panel, .card, .well, .panel-body,
+[class*="card"], [class*="panel"],
+.list-group-item {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius);
+  transition: all var(--transition);
+}
+
+/* --- Inputs & Textareas --- */
+input, textarea, select,
+.form-control,
+[class*="form-control"] {
+  background: var(--bg-input) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+input:focus, textarea:focus, select:focus,
+.form-control:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow) !important;
+  outline: none;
+}
+
+/* --- Buttons --- */
+.btn, button,
+[class*="btn"] {
+  border-radius: var(--radius-sm) !important;
+  transition: all var(--transition) !important;
+}
+.btn-primary, .btn-success, .btn-info, .btn-warning, .btn-danger {
+  border-color: transparent !important;
+}
+
+/* --- Tables --- */
+.table, table,
+[class*="table"] {
+  color: var(--text-primary) !important;
+}
+.table > tbody > tr > td,
+.table > tbody > tr > th {
+  border-color: var(--border-color) !important;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background: var(--bg-hover) !important;
+}
+
+/* --- Dropdowns --- */
+.dropdown-menu,
+[class*="dropdown-menu"] {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.dropdown-menu > li > a {
+  color: var(--text-primary) !important;
+  transition: all var(--transition);
+}
+.dropdown-menu > li > a:hover {
+  background: var(--bg-hover) !important;
+  color: var(--accent) !important;
+}
+
+/* --- Code / Pre --- */
+pre, code, .CodeMirror,
+[class*="code"], [class*="cm-"] {
+  background: var(--code-bg) !important;
+  color: var(--code-text) !important;
+  border-radius: var(--radius-sm);
+  border-color: var(--border-color) !important;
+}
+
+/* --- Footer --- */
+footer, .footer,
+[class*="footer"] {
+  background: var(--bg-secondary) !important;
+  color: var(--text-secondary) !important;
+  border-top: 1px solid var(--border-color);
+}
+
+/* --- Smooth Page Transition --- */
+body * {
+  transition: background-color var(--transition),
+              color var(--transition),
+              border-color var(--transition),
+              box-shadow var(--transition);
+}
+
+/* ============================================
+   Theme Toggle Button
+   ============================================ */
+.theme-toggle-wrapper {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.theme-toggle-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all var(--transition);
+  backdrop-filter: blur(8px);
+}
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.theme-panel {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 6px;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(12px);
+}
+.theme-panel.open {
+  display: flex;
+}
+
+.theme-option {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 13px;
+  white-space: nowrap;
+  text-align: left;
+  transition: all var(--transition);
+}
+.theme-option:hover {
+  background: var(--bg-hover);
+}
+.theme-option.active {
+  background: var(--accent);
+  color: white;
+}
